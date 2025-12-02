@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Stainless Steel 304 Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-01
+Last Updated:   2025-12-02
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/metal/alloy/stainless-steel-304-laser-cleaning
+URL:            http://localhost:3000/materials/metal/alloy/stainless-steel-304-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-01
+Last Verified:  2025-12-02
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -130,16 +130,6 @@ MATERIAL CHARACTERISTICS:
     Min:    -1.1 mm/year
     Max:    1.1e+06 mm/year
 
-  thermalDestruction:
-    Value:  1673 K
-    Min:    256 K
-    Max:    3859 K
-
-  laserAbsorption:
-    Value:  0.35 dimensionless
-    Min:    0.02 dimensionless
-    Max:    4.2e+08 dimensionless
-
   compressiveStrength:
     Value:  505 MPa
     Min:    8 MPa
@@ -154,6 +144,36 @@ MATERIAL CHARACTERISTICS:
     Value:  7.2e-07 Ω·m
     Min:    0 Ω·m
     Max:    0.000002 Ω·m
+
+  electricalConductivity:
+    Value:  1.4e+06 S/m
+    Min:    659300 S/m
+    Max:    6.6e+07 S/m
+    Source: scientific_literature
+
+  boilingPoint:
+    Value:  2750 °C
+    Min:    929 °C
+    Max:    6454 °C
+    Source: scientific_literature
+
+  meltingPoint:
+    Value:  1425 °C
+    Min:    133 °C
+    Max:    3865 °C
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  thermalDestruction:
+    Value:  1673 K
+    Min:    256 K
+    Max:    3859 K
+
+  laserAbsorption:
+    Value:  0.35 dimensionless
+    Min:    0.02 dimensionless
+    Max:    4.2e+08 dimensionless
 
   laserDamageThreshold:
     Value:  1.2 J/cm²
@@ -215,18 +235,6 @@ MATERIAL CHARACTERISTICS:
     Max:    9.9e+07 m^{-1}
     Source: scientific_literature
 
-  electricalConductivity:
-    Value:  1.4e+06 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: scientific_literature
-
-  boilingPoint:
-    Value:  2750 °C
-    Min:    929 °C
-    Max:    6454 °C
-    Source: scientific_literature
-
   thermalShockResistance:
     Value:  132 K
     Min:    6.7 K
@@ -245,18 +253,12 @@ MATERIAL CHARACTERISTICS:
     Max:    0.6 dimensionless
     Source: scientific_literature
 
-  meltingPoint:
-    Value:  1425 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: scientific_literature
-
 ================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Stainless Steel 304 Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/stainless-steel-304-laser-cleaning
+  Z-Beam (2025). Stainless Steel 304 Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/alloy/stainless-steel-304-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

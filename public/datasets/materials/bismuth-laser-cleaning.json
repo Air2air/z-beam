@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/metal/non-ferrous/bismuth-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/metal/non-ferrous/bismuth-laser-cleaning#dataset",
   "name": "Bismuth Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Bismuth. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-01",
-  "datePublished": "2025-12-01",
+  "dateModified": "2025-12-02",
+  "datePublished": "2025-12-02",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/bismuth-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/bismuth-laser-cleaning.json",
       "name": "Bismuth Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/bismuth-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/bismuth-laser-cleaning.csv",
       "name": "Bismuth Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/bismuth-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/bismuth-laser-cleaning.txt",
       "name": "Bismuth Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-01"
+    "lastVerified": "2025-12-02"
   },
   "material": {
     "name": "Bismuth",
@@ -206,18 +206,6 @@
           "min": -1.1,
           "max": "1.1e+06"
         },
-        "thermalDestruction": {
-          "value": 544,
-          "unit": "K",
-          "min": 256,
-          "max": 3859
-        },
-        "laserAbsorption": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
         "compressiveStrength": {
           "value": 35,
           "unit": "MPa",
@@ -235,6 +223,62 @@
           "unit": "Ω·m",
           "min": 0,
           "max": 0.000002
+        },
+        "electricalConductivity": {
+          "value": 770000,
+          "unit": "S/m",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "Pure Bismuth (99.999% purity), 20°C, DC four-point probe measurement",
+          "researched_date": "2025-11-24T12:35:02.023737",
+          "needs_validation": true,
+          "min": 659300,
+          "max": "6.6e+07"
+        },
+        "boilingPoint": {
+          "value": 1837,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "NIST Chemistry WebBook",
+          "citation": "NIST Chemistry WebBook, National Institute of Standards and Technology, https://webbook.nist.gov/cgi/cbook.cgi?ID=C744069&Mask=4, accessed 2023",
+          "context": "Pure bismuth (99.999% purity, elemental form), normal boiling point at 1 bar pressure, measured under standard conditions",
+          "researched_date": "2025-11-24T12:35:09.567655",
+          "needs_validation": true,
+          "min": 929,
+          "max": 6454
+        },
+        "meltingPoint": {
+          "value": 545,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "NIST Chemistry WebBook",
+          "citation": "National Institute of Standards and Technology, NIST Chemistry WebBook, SRD 69, https://webbook.nist.gov/cgi/cbook.cgi?ID=C7440484&Mask=2, accessed 2023",
+          "context": "Pure bismuth (99.999% purity), standard atmospheric pressure (1 atm), equilibrium melting temperature",
+          "researched_date": "2025-11-24T12:35:48.821061",
+          "needs_validation": true,
+          "min": 133,
+          "max": 3865
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 544,
+          "unit": "K",
+          "min": 256,
+          "max": 3859
+        },
+        "laserAbsorption": {
+          "value": 0.12,
+          "unit": "dimensionless",
+          "min": 0.02,
+          "max": "4.2e+08"
         },
         "laserDamageThreshold": {
           "value": 1.8,
@@ -366,32 +410,6 @@
           "min": 589000,
           "max": "9.9e+07"
         },
-        "electricalConductivity": {
-          "value": 770000,
-          "unit": "S/m",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Pure Bismuth (99.999% purity), 20°C, DC four-point probe measurement",
-          "researched_date": "2025-11-24T12:35:02.023737",
-          "needs_validation": true,
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "boilingPoint": {
-          "value": 1837,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "NIST Chemistry WebBook",
-          "citation": "NIST Chemistry WebBook, National Institute of Standards and Technology, https://webbook.nist.gov/cgi/cbook.cgi?ID=C744069&Mask=4, accessed 2023",
-          "context": "Pure bismuth (99.999% purity, elemental form), normal boiling point at 1 bar pressure, measured under standard conditions",
-          "researched_date": "2025-11-24T12:35:09.567655",
-          "needs_validation": true,
-          "min": 929,
-          "max": 6454
-        },
         "thermalShockResistance": {
           "value": 80,
           "unit": "K",
@@ -430,23 +448,7 @@
           "needs_validation": true,
           "min": 0.02,
           "max": 0.6
-        },
-        "meltingPoint": {
-          "value": 545,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "NIST Chemistry WebBook",
-          "citation": "National Institute of Standards and Technology, NIST Chemistry WebBook, SRD 69, https://webbook.nist.gov/cgi/cbook.cgi?ID=C7440484&Mask=2, accessed 2023",
-          "context": "Pure bismuth (99.999% purity), standard atmospheric pressure (1 atm), equilibrium melting temperature",
-          "researched_date": "2025-11-24T12:35:48.821061",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
         }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction"
       }
     },
     "applications": [],
@@ -627,26 +629,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 544,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "compressiveStrength",
       "name": "Compressive Strength",
       "description": "Compressive Strength - material characteristics",
@@ -677,116 +659,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 1.8,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 2.5,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "6.6e-06",
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 13.4,
-      "unitText": "10^{-6} K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 123,
-      "unitText": "J/kg/K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 7.9,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.97,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - material characteristics",
-      "value": "7.1e-18",
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - material characteristics",
-      "value": 545,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": "9.2e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "electricalConductivity",
       "name": "Electrical Conductivity",
       "description": "Electrical Conductivity - material characteristics",
@@ -809,9 +681,150 @@
     },
     {
       "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 545,
+      "unitText": "K",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 544,
+      "unitText": "K",
+      "minValue": 256,
+      "maxValue": 3859
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.12,
+      "unitText": "dimensionless",
+      "minValue": 0.02,
+      "maxValue": "4.2e+08"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 1.8,
+      "unitText": "J/cm²",
+      "minValue": 0.27,
+      "maxValue": 15750,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.5,
+      "unitText": "J/cm²",
+      "minValue": 0.09,
+      "maxValue": 4.3,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": "6.6e-06",
+      "unitText": "m²/s",
+      "minValue": 0.000002,
+      "maxValue": "0.00017",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 13.4,
+      "unitText": "10^{-6} K^{-1}",
+      "minValue": 0.000004,
+      "maxValue": 31.7,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 123,
+      "unitText": "J/kg/K",
+      "minValue": 43.4,
+      "maxValue": 1905,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 7.9,
+      "unitText": "W/m·K",
+      "minValue": 7.4,
+      "maxValue": 450,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.97,
+      "unitText": "dimensionless",
+      "minValue": 0.4,
+      "maxValue": 73.5,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": "7.1e-18",
+      "unitText": "Pa",
+      "minValue": 0,
+      "maxValue": 106391,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 545,
+      "unitText": "K",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": "9.2e+07",
+      "unitText": "m^{-1}",
+      "minValue": 589000,
+      "maxValue": "9.9e+07",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "thermalShockResistance",
       "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - material characteristics",
+      "description": "Thermal Shock Resistance - laser material interaction",
       "value": 80,
       "unitText": "K",
       "minValue": 6.7,
@@ -822,7 +835,7 @@
       "@type": "PropertyValue",
       "propertyID": "reflectivity",
       "name": "Reflectivity",
-      "description": "Reflectivity - material characteristics",
+      "description": "Reflectivity - laser material interaction",
       "value": 0.58,
       "unitText": "",
       "minValue": 0.35,
@@ -833,24 +846,13 @@
       "@type": "PropertyValue",
       "propertyID": "absorptivity",
       "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
+      "description": "Absorptivity - laser material interaction",
       "value": 0.42,
       "unitText": "dimensionless",
       "minValue": 0.02,
       "maxValue": 0.6,
       "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 545,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
     }
   ],
-  "citation": "Z-Beam (2025). Bismuth Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/bismuth-laser-cleaning"
+  "citation": "Z-Beam (2025). Bismuth Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/bismuth-laser-cleaning"
 }

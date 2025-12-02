@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/stone/metamorphic/gneiss-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/stone/metamorphic/gneiss-laser-cleaning#dataset",
   "name": "Gneiss Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Gneiss. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-01",
-  "datePublished": "2025-12-01",
+  "dateModified": "2025-12-02",
+  "datePublished": "2025-12-02",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/gneiss-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/gneiss-laser-cleaning.json",
       "name": "Gneiss Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/gneiss-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/gneiss-laser-cleaning.csv",
       "name": "Gneiss Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/gneiss-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/gneiss-laser-cleaning.txt",
       "name": "Gneiss Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-01"
+    "lastVerified": "2025-12-02"
   },
   "material": {
     "name": "Gneiss",
@@ -204,18 +204,6 @@
           "min": "6.6e-05",
           "max": 21
         },
-        "thermalDestruction": {
-          "value": 1273,
-          "unit": "K",
-          "min": 273,
-          "max": 2300
-        },
-        "laserAbsorption": {
-          "value": 0.3,
-          "unit": "dimensionless",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
         "compressiveStrength": {
           "value": 120,
           "unit": "MPa",
@@ -233,6 +221,23 @@
           "unit": "Ω·m",
           "min": 9.5,
           "max": 1000000000000000
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 1273,
+          "unit": "K",
+          "min": 273,
+          "max": 2300
+        },
+        "laserAbsorption": {
+          "value": 0.3,
+          "unit": "dimensionless",
+          "min": 0.06,
+          "max": "1.3e+06"
         },
         "laserDamageThreshold": {
           "value": 1.8,
@@ -325,9 +330,6 @@
           "min": 0.03,
           "max": 0.44
         }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction"
       }
     },
     "applications": [],
@@ -506,26 +508,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1273,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.3,
-      "unitText": "dimensionless",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "compressiveStrength",
       "name": "Compressive Strength",
       "description": "Compressive Strength - material characteristics",
@@ -556,9 +538,29 @@
     },
     {
       "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1273,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2300
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.3,
+      "unitText": "dimensionless",
+      "minValue": 0.06,
+      "maxValue": "1.3e+06"
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "laserDamageThreshold",
       "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
+      "description": "Laser Damage Threshold - laser material interaction",
       "value": 1.8,
       "unitText": "J/cm²",
       "minValue": 0.42,
@@ -569,7 +571,7 @@
       "@type": "PropertyValue",
       "propertyID": "ablationThreshold",
       "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
+      "description": "Ablation Threshold - laser material interaction",
       "value": 2.3,
       "unitText": "J/cm²",
       "minValue": 0.65,
@@ -580,7 +582,7 @@
       "@type": "PropertyValue",
       "propertyID": "thermalDiffusivity",
       "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
+      "description": "Thermal Diffusivity - laser material interaction",
       "value": "1.3e-06",
       "unitText": "m²/s",
       "minValue": 0,
@@ -591,7 +593,7 @@
       "@type": "PropertyValue",
       "propertyID": "thermalExpansion",
       "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
+      "description": "Thermal Expansion - laser material interaction",
       "value": "9.2e-06",
       "unitText": "K^{-1}",
       "minValue": 0.000006,
@@ -602,7 +604,7 @@
       "@type": "PropertyValue",
       "propertyID": "specificHeat",
       "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
+      "description": "Specific Heat - laser material interaction",
       "value": 840,
       "unitText": "J/(kg·K)",
       "minValue": 400,
@@ -613,7 +615,7 @@
       "@type": "PropertyValue",
       "propertyID": "thermalConductivity",
       "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
+      "description": "Thermal Conductivity - laser material interaction",
       "value": 2.3,
       "unitText": "W/m·K",
       "minValue": 0.2,
@@ -624,7 +626,7 @@
       "@type": "PropertyValue",
       "propertyID": "laserReflectivity",
       "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
+      "description": "Laser Reflectivity - laser material interaction",
       "value": 0.12,
       "unitText": "",
       "minValue": 0.03,
@@ -632,5 +634,5 @@
       "measurementTechnique": "scientific_literature"
     }
   ],
-  "citation": "Z-Beam (2025). Gneiss Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/metamorphic/gneiss-laser-cleaning"
+  "citation": "Z-Beam (2025). Gneiss Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/metamorphic/gneiss-laser-cleaning"
 }

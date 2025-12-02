@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/plastic/thermoplastic/peek-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/plastic/thermoplastic/peek-laser-cleaning#dataset",
   "name": "PEEK Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for PEEK. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-01",
-  "datePublished": "2025-12-01",
+  "dateModified": "2025-12-02",
+  "datePublished": "2025-12-02",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/peek-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/peek-laser-cleaning.json",
       "name": "PEEK Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/peek-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/peek-laser-cleaning.csv",
       "name": "PEEK Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/peek-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/peek-laser-cleaning.txt",
       "name": "PEEK Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-01"
+    "lastVerified": "2025-12-02"
   },
   "material": {
     "name": "PEEK",
@@ -202,18 +202,6 @@
           "min": 0,
           "max": 105
         },
-        "thermalDestruction": {
-          "value": 616,
-          "unit": "K",
-          "min": 228,
-          "max": 715
-        },
-        "laserAbsorption": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "min": 0.28,
-          "max": 126000
-        },
         "compressiveStrength": {
           "value": 100,
           "unit": "MPa",
@@ -231,6 +219,23 @@
           "unit": "Ω·m",
           "min": "9.5e+12",
           "max": 100000000000000000
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 616,
+          "unit": "K",
+          "min": 228,
+          "max": 715
+        },
+        "laserAbsorption": {
+          "value": 0.25,
+          "unit": "dimensionless",
+          "min": 0.28,
+          "max": 126000
         },
         "laserDamageThreshold": {
           "value": 1.2,
@@ -323,9 +328,6 @@
           "min": 0.02,
           "max": 0.05
         }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction"
       }
     },
     "applications": [],
@@ -502,26 +504,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 616,
-      "unitText": "K",
-      "minValue": 228,
-      "maxValue": 715
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": 0.28,
-      "maxValue": 126000
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "compressiveStrength",
       "name": "Compressive Strength",
       "description": "Compressive Strength - material characteristics",
@@ -552,9 +534,29 @@
     },
     {
       "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 616,
+      "unitText": "K",
+      "minValue": 228,
+      "maxValue": 715
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.25,
+      "unitText": "dimensionless",
+      "minValue": 0.28,
+      "maxValue": 126000
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "laserDamageThreshold",
       "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
+      "description": "Laser Damage Threshold - laser material interaction",
       "value": 1.2,
       "unitText": "J/cm²",
       "minValue": 0.71,
@@ -565,7 +567,7 @@
       "@type": "PropertyValue",
       "propertyID": "ablationThreshold",
       "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
+      "description": "Ablation Threshold - laser material interaction",
       "value": 0.58,
       "unitText": "J/cm²",
       "minValue": 0.39,
@@ -576,7 +578,7 @@
       "@type": "PropertyValue",
       "propertyID": "thermalDiffusivity",
       "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
+      "description": "Thermal Diffusivity - laser material interaction",
       "value": "1.5e-07",
       "unitText": "m²/s",
       "minValue": 0,
@@ -587,7 +589,7 @@
       "@type": "PropertyValue",
       "propertyID": "thermalExpansion",
       "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
+      "description": "Thermal Expansion - laser material interaction",
       "value": "4.7e-05",
       "unitText": "10^{-6} K^{-1}",
       "minValue": "5.9e-05",
@@ -598,7 +600,7 @@
       "@type": "PropertyValue",
       "propertyID": "specificHeat",
       "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
+      "description": "Specific Heat - laser material interaction",
       "value": 1170,
       "unitText": "J/(kg·K)",
       "minValue": 1,
@@ -609,7 +611,7 @@
       "@type": "PropertyValue",
       "propertyID": "thermalConductivity",
       "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
+      "description": "Thermal Conductivity - laser material interaction",
       "value": 0.25,
       "unitText": "W/m·K",
       "minValue": 0.02,
@@ -620,7 +622,7 @@
       "@type": "PropertyValue",
       "propertyID": "laserReflectivity",
       "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
+      "description": "Laser Reflectivity - laser material interaction",
       "value": 0.06,
       "unitText": "",
       "minValue": 0.02,
@@ -628,5 +630,5 @@
       "measurementTechnique": "scientific_literature"
     }
   ],
-  "citation": "Z-Beam (2025). PEEK Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/peek-laser-cleaning"
+  "citation": "Z-Beam (2025). PEEK Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/peek-laser-cleaning"
 }

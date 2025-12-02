@@ -39,11 +39,13 @@ describe('Button Component', () => {
   });
 
   describe('Variants', () => {
-    it('should apply primary variant classes by default (orange bg, white text)', () => {
+    it('should apply primary variant classes by default (orange bg, navbar text color)', () => {
       render(<Button>Primary</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('bg-brand-orange', 'text-white', 'hover:bg-brand-orange-dark');
+      expect(button).toHaveClass('bg-brand-orange', 'hover:bg-brand-orange-dark');
+      // Primary variant uses inline style for navbar-colored text (#2d3441)
+      expect(button).toHaveStyle({ color: '#2d3441' });
     });
 
     it('should apply secondary variant classes (white bg, orange text)', () => {
@@ -89,7 +91,7 @@ describe('Button Component', () => {
       render(<Button size="sm">Small</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('min-h-[32px]', 'px-1.5', 'py-0.5', 'text-xs');
+      expect(button).toHaveClass('min-h-[32px]', 'px-1.5', 'py-0.5', 'text-sm');
     });
 
     it('should apply large size classes', () => {
@@ -188,7 +190,8 @@ describe('Button Component', () => {
       render(<Button>No Custom</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('font-medium', 'bg-brand-orange', 'text-white'); // base and variant only
+      expect(button).toHaveClass('font-medium', 'bg-brand-orange'); // base and variant
+      expect(button).toHaveStyle({ color: '#2d3441' }); // navbar text color via inline style
     });
   });
 
@@ -435,10 +438,11 @@ describe('Button Component', () => {
       });
 
       it('should maintain adequate contrast in all states', () => {
-        // Primary: white text on orange background (contrast ratio > 4.5:1)
+        // Primary: navbar-colored text on orange background
         const { rerender } = render(<Button variant="primary">Primary</Button>);
         let button = screen.getByRole('button', { name: 'Primary' });
-        expect(button).toHaveClass('bg-brand-orange', 'text-white');
+        expect(button).toHaveClass('bg-brand-orange');
+        expect(button).toHaveStyle({ color: '#2d3441' });
 
         // Secondary: orange text on white background
         rerender(<Button variant="secondary">Secondary</Button>);

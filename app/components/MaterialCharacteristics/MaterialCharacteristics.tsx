@@ -49,12 +49,17 @@ export function MaterialCharacteristics({ materialProperties, materialName, cate
     ? `/settings/${category}/${subcategory}/${slug.replace('-laser-cleaning', '')}-settings`
     : undefined;
 
-  // Prepare metadata with routing info for clickable property bars
+  // Prepare metadata with ONLY material_characteristics for PropertyBars
+  // This ensures we display only core material properties, not laser interaction properties
   const metadata = {
-    properties: materialProperties,
+    slug: slug || '',
     category: category || '',
     subcategory: subcategory || '',
-    slug: slug || ''
+    title: materialName,
+    description: '',
+    materialProperties: {
+      material_characteristics: materialChars
+    }
   };
 
   return (

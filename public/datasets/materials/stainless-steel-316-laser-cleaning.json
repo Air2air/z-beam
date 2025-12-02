@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/metal/alloy/stainless-steel-316-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/metal/alloy/stainless-steel-316-laser-cleaning#dataset",
   "name": "Stainless Steel 316 Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Stainless Steel 316. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-01",
-  "datePublished": "2025-12-01",
+  "dateModified": "2025-12-02",
+  "datePublished": "2025-12-02",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/stainless-steel-316-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/stainless-steel-316-laser-cleaning.json",
       "name": "Stainless Steel 316 Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/stainless-steel-316-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/stainless-steel-316-laser-cleaning.csv",
       "name": "Stainless Steel 316 Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/stainless-steel-316-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/stainless-steel-316-laser-cleaning.txt",
       "name": "Stainless Steel 316 Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-01"
+    "lastVerified": "2025-12-02"
   },
   "material": {
     "name": "Stainless Steel 316",
@@ -206,18 +206,6 @@
           "min": -1.1,
           "max": "1.1e+06"
         },
-        "thermalDestruction": {
-          "value": 1673,
-          "unit": "K",
-          "min": 256,
-          "max": 3859
-        },
-        "laserAbsorption": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
         "compressiveStrength": {
           "value": 520,
           "unit": "MPa",
@@ -235,6 +223,62 @@
           "unit": "Ω·m",
           "min": 0,
           "max": 0.000002
+        },
+        "electricalConductivity": {
+          "value": "1.4e+06",
+          "unit": "S/m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, AISI Type 316 Austenitic Stainless Steel, http://www.matweb.com/search/DataSheet.aspx?MatGUID=7a5a4e3b8b4a4b0e9f0a1b2c3d4e5f6g, accessed October 2023",
+          "context": "Annealed AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), 20°C, four-point probe method",
+          "researched_date": "2025-11-24T19:35:34.695460",
+          "needs_validation": true,
+          "min": 659300,
+          "max": "6.6e+07"
+        },
+        "boilingPoint": {
+          "value": 3000,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Introduction to the Thermodynamics of Materials",
+          "citation": "David R. Gaskell, Taylor & Francis, 6th Edition, 2017, ISBN 978-1-4398-8080-5",
+          "context": "AISI 316 stainless steel (16-18 wt% Cr, 10-14 wt% Ni, 2-3 wt% Mo, balance Fe), at standard atmospheric pressure (1 atm), extrapolated for liquid alloy vaporization",
+          "researched_date": "2025-11-24T19:35:54.017903",
+          "needs_validation": true,
+          "min": 929,
+          "max": 6454
+        },
+        "meltingPoint": {
+          "value": 1390,
+          "unit": "°C",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, AISI Type 316 (UNS S31600) Stainless Steel, http://www.matweb.com/search/DataSheet.aspx?MatGUID=daecb8a5d8b64a5a9e9c4b0b0b0b0b0b, accessed 2024",
+          "context": "AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), standard atmospheric pressure, melting range from solidus to liquidus",
+          "researched_date": "2025-11-24T19:36:54.667468",
+          "needs_validation": true,
+          "min": 133,
+          "max": 3865
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 1673,
+          "unit": "K",
+          "min": 256,
+          "max": 3859
+        },
+        "laserAbsorption": {
+          "value": 0.35,
+          "unit": "dimensionless",
+          "min": 0.02,
+          "max": "4.2e+08"
         },
         "laserDamageThreshold": {
           "value": 2.1,
@@ -366,32 +410,6 @@
           "min": 589000,
           "max": "9.9e+07"
         },
-        "electricalConductivity": {
-          "value": "1.4e+06",
-          "unit": "S/m",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb Materials Database, AISI Type 316 Austenitic Stainless Steel, http://www.matweb.com/search/DataSheet.aspx?MatGUID=7a5a4e3b8b4a4b0e9f0a1b2c3d4e5f6g, accessed October 2023",
-          "context": "Annealed AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), 20°C, four-point probe method",
-          "researched_date": "2025-11-24T19:35:34.695460",
-          "needs_validation": true,
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "boilingPoint": {
-          "value": 3000,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "textbook",
-          "source_name": "Introduction to the Thermodynamics of Materials",
-          "citation": "David R. Gaskell, Taylor & Francis, 6th Edition, 2017, ISBN 978-1-4398-8080-5",
-          "context": "AISI 316 stainless steel (16-18 wt% Cr, 10-14 wt% Ni, 2-3 wt% Mo, balance Fe), at standard atmospheric pressure (1 atm), extrapolated for liquid alloy vaporization",
-          "researched_date": "2025-11-24T19:35:54.017903",
-          "needs_validation": true,
-          "min": 929,
-          "max": 6454
-        },
         "thermalShockResistance": {
           "value": 119,
           "unit": "K",
@@ -430,23 +448,7 @@
           "needs_validation": true,
           "min": 0.02,
           "max": 0.6
-        },
-        "meltingPoint": {
-          "value": 1390,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, AISI Type 316 (UNS S31600) Stainless Steel, http://www.matweb.com/search/DataSheet.aspx?MatGUID=daecb8a5d8b64a5a9e9c4b0b0b0b0b0b, accessed 2024",
-          "context": "AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), standard atmospheric pressure, melting range from solidus to liquidus",
-          "researched_date": "2025-11-24T19:36:54.667468",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
         }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction"
       }
     },
     "applications": [],
@@ -627,26 +629,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1673,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "compressiveStrength",
       "name": "Compressive Strength",
       "description": "Compressive Strength - material characteristics",
@@ -677,116 +659,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 1.2,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "4.1e-06",
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.6e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 500,
-      "unitText": "J/(kg·K)",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 16.3,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.62,
-      "unitText": "",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - material characteristics",
-      "value": 101325,
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - material characteristics",
-      "value": 1399,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": "3.3e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "electricalConductivity",
       "name": "Electrical Conductivity",
       "description": "Electrical Conductivity - material characteristics",
@@ -809,9 +681,150 @@
     },
     {
       "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 1390,
+      "unitText": "°C",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1673,
+      "unitText": "K",
+      "minValue": 256,
+      "maxValue": 3859
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.35,
+      "unitText": "dimensionless",
+      "minValue": 0.02,
+      "maxValue": "4.2e+08"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "minValue": 0.27,
+      "maxValue": 15750,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "minValue": 0.09,
+      "maxValue": 4.3,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": "4.1e-06",
+      "unitText": "m²/s",
+      "minValue": 0.000002,
+      "maxValue": "0.00017",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": "1.6e-05",
+      "unitText": "K^{-1}",
+      "minValue": 0.000004,
+      "maxValue": 31.7,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 500,
+      "unitText": "J/(kg·K)",
+      "minValue": 43.4,
+      "maxValue": 1905,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 16.3,
+      "unitText": "W/m·K",
+      "minValue": 7.4,
+      "maxValue": 450,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.62,
+      "unitText": "",
+      "minValue": 0.4,
+      "maxValue": 73.5,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 101325,
+      "unitText": "Pa",
+      "minValue": 0,
+      "maxValue": 106391,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1399,
+      "unitText": "°C",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": "3.3e+07",
+      "unitText": "m^{-1}",
+      "minValue": 589000,
+      "maxValue": "9.9e+07",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "thermalShockResistance",
       "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - material characteristics",
+      "description": "Thermal Shock Resistance - laser material interaction",
       "value": 119,
       "unitText": "K",
       "minValue": 6.7,
@@ -822,7 +835,7 @@
       "@type": "PropertyValue",
       "propertyID": "reflectivity",
       "name": "Reflectivity",
-      "description": "Reflectivity - material characteristics",
+      "description": "Reflectivity - laser material interaction",
       "value": 0.62,
       "unitText": "fraction",
       "minValue": 0.35,
@@ -833,24 +846,13 @@
       "@type": "PropertyValue",
       "propertyID": "absorptivity",
       "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
+      "description": "Absorptivity - laser material interaction",
       "value": 0.37,
       "unitText": "dimensionless",
       "minValue": 0.02,
       "maxValue": 0.6,
       "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 1390,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
     }
   ],
-  "citation": "Z-Beam (2025). Stainless Steel 316 Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/stainless-steel-316-laser-cleaning"
+  "citation": "Z-Beam (2025). Stainless Steel 316 Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/alloy/stainless-steel-316-laser-cleaning"
 }

@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/metal/alloy/aluminum-bronze-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/metal/alloy/aluminum-bronze-laser-cleaning#dataset",
   "name": "Aluminum Bronze Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Aluminum Bronze. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-01",
-  "datePublished": "2025-12-01",
+  "dateModified": "2025-12-02",
+  "datePublished": "2025-12-02",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/aluminum-bronze-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/aluminum-bronze-laser-cleaning.json",
       "name": "Aluminum Bronze Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/aluminum-bronze-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/aluminum-bronze-laser-cleaning.csv",
       "name": "Aluminum Bronze Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/aluminum-bronze-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/aluminum-bronze-laser-cleaning.txt",
       "name": "Aluminum Bronze Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-01"
+    "lastVerified": "2025-12-02"
   },
   "material": {
     "name": "Aluminum Bronze",
@@ -206,18 +206,6 @@
           "min": -1.1,
           "max": "1.1e+06"
         },
-        "thermalDestruction": {
-          "value": 1323,
-          "unit": "K",
-          "min": 256,
-          "max": 3859
-        },
-        "laserAbsorption": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
         "compressiveStrength": {
           "value": 655,
           "unit": "MPa",
@@ -235,6 +223,62 @@
           "unit": "Ω·m",
           "min": 0,
           "max": 0.000002
+        },
+        "electricalConductivity": {
+          "value": "4.1e+06",
+          "unit": "S/m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb: Aluminum Bronze (UNS C95400), Sand Cast, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5a4d2b0a4a4b0e9f0b0a4b0a4b0a4b, accessed October 2023",
+          "context": "UNS C95400 Aluminum Bronze (9% Al, 4% Fe, balance Cu), as-cast condition, 20°C, standard DC measurement",
+          "researched_date": "2025-11-24T19:43:26.848136",
+          "needs_validation": true,
+          "min": 659300,
+          "max": "6.6e+07"
+        },
+        "boilingPoint": {
+          "value": 2673,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Aluminum Bronze UNS C95400, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f3b6d5e4a2b1c8d9e7f0a5b2c4d6e8f, accessed 2024",
+          "context": "Commercial grade Aluminum Bronze (UNS C95400: 83% Cu, 11% Al, 4% Fe, 2% Ni), 99.5% purity, standard atmospheric pressure (1 atm), extrapolated from vapor pressure data",
+          "researched_date": "2025-11-24T19:43:41.388292",
+          "needs_validation": true,
+          "min": 929,
+          "max": 6454
+        },
+        "meltingPoint": {
+          "value": 1045,
+          "unit": "°C",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Aluminum Bronze (9-11% Al), http://www.matweb.com/search/DataSheet.aspx?MatGUID=8f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c, accessed 2023",
+          "context": "Commercial Aluminum Bronze alloy (UNS C95400 equivalent, ~9% Al, 4% Fe, balance Cu), standard atmospheric pressure, differential scanning calorimetry measurement",
+          "researched_date": "2025-11-24T19:44:12.517394",
+          "needs_validation": true,
+          "min": 133,
+          "max": 3865
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 1323,
+          "unit": "K",
+          "min": 256,
+          "max": 3859
+        },
+        "laserAbsorption": {
+          "value": 0.28,
+          "unit": "dimensionless",
+          "min": 0.02,
+          "max": "4.2e+08"
         },
         "laserDamageThreshold": {
           "value": 2.1,
@@ -366,32 +410,6 @@
           "min": 589000,
           "max": "9.9e+07"
         },
-        "electricalConductivity": {
-          "value": "4.1e+06",
-          "unit": "S/m",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb: Aluminum Bronze (UNS C95400), Sand Cast, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5a4d2b0a4a4b0e9f0b0a4b0a4b0a4b, accessed October 2023",
-          "context": "UNS C95400 Aluminum Bronze (9% Al, 4% Fe, balance Cu), as-cast condition, 20°C, standard DC measurement",
-          "researched_date": "2025-11-24T19:43:26.848136",
-          "needs_validation": true,
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "boilingPoint": {
-          "value": 2673,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC., Aluminum Bronze UNS C95400, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f3b6d5e4a2b1c8d9e7f0a5b2c4d6e8f, accessed 2024",
-          "context": "Commercial grade Aluminum Bronze (UNS C95400: 83% Cu, 11% Al, 4% Fe, 2% Ni), 99.5% purity, standard atmospheric pressure (1 atm), extrapolated from vapor pressure data",
-          "researched_date": "2025-11-24T19:43:41.388292",
-          "needs_validation": true,
-          "min": 929,
-          "max": 6454
-        },
         "thermalShockResistance": {
           "value": 210,
           "unit": "°C",
@@ -430,23 +448,7 @@
           "needs_validation": true,
           "min": 0.02,
           "max": 0.6
-        },
-        "meltingPoint": {
-          "value": 1045,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, Aluminum Bronze (9-11% Al), http://www.matweb.com/search/DataSheet.aspx?MatGUID=8f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c, accessed 2023",
-          "context": "Commercial Aluminum Bronze alloy (UNS C95400 equivalent, ~9% Al, 4% Fe, balance Cu), standard atmospheric pressure, differential scanning calorimetry measurement",
-          "researched_date": "2025-11-24T19:44:12.517394",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
         }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction"
       }
     },
     "applications": [],
@@ -627,26 +629,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1323,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "compressiveStrength",
       "name": "Compressive Strength",
       "description": "Compressive Strength - material characteristics",
@@ -677,116 +659,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.8e-05",
-      "unitText": "m^2/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.6e-05",
-      "unitText": "10^{-6}/K",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 380,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 59,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.88,
-      "unitText": "",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - material characteristics",
-      "value": "1.2e-08",
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - material characteristics",
-      "value": 1038,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": "4.8e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "electricalConductivity",
       "name": "Electrical Conductivity",
       "description": "Electrical Conductivity - material characteristics",
@@ -809,9 +681,150 @@
     },
     {
       "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 1045,
+      "unitText": "°C",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1323,
+      "unitText": "K",
+      "minValue": 256,
+      "maxValue": 3859
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.28,
+      "unitText": "dimensionless",
+      "minValue": 0.02,
+      "maxValue": "4.2e+08"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "minValue": 0.27,
+      "maxValue": 15750,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "minValue": 0.09,
+      "maxValue": 4.3,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": "1.8e-05",
+      "unitText": "m^2/s",
+      "minValue": 0.000002,
+      "maxValue": "0.00017",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": "1.6e-05",
+      "unitText": "10^{-6}/K",
+      "minValue": 0.000004,
+      "maxValue": 31.7,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 380,
+      "unitText": "J/kg·K",
+      "minValue": 43.4,
+      "maxValue": 1905,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 59,
+      "unitText": "W/m·K",
+      "minValue": 7.4,
+      "maxValue": 450,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.88,
+      "unitText": "",
+      "minValue": 0.4,
+      "maxValue": 73.5,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": "1.2e-08",
+      "unitText": "Pa",
+      "minValue": 0,
+      "maxValue": 106391,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1038,
+      "unitText": "°C",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": "4.8e+07",
+      "unitText": "m^{-1}",
+      "minValue": 589000,
+      "maxValue": "9.9e+07",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "thermalShockResistance",
       "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - material characteristics",
+      "description": "Thermal Shock Resistance - laser material interaction",
       "value": 210,
       "unitText": "°C",
       "minValue": 6.7,
@@ -822,7 +835,7 @@
       "@type": "PropertyValue",
       "propertyID": "reflectivity",
       "name": "Reflectivity",
-      "description": "Reflectivity - material characteristics",
+      "description": "Reflectivity - laser material interaction",
       "value": 0.68,
       "unitText": "",
       "minValue": 0.35,
@@ -833,24 +846,13 @@
       "@type": "PropertyValue",
       "propertyID": "absorptivity",
       "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
+      "description": "Absorptivity - laser material interaction",
       "value": 0.07,
       "unitText": "dimensionless",
       "minValue": 0.02,
       "maxValue": 0.6,
       "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 1045,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
     }
   ],
-  "citation": "Z-Beam (2025). Aluminum Bronze Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/aluminum-bronze-laser-cleaning"
+  "citation": "Z-Beam (2025). Aluminum Bronze Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/alloy/aluminum-bronze-laser-cleaning"
 }
