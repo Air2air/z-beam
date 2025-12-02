@@ -3,43 +3,42 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/semiconductor/compound/silicon-carbide-sic-laser-cleaning
-# Updated: 2025-12-01 | Version: 1.0
+# Dataset: https://www.z-beam.com/materials/ceramic/carbide/silicon-carbide-sic-laser-cleaning
+# Updated: 2025-12-02 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Silicon Carbide (SiC) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/compound/silicon-carbide-sic-laser-cleaning
+# Citation: Z-Beam (2025). Silicon Carbide (SiC) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/carbide/silicon-carbide-sic-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Silicon Carbide (SiC),,,,,Material name
-Basic,Info,Category,semiconductor,,,,,Material category
-Basic,Info,Subcategory,compound,,,,,Material subcategory
+Basic,Info,Category,ceramic,,,,,Material category
+Basic,Info,Subcategory,carbide,,,,,Material subcategory
 Basic,Info,Slug,silicon-carbide-sic-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,60,W,1,120,,Machine setting: powerRange
+Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
 Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,30,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,30,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,1.5,J/cm²,0.1,20,,Machine setting: energyDensity
+Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
+Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
+Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
 Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,300,mm/s,10,5000,,Machine setting: scanSpeed
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
 Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,60,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,3.2,g/cm³,2.2,5.5,,Material property: density
-Property,material_characteristics,porosity,0,%,,,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,0.3,μm,,,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,450,MPa,30.8,255,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,410,GPa,81.1,1.5e+11,,Material property: youngsModulus
-Property,material_characteristics,hardness,4.6,GPa,2,2600,,Material property: hardness
-Property,material_characteristics,flexuralStrength,550,MPa,79.9,148,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,25,μm/year,0,2.4,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,0.8,mm/year,0.87,157500,,Material property: corrosionResistance
-Property,material_characteristics,thermalDestruction,3103,K,1502,1696,,Material property: thermalDestruction
-Property,material_characteristics,laserAbsorption,0.15,dimensionless,19380,1.1e+06,,Material property: laserAbsorption
-Property,material_characteristics,compressiveStrength,450,MPa,133,7343,,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,20,MPa m^{1/2},0.52,0.97,,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,100000,Ω·m,11.4,1.4e+06,,Material property: electricalResistivity
-Property,material_characteristics,laserDamageThreshold,25.3,J/cm²,0.47,8.9,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,ablationThreshold,1.8,J/cm²,1.2,2,scientific_literature,Material property: ablationThreshold
-Property,material_characteristics,thermalDiffusivity,0.0001,m²/s,2.4e-05,9.2e-05,scientific_literature,Material property: thermalDiffusivity
-Property,material_characteristics,thermalExpansion,0.000004,K^{-1},0.000002,0.000006,scientific_literature,Material property: thermalExpansion
-Property,material_characteristics,specificHeat,670,J/(kg·K),300,900,scientific_literature,Material property: specificHeat
-Property,material_characteristics,thermalConductivity,370,W/m·K,0.2,156,scientific_literature,Material property: thermalConductivity
-Property,material_characteristics,laserReflectivity,0.36,dimensionless (fraction),0.3,0.36,scientific_literature,Material property: laserReflectivity
+Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
+Property,material_characteristics,electricalResistivity,0.0003,Ω·m,0,100000000000000,ai_research,Material property: electricalResistivity
+Property,material_characteristics,fractureToughness,4.6,MPa√m,0.56,5.7,ai_research,Material property: fractureToughness
+Property,material_characteristics,youngsModulus,450,GPa,40,679,ai_research,Material property: youngsModulus
+Property,material_characteristics,oxidationResistance,1600,°C,0,2310,ai_research,Material property: oxidationResistance
+Property,material_characteristics,density,3.2,g/cm³,1.7,16.3,ai_research,Material property: density
+Property,material_characteristics,hardness,27.5,GPa,6.7,3150,ai_research,Material property: hardness
+Property,material_characteristics,corrosionResistance,1000000,Ω·cm²,0.00047,262,ai_research,Material property: corrosionResistance
+Property,material_characteristics,compressiveStrength,3900,MPa,95,4090,ai_research,Material property: compressiveStrength
+Property,material_characteristics,flexuralStrength,450,MPa,45.6,1153,ai_research,Material property: flexuralStrength
+Property,material_characteristics,tensileStrength,414,MPa,5,600,ai_research,Material property: tensileStrength
+Property,laser_material_interaction,porosity,0.005,dimensionless,0,0.05,ai_research,Material property: porosity
+Property,laser_material_interaction,ablationThreshold,3,J/cm²,2,5,ai_research,Material property: ablationThreshold
+Property,laser_material_interaction,thermalDestruction,3103,K,273,3900,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,specificHeat,671,J/(kg·K),250,2500,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserReflectivity,0.2,dimensionless,0.05,0.4,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalConductivity,370,W/m·K,1.4,127,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,thermalExpansion,0.000004,K^{-1},0.000003,1.1e-05,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,laserAbsorption,0.8,dimensionless,0.35,2625,ai_research,Material property: laserAbsorption
+Property,laser_material_interaction,thermalDiffusivity,0.00012,m^2/s,0.000001,7.3e-05,ai_research,Material property: thermalDiffusivity
+Property,laser_material_interaction,laserDamageThreshold,25.3,J/cm²,1.6,20.9,scientific_literature,Material property: laserDamageThreshold
