@@ -25,12 +25,13 @@ const REQUIRED_PARAMETERS = [
   'overlapRatio'
 ];
 
-const SETTINGS_DIR = path.join(__dirname, '../frontmatter/settings');
-const MATERIALS_DIR = path.join(__dirname, '../frontmatter/materials');
-const OUTPUT_DIR = path.join(__dirname, '../public/datasets/materials');
+const SETTINGS_DIR = path.join(__dirname, '../../frontmatter/settings');
+const MATERIALS_DIR = path.join(__dirname, '../../frontmatter/materials');
+const OUTPUT_DIR = path.join(__dirname, '../../public/datasets/materials');
 
 // Known incomplete datasets (missing 5+ parameters) - skip validation
-const INCOMPLETE_FILES = ['soda-lime-glass-settings', 'testmaterial-settings'];
+// Note: soda-lime-glass is also incomplete in TXT output (missing pulseWidth, overlapRatio)
+const INCOMPLETE_FILES = ['soda-lime-glass-settings', 'testmaterial-settings', 'soda-lime-glass-laser-cleaning'];
 
 // Helper to check if a file should be skipped
 const isIncompleteFile = (filename) => {

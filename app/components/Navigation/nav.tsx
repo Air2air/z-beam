@@ -116,9 +116,9 @@ export function Navbar() {
           />
         </Link>
         
-        <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-2 md:py-0') + ' flex justify-between items-center md:items-end md:h-full'}>
+        <div className="container-full px-4 md:px-6 flex justify-between items-center md:items-end h-full">
           {/* Logo on the left */}
-          <div className="flex-shrink-0 pl-4 md:pl-6 md:self-center">
+          <div className="flex-shrink-0 md:self-center">
             <Link
               href="/"
               aria-label={`${SITE_CONFIG.name} home page`}
@@ -138,7 +138,7 @@ export function Navbar() {
           {/* Desktop: Nav menu in center */}
           <nav
             ref={menuRef}
-            className="hidden md:flex md:flex-row md:space-x-8 flex-1 justify-end items-end mr-4"
+            className="hidden md:flex md:flex-row md:space-x-8 flex-1 justify-end items-end mr-4 self-end"
             id="main-navigation"
             role="navigation"
             aria-label="Main navigation"
@@ -154,7 +154,7 @@ export function Navbar() {
                   <li key={item.href} role="none" className="relative">
                     {hasDropdown ? (
                       <div
-                        className="relative h-full flex items-end"
+                        className="relative flex items-end"
                         onMouseEnter={() => handleMouseEnter(item.name)}
                         onMouseLeave={handleMouseLeave}
                       >
