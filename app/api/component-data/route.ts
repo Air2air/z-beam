@@ -56,10 +56,11 @@ export async function GET(request: NextRequest) {
     
     if (isYamlFile) {
       // For YAML files, parse the entire content as data
-      // Use parseAllDocuments to handle multiple documents separated by ---
-      const documents = yaml.parseAllDocuments(fileContent);
+      // Use loadAll to handle multiple documents separated by ---
+      const documents: unknown[] = [];
+      yaml.loadAll(fileContent, (doc) => documents.push(doc));
       // Get the first document which contains the actual data
-      data = documents[0]?.toJS();
+      data = documents[0];
       content = data; // For YAML components, the data is the content
     } else {
       // For markdown files, use gray-matter

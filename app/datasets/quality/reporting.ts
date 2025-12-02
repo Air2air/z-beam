@@ -41,7 +41,7 @@ export function formatQualityReport(metrics: DatasetQualityMetrics): string {
   ];
   
   // Add parameter counts
-  Object.entries(metrics.missingByParameter).forEach(([param, count]) => {
+  Object.entries(metrics.missingByParameter).forEach(([param, count]: [string, number]) => {
     if (count > 0) {
       const warning = count > 10 ? ' ⚠️' : '';
       const line = `│   • ${param}: ${count} materials${warning}`;
@@ -218,9 +218,9 @@ export function generateQualityDashboard(metrics: DatasetQualityMetrics): string
     <h2>Missing Parameters</h2>
     <ul class="parameter-list">
       ${Object.entries(metrics.missingByParameter)
-        .filter(([, count]) => count > 0)
-        .sort((a, b) => b[1] - a[1])
-        .map(([param, count]) => `
+        .filter(([, count]: [string, number]) => count > 0)
+        .sort((a, b) => (b[1] as number) - (a[1] as number))
+        .map(([param, count]: [string, number]) => `
           <li>
             <span>${param}</span>
             <span class="badge ${count > 10 ? 'badge-danger' : count > 5 ? 'badge-warning' : 'badge-success'}">
@@ -249,8 +249,8 @@ ${status} **Dataset Quality: ${metrics.completionRate}%**
 - **Tier 2 Avg**: ${metrics.avgTier2Completeness}% ${metrics.avgTier2Completeness >= 80 ? '✅' : '⚠️'}
 
 ${Object.entries(metrics.missingByParameter)
-  .filter(([, count]) => count > 0 && count > 5)
-  .map(([param, count]) => `- ⚠️ \`${param}\`: ${count} materials missing`)
+  .filter(([, count]: [string, number]) => count > 0 && count > 5)
+  .map(([param, count]: [string, number]) => `- ⚠️ \`${param}\`: ${count} materials missing`)
   .join('\n')}
   `.trim();
 }

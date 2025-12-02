@@ -26,7 +26,8 @@ export default function CategoryDatasetCardWrapper({
   useEffect(() => {
     const loadStats = async () => {
       const materialSlugs = materials.map(m => m.slug);
-      const stats = await calculateAggregateStats(materialSlugs, 3);
+      const materialDatasets = await loadMaterialDatasets(materialSlugs);
+      const stats = calculateAggregateStats(materialDatasets);
       setAggregateStats(stats);
     };
     
