@@ -6,6 +6,7 @@ import { SettingsJsonLD } from '@/app/components/JsonLD/SettingsJsonLD';
 import { createMetadata, type ArticleMetadata } from '@/app/utils/metadata';
 import { SITE_CONFIG } from '@/app/config/site';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
+import { normalizeNumericValues } from '@/app/utils/normalizers';
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
@@ -193,6 +194,8 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
       if (fs.existsSync(materialPath)) {
         const fileContent = fs.readFileSync(materialPath, 'utf8');
         materialArticle = yaml.load(fileContent) as any;
+        // Normalize numeric values for consistent PropertyBars rendering
+        materialArticle = normalizeNumericValues(materialArticle);
         materialProps = materialArticle?.materialProperties;
         console.log(`[Settings Page] Material YAML loaded: ${!!materialArticle}`);
         console.log(`[Settings Page] Material properties:`, materialProps ? Object.keys(materialProps).length + ' sections' : 'none');

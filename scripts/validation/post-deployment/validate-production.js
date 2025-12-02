@@ -19,6 +19,7 @@ const http = require('http');
 const { URL } = require('url');
 const fs = require('fs').promises;
 const path = require('path');
+const zlib = require('zlib');
 
 // Configuration
 const DEFAULT_URL = 'https://www.z-beam.com';
@@ -53,27 +54,55 @@ const results = {
   }
 };
 
-// Utility: Fetch URL
+// Utility: Fetch URL with decompression support
 function fetchUrl(url, options = {}) {
   return new Promise((resolve, reject) => {
     const protocol = url.startsWith('https') ? https : http;
     const timeout = options.timeout || TIMEOUT;
+    const parsedUrl = new URL(url);
     
-    const req = protocol.get(url, { timeout }, (res) => {
-      let data = '';
+    const requestOptions = {
+      hostname: parsedUrl.hostname,
+      port: parsedUrl.port || (url.startsWith('https') ? 443 : 80),
+      path: parsedUrl.pathname + parsedUrl.search,
+      method: 'GET',
+      timeout,
+      headers: {
+        'Accept-Encoding': 'gzip, deflate, br', // Request compression
+        'User-Agent': 'Z-Beam-Validator/1.0',
+        ...options.headers
+      }
+    };
+    
+    const req = protocol.request(requestOptions, (res) => {
+      const chunks = [];
+      const encoding = res.headers['content-encoding'];
       
-      res.on('data', (chunk) => {
-        data += chunk;
+      // Create appropriate decompression stream
+      let stream = res;
+      if (encoding === 'br') {
+        stream = res.pipe(zlib.createBrotliDecompress());
+      } else if (encoding === 'gzip') {
+        stream = res.pipe(zlib.createGunzip());
+      } else if (encoding === 'deflate') {
+        stream = res.pipe(zlib.createInflate());
+      }
+      
+      stream.on('data', (chunk) => {
+        chunks.push(chunk);
       });
       
-      res.on('end', () => {
+      stream.on('end', () => {
+        const body = Buffer.concat(chunks).toString('utf8');
         resolve({
           statusCode: res.statusCode,
           headers: res.headers,
-          body: data,
+          body: body,
           responseTime: res.responseTime
         });
       });
+      
+      stream.on('error', reject);
     });
     
     req.on('error', reject);
@@ -86,6 +115,8 @@ function fetchUrl(url, options = {}) {
     req.on('response', (res) => {
       res.responseTime = Date.now() - startTime;
     });
+    
+    req.end(); // Required for http.request
   });
 }
 
@@ -219,7 +250,8 @@ async function validateSecurity() {
     // Check for mixed content (HTTP resources on HTTPS page)
     if (TARGET_URL.startsWith('https')) {
       const httpResources = (response.body.match(/http:\/\/[^"\s]+/g) || [])
-        .filter(url => !url.includes('http://schema.org'));
+        .filter(url => !url.includes('http://schema.org'))
+        .filter(url => !url.includes('http://www.w3.org')); // Exclude W3C namespaces (SVG, etc.)
       
       addResult('security', 'Mixed Content', httpResources.length === 0,
         httpResources.length > 0 
@@ -471,11 +503,22 @@ async function validateJSONLD() {
     }).filter(Boolean);
     
     // Core schemas expected on all pages
+    // Note: LocalBusiness is a valid subtype of Organization
     const expectedTypes = ['WebSite', 'WebPage', 'Organization', 'BreadcrumbList'];
+    const organizationSubtypes = ['LocalBusiness', 'Corporation', 'NGO', 'EducationalOrganization'];
     expectedTypes.forEach(type => {
-      const present = schemaTypes.some(t => 
-        Array.isArray(t) ? t.includes(type) : t === type
-      );
+      let present;
+      if (type === 'Organization') {
+        // Accept Organization or any of its subtypes
+        present = schemaTypes.some(t => {
+          const types = Array.isArray(t) ? t : [t];
+          return types.includes(type) || types.some(st => organizationSubtypes.includes(st));
+        });
+      } else {
+        present = schemaTypes.some(t => 
+          Array.isArray(t) ? t.includes(type) : t === type
+        );
+      }
       addResult('jsonld', `Schema: ${type}`,
         present,
         present ? `${type} schema present` : `Missing ${type} schema`,
@@ -526,7 +569,7 @@ async function validateMaterialPageSchemas() {
   const materialPages = [
     '/materials/metal/non-ferrous/aluminum-laser-cleaning',
     '/materials/metal/ferrous/stainless-steel-laser-cleaning',
-    '/materials/composite/fiber-reinforced-polymer-laser-cleaning'
+    '/materials/composite/carbon-fiber-reinforced-polymer-laser-cleaning'
   ];
   
   const requiredSchemas = ['Article', 'FAQPage', 'Dataset', 'Person', 'ImageObject'];

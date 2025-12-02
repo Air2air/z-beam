@@ -4,24 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { capitalizeWords } from '@/app/utils/formatting';
 
-// Helper function to sanitize numeric values
-// Note: Most sanitization now happens at frontmatter loading stage via normalizeNumericValues()
-// This is a lightweight fallback for any edge cases that slip through
-function sanitizeValue(value: any, fallback: number = 0): number {
-  if (value === null || value === undefined) {
-    return fallback;
-  }
-  
-  const num = typeof value === 'number' ? value : Number(value);
-  
-  // Check for invalid numbers (should be rare after normalization)
-  if (!isFinite(num) || isNaN(num)) {
-    return fallback;
-  }
-  
-  return num;
-}
-
 // Helper function to format display values with smart precision
 function formatDisplayValue(value: number): string {
   // Handle zero
@@ -235,18 +217,13 @@ function PropertyBarsGrid({
   return (
     <div className={`grid gap-4 ${gridClasses} ${className}`}>
       {properties.map((prop, index) => {
-        // Sanitize values - ensure they're valid numbers
-        const sanitizedValue = sanitizeValue(prop.value);
-        const sanitizedMin = sanitizeValue(prop.min, 0);
-        // Don't override max if it's already a valid number from property extraction
-        const sanitizedMax = typeof prop.max === 'number' && isFinite(prop.max) && prop.max > 0
-          ? prop.max 
-          : sanitizeValue(prop.max, Math.max(sanitizedValue * 2, sanitizedMin + 1));
+        // Values are pre-normalized at load time via normalizeNumericValues()
+        const { value, min, max } = prop;
         
-        // Calculate range with sanitized values
-        const range = sanitizedMax - sanitizedMin;
+        // Calculate range
+        const range = max - min;
         
-        // Avoid division by zero or invalid range
+        // Skip if invalid range (shouldn't happen with proper normalization)
         if (range <= 0 || !isFinite(range)) {
           return null;
         }
@@ -256,7 +233,7 @@ function PropertyBarsGrid({
         const minPercentage = 5; // Minimum visible height for min indicator
         
         // Value position within the range - clamp between min and 100%
-        const rawPercentage = ((sanitizedValue - sanitizedMin) / range) * 100;
+        const rawPercentage = ((value - min) / range) * 100;
         const valuePercentage = Math.max(
           Math.min(rawPercentage, 100),
           minPercentage
@@ -292,7 +269,7 @@ function PropertyBarsGrid({
             <div className="relative flex items-end justify-between px-4" style={{ height: `${height + 20}px` }}>
               {/* Value badge overlay - uses secondary background with min-width */}
               <div className="absolute top-1 left-1 bg-secondary px-1 py-0.5 rounded font-medium shadow-sm z-10 flex flex-col items-center leading-tight min-w-[2.5rem]">
-                <div className="text-sm font-semibold text-primary">{formatDisplayValue(sanitizedValue)}</div>
+                <div className="text-sm font-semibold text-primary">{formatDisplayValue(value)}</div>
                 {prop.unit && <div className="text-[9px] opacity-80 text-secondary">{prop.unit}</div>}
               </div>
               
@@ -305,7 +282,7 @@ function PropertyBarsGrid({
                   />
                 </div>
                 <div className="text-xs font-normal whitespace-nowrap text-secondary">
-                  {formatDisplayValue(sanitizedMin)}
+                  {formatDisplayValue(min)}
                 </div>
               </div>
               
@@ -318,7 +295,7 @@ function PropertyBarsGrid({
                   />
                 </div>
                 <div className="text-xs font-normal whitespace-nowrap text-primary">
-                  {formatDisplayValue(sanitizedValue)}
+                  {formatDisplayValue(value)}
                 </div>
               </div>
               
@@ -331,7 +308,7 @@ function PropertyBarsGrid({
                   />
                 </div>
                 <div className="text-xs font-normal whitespace-nowrap text-secondary">
-                  {formatDisplayValue(sanitizedMax)}
+                  {formatDisplayValue(max)}
                 </div>
               </div>
             </div>
@@ -364,64 +341,21 @@ function PropertyBarsGrid({
  * Helper type for grouped properties
  */
 /**
- * Extract a single property with all validation logic
+ * Extract a single property - values are pre-normalized at load time
  */
 function extractSingleProperty(
   key: string,
   prop: any,
   dataSource: 'materialProperties' | 'machineSettings' = 'materialProperties'
 ): PropertyData | null {
-  // Use sanitizeValue for all numeric conversions
-  const value = sanitizeValue(prop.value, 0);
-  let min = sanitizeValue(prop.min, 0);
-  let max = sanitizeValue(prop.max, null as any);
+  // Values should be pre-normalized via normalizeNumericValues() at load time
+  const value = typeof prop.value === 'number' ? prop.value : Number(prop.value);
+  const min = typeof prop.min === 'number' ? prop.min : Number(prop.min) || 0;
+  const max = typeof prop.max === 'number' ? prop.max : Number(prop.max) || value * 2;
   
-  // Check if we have valid min/max from YAML
-  const hasValidMax = max !== null && max > 0 && max !== min;
-  const hasValidMin = typeof prop.min === 'number' && isFinite(prop.min);
-  
-  // Only apply corrections if we have invalid ranges
-  if (!hasValidMax || value < min || value > max) {
-    // Detect and fix invalid min/max ranges where value falls outside range
-    if (value < min || value > max) {
-      // Value is outside the stated range - recalculate sensible bounds
-      if (value < 1 && min > 1) {
-        // Likely a 0-1 normalized value with wrong absolute scale
-        min = 0;
-        max = 1;
-      } else {
-        // Use value-centered range
-        min = Math.min(value * 0.5, value - Math.abs(value) * 0.5, 0);
-        max = value * 2;
-      }
-    } else if (!hasValidMax) {
-      // For max, use a smart default if not provided or invalid
-      // Property-specific max defaults for common edge cases
-      if (key.toLowerCase().includes('absorption') && value < 1) {
-        // Absorption coefficients or rates often 0-1 range
-        max = 1;
-      } else if (key.toLowerCase().includes('resistivity')) {
-        // Electrical resistivity can vary widely
-        max = value * 10;
-      } else if (key.toLowerCase().includes('reflectivity') && value < 1) {
-        // Reflectivity is typically 0-1
-        max = 1;
-      } else {
-        // General fallback
-        max = Math.max(value * 2, value + 1, min + 1);
-      }
-    }
-  }
-  
-  // Final safety check: ensure max > min and max >= value
-  if (max <= min) {
-    max = min + (min === 0 ? 1 : Math.abs(min));
-  }
-  if (max < value) {
-    max = value * 1.2;
-  }
-  if (min > value) {
-    min = Math.min(0, value * 0.5);
+  // Skip invalid entries (missing required value)
+  if (!isFinite(value)) {
+    return null;
   }
 
   return {

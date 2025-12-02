@@ -29,11 +29,14 @@ interface MaterialCharacteristicsProps {
  * @param materialName - Optional material name for title context
  */
 export function MaterialCharacteristics({ materialProperties, materialName, category, subcategory, slug }: MaterialCharacteristicsProps) {
-  // Check if we have material characteristics data
-  const hasMaterialCharacteristics = materialProperties?.material_characteristics && 
-    Object.keys(materialProperties.material_characteristics).length > 0;
+  // Check for actual property data (not just 'label' or 'percentage' metadata fields)
+  const materialChars = materialProperties?.material_characteristics || {};
+  const hasActualProperties = Object.keys(materialChars).some(
+    key => key !== 'label' && key !== 'percentage' && 
+           materialChars[key]?.value !== undefined
+  );
 
-  if (!hasMaterialCharacteristics) {
+  if (!hasActualProperties) {
     return null;
   }
 

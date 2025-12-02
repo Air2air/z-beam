@@ -34,8 +34,14 @@ export function LaserMaterialInteraction({
   // Extract only laser-material interaction section
   const laserInteractionData = materialProperties?.laser_material_interaction || {};
   
-  // If no laser interaction data, don't render
-  if (!laserInteractionData || Object.keys(laserInteractionData).length === 0) {
+  // Check for actual property data (not just 'label' or 'percentage' metadata fields)
+  const hasActualProperties = Object.keys(laserInteractionData).some(
+    key => key !== 'label' && key !== 'percentage' && 
+           laserInteractionData[key]?.value !== undefined
+  );
+  
+  // If no actual property data, don't render the section
+  if (!hasActualProperties) {
     return null;
   }
 

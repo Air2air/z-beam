@@ -991,6 +991,9 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
         const yaml = await import('js-yaml');
         data = yaml.load(fileContent) as any;
         
+        // Apply numeric normalization to settings data (machineSettings, etc.)
+        data = normalizeNumericValues(data);
+        
         // If materialRef is present, load referenced material properties
         if (data?.materialRef) {
           console.log(`[Settings] Loading material reference: ${data.materialRef}`);
