@@ -102,6 +102,34 @@ machineSettings:
     value: 50
     min: 10
     max: 90
+thermalProperties:
+  thermalDiffusivity:
+    value: 32.0
+    unit: mm²/s
+  thermalConductivity:
+    value: 55.0
+    unit: W/(m·K)
+  thermalDestructionPoint:
+    value: 1511
+    unit: K
+    type: melting
+laserMaterialInteraction:
+  laserDamageThreshold:
+    value: 4.5
+    unit: J/cm²
+  ablationThreshold:
+    value: 0.85
+    unit: J/cm²
+  optimalFluenceRange:
+    min: 1.02
+    max: 3.6
+    unit: J/cm²
+  thermalShockResistance:
+    value: 1.5
+    unit: K
+  reflectivity:
+    value: 0.3
+    wavelength: 1064
 material_challenges:
   thermal_management:
   - challenge: Crystal lattice damage and doping redistribution
@@ -152,4 +180,4 @@ material_challenges:
     - Post-cleaning oxygen plasma for complete residue removal
 preservedData:
   generationMetadata:
-    generated_date: '2025-12-01T18:15:17.802794'
+    generated_date: '2025-12-03T00:06:08.946411'

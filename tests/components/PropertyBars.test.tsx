@@ -139,8 +139,8 @@ describe('PropertyBars Component', () => {
       const { container } = render(<PropertyBars metadata={metadata} dataSource="materialProperties" />);
 
       // Each property should have three bar elements (min, value, max)
-      // Look for the bar wrapper structure with w-3 classes (updated from w-2)
-      const bars = container.querySelectorAll('.w-3');
+      // Look for the bar wrapper structure with w-4 classes (updated styling)
+      const bars = container.querySelectorAll('.w-4');
       expect(bars.length).toBeGreaterThanOrEqual(3); // At least 3 bars for one property
     });
 

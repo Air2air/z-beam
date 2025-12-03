@@ -104,6 +104,30 @@ machineSettings:
   dwellTime:
     unit: μs
     value: 100
+thermalProperties:
+  thermalDiffusivity:
+    value: 0.18
+    unit: mm²/s
+  thermalConductivity:
+    value: 0.3
+    unit: W/(m·K)
+  thermalDestructionPoint:
+    value: 650
+    unit: K
+    type: decomposition
+laserMaterialInteraction:
+  laserDamageThreshold:
+    value: 3.5
+    unit: J/cm²
+  ablationThreshold:
+    value: 2.7
+    unit: J/cm²
+  thermalShockResistance:
+    value: 1.5
+    unit: K
+  reflectivity:
+    value: 0.04
+    wavelength: 1064
 material_challenges:
   thermal_management:
   - challenge: Matrix degradation and delamination
@@ -152,4 +176,4 @@ material_challenges:
     - Monitor for matrix damage; stop if surface texture changes
 preservedData:
   generationMetadata:
-    generated_date: '2025-12-01T18:15:17.663519'
+    generated_date: '2025-12-03T00:06:08.784729'

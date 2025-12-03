@@ -105,6 +105,34 @@ machineSettings:
   dwellTime:
     unit: μs
     value: 100
+thermalProperties:
+  thermalDiffusivity:
+    value: 12.17
+    unit: mm²/s
+  thermalConductivity:
+    value: 22.7
+    unit: W/(m·K)
+  thermalDestructionPoint:
+    value: 2128
+    unit: K
+    type: melting
+laserMaterialInteraction:
+  laserDamageThreshold:
+    value: 4.5
+    unit: J/cm²
+  ablationThreshold:
+    value: 1.2
+    unit: J/cm²
+  optimalFluenceRange:
+    min: 1.44
+    max: 3.6
+    unit: J/cm²
+  thermalShockResistance:
+    value: 1.8
+    unit: K
+  reflectivity:
+    value: 0.92
+    wavelength: 1064
 material_challenges:
   thermal_management:
   - challenge: High thermal conductivity and heat spread
@@ -157,4 +185,4 @@ material_challenges:
     - Chemical pre-cleaning for heavy contamination
 preservedData:
   generationMetadata:
-    generated_date: '2025-12-01T18:15:20.668317'
+    generated_date: '2025-12-03T00:06:12.077610'

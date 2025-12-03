@@ -287,29 +287,49 @@ export function SettingsLayout({
               optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
               optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
               materialProperties={{
-                // Core thermal properties
-                thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
-                thermalDiffusivity: materialProps?.laser_material_interaction?.thermalDiffusivity?.value || materialProps?.physical_properties?.thermalDiffusivity?.value,
+                // Core thermal properties - Priority: settings.thermalProperties > materialProps
+                thermalConductivity: 
+                  (settings as any).thermalProperties?.thermalConductivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalConductivity?.value,
+                thermalDiffusivity: 
+                  (settings as any).thermalProperties?.thermalDiffusivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalDiffusivity?.value || 
+                  materialProps?.physical_properties?.thermalDiffusivity?.value,
                 heatCapacity: materialProps?.physical_properties?.heatCapacity?.value,
-                specificHeat: materialProps?.laser_material_interaction?.specificHeat?.value || materialProps?.physical_properties?.specificHeat?.value,
+                specificHeat: 
+                  (settings as any).thermalProperties?.specificHeat?.value ||
+                  materialProps?.laser_material_interaction?.specificHeat?.value || 
+                  materialProps?.physical_properties?.specificHeat?.value,
                 
-                // Temperature thresholds
+                // Temperature thresholds - Priority: settings.thermalProperties > materialProps
                 meltingPoint: materialProps?.physical_properties?.meltingPoint?.value,
                 boilingPoint: materialProps?.physical_properties?.boilingPoint?.value,
                 oxidationTemperature: materialProps?.physical_properties?.oxidationTemperature?.value,
-                thermalDestructionPoint: materialProps?.physical_properties?.thermalDestructionPoint?.value,
+                thermalDestructionPoint: 
+                  (settings as any).thermalProperties?.thermalDestructionPoint?.value ||
+                  materialProps?.physical_properties?.thermalDestructionPoint?.value,
                 
-                // Laser interaction
-                ablationThreshold: materialProps?.laser_material_interaction?.ablationThreshold?.value || materialProps?.physical_properties?.ablationThreshold?.value,
-                laserDamageThreshold: materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
+                // Laser interaction - Priority: settings.laserMaterialInteraction > materialProps
+                ablationThreshold: 
+                  (settings as any).laserMaterialInteraction?.ablationThreshold?.value ||
+                  materialProps?.laser_material_interaction?.ablationThreshold?.value || 
+                  materialProps?.physical_properties?.ablationThreshold?.value,
+                laserDamageThreshold: 
+                  (settings as any).laserMaterialInteraction?.laserDamageThreshold?.value ||
+                  materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
                 absorptivity: materialProps?.laser_material_interaction?.absorptivity?.value || materialProps?.physical_properties?.absorptivity?.value,
                 absorptionCoefficient: materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
-                laserReflectivity: materialProps?.laser_material_interaction?.laserReflectivity?.value || materialProps?.physical_properties?.reflectivity?.value,
+                laserReflectivity: 
+                  (settings as any).laserMaterialInteraction?.reflectivity?.value ||
+                  materialProps?.laser_material_interaction?.laserReflectivity?.value || 
+                  materialProps?.physical_properties?.reflectivity?.value,
                 
                 // Thermal dynamics
                 thermalRelaxationTime: materialProps?.physical_properties?.thermalRelaxationTime?.value,
                 thermalExpansionCoefficient: materialProps?.physical_properties?.thermalExpansionCoefficient?.value,
-                thermalShockResistance: materialProps?.laser_material_interaction?.thermalShockResistance?.value,
+                thermalShockResistance: 
+                  (settings as any).laserMaterialInteraction?.thermalShockResistance?.value ||
+                  materialProps?.laser_material_interaction?.thermalShockResistance?.value,
                 heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
               }}
             />
@@ -332,23 +352,49 @@ export function SettingsLayout({
               optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
               optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
               materialProperties={{
-                // Same properties as MaterialSafetyHeatmap
-                thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
-                thermalDiffusivity: materialProps?.laser_material_interaction?.thermalDiffusivity?.value || materialProps?.physical_properties?.thermalDiffusivity?.value,
+                // Core thermal properties - Priority: settings.thermalProperties > materialProps
+                thermalConductivity: 
+                  (settings as any).thermalProperties?.thermalConductivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalConductivity?.value,
+                thermalDiffusivity: 
+                  (settings as any).thermalProperties?.thermalDiffusivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalDiffusivity?.value || 
+                  materialProps?.physical_properties?.thermalDiffusivity?.value,
                 heatCapacity: materialProps?.physical_properties?.heatCapacity?.value,
-                specificHeat: materialProps?.laser_material_interaction?.specificHeat?.value || materialProps?.physical_properties?.specificHeat?.value,
+                specificHeat: 
+                  (settings as any).thermalProperties?.specificHeat?.value ||
+                  materialProps?.laser_material_interaction?.specificHeat?.value || 
+                  materialProps?.physical_properties?.specificHeat?.value,
+                
+                // Temperature thresholds
                 meltingPoint: materialProps?.physical_properties?.meltingPoint?.value,
                 boilingPoint: materialProps?.physical_properties?.boilingPoint?.value,
                 oxidationTemperature: materialProps?.physical_properties?.oxidationTemperature?.value,
-                thermalDestructionPoint: materialProps?.physical_properties?.thermalDestructionPoint?.value,
-                ablationThreshold: materialProps?.laser_material_interaction?.ablationThreshold?.value || materialProps?.physical_properties?.ablationThreshold?.value,
-                laserDamageThreshold: materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
+                thermalDestructionPoint: 
+                  (settings as any).thermalProperties?.thermalDestructionPoint?.value ||
+                  materialProps?.physical_properties?.thermalDestructionPoint?.value,
+                
+                // Laser interaction - Priority: settings.laserMaterialInteraction > materialProps
+                ablationThreshold: 
+                  (settings as any).laserMaterialInteraction?.ablationThreshold?.value ||
+                  materialProps?.laser_material_interaction?.ablationThreshold?.value || 
+                  materialProps?.physical_properties?.ablationThreshold?.value,
+                laserDamageThreshold: 
+                  (settings as any).laserMaterialInteraction?.laserDamageThreshold?.value ||
+                  materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
                 absorptivity: materialProps?.laser_material_interaction?.absorptivity?.value || materialProps?.physical_properties?.absorptivity?.value,
                 absorptionCoefficient: materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
-                laserReflectivity: materialProps?.laser_material_interaction?.laserReflectivity?.value || materialProps?.physical_properties?.reflectivity?.value,
+                laserReflectivity: 
+                  (settings as any).laserMaterialInteraction?.reflectivity?.value ||
+                  materialProps?.laser_material_interaction?.laserReflectivity?.value || 
+                  materialProps?.physical_properties?.reflectivity?.value,
+                
+                // Thermal dynamics
                 thermalRelaxationTime: materialProps?.physical_properties?.thermalRelaxationTime?.value,
                 thermalExpansionCoefficient: materialProps?.physical_properties?.thermalExpansionCoefficient?.value,
-                thermalShockResistance: materialProps?.laser_material_interaction?.thermalShockResistance?.value,
+                thermalShockResistance: 
+                  (settings as any).laserMaterialInteraction?.thermalShockResistance?.value ||
+                  materialProps?.laser_material_interaction?.thermalShockResistance?.value,
                 heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
               }}
             />
@@ -361,6 +407,13 @@ export function SettingsLayout({
             repRate={thermalParams.rep_rate}
             scanSpeed={thermalParams.scan_speed}
             passCount={thermalParams.pass_count}
+            thermalDiffusivity={
+              // Priority: settings.thermalProperties > materialProps.laser_material_interaction > materialProps.physical_properties
+              (settings as any).thermalProperties?.thermalDiffusivity?.value ||
+              materialProps?.laser_material_interaction?.thermalDiffusivity?.value ||
+              materialProps?.physical_properties?.thermalDiffusivity?.value ||
+              undefined  // Let component use its default (97 for aluminum) if no data
+            }
           />
 
         {/* Diagnostic & Prevention Center - Tabbed Interface */}

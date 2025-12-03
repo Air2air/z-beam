@@ -103,6 +103,34 @@ machineSettings:
     value: 50
     min: 10
     max: 90
+thermalProperties:
+  thermalDiffusivity:
+    value: 0.102
+    unit: mm²/s
+  thermalConductivity:
+    value: 0.12
+    unit: W/(m·K)
+  thermalDestructionPoint:
+    value: 620
+    unit: K
+    type: softening
+laserMaterialInteraction:
+  laserDamageThreshold:
+    value: 2.0
+    unit: J/cm²
+  ablationThreshold:
+    value: 0.25
+    unit: J/cm²
+  optimalFluenceRange:
+    min: 0.3
+    max: 1.6
+    unit: J/cm²
+  thermalShockResistance:
+    value: 1.0
+    unit: K
+  reflectivity:
+    value: 0.052
+    wavelength: 1064
 material_challenges:
   thermal_management:
   - challenge: Low melting/degradation temperatures
@@ -136,4 +164,4 @@ material_challenges:
     - Multiple gentle passes instead of single high-power pass
 preservedData:
   generationMetadata:
-    generated_date: '2025-12-01T18:15:18.968023'
+    generated_date: '2025-12-03T00:06:10.338145'

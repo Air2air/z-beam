@@ -111,6 +111,34 @@ machineSettings:
   dwellTime:
     unit: μs
     value: 100
+thermalProperties:
+  thermalDiffusivity:
+    value: 0.125
+    unit: mm²/s
+  thermalConductivity:
+    value: 0.11
+    unit: W/(m·K)
+  thermalDestructionPoint:
+    value: 600
+    unit: K
+    type: charring
+laserMaterialInteraction:
+  laserDamageThreshold:
+    value: 5
+    unit: J/cm²
+  ablationThreshold:
+    value: 1.05
+    unit: J/cm²
+  optimalFluenceRange:
+    min: 1.26
+    max: 4.0
+    unit: J/cm²
+  thermalShockResistance:
+    value: 1
+    unit: K
+  reflectivity:
+    value: 0.032
+    wavelength: 1064
 material_challenges:
   thermal_management:
   - challenge: Charring and carbonization
@@ -158,4 +186,4 @@ material_challenges:
     - Limit to 2-3 passes maximum to avoid substrate damage
 preservedData:
   generationMetadata:
-    generated_date: '2025-12-01T18:15:19.482109'
+    generated_date: '2025-12-03T00:06:10.652780'

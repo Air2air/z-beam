@@ -102,6 +102,34 @@ machineSettings:
     value: 50
     min: 10
     max: 90
+thermalProperties:
+  thermalDiffusivity:
+    value: 0.58
+    unit: mm²/s
+  thermalConductivity:
+    value: 1.14
+    unit: W/(m·K)
+  thermalDestructionPoint:
+    value: 1500
+    unit: K
+    type: softening
+laserMaterialInteraction:
+  laserDamageThreshold:
+    value: 10
+    unit: J/cm²
+  ablationThreshold:
+    value: 5.2
+    unit: J/cm²
+  optimalFluenceRange:
+    min: 6.24
+    max: 8.0
+    unit: J/cm²
+  thermalShockResistance:
+    value: 2
+    unit: K
+  reflectivity:
+    value: 0.036
+    wavelength: 1064
 material_challenges:
   thermal_management:
   - challenge: Thermal shock and catastrophic failure
@@ -152,4 +180,4 @@ material_challenges:
     - Avoid dragging ablated material across clean areas
 preservedData:
   generationMetadata:
-    generated_date: '2025-12-01T18:15:19.401447'
+    generated_date: '2025-12-03T00:06:10.556044'

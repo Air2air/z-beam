@@ -100,6 +100,34 @@ machineSettings:
   fluence:
     unit: J/cm²
     value: 3
+thermalProperties:
+  thermalDiffusivity:
+    value: 0.11
+    unit: mm²/s
+  thermalConductivity:
+    value: 0.35
+    unit: W/(m·K)
+  thermalDestructionPoint:
+    value: 673
+    unit: K
+    type: decomposition
+laserMaterialInteraction:
+  laserDamageThreshold:
+    value: 3.0
+    unit: J/cm²
+  ablationThreshold:
+    value: 1.2
+    unit: J/cm²
+  optimalFluenceRange:
+    min: 1.44
+    max: 2.4
+    unit: J/cm²
+  thermalShockResistance:
+    value: 1.5
+    unit: K
+  reflectivity:
+    value: 0.06
+    wavelength: 1064
 material_challenges:
   thermal_management:
   - challenge: Matrix degradation and delamination
@@ -148,4 +176,4 @@ material_challenges:
     - Monitor for matrix damage; stop if surface texture changes
 preservedData:
   generationMetadata:
-    generated_date: '2025-12-01T18:15:18.888820'
+    generated_date: '2025-12-03T00:06:10.244872'
