@@ -103,7 +103,7 @@ export function Navbar() {
         {/* Van image superimposed over nav bar - clickable link to contact */}
         <Link 
           href="/contact" 
-          className="absolute left-1/2 -translate-x-1/2 top-3 z-10 transition-transform duration-300 ease-in-out hover:scale-[1.03] w-[120px] md:w-[130px]"
+          className="absolute left-1/2 -translate-x-1/2 top-3 z-10 transition-transform duration-300 ease-in-out hover:scale-[1.03] w-[90px] md:w-[130px]"
           aria-label="Contact us"
         >
           <Image
