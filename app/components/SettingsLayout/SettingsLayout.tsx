@@ -2,7 +2,7 @@
 import React from 'react';
 import { Layout } from '@/app/components/Layout/Layout';
 import { ParameterRelationships } from '@/app/components/ParameterRelationships/ParameterRelationships';
-import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap } from '@/app/components/Heatmap';
+import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap, EnergyCouplingHeatmap, ThermalStressHeatmap } from '@/app/components/Heatmap';
 import { ThermalAccumulation } from '@/app/components/ThermalAccumulation';
 import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
@@ -148,6 +148,16 @@ export function SettingsLayout({
   children
 }: SettingsLayoutProps) {
   
+  // Extract hero image URL for thumbnails
+  const heroImage = (settings as any)?.images?.hero?.url;
+  console.log('SettingsLayout heroImage:', heroImage);
+  
+  // Construct material page link from settings slug
+  // Settings URL: /settings/{category}/{subcategory}/{material}-settings
+  // Material URL: /materials/{category}/{subcategory}/{material}-laser-cleaning
+  const baseMaterialSlug = slug.replace(/-settings$/, '');
+  const materialLink = `/materials/${category}/${subcategory}/${baseMaterialSlug}-laser-cleaning`;
+  
   // Prepare enriched metadata for Layout component (includes all fields Layout expects)
   const metadata = {
     ...settings,
@@ -262,18 +272,16 @@ export function SettingsLayout({
       <MachineSettings 
         metadata={metadata}
         materialName={settings.name}
-      />
-      
-      {/* Parameter Interaction Network */}
-      <ParameterRelationships 
-        parameters={paramData || []}
-        materialName={settings.name}
+        heroImage={heroImage}
+        materialLink={materialLink}
       />
 
       {/* Material Safety Heatmap */}
       <div className="mb-8">
         <MaterialSafetyHeatmap 
               materialName={settings.name}
+              thumbnail={heroImage}
+              materialLink={materialLink}
               powerRange={{
                 min: powerParam?.min || 0,
                 max: powerParam?.max || 200,
@@ -331,6 +339,10 @@ export function SettingsLayout({
                   (settings as any).laserMaterialInteraction?.thermalShockResistance?.value ||
                   materialProps?.laser_material_interaction?.thermalShockResistance?.value,
                 heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
+                
+                // Machine parameters for physics calculations (from settings)
+                repetitionRate: (findParam('repetitionRate')?.value || 80) * 1000, // Convert kHz to Hz
+                spotDiameter: findParam('spotSize')?.value || 300, // μm
               }}
             />
           </div>
@@ -339,6 +351,8 @@ export function SettingsLayout({
         <div className="mb-8">
             <ProcessEffectivenessHeatmap 
               materialName={settings.name}
+              thumbnail={heroImage}
+              materialLink={materialLink}
               powerRange={{
                 min: powerParam?.min || 0,
                 max: powerParam?.max || 200,
@@ -396,6 +410,101 @@ export function SettingsLayout({
                   (settings as any).laserMaterialInteraction?.thermalShockResistance?.value ||
                   materialProps?.laser_material_interaction?.thermalShockResistance?.value,
                 heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
+                
+                // Machine parameters for physics calculations (from settings)
+                repetitionRate: (findParam('repetitionRate')?.value || 80) * 1000, // Convert kHz to Hz
+                spotDiameter: findParam('spotSize')?.value || 300, // μm
+              }}
+            />
+          </div>
+
+        {/* Energy Coupling Heatmap - Shows laser energy transfer efficiency */}
+        <div className="mb-8">
+            <EnergyCouplingHeatmap 
+              materialName={settings.name}
+              thumbnail={heroImage}
+              materialLink={materialLink}
+              powerRange={{
+                min: powerParam?.min || 0,
+                max: powerParam?.max || 200,
+                current: powerParam?.current || powerParam?.value || 100,
+              }}
+              pulseRange={{
+                min: pulseParam?.min || 0,
+                max: pulseParam?.max || 1000,
+                current: pulseParam?.current || pulseParam?.value || 100,
+              }}
+              optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
+              optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
+              materialProperties={{
+                // Reflectivity and absorption properties
+                laserReflectivity: 
+                  (settings as any).laserMaterialInteraction?.reflectivity?.value ||
+                  materialProps?.laser_material_interaction?.laserReflectivity?.value || 
+                  materialProps?.physical_properties?.reflectivity?.value ||
+                  materialProps?.material_characteristics?.reflectivity?.value,
+                absorptivity: 
+                  materialProps?.laser_material_interaction?.absorptivity?.value || 
+                  materialProps?.physical_properties?.absorptivity?.value ||
+                  materialProps?.material_characteristics?.absorptivity?.value,
+                absorptionCoefficient: 
+                  materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
+                // Additional properties for energy coupling analysis
+                density: materialProps?.material_characteristics?.density?.value,
+                porosity: materialProps?.material_characteristics?.porosity?.value,
+                surfaceRoughness: materialProps?.material_characteristics?.surfaceRoughness?.value,
+                // Machine parameters
+                repetitionRate: (findParam('repetitionRate')?.value || 80) * 1000,
+                spotDiameter: findParam('spotSize')?.value || 300,
+              }}
+            />
+          </div>
+
+        {/* Thermal Stress Heatmap - Shows thermal stress and distortion risk */}
+        <div className="mb-8">
+            <ThermalStressHeatmap 
+              materialName={settings.name}
+              thumbnail={heroImage}
+              materialLink={materialLink}
+              powerRange={{
+                min: powerParam?.min || 0,
+                max: powerParam?.max || 200,
+                current: powerParam?.current || powerParam?.value || 100,
+              }}
+              pulseRange={{
+                min: pulseParam?.min || 0,
+                max: pulseParam?.max || 1000,
+                current: pulseParam?.current || pulseParam?.value || 100,
+              }}
+              optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
+              optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
+              materialProperties={{
+                // Thermal expansion and stress properties
+                thermalExpansionCoefficient: 
+                  materialProps?.physical_properties?.thermalExpansionCoefficient?.value ||
+                  materialProps?.laser_material_interaction?.thermalExpansion?.value,
+                thermalDiffusivity: 
+                  (settings as any).thermalProperties?.thermalDiffusivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalDiffusivity?.value || 
+                  materialProps?.physical_properties?.thermalDiffusivity?.value,
+                meltingPoint: 
+                  materialProps?.physical_properties?.meltingPoint?.value ||
+                  materialProps?.material_characteristics?.meltingPoint?.value,
+                boilingPoint: 
+                  materialProps?.physical_properties?.boilingPoint?.value ||
+                  materialProps?.material_characteristics?.boilingPoint?.value,
+                thermalShockResistance: 
+                  (settings as any).laserMaterialInteraction?.thermalShockResistance?.value ||
+                  materialProps?.laser_material_interaction?.thermalShockResistance?.value,
+                thermalConductivity: 
+                  (settings as any).thermalProperties?.thermalConductivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalConductivity?.value,
+                specificHeat:
+                  (settings as any).thermalProperties?.specificHeat?.value ||
+                  materialProps?.laser_material_interaction?.specificHeat?.value ||
+                  materialProps?.physical_properties?.specificHeat?.value,
+                // Material density for thermal mass calculations
+                density: materialProps?.material_characteristics?.density?.value,
               }}
             />
           </div>
@@ -414,6 +523,8 @@ export function SettingsLayout({
               materialProps?.physical_properties?.thermalDiffusivity?.value ||
               undefined  // Let component use its default (97 for aluminum) if no data
             }
+            heroImage={heroImage}
+            materialLink={materialLink}
           />
 
         {/* Diagnostic & Prevention Center - Tabbed Interface */}
@@ -421,6 +532,8 @@ export function SettingsLayout({
             materialName={settings.name}
             challenges={defaultChallenges!}
             issues={defaultIssues!}
+            heroImage={heroImage}
+            materialLink={materialLink}
           />
 
       {/* Research Citations - NEW */}
@@ -428,6 +541,8 @@ export function SettingsLayout({
         <Citations 
           research_library={settings.research_library}
           materialName={settings.name}
+          heroImage={heroImage}
+          materialLink={materialLink}
         />
       )}
 
@@ -453,6 +568,14 @@ export function SettingsLayout({
         faq={(settings as any).faq || []}
         regulatoryStandards={(settings as any).regulatoryStandards || []}
         showFullDataset={true}
+      />
+
+      {/* Parameter Interaction Network - at bottom for reference */}
+      <ParameterRelationships 
+        parameters={paramData || []}
+        materialName={settings.name}
+        heroImage={heroImage}
+        materialLink={materialLink}
       />
 
       {/* Custom content slot */}

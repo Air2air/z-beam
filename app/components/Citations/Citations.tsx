@@ -2,6 +2,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import type { CitationsProps } from '@/types/centralized';
 
 /**
@@ -19,7 +21,7 @@ import type { CitationsProps } from '@/types/centralized';
  * <Citations research_library={settings.research_library} materialName="Aluminum" />
  * ```
  */
-export function Citations({ research_library, materialName }: CitationsProps) {
+export function Citations({ research_library, materialName, heroImage, materialLink }: CitationsProps & { heroImage?: string; materialLink?: string }) {
   const [expandedCitations, setExpandedCitations] = useState<Set<string>>(new Set());
 
   if (!research_library || Object.keys(research_library).length === 0) {
@@ -46,13 +48,13 @@ export function Citations({ research_library, materialName }: CitationsProps) {
         
         {/* Header */}
         <div className="bg-tertiary px-6 py-4 border-b">
-          <h2 className="text-2xl text-secondary font-bold flex items-center gap-3">
-            <span className="text-blue-400">📚</span>
-            <span>Research Citations</span>
-          </h2>
-          <p className="text-sm text-tertiary mt-1">
-            {citations.length} peer-reviewed {citations.length === 1 ? 'source' : 'sources'} validating {materialName || 'these'} settings
-          </p>
+          <SectionTitle
+            title="Research Citations"
+            icon={getSectionIcon('citations')}
+            description={`${citations.length} peer-reviewed ${citations.length === 1 ? 'source' : 'sources'} validating ${materialName || 'these'} settings`}
+            thumbnail={heroImage}
+            thumbnailLink={materialLink}
+          />
         </div>
 
         {/* Citations List */}

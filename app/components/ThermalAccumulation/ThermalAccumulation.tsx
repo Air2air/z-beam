@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface ThermalAccumulationProps {
@@ -12,6 +13,8 @@ interface ThermalAccumulationProps {
   scanSpeed: number; // mm/s
   passCount: number;
   thermalDiffusivity?: number; // mm²/s (aluminum = 97)
+  heroImage?: string;
+  materialLink?: string;
 }
 
 /**
@@ -25,6 +28,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
   scanSpeed,
   passCount,
   thermalDiffusivity = 97, // Aluminum default
+  heroImage,
+  materialLink,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -163,15 +168,17 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
   
   return (
     <SectionContainer
-      title={title}
-      icon={getSectionIcon('technical')}
       bgColor="transparent"
       className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
       horizPadding={true}
     >
-      <p className="text-sm mb-6">
-        See if your multi-pass cleaning will overheat and damage the material
-      </p>
+      <SectionTitle
+        title={title}
+        icon={getSectionIcon('technical')}
+        description="See if your multi-pass cleaning will overheat and damage the material"
+        thumbnail={heroImage}
+        thumbnailLink={materialLink}
+      />
 
       <div className="grid lg:grid-cols-[1fr,350px] gap-6">
         {/* Temperature Graph */}

@@ -11,6 +11,7 @@
 "use client";
 
 import { SectionContainer } from "../SectionContainer/SectionContainer";
+import { SectionTitle } from "../SectionTitle/SectionTitle";
 import { trackFAQClick } from "@/app/utils/analytics";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import type { MaterialFAQProps } from '@/types';
@@ -29,7 +30,9 @@ export function MaterialFAQ({
   materialName,
   faq = [],
   className = "",
-}: MaterialFAQProps) {
+  heroImage,
+  thumbnailLink,
+}: MaterialFAQProps & { heroImage?: string; thumbnailLink?: string }) {
   // Use FAQ data from frontmatter
   if (!faq || faq.length === 0) return null;
 
@@ -49,10 +52,14 @@ export function MaterialFAQ({
   return (
     <SectionContainer
       variant="default"
-      title={`${materialName} Laser Cleaning FAQs`}
-      icon={getSectionIcon('faq')}
     >
-      <div className="space-y-2" role="list">
+      <SectionTitle 
+        title={`${materialName} Laser Cleaning FAQs`}
+        icon={getSectionIcon('faq')}
+        thumbnail={heroImage}
+        thumbnailLink={thumbnailLink}
+      />
+      <div className="space-y-2 mt-4" role="list">
         {faq.map((item, index) => (
           <div key={index} role="listitem">
             <details

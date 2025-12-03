@@ -4,7 +4,7 @@
 import React, { useMemo } from 'react';
 import { BaseHeatmap } from './BaseHeatmap';
 import { getSectionIcon } from '@/app/config/sectionIcons';
-import { BaseHeatmapProps, MaterialProperties, HeatmapRange, CellAnalysis, HoveredCell } from './types';
+import { MaterialProperties, HeatmapRange, CellAnalysis, FactorCardConfig } from './types';
 
 interface MaterialSafetyHeatmapProps {
   powerRange: HeatmapRange;
@@ -13,6 +13,8 @@ interface MaterialSafetyHeatmapProps {
   optimalPulse: [number, number];
   materialProperties?: MaterialProperties;
   materialName?: string;
+  thumbnail?: string;
+  materialLink?: string;
 }
 
 /**
@@ -52,10 +54,11 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
         };
       }
 
-      // Energy calculations
-      const repRateHz = 80000;
+      // Energy calculations - use machine parameters from settings (with sensible defaults)
+      const repRateHz = matProps.repetitionRate || 80000;  // Hz (default 80kHz)
+      const spotDiameterUm = matProps.spotDiameter || 300; // μm (default 300μm)
+      
       const pulseEnergyJ = power / repRateHz;
-      const spotDiameterUm = 300;
       const spotDiameterCm = spotDiameterUm / 10000;
       const spotAreaCm2 = Math.PI * Math.pow(spotDiameterCm / 2, 2);
       const fluence = pulseEnergyJ / spotAreaCm2;
@@ -171,203 +174,74 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
     return 'CATASTROPHIC - Material Failure';
   };
 
-  const renderAnalysisPanel = (hoveredCell: HoveredCell | null, currentPower: number, currentPulse: number) => {
-    const result = hoveredCell?.analysis || calculateScore(currentPower, currentPulse, materialProperties).analysis;
-    const level = Math.round(result.level);
-    const _materialLabel = props.materialName || 'Material';
-    
-    return (
-      <section>
-        {/* Status Summary */}
-        <article className={`mb-4 p-3 rounded-lg border-2 ${
-          level >= 20 ? 'bg-green-900/20 border-green-500/50' :
-          level >= 15 ? 'bg-yellow-900/20 border-yellow-500/50' :
-          level >= 9 ? 'bg-orange-900/20 border-orange-500/50' :
-          'bg-red-900/20 border-red-500/50'
-        }`} aria-label="Safety status summary">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2 text-base">
-              <span className="text-primary font-bold">
-                {hoveredCell ? hoveredCell.power.toFixed(0) : currentPower}W
-                {' × '}
-                {hoveredCell ? hoveredCell.pulse.toFixed(1) : currentPulse}ns
-              </span>
-            </div>
-            <span className={`text-sm font-bold ${
-              level >= 20 ? 'text-green-400' :
-              level >= 15 ? 'text-yellow-400' :
-              level >= 9 ? 'text-orange-400' :
-              'text-red-400'
-            }`}>
-              {level}/25
-            </span>
-          </div>
-          
-          <div className="flex items-center gap-2 mb-2">
-            <span className={`text-sm font-semibold ${
-              level >= 20 ? 'text-green-400' :
-              level >= 15 ? 'text-yellow-400' :
-              level >= 9 ? 'text-orange-400' :
-              'text-red-400'
-            }`}>
-              {getSafetyLabel(level)}
-            </span>
-          </div>
-          
-          {/* Progress bar */}
-          <div className="bg-gray-950 rounded-full h-2 overflow-hidden">
-            <div 
-              className={`h-full transition-all ${
-                result.finalScore > 0.7 ? 'bg-gradient-to-r from-green-500 to-emerald-400' :
-                result.finalScore > 0.4 ? 'bg-gradient-to-r from-yellow-500 to-amber-400' :
-                'bg-gradient-to-r from-red-500 to-orange-400'
-              }`}
-              style={{ width: `${result.finalScore * 100}%` }}
-            />
-          </div>
-          <div className="text-[10px] text-tertiary mt-1 text-right">
-            {Math.round(result.finalScore * 100)}% safe
-          </div>
-        </article>
-        
-        {/* Damage Risk Factor */}
-        <article className="bg-tertiary rounded p-2 border border-red-500/30 text-xs" aria-label="Damage risk factor analysis">
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-tertiary font-medium">Damage Risk</span>
-            <span className="text-red-400 font-bold">50%</span>
-          </div>
-          <div className="text-[10px] text-muted mb-1.5">
-            Will this damage the material?
-          </div>
-          
-          {/* Clear status indicator */}
-          <div className={`mb-1.5 px-2 py-1 rounded text-[10px] font-semibold text-center ${
-            result.fluenceRatio < 0.5 ? 'bg-green-500/20 text-green-300' :
-            result.fluenceRatio < 0.8 ? 'bg-yellow-500/20 text-yellow-300' :
-            result.fluenceRatio < 1.0 ? 'bg-orange-500/20 text-orange-300' :
-            'bg-red-500/20 text-red-300'
-          }`}>
-            {result.fluenceRatio < 0.5 ? '✓ SAFE - Well below damage threshold' :
-             result.fluenceRatio < 0.8 ? '⚠ CAUTION - Approaching damage threshold' :
-             result.fluenceRatio < 1.0 ? '⚠ WARNING - Near damage threshold' :
-             '✗ DANGER - Exceeds damage threshold'}
-          </div>
-          
-          <div className="flex justify-between text-[10px] mb-0.5">
-            <span className="text-muted">Current Energy:</span>
-            <span className="text-primary">{result.fluence.toFixed(2)} J/cm²</span>
-          </div>
-          <div className="flex justify-between text-[10px]">
-            <span className="text-muted">Damage Threshold:</span>
-            <span className="text-tertiary">{(result.fluence / result.fluenceRatio).toFixed(2)} J/cm²</span>
-          </div>
-          
-          <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
-            <div 
-              className={`h-full transition-all ${
-                result.damageScore > 0.7 ? 'bg-green-500' :
-                result.damageScore > 0.4 ? 'bg-yellow-500' :
-                'bg-red-500'
-              }`}
-              style={{ width: `${result.damageScore * 100}%` }}
-            />
-          </div>
-        </article>
-
-        {/* Power Factor */}
-        <article className="bg-tertiary rounded p-2 border border-orange-500/30 text-xs mt-2.5" aria-label="Power factor analysis">
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-tertiary font-medium">Power Factor</span>
-            <span className="text-orange-400 font-bold">25%</span>
-          </div>
-          <div className="text-[10px] text-muted mb-1.5">
-            Spatial power distribution effects
-          </div>
-          <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
-            <div 
-              className={`h-full transition-all ${
-                result.powerScore > 0.7 ? 'bg-green-500' :
-                result.powerScore < 0.3 ? 'bg-red-500' :
-                'bg-orange-500'
-              }`}
-              style={{ width: `${result.powerScore * 100}%` }}
-            />
-          </div>
-        </article>
-
-        {/* Pulse Duration Factor */}
-        <article className="bg-tertiary rounded p-2 border border-yellow-500/30 text-xs mt-2.5" aria-label="Pulse duration factor analysis">
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-tertiary font-medium">Pulse Factor</span>
-            <span className="text-yellow-400 font-bold">20%</span>
-          </div>
-          <div className="text-[10px] text-muted mb-1.5">
-            Thermal accumulation effects
-          </div>
-          <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
-            <div 
-              className={`h-full transition-all ${
-                result.pulseScore > 0.7 ? 'bg-green-500' :
-                result.pulseScore < 0.3 ? 'bg-red-500' :
-                'bg-yellow-500'
-              }`}
-              style={{ width: `${result.pulseScore * 100}%` }}
-            />
-          </div>
-        </article>
-
-        {/* Thermal Shock Resistance Factor */}
-        <article className="bg-tertiary rounded p-2 border border-blue-500/30 text-xs mt-2.5" aria-label="Thermal shock resistance factor analysis">
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-tertiary font-medium">Shock Resistance</span>
-            <span className="text-blue-400 font-bold">5%</span>
-          </div>
-          <div className="text-[10px] text-muted mb-1.5">
-            Material thermal shock tolerance
-          </div>
-          <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
-            <div 
-              className="h-full bg-blue-500 transition-all"
-              style={{ width: `${result.shockScore * 100}%` }}
-            />
-          </div>
-        </article>
-      </section>
-    );
-  };
-
-  const baseHeatmapProps: Omit<BaseHeatmapProps, 'calculateScore' | 'colorAnchors' | 'getScoreLabel' | 'legendItems'> = {
-    ...props,
-    title: props.materialName ? `${props.materialName} Material Safety` : "Material Safety Analysis",
-    description: "Shows damage risk across parameter space. Green = safe, Red = damage danger.",
-    icon: getSectionIcon('safety'),
-    renderAnalysisPanel
-  };
+  // Factor card configurations for Material Safety
+  const factorCards: FactorCardConfig[] = useMemo(() => [
+    {
+      id: 'damageRisk',
+      label: 'Damage Risk',
+      weight: '50%',
+      description: 'Will this damage the material?',
+      color: 'red',
+      getValue: (analysis) => analysis.damageScore || 0,
+      getStatus: (analysis) => {
+        const ratio = analysis.fluenceRatio || 0;
+        if (ratio < 0.5) return { text: '✓ SAFE - Well below damage threshold', color: 'green' };
+        if (ratio < 0.8) return { text: '⚠ CAUTION - Approaching damage threshold', color: 'yellow' };
+        if (ratio < 1.0) return { text: '⚠ WARNING - Near damage threshold', color: 'orange' };
+        return { text: '✗ DANGER - Exceeds damage threshold', color: 'red' };
+      },
+      dataRows: [
+        {
+          label: 'Current Energy:',
+          getValue: (analysis) => `${(analysis.fluence || 0).toFixed(2)} J/cm²`,
+        },
+        {
+          label: 'Damage Threshold:',
+          getValue: (analysis) => {
+            const fluence = analysis.fluence || 0;
+            const ratio = analysis.fluenceRatio || 1;
+            return `${(fluence / ratio).toFixed(2)} J/cm²`;
+          },
+          getColor: () => 'text-secondary font-medium',
+        },
+      ],
+    },
+    {
+      id: 'powerFactor',
+      label: 'Power Factor',
+      weight: '25%',
+      description: 'Spatial power distribution effects',
+      color: 'orange',
+      getValue: (analysis) => analysis.powerScore || 0,
+    },
+    {
+      id: 'pulseFactor',
+      label: 'Pulse Factor',
+      weight: '20%',
+      description: 'Thermal accumulation effects',
+      color: 'yellow',
+      getValue: (analysis) => analysis.pulseScore || 0,
+    },
+    {
+      id: 'shockResistance',
+      label: 'Shock Resistance',
+      weight: '5%',
+      description: 'Material thermal shock tolerance',
+      color: 'blue',
+      getValue: (analysis) => analysis.shockScore || 0,
+    },
+  ], []);
 
   return (
     <BaseHeatmap
-      {...baseHeatmapProps}
+      {...props}
+      title={props.materialName ? `${props.materialName} Material Safety` : "Material Safety Analysis"}
+      description="Shows damage risk across parameter space. Green = safe, Red = damage danger."
+      icon={getSectionIcon('safety')}
       calculateScore={calculateScore}
       getScoreLabel={getSafetyLabel}
-      colorAnchors={[
-        { level: 1, color: '#7F1D1D' },  // red-900 - Catastrophic
-        { level: 3, color: '#B91C1C' },  // red-700 - Extreme danger
-        { level: 6, color: '#DC2626' },  // red-600 - High danger
-        { level: 9, color: '#F97316' },  // orange-500 - Warning
-        { level: 12, color: '#FB923C' }, // orange-400 - Moderate caution
-        { level: 15, color: '#FACC15' }, // yellow-400 - Caution
-        { level: 18, color: '#A3E635' }, // lime-400 - Low risk
-        { level: 21, color: '#10B981' }, // green-500 - Safe
-        { level: 24, color: '#047857' }, // emerald-700 - Very safe
-        { level: 25, color: '#065F46' }  // emerald-800 - Optimal safety
-      ]}
-      legendItems={[
-        { color: '#047857', label: 'Safe', range: '23-25' },
-        { color: '#10B981', label: 'Low Risk', range: '20-23' },
-        { color: '#FACC15', label: 'Caution', range: '15-20' },
-        { color: '#F97316', label: 'Warning', range: '10-15' },
-        { color: '#DC2626', label: 'Danger', range: '1-10' }
-      ]}
+      factorCards={factorCards}
+      scoreType="safety"
     />
   );
 };

@@ -881,30 +881,99 @@ function generateAggregateRatingSchema(data: any, context: SchemaContext): Schem
 }
 
 /**
- * HowTo Schema
+ * HowTo Schema - Enhanced with parameter optimization tips from heatmap analysis
  */
 function generateHowToSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
-  const machineSettings = frontmatter.machineSettings;
+  const machineSettings = frontmatter.machineSettings as Record<string, any> | undefined;
   
   if (!machineSettings || Object.keys(machineSettings).length === 0) return null;
 
   const { pageUrl } = context;
   const materialName = frontmatter.name || data.title || 'material';
 
-  const steps = Object.entries(machineSettings).map(([key, value], index) => ({
-    '@type': 'HowToStep',
-    'position': index + 1,
-    'name': formatLabel(key),
-    'text': `Set ${formatLabel(key)} to ${value}`
-  }));
+  // Extract power and pulse settings for optimal range tips
+  const powerRange = machineSettings.powerRange;
+  const pulseWidth = machineSettings.pulseWidth;
+  const materialProps = frontmatter.materialProperties as Record<string, any> | undefined;
+  
+  // Generate standard parameter steps
+  const steps = Object.entries(machineSettings)
+    .filter(([key]) => !['material_challenges'].includes(key))
+    .map(([key, value]: [string, any], index) => {
+      // Format value based on structure
+      const displayValue = typeof value === 'object' && value !== null
+        ? `${value.value || value.min || ''} ${value.unit || ''}`
+        : String(value);
+      
+      return {
+        '@type': 'HowToStep',
+        'position': index + 1,
+        'name': formatLabel(key),
+        'text': `Set ${formatLabel(key)} to ${displayValue}`.trim()
+      };
+    });
+
+  // Generate parameter optimization tips based on material properties (from heatmap analysis)
+  const tips: any[] = [];
+  
+  // Tip 1: Power-based tip from material reflectivity
+  const reflectivity = materialProps?.laser_material_interaction?.laserReflectivity?.value ||
+                       materialProps?.laser_material_interaction?.reflectivity?.value ||
+                       materialProps?.physical_properties?.reflectivity?.value;
+  if (powerRange && reflectivity !== undefined) {
+    const isHighlyReflective = reflectivity > 0.7;
+    tips.push({
+      '@type': 'HowToTip',
+      'text': isHighlyReflective
+        ? `${materialName} has high reflectivity (${(reflectivity * 100).toFixed(0)}%). Start at the higher end of the power range (${powerRange.max || 100}W) to overcome energy reflection, then reduce power as surface oxide is removed.`
+        : `${materialName} has moderate reflectivity (${(reflectivity * 100).toFixed(0)}%). Use mid-range power settings (${Math.round((powerRange.min + powerRange.max) / 2) || 75}W) for optimal energy coupling.`
+    });
+  }
+  
+  // Tip 2: Thermal stress tip from expansion coefficient
+  const thermalExpansion = materialProps?.physical_properties?.thermalExpansionCoefficient?.value ||
+                           materialProps?.laser_material_interaction?.thermalExpansion?.value;
+  const meltingPoint = materialProps?.physical_properties?.meltingPoint?.value;
+  if (thermalExpansion && pulseWidth) {
+    const isHighExpansion = thermalExpansion > 15; // Above 15 µm/m·K is high
+    tips.push({
+      '@type': 'HowToTip',
+      'text': isHighExpansion
+        ? `${materialName} has high thermal expansion (${thermalExpansion} µm/m·K). Use shorter pulse widths (${pulseWidth.min || 10}ns) to minimize thermal stress and prevent warping.`
+        : `${materialName} has moderate thermal expansion (${thermalExpansion} µm/m·K). Standard pulse widths (${pulseWidth.value || 100}ns) provide good balance between cleaning efficiency and thermal management.`
+    });
+  }
+  
+  // Tip 3: Temperature margin tip
+  if (meltingPoint && powerRange) {
+    tips.push({
+      '@type': 'HowToTip',
+      'text': `${materialName} melts at ${meltingPoint}K (${Math.round(meltingPoint - 273)}°C). Monitor for discoloration which indicates approaching thermal damage threshold. Stay below 70% of melting temperature for safe operation.`
+    });
+  }
+  
+  // Tip 4: Optimal parameter zone tip (combines power and pulse)
+  if (powerRange && pulseWidth) {
+    const optPowerMin = powerRange.min ? Math.round(powerRange.min + (powerRange.max - powerRange.min) * 0.3) : 50;
+    const optPowerMax = powerRange.max ? Math.round(powerRange.min + (powerRange.max - powerRange.min) * 0.7) : 150;
+    const optPulseMin = pulseWidth.min ? Math.round(pulseWidth.min + (pulseWidth.max - pulseWidth.min) * 0.2) : 50;
+    const optPulseMax = pulseWidth.max ? Math.round(pulseWidth.min + (pulseWidth.max - pulseWidth.min) * 0.6) : 300;
+    
+    tips.push({
+      '@type': 'HowToTip',
+      'text': `Optimal parameter zone for ${materialName}: Power ${optPowerMin}-${optPowerMax}W with pulse width ${optPulseMin}-${optPulseMax}ns provides best balance of safety, effectiveness, and energy coupling based on multi-factor analysis.`
+    });
+  }
 
   return {
     '@type': 'HowTo',
     '@id': `${pageUrl}#howto`,
     'name': `How to laser clean ${materialName}`,
-    'description': `Step-by-step process for laser cleaning ${materialName}`,
-    'step': steps
+    'description': `Step-by-step process for laser cleaning ${materialName} with optimized parameters based on material properties analysis`,
+    'totalTime': 'PT30M',
+    'step': steps,
+    ...(tips.length > 0 && { 'tip': tips })
   };
 }
 
@@ -1235,8 +1304,9 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
 }
 
 /**
- * Dataset Schema - Enhanced with E-E-A-T author signals
+ * Dataset Schema - Enhanced with E-E-A-T author signals and parameter optimization analysis
  * Includes both material properties AND machine settings for comprehensive datasets
+ * Now also includes heatmap-derived parameter optimization data
  */
 function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
@@ -1271,9 +1341,11 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
 
   // Build variableMeasured array from both material properties and machine settings
   const measurements: any[] = [];
+  const machineSettings = frontmatter.machineSettings as Record<string, any>;
+  const materialProps = frontmatter.materialProperties as Record<string, any> | undefined;
   
   // Add machine settings if present
-  if (frontmatter.machineSettings) {
+  if (machineSettings) {
     const settingsMap: Record<string, { label: string; description: string }> = {
       powerRange: { label: 'Power Range', description: 'Laser power output' },
       wavelength: { label: 'Wavelength', description: 'Laser beam wavelength' },
@@ -1288,7 +1360,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
       dwellTime: { label: 'Dwell Time', description: 'Time laser spends per location' }
     };
     
-    Object.entries(frontmatter.machineSettings as Record<string, any>).forEach(([key, settingData]: [string, any]) => {
+    Object.entries(machineSettings).forEach(([key, settingData]: [string, any]) => {
       if (settingsMap[key] && settingData?.value !== undefined && settingData?.unit) {
         measurements.push({
           '@type': 'PropertyValue',
@@ -1296,15 +1368,18 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
           'name': settingsMap[key].label,
           'value': settingData.value,
           'unitText': settingData.unit,
-          'description': settingsMap[key].description
+          'description': settingsMap[key].description,
+          // Add min/max for range-based parameters
+          ...(settingData.min !== undefined && { 'minValue': settingData.min }),
+          ...(settingData.max !== undefined && { 'maxValue': settingData.max })
         });
       }
     });
   }
   
   // Add material properties if present
-  if (frontmatter.materialProperties) {
-    Object.entries(frontmatter.materialProperties as Record<string, any>).forEach(([categoryKey, categoryData]: [string, any]) => {
+  if (materialProps) {
+    Object.entries(materialProps).forEach(([categoryKey, categoryData]: [string, any]) => {
       const propsToProcess = categoryData?.properties || categoryData;
       
       if (typeof propsToProcess === 'object' && !Array.isArray(propsToProcess)) {
@@ -1336,15 +1411,81 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     });
   }
 
-  const hasMachineSettings = !!(frontmatter.machineSettings && Object.keys(frontmatter.machineSettings).length > 0);
-  const hasMaterialProps = !!(frontmatter.materialProperties && Object.keys(frontmatter.materialProperties).length > 0);
+  // === HEATMAP ANALYSIS DATA ===
+  // Add parameter optimization data derived from multi-factor heatmap analysis
+  const powerRange = machineSettings?.powerRange;
+  const pulseWidth = machineSettings?.pulseWidth;
+  
+  if (powerRange && pulseWidth) {
+    // Calculate optimal ranges (same logic as heatmap components)
+    const optPowerMin = powerRange.min ? Math.round(powerRange.min + (powerRange.max - powerRange.min) * 0.3) : 50;
+    const optPowerMax = powerRange.max ? Math.round(powerRange.min + (powerRange.max - powerRange.min) * 0.7) : 150;
+    const optPulseMin = pulseWidth.min ? Math.round(pulseWidth.min + (pulseWidth.max - pulseWidth.min) * 0.2) : 50;
+    const optPulseMax = pulseWidth.max ? Math.round(pulseWidth.min + (pulseWidth.max - pulseWidth.min) * 0.6) : 300;
+    
+    // Add optimal power range as a computed property
+    measurements.push({
+      '@type': 'PropertyValue',
+      'propertyID': 'optimalPowerRange',
+      'name': 'Optimal Power Range',
+      'minValue': optPowerMin,
+      'maxValue': optPowerMax,
+      'unitText': powerRange.unit || 'W',
+      'description': 'Computed optimal power range for maximum safety and effectiveness based on multi-factor heatmap analysis',
+      'measurementTechnique': 'Multi-factor scoring (safety, effectiveness, energy coupling, thermal stress)'
+    });
+    
+    // Add optimal pulse range as a computed property
+    measurements.push({
+      '@type': 'PropertyValue',
+      'propertyID': 'optimalPulseWidth',
+      'name': 'Optimal Pulse Width',
+      'minValue': optPulseMin,
+      'maxValue': optPulseMax,
+      'unitText': pulseWidth.unit || 'ns',
+      'description': 'Computed optimal pulse width for best balance of cleaning efficiency and thermal management',
+      'measurementTechnique': 'Multi-factor scoring (safety, effectiveness, energy coupling, thermal stress)'
+    });
+  }
+  
+  // Add heatmap scoring factors as measured variables
+  const reflectivity = materialProps?.laser_material_interaction?.laserReflectivity?.value ||
+                       materialProps?.laser_material_interaction?.reflectivity?.value;
+  const thermalExpansion = materialProps?.physical_properties?.thermalExpansionCoefficient?.value ||
+                           materialProps?.laser_material_interaction?.thermalExpansion?.value;
+  const thermalDiffusivity = materialProps?.laser_material_interaction?.thermalDiffusivity?.value;
+  
+  if (reflectivity !== undefined) {
+    measurements.push({
+      '@type': 'PropertyValue',
+      'propertyID': 'energyCouplingFactor',
+      'name': 'Energy Coupling Factor',
+      'value': Math.round((1 - reflectivity) * 100),
+      'unitText': '%',
+      'description': 'Percentage of laser energy absorbed by material (inverse of reflectivity). Higher values indicate better energy transfer efficiency.'
+    });
+  }
+  
+  if (thermalExpansion !== undefined) {
+    const stressRisk = thermalExpansion > 20 ? 'High' : thermalExpansion > 10 ? 'Moderate' : 'Low';
+    measurements.push({
+      '@type': 'PropertyValue',
+      'propertyID': 'thermalStressRisk',
+      'name': 'Thermal Stress Risk Level',
+      'value': stressRisk,
+      'description': `Risk assessment based on thermal expansion coefficient (${thermalExpansion} µm/m·K). ${stressRisk} risk indicates ${stressRisk === 'High' ? 'need for shorter pulses and careful thermal management' : stressRisk === 'Moderate' ? 'standard precautions recommended' : 'material is thermally stable during processing'}.`
+    });
+  }
+
+  const hasMachineSettingsData = !!(machineSettings && Object.keys(machineSettings).length > 0);
+  const hasMaterialPropsData = !!(materialProps && Object.keys(materialProps).length > 0);
   
   let datasetDescription = `Comprehensive laser cleaning dataset for ${frontmatter.name || 'material'}.`;
-  if (hasMachineSettings && hasMaterialProps) {
-    datasetDescription += ' Includes validated machine parameters and material properties for optimal cleaning results.';
-  } else if (hasMachineSettings) {
-    datasetDescription += ' Includes validated machine parameters for optimal cleaning results.';
-  } else if (hasMaterialProps) {
+  if (hasMachineSettingsData && hasMaterialPropsData) {
+    datasetDescription += ' Includes validated machine parameters, material properties, and computed optimal parameter ranges from multi-factor heatmap analysis for optimal cleaning results.';
+  } else if (hasMachineSettingsData) {
+    datasetDescription += ' Includes validated machine parameters and computed optimal ranges for laser cleaning.';
+  } else if (hasMaterialPropsData) {
     datasetDescription += ' Includes validated material properties for laser cleaning applications.';
   }
 

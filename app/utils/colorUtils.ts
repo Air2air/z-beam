@@ -3,29 +3,106 @@
  */
 
 /**
- * Interpolate between two hex colors
+ * Smooth easing function (ease-in-out cubic)
+ * Creates smoother transitions between colors
+ */
+function smoothStep(t: number): number {
+  // Clamp to 0-1
+  t = Math.max(0, Math.min(1, t));
+  // Smooth cubic ease-in-out
+  return t * t * (3 - 2 * t);
+}
+
+/**
+ * Convert hex to HSL
+ */
+function hexToHsl(hex: string): [number, number, number] {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!result) return [0, 0, 0];
+  
+  const r = parseInt(result[1], 16) / 255;
+  const g = parseInt(result[2], 16) / 255;
+  const b = parseInt(result[3], 16) / 255;
+  
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  let h = 0, s = 0;
+  const l = (max + min) / 2;
+
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+      case g: h = ((b - r) / d + 2) / 6; break;
+      case b: h = ((r - g) / d + 4) / 6; break;
+    }
+  }
+  
+  return [h, s, l];
+}
+
+/**
+ * Convert HSL to hex
+ */
+function hslToHex(h: number, s: number, l: number): string {
+  let r, g, b;
+  
+  if (s === 0) {
+    r = g = b = l;
+  } else {
+    const hue2rgb = (p: number, q: number, t: number) => {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1/6) return p + (q - p) * 6 * t;
+      if (t < 1/2) return q;
+      if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+      return p;
+    };
+    
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+  
+  const toHex = (x: number) => Math.round(x * 255).toString(16).padStart(2, '0');
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+/**
+ * Interpolate between two hex colors with smooth easing
+ * Uses HSL color space for more perceptually uniform transitions
  * @param color1 - First hex color (e.g., "#FF0000")
  * @param color2 - Second hex color (e.g., "#00FF00")
  * @param factor - Interpolation factor (0 to 1)
+ * @param useSmoothing - Apply smooth easing (default: true)
  * @returns Interpolated hex color
  */
-export function interpolateColor(color1: string, color2: string, factor: number): string {
-  const hex1 = color1.replace('#', '');
-  const hex2 = color2.replace('#', '');
+export function interpolateColor(
+  color1: string, 
+  color2: string, 
+  factor: number,
+  useSmoothing: boolean = true
+): string {
+  // Apply smooth easing
+  const t = useSmoothing ? smoothStep(factor) : factor;
   
-  const r1 = parseInt(hex1.substring(0, 2), 16);
-  const g1 = parseInt(hex1.substring(2, 4), 16);
-  const b1 = parseInt(hex1.substring(4, 6), 16);
+  // Convert to HSL for perceptually smoother interpolation
+  const [h1, s1, l1] = hexToHsl(color1);
+  const [h2, s2, l2] = hexToHsl(color2);
   
-  const r2 = parseInt(hex2.substring(0, 2), 16);
-  const g2 = parseInt(hex2.substring(2, 4), 16);
-  const b2 = parseInt(hex2.substring(4, 6), 16);
+  // Handle hue interpolation (shortest path around color wheel)
+  let hDiff = h2 - h1;
+  if (hDiff > 0.5) hDiff -= 1;
+  if (hDiff < -0.5) hDiff += 1;
   
-  const r = Math.round(r1 + (r2 - r1) * factor);
-  const g = Math.round(g1 + (g2 - g1) * factor);
-  const b = Math.round(b1 + (b2 - b1) * factor);
+  const h = (h1 + hDiff * t + 1) % 1;
+  const s = s1 + (s2 - s1) * t;
+  const l = l1 + (l2 - l1) * t;
   
-  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+  return hslToHex(h, s, l);
 }
 
 /**

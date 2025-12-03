@@ -214,6 +214,12 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
       // For Dataset schema - ALWAYS set materialProperties even if undefined to avoid errors
       (settings as any).materialProperties = materialProps || {};
       
+      // Copy hero image from material for SectionTitle thumbnails
+      if (materialArticle.images?.hero) {
+        (settings as any).images = (settings as any).images || {};
+        (settings as any).images.hero = materialArticle.images.hero;
+      }
+      
       // For FAQPage schema (hasFAQData checks for faq, outcomeMetrics, applications, environmentalImpact)
       if (materialArticle.faq) {
         (settings as any).faq = materialArticle.faq;

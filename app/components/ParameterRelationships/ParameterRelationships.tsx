@@ -4,6 +4,7 @@
 import React, { useState, useMemo } from "react";
 import { formatKeyAsTitle } from "@/app/utils/formatting";
 import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
+import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import type {
   NetworkParameter,
@@ -119,9 +120,11 @@ const getRelationshipDescription = (
  * Force-directed network graph showing parameter interdependencies
  * Automatically derives material-specific relationships from parameter data
  */
-export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
+export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { heroImage?: string; materialLink?: string }> = ({
   parameters,
   materialName,
+  heroImage,
+  materialLink,
 }) => {
   // Derive material-specific relationships from parameter data
   const relationships: ParameterRelationship[] = useMemo(() => {
@@ -636,17 +639,15 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
   return (
     <SectionContainer
       variant="dark"
-      title="Parameter Relationships"
-      icon={getSectionIcon('machine-settings')}
     >
+      <SectionTitle
+        title="Parameter Relationships"
+        icon={getSectionIcon('machine-settings')}
+        description="Shows how changing one parameter physically affects others. Click any node to see its downstream impacts and role."
+        thumbnail={heroImage}
+        thumbnailLink={materialLink}
+      />
       <div className="space-y-6">
-        {/* Header Description */}
-
-        <p className="">
-          Shows how changing one parameter physically affects others.
-          <span className="text-blue-300 font-medium"> Click any node</span> to
-          see its downstream impacts and role.
-        </p>
 
         {/* Two-column layout: Network Graph (left) and Info Panel (right) on >XS */}
         <div className="parameter-relationships flex-stack-row gap-6">

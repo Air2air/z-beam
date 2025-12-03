@@ -71,7 +71,11 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       
       {/* Regulatory Standards */}
       <div className="mb-16">
-        <RegulatoryStandards standards={(metadata as any)?.regulatoryStandards} />
+        <RegulatoryStandards 
+          standards={(metadata as any)?.regulatoryStandards}
+          heroImage={(metadata as any)?.images?.hero?.url}
+          thumbnailLink={`/materials/${category}/${subcategory}/${slug}`}
+        />
       </div>
       
       {/* FAQ */}
@@ -80,6 +84,8 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
           <MaterialFAQ 
             materialName={materialName}
             faq={(metadata as any).faq}
+            heroImage={(metadata as any)?.images?.hero?.url}
+            thumbnailLink={`/materials/${category}/${subcategory}/${slug}`}
           />
         </div>
       )}

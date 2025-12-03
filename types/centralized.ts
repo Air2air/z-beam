@@ -3039,6 +3039,15 @@ export interface HeatmapMaterialProperties {
   thermalExpansionCoefficient?: number; // 1/K
   thermalShockResistance?: number; // K
   heatAffectedZoneDepth?: number; // μm
+  
+  // Material characteristics (for energy coupling analysis)
+  density?: number;               // g/cm³ or kg/m³
+  porosity?: number;              // % void fraction
+  surfaceRoughness?: number;      // μm
+  
+  // Machine parameters for physics calculations
+  repetitionRate?: number; // Hz (converted from kHz in settings)
+  spotDiameter?: number;   // μm (from spotSize in settings)
 }
 
 /**
@@ -3098,6 +3107,28 @@ export interface HeatmapLegendItem {
 }
 
 /**
+ * Factor card configuration for heatmap analysis panels
+ * Used by BaseHeatmap to render factor analysis cards
+ */
+export interface HeatmapFactorCardConfig {
+  id: string;
+  label: string;
+  weight: string;  // e.g., "50%"
+  description: string;
+  color: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'lime';
+  getValue: (analysis: HeatmapCellAnalysis) => number;  // 0-1 score
+  dataRows?: Array<{
+    label: string;
+    getValue: (analysis: HeatmapCellAnalysis) => string;
+    getColor?: (analysis: HeatmapCellAnalysis) => string;
+  }>;
+  getStatus?: (analysis: HeatmapCellAnalysis) => {
+    text: string;
+    color: 'green' | 'yellow' | 'orange' | 'red' | 'lime';
+  } | null;
+}
+
+/**
  * Base props for heatmap components
  */
 export interface BaseHeatmapProps {
@@ -3109,24 +3140,34 @@ export interface BaseHeatmapProps {
   title: string;
   description?: string;
   icon?: React.ReactNode;
+  thumbnail?: string;
+  materialLink?: string;
   gridRows?: number;
   gridCols?: number;
   
   // Required callback for calculating cell scores
   calculateScore: (power: number, pulse: number, materialProperties?: HeatmapMaterialProperties) => { level: number; analysis: HeatmapCellAnalysis };
   
-  // Color mapping configuration
-  colorAnchors: HeatmapColorAnchor[];
+  // Color mapping configuration (optional - uses default gradient if not provided)
+  colorAnchors?: HeatmapColorAnchor[];
   
   // UI customization
   getScoreLabel: (level: number) => string;
-  legendItems: HeatmapLegendItem[];
+  legendItems?: HeatmapLegendItem[];
   
-  // Optional: Custom analysis panel renderer
+  // Analysis panel options (choose one):
+  // Option 1: Provide factor cards and let BaseHeatmap render the panel
+  factorCards?: HeatmapFactorCardConfig[];
+  scoreType?: 'safety' | 'effectiveness';  // Controls status summary styling
+  
+  // Option 2: Provide custom renderer for full control
   renderAnalysisPanel?: (hoveredCell: HeatmapHoveredCell | null, currentPower: number, currentPulse: number) => React.ReactNode;
   
   // Optional: Footer description
   footerDescription?: React.ReactNode;
+  
+  // Adaptive color scaling: normalize colors to actual data range (default: true)
+  adaptiveColorScale?: boolean;
 }
 
 // ============================================================================

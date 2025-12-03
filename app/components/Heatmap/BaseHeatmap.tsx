@@ -3,24 +3,46 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
-import { getSectionIcon } from '@/app/config/sectionIcons';
-import { BaseHeatmapProps, HoveredCell } from './types';
+import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
+import { HeatmapStatusSummary } from './HeatmapStatusSummary';
+import { HeatmapFactorCard } from './HeatmapFactorCard';
+import { BaseHeatmapProps, HoveredCell, ColorAnchor, LegendItem } from './types';
 import { interpolateColor } from '@/app/utils/colorUtils';
+
+// Default color anchors - smooth red-yellow-green gradient with even spacing
+const DEFAULT_COLOR_ANCHORS: ColorAnchor[] = [
+  { level: 1, color: '#991B1B' },   // red-800 (darkest red)
+  { level: 5, color: '#DC2626' },   // red-600
+  { level: 9, color: '#EA580C' },   // orange-600
+  { level: 13, color: '#CA8A04' },  // yellow-600
+  { level: 17, color: '#65A30D' },  // lime-600
+  { level: 21, color: '#16A34A' },  // green-600
+  { level: 25, color: '#047857' },  // emerald-700 (darkest green)
+];
+
+// Default legend items
+const DEFAULT_LEGEND_ITEMS: LegendItem[] = [
+  { color: '#047857', label: 'Optimal', range: '23-25' },
+  { color: '#10B981', label: 'Good', range: '20-23' },
+  { color: '#FACC15', label: 'Moderate', range: '15-20' },
+  { color: '#F97316', label: 'Low', range: '10-15' },
+  { color: '#DC2626', label: 'Poor', range: '1-10' },
+];
 
 /**
  * BaseHeatmap - Reusable heatmap visualization component
  * Provides:
  * - Grid layout with responsive sizing
  * - Hover interactions and tooltips
- * - Color interpolation
+ * - Color interpolation (with sensible defaults)
  * - Current setting indicators
- * - Flexible analysis panel
+ * - Auto-generated analysis panel from factorCards OR custom renderer
  * 
  * Extensions customize:
  * - Score calculation logic
- * - Color mapping
- * - Analysis panel content
- * - Labels and legends
+ * - Factor card configurations
+ * - Labels (getScoreLabel)
+ * - Optional: color mapping, custom analysis panel
  */
 export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   powerRange,
@@ -31,14 +53,19 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   title,
   description,
   icon,
-  gridRows = 20,
-  gridCols = 20,
+  thumbnail,
+  materialLink,
+  gridRows = 13,
+  gridCols = 13,
   calculateScore,
-  colorAnchors,
+  colorAnchors = DEFAULT_COLOR_ANCHORS,
   getScoreLabel,
-  legendItems: _legendItems,
+  legendItems: _legendItems = DEFAULT_LEGEND_ITEMS,
+  factorCards,
+  scoreType = 'safety',
   renderAnalysisPanel,
   footerDescription: _footerDescription,
+  adaptiveColorScale = true,
 }) => {
   // Immediate hover state for tooltips
   const [_hoveredCell, setHoveredCell] = useState<HoveredCell | null>(null);
@@ -53,6 +80,29 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   // Calculate grid indices for current settings
   const currentPowerIndex = Math.round((powerRange.current - powerRange.min) / powerStep);
   const currentPulseIndex = Math.round((powerRange.current - pulseRange.min) / pulseStep);
+
+  // Pre-compute score range for adaptive color scaling
+  const { minLevel, maxLevel } = useMemo(() => {
+    if (!adaptiveColorScale) return { minLevel: 1, maxLevel: 25 };
+    
+    let min = 25, max = 1;
+    for (let row = 0; row < gridRows; row++) {
+      for (let col = 0; col < gridCols; col++) {
+        const power = powerRange.min + col * powerStep;
+        const pulse = pulseRange.max - row * pulseStep;
+        const { level } = calculateScore(power, pulse, materialProperties);
+        min = Math.min(min, level);
+        max = Math.max(max, level);
+      }
+    }
+    // Ensure at least 3 levels of range for visible gradients
+    if (max - min < 3) {
+      const mid = (max + min) / 2;
+      min = Math.max(1, mid - 2);
+      max = Math.min(25, mid + 2);
+    }
+    return { minLevel: min, maxLevel: max };
+  }, [adaptiveColorScale, gridRows, gridCols, powerRange, pulseRange, powerStep, pulseStep, calculateScore, materialProperties]);
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -96,47 +146,90 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   };
 
   /**
-   * Map level (1-25) to color using configured anchors
-   * Smoothly interpolates between anchor points
+   * Map level to color using adaptive scaling with perceptually smooth gradient
+   * Uses 16-stop interpolation through key color points for ultra-smooth transitions
    */
   const getColor = (level: number): string => {
-    const clampedLevel = Math.max(1, Math.min(25, level));
+    const clampedLevel = Math.max(minLevel, Math.min(maxLevel, level));
     
-    // Find surrounding anchor points
-    let lowerAnchor = colorAnchors[0];
-    let upperAnchor = colorAnchors[colorAnchors.length - 1];
+    // Normalize level to 0-1 range based on actual data range (adaptive scaling)
+    const range = maxLevel - minLevel;
+    const t = range > 0 ? (clampedLevel - minLevel) / range : 0.5;
     
-    for (let i = 0; i < colorAnchors.length - 1; i++) {
-      if (clampedLevel >= colorAnchors[i].level && clampedLevel <= colorAnchors[i + 1].level) {
-        lowerAnchor = colorAnchors[i];
-        upperAnchor = colorAnchors[i + 1];
+    // 16-stop color gradient for ultra-smooth perceptual transitions
+    // Carefully tuned RGB values to avoid banding and ensure even visual progression
+    const colorStops = [
+      // Deep reds (danger zone: 0-15%)
+      { pos: 0.000, r: 127, g: 29, b: 29 },   // red-900 (darkest)
+      { pos: 0.050, r: 153, g: 27, b: 27 },   // red-800
+      { pos: 0.100, r: 185, g: 28, b: 28 },   // red-700
+      { pos: 0.150, r: 220, g: 38, b: 38 },   // red-600
+      
+      // Reds to oranges (warning zone: 15-35%)
+      { pos: 0.200, r: 239, g: 68, b: 68 },   // red-500
+      { pos: 0.250, r: 249, g: 115, b: 22 },  // orange-500
+      { pos: 0.300, r: 234, g: 88, b: 12 },   // orange-600
+      { pos: 0.350, r: 217, g: 119, b: 6 },   // amber-600
+      
+      // Oranges to yellows (caution zone: 35-50%)
+      { pos: 0.400, r: 202, g: 138, b: 4 },   // yellow-600
+      { pos: 0.450, r: 234, g: 179, b: 8 },   // yellow-500
+      { pos: 0.500, r: 250, g: 204, b: 21 },  // yellow-400 (midpoint)
+      
+      // Yellows to limes (improving zone: 50-70%)
+      { pos: 0.550, r: 190, g: 190, b: 22 },  // yellow-lime blend
+      { pos: 0.600, r: 163, g: 190, b: 16 },  // lime-500
+      { pos: 0.650, r: 132, g: 204, b: 22 },  // lime-400
+      { pos: 0.700, r: 101, g: 163, b: 13 },  // lime-600
+      
+      // Limes to greens (good zone: 70-85%)
+      { pos: 0.750, r: 74, g: 163, b: 42 },   // green-lime blend
+      { pos: 0.800, r: 34, g: 197, b: 94 },   // green-400
+      { pos: 0.850, r: 22, g: 163, b: 74 },   // green-500
+      
+      // Deep greens (optimal zone: 85-100%)
+      { pos: 0.900, r: 21, g: 128, b: 61 },   // green-600
+      { pos: 0.950, r: 4, g: 120, b: 87 },    // emerald-700
+      { pos: 1.000, r: 6, g: 95, b: 70 },     // emerald-800 (safest)
+    ];
+    
+    // Find the two stops we're between
+    let lower = colorStops[0];
+    let upper = colorStops[colorStops.length - 1];
+    
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      if (t >= colorStops[i].pos && t <= colorStops[i + 1].pos) {
+        lower = colorStops[i];
+        upper = colorStops[i + 1];
         break;
       }
     }
     
-    // If exact match, return that color
-    if (clampedLevel === lowerAnchor.level) return lowerAnchor.color;
-    if (clampedLevel === upperAnchor.level) return upperAnchor.color;
+    // Smooth interpolation between the two stops using ease function
+    const localT = (t - lower.pos) / (upper.pos - lower.pos);
+    // Apply smoothstep for perceptually even transitions
+    const smoothT = localT * localT * (3 - 2 * localT);
     
-    // Interpolate between anchors
-    const range = upperAnchor.level - lowerAnchor.level;
-    const position = clampedLevel - lowerAnchor.level;
-    const factor = position / range;
+    const r = Math.round(lower.r + (upper.r - lower.r) * smoothT);
+    const g = Math.round(lower.g + (upper.g - lower.g) * smoothT);
+    const b = Math.round(lower.b + (upper.b - lower.b) * smoothT);
     
-    return interpolateColor(lowerAnchor.color, upperAnchor.color, factor);
+    return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
   };
 
   return (
     <SectionContainer
-      title={title}
-      icon={icon}
       bgColor="transparent"
       className="heatmap bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
       horizPadding={true}
     >
-      {description && (
-        <p className="mb-6">{description}</p>
-      )}
+      <SectionTitle
+        title={title}
+        icon={icon}
+        description={description}
+        thumbnail={thumbnail}
+        thumbnailLink={materialLink}
+      />
 
       <div className="flex-stack-row gap-6">
         {/* Heatmap Grid */}
@@ -144,13 +237,13 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
           <div className="flex gap-2">
             {/* Y-axis label - rotated vertically */}
             <div className="flex items-center justify-center" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-              <div className="text-sm font-bold whitespace-nowrap">
+              <div className="text-base font-bold whitespace-nowrap">
                 Pulse Duration (ns)
               </div>
             </div>
 
             {/* Y-axis scale */}
-            <div className="flex flex-col justify-between text-sm font-semibold w-12 text-right pr-2" role="list" aria-label="Pulse duration scale">
+            <div className="flex flex-col justify-between text-base font-semibold w-12 text-right pr-2" role="list" aria-label="Pulse duration scale">
               {Array.from({ length: 5 }).map((_, i) => {
                 const value = pulseRange.max - (i * (pulseRange.max - pulseRange.min)) / 4;
                 return <div key={i} role="listitem">{value.toFixed(0)}</div>;
@@ -159,7 +252,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
 
             <div className="flex-1 relative">
               <div
-                className="grid gap-1"
+                className="grid gap-0"
                 style={{
                   gridTemplateColumns: `repeat(${gridCols}, 1fr)`,
                   gridTemplateRows: `repeat(${gridRows}, 1fr)`,
@@ -211,7 +304,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
             
             {/* X-axis scale values */}
             <div className="flex-1">
-              <div className="flex justify-between text-sm font-semibold px-1 mt-1" role="list" aria-label="Power scale">
+              <div className="flex justify-between text-base font-semibold px-1 mt-1" role="list" aria-label="Power scale">
                 {Array.from({ length: 5 }).map((_, i) => {
                   const value = powerRange.min + (i * (powerRange.max - powerRange.min)) / 4;
                   return <div key={i} role="listitem">{value.toFixed(0)}</div>;
@@ -219,7 +312,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
               </div>
               
               {/* X-axis label */}
-              <figcaption className="text-center text-sm font-bold mt-1">
+              <figcaption className="text-center text-base font-bold mt-1">
                 Power (W)
               </figcaption>
             </div>
@@ -228,102 +321,43 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
 
         {/* Right: Analysis and Legend */}
         <aside className="w-full sm:w-2/5 order-1 sm:order-2 space-y-4" role="complementary" aria-label="Analysis panels">
-          {/* Render custom analysis panel or default banner-style panel */}
-          {/* Use debouncedCell for analysis panel to prevent flicker */}
+          {/* Priority 1: Custom renderAnalysisPanel if provided */}
+          {/* Priority 2: Auto-generate from factorCards if provided */}
+          {/* Priority 3: Minimal default panel */}
           {renderAnalysisPanel ? (
             renderAnalysisPanel(debouncedCell, powerRange.current, pulseRange.current)
+          ) : factorCards && factorCards.length > 0 ? (
+            // Auto-generated analysis panel from factorCards
+            <section>
+              <HeatmapStatusSummary
+                power={debouncedCell ? debouncedCell.power : powerRange.current}
+                pulse={debouncedCell ? debouncedCell.pulse : pulseRange.current}
+                level={Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level)}
+                finalScore={(debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore}
+                scoreLabel={getScoreLabel(Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level))}
+                scoreType={scoreType}
+              />
+              {factorCards.map((config) => (
+                <HeatmapFactorCard 
+                  key={config.id} 
+                  config={config} 
+                  analysis={debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis} 
+                />
+              ))}
+            </section>
           ) : (
-            <section className="bg-secondary/80 rounded-lg p-4 border" aria-labelledby="default-analysis-heading">
-              <h4 id="default-analysis-heading" className="text-xs text-secondary font-semibold mb-3 flex items-center gap-2">
-                <span className="text-purple-400" aria-hidden="true">⚙️</span>
-                Analysis
-              </h4>
-              
-              {/* Status Banner */}
-              <div className={`mb-4 p-3 rounded-lg border-2 ${
-                (() => {
-                  const analysis = debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis;
-                  const level = Math.round(analysis.level);
-                  if (level >= 20) return 'bg-green-900/20 border-green-500/50';
-                  if (level >= 15) return 'bg-yellow-900/20 border-yellow-500/50';
-                  if (level >= 9) return 'bg-orange-900/20 border-orange-500/50';
-                  return 'bg-red-900/20 border-red-500/50';
-                })()
-              }`}>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="text-tertiary">📍</span>
-                    <span className="text-primary font-semibold">
-                      {debouncedCell ? debouncedCell.power.toFixed(0) : powerRange.current}W
-                      {' × '}
-                      {debouncedCell ? debouncedCell.pulse.toFixed(1) : pulseRange.current}ns
-                    </span>
-                  </div>
-                  <span className={`text-xs font-bold ${
-                    (() => {
-                      const analysis = debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis;
-                      const level = Math.round(analysis.level);
-                      if (level >= 20) return 'text-green-400';
-                      if (level >= 15) return 'text-yellow-400';
-                      if (level >= 9) return 'text-orange-400';
-                      return 'text-red-400';
-                    })()
-                  }`}>
-                    {Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level)}/25
-                  </span>
-                </div>
-                
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-tertiary text-xs">📊</span>
-                  <span className={`text-sm font-semibold ${
-                    (() => {
-                      const analysis = debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis;
-                      const level = Math.round(analysis.level);
-                      if (level >= 20) return 'text-green-400';
-                      if (level >= 15) return 'text-yellow-400';
-                      if (level >= 9) return 'text-orange-400';
-                      return 'text-red-400';
-                    })()
-                  }`}>
-                    {getScoreLabel(Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level))}
-                  </span>
-                </div>
-                
-                {/* Progress bar */}
-                <div className="bg-gray-950 rounded-full h-2 overflow-hidden">
-                  <div 
-                    className={`h-full transition-all ${
-                      (() => {
-                        const finalScore = (debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore;
-                        if (finalScore > 0.7) return 'bg-gradient-to-r from-green-500 to-emerald-400';
-                        if (finalScore > 0.4) return 'bg-gradient-to-r from-yellow-500 to-amber-400';
-                        return 'bg-gradient-to-r from-red-500 to-orange-400';
-                      })()
-                    }`}
-                    style={{ width: `${((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore * 100)}%` }}
-                  />
-                </div>
-                <div className="text-[10px] text-tertiary mt-1 text-right">
-                  {Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore * 100)}% score
-                </div>
-              </div>
+            // Minimal default panel when no factorCards provided
+            <section className="heatmap-analysis-panel">
+              <HeatmapStatusSummary
+                power={debouncedCell ? debouncedCell.power : powerRange.current}
+                pulse={debouncedCell ? debouncedCell.pulse : pulseRange.current}
+                level={Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level)}
+                finalScore={(debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore}
+                scoreLabel={getScoreLabel(Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level))}
+                scoreType={scoreType}
+              />
             </section>
           )}
-
-          {/* Color Legend - Commented Out */}
-          {/* <aside className="bg-secondary rounded-lg p-4 border" role="complementary" aria-labelledby="legend-heading">
-            <h4 id="legend-heading" className="text-xs text-secondary font-semibold mb-2">Color Legend</h4>
-            <div className="space-y-2 text-xs">
-              {legendItems.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded" style={{ backgroundColor: item.color }}></div>
-                  <span className="text-tertiary">
-                    {item.label} {item.range && `(${item.range})`}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </aside> */}
         </aside>
       </div>
 

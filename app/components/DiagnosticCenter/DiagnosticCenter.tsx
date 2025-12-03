@@ -5,11 +5,15 @@ import { useState } from 'react';
 import { PreventionTab } from './PreventionTab';
 import { TroubleshootingTab } from './TroubleshootingTab';
 import { QuickReferenceTab } from './QuickReferenceTab';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface DiagnosticCenterProps {
   materialName: string;
   challenges: any; // material_challenges from frontmatter
   issues: any[]; // common_issues from frontmatter
+  heroImage?: string;
+  materialLink?: string;
 }
 
 /**
@@ -24,18 +28,21 @@ interface DiagnosticCenterProps {
 export function DiagnosticCenter({ 
   materialName, 
   challenges, 
-  issues 
+  issues,
+  heroImage,
+  materialLink 
 }: DiagnosticCenterProps) {
   const [activeTab, setActiveTab] = useState<'prevention' | 'troubleshooting' | 'reference'>('prevention');
   
   return (
     <section className="mb-8">
-      <h2 className="text-2xl text-secondary font-bold mb-3">
-        🛡️ Diagnostic & Prevention Center
-      </h2>
-      <p className="text-tertiary text-sm mb-4">
-        Proactive strategies and reactive solutions for {materialName.toLowerCase()}
-      </p>
+      <SectionTitle
+        title="Diagnostic & Prevention Center"
+        icon={getSectionIcon('diagnostic')}
+        description={`Proactive strategies and reactive solutions for ${materialName.toLowerCase()}`}
+        thumbnail={heroImage}
+        thumbnailLink={materialLink}
+      />
       
       {/* Tab Navigation */}
       <div className="flex flex-wrap gap-2 mb-4 border-b">

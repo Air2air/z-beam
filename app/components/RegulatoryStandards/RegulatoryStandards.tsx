@@ -14,14 +14,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { RegulatoryStandard, RegulatoryStandardsProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 export function RegulatoryStandards({
   standards,
   className = '',
   showTitle = true,
-  title = 'Regulatory Standards & Compliance'
-}: RegulatoryStandardsProps) {
+  title = 'Regulatory Standards & Compliance',
+  heroImage,
+  thumbnailLink,
+}: RegulatoryStandardsProps & { heroImage?: string; thumbnailLink?: string }) {
   if (!standards || standards.length === 0) return null;
   
   // Filter to only show object/dict standards, not strings
@@ -33,13 +36,17 @@ export function RegulatoryStandards({
 
   return (
     <SectionContainer 
-      title={title}
-      icon={getSectionIcon('regulatory')}
       bgColor="transparent"
       radius={false}
       className="regulatory-standards"
     >
-      <ul className="grid-2col gap-4 list-none">
+      <SectionTitle 
+        title={title}
+        icon={getSectionIcon('regulatory')}
+        thumbnail={heroImage}
+        thumbnailLink={thumbnailLink}
+      />
+      <ul className="grid-2col gap-4 list-none mt-4">
         {validStandards.map((standard, index) => (
           <li
             key={`${standard.name}-${index}`}

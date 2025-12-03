@@ -2,11 +2,14 @@
 import React from 'react';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface MachineSettingsProps {
   metadata: any;
   materialName?: string;
+  heroImage?: string;
+  materialLink?: string;
 }
 
 /**
@@ -19,8 +22,9 @@ interface MachineSettingsProps {
  * 
  * @param metadata - Settings metadata containing machineSettings data
  * @param materialName - Optional material name for title context
+ * @param heroImage - Optional hero image URL for thumbnail
  */
-export function MachineSettings({ metadata, materialName }: MachineSettingsProps) {
+export function MachineSettings({ metadata, materialName, heroImage, materialLink }: MachineSettingsProps) {
   // Check if we have machine settings data
   const hasMachineSettings = metadata?.machineSettings && 
     Object.keys(metadata.machineSettings).length > 0;
@@ -35,10 +39,14 @@ export function MachineSettings({ metadata, materialName }: MachineSettingsProps
 
   return (
     <SectionContainer
-      title={title}
-      icon={getSectionIcon('machine-settings')}
       className="mb-8"
     >
+      <SectionTitle
+        title={title}
+        icon={getSectionIcon('machine-settings')}
+        thumbnail={heroImage}
+        thumbnailLink={materialLink}
+      />
       <PropertyBars 
         metadata={metadata}
         dataSource="machineSettings"

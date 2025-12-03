@@ -4,7 +4,7 @@
 import React, { useMemo } from 'react';
 import { BaseHeatmap } from './BaseHeatmap';
 import { getSectionIcon } from '@/app/config/sectionIcons';
-import { BaseHeatmapProps, MaterialProperties, HeatmapRange, CellAnalysis } from './types';
+import { MaterialProperties, HeatmapRange, CellAnalysis, FactorCardConfig } from './types';
 
 interface ProcessEffectivenessHeatmapProps {
   powerRange: HeatmapRange;
@@ -13,6 +13,8 @@ interface ProcessEffectivenessHeatmapProps {
   optimalPulse: [number, number];
   materialProperties?: MaterialProperties;
   materialName?: string;
+  thumbnail?: string;
+  materialLink?: string;
 }
 
 /**
@@ -49,10 +51,11 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
         };
       }
 
-      // Energy calculations
-      const repRateHz = 80000;
+      // Energy calculations - use machine parameters from settings (with sensible defaults)
+      const repRateHz = matProps.repetitionRate || 80000;  // Hz (default 80kHz)
+      const spotDiameterUm = matProps.spotDiameter || 300; // μm (default 300μm)
+      
       const pulseEnergyJ = power / repRateHz;
-      const spotDiameterUm = 300;
       const spotDiameterCm = spotDiameterUm / 10000;
       const spotAreaCm2 = Math.PI * Math.pow(spotDiameterCm / 2, 2);
       const fluence = pulseEnergyJ / spotAreaCm2;
@@ -189,179 +192,68 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
     return 'INEFFECTIVE - No Cleaning';
   };
 
-  const renderAnalysisPanel = (hoveredCell: any | null, currentPower: number, currentPulse: number) => {
-    const result = hoveredCell?.analysis || calculateScore(currentPower, currentPulse, materialProperties).analysis;
-    const level = Math.round(result.level);
-    const _materialLabel = props.materialName || 'Process';
-    
-    return (
-      <section>
-        {/* Status Summary */}
-        <article className={`mb-4 p-3 rounded-lg border-2 ${
-          level >= 20 ? 'bg-green-900/20 border-green-500/50' :
-          level >= 15 ? 'bg-lime-900/20 border-lime-500/50' :
-          level >= 10 ? 'bg-yellow-900/20 border-yellow-500/50' :
-          'bg-red-900/20 border-red-500/50'
-        }`} aria-label="Effectiveness status summary">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2 text-base">
-              <span className="text-primary font-bold">
-                {hoveredCell ? hoveredCell.power.toFixed(0) : currentPower}W
-                {' × '}
-                {hoveredCell ? hoveredCell.pulse.toFixed(1) : currentPulse}ns
-              </span>
-            </div>
-            <span className={`text-sm font-bold ${
-              level >= 20 ? 'text-green-400' :
-              level >= 15 ? 'text-lime-400' :
-              level >= 10 ? 'text-yellow-400' :
-              'text-red-400'
-            }`}>
-              {level}/25
-            </span>
-          </div>
-          
-          <div className="flex items-center gap-2 mb-2">
-            <span className={`text-sm font-semibold ${
-              level >= 20 ? 'text-green-400' :
-              level >= 15 ? 'text-lime-400' :
-              level >= 10 ? 'text-yellow-400' :
-              'text-red-400'
-            }`}>
-              {getEffectivenessLabel(level)}
-            </span>
-          </div>
-          
-          {/* Progress bar */}
-          <div className="bg-gray-950 rounded-full h-2 overflow-hidden">
-            <div 
-              className={`h-full transition-all ${
-                result.finalScore > 0.7 ? 'bg-gradient-to-r from-green-500 to-emerald-400' :
-                result.finalScore > 0.4 ? 'bg-gradient-to-r from-lime-500 to-green-400' :
-                'bg-gradient-to-r from-yellow-500 to-amber-400'
-              }`}
-              style={{ width: `${result.finalScore * 100}%` }}
-            />
-          </div>
-          <div className="text-[10px] text-tertiary mt-1 text-right">
-            {Math.round(result.finalScore * 100)}% effective
-          </div>
-        </article>
-        
-        {/* Ablation Effectiveness Factor */}
-        <article className="bg-tertiary rounded p-2 border border-green-500/30 text-xs" aria-label="Ablation effectiveness factor analysis">
-          <div className="flex justify-between items-center mb-1">
-                  <span className="text-tertiary font-medium">Ablation</span>
-                  <span className="text-green-400 font-bold">50%</span>
-                </div>
-                <div className="text-[10px] text-muted mb-1.5">
-                  Fluence vs ablation threshold effectiveness
-                </div>
-                <div className="flex justify-between text-[10px]">
-                  <span className="text-muted">Fluence:</span>
-                  <span className="text-primary">{result.fluence?.toFixed(3)} J/cm²</span>
-                </div>
-                <div className="flex justify-between text-[10px]">
-                  <span className="text-muted">vs Threshold:</span>
-                  <span className={`font-semibold ${
-                    result.fluenceRatio > 1.0 && result.fluenceRatio < 1.5 ? 'text-green-400' :
-                    result.fluenceRatio > 0.7 && result.fluenceRatio < 2.0 ? 'text-lime-400' :
-                    result.fluenceRatio < 0.5 ? 'text-red-400' :
-                    'text-yellow-400'
-                  }`}>
-                    {(result.fluenceRatio * 100).toFixed(1)}%
-                  </span>
-                </div>
-                <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
-                  <div 
-                    className={`h-full transition-all ${
-                      result.ablationScore > 0.8 ? 'bg-green-500' :
-                      result.ablationScore > 0.5 ? 'bg-lime-500' :
-                      result.ablationScore > 0.3 ? 'bg-yellow-500' :
-                      'bg-red-500'
-                    }`}
-                    style={{ width: `${result.ablationScore * 100}%` }}
-                />
-              </div>
-            </article>
-
-            {/* Removal Rate Factor */}
-            <article className="bg-tertiary rounded p-2 border border-blue-500/30 text-xs mt-2.5" aria-label="Removal rate factor analysis">
-              <div className="flex justify-between items-center mb-1">
-                  <span className="text-tertiary font-medium">Removal Rate</span>
-                  <span className="text-blue-400 font-bold">30%</span>
-                </div>
-                <div className="text-[10px] text-muted mb-1.5">
-                  Speed of material removal
-                </div>
-                <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
-                  <div 
-                    className={`h-full transition-all ${
-                      result.removalScore > 0.8 ? 'bg-green-500' :
-                      result.removalScore > 0.5 ? 'bg-blue-400' :
-                      'bg-blue-600'
-                    }`}
-                    style={{ width: `${result.removalScore * 100}%` }}
-                />
-              </div>
-            </article>
-
-            {/* Process Efficiency Factor */}
-            <article className="bg-tertiary rounded p-2 border border-yellow-500/30 text-xs mt-2.5" aria-label="Process efficiency factor analysis">
-              <div className="flex justify-between items-center mb-1">
-                  <span className="text-tertiary font-medium">Efficiency</span>
-                  <span className="text-yellow-400 font-bold">20%</span>
-                </div>
-                <div className="text-[10px] text-muted mb-1.5">
-                  Energy optimization
-                </div>
-                <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
-                  <div 
-                    className={`h-full transition-all ${
-                      result.efficiencyScore > 0.7 ? 'bg-green-500' :
-                      result.efficiencyScore > 0.4 ? 'bg-yellow-500' :
-                      'bg-orange-500'
-                    }`}
-                    style={{ width: `${result.efficiencyScore * 100}%` }}
-                />
-              </div>
-            </article>
-      </section>
-    );
-  };
-
-  const baseHeatmapProps: Omit<BaseHeatmapProps, 'calculateScore' | 'colorAnchors' | 'getScoreLabel' | 'legendItems' | 'renderAnalysisPanel'> = {
-    ...props,
-    title: props.materialName ? `${props.materialName} Cleaning Efficiency` : "Cleaning Efficiency Analysis",
-    description: "Shows cleaning performance across parameter space. Green = optimal effectiveness, Red = ineffective.",
-    icon: getSectionIcon('effectiveness')
-  };
+  // Factor card configurations for Process Effectiveness
+  const factorCards: FactorCardConfig[] = useMemo(() => [
+    {
+      id: 'ablation',
+      label: 'Ablation',
+      weight: '50%',
+      description: 'Fluence vs ablation threshold effectiveness',
+      color: 'green',
+      getValue: (analysis) => analysis.ablationScore || 0,
+      getStatus: (analysis) => {
+        const ratio = analysis.fluenceRatio || 0;
+        if (ratio >= 1.0 && ratio < 1.5) return { text: '✓ OPTIMAL - At threshold', color: 'green' };
+        if (ratio >= 0.7 && ratio < 2.0) return { text: '◐ GOOD - Near threshold', color: 'lime' };
+        if (ratio < 0.5) return { text: '✗ POOR - Below threshold', color: 'red' };
+        return { text: '⚠ HIGH - Above optimal', color: 'yellow' };
+      },
+      dataRows: [
+        {
+          label: 'Fluence:',
+          getValue: (analysis) => `${(analysis.fluence || 0).toFixed(3)} J/cm²`,
+        },
+        {
+          label: 'vs Threshold:',
+          getValue: (analysis) => `${((analysis.fluenceRatio || 0) * 100).toFixed(1)}%`,
+          getColor: (analysis) => {
+            const ratio = analysis.fluenceRatio || 0;
+            if (ratio >= 1.0 && ratio < 1.5) return 'text-green-400 font-semibold';
+            if (ratio >= 0.7 && ratio < 2.0) return 'text-lime-400 font-semibold';
+            if (ratio < 0.5) return 'text-red-400 font-semibold';
+            return 'text-yellow-400 font-semibold';
+          },
+        },
+      ],
+    },
+    {
+      id: 'removalRate',
+      label: 'Removal Rate',
+      weight: '30%',
+      description: 'Speed of material removal',
+      color: 'blue',
+      getValue: (analysis) => analysis.removalScore || 0,
+    },
+    {
+      id: 'efficiency',
+      label: 'Efficiency',
+      weight: '20%',
+      description: 'Energy optimization',
+      color: 'yellow',
+      getValue: (analysis) => analysis.efficiencyScore || 0,
+    },
+  ], []);
 
   return (
     <BaseHeatmap
-      {...baseHeatmapProps}
+      {...props}
+      title={props.materialName ? `${props.materialName} Cleaning Efficiency` : "Cleaning Efficiency Analysis"}
+      description="Shows cleaning performance across parameter space. Green = optimal effectiveness, Red = ineffective."
+      icon={getSectionIcon('effectiveness')}
       calculateScore={calculateScore}
       getScoreLabel={getEffectivenessLabel}
-      renderAnalysisPanel={renderAnalysisPanel}
-      colorAnchors={[
-        { level: 1, color: '#7F1D1D' },  // red-900 - Completely ineffective
-        { level: 3, color: '#B91C1C' },  // red-700 - Very poor
-        { level: 6, color: '#DC2626' },  // red-600 - Poor
-        { level: 9, color: '#F97316' },  // orange-500 - Suboptimal
-        { level: 12, color: '#FB923C' }, // orange-400 - Below optimal
-        { level: 15, color: '#FACC15' }, // yellow-400 - Moderate
-        { level: 18, color: '#A3E635' }, // lime-400 - Good
-        { level: 21, color: '#10B981' }, // green-500 - Excellent
-        { level: 24, color: '#047857' }, // emerald-700 - Near optimal
-        { level: 25, color: '#065F46' }  // emerald-800 - Peak performance
-      ]}
-      legendItems={[
-        { color: '#047857', label: 'Optimal', range: '23-25' },
-        { color: '#10B981', label: 'Excellent', range: '20-23' },
-        { color: '#FACC15', label: 'Moderate', range: '15-20' },
-        { color: '#F97316', label: 'Suboptimal', range: '10-15' },
-        { color: '#DC2626', label: 'Ineffective', range: '1-10' }
-      ]}
+      factorCards={factorCards}
+      scoreType="effectiveness"
     />
   );
 };

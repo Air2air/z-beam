@@ -8,5 +8,6 @@ export type {
   HeatmapHoveredCell as HoveredCell,
   HeatmapColorAnchor as ColorAnchor,
   HeatmapLegendItem as LegendItem,
+  HeatmapFactorCardConfig as FactorCardConfig,
   BaseHeatmapProps,
 } from '@/types/centralized';

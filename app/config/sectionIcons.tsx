@@ -26,6 +26,8 @@ import {
   PackageIcon,
   ZapIcon,
   CodeIcon,
+  BookIcon,
+  ToolIcon,
 } from '@/app/components/Buttons/ButtonIcons';
 
 /**
@@ -52,7 +54,9 @@ export type SectionType =
   | 'technical'
   | 'overview'
   | 'warning'
-  | 'expert-qa';
+  | 'expert-qa'
+  | 'diagnostic'
+  | 'citations';
 
 /**
  * Icon mapping configuration
@@ -73,6 +77,8 @@ const SECTION_ICONS: Record<SectionType, React.ReactNode> = {
   'overview': <InfoIcon className={SECTION_ICON_CLASS} />,
   'warning': <AlertCircleIcon className={SECTION_ICON_CLASS} />,
   'expert-qa': <InfoIcon className={SECTION_ICON_CLASS} />,
+  'diagnostic': <ToolIcon className={SECTION_ICON_CLASS} />,
+  'citations': <BookIcon className={SECTION_ICON_CLASS} />,
 };
 
 /**
