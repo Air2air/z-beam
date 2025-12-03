@@ -471,4 +471,86 @@ describe('MaterialJsonLD Component', () => {
     expect(faqPage).toBeDefined();
     expect(faqPage.mainEntity).toBeDefined();
   });
+
+  // Google Rich Results Required Fields Tests (December 2025)
+  describe('Google Rich Results Compliance', () => {
+    it('should include hasMerchantReturnPolicy in Product offers', () => {
+      const { container } = render(
+        <MaterialJsonLD article={baseArticle} slug="test-material" />
+      );
+
+      const script = container.querySelector('script[type="application/ld+json"]');
+      const jsonLd = JSON.parse(script?.textContent || '{}');
+      const product = jsonLd['@graph']?.find((item: any) => item['@type'] === 'Product');
+
+      if (product?.offers) {
+        expect(product.offers.hasMerchantReturnPolicy).toBeDefined();
+        expect(product.offers.hasMerchantReturnPolicy['@type']).toBe('MerchantReturnPolicy');
+        expect(product.offers.hasMerchantReturnPolicy.applicableCountry).toBe('US');
+        expect(product.offers.hasMerchantReturnPolicy.returnPolicyCategory).toBeDefined();
+      }
+    });
+
+    it('should include shippingDetails in Product offers', () => {
+      const { container } = render(
+        <MaterialJsonLD article={baseArticle} slug="test-material" />
+      );
+
+      const script = container.querySelector('script[type="application/ld+json"]');
+      const jsonLd = JSON.parse(script?.textContent || '{}');
+      const product = jsonLd['@graph']?.find((item: any) => item['@type'] === 'Product');
+
+      if (product?.offers) {
+        expect(product.offers.shippingDetails).toBeDefined();
+        expect(product.offers.shippingDetails['@type']).toBe('OfferShippingDetails');
+        expect(product.offers.shippingDetails.shippingRate).toBeDefined();
+        expect(product.offers.shippingDetails.shippingDestination).toBeDefined();
+        expect(product.offers.shippingDetails.deliveryTime).toBeDefined();
+      }
+    });
+
+    it('should include uploadDate with timezone in VideoObject', () => {
+      const { container } = render(
+        <MaterialJsonLD article={baseArticle} slug="test-material" />
+      );
+
+      const script = container.querySelector('script[type="application/ld+json"]');
+      const jsonLd = JSON.parse(script?.textContent || '{}');
+      const video = jsonLd['@graph']?.find((item: any) => item['@type'] === 'VideoObject');
+
+      if (video?.uploadDate) {
+        // Should be ISO 8601 format with timezone
+        expect(video.uploadDate).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2})$/);
+      }
+    });
+
+    it('should format datePublished with timezone for ImageObject uploadDate', () => {
+      const articleWithDate = {
+        ...baseArticle,
+        metadata: {
+          ...baseArticle.metadata,
+          datePublished: '2025-10-15'
+        }
+      };
+
+      const { container } = render(
+        <MaterialJsonLD article={articleWithDate} slug="test-material" />
+      );
+
+      const script = container.querySelector('script[type="application/ld+json"]');
+      const jsonLd = JSON.parse(script?.textContent || '{}');
+      
+      // Verify any uploadDate fields have timezone
+      const checkUploadDates = (obj: any) => {
+        if (obj && typeof obj === 'object') {
+          if (obj.uploadDate) {
+            expect(obj.uploadDate).toMatch(/T.*Z$|T.*[+-]\d{2}:\d{2}$/);
+          }
+          Object.values(obj).forEach(checkUploadDates);
+        }
+      };
+      
+      checkUploadDates(jsonLd);
+    });
+  });
 });

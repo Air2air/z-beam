@@ -1116,7 +1116,7 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
     'description': videoDescription,
     'contentUrl': embedUrl,
     'embedUrl': `https://www.youtube.com/embed/${youtubeId}`,
-    'uploadDate': data.videoUploadDate || '2024-01-15',
+    'uploadDate': data.videoUploadDate || '2024-01-15T00:00:00Z',
     'thumbnailUrl': data.videoThumbnail || thumbnailUrl,
     'duration': 'PT2M30S',
     'publisher': {

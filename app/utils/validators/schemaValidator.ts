@@ -41,6 +41,16 @@ const INVALID_TYPES = [
 ];
 
 /**
+ * Validate ISO 8601 datetime with timezone
+ * Valid formats: 2024-01-15T00:00:00Z or 2024-01-15T00:00:00+00:00
+ */
+function isValidIso8601WithTimezone(dateString: string): boolean {
+  // Must have T separator and end with Z or timezone offset
+  const iso8601WithTimezone = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2})$/;
+  return iso8601WithTimezone.test(dateString);
+}
+
+/**
  * Validate a single schema object
  */
 export function validateSchema(schema: any): SchemaValidationResult {
@@ -110,9 +120,24 @@ export function validateSchema(schema: any): SchemaValidationResult {
   if (schemaType === 'Product') {
     if (!schema.offers) {
       warnings.push('Product missing offers (price/availability information)');
+    } else {
+      // Google Rich Results required fields (December 2025)
+      if (!schema.offers.hasMerchantReturnPolicy) {
+        warnings.push('Product offers missing hasMerchantReturnPolicy (required for Google rich results)');
+      }
+      if (!schema.offers.shippingDetails) {
+        warnings.push('Product offers missing shippingDetails (required for Google rich results)');
+      }
     }
     if (!schema.brand) {
       warnings.push('Product missing brand');
+    }
+  }
+
+  // VideoObject datetime validation
+  if (schemaType === 'VideoObject') {
+    if (schema.uploadDate && !isValidIso8601WithTimezone(schema.uploadDate)) {
+      errors.push('VideoObject uploadDate must be ISO 8601 format with timezone (e.g., 2024-01-15T00:00:00Z)');
     }
   }
   

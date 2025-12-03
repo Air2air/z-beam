@@ -71,6 +71,65 @@
 }
 ```
 
+### Google Rich Results Required Fields (December 2025)
+
+#### MerchantReturnPolicy (Required for Product offers)
+```json
+{
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "applicableCountry": "US",
+    "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+    "merchantReturnDays": 0,
+    "returnMethod": "https://schema.org/ReturnByMail",
+    "returnFees": "https://schema.org/FreeReturn"
+  }
+}
+```
+
+#### ShippingDetails (Required for Product offers)
+```json
+{
+  "shippingDetails": {
+    "@type": "OfferShippingDetails",
+    "shippingRate": {
+      "@type": "MonetaryAmount",
+      "value": 0,
+      "currency": "USD"
+    },
+    "shippingDestination": {
+      "@type": "DefinedRegion",
+      "addressCountry": "US",
+      "addressRegion": ["CA"]
+    },
+    "deliveryTime": {
+      "@type": "ShippingDeliveryTime",
+      "handlingTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 3,
+        "unitCode": "DAY"
+      },
+      "transitTime": {
+        "@type": "QuantitativeValue",
+        "minValue": 0,
+        "maxValue": 0,
+        "unitCode": "DAY"
+      }
+    }
+  }
+}
+```
+
+#### Datetime Format with Timezone (Required for VideoObject)
+```json
+{
+  "@type": "VideoObject",
+  "uploadDate": "2024-01-15T00:00:00Z"
+}
+```
+**Note**: All datetime fields must be ISO 8601 format with timezone (Z or ±HH:MM)
+
 ## Tools Created for Ongoing Maintenance
 
 1. **`scripts/fix-jsonld-schema-compliance.js`** - Initial comprehensive fix
@@ -95,10 +154,11 @@ node scripts/validate-jsonld-syntax.js
 ✅ **Article Schema**: All required properties present  
 ✅ **Product Schema**: Valid type with proper structure  
 ✅ **Organization Schema**: Complete with logo and URL  
-✅ **Offer Schema**: Properly structured availability  
+✅ **Offer Schema**: Properly structured with hasMerchantReturnPolicy and shippingDetails  
 ✅ **PropertyValue Schema**: Correctly formatted additional properties  
 ✅ **ImageObject Schema**: Complete image metadata  
 ✅ **HowTo Schema**: Valid step-by-step instructions  
+✅ **VideoObject Schema**: uploadDate with ISO 8601 timezone format
 
 ## Next Steps
 
@@ -115,6 +175,7 @@ node scripts/validate-jsonld-syntax.js
 - **Performance**: Valid structured data for better search visibility
 
 ---
-**Status**: ✅ COMPLETE - All 109 JSON-LD files are Schema.org compliant  
-**Date**: 2024-01-22  
+**Status**: ✅ COMPLETE - All JSON-LD files are Schema.org compliant  
+**Last Updated**: December 2, 2025  
+**Google Rich Results**: hasMerchantReturnPolicy, shippingDetails, and uploadDate timezone added  
 **Validation**: 100% pass rate on syntax and schema compliance

@@ -380,7 +380,44 @@ function createMaterialProductSchema(data: any) {
         name: SITE_CONFIG.shortName || 'Z-Beam',
         url: SITE_CONFIG.url
       },
-      description: `Professional laser cleaning service for ${materialName}. Contact for custom quote based on project requirements.`
+      description: `Professional laser cleaning service for ${materialName}. Contact for custom quote based on project requirements.`,
+      // Required for Google rich results
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'US',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+        merchantReturnDays: 0,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/FreeReturn'
+      },
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: 0,
+          currency: 'USD'
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'US',
+          addressRegion: ['CA']
+        },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 3,
+            unitCode: 'DAY'
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 0,
+            maxValue: 0,
+            unitCode: 'DAY'
+          }
+        }
+      }
     }
     
     // Note: Environmental benefits moved to Article schema where they are more appropriate
