@@ -261,27 +261,27 @@ function PropertyBarsGrid({
         const CardContent = (
           <>
             {/* Property name at top */}
-            <h4 className="text-xs text-secondary font-semibold text-center mb-1.5 text-primary">
+            <h4 className="text-sm text-secondary font-semibold text-center mb-1.5 text-primary">
               {prop.name}
             </h4>
             
             {/* Three-bar visualization with unit badge and labels */}
             <div className="relative flex items-end justify-between px-4" style={{ height: `${height + 20}px` }}>
               {/* Value badge overlay - uses secondary background with min-width */}
-              <div className="absolute top-1 left-1 bg-secondary px-1 py-0.5 rounded font-medium shadow-sm z-10 flex flex-col items-center leading-tight min-w-[2.5rem]">
-                <div className="text-sm font-semibold text-primary">{formatDisplayValue(value)}</div>
-                {prop.unit && <div className="text-[9px] opacity-80 text-secondary">{prop.unit}</div>}
+              <div className="absolute top-1 left-1 bg-secondary px-1.5 py-1 rounded font-medium shadow-sm z-10 flex flex-col items-center leading-tight min-w-[3rem]">
+                <div className="text-base font-semibold text-primary">{formatDisplayValue(value)}</div>
+                {prop.unit && <div className="text-[10px] opacity-80 text-secondary">{prop.unit}</div>}
               </div>
               
               {/* Min bar with label */}
               <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
                 <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
                   <div 
-                    className="w-3 bg-secondary rounded-md transition-all duration-700"
+                    className="w-4 bg-secondary rounded-full transition-all duration-700"
                     style={{ height: `${minPercentage}%` }}
                   />
                 </div>
-                <div className="text-xs font-normal whitespace-nowrap text-secondary">
+                <div className="text-sm font-normal whitespace-nowrap text-secondary">
                   {formatDisplayValue(min)}
                 </div>
               </div>
@@ -290,11 +290,11 @@ function PropertyBarsGrid({
               <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
                 <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
                   <div 
-                    className={`w-3 bg-gradient-to-t ${colorClass} rounded-md transition-all duration-700`}
+                    className={`w-4 bg-gradient-to-t ${colorClass} rounded-full transition-all duration-700`}
                     style={{ height: `${valuePercentage}%` }}
                   />
                 </div>
-                <div className="text-xs font-normal whitespace-nowrap text-primary">
+                <div className="text-sm font-normal whitespace-nowrap text-primary">
                   {formatDisplayValue(value)}
                 </div>
               </div>
@@ -303,11 +303,11 @@ function PropertyBarsGrid({
               <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
                 <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
                   <div 
-                    className="w-3 bg-secondary rounded-md transition-all duration-700"
+                    className="w-4 bg-secondary rounded-full transition-all duration-700"
                     style={{ height: `${maxPercentage}%` }}
                   />
                 </div>
-                <div className="text-xs font-normal whitespace-nowrap text-secondary">
+                <div className="text-sm font-normal whitespace-nowrap text-secondary">
                   {formatDisplayValue(max)}
                 </div>
               </div>
