@@ -83,38 +83,36 @@ export const EnergyCouplingHeatmap: React.FC<EnergyCouplingHeatmapProps> = (prop
 
       // REFLECTIVITY PENALTY (35% weight)
       // High reflectivity = poor coupling
-      // Power matters: higher power can partially overcome reflectivity
-      // Surface roughness helps: rougher surfaces reflect less
-      const roughnessBonus = Math.min(0.15, surfaceRoughness / 10); // Up to 15% bonus for rough surfaces
-      const reflectivityPenalty = reflectivity * (1 - powerNorm * 0.3 - roughnessBonus);
-      const reflectivityScore = 1 - Math.max(0, reflectivityPenalty);
+      // Power matters significantly: higher power can overcome reflectivity
+      // Use power/pulse to create more dramatic variation
+      const roughnessBonus = Math.min(0.15, surfaceRoughness / 10);
+      const powerOvercome = powerNorm * 0.5; // Power can overcome up to 50% of reflectivity
+      const reflectivityPenalty = reflectivity * (1 - powerOvercome - roughnessBonus);
+      const reflectivityScore = Math.max(0, Math.min(1, 1 - reflectivityPenalty));
 
       // ABSORPTION EFFICIENCY (30% weight)
-      // How well does the material absorb at this power/pulse combo?
-      // Longer pulses allow more time for absorption
-      // Higher power increases absorption through surface heating
-      // Porosity helps trap energy in voids
-      const absorptionBase = absorptivity;
-      const pulseBonus = pulseNorm * 0.2; // Longer pulses help absorption
-      const powerBonus = powerNorm * 0.15; // Higher power helps break through reflective barrier
-      const porosityBonus = porosity / 100 * 0.1; // Small bonus for porous materials
+      // Dramatically affected by power and pulse
+      // Low power/pulse = poor absorption, High = good absorption
+      const absorptionBase = absorptivity * 0.4; // Base contribution from material
+      const pulseBonus = pulseNorm * 0.35; // Pulse contributes up to 35%
+      const powerBonus = powerNorm * 0.25; // Power contributes up to 25%
+      const porosityBonus = porosity / 100 * 0.05;
       const absorptionScore = Math.min(1.0, absorptionBase + pulseBonus + powerBonus + porosityBonus);
 
-      // SURFACE INTERACTION (20% weight) - NEW: combines penetration and roughness effects
-      // For surface cleaning, we want energy concentrated at surface
-      // Short pulses = better surface concentration
-      // Rough surfaces trap more energy in micro-features
+      // SURFACE INTERACTION (20% weight)
+      // Power and pulse have opposite effects for more variation
+      // High power + low pulse = best surface concentration
       const penetrationNorm = Math.min(1.0, Math.log10(absorptionCoeff) / 8);
-      const surfaceConcentration = penetrationNorm * (1 - pulseNorm * 0.3);
-      const roughnessTrapping = Math.min(0.3, surfaceRoughness / 50); // Rough surfaces trap energy
-      const surfaceInteractionScore = (surfaceConcentration * 0.7 + roughnessTrapping * 0.3);
+      const surfaceConcentration = penetrationNorm * (0.5 + powerNorm * 0.3 - pulseNorm * 0.2);
+      const roughnessTrapping = Math.min(0.3, surfaceRoughness / 50);
+      const surfaceInteractionScore = Math.max(0, Math.min(1, surfaceConcentration * 0.7 + roughnessTrapping * 0.3 + powerNorm * 0.2));
 
       // THERMAL MASS FACTOR (15% weight)
-      // Lower density = easier to heat = better energy utilization
-      // Porosity reduces effective density
+      // Add power/pulse variation
       const effectiveDensity = density * (1 - porosity / 100);
       const densityNorm = Math.max(0, Math.min(1, 1 - (effectiveDensity - 2.7) / 20));
-      const thermalMassScore = densityNorm;
+      // Higher power helps overcome thermal mass
+      const thermalMassScore = Math.max(0, Math.min(1, densityNorm * 0.6 + powerNorm * 0.4));
 
       // Calculate coupling efficiency (combined)
       const couplingEfficiency = 1 - reflectivity + absorptivity * powerNorm + roughnessBonus;
@@ -170,9 +168,9 @@ export const EnergyCouplingHeatmap: React.FC<EnergyCouplingHeatmapProps> = (prop
   const factorCards: FactorCardConfig[] = useMemo(() => [
     {
       id: 'reflectivity',
-      label: 'Reflectivity Impact',
+      label: 'Energy Absorption',
       weight: '35%',
-      description: 'Energy lost to reflection (lower is better)',
+      description: 'Energy absorbed vs reflected',
       color: 'red',
       getValue: (analysis) => analysis.reflectivityScore || 0,
       getStatus: (analysis) => {

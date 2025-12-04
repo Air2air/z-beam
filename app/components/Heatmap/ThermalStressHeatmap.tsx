@@ -78,54 +78,52 @@ export const ThermalStressHeatmap: React.FC<ThermalStressHeatmapProps> = (props)
       // Density (g/cm³) - affects thermal mass
       const density = matProps.density || 2.7; // Default aluminum
 
-      // Normalize parameters
+      // Normalize parameters - these drive the score variation
       const powerNorm = (power - powerRange.min) / (powerRange.max - powerRange.min);
       const pulseNorm = (pulse - pulseRange.min) / (pulseRange.max - pulseRange.min);
 
       // Calculate thermal mass factor (density × specificHeat)
-      // Higher thermal mass = more energy needed to raise temperature = safer
-      const thermalMass = density * specificHeat / 1000; // Normalize units
-      const thermalMassFactor = Math.min(1, thermalMass / 5); // Normalize
+      const thermalMass = density * specificHeat / 1000;
+      const thermalMassFactor = Math.min(1, thermalMass / 5);
 
-      // Estimate temperature rise (improved model using specific heat)
-      // ΔT ∝ Energy / (mass × specificHeat)
+      // Estimate temperature rise (used in multiple calculations)
       const energyFactor = powerNorm * 0.6 + pulseNorm * 0.4;
-      const estimatedTempRise = energyFactor * 500 / (thermalMassFactor + 0.5); // Adjusted by thermal mass
+      const estimatedTempRise = energyFactor * 500 / (thermalMassFactor + 0.5);
 
       // THERMAL EXPANSION RISK (35% weight)
-      // High expansion coefficient = more dimensional change = higher stress
-      // Longer pulses = more time for expansion = potentially more stress
-      const expansionNorm = Math.min(1, thermalExpansion / 35); // Normalize to ~35 μm/m·K max
-      const expansionRisk = expansionNorm * (0.6 + pulseNorm * 0.4);
-      const expansionScore = 1 - expansionRisk;
+      // High power and high pulse = highest expansion risk
+      // Create dramatic variation: corners of grid should be very different
+      const expansionNorm = Math.min(1, thermalExpansion / 35);
+      const parameterRisk = powerNorm * 0.5 + pulseNorm * 0.5; // 0 at min, 1 at max
+      // Make parameter risk more impactful - use higher weight for dynamic component
+      const expansionRisk = (expansionNorm * 0.3) + (parameterRisk * 0.7); // 30% material, 70% parameters
+      const expansionScore = Math.max(0, Math.min(1, 1 - expansionRisk));
 
       // HEAT DIFFUSION (25% weight)
-      // High diffusivity = heat spreads quickly = less localized stress
-      // Lower diffusivity = heat concentrates = more thermal gradients
-      // Also factor in thermal conductivity
+      // Low power = heat can diffuse (good), High power = overwhelms diffusion (bad)
       const diffusivityNorm = Math.min(1, thermalDiffusivity * 1e5 / 200);
       const conductivityNorm = Math.min(1, thermalConductivity / 400);
       const combinedDiffusion = (diffusivityNorm * 0.6 + conductivityNorm * 0.4);
-      const diffusionScore = combinedDiffusion * (0.7 + (1 - powerNorm) * 0.3);
+      // High power reduces effective diffusion score
+      const diffusionScore = Math.max(0, Math.min(1, combinedDiffusion * (1.0 - powerNorm * 0.6)));
 
       // TEMPERATURE MARGIN (25% weight)
-      // How close to melting point are we?
-      // Higher margin = safer
-      // Also consider boiling point for extreme scenarios
-      const tempMarginK = meltingPoint - 300 - estimatedTempRise; // Assume 300K ambient
+      // High power/pulse = closer to melting = lower margin
+      const tempMarginK = meltingPoint - 300 - estimatedTempRise;
       const tempMarginNorm = Math.max(0, Math.min(1, tempMarginK / meltingPoint));
       const boilMarginK = boilingPoint - 300 - estimatedTempRise;
       const boilMarginNorm = Math.max(0, Math.min(1, boilMarginK / boilingPoint));
-      const temperatureMarginScore = tempMarginNorm * 0.8 + boilMarginNorm * 0.2;
+      // Reduce by parameter intensity
+      const parameterPenalty = parameterRisk * 0.5;
+      const temperatureMarginScore = Math.max(0, (tempMarginNorm * 0.8 + boilMarginNorm * 0.2) - parameterPenalty);
 
       // THERMAL SHOCK RESISTANCE (15% weight)
-      // Higher resistance = can handle rapid temperature changes
-      // Short pulses = rapid heating = need more shock resistance
-      // Thermal mass helps absorb shock
+      // Short pulses with high power = worst shock
+      // Long pulses with low power = best (gentler heating)
       const shockNorm = Math.min(1, shockResistance / 500);
-      const pulseFactor = 1 - pulseNorm * 0.3;
-      const thermalMassBonus = thermalMassFactor * 0.2;
-      const shockResistanceScore = Math.min(1, shockNorm * pulseFactor + thermalMassBonus);
+      const shockRisk = powerNorm * (1 - pulseNorm * 0.5); // High power + short pulse = high risk
+      const thermalMassBonus = thermalMassFactor * 0.15;
+      const shockResistanceScore = Math.max(0, Math.min(1, shockNorm * (1 - shockRisk * 0.5) + thermalMassBonus));
 
       // Calculate stress gradient (for display)
       const stressGradient = thermalExpansion * estimatedTempRise / 1000; // Simplified strain
@@ -184,9 +182,9 @@ export const ThermalStressHeatmap: React.FC<ThermalStressHeatmapProps> = (props)
   const factorCards: FactorCardConfig[] = useMemo(() => [
     {
       id: 'expansion',
-      label: 'Expansion Stress',
+      label: 'Expansion Tolerance',
       weight: '35%',
-      description: 'Dimensional change from thermal expansion',
+      description: 'Tolerance for thermal expansion',
       color: 'red',
       getValue: (analysis) => analysis.expansionScore || 0,
       getStatus: (analysis) => {

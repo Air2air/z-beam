@@ -7,6 +7,7 @@ export { EnergyCouplingHeatmap } from './EnergyCouplingHeatmap';
 export { ThermalStressHeatmap } from './ThermalStressHeatmap';
 export { HeatmapFactorCard } from './HeatmapFactorCard';
 export { HeatmapStatusSummary } from './HeatmapStatusSummary';
+export { AnalysisCards, AnalysisCard, StatusSummaryCard } from './AnalysisCards';
 export type { FactorCardConfig } from './HeatmapFactorCard';
 export type { 
   MaterialProperties,

@@ -85,7 +85,7 @@ describe('Heatmap Component System', () => {
       );
 
       const grid = screen.getByRole('grid');
-      const cells = grid.querySelectorAll('.aspect-square');
+      const cells = grid.querySelectorAll('.heatmap-cell');
       expect(cells.length).toBe(169); // 13x13 default grid
     });
 
@@ -105,7 +105,7 @@ describe('Heatmap Component System', () => {
       );
 
       const grid = screen.getByRole('grid');
-      const cells = grid.querySelectorAll('.aspect-square');
+      const cells = grid.querySelectorAll('.heatmap-cell');
       expect(cells.length).toBe(100); // 10x10
     });
 
@@ -219,10 +219,9 @@ describe('Heatmap Component System', () => {
         />
       );
 
-      expect(screen.getByText('Damage Risk')).toBeInTheDocument();
-      expect(screen.getByText('Power Factor')).toBeInTheDocument();
-      expect(screen.getByText('Pulse Factor')).toBeInTheDocument();
-      expect(screen.getByText('Shock Resistance')).toBeInTheDocument();
+      expect(screen.getByText('Material Safety')).toBeInTheDocument();
+      expect(screen.getByText('Power Safety')).toBeInTheDocument();
+      expect(screen.getByText('Pulse Safety')).toBeInTheDocument();
     });
 
     it('calculates safety scores based on fluence', () => {
@@ -236,9 +235,9 @@ describe('Heatmap Component System', () => {
         />
       );
 
-      // Should have fluence data displayed
-      const fluenceElements = screen.getAllByText(/J\/cm²/);
-      expect(fluenceElements.length).toBeGreaterThan(0);
+      // Should have factor cards displayed with score percentages
+      const percentElements = screen.getAllByText(/%/);
+      expect(percentElements.length).toBeGreaterThan(0);
     });
   });
 
@@ -274,7 +273,7 @@ describe('Heatmap Component System', () => {
       expect(screen.getByText('Efficiency')).toBeInTheDocument();
     });
 
-    it('displays fluence vs threshold percentage', () => {
+    it('displays fluence analysis in factor cards', () => {
       render(
         <ProcessEffectivenessHeatmap
           powerRange={mockPowerRange}
@@ -285,7 +284,9 @@ describe('Heatmap Component System', () => {
         />
       );
 
-      expect(screen.getByText('vs Threshold:')).toBeInTheDocument();
+      // Should have factor cards with score percentages
+      const percentElements = screen.getAllByText(/%/);
+      expect(percentElements.length).toBeGreaterThan(0);
     });
   });
 
@@ -529,6 +530,35 @@ describe('Heatmap Component System', () => {
 
       expect(screen.getByRole('complementary', { name: /analysis panels/i })).toBeInTheDocument();
     });
+
+    it('has status bar with fluence and optimal distance', () => {
+      const mockCalculator = jest.fn(() => ({
+        level: 15,
+        analysis: { finalScore: 0.5, level: 15, fluence: 2.5 },
+      }));
+
+      render(
+        <BaseHeatmap
+          powerRange={mockPowerRange}
+          pulseRange={mockPulseRange}
+          optimalPower={mockOptimalPower}
+          optimalPulse={mockOptimalPulse}
+          title="Test Heatmap"
+          calculateScore={mockCalculator}
+          getScoreLabel={(level) => `GOOD - Level ${level}`}
+        />
+      );
+
+      // Status bar should show fluence label and unit
+      expect(screen.getByText(/Fluence:/i)).toBeInTheDocument();
+      expect(screen.getByText(/J\/cm²/i)).toBeInTheDocument();
+      
+      // Status bar should show distance from optimal label
+      expect(screen.getByText(/From optimal:/i)).toBeInTheDocument();
+      
+      // Status bar should have status role
+      expect(screen.getByRole('status')).toBeInTheDocument();
+    });
   });
 
   describe('Score Calculations', () => {
@@ -621,7 +651,7 @@ describe('Energy Coupling Heatmap', () => {
       );
 
       // Check for factor card labels (actual labels in component)
-      expect(screen.getByText('Reflectivity Impact')).toBeInTheDocument();
+      expect(screen.getByText('Energy Absorption')).toBeInTheDocument();
       expect(screen.getByText('Absorption Efficiency')).toBeInTheDocument();
       expect(screen.getByText('Surface Interaction')).toBeInTheDocument();
       expect(screen.getByText('Thermal Mass')).toBeInTheDocument();
@@ -694,7 +724,7 @@ describe('Thermal Stress Heatmap', () => {
       );
 
       // Check for factor card labels (actual labels in component)
-      expect(screen.getByText('Expansion Stress')).toBeInTheDocument();
+      expect(screen.getByText('Expansion Tolerance')).toBeInTheDocument();
       expect(screen.getByText('Heat Spreading')).toBeInTheDocument();
       expect(screen.getByText('Temperature Margin')).toBeInTheDocument();
       expect(screen.getByText('Shock Tolerance')).toBeInTheDocument();

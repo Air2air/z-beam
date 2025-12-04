@@ -6,6 +6,8 @@ A reusable, extensible heatmap visualization system for displaying parameter ana
 
 ### Base Component: `BaseHeatmap.tsx`
 The foundational component that provides:
+- **Status bar**: Full-width bar above grid showing fluence (J/cm²), distance from optimal (%), and status keyword
+  - **Distance from optimal**: Calculated based on score level (0% at level 25, 100% at level 1)
 - **15×15 grid rendering** (configurable via `gridRows`/`gridCols` props)
 - **Hover interactions** with debounced analysis panel updates
 - **Direct HSL color interpolation** for perfectly smooth gradients
@@ -15,7 +17,18 @@ The foundational component that provides:
 
 ### Reusable UI Components
 
-#### `HeatmapStatusSummary.tsx`
+#### `AnalysisCards.tsx`
+Grid-based analysis panel following PropertyBars design pattern:
+- **StatusSummaryCard**: First card showing overall score with color-coded background
+- **AnalysisCard**: Individual factor cards with horizontal progress bars
+  - **Dynamic colors**: Bar color changes based on score value (green ≥80%, lime ≥60%, yellow ≥40%, orange ≥20%, red <20%)
+  - Score semantics: Higher score = better outcome = longer bar = greener color
+- Responsive grid layout (2→3→4→5 columns)
+- Semantic HTML (article, header, figure, data elements)
+- ARIA labels for accessibility
+- Standalone exports for custom layouts
+
+#### `HeatmapStatusSummary.tsx` (Legacy)
 Status banner showing current parameters, score, and progress bar:
 - Power × Pulse display
 - Level score (X/25)
@@ -37,12 +50,11 @@ Individual factor analysis cards:
 **Purpose**: Damage risk assessment
 - **Question**: "Will this damage my material?"
 - **Scoring**: Fluence-based safety calculation
-  - 50% Damage Risk (fluence vs damage threshold)
-  - 25% Power Factor (spatial modifiers)
-  - 20% Pulse Factor (thermal accumulation)
-  - 5% Shock Resistance (material properties)
+  - 55% Material Safety (fluence vs damage threshold)
+  - 25% Power Safety (safety at current power level)
+  - 20% Pulse Safety (safety at current pulse duration)
 - **Color Scale**: Red (danger) → Orange → Yellow → Green (safe)
-- **Features**: 4 factor cards with status indicators
+- **Features**: 3 factor cards with dynamic scores based on position
 
 #### 2. `ProcessEffectivenessHeatmap.tsx`
 **Purpose**: Cleaning performance optimization
@@ -59,7 +71,7 @@ Individual factor analysis cards:
 - **Question**: "How efficiently does laser energy couple into this material?"
 - **Data Source**: `z-beam-generator/data/materials/MaterialProperties.yaml`
 - **Scoring**: Multi-factor energy coupling calculation
-  - 35% Reflectivity Impact (energy lost to reflection, offset by surface roughness)
+  - 35% Energy Absorption (energy absorbed vs reflected, offset by surface roughness)
   - 30% Absorption Efficiency (material absorption + porosity bonus)
   - 20% Surface Interaction (penetration depth + roughness trapping)
   - 15% Thermal Mass (effective density considering porosity)
@@ -78,7 +90,7 @@ Individual factor analysis cards:
 - **Question**: "Will thermal gradients cause stress or cracking?"
 - **Data Source**: `z-beam-generator/data/materials/MaterialProperties.yaml`
 - **Scoring**: Multi-factor thermal stress calculation
-  - 35% Expansion Stress (expansion coefficient vs thermal gradient)
+  - 35% Expansion Tolerance (tolerance for thermal expansion, parameter-driven)
   - 25% Heat Spreading (diffusivity + conductivity combined)
   - 25% Temperature Margin (considers both melting and boiling points)
   - 15% Shock Tolerance (thermal shock resistance + thermal mass bonus)
@@ -179,15 +191,23 @@ For full control, bypass `factorCards` and provide custom renderer:
 ```
 app/components/Heatmap/
 ├── BaseHeatmap.tsx              # Core component with grid/UI logic
-├── HeatmapFactorCard.tsx        # Reusable factor analysis card
-├── HeatmapStatusSummary.tsx     # Reusable status banner
+├── AnalysisCards.tsx            # Grid-based analysis panel (PropertyBars-style)
+├── HeatmapFactorCard.tsx        # Legacy factor analysis card
+├── HeatmapStatusSummary.tsx     # Legacy status banner
 ├── MaterialSafetyHeatmap.tsx    # Safety-focused extension
-├── ProcessEffectivenessHeatmap.tsx # Performance-focused extension
 ├── EnergyCouplingHeatmap.tsx    # Energy transfer efficiency extension
 ├── ThermalStressHeatmap.tsx     # Thermal stress risk extension
+├── ProcessEffectivenessHeatmap.tsx # Performance-focused extension
 ├── types.ts                     # Re-exports from centralized types
 └── index.ts                     # Public exports
 ```
+
+### Display Order in Settings Pages
+Heatmaps are displayed in this order on material settings pages:
+1. **Material Safety** - Primary concern: "Will this damage my material?"
+2. **Energy Coupling** - Secondary: "How efficiently is energy transferred?"
+3. **Thermal Stress** - Tertiary: "What's the risk of thermal damage?"
+4. **Process Effectiveness** - Final: "How effective is the cleaning?"
 
 ## Type System
 
@@ -260,6 +280,7 @@ interface CellAnalysis {
 - **Configurable**: Override with `colorAnchors` prop if needed
 
 ### Interaction
+- **Status bar**: Above-grid bar showing real-time fluence, optimal distance, and status keyword with color-coded text
 - **Hover tooltips**: Show parameter values
 - **Debounced analysis panel**: Updates after 150ms pause (prevents flicker)
 - **Current settings**: Blue overlay on grid cells near current parameters
@@ -275,16 +296,33 @@ interface CellAnalysis {
 
 ## December 2025 Updates
 
+### Early December 2025
+- **Status bar**: New full-width bar above grid showing:
+  - Fluence value (J/cm²) - actual energy density at current parameters
+  - Distance from optimal (%) - how far current position is from optimal zone
+  - Status keyword (e.g., "SAFE", "DANGER", "OPTIMAL") - color-coded summary
+- **AnalysisCards component**: New grid-based analysis panel following PropertyBars design
+- **StatusSummaryCard**: Standalone export with color-coded background matching grid cell
+  - Now displays only the description part of label (strips keyword, e.g., "Low Risk" instead of "SAFE - Low Risk")
+- **Horizontal bars**: Progress bars changed from vertical to horizontal orientation
+- **Semantic HTML**: Added article, header, figure, data elements with ARIA labels
+- **Heatmap ordering**: Reordered to Material Safety → Energy Coupling → Thermal Stress → Process Effectiveness
+- **Position-based scoring**: Added power/pulse position factors for fuller color range in all heatmaps
+- **Immediate updates**: StatusSummaryCard background and status bar text update immediately with 150ms transition
+- **X-axis labels**: Increased to 7 labels for better readability
+- **Cell styling**: Changed from `.aspect-square` to `.heatmap-cell` class
+
+### November 2025
 - **Grid size**: Reduced from 20×20 to 15×15 (44% fewer calculations)
 - **Grid spacing**: Changed from `gap-1` to `gap-0` for seamless tiles
 - **Color interpolation**: Changed from anchor-based to direct HSL gradient
-- **Adaptive color scaling**: Colors now normalize to actual data range (NEW)
+- **Adaptive color scaling**: Colors now normalize to actual data range
 - **factorCards prop**: New declarative way to define analysis panels
 - **scoreType prop**: Controls 'safety' vs 'effectiveness' styling
 - **Reusable components**: `HeatmapFactorCard`, `HeatmapStatusSummary`
 - **Optional defaults**: `colorAnchors` and `legendItems` now have sensible defaults
 - **Simplified extensions**: MaterialSafetyHeatmap and ProcessEffectivenessHeatmap now ~50 lines shorter
-- **Test coverage**: 30 tests added (`tests/components/Heatmap.test.tsx`)
+- **Test coverage**: 39 tests (`tests/components/Heatmap.test.tsx`)
 - **New heatmaps from generator data**:
   - `EnergyCouplingHeatmap`: Analyzes laser energy absorption using reflectivity, absorptivity, surface roughness
   - `ThermalStressHeatmap`: Assesses thermal stress risk using expansion coefficients, melting points, thermal properties

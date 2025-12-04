@@ -127,16 +127,11 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
         pulseScore = 0.5 - (pulseNorm - 0.50) * 1.0;
       }
 
-      // THERMAL SHOCK RESISTANCE
-      const thermalShock = matProps.thermalShockResistance || 200;
-      const shockScore = Math.min(1.0, thermalShock / 400);
-
       // CALCULATE FINAL SAFETY SCORE - Direct weighted sum (all factors 0-1)
       const baseScore = (
-        damageScore * 0.50 +      // Fluence-based damage risk
+        damageScore * 0.55 +      // Fluence-based damage risk (primary factor)
         powerScore * 0.25 +       // Spatial power contribution
-        pulseScore * 0.20 +       // Temporal pulse contribution
-        shockScore * 0.05         // Thermal shock resistance
+        pulseScore * 0.20         // Temporal pulse contribution
       );
 
       // Apply moderate expansion for better color distribution
@@ -154,7 +149,6 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
           damageScore,
           powerScore,
           pulseScore,
-          shockScore,
           finalScore,
           level: levelFloat
         }
@@ -178,9 +172,9 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
   const factorCards: FactorCardConfig[] = useMemo(() => [
     {
       id: 'damageRisk',
-      label: 'Damage Risk',
-      weight: '50%',
-      description: 'Will this damage the material?',
+      label: 'Material Safety',
+      weight: '55%',
+      description: 'Safety margin from damage threshold',
       color: 'red',
       getValue: (analysis) => analysis.damageScore || 0,
       getStatus: (analysis) => {
@@ -208,27 +202,19 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
     },
     {
       id: 'powerFactor',
-      label: 'Power Factor',
+      label: 'Power Safety',
       weight: '25%',
-      description: 'Spatial power distribution effects',
+      description: 'Safety at current power level',
       color: 'orange',
       getValue: (analysis) => analysis.powerScore || 0,
     },
     {
       id: 'pulseFactor',
-      label: 'Pulse Factor',
+      label: 'Pulse Safety',
       weight: '20%',
-      description: 'Thermal accumulation effects',
+      description: 'Safety at current pulse duration',
       color: 'yellow',
       getValue: (analysis) => analysis.pulseScore || 0,
-    },
-    {
-      id: 'shockResistance',
-      label: 'Shock Resistance',
-      weight: '5%',
-      description: 'Material thermal shock tolerance',
-      color: 'blue',
-      getValue: (analysis) => analysis.shockScore || 0,
     },
   ], []);
 

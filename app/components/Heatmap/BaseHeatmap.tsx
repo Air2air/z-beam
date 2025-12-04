@@ -4,8 +4,8 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
-import { HeatmapStatusSummary } from './HeatmapStatusSummary';
 import { HeatmapFactorCard } from './HeatmapFactorCard';
+import { AnalysisCards } from './AnalysisCards';
 import { BaseHeatmapProps, HoveredCell, ColorAnchor, LegendItem } from './types';
 import { interpolateColor } from '@/app/utils/colorUtils';
 
@@ -80,6 +80,32 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   // Calculate grid indices for current settings
   const currentPowerIndex = Math.round((powerRange.current - powerRange.min) / powerStep);
   const currentPulseIndex = Math.round((powerRange.current - pulseRange.min) / pulseStep);
+
+  // Helper to extract status keyword from full label (e.g., "SAFE" from "SAFE - Low Risk")
+  const getStatusKeyword = (label: string): string => {
+    const parts = label.split(' - ');
+    return parts[0] || label;
+  };
+
+  // Helper to calculate distance from optimal based on SCORE (not position)
+  // Optimal = level 25 (100%), distance increases as level decreases
+  // Returns 0% at level 25, 100% at level 1
+  const getOptimalDistance = (level: number): number => {
+    // Level 25 = optimal (0% distance), Level 1 = worst (100% distance)
+    // Linear mapping: (25 - level) / 24 * 100
+    const distance = ((25 - level) / 24) * 100;
+    return Math.round(Math.max(0, Math.min(100, distance)));
+  };
+
+  // Get color class based on status keyword
+  const getStatusColor = (keyword: string): string => {
+    const k = keyword.toUpperCase();
+    if (k.includes('OPTIMAL') || k.includes('EXCELLENT') || k.includes('SAFE')) return 'text-green-400';
+    if (k.includes('GOOD')) return 'text-lime-400';
+    if (k.includes('MODERATE') || k.includes('CAUTION')) return 'text-yellow-400';
+    if (k.includes('SUBOPTIMAL') || k.includes('WARNING') || k.includes('POOR')) return 'text-orange-400';
+    return 'text-red-400';
+  };
 
   // Pre-compute score range for adaptive color scaling
   const { minLevel, maxLevel } = useMemo(() => {
@@ -231,9 +257,69 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
         thumbnailLink={materialLink}
       />
 
-      <div className="flex-stack-row gap-6">
-        {/* Heatmap Grid */}
-        <figure className="w-full sm:w-3/5 order-2 sm:order-1 max-w-2xl" aria-label={`${title} interactive heatmap`}>
+      <div className="flex flex-col gap-6">
+        {/* Heatmap Grid - Full width on top */}
+        <figure className="w-full" aria-label={`${title} interactive heatmap`}>
+          {/* Status Bar - Aligned with grid (offset by Y-axis label + scale width) */}
+          <div className="flex gap-2">
+            {/* Spacer for Y-axis label */}
+            <div style={{ writingMode: 'vertical-rl' }} className="invisible">
+              <div className="text-base font-bold whitespace-nowrap">Pulse</div>
+            </div>
+            {/* Spacer for Y-axis scale */}
+            <div className="w-12"></div>
+            {/* Status bar content */}
+            {(() => {
+              const currentAnalysis = debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis;
+              const currentPower = debouncedCell?.power ?? powerRange.current;
+              const currentPulse = debouncedCell?.pulse ?? pulseRange.current;
+              const currentLevel = Math.round(currentAnalysis.level);
+              const fullLabel = getScoreLabel(currentLevel);
+              const statusKeyword = getStatusKeyword(fullLabel);
+              const fluence = currentAnalysis.fluence;
+              const optimalDist = getOptimalDistance(currentLevel);
+              const statusColorClass = getStatusColor(statusKeyword);
+              
+              return (
+                <div 
+                  key={`status-${currentPower}-${currentPulse}-${currentLevel}`}
+                  className="flex-1 flex items-center justify-between bg-primary rounded-t-lg px-4 py-2 mb-0 border-b border-gray-600/50"
+                  role="status"
+                  aria-live="polite"
+                >
+                  {/* Status Keyword */}
+                  <div className="flex items-center gap-2">
+                    <span 
+                      className={`text-lg font-bold ${statusColorClass}`}
+                      style={{ transition: 'color 150ms ease-out' }}
+                    >
+                      {statusKeyword}
+                    </span>
+                  </div>
+                  
+                  {/* Fluence Value */}
+                  <div className="flex items-center gap-1 text-sm">
+                    <span className="text-gray-400">Fluence:</span>
+                    <span className="font-mono font-semibold text-white">
+                      {fluence !== undefined ? fluence.toFixed(2) : '—'} J/cm²
+                    </span>
+                  </div>
+                  
+                  {/* Distance from Optimal */}
+                  <div className="flex items-center gap-1 text-sm">
+                    <span className="text-gray-400">From optimal:</span>
+                    <span 
+                      className={`font-mono font-semibold ${optimalDist <= 10 ? 'text-green-400' : optimalDist <= 25 ? 'text-yellow-400' : 'text-orange-400'}`}
+                      style={{ transition: 'color 150ms ease-out' }}
+                    >
+                      {optimalDist}%
+                    </span>
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+          
           <div className="flex gap-2">
             {/* Y-axis label - rotated vertically */}
             <div className="flex items-center justify-center" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
@@ -252,11 +338,10 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
 
             <div className="flex-1 relative">
               <div
-                className="grid gap-0"
+                className="grid gap-0 w-full h-[120px] sm:h-[180px] md:h-[200px]"
                 style={{
                   gridTemplateColumns: `repeat(${gridCols}, 1fr)`,
-                  gridTemplateRows: `repeat(${gridRows}, 1fr)`,
-                  aspectRatio: '1 / 1'
+                  gridTemplateRows: `repeat(${gridRows}, 1fr)`
                 }}
                 role="grid"
                 aria-label="Parameter effectiveness grid"
@@ -279,11 +364,8 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
                     return (
                       <div
                         key={`${rowIdx}-${colIdx}`}
-                        className="aspect-square relative group cursor-pointer transition-transform hover:scale-125 hover:z-10"
-                        style={{ 
-                          backgroundColor: displayColor,
-                          opacity: 0.9
-                        }}
+                        className="heatmap-cell"
+                        style={{ backgroundColor: displayColor, opacity: 0.9 }}
                         onMouseEnter={() => handleCellHover(power, pulse, { ...analysis, level })}
                         onMouseLeave={handleCellLeave}
                       />
@@ -305,8 +387,8 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
             {/* X-axis scale values */}
             <div className="flex-1">
               <div className="flex justify-between text-base font-semibold px-1 mt-1" role="list" aria-label="Power scale">
-                {Array.from({ length: 5 }).map((_, i) => {
-                  const value = powerRange.min + (i * (powerRange.max - powerRange.min)) / 4;
+                {Array.from({ length: 7 }).map((_, i) => {
+                  const value = powerRange.min + (i * (powerRange.max - powerRange.min)) / 6;
                   return <div key={i} role="listitem">{value.toFixed(0)}</div>;
                 })}
               </div>
@@ -319,42 +401,45 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
           </div>
         </figure>
 
-        {/* Right: Analysis and Legend */}
-        <aside className="w-full sm:w-2/5 order-1 sm:order-2 space-y-4" role="complementary" aria-label="Analysis panels">
+        {/* Analysis and Legend - Full width below */}
+        <aside className="w-full space-y-4" role="complementary" aria-label="Analysis panels">
           {/* Priority 1: Custom renderAnalysisPanel if provided */}
-          {/* Priority 2: Auto-generate from factorCards if provided */}
-          {/* Priority 3: Minimal default panel */}
+          {/* Priority 2: Auto-generate from factorCards using AnalysisCards grid */}
+          {/* Priority 3: Minimal default panel with just status summary */}
           {renderAnalysisPanel ? (
             renderAnalysisPanel(debouncedCell, powerRange.current, pulseRange.current)
           ) : factorCards && factorCards.length > 0 ? (
-            // Auto-generated analysis panel from factorCards
-            <section>
-              <HeatmapStatusSummary
-                power={debouncedCell ? debouncedCell.power : powerRange.current}
-                pulse={debouncedCell ? debouncedCell.pulse : pulseRange.current}
-                level={Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level)}
-                finalScore={(debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore}
-                scoreLabel={getScoreLabel(Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level))}
-                scoreType={scoreType}
+            // Auto-generated analysis panel using PropertyBars-style grid
+            <section key={debouncedCell ? `${debouncedCell.power}-${debouncedCell.pulse}` : 'default'}>
+              <AnalysisCards
+                factorCards={factorCards}
+                analysis={debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis}
+                statusSummary={{
+                  power: debouncedCell ? debouncedCell.power : powerRange.current,
+                  pulse: debouncedCell ? debouncedCell.pulse : pulseRange.current,
+                  level: Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level),
+                  finalScore: (debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore,
+                  scoreLabel: getScoreLabel(Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level)),
+                  scoreType: scoreType,
+                }}
+                columns={{ xs: 2, sm: 3, md: 4, lg: 5 }}
               />
-              {factorCards.map((config) => (
-                <HeatmapFactorCard 
-                  key={config.id} 
-                  config={config} 
-                  analysis={debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis} 
-                />
-              ))}
             </section>
           ) : (
-            // Minimal default panel when no factorCards provided
-            <section className="heatmap-analysis-panel">
-              <HeatmapStatusSummary
-                power={debouncedCell ? debouncedCell.power : powerRange.current}
-                pulse={debouncedCell ? debouncedCell.pulse : pulseRange.current}
-                level={Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level)}
-                finalScore={(debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore}
-                scoreLabel={getScoreLabel(Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level))}
-                scoreType={scoreType}
+            // Minimal default panel when no factorCards provided - status summary only
+            <section className="heatmap-analysis-panel" key={debouncedCell ? `${debouncedCell.power}-${debouncedCell.pulse}-min` : 'default-min'}>
+              <AnalysisCards
+                factorCards={[]}
+                analysis={{}}
+                statusSummary={{
+                  power: debouncedCell ? debouncedCell.power : powerRange.current,
+                  pulse: debouncedCell ? debouncedCell.pulse : pulseRange.current,
+                  level: Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level),
+                  finalScore: (debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore,
+                  scoreLabel: getScoreLabel(Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).level)),
+                  scoreType: scoreType,
+                }}
+                columns={{ xs: 2, sm: 3, md: 4, lg: 5 }}
               />
             </section>
           )}

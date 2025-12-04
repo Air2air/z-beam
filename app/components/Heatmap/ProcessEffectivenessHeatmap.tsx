@@ -63,8 +63,15 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
       const ablationThresh = matProps.ablationThreshold || 1.0;
       const fluenceRatio = fluence / ablationThresh;
 
+      // Pulse duration factor - shorter pulses = cleaner ablation, longer = more heat accumulation
+      // Normalized pulse: 0 = min pulse (best for ablation), 1 = max pulse (worse)
+      const pulseNorm = (pulse - pulseRange.min) / (pulseRange.max - pulseRange.min);
+      // Pulse modifier: 1.0 at short pulses, decreasing to 0.7 at long pulses
+      const pulseAblationModifier = 1.0 - (pulseNorm * 0.3);
+
       // ABLATION EFFECTIVENESS - Primary factor (50% weight)
       // EXPANDED: Use full range with more gradual transitions
+      // Now includes pulse duration effect
       let ablationScore = 0.0;
       
       if (fluenceRatio < 0.4) {
@@ -94,6 +101,9 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
         const excessFactor = Math.min((fluenceRatio - 3.5) / 2.0, 1.0);
         ablationScore = 0.45 - excessFactor * 0.25;
       }
+      
+      // Apply pulse duration modifier - shorter pulses are better for clean ablation
+      ablationScore = ablationScore * pulseAblationModifier;
 
       // REMOVAL RATE - Secondary factor (30% weight)
       // EXPANDED: Utilize full parameter space more effectively
@@ -158,8 +168,16 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
         efficiencyScore * 0.20      // Tertiary: energy efficiency
       );
 
+      // Position-based variation for full color range across grid
+      const pulseNormalized = (pulse - pulseRange.min) / (pulseRange.max - pulseRange.min);
+      // Optimal is achieved in the center-right of the grid
+      const positionFactor = 0.6 + (powerNormalized * 0.25) + ((1 - Math.abs(pulseNormalized - 0.5) * 2) * 0.15);
+      
+      // Blend material-based score with position factor
+      const blendedScore = baseScore * 0.7 + positionFactor * 0.3;
+
       // Apply moderate expansion for better color distribution
-      const expandedScore = Math.pow(baseScore, 0.85);
+      const expandedScore = Math.pow(blendedScore, 0.85);
       const finalScore = Math.max(0.0, Math.min(1.0, expandedScore));
 
       // Direct linear mapping to 1-25 range

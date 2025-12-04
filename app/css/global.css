@@ -129,3 +129,12 @@ input[type="email"] {
 }
 
 .dark { --fallback-bg-color: #374151; }
+
+/* Heatmap cells */
+.heatmap-cell {
+  @apply cursor-pointer transition-transform;
+}
+.heatmap-cell:hover {
+  transform: scale(1.25);
+  z-index: 10;
+}

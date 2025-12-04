@@ -183,6 +183,21 @@ export function SettingsLayout({
   const powerParam = safetyHeatmapConfig?.power_range || findParam('powerRange');
   const pulseParam = safetyHeatmapConfig?.pulse_range || findParam('pulseWidth') || findParam('pulseDuration');
 
+  // Calculate sensible optimal ranges (middle 30% of range) if not explicitly provided
+  const getOptimalRange = (param: any, defaultMin: number, defaultMax: number): [number, number] => {
+    if (param?.optimal_range) return param.optimal_range;
+    const min = param?.min ?? defaultMin;
+    const max = param?.max ?? defaultMax;
+    const range = max - min;
+    // Optimal zone is middle 30% of the range
+    const optMin = min + range * 0.35;
+    const optMax = min + range * 0.65;
+    return [optMin, optMax];
+  };
+  
+  const optimalPowerRange = getOptimalRange(powerParam, 50, 150);
+  const optimalPulseRange = getOptimalRange(pulseParam, 10, 500);
+
   // Extract thermal simulation parameters
   const thermalParams = thermalConfig?.defaults || {
     power: findParam('powerRange')?.value || 100,
@@ -292,8 +307,8 @@ export function SettingsLayout({
                 max: pulseParam?.max || 1000,
                 current: pulseParam?.current || pulseParam?.value || 100,
               }}
-              optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
-              optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
+              optimalPower={powerParam?.optimal_range || optimalPowerRange}
+              optimalPulse={pulseParam?.optimal_range || optimalPulseRange}
               materialProperties={{
                 // Core thermal properties - Priority: settings.thermalProperties > materialProps
                 thermalConductivity: 
@@ -347,6 +362,97 @@ export function SettingsLayout({
             />
           </div>
 
+        {/* Energy Coupling Heatmap - Shows laser energy transfer efficiency */}
+        <div className="mb-8">
+            <EnergyCouplingHeatmap 
+              materialName={settings.name}
+              thumbnail={heroImage}
+              materialLink={materialLink}
+              powerRange={{
+                min: powerParam?.min || 0,
+                max: powerParam?.max || 200,
+                current: powerParam?.current || powerParam?.value || 100,
+              }}
+              pulseRange={{
+                min: pulseParam?.min || 0,
+                max: pulseParam?.max || 1000,
+                current: pulseParam?.current || pulseParam?.value || 100,
+              }}
+              optimalPower={optimalPowerRange}
+              optimalPulse={optimalPulseRange}
+              materialProperties={{
+                // Reflectivity and absorption properties
+                laserReflectivity: 
+                  (settings as any).laserMaterialInteraction?.reflectivity?.value ||
+                  materialProps?.laser_material_interaction?.laserReflectivity?.value || 
+                  materialProps?.physical_properties?.reflectivity?.value ||
+                  materialProps?.material_characteristics?.reflectivity?.value,
+                absorptivity: 
+                  materialProps?.laser_material_interaction?.absorptivity?.value || 
+                  materialProps?.physical_properties?.absorptivity?.value ||
+                  materialProps?.material_characteristics?.absorptivity?.value,
+                absorptionCoefficient: 
+                  materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
+                // Additional properties for energy coupling analysis
+                density: materialProps?.material_characteristics?.density?.value,
+                porosity: materialProps?.material_characteristics?.porosity?.value,
+                surfaceRoughness: materialProps?.material_characteristics?.surfaceRoughness?.value,
+                // Machine parameters
+                repetitionRate: (findParam('repetitionRate')?.value || 80) * 1000,
+                spotDiameter: findParam('spotSize')?.value || 300,
+              }}
+            />
+          </div>
+
+        {/* Thermal Stress Heatmap - Shows thermal stress and distortion risk */}
+        <div className="mb-8">
+            <ThermalStressHeatmap 
+              materialName={settings.name}
+              thumbnail={heroImage}
+              materialLink={materialLink}
+              powerRange={{
+                min: powerParam?.min || 0,
+                max: powerParam?.max || 200,
+                current: powerParam?.current || powerParam?.value || 100,
+              }}
+              pulseRange={{
+                min: pulseParam?.min || 0,
+                max: pulseParam?.max || 1000,
+                current: pulseParam?.current || pulseParam?.value || 100,
+              }}
+              optimalPower={optimalPowerRange}
+              optimalPulse={optimalPulseRange}
+              materialProperties={{
+                // Thermal expansion and stress properties
+                thermalExpansionCoefficient: 
+                  materialProps?.physical_properties?.thermalExpansionCoefficient?.value ||
+                  materialProps?.laser_material_interaction?.thermalExpansion?.value,
+                thermalDiffusivity: 
+                  (settings as any).thermalProperties?.thermalDiffusivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalDiffusivity?.value || 
+                  materialProps?.physical_properties?.thermalDiffusivity?.value,
+                meltingPoint: 
+                  materialProps?.physical_properties?.meltingPoint?.value ||
+                  materialProps?.material_characteristics?.meltingPoint?.value,
+                boilingPoint: 
+                  materialProps?.physical_properties?.boilingPoint?.value ||
+                  materialProps?.material_characteristics?.boilingPoint?.value,
+                thermalShockResistance: 
+                  (settings as any).laserMaterialInteraction?.thermalShockResistance?.value ||
+                  materialProps?.laser_material_interaction?.thermalShockResistance?.value,
+                thermalConductivity: 
+                  (settings as any).thermalProperties?.thermalConductivity?.value ||
+                  materialProps?.laser_material_interaction?.thermalConductivity?.value,
+                specificHeat:
+                  (settings as any).thermalProperties?.specificHeat?.value ||
+                  materialProps?.laser_material_interaction?.specificHeat?.value ||
+                  materialProps?.physical_properties?.specificHeat?.value,
+                // Material density for thermal mass calculations
+                density: materialProps?.material_characteristics?.density?.value,
+              }}
+            />
+          </div>
+
         {/* Process Effectiveness Heatmap */}
         <div className="mb-8">
             <ProcessEffectivenessHeatmap 
@@ -363,8 +469,8 @@ export function SettingsLayout({
                 max: pulseParam?.max || 1000,
                 current: pulseParam?.current || pulseParam?.value || 100,
               }}
-              optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
-              optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
+              optimalPower={powerParam?.optimal_range || optimalPowerRange}
+              optimalPulse={pulseParam?.optimal_range || optimalPulseRange}
               materialProperties={{
                 // Core thermal properties - Priority: settings.thermalProperties > materialProps
                 thermalConductivity: 
@@ -414,97 +520,6 @@ export function SettingsLayout({
                 // Machine parameters for physics calculations (from settings)
                 repetitionRate: (findParam('repetitionRate')?.value || 80) * 1000, // Convert kHz to Hz
                 spotDiameter: findParam('spotSize')?.value || 300, // μm
-              }}
-            />
-          </div>
-
-        {/* Energy Coupling Heatmap - Shows laser energy transfer efficiency */}
-        <div className="mb-8">
-            <EnergyCouplingHeatmap 
-              materialName={settings.name}
-              thumbnail={heroImage}
-              materialLink={materialLink}
-              powerRange={{
-                min: powerParam?.min || 0,
-                max: powerParam?.max || 200,
-                current: powerParam?.current || powerParam?.value || 100,
-              }}
-              pulseRange={{
-                min: pulseParam?.min || 0,
-                max: pulseParam?.max || 1000,
-                current: pulseParam?.current || pulseParam?.value || 100,
-              }}
-              optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
-              optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
-              materialProperties={{
-                // Reflectivity and absorption properties
-                laserReflectivity: 
-                  (settings as any).laserMaterialInteraction?.reflectivity?.value ||
-                  materialProps?.laser_material_interaction?.laserReflectivity?.value || 
-                  materialProps?.physical_properties?.reflectivity?.value ||
-                  materialProps?.material_characteristics?.reflectivity?.value,
-                absorptivity: 
-                  materialProps?.laser_material_interaction?.absorptivity?.value || 
-                  materialProps?.physical_properties?.absorptivity?.value ||
-                  materialProps?.material_characteristics?.absorptivity?.value,
-                absorptionCoefficient: 
-                  materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
-                // Additional properties for energy coupling analysis
-                density: materialProps?.material_characteristics?.density?.value,
-                porosity: materialProps?.material_characteristics?.porosity?.value,
-                surfaceRoughness: materialProps?.material_characteristics?.surfaceRoughness?.value,
-                // Machine parameters
-                repetitionRate: (findParam('repetitionRate')?.value || 80) * 1000,
-                spotDiameter: findParam('spotSize')?.value || 300,
-              }}
-            />
-          </div>
-
-        {/* Thermal Stress Heatmap - Shows thermal stress and distortion risk */}
-        <div className="mb-8">
-            <ThermalStressHeatmap 
-              materialName={settings.name}
-              thumbnail={heroImage}
-              materialLink={materialLink}
-              powerRange={{
-                min: powerParam?.min || 0,
-                max: powerParam?.max || 200,
-                current: powerParam?.current || powerParam?.value || 100,
-              }}
-              pulseRange={{
-                min: pulseParam?.min || 0,
-                max: pulseParam?.max || 1000,
-                current: pulseParam?.current || pulseParam?.value || 100,
-              }}
-              optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
-              optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
-              materialProperties={{
-                // Thermal expansion and stress properties
-                thermalExpansionCoefficient: 
-                  materialProps?.physical_properties?.thermalExpansionCoefficient?.value ||
-                  materialProps?.laser_material_interaction?.thermalExpansion?.value,
-                thermalDiffusivity: 
-                  (settings as any).thermalProperties?.thermalDiffusivity?.value ||
-                  materialProps?.laser_material_interaction?.thermalDiffusivity?.value || 
-                  materialProps?.physical_properties?.thermalDiffusivity?.value,
-                meltingPoint: 
-                  materialProps?.physical_properties?.meltingPoint?.value ||
-                  materialProps?.material_characteristics?.meltingPoint?.value,
-                boilingPoint: 
-                  materialProps?.physical_properties?.boilingPoint?.value ||
-                  materialProps?.material_characteristics?.boilingPoint?.value,
-                thermalShockResistance: 
-                  (settings as any).laserMaterialInteraction?.thermalShockResistance?.value ||
-                  materialProps?.laser_material_interaction?.thermalShockResistance?.value,
-                thermalConductivity: 
-                  (settings as any).thermalProperties?.thermalConductivity?.value ||
-                  materialProps?.laser_material_interaction?.thermalConductivity?.value,
-                specificHeat:
-                  (settings as any).thermalProperties?.specificHeat?.value ||
-                  materialProps?.laser_material_interaction?.specificHeat?.value ||
-                  materialProps?.physical_properties?.specificHeat?.value,
-                // Material density for thermal mass calculations
-                density: materialProps?.material_characteristics?.density?.value,
               }}
             />
           </div>
