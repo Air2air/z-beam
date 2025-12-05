@@ -1,11 +1,21 @@
 // app/sitemap.ts
-import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from './utils/constants';
 import fs from 'fs';
 import path from 'path';
 import { buildCategoryUrl, buildSubcategoryUrl, buildUrlFromMetadata } from './utils/urlBuilder';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Sitemap entry type compatible with Next.js MetadataRoute.Sitemap
+interface SitemapEntry {
+  url: string;
+  lastModified?: Date | string;
+  changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+  priority?: number;
+  alternates?: {
+    languages?: Record<string, string>;
+  };
+}
+
+export default function sitemap(): SitemapEntry[] {
   const baseUrl = SITE_CONFIG.url;
   
   // Helper to generate alternates for a URL
