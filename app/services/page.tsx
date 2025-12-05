@@ -13,7 +13,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const metadata = {
-  title: 'Industrial Laser Cleaning Services | Bay Area | Z-Beam',
+  title: 'Industrial Laser Cleaning Services | Bay Area',
   description: `Precision laser cleaning: no chemicals, no abrasives, no substrate damage. Faster setup than sandblasting, zero hazardous waste. Bay Area mobile service.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/services`,

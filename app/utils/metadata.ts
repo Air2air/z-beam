@@ -184,7 +184,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   let enhancedDescription = seoDescription || description;
   
   // For material pages, add key technical specifications
-  if ('machineSettings' in metadata || 'materialProperties' in metadata) {
+  // Only enhance if we're NOT using SEO-formatted description (which is already optimized)
+  if (('machineSettings' in metadata || 'materialProperties' in metadata) && !seoDescription) {
     const machineSettings = (metadata as any).machineSettings;
     const materialProps = (metadata as any).materialProperties;
     

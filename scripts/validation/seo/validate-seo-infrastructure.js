@@ -564,8 +564,12 @@ async function validateDatasetQuality(page, pageInfo, schemaTypes) {
   let machineSettingsPath = null;
   let materialPropertiesPath = null;
   
+  // Extract base material name (without -laser-cleaning suffix) for settings lookup
+  // e.g., "aluminum-laser-cleaning" -> "aluminum"
+  const baseMaterialName = pageData.name.replace(/-laser-cleaning$/, '');
+  
   // 1. Load machineSettings from settings frontmatter
-  const settingsPath = path.join(process.cwd(), 'frontmatter', 'settings', `${pageData.name}-settings.yaml`);
+  const settingsPath = path.join(process.cwd(), 'frontmatter', 'settings', `${baseMaterialName}-settings.yaml`);
   try {
     const yamlContent = await fs.readFile(settingsPath, 'utf-8');
     const settingsData = parseSimpleYAML(yamlContent);
@@ -577,7 +581,8 @@ async function validateDatasetQuality(page, pageInfo, schemaTypes) {
   }
   
   // 2. Load materialProperties from materials frontmatter
-  const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${pageData.name}-laser-cleaning.yaml`);
+  // pageData.name already has -laser-cleaning suffix (e.g., "aluminum-laser-cleaning")
+  const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${pageData.name}.yaml`);
   try {
     const yamlContent = await fs.readFile(materialPath, 'utf-8');
     const materialData = parseSimpleYAML(yamlContent);
