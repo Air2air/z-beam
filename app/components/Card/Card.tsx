@@ -114,7 +114,7 @@ export function MaterialCard({
           )}
 
           {/* Material Title Bar - displays material name with navigation indicator */}
-          <header className={`${config.titleBarClass} ${config.padding} backdrop-blur z-10`} role="banner" aria-label="Material card title">
+          <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner" aria-label="Material card title">
             <div className="flex-between">
               <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                 <h3 

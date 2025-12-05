@@ -709,6 +709,7 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
     const mainImage = getMainImage(data);
     const materialName = meta.name || data.title || 'Material';
     const materialCategory = meta.category || 'Material';
+    const authorData = (meta as any).author || data.author;
     
     // Professional cleaning service for this material
     products.push({
@@ -720,6 +721,16 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       'brand': {
         '@type': 'Brand',
         'name': SITE_CONFIG.name
+      },
+      'author': authorData ? {
+        '@type': 'Person',
+        'name': authorData.name || SITE_CONFIG.author,
+        ...(authorData.jobTitle && { 'jobTitle': authorData.jobTitle }),
+        ...(authorData.url && { 'url': authorData.url })
+      } : {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl
       },
       'provider': {
         '@type': 'Organization',
@@ -770,7 +781,7 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         }
       ],
       'serviceType': 'Industrial Laser Cleaning',
-      ...(mainImage && { 'image': mainImage })
+      'image': mainImage  // Always include image - getMainImage() now guarantees a value
     });
     
     // Equipment rental service for this material
@@ -783,6 +794,16 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       'brand': {
         '@type': 'Brand',
         'name': SITE_CONFIG.name
+      },
+      'author': authorData ? {
+        '@type': 'Person',
+        'name': authorData.name || SITE_CONFIG.author,
+        ...(authorData.jobTitle && { 'jobTitle': authorData.jobTitle }),
+        ...(authorData.url && { 'url': authorData.url })
+      } : {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl
       },
       'offers': {
         '@type': 'Offer',
@@ -821,7 +842,7 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         }
       ],
       'serviceType': 'Equipment Rental',
-      ...(mainImage && { 'image': mainImage })
+      'image': mainImage  // Always include image - getMainImage() now guarantees a value
     });
   }
 
@@ -1919,7 +1940,26 @@ function getMainImage(data: any): any | null {
     };
   }
 
-  return null;
+  // Fallback: Generate hero image URL from slug pattern
+  const slug = data.slug || data.frontmatter?.slug;
+  if (slug) {
+    return {
+      '@type': 'ImageObject',
+      'url': `${SITE_CONFIG.url}/images/material/${slug}-hero.jpg`,
+      'width': 1200,
+      'height': 630,
+      'caption': data.title || data.frontmatter?.title || 'Laser cleaning process'
+    };
+  }
+
+  // Ultimate fallback: default OG image
+  return {
+    '@type': 'ImageObject',
+    'url': `${SITE_CONFIG.url}/images/og-image.jpg`,
+    'width': 1200,
+    'height': 630,
+    'caption': 'Z-Beam Laser Cleaning'
+  };
 }
 
 function generatePersonObject(author: any, _baseUrl: string): any {
