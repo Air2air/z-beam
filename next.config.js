@@ -105,8 +105,13 @@ const nextConfig = {
       const files = await fs.readdir(frontmatterDir);
       const yamlFiles = files.filter(f => f.endsWith('.yaml') || f.endsWith('.yml'));
       
-      // Centralized URL normalization function
-      const normalizeForUrl = (value) => value.toLowerCase().replace(/\s+/g, '-');
+      // Centralized URL normalization function - MANDATORY: strips parentheses
+      const normalizeForUrl = (value) => value
+        .toLowerCase()
+        .replace(/[()]/g, '')     // MANDATORY: Strip all parentheses
+        .replace(/\s+/g, '-')     // Replace spaces with hyphens
+        .replace(/-+/g, '-')      // Collapse multiple hyphens
+        .replace(/^-|-$/g, '');   // Trim leading/trailing hyphens
       
       const redirects = [
         // Non-www to www redirect (redundant with vercel.json but ensures it works)

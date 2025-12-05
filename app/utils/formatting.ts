@@ -22,15 +22,29 @@ export function formatDate(date: string): string {
   }).format(dateObj);
 }
 
+/**
+ * Converts a string to a URL-safe slug
+ * MANDATORY: Strips parentheses from all slugs for clean URLs
+ * 
+ * @param str - String to convert to slug
+ * @returns URL-safe slug with no parentheses or special characters
+ * 
+ * @example
+ * slugify('Hello World') // => 'hello-world'
+ * slugify('Aluminum (Al)') // => 'aluminum-al'
+ * slugify('ABS (Plastic) Material') // => 'abs-plastic-material'
+ */
 export function slugify(str: string): string {
   return str
     .toString()
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, '-')
-    .replace(/&/g, '-and-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-');
+    .replace(/[()]/g, '')      // MANDATORY: Strip all parentheses first
+    .replace(/\s+/g, '-')       // Replace spaces with hyphens
+    .replace(/&/g, '-and-')     // Replace ampersand with 'and'
+    .replace(/[^\w\-]+/g, '')   // Remove remaining special characters
+    .replace(/-+/g, '-')        // Collapse multiple hyphens
+    .replace(/^-|-$/g, '');     // Trim leading/trailing hyphens
 }
 
 export function truncateText(text: string, maxLength: number): string {

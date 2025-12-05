@@ -65,18 +65,33 @@ describe('Formatting utilities', () => {
     });
 
     test('should handle special characters', () => {
-      expect(slugify('Test@#$%^&*()!')).toBe('test-and-');
+      expect(slugify('Test@#$%^&*()!')).toBe('test-and');
       expect(slugify('Multiple   Spaces')).toBe('multiple-spaces');
+    });
+
+    test('should ALWAYS strip parentheses from slugs (MANDATORY)', () => {
+      expect(slugify('Aluminum (Al)')).toBe('aluminum-al');
+      expect(slugify('ABS (Plastic)')).toBe('abs-plastic');
+      expect(slugify('Material (Acronym) Process')).toBe('material-acronym-process');
+      expect(slugify('Test(NoSpaces)')).toBe('testnospaces');
+      expect(slugify('(Leading) Text')).toBe('leading-text');
+      expect(slugify('Text (Trailing)')).toBe('text-trailing');
     });
 
     test('should handle empty and edge cases', () => {
       expect(slugify('')).toBe('');
       expect(slugify('   ')).toBe('');
-      expect(slugify('---')).toBe('-');
+      expect(slugify('---')).toBe('');
     });
 
     test('should remove consecutive dashes', () => {
       expect(slugify('Test--Multiple--Dashes')).toBe('test-multiple-dashes');
+    });
+
+    test('should trim leading and trailing dashes', () => {
+      expect(slugify('-leading')).toBe('leading');
+      expect(slugify('trailing-')).toBe('trailing');
+      expect(slugify('-both-')).toBe('both');
     });
   });
 

@@ -12,17 +12,25 @@ export type ContentType = 'material' | 'service' | 'article' | 'page' | 'product
 
 /**
  * Normalizes a string for use in URLs
- * Converts to lowercase and replaces spaces with hyphens
+ * Converts to lowercase, replaces spaces with hyphens, and strips parentheses
+ * MANDATORY: All slugs must have parentheses stripped for clean URLs
  * 
  * @param value - String to normalize
- * @returns Normalized URL-safe string
+ * @returns Normalized URL-safe string with no parentheses
  * 
  * @example
  * normalizeForUrl('Metal Alloy') // => 'metal-alloy'
  * normalizeForUrl('Stainless Steel') // => 'stainless-steel'
+ * normalizeForUrl('Aluminum (Al)') // => 'aluminum-al'
+ * normalizeForUrl('ABS (Plastic)') // => 'abs-plastic'
  */
 export function normalizeForUrl(value: string): string {
-  return value.toLowerCase().replace(/\s+/g, '-');
+  return value
+    .toLowerCase()
+    .replace(/[()]/g, '')      // MANDATORY: Strip all parentheses
+    .replace(/\s+/g, '-')      // Replace spaces with hyphens
+    .replace(/-+/g, '-')       // Collapse multiple hyphens
+    .replace(/^-|-$/g, '');    // Trim leading/trailing hyphens
 }
 
 export interface UrlBuildOptions {
