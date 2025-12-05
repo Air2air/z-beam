@@ -1,11 +1,11 @@
 // app/sitemap.ts
+import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from './utils/constants';
-import { SitemapEntry } from '@/types';
 import fs from 'fs';
 import path from 'path';
 import { buildCategoryUrl, buildSubcategoryUrl, buildUrlFromMetadata } from './utils/urlBuilder';
 
-export default function sitemap(): SitemapEntry[] {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
   
   // Helper to generate alternates for a URL

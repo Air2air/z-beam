@@ -280,6 +280,21 @@ Expected output:
 
 ---
 
+## Testing
+
+Unit tests for serviceOffering detection:
+
+```bash
+npm test -- tests/utils/schema-helpers.test.ts
+```
+
+Tests cover:
+- `hasServiceData()` - detects `serviceOffering.enabled = true`
+- `hasMultipleServices()` - counts singular serviceOffering
+- Legacy format support (services[], serviceOfferings[])
+
+---
+
 ## Notes for Generator
 
 1. **DO NOT hardcode prices** - always reference `SITE_CONFIG.pricing`
