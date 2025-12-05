@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { CardGrid } from "../components/CardGrid/CardGrid";
 import { Article, MaterialType, SearchClientProps } from "@/types";
-import { extractSafeValue, safeIncludes } from "../utils/client-safe";
 import { capitalizeWords } from "../utils/formatting";
 
 // Helper function to safely cast material types
@@ -58,7 +57,7 @@ function flattenToSearchableText(obj: any, maxDepth: number = 3, currentDepth: n
 }
 
 // Simple synchronous property parser for client-side filtering
-function parsePropertiesFromContent(content: string): Array<{property: string, value: string}> {
+function _parsePropertiesFromContent(content: string): Array<{property: string, value: string}> {
   if (!content) return [];
   
   const lines = content.split('\n').filter(line => line.trim());
@@ -236,7 +235,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   }, [articles]);
   
   // Property search logic
-  const isPropertySearch = propertyName && propertyValue;
+  const _isPropertySearch = propertyName && propertyValue;
   
   // Normalize property name for comparison (remove spaces, convert to lowercase)
   const normalizePropertyName = (name: string): string => {
@@ -277,7 +276,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   // Memoized filter: Only re-compute when inputs change
   const filteredArticles = useMemo(() => {
-    return searchIndex.filter(({ article, searchText, slug }) => {
+    return searchIndex.filter(({ article: _article, searchText, slug }) => {
       // Check property filter first (more specific)
       if (propertyName && propertyValue) {
         const allProperties = propertyCache.get(slug) || [];

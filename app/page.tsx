@@ -8,7 +8,6 @@ import { SITE_CONFIG } from "./utils/constants";
 import fs from 'fs/promises';
 import path from 'path';
 import yaml from 'js-yaml';
-import type { ArticleMetadata } from '@/types';
 
 // Force static generation for home page
 export const dynamic = 'force-static';
@@ -41,7 +40,6 @@ export async function generateMetadata() {
 
 export default async function HomePage() {
   // Read the YAML configuration for the home page
-  let homeContent;
   try {
     const yamlPath = path.join(process.cwd(), 'static-pages', 'home.yaml');
     const yamlContent = await fs.readFile(yamlPath, 'utf8');

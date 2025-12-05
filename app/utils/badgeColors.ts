@@ -1,7 +1,7 @@
 // app/utils/badgeColors.ts
 // Badge color utilities - Client-safe (no server-only dependencies)
 
-import { BadgeColor, MaterialType } from '@/types';
+import { BadgeColor } from '@/types';
 
 /**
  * Maps material types to colors for badges

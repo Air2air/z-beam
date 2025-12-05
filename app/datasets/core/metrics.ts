@@ -2,7 +2,7 @@
  * Dataset Quality Metrics Calculation
  */
 
-import type { DatasetQualityMetrics, MaterialDataset, ValidationResult } from './types';
+import type { DatasetQualityMetrics, MaterialDataset } from './types';
 import { validateDatasetForSchema, TIER1_REQUIRED_PARAMETERS } from './validation';
 
 /**

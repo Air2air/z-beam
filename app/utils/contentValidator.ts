@@ -409,7 +409,7 @@ class ContentValidator {
         recommendations
       };
 
-    } catch (error) {
+    } catch (_error) {
       return {
         totalFiles: 0,
         healthScore: 0,

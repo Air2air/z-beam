@@ -44,7 +44,7 @@ function extractArticleText(article: Article): string {
 }
 
 // Infer tags from article content
-function inferTags(article: Article): string[] {
+function _inferTags(article: Article): string[] {
   const text = extractArticleText(article).toLowerCase();
   const inferredTags: string[] = [];
   

@@ -183,7 +183,7 @@ function transformChallengesIntoFAQ(challenges: any): any[] {
   const faqs: any[] = [];
   
   // Handle nested challenge categories (thermal_management, surface_characteristics, etc.)
-  Object.entries(challenges).forEach(([categoryKey, categoryValue]: [string, any]) => {
+  Object.entries(challenges).forEach(([_categoryKey, categoryValue]: [string, any]) => {
     if (Array.isArray(categoryValue)) {
       // Handle array of challenges
       categoryValue.forEach((item: any) => {
@@ -215,7 +215,7 @@ function transformChallengesIntoFAQ(challenges: any): any[] {
 /**
  * Format challenge key into readable text
  */
-function formatChallengeKey(key: string): string {
+function _formatChallengeKey(key: string): string {
   return key
     .replace(/_/g, ' ')
     .replace(/([A-Z])/g, ' $1')

@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { Badge } from '../Badge/Badge';
 import Link from 'next/link';
@@ -27,7 +25,7 @@ interface ResearchPageProps {
   property: string;
 }
 
-export function ResearchPage({ data, category, subcategory, materialSlug, property }: ResearchPageProps) {
+export function ResearchPage({ data, category: _category, subcategory: _subcategory, materialSlug: _materialSlug, property }: ResearchPageProps) {
   const [expandedSources, setExpandedSources] = useState<Set<number>>(new Set([0]));
   const [expandedVariations, setExpandedVariations] = useState<Set<number>>(new Set());
   
@@ -41,7 +39,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
     setExpandedSources(newSet);
   };
   
-  const toggleVariation = (index: number) => {
+  const _toggleVariation = (index: number) => {
     const newSet = new Set(expandedVariations);
     if (newSet.has(index)) {
       newSet.delete(index);

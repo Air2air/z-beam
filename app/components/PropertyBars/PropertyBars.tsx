@@ -248,10 +248,10 @@ function PropertyBarsGrid({
         // Extract the darkest color (the "to" color) from the gradient for the badge
         // Match patterns like "to-cyan-500" or "to-blue-600"
         const badgeColorMatch = colorClass.match(/to-([\w-]+)/);
-        const badgeColor = badgeColorMatch ? `bg-${badgeColorMatch[1]}` : 'bg-blue-500';
+        const _badgeColor = badgeColorMatch ? `bg-${badgeColorMatch[1]}` : 'bg-blue-500';
         
         // Get background color for the value label based on the gradient
-        const bgColorClass = getBackgroundColorFromGradient(colorClass);
+        const _bgColorClass = getBackgroundColorFromGradient(colorClass);
         
         // Generate settings URL for this property if we're showing material properties
         const settingsUrl = (dataSource === 'materialProperties' && metadata?.category && metadata?.subcategory && metadata?.slug)

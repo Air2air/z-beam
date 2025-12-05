@@ -72,7 +72,7 @@ const colorStyles = {
   },
 };
 
-const statusColors = {
+const _statusColors = {
   green: 'bg-green-500/20 text-green-300',
   yellow: 'bg-yellow-500/20 text-yellow-300',
   orange: 'bg-orange-500/20 text-orange-300',
@@ -166,8 +166,8 @@ export const AnalysisCards: React.FC<AnalysisCardsProps> = ({
  * @param scoreType - 'safety' or 'effectiveness' for color interpretation
  */
 export const StatusSummaryCard: React.FC<StatusSummaryData> = ({
-  power,
-  pulse,
+  power: _power,
+  pulse: _pulse,
   level,
   finalScore,
   scoreLabel,
@@ -266,7 +266,7 @@ export const AnalysisCard: React.FC<{ config: FactorCardConfig; analysis: any }>
 }) => {
   const { label, weight, getValue, getStatus } = config;
   const score = getValue(analysis);
-  const status = getStatus?.(analysis);
+  const _status = getStatus?.(analysis);
   
   // Calculate bar width percentage (score is 0-1)
   const scorePercentage = Math.max(5, Math.min(100, score * 100));

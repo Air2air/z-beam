@@ -29,7 +29,7 @@ interface MaterialSafetyHeatmapProps {
  * - Detailed analysis panel with weighted factors
  */
 export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (props) => {
-  const { powerRange, pulseRange, materialProperties } = props;
+  const { powerRange, pulseRange, materialProperties: _materialProperties } = props;
 
   /**
    * Calculate SAFETY score based ONLY on damage risk

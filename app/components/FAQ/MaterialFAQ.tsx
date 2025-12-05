@@ -29,7 +29,7 @@ function parseSimpleMarkdown(text: string): string {
 export function MaterialFAQ({
   materialName,
   faq = [],
-  className = "",
+  className: _className = "",
   heroImage,
   thumbnailLink,
 }: MaterialFAQProps & { heroImage?: string; thumbnailLink?: string }) {

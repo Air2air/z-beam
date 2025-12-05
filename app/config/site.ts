@@ -2,7 +2,7 @@
 // Unified site configuration - Single source of truth
 // Consolidates: constants.ts, business-config.ts, gridConfig.ts, navigation.ts
 
-import type { GridColumns, GridGap, GridContainer, StandardGridProps, NavItem } from '@/types';
+import type { StandardGridProps, NavItem } from '@/types';
 
 /**
  * SITE CONFIGURATION

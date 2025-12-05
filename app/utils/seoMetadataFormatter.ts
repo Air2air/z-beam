@@ -213,7 +213,7 @@ export function formatSettingsDescription(config: MetadataConfig): string {
   // Extract machine settings
   const power = machineSettings?.powerRange?.value;
   const wavelength = machineSettings?.wavelength?.value;
-  const scanSpeed = machineSettings?.scanSpeed?.value;
+  const _scanSpeed = machineSettings?.scanSpeed?.value;
   const passes = machineSettings?.passCount?.value;
   
   // If we have authored settings description, enhance it with page features
@@ -275,7 +275,7 @@ export function formatSettingsDescription(config: MetadataConfig): string {
  * Extract key property from material description
  * Looks for: reflectivity, strength, conductivity, density, hardness, etc.
  */
-function extractKeyProperty(description?: string): string {
+function _extractKeyProperty(description?: string): string {
   if (!description) return '';
   
   // Property keywords to search for
@@ -334,7 +334,7 @@ function extractKeyProperty(description?: string): string {
  * Extract key consideration from settings description
  * Looks for: challenges, considerations, requirements
  */
-function extractKeyConsideration(description?: string): string {
+function _extractKeyConsideration(description?: string): string {
   if (!description) return '';
   
   // Keywords indicating important considerations

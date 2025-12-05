@@ -34,7 +34,7 @@ interface EnergyCouplingHeatmapProps {
  * - density: Thermal mass affecting heat distribution
  */
 export const EnergyCouplingHeatmap: React.FC<EnergyCouplingHeatmapProps> = (props) => {
-  const { powerRange, pulseRange, materialProperties } = props;
+  const { powerRange, pulseRange, materialProperties: _materialProperties } = props;
 
   /**
    * Calculate ENERGY COUPLING score

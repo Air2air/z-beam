@@ -323,7 +323,7 @@ export function ExpertAnswers({
   materialName,
   answers = [],
   defaultExpert,
-  className = "",
+  className: _className = "",
 }: ExpertAnswersProps) {
   if (!answers || answers.length === 0) return null;
 

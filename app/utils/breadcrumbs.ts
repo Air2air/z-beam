@@ -25,7 +25,7 @@ import { ArticleMetadata, BreadcrumbItem } from '@/types';
  */
 export function generateBreadcrumbs(
   frontmatter: Partial<ArticleMetadata> | null,
-  pathname: string
+  _pathname: string
 ): BreadcrumbItem[] {
   // Default fallback: Home only
   const defaultBreadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];

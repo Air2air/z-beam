@@ -9,7 +9,6 @@
  * <Services />
  */
 import React from 'react';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { CardGridSSR } from '../CardGrid';
 import type { CardItem } from '@/types/centralized';
 

@@ -31,7 +31,7 @@ interface ThermalStressHeatmapProps {
  * - Red = HIGH thermal stress risk (warping/cracking likely)
  */
 export const ThermalStressHeatmap: React.FC<ThermalStressHeatmapProps> = (props) => {
-  const { powerRange, pulseRange, materialProperties } = props;
+  const { powerRange, pulseRange, materialProperties: _materialProperties } = props;
 
   /**
    * Calculate THERMAL STRESS RISK score

@@ -4,7 +4,6 @@ import { loadAllArticles } from "../utils/contentAPI";
 import { loadComponent } from "../utils/contentAPI";
 import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types";
-import { Suspense } from "react";
 import { SITE_CONFIG } from "../utils/constants";
 
 export const dynamic = 'force-dynamic';
@@ -109,7 +108,7 @@ export default async function SearchPage() {
                 };
               }
             }
-          } catch (error) {
+          } catch (_error) {
             // If no BadgeSymbol content file exists, fall back to article metadata
             if (chemicalSymbol) {
               badgeSymbolData = {

@@ -42,7 +42,7 @@ function loadSyncCache(): SyncCache {
     try {
       const content = fs.readFileSync(cachePath, 'utf8');
       return JSON.parse(content);
-    } catch (error) {
+    } catch (_error) {
       console.warn('Failed to load sync cache, creating new one');
     }
   }

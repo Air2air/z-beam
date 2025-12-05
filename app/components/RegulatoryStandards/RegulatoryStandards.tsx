@@ -12,15 +12,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import type { RegulatoryStandard, RegulatoryStandardsProps } from '@/types';
+import type { RegulatoryStandardsProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 export function RegulatoryStandards({
   standards,
-  className = '',
-  showTitle = true,
+  className: _className = '',
+  showTitle: _showTitle = true,
   title = 'Regulatory Standards & Compliance',
   heroImage,
   thumbnailLink,

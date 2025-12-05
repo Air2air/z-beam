@@ -1,6 +1,6 @@
 // app/settings/[category]/[subcategory]/[slug]/page.tsx
 import { notFound, redirect } from 'next/navigation';
-import { getSettingsArticle, getArticleBySlug } from '@/app/utils/contentAPI';
+import { getSettingsArticle } from '@/app/utils/contentAPI';
 import { SettingsLayout } from '@/app/components/SettingsLayout';
 import { SettingsJsonLD } from '@/app/components/JsonLD/SettingsJsonLD';
 import { createMetadata, type ArticleMetadata } from '@/app/utils/metadata';

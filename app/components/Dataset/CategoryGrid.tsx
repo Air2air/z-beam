@@ -39,7 +39,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
   semiconductor: { bg: 'bg-blue-50', text: 'text-blue-400', border: 'border-blue-700' }
 };
 
-export default function CategoryGrid({ categoryStats, materials }: CategoryGridProps) {
+export default function CategoryGrid({ categoryStats, materials: _materials }: CategoryGridProps) {
   const categories = Object.entries(categoryStats).sort((a, b) => b[1] - a[1]);
 
   const formatCategoryName = (category: string) => {

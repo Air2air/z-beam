@@ -12,7 +12,6 @@ const logPerformance = (operation: string, duration: number, context?: any) => {
 
 import { NextRequest, NextResponse } from 'next/server';
 import { isZBeamError, getErrorDetails, ApiError } from './errorSystem';
-import { ApiConfig } from '@/types';
 
 // Local interface for this specific API wrapper
 interface ApiWrapperConfig {
@@ -46,7 +45,7 @@ export async function apiWrapper<T = any>(
   handler: (req: NextRequest) => Promise<T>,
   config: ApiWrapperConfig = {}
 ): Promise<(request: NextRequest, context?: any) => Promise<NextResponse>> {
-  return async (request: NextRequest, context?: any): Promise<NextResponse> => {
+  return async (request: NextRequest, _context?: any): Promise<NextResponse> => {
     const startTime = performance.now();
     const requestId = `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     const endpoint = request.url.split('?')[0];

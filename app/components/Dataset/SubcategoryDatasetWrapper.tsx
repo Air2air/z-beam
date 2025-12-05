@@ -1,7 +1,7 @@
 // app/components/Dataset/SubcategoryDatasetWrapper.tsx
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';

@@ -28,7 +28,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
   repRate,
   scanSpeed,
   passCount,
-  thermalDiffusivity = 97, // Aluminum default
+  thermalDiffusivity: _thermalDiffusivity = 97, // Aluminum default
   heroImage,
   materialLink,
 }) => {
@@ -48,7 +48,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
 
   // Calculate thermal parameters using editable values
   const pulseEnergy = (editablePower / editableRepRate) * 1000; // mJ
-  const pulseSpacing = editableScanSpeed / (editableRepRate / 1000); // μm
+  const _pulseSpacing = editableScanSpeed / (editableRepRate / 1000); // μm
   const passTime = 100 / editableScanSpeed; // seconds for 100mm scan
   const totalSimTime = (passTime + editableCoolingTime) * editablePassCount;
 

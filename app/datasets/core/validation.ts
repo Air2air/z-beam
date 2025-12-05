@@ -5,7 +5,7 @@
  * Single source of truth for all validation logic
  */
 
-import type { ValidationResult, MachineSettingParam } from './types';
+import type { ValidationResult } from './types';
 
 /**
  * Tier 1 REQUIRED parameters (machine settings)

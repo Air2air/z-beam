@@ -7,7 +7,6 @@ import {
   generateDatasetSchema,
   generateFAQSchema,
   generateWebPageSchema,
-  generateBreadcrumbSchema,
   createContext,
   wrapInGraph
 } from './schemas/generators';
@@ -259,13 +258,13 @@ function createTechnicalArticleSchema(data: any) {
 
 // 2. Material Product Schema (E-E-A-T: Authoritativeness with verified data)
 function createMaterialProductSchema(data: any) {
-  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact, images } = data;
+  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, images } = data;
   
   // Extract properties from categorized structure
   const properties: any[] = [];
   
   if (materialProperties) {
-    Object.entries(materialProperties).forEach(([categoryKey, categoryData]: [string, any]) => {
+    Object.entries(materialProperties).forEach(([_categoryKey, categoryData]: [string, any]) => {
       // Handle both structures: with .properties and without
       const propsToProcess = categoryData?.properties || categoryData;
       
@@ -426,7 +425,7 @@ function createMaterialProductSchema(data: any) {
 
 // 3. HowTo Schema (E-E-A-T: Experience with detailed process)
 function createHowToSchema(data: any) {
-  const { materialName, machineSettings, outcomeMetrics, pageUrl } = data;
+  const { materialName, machineSettings, pageUrl } = data;
   
   // Build steps from machine settings
   const steps: any[] = [];
@@ -521,7 +520,7 @@ function createDatasetSchema(data: any) {
   const measurements: any[] = [];
   
   if (materialProperties) {
-    Object.entries(materialProperties).forEach(([categoryKey, categoryData]: [string, any]) => {
+    Object.entries(materialProperties).forEach(([_categoryKey, categoryData]: [string, any]) => {
       // Handle both structures: with .properties and without
       const propsToProcess = categoryData?.properties || categoryData;
       
@@ -705,7 +704,7 @@ function createWebPageSchema(pageUrl: string, title: string, description: string
 
 // 6. FAQ Questions as part of Article (NOT FAQPage since FAQ is a section, not a page)
 // This returns null because FAQs are integrated into the Article schema instead
-function createFAQPageSchema(data: any) {
+function createFAQPageSchema(_data: any) {
   // FAQs are now part of the Article schema mainEntity property
   // This function is kept for backward compatibility but returns null
   return null;

@@ -1,14 +1,12 @@
 // app/[category]/[subcategory]/[slug]/page.tsx
 import { notFound, redirect } from "next/navigation";
-import { getArticle, getAllArticleSlugs, getSettingsArticle } from "@/app/utils/contentAPI";
+import { getArticle, getSettingsArticle } from "@/app/utils/contentAPI";
 import { getAllCategories } from "@/app/utils/materialCategories";
 import { MaterialsLayout } from "@/app/components/MaterialsLayout/MaterialsLayout";
 import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { SITE_CONFIG } from "@/app/utils/constants";
-import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
-import type { PageProps } from "@/types";
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -134,7 +132,7 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           machineSettings: settings.machineSettings
         };
       }
-    } catch (error) {
+    } catch (_error) {
       // Settings file doesn't exist - continue without machine settings
     }
     

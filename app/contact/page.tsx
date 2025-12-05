@@ -16,7 +16,6 @@ const ContactForm = dynamic(() => import('../components/Contact/ContactForm').th
   ssr: false,
 });
 import { ContactInfo } from "../components/Contact/ContactInfo";
-import { Title } from "../components/Title";
 
 export const metadata = {
   title: 'Get a Free Quote | Bay Area Laser Cleaning | Z-Beam',

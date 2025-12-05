@@ -8,7 +8,7 @@ import * as path from 'path';
 import matter from 'gray-matter';
 import { MaterialType, BadgeData, BadgeSymbolData, MaterialBadgeData, BadgeColor } from '@/types';
 import { safeMatch, extractSafeValue } from './stringHelpers';
-import { badgeCache, materialCache, fileCache, colorCache } from './performanceCache';
+import { badgeCache, fileCache, colorCache } from './performanceCache';
 
 // Type-safe cache references
 const typedBadgeCache = badgeCache as any; // Will be properly typed when we update performanceCache
@@ -30,7 +30,7 @@ function readFileWithCache(filePath: string): string | null {
     const content = fs.readFileSync(filePath, 'utf8');
     fileCache.set(filePath, content);
     return content;
-  } catch (error) {
+  } catch (_error) {
     return null;
   }
 }
@@ -214,7 +214,7 @@ export async function loadAllBadgeSymbolData(): Promise<Record<string, BadgeSymb
  * Extract first element symbol from chemical formula
  * Helper from materialBadgeUtils.ts
  */
-function extractSymbolFromFormula(formula: unknown): string {
+function _extractSymbolFromFormula(formula: unknown): string {
   const match = safeMatch(formula, /([A-Z][a-z]?)/);
   return match ? match[0] : '';
 }

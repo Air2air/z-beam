@@ -20,7 +20,7 @@ import { SectionContainer } from '../SectionContainer/SectionContainer';
 
 // Dynamic import Caption component for code-splitting (reduces initial bundle by ~15-20 KB)
 // Below-fold content, no SEO impact from ssr: false
-const Caption = dynamic(
+const _Caption = dynamic(
   () => import('../Caption/Caption').then(mod => mod.Caption),
   {
     loading: () => <CaptionSkeleton />,
@@ -87,7 +87,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
     );
   }
 
-  const { content, config } = component;
+  const { content, config: _config } = component;
   
   if (type === 'content' && content) {
     return (

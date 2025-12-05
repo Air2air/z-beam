@@ -4,8 +4,6 @@
  * Protects against XSS attacks while allowing necessary inline scripts
  */
 
-import { headers } from 'next/headers';
-
 /**
  * Generate a cryptographically secure nonce for CSP
  * Use this nonce on inline scripts to allow them through strict CSP

@@ -41,8 +41,7 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     context,
     title,
     description,
-    material_description,
-    subtitle,
+    // Note: material_description and subtitle are in options but used elsewhere
     publishDate,
     modifiedDate,
     author = {},

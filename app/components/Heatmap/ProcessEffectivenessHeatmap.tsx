@@ -30,7 +30,7 @@ interface ProcessEffectivenessHeatmapProps {
  * - Energy efficiency metrics
  */
 export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapProps> = (props) => {
-  const { powerRange, pulseRange, optimalPower, optimalPulse, materialProperties } = props;
+  const { powerRange, pulseRange, optimalPower, optimalPulse, materialProperties: _materialProperties } = props;
 
   /**
    * Calculate EFFECTIVENESS score based ONLY on cleaning performance

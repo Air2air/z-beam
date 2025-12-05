@@ -116,7 +116,7 @@ export async function CardGridSSR({
                   formula: String(config.formula || chemicalFormula || ''),
                 };
               }
-            } catch (error) {
+            } catch (_error) {
               // Fall back to no badge data
             }
           }

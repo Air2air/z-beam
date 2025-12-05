@@ -19,16 +19,6 @@ import 'server-only';
 
 import { SITE_CONFIG } from '../constants';
 import { generateBreadcrumbs } from '../breadcrumbs';
-import { 
-  createTechnicalArticleSchema,
-  createMaterialProductSchema,
-  createHowToSchema,
-  createDatasetSchema,
-  createFAQPageSchema,
-  createAuthorSchema,
-  createWebPageSchema,
-  createBreadcrumbSchema
-} from '../jsonld-helper';
 import {
   getMetadata,
   hasProductData,
@@ -1588,7 +1578,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     return null;
   }
   
-  const { pageUrl, slug, baseUrl } = context;
+  const { slug, baseUrl } = context;
   
   // Extract material slug from the full slug path (e.g., "materials/metal/non-ferrous/titanium" -> "titanium")
   const materialSlug = slug.split('/').pop() || slug;
@@ -1646,7 +1636,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   // Add material properties if present
   if (materialProps) {
-    Object.entries(materialProps).forEach(([categoryKey, categoryData]: [string, any]) => {
+    Object.entries(materialProps).forEach(([_categoryKey, categoryData]: [string, any]) => {
       const propsToProcess = categoryData?.properties || categoryData;
       
       if (typeof propsToProcess === 'object' && !Array.isArray(propsToProcess)) {
@@ -1720,7 +1710,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
                        materialProps?.laser_material_interaction?.reflectivity?.value;
   const thermalExpansion = materialProps?.physical_properties?.thermalExpansionCoefficient?.value ||
                            materialProps?.laser_material_interaction?.thermalExpansion?.value;
-  const thermalDiffusivity = materialProps?.laser_material_interaction?.thermalDiffusivity?.value;
+  const _thermalDiffusivity = materialProps?.laser_material_interaction?.thermalDiffusivity?.value;
   
   if (reflectivity !== undefined) {
     measurements.push({

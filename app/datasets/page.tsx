@@ -1,7 +1,5 @@
 // app/datasets/page.tsx
 import { Layout } from '@/app/components/Layout/Layout';
-import { SectionContainer } from '@/app/components/SectionContainer';
-import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowserWithFilters';
 import DatasetsContent from '@/app/components/Dataset/DatasetsContent';
 import { loadPageData } from '@/app/utils/contentAPI';
 

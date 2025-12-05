@@ -4,7 +4,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
-import { HeatmapFactorCard } from './HeatmapFactorCard';
 import { AnalysisCards } from './AnalysisCards';
 import { BaseHeatmapProps, HoveredCell, ColorAnchor, LegendItem } from './types';
 import { interpolateColor } from '@/app/utils/colorUtils';
@@ -58,7 +57,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   gridRows = 13,
   gridCols = 13,
   calculateScore,
-  colorAnchors = DEFAULT_COLOR_ANCHORS,
+  colorAnchors: _colorAnchors = DEFAULT_COLOR_ANCHORS,
   getScoreLabel,
   legendItems: _legendItems = DEFAULT_LEGEND_ITEMS,
   factorCards,

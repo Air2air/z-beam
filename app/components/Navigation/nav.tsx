@@ -5,7 +5,6 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { CONTAINER_STYLES } from "../../utils/containerStyles";
 import { SITE_CONFIG } from "../../utils/constants";
 import { MAIN_NAV_ITEMS } from "../../config/navigation";
 import { Button } from "../Button";

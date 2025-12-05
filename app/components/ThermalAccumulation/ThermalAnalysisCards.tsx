@@ -70,7 +70,7 @@ const getScoreColor = (score: number) => {
  */
 export const ThermalStatusCard: React.FC<ThermalStatusData> = ({
   peakTemp,
-  currentTemp,
+  currentTemp: _currentTemp,
   maxSafeTemp,
   damageTemp,
 }) => {

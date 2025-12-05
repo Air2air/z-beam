@@ -144,7 +144,7 @@ export default function SubcategoryDatasetCards({
           ]}
           category={formatCategoryName(category)}
           subcategory={formatCategoryName(subcategory.slug)}
-          onQuickDownload={(format: string, url: string) => {
+          onQuickDownload={(format: string, _url: string) => {
             handleQuickDownload(subcategory.slug, format.toLowerCase(), subcategory.materials);
           }}
         />

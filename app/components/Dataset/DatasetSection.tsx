@@ -47,7 +47,7 @@ export default function DatasetSection({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const directLink = getDirectLink?.(downloadFormat);
+  const _directLink = getDirectLink?.(downloadFormat);
 
   return (
     <div className="dataset-content">

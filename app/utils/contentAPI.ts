@@ -10,12 +10,11 @@ import fs from 'fs/promises';
 import { existsSync, readFileSync } from 'fs';
 import path from 'path';
 import { marked } from 'marked';
-import matter from 'gray-matter';
 
 import { safeMatterParse } from './yamlSanitizer';
 import { stripParenthesesFromSlug, stripParenthesesFromImageUrl } from './formatting';
 import { extractSafeValue } from './stringHelpers';
-import { validateSlug, validateFilePath, ValidationError, GenerationError, safeOperation } from './errorSystem';
+import { validateSlug, validateFilePath } from './errorSystem';
 import { 
   normalizeRegulatoryStandards,
   normalizeCategoryFields,
@@ -24,10 +23,10 @@ import {
   normalizeNumericValues
 } from './normalizers';
 // Import centralized types instead of defining our own
-import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType, SettingsMetadata } from '@/types';
+import { Article, ComponentData, PageData, SettingsMetadata } from '@/types';
 
 // Simple replacement for safeContentOperation
-const safeContentOperation = async (op: () => Promise<any>, fallback: any, name: string, slug?: string) => {
+const safeContentOperation = async (op: () => Promise<any>, fallback: any, name: string, _slug?: string) => {
   try {
     return await op();
   } catch (e) {
@@ -353,7 +352,7 @@ async function tryYamlFile(
     if (matchingYamlFile) {
       return { filePath: path.join(dir, matchingYamlFile), isYamlFile: true };
     }
-  } catch (error) {
+  } catch (_error) {
     // Directory doesn't exist or can't be read, continue
   }
 
@@ -416,7 +415,7 @@ export const loadComponent = cache(async (
         if (matchingFile) {
           filePath = path.join(dir, matchingFile);
         }
-      } catch (error) {
+      } catch (_error) {
         // Directory doesn't exist or can't be read
         return null;
       }
@@ -916,7 +915,7 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
         if (componentData && (componentData.content || componentData.config)) {
           components[type] = componentData;
         }
-      } catch (error) {
+      } catch (_error) {
         // Component doesn't exist, skip it
         console.log(`Component ${type} not found for ${slug}, skipping`);
       }

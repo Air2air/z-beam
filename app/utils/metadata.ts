@@ -14,7 +14,7 @@
 type NextMetadata = any;
 
 import { ArticleMetadata, AuthorInfo } from '@/types';
-import { extractSafeValue, safeIncludes } from './stringHelpers';
+import { extractSafeValue } from './stringHelpers';
 import { SITE_CONFIG } from './constants';
 import { 
   formatMaterialTitle, 
@@ -32,7 +32,7 @@ export type { ArticleMetadata, AuthorInfo };
  */
 export function generateHreflangAlternates(canonical: string) {
   const baseUrl = SITE_CONFIG.url;
-  const path = canonical.replace(baseUrl, '');
+  const _path = canonical.replace(baseUrl, '');
   
   return {
     canonical: canonical,

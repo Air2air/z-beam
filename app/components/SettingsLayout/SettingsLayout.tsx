@@ -170,7 +170,7 @@ export function SettingsLayout({
 
   // Extract and prepare settings data using utility
   const {
-    parametersRaw,
+    parametersRaw: _parametersRaw,
     materialProps,
     safetyHeatmapConfig,
     thermalConfig,

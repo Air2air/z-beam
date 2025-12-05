@@ -122,7 +122,7 @@ const getRelationshipDescription = (
  */
 export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { heroImage?: string; materialLink?: string }> = ({
   parameters,
-  materialName,
+  materialName: _materialName,
   heroImage,
   materialLink,
 }) => {
@@ -500,7 +500,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
     }
   };
 
-  const getCriticalityColor = (
+  const _getCriticalityColor = (
     criticality: NetworkParameter["criticality"]
   ): string => {
     switch (criticality) {
@@ -974,7 +974,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
                     (p) => p.id === otherParamId
                   );
                   const otherNodeColor = getNodeColor(otherParam!);
-                  const relationColor = getRelationshipColor(rel.type);
+                  const _relationColor = getRelationshipColor(rel.type);
                   const description = getRelationshipDescription(
                     rel.from,
                     rel.to,

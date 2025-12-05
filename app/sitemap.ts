@@ -191,10 +191,6 @@ export default function sitemap(): SitemapEntry[] {
     const settingsFiles = fs.readdirSync(settingsDir);
     const settingsYamlFiles = settingsFiles.filter(f => f.endsWith('.yaml'));
     
-    // Track categories and subcategories for settings
-    const settingsCategorySet = new Set<string>();
-    const settingsSubcategorySet = new Set<string>();
-    
     settingsYamlFiles.forEach((file) => {
       const filePath = path.join(settingsDir, file);
       const stats = fs.statSync(filePath);
