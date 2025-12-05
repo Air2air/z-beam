@@ -1,13 +1,13 @@
-// app/components/ThermalAccumulation/ThermalAccumulation.tsx
+// app/components/HeatBuildup/HeatBuildup.tsx
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
-import { ThermalAnalysisCards } from './ThermalAnalysisCards';
+import { HeatAnalysisCards } from './HeatAnalysisCards';
 
-interface ThermalAccumulationProps {
+interface HeatBuildupProps {
   materialName?: string;
   power: number; // W
   repRate: number; // Hz
@@ -19,10 +19,10 @@ interface ThermalAccumulationProps {
 }
 
 /**
- * Simulates thermal accumulation across multiple laser passes
+ * Simulates heat buildup across multiple laser passes
  * Shows temperature buildup and cooling between passes
  */
-export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
+export const HeatBuildup: React.FC<HeatBuildupProps> = ({
   materialName,
   power,
   repRate,
@@ -95,11 +95,11 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
     return max;
   }, [editablePower, editableRepRate, editableScanSpeed, editablePassCount, editableCoolingTime, totalSimTime]);
 
-  // Calculate thermal analysis factors (0-100 scores)
-  const thermalFactors = useMemo(() => {
-    // Thermal Safety: How safe is peak temperature relative to damage threshold?
+  // Calculate heat analysis factors (0-100 scores)
+  const heatFactors = useMemo(() => {
+    // Heat Safety: How safe is peak temperature relative to damage threshold?
     // 100% if peak <= maxSafe, 0% if peak >= damage
-    const thermalSafety = peakTemp <= maxSafeTemp
+    const heatSafety = peakTemp <= maxSafeTemp
       ? 100
       : Math.max(0, Math.min(100, (1 - (peakTemp - maxSafeTemp) / (damageTemp - maxSafeTemp)) * 100));
 
@@ -127,7 +127,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
     ));
 
     return [
-      { label: 'Thermal Safety', score: thermalSafety, weight: '40%' },
+      { label: 'Heat Safety', score: heatSafety, weight: '40%' },
       { label: 'Heat Control', score: heatControl, weight: '25%' },
       { label: 'Cooling Efficiency', score: coolingEfficiency, weight: '20%' },
       { label: 'Pass Optimization', score: passOptimization, weight: '15%' },
@@ -213,7 +213,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
     temp: calculateTemperature(i * timeStep),
   }));
 
-  const title = materialName ? `${materialName} Thermal Accumulation` : "Thermal Accumulation Simulator";
+  const title = materialName ? `${materialName} Heat Buildup` : "Heat Buildup Simulator";
   
   return (
     <SectionContainer
@@ -232,7 +232,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
       {/* Stacked Layout: Analysis Cards above Graph+Controls */}
       <div className="space-y-6">
         {/* Analysis Cards Row */}
-        <ThermalAnalysisCards
+        <HeatAnalysisCards
           statusData={{
             peakTemp,
             currentTemp,
@@ -241,13 +241,13 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             passCount: editablePassCount,
             currentPass,
           }}
-          factors={thermalFactors}
+          factors={heatFactors}
         />
 
-        {/* Thermal Profile - Full Width */}
+        {/* Heat Profile - Full Width */}
         <div className="bg-tertiary rounded-lg p-6 border">
           <div className="mb-4 flex items-center justify-between">
-            <h4 className="text-sm text-secondary font-semibold">📈 Thermal Profile</h4>
+            <h4 className="text-sm text-secondary font-semibold">📈 Heat Profile</h4>
             <div className="flex gap-2 text-xs">
               <div className="flex items-center gap-1">
                 <div className="w-3 h-3 bg-green-500 rounded"></div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { Layout } from '@/app/components/Layout/Layout';
 import { ParameterRelationships } from '@/app/components/ParameterRelationships/ParameterRelationships';
 import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap, EnergyCouplingHeatmap, ThermalStressHeatmap } from '@/app/components/Heatmap';
-import { ThermalAccumulation } from '@/app/components/ThermalAccumulation';
+import { HeatBuildup } from '@/app/components/HeatBuildup';
 import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
 import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
@@ -127,7 +127,7 @@ function prepareSettingsData(
  * Leverages base Layout component for header/metadata, adds:
  * - Parameter Relationships visualization
  * - Material Safety & Process Effectiveness Heatmaps
- * - Thermal Accumulation Simulator
+ * - Heat Buildup Simulator
  * - Diagnostic & Prevention Center (tabbed)
  * - Research Citations (if research_library present)
  * - Dataset download card
@@ -524,8 +524,8 @@ export function SettingsLayout({
             />
           </div>
 
-        {/* Thermal Accumulation Simulator */}
-        <ThermalAccumulation 
+        {/* Heat Buildup Simulator */}
+        <HeatBuildup 
             materialName={settings.name}
             power={thermalParams.power}
             repRate={thermalParams.rep_rate}

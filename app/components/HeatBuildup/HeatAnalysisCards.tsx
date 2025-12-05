@@ -1,9 +1,9 @@
-// app/components/ThermalAccumulation/ThermalAnalysisCards.tsx
+// app/components/HeatBuildup/HeatAnalysisCards.tsx
 'use client';
 
 import React from 'react';
 
-interface ThermalStatusData {
+interface HeatStatusData {
   peakTemp: number;
   currentTemp: number;
   maxSafeTemp: number;
@@ -12,15 +12,15 @@ interface ThermalStatusData {
   currentPass: number;
 }
 
-interface ThermalFactorData {
+interface HeatFactorData {
   label: string;
   score: number;  // 0-100
   weight: string;
 }
 
-interface ThermalAnalysisCardsProps {
-  statusData: ThermalStatusData;
-  factors: ThermalFactorData[];
+interface HeatAnalysisCardsProps {
+  statusData: HeatStatusData;
+  factors: HeatFactorData[];
   className?: string;
 }
 
@@ -66,9 +66,9 @@ const getScoreColor = (score: number) => {
 };
 
 /**
- * ThermalStatusCard - Summary card showing current thermal status
+ * HeatStatusCard - Summary card showing current heat status
  */
-export const ThermalStatusCard: React.FC<ThermalStatusData> = ({
+export const HeatStatusCard: React.FC<HeatStatusData> = ({
   peakTemp,
   currentTemp: _currentTemp,
   maxSafeTemp,
@@ -99,7 +99,7 @@ export const ThermalStatusCard: React.FC<ThermalStatusData> = ({
     <article
       className="relative bg-primary p-3 rounded-lg transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg"
       style={{ backgroundColor: styles.bgSolid, transition: 'background-color 150ms ease-out' }}
-      aria-label={`Thermal status: ${getStatusLabel()}`}
+      aria-label={`Heat status: ${getStatusLabel()}`}
       role="region"
     >
       <header>
@@ -132,9 +132,9 @@ export const ThermalStatusCard: React.FC<ThermalStatusData> = ({
 };
 
 /**
- * ThermalFactorCard - Individual factor card for thermal analysis
+ * HeatFactorCard - Individual factor card for heat analysis
  */
-export const ThermalFactorCard: React.FC<ThermalFactorData> = ({
+export const HeatFactorCard: React.FC<HeatFactorData> = ({
   label,
   score,
   weight,
@@ -179,25 +179,25 @@ export const ThermalFactorCard: React.FC<ThermalFactorData> = ({
 };
 
 /**
- * ThermalAnalysisCards - Grid of thermal analysis factor cards
+ * HeatAnalysisCards - Grid of heat analysis factor cards
  * 
- * Displays thermal simulation analysis in a responsive grid layout with:
+ * Displays heat simulation analysis in a responsive grid layout with:
  * - Status summary card first showing peak temp and safety margin
- * - Factor cards for thermal safety, heat accumulation, cooling efficiency, pass optimization
+ * - Factor cards for heat safety, heat accumulation, cooling efficiency, pass optimization
  */
-export const ThermalAnalysisCards: React.FC<ThermalAnalysisCardsProps> = ({
+export const HeatAnalysisCards: React.FC<HeatAnalysisCardsProps> = ({
   statusData,
   factors,
   className = '',
 }) => {
   return (
     <div className={`grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${className}`}>
-      <ThermalStatusCard {...statusData} />
+      <HeatStatusCard {...statusData} />
       {factors.map((factor) => (
-        <ThermalFactorCard key={factor.label} {...factor} />
+        <HeatFactorCard key={factor.label} {...factor} />
       ))}
     </div>
   );
 };
 
-export default ThermalAnalysisCards;
+export default HeatAnalysisCards;

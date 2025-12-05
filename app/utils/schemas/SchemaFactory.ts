@@ -1505,7 +1505,7 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
 
 /**
  * SoftwareApplication Schema - For interactive tools on settings pages
- * Describes the Thermal Accumulation Simulator and Parameter Relationship visualizer
+ * Describes the Heat Buildup Simulator and Parameter Relationship visualizer
  * @see https://schema.org/SoftwareApplication
  */
 function generateSoftwareApplicationSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
@@ -1516,12 +1516,12 @@ function generateSoftwareApplicationSchema(data: any, context: SchemaContext): S
   // Only generate for settings pages with machine settings (they have the interactive tools)
   if (!frontmatter.machineSettings) return null;
 
-  // Main thermal simulator application
-  const thermalSimulator: SchemaOrgBase = {
+  // Main heat buildup simulator application
+  const heatSimulator: SchemaOrgBase = {
     '@type': 'SoftwareApplication',
-    '@id': `${pageUrl}#thermal-simulator`,
-    'name': `${materialName} Thermal Accumulation Simulator`,
-    'description': `Interactive simulation tool to predict thermal buildup during multi-pass laser cleaning of ${materialName}. Visualizes temperature vs. time with configurable power, scan speed, and cooling parameters.`,
+    '@id': `${pageUrl}#heat-simulator`,
+    'name': `${materialName} Heat Buildup Simulator`,
+    'description': `Interactive simulation tool to predict heat buildup during multi-pass laser cleaning of ${materialName}. Visualizes temperature vs. time with configurable power, scan speed, and cooling parameters.`,
     'applicationCategory': 'CalculatorApplication',
     'applicationSubCategory': 'Engineering Simulation',
     'operatingSystem': 'Web Browser',
@@ -1551,7 +1551,7 @@ function generateSoftwareApplicationSchema(data: any, context: SchemaContext): S
     }
   };
 
-  return thermalSimulator;
+  return heatSimulator;
 }
 
 /**

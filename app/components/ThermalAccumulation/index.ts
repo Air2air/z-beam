@@ -1,1 +1,0 @@
-export { ThermalAccumulation } from './ThermalAccumulation';
