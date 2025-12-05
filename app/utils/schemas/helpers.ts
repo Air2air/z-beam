@@ -63,12 +63,24 @@ export function hasFAQData(data: any): boolean {
 
 /**
  * Check if has service data
+ * Supports:
+ * - serviceOffering (singular) - new frontmatter format with enabled flag
+ * - serviceOfferings (plural) - legacy array format
+ * - services - legacy format
  */
 export function hasServiceData(data: any): boolean {
   const title = typeof data.title === 'string' ? data.title : '';
+  const meta = getMetadata(data) as any;
+  
+  // New frontmatter format: serviceOffering.enabled = true
+  if (meta.serviceOffering?.enabled === true) return true;
+  if (data.serviceOffering?.enabled === true) return true;
+  
+  // Legacy formats
   return !!(
     data.services ||
     data.serviceOfferings ||
+    meta.serviceOfferings ||
     (data.contentCards && title.toLowerCase().includes('service'))
   );
 }
@@ -88,11 +100,16 @@ export function hasMultipleProducts(data: any): boolean {
 
 /**
  * Check if has multiple services for ItemList schema
+ * Note: singular serviceOffering from frontmatter counts as 1 service
  */
 export function hasMultipleServices(data: any): boolean {
+  const meta = getMetadata(data) as any;
   const services = Array.isArray(data.services) ? data.services : [];
   const offerings = Array.isArray(data.serviceOfferings) ? data.serviceOfferings : [];
-  return services.length > 1 || offerings.length > 1;
+  const metaOfferings = Array.isArray(meta.serviceOfferings) ? meta.serviceOfferings : [];
+  // Singular serviceOffering counts as 1
+  const hasSingular = meta.serviceOffering?.enabled || data.serviceOffering?.enabled ? 1 : 0;
+  return (services.length + offerings.length + metaOfferings.length + hasSingular) > 1;
 }
 
 /**

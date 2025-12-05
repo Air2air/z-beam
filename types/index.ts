@@ -10,6 +10,8 @@ export * from './centralized';
 // ============================================================================
 // These types are used for JSON-LD schema generation
 // Export them for use across the application
+// Note: Using relative path here as this file IS the canonical @/types entry point
+// eslint-disable-next-line no-restricted-imports
 export type {
   SchemaContext,
   AuthorData,
@@ -31,7 +33,10 @@ export type {
   ExtendedFrontmatter,
   ComponentData,
   ContentCard,
-  SchemaData
+  SchemaData,
+  // Service offering types (for frontmatter)
+  ServiceOffering,
+  ServiceOfferingMaterialSpecific
 } from '../app/utils/schemas/generators/types';
 
 // ============================================================================

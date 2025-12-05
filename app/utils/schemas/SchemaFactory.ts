@@ -48,7 +48,7 @@ import {
 // Types & Interfaces
 // ============================================================================
 
-import type { SchemaData, SchemaOrgBase, SchemaOrgGraph, SchemaContext } from './generators/types';
+import type { SchemaData, SchemaOrgBase, SchemaOrgGraph, SchemaContext, ServiceOffering } from './generators/types';
 
 export interface SchemaGeneratorOptions {
   priority?: number;
@@ -839,22 +839,114 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
 }
 
 /**
- * Service Schema - NEW
+ * Service Schema - Enhanced with frontmatter serviceOffering support
+ * 
+ * Supports:
+ * 1. New format: serviceOffering { enabled, type, materialSpecific } from frontmatter
+ * 2. Legacy: services[] or serviceOfferings[] arrays
  */
-function generateServiceSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
+function generateServiceSchema(data: SchemaData, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl, baseUrl } = context;
+  const meta = getMetadata(data) as Record<string, unknown>;
   
   if (!hasServiceData(data)) return null;
 
-  const services = data.services || data.serviceOfferings || [];
+  // Check for new frontmatter serviceOffering format
+  const serviceOffering = (meta.serviceOffering || data.serviceOffering) as ServiceOffering | undefined;
   
-  if (services.length === 0) {
-    // Single service page
+  if (serviceOffering?.enabled) {
+    // Build Service schema from frontmatter serviceOffering
+    const serviceType = serviceOffering.type || 'professionalCleaning';
+    const pricing = SITE_CONFIG.pricing[serviceType as keyof typeof SITE_CONFIG.pricing] 
+      || SITE_CONFIG.pricing.professionalCleaning;
+    const materialSpecific = serviceOffering.materialSpecific || {} as ServiceOffering['materialSpecific'];
+    
+    // Calculate price range from hours estimates
+    const minHours = materialSpecific.estimatedHoursMin || 1;
+    const typicalHours = materialSpecific.estimatedHoursTypical || 3;
+    const minPrice = minHours * pricing.hourlyRate;
+    const maxPrice = typicalHours * pricing.hourlyRate;
+    
+    // Build service description with contaminants
+    const contaminants = materialSpecific.targetContaminants || [];
+    const materialName = (meta.title || data.title || 'Material') as string;
+    const contaminantText = contaminants.length > 0 
+      ? ` Removes: ${contaminants.slice(0, 3).join(', ')}.`
+      : '';
+    
     return {
       '@type': 'Service',
       '@id': `${pageUrl}#service`,
-      'name': data.title || 'Laser Cleaning Service',
-      'description': data.description || '',
+      'name': `${pricing.label} for ${materialName}`,
+      'description': `${pricing.description}${contaminantText}`,
+      'provider': {
+        '@type': 'Organization',
+        '@id': `${baseUrl}#organization`,
+        'name': SITE_CONFIG.name,
+        'url': baseUrl
+      },
+      'areaServed': {
+        '@type': 'Place',
+        'name': 'North America'
+      },
+      'serviceType': 'Laser Cleaning',
+      'offers': {
+        '@type': 'Offer',
+        'priceSpecification': {
+          '@type': 'UnitPriceSpecification',
+          'price': pricing.hourlyRate,
+          'priceCurrency': pricing.currency,
+          'unitCode': 'HUR',
+          'unitText': 'per hour'
+        },
+        'eligibleRegion': {
+          '@type': 'Place',
+          'name': 'United States'
+        }
+      },
+      ...(minPrice !== maxPrice && {
+        'potentialAction': {
+          '@type': 'OrderAction',
+          'target': `${baseUrl}/contact`,
+          'priceSpecification': {
+            '@type': 'PriceSpecification',
+            'minPrice': minPrice,
+            'maxPrice': maxPrice,
+            'priceCurrency': pricing.currency
+          }
+        }
+      }),
+      ...(materialSpecific.notes && {
+        'additionalProperty': {
+          '@type': 'PropertyValue',
+          'name': 'Material-specific notes',
+          'value': materialSpecific.notes
+        }
+      })
+    };
+  }
+
+  // Legacy array-based service formats
+  const services = (data.services || data.serviceOfferings || meta.serviceOfferings || []) as Array<{
+    name?: string;
+    title?: string;
+    description?: string;
+  }>;
+  
+  if (services.length === 0) {
+    // Single service page (legacy)
+    const imageData = data.image ? {
+      'image': {
+        '@type': 'ImageObject',
+        'url': `${baseUrl}${data.image}`
+      }
+    } : {};
+    
+    return {
+      '@type': 'Service',
+      '@id': `${pageUrl}#service`,
+      'name': (data.title as string) || 'Laser Cleaning Service',
+      'description': (data.description as string) || '',
       'provider': {
         '@type': 'Organization',
         'name': SITE_CONFIG.name,
@@ -862,30 +954,27 @@ function generateServiceSchema(data: any, context: SchemaContext): SchemaOrgBase
       },
       'areaServed': {
         '@type': 'Place',
-        'name': data.serviceArea || 'North America'
+        'name': (data.serviceArea as string) || 'North America'
       },
       'serviceType': 'Laser Cleaning',
-      ...(data.image && {
-        'image': {
-          '@type': 'ImageObject',
-          'url': `${baseUrl}${data.image}`
-        }
-      })
+      ...imageData
     };
   }
 
-  // Multiple services
-  return services.map((service: any, index: number) => ({
+  // Multiple services (legacy) - return first service as the schema
+  // Note: SchemaOrgBase expects a single object, not an array
+  const firstService = services[0];
+  return {
     '@type': 'Service',
-    '@id': `${pageUrl}#service-${index + 1}`,
-    'name': service.name || service.title,
-    'description': service.description || '',
+    '@id': `${pageUrl}#service-1`,
+    'name': firstService.name || firstService.title || 'Laser Cleaning Service',
+    'description': firstService.description || '',
     'provider': {
       '@type': 'Organization',
       'name': SITE_CONFIG.name,
       'url': baseUrl
     }
-  }));
+  };
 }
 
 /**

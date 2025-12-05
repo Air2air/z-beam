@@ -199,6 +199,37 @@ export interface SchemaData {
   [key: string]: unknown;
 }
 
+// ============================================================================
+// SERVICE OFFERING TYPES - For frontmatter serviceOffering field
+// ============================================================================
+
+/**
+ * Material-specific service details from frontmatter
+ */
+export interface ServiceOfferingMaterialSpecific {
+  /** Minimum hours for typical job (usually 1) */
+  estimatedHoursMin: number;
+  /** Typical hours based on material difficulty */
+  estimatedHoursTypical: number;
+  /** List of contaminants this service removes */
+  targetContaminants: string[];
+  /** Optional material-specific safety or process notes */
+  notes?: string;
+}
+
+/**
+ * Service offering configuration from frontmatter
+ * Pricing is pulled from SITE_CONFIG.pricing based on type
+ */
+export interface ServiceOffering {
+  /** Enable service schema generation */
+  enabled: boolean;
+  /** Service type - maps to SITE_CONFIG.pricing key */
+  type: 'professionalCleaning' | 'equipmentRental';
+  /** Material-specific service details */
+  materialSpecific: ServiceOfferingMaterialSpecific;
+}
+
 // Extended frontmatter with additional properties
 export interface ExtendedFrontmatter extends MaterialFrontmatter {
   faq?: unknown[];
@@ -207,4 +238,6 @@ export interface ExtendedFrontmatter extends MaterialFrontmatter {
   video?: unknown;
   images?: unknown[];
   regulatoryStandards?: unknown[];
+  /** Service offering for JSON-LD Service schema */
+  serviceOffering?: ServiceOffering;
 }
