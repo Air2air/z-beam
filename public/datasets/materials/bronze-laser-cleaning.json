@@ -5,8 +5,8 @@
   "name": "Bronze Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Bronze. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-02",
-  "datePublished": "2025-12-02",
+  "dateModified": "2025-12-05",
+  "datePublished": "2025-12-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-02"
+    "lastVerified": "2025-12-05"
   },
   "material": {
     "name": "Bronze",
@@ -206,20 +206,6 @@
           "min": 1,
           "max": 10
         },
-        "thermalDestruction": {
-          "value": 1223,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 256,
-          "max": 3859
-        },
-        "laserAbsorption": {
-          "value": "7.8e+07",
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
         "compressiveStrength": {
           "value": 345,
           "unit": "MPa",
@@ -248,6 +234,35 @@
           "min": 929,
           "max": 6454
         },
+        "electricalConductivity": {
+          "value": 7000000,
+          "unit": "S/m",
+          "source": "ai_research",
+          "min": 659300,
+          "max": "6.6e+07"
+        },
+        "meltingPoint": {
+          "value": 950,
+          "unit": "°C",
+          "source": "ai_research",
+          "min": 133,
+          "max": 3865
+        },
+        "percentage": 60,
+        "thermalDestruction": {
+          "value": 1223,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 256,
+          "max": 3859
+        },
+        "laserAbsorption": {
+          "value": "7.8e+07",
+          "unit": "m^{-1}",
+          "source": "ai_research",
+          "min": 0.02,
+          "max": "4.2e+08"
+        },
         "absorptivity": {
           "value": 0.35,
           "unit": "dimensionless",
@@ -262,13 +277,6 @@
           "min": 0.35,
           "max": 1
         },
-        "electricalConductivity": {
-          "value": 7000000,
-          "unit": "S/m",
-          "source": "ai_research",
-          "min": 659300,
-          "max": "6.6e+07"
-        },
         "vaporPressure": {
           "value": 0.14,
           "unit": "Pa",
@@ -276,21 +284,13 @@
           "min": 0,
           "max": 106391
         },
-        "meltingPoint": {
-          "value": 950,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 133,
-          "max": 3865
-        },
         "thermalDestructionPoint": {
           "value": 950,
           "unit": "°C",
           "source": "ai_research",
           "min": 133,
           "max": 3865
-        },
-        "percentage": 60
+        }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
@@ -348,7 +348,49 @@
           "min": 0.1,
           "max": 20
         },
-        "percentage": 40
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 1223,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 256,
+          "max": 3859
+        },
+        "laserAbsorption": {
+          "value": "7.8e+07",
+          "unit": "m^{-1}",
+          "source": "ai_research",
+          "min": 0.02,
+          "max": "4.2e+08"
+        },
+        "absorptivity": {
+          "value": 0.35,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": 0.02,
+          "max": 0.6
+        },
+        "reflectivity": {
+          "value": 0.65,
+          "unit": "",
+          "source": "ai_research",
+          "min": 0.35,
+          "max": 1
+        },
+        "vaporPressure": {
+          "value": 0.14,
+          "unit": "Pa",
+          "source": "ai_research",
+          "min": 0,
+          "max": 106391
+        },
+        "thermalDestructionPoint": {
+          "value": 950,
+          "unit": "°C",
+          "source": "ai_research",
+          "min": 133,
+          "max": 3865
+        }
       }
     },
     "applications": [],
@@ -529,28 +571,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1223,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": "7.8e+07",
-      "unitText": "m^{-1}",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "compressiveStrength",
       "name": "Compressive Strength",
       "description": "Compressive Strength - material characteristics",
@@ -595,6 +615,50 @@
     },
     {
       "@type": "PropertyValue",
+      "propertyID": "electricalConductivity",
+      "name": "Electrical Conductivity",
+      "description": "Electrical Conductivity - material characteristics",
+      "value": 7000000,
+      "unitText": "S/m",
+      "minValue": 659300,
+      "maxValue": "6.6e+07",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 950,
+      "unitText": "°C",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1223,
+      "unitText": "K",
+      "minValue": 256,
+      "maxValue": 3859,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": "7.8e+07",
+      "unitText": "m^{-1}",
+      "minValue": 0.02,
+      "maxValue": "4.2e+08",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "absorptivity",
       "name": "Absorptivity",
       "description": "Absorptivity - material characteristics",
@@ -617,17 +681,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalConductivity",
-      "name": "Electrical Conductivity",
-      "description": "Electrical Conductivity - material characteristics",
-      "value": 7000000,
-      "unitText": "S/m",
-      "minValue": 659300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "vaporPressure",
       "name": "Vapor Pressure",
       "description": "Vapor Pressure - material characteristics",
@@ -635,17 +688,6 @@
       "unitText": "Pa",
       "minValue": 0,
       "maxValue": 106391,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 950,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
       "measurementTechnique": "ai_research"
     },
     {
@@ -748,6 +790,72 @@
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1223,
+      "unitText": "K",
+      "minValue": 256,
+      "maxValue": 3859,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": "7.8e+07",
+      "unitText": "m^{-1}",
+      "minValue": 0.02,
+      "maxValue": "4.2e+08",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.35,
+      "unitText": "dimensionless",
+      "minValue": 0.02,
+      "maxValue": 0.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.65,
+      "unitText": "",
+      "minValue": 0.35,
+      "maxValue": 1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 0.14,
+      "unitText": "Pa",
+      "minValue": 0,
+      "maxValue": 106391,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 950,
+      "unitText": "°C",
+      "minValue": 133,
+      "maxValue": 3865,
+      "measurementTechnique": "ai_research"
     }
   ],
   "citation": "Z-Beam (2025). Bronze Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/bronze-laser-cleaning"

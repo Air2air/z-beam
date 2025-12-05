@@ -5,8 +5,8 @@
   "name": "Cerium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Cerium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-02",
-  "datePublished": "2025-12-02",
+  "dateModified": "2025-12-05",
+  "datePublished": "2025-12-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-02"
+    "lastVerified": "2025-12-05"
   },
   "material": {
     "name": "Cerium",
@@ -158,13 +158,6 @@
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "thermalDestruction": {
-          "value": 1071,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 3520
-        },
         "density": {
           "value": 6.8,
           "unit": "g/cm³",
@@ -178,6 +171,42 @@
           "source": "ai_research",
           "min": 0,
           "max": 149
+        },
+        "youngsModulus": {
+          "value": 33,
+          "unit": "GPa",
+          "source": "ai_research",
+          "min": 15.8,
+          "max": 63.5
+        },
+        "hardness": {
+          "value": 27,
+          "unit": "HV",
+          "source": "ai_research",
+          "min": 0.38,
+          "max": 906
+        },
+        "boilingPoint": {
+          "value": 3716,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 1705,
+          "max": 3834
+        },
+        "absorptivity": {
+          "value": 0.42,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": 0.25,
+          "max": 0.6
+        },
+        "percentage": 60,
+        "thermalDestruction": {
+          "value": 1071,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 273,
+          "max": 3520
         },
         "laserReflectivity": {
           "value": 0.92,
@@ -200,19 +229,65 @@
           "min": 10.4,
           "max": 17.5
         },
-        "youngsModulus": {
-          "value": 33,
-          "unit": "GPa",
+        "specificHeat": {
+          "value": 192,
+          "unit": "J/(kg·K)",
           "source": "ai_research",
-          "min": 15.8,
-          "max": 63.5
+          "min": 113,
+          "max": 457
         },
-        "hardness": {
-          "value": 27,
-          "unit": "HV",
+        "ablationThreshold": {
+          "value": 1.5,
+          "unit": "J/cm²",
           "source": "ai_research",
-          "min": 0.38,
-          "max": 906
+          "min": 0.65,
+          "max": 2.9
+        },
+        "absorptionCoefficient": {
+          "value": "1.2e+07",
+          "unit": "m^{-1}",
+          "source": "ai_research",
+          "min": 298300,
+          "max": "6.6e+07"
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "absorptivity": {
+          "source": "ai_research",
+          "unit": "dimensionless",
+          "value": 0.62,
+          "min": 0.25,
+          "max": 0.6
+        },
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 1071,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 273,
+          "max": 3520
+        },
+        "laserReflectivity": {
+          "value": 0.92,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": 0.4,
+          "max": 0.94
+        },
+        "thermalExpansion": {
+          "value": "6.3e-06",
+          "unit": "K^{-1}",
+          "source": "ai_research",
+          "min": 0.000006,
+          "max": 26.2
+        },
+        "thermalConductivity": {
+          "value": 11.3,
+          "unit": "W/m·K",
+          "source": "ai_research",
+          "min": 10.4,
+          "max": 17.5
         },
         "specificHeat": {
           "value": 192,
@@ -228,20 +303,6 @@
           "min": 0.65,
           "max": 2.9
         },
-        "boilingPoint": {
-          "value": 3716,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 1705,
-          "max": 3834
-        },
-        "absorptivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.25,
-          "max": 0.6
-        },
         "absorptionCoefficient": {
           "value": "1.2e+07",
           "unit": "m^{-1}",
@@ -249,18 +310,32 @@
           "min": 298300,
           "max": "6.6e+07"
         },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "absorptivity": {
-          "source": "ai_research",
-          "unit": "dimensionless",
-          "value": 0.62,
-          "min": 0.25,
-          "max": 0.6
+        "laserDamageThreshold": {
+          "value": 1.8,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Damage Thresholds of Rare-Earth Metals under Nanosecond Pulsed Irradiation",
+          "citation": "Johnson, R. et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5021345",
+          "context": "Pure cerium (99.9% purity), 25°C, 1064 nm wavelength, 10 ns pulse duration, measured in vacuum",
+          "researched_date": "2025-11-24T11:54:31.255084",
+          "needs_validation": true,
+          "min": 1.1,
+          "max": 3.3
         },
-        "percentage": 40
+        "thermalDiffusivity": {
+          "value": "8.7e-06",
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis Group, 2023, ISBN 978-1-138-56163-2",
+          "context": "Pure elemental Cerium (99.99% purity), 25°C (298 K), calculated from standard properties",
+          "researched_date": "2025-11-24T11:54:52.106504",
+          "needs_validation": true,
+          "min": 0.000007,
+          "max": "1.9e-05"
+        }
       }
     },
     "applications": [],
@@ -360,17 +435,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1071,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 3520,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "density",
       "name": "Density",
       "description": "Density - material characteristics",
@@ -389,6 +453,61 @@
       "unitText": "V",
       "minValue": 0,
       "maxValue": 149,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 33,
+      "unitText": "GPa",
+      "minValue": 15.8,
+      "maxValue": 63.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 27,
+      "unitText": "HV",
+      "minValue": 0.38,
+      "maxValue": 906,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 3716,
+      "unitText": "K",
+      "minValue": 1705,
+      "maxValue": 3834,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - material characteristics",
+      "value": 0.42,
+      "unitText": "dimensionless",
+      "minValue": 0.25,
+      "maxValue": 0.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1071,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 3520,
       "measurementTechnique": "ai_research"
     },
     {
@@ -426,28 +545,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 33,
-      "unitText": "GPa",
-      "minValue": 15.8,
-      "maxValue": 63.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 27,
-      "unitText": "HV",
-      "minValue": 0.38,
-      "maxValue": 906,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "specificHeat",
       "name": "Specific Heat",
       "description": "Specific Heat - material characteristics",
@@ -466,28 +563,6 @@
       "unitText": "J/cm²",
       "minValue": 0.65,
       "maxValue": 2.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 3716,
-      "unitText": "K",
-      "minValue": 1705,
-      "maxValue": 3834,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.25,
-      "maxValue": 0.6,
       "measurementTechnique": "ai_research"
     },
     {
@@ -511,6 +586,105 @@
       "minValue": 0.25,
       "maxValue": 0.6,
       "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1071,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 3520,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.92,
+      "unitText": "dimensionless",
+      "minValue": 0.4,
+      "maxValue": 0.94,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": "6.3e-06",
+      "unitText": "K^{-1}",
+      "minValue": 0.000006,
+      "maxValue": 26.2,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 11.3,
+      "unitText": "W/m·K",
+      "minValue": 10.4,
+      "maxValue": 17.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 192,
+      "unitText": "J/(kg·K)",
+      "minValue": 113,
+      "maxValue": 457,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.5,
+      "unitText": "J/cm²",
+      "minValue": 0.65,
+      "maxValue": 2.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": "1.2e+07",
+      "unitText": "m^{-1}",
+      "minValue": 298300,
+      "maxValue": "6.6e+07",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 1.8,
+      "unitText": "J/cm²",
+      "minValue": 1.1,
+      "maxValue": 3.3,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": "8.7e-06",
+      "unitText": "m²/s",
+      "minValue": 0.000007,
+      "maxValue": "1.9e-05",
+      "measurementTechnique": "scientific_literature"
     }
   ],
   "citation": "Z-Beam (2025). Cerium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/cerium-laser-cleaning"

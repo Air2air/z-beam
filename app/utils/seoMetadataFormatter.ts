@@ -418,10 +418,12 @@ function getCategoryTitleSuffix(category?: string): string {
 }
 
 /**
- * Truncate title to 60 chars max (leaving room for " | Z-Beam")
+ * Truncate title to optimal length for SERP display
+ * Layout template adds " | Z-Beam" (9 chars)
+ * Target total: 50-60 chars for optimal CTR
  */
 function truncateTitle(title: string): string {
-  const maxLength = 50; // Leave room for " | Z-Beam" (10 chars)
+  const maxLength = 50; // 50 + 9 (suffix) = 59 chars total
   
   if (title.length <= maxLength) return title;
   

@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Breccia Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-02
+Last Updated:   2025-12-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-02
+Last Verified:  2025-12-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -91,12 +91,6 @@ MATERIAL CHARACTERISTICS:
     Max:    2 MPa·m^{1/2}
     Source: ai_research
 
-  thermalDestruction:
-    Value:  1673 K
-    Min:    273 K
-    Max:    2300 K
-    Source: ai_research
-
   density:
     Value:  2710 kg/m³
     Min:    2.2 kg/m³
@@ -107,6 +101,60 @@ MATERIAL CHARACTERISTICS:
     Value:  0.87 dimensionless (resistance index)
     Min:    9.5e-05 dimensionless (resistance index)
     Max:    1547 dimensionless (resistance index)
+    Source: ai_research
+
+  youngsModulus:
+    Value:  32.5 GPa
+    Min:    9.8 GPa
+    Max:    7.9e+10 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  3.5 Mohs
+    Min:    0.7 Mohs
+    Max:    7.3 Mohs
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  125 MPa
+    Min:    2.1 MPa
+    Max:    220 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  3.2 MPa
+    Min:    1.4 MPa
+    Max:    15.7 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  11.2 MPa
+    Min:    2.2 MPa
+    Max:    36.6 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.85 dimensionless (resistance index)
+    Min:    6.6e-05 dimensionless (resistance index)
+    Max:    21 dimensionless (resistance index)
+    Source: ai_research
+
+  porosity:
+    Value:  0.15 fraction
+    Min:    0 fraction
+    Max:    19.4 fraction
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.1 J/cm²
+    Min:    0.42 J/cm²
+    Max:    13.1 J/cm²
+    Source: scientific_literature
+
+  thermalDestruction:
+    Value:  1673 K
+    Min:    273 K
+    Max:    2300 K
     Source: ai_research
 
   laserReflectivity:
@@ -127,18 +175,6 @@ MATERIAL CHARACTERISTICS:
     Max:    8 W/m·K
     Source: ai_research
 
-  youngsModulus:
-    Value:  32.5 GPa
-    Min:    9.8 GPa
-    Max:    7.9e+10 GPa
-    Source: ai_research
-
-  hardness:
-    Value:  3.5 Mohs
-    Min:    0.7 Mohs
-    Max:    7.3 Mohs
-    Source: ai_research
-
   specificHeat:
     Value:  880 J/(kg·K)
     Min:    400 J/(kg·K)
@@ -151,40 +187,10 @@ MATERIAL CHARACTERISTICS:
     Max:    1.3e+06 cm^{-1}
     Source: ai_research
 
-  compressiveStrength:
-    Value:  125 MPa
-    Min:    2.1 MPa
-    Max:    220 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  3.2 MPa
-    Min:    1.4 MPa
-    Max:    15.7 MPa
-    Source: ai_research
-
   thermalDiffusivity:
     Value:  0.000001 m²/s
     Min:    0 m²/s
     Max:    0.000002 m²/s
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  11.2 MPa
-    Min:    2.2 MPa
-    Max:    36.6 MPa
-    Source: ai_research
-
-  corrosionResistance:
-    Value:  0.85 dimensionless (resistance index)
-    Min:    6.6e-05 dimensionless (resistance index)
-    Max:    21 dimensionless (resistance index)
-    Source: ai_research
-
-  porosity:
-    Value:  0.15 fraction
-    Min:    0 fraction
-    Max:    19.4 fraction
     Source: ai_research
 
 LASER MATERIAL INTERACTION:
@@ -230,6 +236,54 @@ LASER MATERIAL INTERACTION:
     Min:    0.1 Pa
     Max:    100 Pa
     Source: ai_research
+
+  thermalDestruction:
+    Value:  1673 K
+    Min:    273 K
+    Max:    2300 K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.22 
+    Min:    0.03 
+    Max:    0.44 
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  8.2e-06 K^{-1}
+    Min:    0.000006 K^{-1}
+    Max:    12 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  2.3 W/m·K
+    Min:    0.2 W/m·K
+    Max:    8 W/m·K
+    Source: ai_research
+
+  specificHeat:
+    Value:  880 J/(kg·K)
+    Min:    400 J/(kg·K)
+    Max:    1200 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  4500 cm^{-1}
+    Min:    0.06 cm^{-1}
+    Max:    1.3e+06 cm^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.000001 m²/s
+    Min:    0 m²/s
+    Max:    0.000002 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.4 J/cm²
+    Min:    0.65 J/cm²
+    Max:    6.3 J/cm²
+    Source: scientific_literature
 
 ================================================================================
 CITATION & USAGE

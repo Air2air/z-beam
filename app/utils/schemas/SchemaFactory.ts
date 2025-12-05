@@ -185,7 +185,19 @@ export class SchemaFactory {
     // Content schemas
     this.register('Article', generateArticleSchema, { 
       priority: 80,
-      condition: (data) => !!(data.frontmatter?.category || data.metadata?.category)
+      condition: (data, context) => {
+        // Article for material pages (not settings pages)
+        const hasCategory = !!(data.frontmatter?.category || data.metadata?.category);
+        const isSettingsPage = context.slug.startsWith('settings/');
+        return hasCategory && !isSettingsPage;
+      }
+    });
+    this.register('TechArticle', generateTechArticleSchema, { 
+      priority: 80,
+      condition: (data, context) => {
+        // TechArticle for settings pages (technical specifications)
+        return context.slug.startsWith('settings/');
+      }
     });
     this.register('Product', generateProductSchema, {
       priority: 75,
@@ -238,6 +250,14 @@ export class SchemaFactory {
     this.register('ImageObject', generateImageObjectSchema, {
       priority: 35,
       condition: (data) => hasImageData(data)
+    });
+    this.register('SoftwareApplication', generateSoftwareApplicationSchema, {
+      priority: 32,
+      condition: (data, context) => {
+        // Only for settings pages with machine settings (they have interactive tools)
+        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        return context.slug.startsWith('settings/') && !!fm?.machineSettings;
+      }
     });
     this.register('ContactPoint', generateContactPointSchema, {
       priority: 30,
@@ -515,6 +535,113 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
     ...(frontmatter.keywords ? { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords } : {}),
     
     // Phase 2 E-E-A-T: Advanced Trust & Authoritativeness signals
+    ...((frontmatter.eeat as any)?.reviewedBy && {
+      'reviewedBy': {
+        '@type': 'Person',
+        '@id': `${baseUrl}#reviewer-technical`,
+        'name': typeof (frontmatter.eeat as any).reviewedBy === 'string' ? (frontmatter.eeat as any).reviewedBy : (frontmatter.eeat as any).reviewedBy.name || 'Technical Review Team',
+        'jobTitle': 'Quality Assurance Specialist'
+      }
+    }),
+    
+    ...((frontmatter.eeat as any)?.citations && (frontmatter.eeat as any).citations.length > 0 && {
+      'citation': (frontmatter.eeat as any).citations.map((cite: any) => ({
+        '@type': 'CreativeWork',
+        'name': typeof cite === 'string' ? cite : cite.name || cite.title,
+        ...(typeof cite === 'object' && cite.url && { 'url': cite.url })
+      }))
+    }),
+    
+    ...((frontmatter.eeat as any)?.isBasedOn && {
+      'isBasedOn': {
+        '@type': 'CreativeWork',
+        'name': typeof (frontmatter.eeat as any).isBasedOn === 'string' ? (frontmatter.eeat as any).isBasedOn : (frontmatter.eeat as any).isBasedOn.name,
+        ...((frontmatter.eeat as any).isBasedOn && typeof (frontmatter.eeat as any).isBasedOn === 'object' && (frontmatter.eeat as any).isBasedOn.url && { 'url': (frontmatter.eeat as any).isBasedOn.url })
+      }
+    })
+  };
+}
+
+/**
+ * TechArticle Schema - For technical documentation and settings pages
+ * Schema.org TechArticle: "A technical article - Example: How-to (task) topics, 
+ * step-by-step, procedural troubleshooting, specifications, etc."
+ * 
+ * Includes TechArticle-specific properties:
+ * - dependencies: Prerequisites needed
+ * - proficiencyLevel: 'Beginner' | 'Expert'
+ */
+function generateTechArticleSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
+  const frontmatter = getMetadata(data);
+  const { pageUrl, baseUrl, currentDate } = context;
+  
+  const title = frontmatter.title || data.title || '';
+  const description = frontmatter.description || frontmatter.settings_description || data.description || '';
+  const materialName = frontmatter.name || '';
+  
+  if (!title) return null;
+
+  // Extract machine settings for technical details
+  const machineSettings = frontmatter.machineSettings || data.machineSettings;
+  
+  // Build dependencies from machine settings (prerequisites for laser cleaning)
+  const dependencies: string[] = [];
+  if (machineSettings) {
+    if (machineSettings.wavelength?.value) {
+      dependencies.push(`Laser system with ${machineSettings.wavelength.value}nm wavelength`);
+    }
+    if (machineSettings.powerRange?.min && machineSettings.powerRange?.max) {
+      dependencies.push(`Power output capability: ${machineSettings.powerRange.min}-${machineSettings.powerRange.max}W`);
+    }
+    if (machineSettings.pulseFrequency?.min && machineSettings.pulseFrequency?.max) {
+      dependencies.push(`Adjustable pulse frequency: ${machineSettings.pulseFrequency.min}-${machineSettings.pulseFrequency.max}kHz`);
+    }
+  }
+
+  // Check if author exists
+  const authorData = frontmatter.author || data.author;
+  const authorField = authorData && (authorData.name || (typeof authorData === 'string' && authorData))
+    ? { '@id': `${pageUrl}#person-author` }
+    : undefined;
+
+  return {
+    '@type': 'TechArticle',
+    '@id': `${pageUrl}#techarticle`,
+    'headline': title,
+    'description': description,
+    'articleSection': 'Laser Cleaning Parameters',
+    'url': pageUrl,
+    'datePublished': frontmatter.datePublished || currentDate,
+    'dateModified': frontmatter.dateModified || currentDate,
+    'inLanguage': 'en-US',
+    
+    // TechArticle-specific properties
+    'proficiencyLevel': 'Expert', // Technical specifications require expertise
+    ...(dependencies.length > 0 && { 'dependencies': dependencies.join('. ') }),
+    
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': pageUrl
+    },
+    ...(authorField && { 'author': authorField }),
+    'publisher': {
+      '@type': 'Organization',
+      'name': SITE_CONFIG.name,
+      'url': baseUrl,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${baseUrl}${SITE_CONFIG.media.logo.default}`,
+        'width': SITE_CONFIG.media.logo.width,
+        'height': SITE_CONFIG.media.logo.height
+      }
+    },
+    ...((getMainImage(data) && typeof getMainImage(data) === 'object') ? { 'image': getMainImage(data) } as Record<string, any> : {}),
+    
+    // Keywords for discoverability
+    ...(frontmatter.keywords ? { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords } : 
+      materialName ? { 'keywords': `${materialName} laser cleaning, ${materialName} settings, laser parameters, ${materialName} specifications` } : {}),
+    
+    // E-E-A-T: Advanced Trust & Authoritativeness signals
     ...((frontmatter.eeat as any)?.reviewedBy && {
       'reviewedBy': {
         '@type': 'Person',
@@ -1274,6 +1401,57 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
   }
 
   return imageObject;
+}
+
+/**
+ * SoftwareApplication Schema - For interactive tools on settings pages
+ * Describes the Thermal Accumulation Simulator and Parameter Relationship visualizer
+ * @see https://schema.org/SoftwareApplication
+ */
+function generateSoftwareApplicationSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
+  const frontmatter = getMetadata(data);
+  const materialName = frontmatter.name || 'Material';
+  const { pageUrl, baseUrl } = context;
+  
+  // Only generate for settings pages with machine settings (they have the interactive tools)
+  if (!frontmatter.machineSettings) return null;
+
+  // Main thermal simulator application
+  const thermalSimulator: SchemaOrgBase = {
+    '@type': 'SoftwareApplication',
+    '@id': `${pageUrl}#thermal-simulator`,
+    'name': `${materialName} Thermal Accumulation Simulator`,
+    'description': `Interactive simulation tool to predict thermal buildup during multi-pass laser cleaning of ${materialName}. Visualizes temperature vs. time with configurable power, scan speed, and cooling parameters.`,
+    'applicationCategory': 'CalculatorApplication',
+    'applicationSubCategory': 'Engineering Simulation',
+    'operatingSystem': 'Web Browser',
+    'browserRequirements': 'Modern web browser with JavaScript enabled',
+    'softwareVersion': '1.0',
+    'offers': {
+      '@type': 'Offer',
+      'price': '0',
+      'priceCurrency': 'USD',
+      'availability': 'https://schema.org/InStock'
+    },
+    'featureList': [
+      'Real-time temperature visualization',
+      'Multi-pass simulation',
+      'Configurable power and scan speed',
+      'Safety threshold warnings',
+      'Animation playback controls'
+    ],
+    'screenshot': {
+      '@type': 'ImageObject',
+      'url': `${baseUrl}/images/material/${(materialName as string).toLowerCase().replace(/\s+/g, '-')}-laser-cleaning-hero.jpg`
+    },
+    'author': {
+      '@type': 'Organization',
+      'name': SITE_CONFIG.name,
+      'url': baseUrl
+    }
+  };
+
+  return thermalSimulator;
 }
 
 /**

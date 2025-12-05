@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Gallium Arsenide Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-02
+Last Updated:   2025-12-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-02
+Last Verified:  2025-12-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -91,12 +91,6 @@ MATERIAL CHARACTERISTICS:
     Max:    1.4e+06 Ω m
     Source: ai_research
 
-  thermalDestruction:
-    Value:  1511 K
-    Min:    1502 K
-    Max:    1696 K
-    Source: ai_research
-
   density:
     Value:  5.3 g/cm³
     Min:    2.2 g/cm³
@@ -107,6 +101,54 @@ MATERIAL CHARACTERISTICS:
     Value:  0.008 nm/min
     Min:    0 nm/min
     Max:    2.4 nm/min
+    Source: ai_research
+
+  youngsModulus:
+    Value:  85.4 GPa
+    Min:    81.1 GPa
+    Max:    1.5e+11 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  7.5 GPa
+    Min:    2 GPa
+    Max:    2600 GPa
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  1170 MPa
+    Min:    133 MPa
+    Max:    7343 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  41 MPa
+    Min:    30.8 MPa
+    Max:    255 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  140 MPa
+    Min:    79.9 MPa
+    Max:    148 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.85 dimensionless (normalized resistance scale 0-1)
+    Min:    0.87 dimensionless (normalized resistance scale 0-1)
+    Max:    157500 dimensionless (normalized resistance scale 0-1)
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  10.5 J/cm²
+    Min:    0.47 J/cm²
+    Max:    8.9 J/cm²
+    Source: scientific_literature
+
+  thermalDestruction:
+    Value:  1511 K
+    Min:    1502 K
+    Max:    1696 K
     Source: ai_research
 
   laserReflectivity:
@@ -127,18 +169,6 @@ MATERIAL CHARACTERISTICS:
     Max:    156 W/m·K
     Source: ai_research
 
-  youngsModulus:
-    Value:  85.4 GPa
-    Min:    81.1 GPa
-    Max:    1.5e+11 GPa
-    Source: ai_research
-
-  hardness:
-    Value:  7.5 GPa
-    Min:    2 GPa
-    Max:    2600 GPa
-    Source: ai_research
-
   specificHeat:
     Value:  322 J/(kg·K)
     Min:    300 J/(kg·K)
@@ -151,34 +181,10 @@ MATERIAL CHARACTERISTICS:
     Max:    1.1e+06 dimensionless
     Source: ai_research
 
-  compressiveStrength:
-    Value:  1170 MPa
-    Min:    133 MPa
-    Max:    7343 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  41 MPa
-    Min:    30.8 MPa
-    Max:    255 MPa
-    Source: ai_research
-
   thermalDiffusivity:
     Value:  3.2e-05 m²/s
     Min:    2.4e-05 m²/s
     Max:    9.2e-05 m²/s
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  140 MPa
-    Min:    79.9 MPa
-    Max:    148 MPa
-    Source: ai_research
-
-  corrosionResistance:
-    Value:  0.85 dimensionless (normalized resistance scale 0-1)
-    Min:    0.87 dimensionless (normalized resistance scale 0-1)
-    Max:    157500 dimensionless (normalized resistance scale 0-1)
     Source: ai_research
 
 LASER MATERIAL INTERACTION:
@@ -224,6 +230,54 @@ LASER MATERIAL INTERACTION:
     Min:    0.1 Pa
     Max:    50 Pa
     Source: ai_research
+
+  thermalDestruction:
+    Value:  1511 K
+    Min:    1502 K
+    Max:    1696 K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.3 1
+    Min:    0.3 1
+    Max:    0.36 1
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  5.7e-06 1/K
+    Min:    0.000002 1/K
+    Max:    0.000006 1/K
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  55 W/m·K
+    Min:    0.2 W/m·K
+    Max:    156 W/m·K
+    Source: ai_research
+
+  specificHeat:
+    Value:  322 J/(kg·K)
+    Min:    300 J/(kg·K)
+    Max:    900 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.68 dimensionless
+    Min:    19380 dimensionless
+    Max:    1.1e+06 dimensionless
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  3.2e-05 m²/s
+    Min:    2.4e-05 m²/s
+    Max:    9.2e-05 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  0.85 J/cm²
+    Min:    1.2 J/cm²
+    Max:    2 J/cm²
+    Source: scientific_literature
 
 ================================================================================
 CITATION & USAGE

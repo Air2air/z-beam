@@ -1,10 +1,11 @@
 // app/components/ThermalAccumulation/ThermalAccumulation.tsx
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
+import { ThermalAnalysisCards } from './ThermalAnalysisCards';
 
 interface ThermalAccumulationProps {
   materialName?: string;
@@ -84,6 +85,54 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
   const currentTemp = calculateTemperature(currentTime);
   const maxSafeTemp = 150; // °C for aluminum
   const damageTemp = 250; // °C
+
+  // Calculate peak temperature across the simulation
+  const peakTemp = useMemo(() => {
+    let max = 20;
+    for (let t = 0; t <= totalSimTime; t += 0.5) {
+      max = Math.max(max, calculateTemperature(t));
+    }
+    return max;
+  }, [editablePower, editableRepRate, editableScanSpeed, editablePassCount, editableCoolingTime, totalSimTime]);
+
+  // Calculate thermal analysis factors (0-100 scores)
+  const thermalFactors = useMemo(() => {
+    // Thermal Safety: How safe is peak temperature relative to damage threshold?
+    // 100% if peak <= maxSafe, 0% if peak >= damage
+    const thermalSafety = peakTemp <= maxSafeTemp
+      ? 100
+      : Math.max(0, Math.min(100, (1 - (peakTemp - maxSafeTemp) / (damageTemp - maxSafeTemp)) * 100));
+
+    // Heat Accumulation: Lower is better (less heat buildup across passes)
+    // Based on how much temp rises from first to last pass
+    const firstPassPeak = calculateTemperature(passTime * 0.9);
+    const lastPassPeak = peakTemp;
+    const accumulationRatio = (lastPassPeak - firstPassPeak) / firstPassPeak;
+    const heatControl = Math.max(0, Math.min(100, 100 - accumulationRatio * 50));
+
+    // Cooling Efficiency: How well does cooling time allow recovery?
+    // Measure temp drop during cooling periods
+    const tempAtPassEnd = calculateTemperature(passTime);
+    const tempAfterCooling = calculateTemperature(passTime + editableCoolingTime * 0.9);
+    const coolingDrop = tempAtPassEnd - tempAfterCooling;
+    const expectedDrop = tempAtPassEnd - 20; // Drop to ambient
+    const coolingEfficiency = Math.max(0, Math.min(100, (coolingDrop / expectedDrop) * 100));
+
+    // Pass Optimization: Is pass count well-balanced for throughput vs safety?
+    // Optimal when we stay below maxSafe with reasonable pass count
+    const safetyHeadroom = (damageTemp - peakTemp) / (damageTemp - maxSafeTemp);
+    const passEfficiency = editablePassCount >= 3 ? 100 : editablePassCount * 33; // Reward multiple passes
+    const passOptimization = Math.max(0, Math.min(100, 
+      peakTemp <= maxSafeTemp ? passEfficiency : passEfficiency * safetyHeadroom
+    ));
+
+    return [
+      { label: 'Thermal Safety', score: thermalSafety, weight: '40%' },
+      { label: 'Heat Control', score: heatControl, weight: '25%' },
+      { label: 'Cooling Efficiency', score: coolingEfficiency, weight: '20%' },
+      { label: 'Pass Optimization', score: passOptimization, weight: '15%' },
+    ];
+  }, [peakTemp, maxSafeTemp, damageTemp, editableCoolingTime, editablePassCount, passTime]);
 
   // Animation loop
   useEffect(() => {
@@ -180,11 +229,25 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
         thumbnailLink={materialLink}
       />
 
-      <div className="grid lg:grid-cols-[1fr,350px] gap-6">
-        {/* Temperature Graph */}
+      {/* Stacked Layout: Analysis Cards above Graph+Controls */}
+      <div className="space-y-6">
+        {/* Analysis Cards Row */}
+        <ThermalAnalysisCards
+          statusData={{
+            peakTemp,
+            currentTemp,
+            maxSafeTemp,
+            damageTemp,
+            passCount: editablePassCount,
+            currentPass,
+          }}
+          factors={thermalFactors}
+        />
+
+        {/* Thermal Profile - Full Width */}
         <div className="bg-tertiary rounded-lg p-6 border">
           <div className="mb-4 flex items-center justify-between">
-            <h4 className="text-sm text-secondary font-semibold">Temperature vs. Time</h4>
+            <h4 className="text-sm text-secondary font-semibold">📈 Thermal Profile</h4>
             <div className="flex gap-2 text-xs">
               <div className="flex items-center gap-1">
                 <div className="w-3 h-3 bg-green-500 rounded"></div>
@@ -197,23 +260,27 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             </div>
           </div>
 
-          {/* SVG Graph - Increased height */}
-          <svg viewBox="0 0 600 600" className="w-full h-auto bg-gray-950 rounded">
+          {/* SVG Graph - 2:1 aspect ratio (800x400) */}
+          <svg 
+            viewBox="0 0 800 400" 
+            preserveAspectRatio="xMidYMid meet"
+            className="w-full h-[200px] sm:h-[280px] md:h-[360px] bg-gray-950 rounded"
+          >
             {/* Grid lines */}
             {[0, 100, 200, 300].map((temp) => (
               <g key={temp}>
                 <line
                   x1={50}
-                  y1={550 - (temp / 400) * 500}
-                  x2={580}
-                  y2={550 - (temp / 400) * 500}
+                  y1={350 - (temp / 400) * 300}
+                  x2={750}
+                  y2={350 - (temp / 400) * 300}
                   stroke="#374151"
                   strokeWidth={1}
                   strokeDasharray="4,4"
                 />
                 <text
                   x={40}
-                  y={550 - (temp / 400) * 500 + 5}
+                  y={350 - (temp / 400) * 300 + 5}
                   textAnchor="end"
                   fill="#9CA3AF"
                   fontSize="10"
@@ -226,9 +293,9 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             {/* Safe temperature threshold - Animated */}
             <line
               x1={50}
-              y1={550 - (maxSafeTemp / 400) * 500}
-              x2={580}
-              y2={550 - (maxSafeTemp / 400) * 500}
+              y1={350 - (maxSafeTemp / 400) * 300}
+              x2={750}
+              y2={350 - (maxSafeTemp / 400) * 300}
               stroke="#10B981"
               strokeWidth={2}
               strokeDasharray="8,4"
@@ -244,8 +311,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
               />
             </line>
             <text
-              x={585}
-              y={550 - (maxSafeTemp / 400) * 500 + 4}
+              x={755}
+              y={350 - (maxSafeTemp / 400) * 300 + 4}
               fill="#10B981"
               fontSize="11"
               fontWeight="bold"
@@ -257,12 +324,12 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             {/* Ripple effects on safe threshold */}
             {ripples.filter(r => r.threshold === 'safe').map(ripple => {
               const age = (Date.now() - ripple.time) / 2000; // 0 to 1
-              const currentX = 50 + (currentTime / totalSimTime) * 530;
+              const currentX = 50 + (currentTime / totalSimTime) * 700;
               return (
                 <g key={ripple.id}>
                   <circle
                     cx={currentX}
-                    cy={550 - (maxSafeTemp / 400) * 500}
+                    cy={350 - (maxSafeTemp / 400) * 300}
                     r={age * 50}
                     fill="none"
                     stroke="#10B981"
@@ -271,7 +338,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                   />
                   <circle
                     cx={currentX}
-                    cy={550 - (maxSafeTemp / 400) * 500}
+                    cy={350 - (maxSafeTemp / 400) * 300}
                     r={age * 30}
                     fill="none"
                     stroke="#10B981"
@@ -285,9 +352,9 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             {/* Damage temperature threshold - Animated */}
             <line
               x1={50}
-              y1={550 - (damageTemp / 400) * 500}
-              x2={580}
-              y2={550 - (damageTemp / 400) * 500}
+              y1={350 - (damageTemp / 400) * 300}
+              x2={750}
+              y2={350 - (damageTemp / 400) * 300}
               stroke="#EF4444"
               strokeWidth={3}
               strokeDasharray="8,4"
@@ -308,8 +375,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
               />
             </line>
             <text
-              x={585}
-              y={550 - (damageTemp / 400) * 500 + 4}
+              x={755}
+              y={350 - (damageTemp / 400) * 300 + 4}
               fill="#EF4444"
               fontSize="11"
               fontWeight="bold"
@@ -326,13 +393,13 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             {/* Ripple effects on damage threshold */}
             {ripples.filter(r => r.threshold === 'damage').map(ripple => {
               const age = (Date.now() - ripple.time) / 2000; // 0 to 1
-              const currentX = 50 + (currentTime / totalSimTime) * 530;
+              const currentX = 50 + (currentTime / totalSimTime) * 700;
               return (
                 <g key={ripple.id}>
                   {/* Outer ripple */}
                   <circle
                     cx={currentX}
-                    cy={550 - (damageTemp / 400) * 500}
+                    cy={350 - (damageTemp / 400) * 300}
                     r={age * 70}
                     fill="none"
                     stroke="#EF4444"
@@ -342,7 +409,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                   {/* Middle ripple */}
                   <circle
                     cx={currentX}
-                    cy={550 - (damageTemp / 400) * 500}
+                    cy={350 - (damageTemp / 400) * 300}
                     r={age * 50}
                     fill="none"
                     stroke="#F59E0B"
@@ -352,7 +419,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                   {/* Inner ripple */}
                   <circle
                     cx={currentX}
-                    cy={550 - (damageTemp / 400) * 500}
+                    cy={350 - (damageTemp / 400) * 300}
                     r={age * 30}
                     fill="none"
                     stroke="#EF4444"
@@ -362,7 +429,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                   {/* Flash effect */}
                   <circle
                     cx={currentX}
-                    cy={550 - (damageTemp / 400) * 500}
+                    cy={350 - (damageTemp / 400) * 300}
                     r={10}
                     fill="#EF4444"
                     opacity={Math.max(0, (1 - age * 3))}
@@ -375,10 +442,10 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             {Array.from({ length: editablePassCount + 1 }, (_, i) => (
               <line
                 key={i}
-                x1={50 + (i / editablePassCount) * 530}
+                x1={50 + (i / editablePassCount) * 700}
                 y1={30}
-                x2={50 + (i / editablePassCount) * 530}
-                y2={550}
+                x2={50 + (i / editablePassCount) * 700}
+                y2={350}
                 stroke="#6B7280"
                 strokeWidth={1}
                 opacity={0.5}
@@ -404,9 +471,9 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             {/* DANGER ZONE - Animated fill between thresholds */}
             <rect
               x={50}
-              y={550 - (damageTemp / 400) * 500}
-              width={530}
-              height={(damageTemp - maxSafeTemp) / 400 * 500}
+              y={350 - (damageTemp / 400) * 300}
+              width={700}
+              height={(damageTemp - maxSafeTemp) / 400 * 300}
               fill="#F59E0B"
               opacity={currentTemp > maxSafeTemp && currentTemp < damageTemp ? 0.15 : 0.08}
             >
@@ -422,8 +489,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             <rect
               x={50}
               y={30}
-              width={530}
-              height={550 - (damageTemp / 400) * 500 - 30}
+              width={700}
+              height={350 - (damageTemp / 400) * 300 - 30}
               fill="#EF4444"
               opacity={currentTemp > damageTemp ? 0.2 : 0.05}
             >
@@ -439,8 +506,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             <polyline
               points={tempHistory
                 .map((point) => {
-                  const x = 50 + (point.time / totalSimTime) * 530;
-                  const y = 550 - (point.temp / 400) * 500;
+                  const x = 50 + (point.time / totalSimTime) * 700;
+                  const y = 350 - (point.temp / 400) * 300;
                   return `${x},${y}`;
                 })
                 .join(' ')}
@@ -453,8 +520,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             <polyline
               points={tempHistory
                 .map((point) => {
-                  const x = 50 + (point.time / totalSimTime) * 530;
-                  const y = 550 - (point.temp / 400) * 500;
+                  const x = 50 + (point.time / totalSimTime) * 700;
+                  const y = 350 - (point.temp / 400) * 300;
                   return `${x},${y}`;
                 })
                 .join(' ')}
@@ -468,8 +535,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             <g>
               {/* Outer glow ring */}
               <circle
-                cx={50 + (currentTime / totalSimTime) * 530}
-                cy={550 - (currentTemp / 400) * 500}
+                cx={50 + (currentTime / totalSimTime) * 700}
+                cy={350 - (currentTemp / 400) * 300}
                 r={12}
                 fill={tempColor}
                 opacity={0.2}
@@ -489,8 +556,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
               </circle>
               {/* Main marker */}
               <circle
-                cx={50 + (currentTime / totalSimTime) * 530}
-                cy={550 - (currentTemp / 400) * 500}
+                cx={50 + (currentTime / totalSimTime) * 700}
+                cy={350 - (currentTemp / 400) * 300}
                 r={6}
                 fill={tempColor}
                 stroke="white"
@@ -505,8 +572,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
               </circle>
               {/* Temperature label */}
               <text
-                x={50 + (currentTime / totalSimTime) * 530}
-                y={550 - (currentTemp / 400) * 500 - 15}
+                x={50 + (currentTime / totalSimTime) * 700}
+                y={350 - (currentTemp / 400) * 300 - 15}
                 textAnchor="middle"
                 fill={tempColor}
                 fontSize="14"
@@ -519,7 +586,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             {/* Pass labels - Enhanced current pass */}
             {Array.from({ length: editablePassCount }, (_, i) => {
               const isCurrent = currentPass === i;
-              const x = 50 + ((i + 0.5) / editablePassCount) * 530;
+              const x = 50 + ((i + 0.5) / editablePassCount) * 700;
               return (
                 <g key={i}>
                   {isCurrent && (
@@ -527,7 +594,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                       {/* Highlight background for current pass */}
                       <rect
                         x={x - 30}
-                        y={560}
+                        y={360}
                         width={60}
                         height={20}
                         fill="#3B82F6"
@@ -544,7 +611,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                       {/* Glow effect under current pass */}
                       <circle
                         cx={x}
-                        cy={570}
+                        cy={375}
                         r={20}
                         fill="#3B82F6"
                         opacity={0.1}
@@ -560,7 +627,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                   )}
                   <text
                     x={x}
-                    y={575}
+                    y={380}
                     textAnchor="middle"
                     fill={isCurrent ? '#3B82F6' : '#9CA3AF'}
                     fontSize={isCurrent ? 14 : 12}
@@ -573,16 +640,14 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             })}
 
             {/* Axes */}
-            <line x1={50} y1={550} x2={580} y2={550} stroke="#9CA3AF" strokeWidth={2} />
-            <line x1={50} y1={30} x2={50} y2={550} stroke="#9CA3AF" strokeWidth={2} />
+            <line x1={50} y1={350} x2={750} y2={350} stroke="#9CA3AF" strokeWidth={2} />
+            <line x1={50} y1={30} x2={50} y2={350} stroke="#9CA3AF" strokeWidth={2} />
           </svg>
         </div>
-
-        {/* Controls & Info Panel */}
-        <div className="space-y-4">
-          {/* Process Parameters - MOVED TO TOP */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Laser Settings */}
           <div className="bg-tertiary rounded-lg p-4 border">
-            <h4 className="text-sm text-secondary font-semibold mb-3">⚙️ Process Parameters</h4>
+            <h4 className="text-sm text-secondary font-semibold mb-3">🔧 Laser Settings</h4>
             <div className="space-y-3">
               {/* Power */}
               <div>
@@ -722,6 +787,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
             }`}
             style={{ borderColor: tempColor }}
           >
+            <h4 className="text-xs text-center text-muted mb-2 font-semibold">🌡️ Live Temperature</h4>
             <div className="text-center">
               <div 
                 className={`text-6xl font-bold mb-2 transition-all duration-300 ${
@@ -752,6 +818,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
 
           {/* Controls */}
           <div className="bg-tertiary rounded-lg p-4 border space-y-3">
+            <h4 className="text-sm text-secondary font-semibold mb-2">▶️ Simulation Controls</h4>
             <div className="flex gap-2">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
@@ -817,3 +884,4 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
     </SectionContainer>
   );
 };
+

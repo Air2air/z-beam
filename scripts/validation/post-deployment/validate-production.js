@@ -642,6 +642,111 @@ async function validateMaterialPageSchemas() {
 }
 
 // ============================================================================
+// CATEGORY: Settings Page Schema Validation
+// ============================================================================
+async function validateSettingsPageSchemas() {
+  console.log('\n⚙️  Validating Settings Page Schemas...');
+  
+  // Sample settings pages to test
+  const settingsPages = [
+    '/settings/metal/non-ferrous/aluminum-settings',
+    '/settings/metal/ferrous/stainless-steel-settings',
+    '/settings/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-settings'
+  ];
+  
+  // Settings pages should have these schemas (comprehensive rich data)
+  const requiredSchemas = [
+    'TechArticle',      // Technical article with proficiencyLevel and dependencies
+    'HowTo',            // Step-by-step parameters
+    'FAQPage',          // Auto-generated from challenges
+    'Dataset',          // Machine settings + material properties
+    'Person',           // Author E-E-A-T
+    'SoftwareApplication', // Thermal simulator tool
+    'BreadcrumbList',   // Navigation
+    'WebPage'           // Base page
+  ];
+  // Base schemas present on all pages
+  const baseSchemas = ['LocalBusiness', 'WebSite'];
+  
+  let testedPages = 0;
+  let pagesWithAllSchemas = 0;
+  
+  for (const pagePath of settingsPages) {
+    try {
+      const pageUrl = new URL(pagePath, TARGET_URL).toString();
+      const response = await fetchUrl(pageUrl);
+      
+      if (response.statusCode !== 200) {
+        console.log(`  ⚠️  Skipping ${pagePath} (status: ${response.statusCode})`);
+        continue;
+      }
+      
+      const html = response.body;
+      const jsonldMatches = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi) || [];
+      
+      const schemaTypes = [];
+      jsonldMatches.forEach(match => {
+        try {
+          const jsonContent = match.replace(/<script[^>]*>/, '').replace(/<\/script>/, '').trim();
+          const schema = JSON.parse(jsonContent);
+          
+          if (schema['@graph']) {
+            schema['@graph'].forEach(item => {
+              if (item['@type']) schemaTypes.push(item['@type']);
+            });
+          } else if (schema['@type']) {
+            schemaTypes.push(schema['@type']);
+          }
+        } catch (e) {
+          // Skip invalid JSON
+        }
+      });
+      
+      testedPages++;
+      
+      // Check base schemas (should always be present)
+      const missingBase = baseSchemas.filter(type => !schemaTypes.includes(type));
+      
+      // Check settings-specific schemas (may not all be implemented yet)
+      const missingRequired = requiredSchemas.filter(type => !schemaTypes.includes(type));
+      const hasMinimum = missingBase.length === 0; // At least base schemas
+      
+      if (missingRequired.length === 0 && missingBase.length === 0) {
+        pagesWithAllSchemas++;
+        console.log(`  ✓ ${pagePath.split('/').pop()} - All schemas present`);
+      } else if (hasMinimum) {
+        console.log(`  ⚠️  ${pagePath.split('/').pop()} - Base OK, missing: ${missingRequired.join(', ')}`);
+      } else {
+        console.log(`  ✗ ${pagePath.split('/').pop()} - Missing base: ${missingBase.join(', ')}`);
+      }
+      
+      // Add result for this page
+      addResult('settings-schemas', `Page: ${pagePath.split('/').pop()}`,
+        hasMinimum,
+        hasMinimum 
+          ? (missingRequired.length === 0 ? 'All schemas present' : `Base OK, enhance with: ${missingRequired.join(', ')}`)
+          : `Missing base schemas: ${missingBase.join(', ')}`,
+        { pagePath, schemaTypes, missingBase, missingRequired }
+      );
+      
+    } catch (error) {
+      console.log(`  ✗ Error testing ${pagePath}: ${error.message}`);
+      addResult('settings-schemas', `Page: ${pagePath}`, false, error.message);
+    }
+  }
+  
+  // Overall settings schema consistency check
+  const consistencyRate = testedPages > 0 ? Math.round((pagesWithAllSchemas / testedPages) * 100) : 0;
+  addResult('settings-schemas', 'Schema Consistency',
+    testedPages > 0,
+    `${pagesWithAllSchemas}/${testedPages} pages have all schemas (${consistencyRate}%)`,
+    { testedPages, pagesWithAllSchemas, consistencyRate }
+  );
+  
+  console.log(`  📊 Consistency: ${consistencyRate}% (${pagesWithAllSchemas}/${testedPages} pages)`);
+}
+
+// ============================================================================
 // CATEGORY: Additional Checks
 // ============================================================================
 async function validateAdditional() {
@@ -723,9 +828,10 @@ async function main() {
     if (CATEGORY === 'all' || CATEGORY === 'jsonld' || CATEGORY === 'structured-data') {
       await validateJSONLD();
       
-      // Additionally test material pages for comprehensive schema coverage
+      // Additionally test material and settings pages for comprehensive schema coverage
       if (CATEGORY === 'all') {
         await validateMaterialPageSchemas();
+        await validateSettingsPageSchemas();
       }
     }
     if (CATEGORY === 'all') {

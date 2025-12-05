@@ -5,8 +5,8 @@
   "name": "Calcite Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Calcite. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-02",
-  "datePublished": "2025-12-02",
+  "dateModified": "2025-12-05",
+  "datePublished": "2025-12-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-02"
+    "lastVerified": "2025-12-05"
   },
   "material": {
     "name": "Calcite",
@@ -160,13 +160,6 @@
           "min": 0.13,
           "max": 2
         },
-        "thermalDestruction": {
-          "value": 1098,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
         "density": {
           "value": 2710,
           "unit": "kg/m³",
@@ -180,6 +173,75 @@
           "source": "ai_research",
           "min": "9.5e-05",
           "max": 1547
+        },
+        "youngsModulus": {
+          "value": 69,
+          "unit": "GPa",
+          "source": "ai_research",
+          "min": 9.8,
+          "max": "7.9e+10"
+        },
+        "hardness": {
+          "value": 3,
+          "unit": "Mohs",
+          "source": "ai_research",
+          "min": 0.7,
+          "max": 7.3
+        },
+        "compressiveStrength": {
+          "value": 150,
+          "unit": "MPa",
+          "source": "ai_research",
+          "min": 2.1,
+          "max": 220
+        },
+        "tensileStrength": {
+          "value": 23,
+          "unit": "MPa",
+          "source": "ai_research",
+          "min": 1.4,
+          "max": 15.7
+        },
+        "flexuralStrength": {
+          "value": 15,
+          "unit": "MPa",
+          "source": "ai_research",
+          "min": 2.2,
+          "max": 36.6
+        },
+        "corrosionResistance": {
+          "value": 0.25,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": "6.6e-05",
+          "max": 21
+        },
+        "porosity": {
+          "value": 0.6,
+          "unit": "%",
+          "source": "ai_research",
+          "min": 0,
+          "max": 19.4
+        },
+        "laserDamageThreshold": {
+          "value": 2.8,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "Sanz et al., Laser cleaning of calcareous stones: Evaluation of damage threshold, Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.123",
+          "context": "Single-crystal calcite (99.9% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, measured on polished surfaces",
+          "researched_date": "2025-11-24T11:53:00.421879",
+          "needs_validation": true,
+          "min": 0.42,
+          "max": 13.1
+        },
+        "thermalDestruction": {
+          "value": 1098,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 273,
+          "max": 2300
         },
         "laserReflectivity": {
           "value": 0.05,
@@ -202,20 +264,6 @@
           "min": 0.2,
           "max": 8
         },
-        "youngsModulus": {
-          "value": 69,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 9.8,
-          "max": "7.9e+10"
-        },
-        "hardness": {
-          "value": 3,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.7,
-          "max": 7.3
-        },
         "specificHeat": {
           "value": 831,
           "unit": "J/kg·K",
@@ -230,47 +278,12 @@
           "min": 0.06,
           "max": "1.3e+06"
         },
-        "compressiveStrength": {
-          "value": 150,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 220
-        },
-        "tensileStrength": {
-          "value": 23,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1.4,
-          "max": 15.7
-        },
         "thermalDiffusivity": {
           "value": "1.3e-06",
           "unit": "m²/s",
           "source": "ai_research",
           "min": 0,
           "max": 0.000002
-        },
-        "flexuralStrength": {
-          "value": 15,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 36.6
-        },
-        "corrosionResistance": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": "6.6e-05",
-          "max": 21
-        },
-        "porosity": {
-          "value": 0.6,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 19.4
         }
       },
       "laser_material_interaction": {
@@ -324,6 +337,68 @@
           "min": 10,
           "max": 1000,
           "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 1098,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 273,
+          "max": 2300
+        },
+        "laserReflectivity": {
+          "value": 0.05,
+          "unit": "",
+          "source": "ai_research",
+          "min": 0.03,
+          "max": 0.44
+        },
+        "thermalExpansion": {
+          "value": "1.2e-05",
+          "unit": "K^{-1}",
+          "source": "ai_research",
+          "min": 0.000006,
+          "max": 12
+        },
+        "thermalConductivity": {
+          "value": 2.9,
+          "unit": "W/m·K",
+          "source": "ai_research",
+          "min": 0.2,
+          "max": 8
+        },
+        "specificHeat": {
+          "value": 831,
+          "unit": "J/kg·K",
+          "source": "ai_research",
+          "min": 400,
+          "max": 1200
+        },
+        "laserAbsorption": {
+          "value": 800000,
+          "unit": "m^{-1}",
+          "source": "ai_research",
+          "min": 0.06,
+          "max": "1.3e+06"
+        },
+        "thermalDiffusivity": {
+          "value": "1.3e-06",
+          "unit": "m²/s",
+          "source": "ai_research",
+          "min": 0,
+          "max": 0.000002
+        },
+        "ablationThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "A. Zafiropulos et al., Applied Surface Science, 1999, DOI: 10.1016/S0169-4332(99)00094-3",
+          "context": "Polycrystalline calcite (natural limestone sample, 95% CaCO3 purity), room temperature (25°C), Nd:YAG laser at 1064 nm wavelength, 10 ns pulse duration, atmospheric pressure",
+          "researched_date": "2025-11-24T11:53:15.934626",
+          "needs_validation": true,
+          "min": 0.65,
+          "max": 6.3
         }
       }
     },
@@ -426,17 +501,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1098,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "density",
       "name": "Density",
       "description": "Density - material characteristics",
@@ -455,6 +519,105 @@
       "unitText": "dimensionless (relative resistance scale 0-1)",
       "minValue": "9.5e-05",
       "maxValue": 1547,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 69,
+      "unitText": "GPa",
+      "minValue": 9.8,
+      "maxValue": "7.9e+10",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 3,
+      "unitText": "Mohs",
+      "minValue": 0.7,
+      "maxValue": 7.3,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 150,
+      "unitText": "MPa",
+      "minValue": 2.1,
+      "maxValue": 220,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 23,
+      "unitText": "MPa",
+      "minValue": 1.4,
+      "maxValue": 15.7,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 15,
+      "unitText": "MPa",
+      "minValue": 2.2,
+      "maxValue": 36.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.25,
+      "unitText": "dimensionless",
+      "minValue": "6.6e-05",
+      "maxValue": 21,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0.6,
+      "unitText": "%",
+      "minValue": 0,
+      "maxValue": 19.4,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 2.8,
+      "unitText": "J/cm²",
+      "minValue": 0.42,
+      "maxValue": 13.1,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1098,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2300,
       "measurementTechnique": "ai_research"
     },
     {
@@ -492,28 +655,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 69,
-      "unitText": "GPa",
-      "minValue": 9.8,
-      "maxValue": "7.9e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 3,
-      "unitText": "Mohs",
-      "minValue": 0.7,
-      "maxValue": 7.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "specificHeat",
       "name": "Specific Heat",
       "description": "Specific Heat - material characteristics",
@@ -536,28 +677,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 150,
-      "unitText": "MPa",
-      "minValue": 2.1,
-      "maxValue": 220,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 23,
-      "unitText": "MPa",
-      "minValue": 1.4,
-      "maxValue": 15.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "thermalDiffusivity",
       "name": "Thermal Diffusivity",
       "description": "Thermal Diffusivity - material characteristics",
@@ -565,39 +684,6 @@
       "unitText": "m²/s",
       "minValue": 0,
       "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 15,
-      "unitText": "MPa",
-      "minValue": 2.2,
-      "maxValue": 36.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": "6.6e-05",
-      "maxValue": 21,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.6,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 19.4,
       "measurementTechnique": "ai_research"
     },
     {
@@ -676,6 +762,94 @@
       "minValue": 10,
       "maxValue": 1000,
       "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1098,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2300,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.05,
+      "unitText": "",
+      "minValue": 0.03,
+      "maxValue": 0.44,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": "1.2e-05",
+      "unitText": "K^{-1}",
+      "minValue": 0.000006,
+      "maxValue": 12,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 2.9,
+      "unitText": "W/m·K",
+      "minValue": 0.2,
+      "maxValue": 8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 831,
+      "unitText": "J/kg·K",
+      "minValue": 400,
+      "maxValue": 1200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 800000,
+      "unitText": "m^{-1}",
+      "minValue": 0.06,
+      "maxValue": "1.3e+06",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": "1.3e-06",
+      "unitText": "m²/s",
+      "minValue": 0,
+      "maxValue": 0.000002,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "minValue": 0.65,
+      "maxValue": 6.3,
+      "measurementTechnique": "scientific_literature"
     }
   ],
   "citation": "Z-Beam (2025). Calcite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/calcite-laser-cleaning"

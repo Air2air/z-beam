@@ -5,8 +5,8 @@
   "name": "Stucco Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Stucco. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-02",
-  "datePublished": "2025-12-02",
+  "dateModified": "2025-12-05",
+  "datePublished": "2025-12-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-02"
+    "lastVerified": "2025-12-05"
   },
   "material": {
     "name": "Stucco",
@@ -152,20 +152,6 @@
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "thermalDestruction": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
         "youngsModulus": {
           "value": 18.5,
           "unit": "GPa",
@@ -179,27 +165,6 @@
           "source": "ai_research",
           "min": "0.00095",
           "max": 1155
-        },
-        "laserReflectivity": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalConductivity": {
-          "value": 0.72,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "thermalExpansion": {
-          "value": 0.00001,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
         },
         "density": {
           "value": 1760,
@@ -222,26 +187,12 @@
           "min": 0.02,
           "max": 105
         },
-        "laserAbsorption": {
-          "value": 0.42,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
         "compressiveStrength": {
           "value": 10.3,
           "unit": "MPa",
           "source": "ai_research",
           "min": 5,
           "max": 100
-        },
-        "thermalDiffusivity": {
-          "value": "4.5e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
         },
         "flexuralStrength": {
           "value": 4.2,
@@ -264,7 +215,69 @@
           "min": 0.15,
           "max": 1.1
         },
-        "percentage": 60
+        "percentage": 60,
+        "laserDamageThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Cleaning of Historical Stucco Surfaces: Threshold Fluence Determination",
+          "citation": "Pozzi, A. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2017.10.005",
+          "context": "Traditional lime-based stucco (Portland cement-lime-sand mix, 85% CaCO3 content), 20°C, Nd:YAG laser at 1064 nm wavelength, pulse duration 10 ns",
+          "researched_date": "2025-11-24T12:20:24.187766",
+          "needs_validation": true,
+          "min": 1.1,
+          "max": 8.8
+        },
+        "thermalDestruction": {
+          "value": 773,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 273,
+          "max": 2500
+        },
+        "specificHeat": {
+          "value": 880,
+          "unit": "J/(kg·K)",
+          "source": "ai_research",
+          "min": 828,
+          "max": 1102
+        },
+        "laserReflectivity": {
+          "value": 0.28,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": 0.21,
+          "max": 0.33
+        },
+        "thermalConductivity": {
+          "value": 0.72,
+          "unit": "W/m·K",
+          "source": "ai_research",
+          "min": 0.08,
+          "max": 2.5
+        },
+        "thermalExpansion": {
+          "value": 0.00001,
+          "unit": "K^{-1}",
+          "source": "ai_research",
+          "min": 0.000006,
+          "max": "1.2e-05"
+        },
+        "laserAbsorption": {
+          "value": 0.42,
+          "unit": "",
+          "source": "ai_research",
+          "min": 0.11,
+          "max": 126000
+        },
+        "thermalDiffusivity": {
+          "value": "4.5e-07",
+          "unit": "m²/s",
+          "source": "ai_research",
+          "min": 0,
+          "max": 0.000001
+        }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
@@ -317,6 +330,68 @@
           "min": 10,
           "max": 200,
           "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 773,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 273,
+          "max": 2500
+        },
+        "specificHeat": {
+          "value": 880,
+          "unit": "J/(kg·K)",
+          "source": "ai_research",
+          "min": 828,
+          "max": 1102
+        },
+        "laserReflectivity": {
+          "value": 0.28,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": 0.21,
+          "max": 0.33
+        },
+        "thermalConductivity": {
+          "value": 0.72,
+          "unit": "W/m·K",
+          "source": "ai_research",
+          "min": 0.08,
+          "max": 2.5
+        },
+        "thermalExpansion": {
+          "value": 0.00001,
+          "unit": "K^{-1}",
+          "source": "ai_research",
+          "min": 0.000006,
+          "max": "1.2e-05"
+        },
+        "laserAbsorption": {
+          "value": 0.42,
+          "unit": "",
+          "source": "ai_research",
+          "min": 0.11,
+          "max": 126000
+        },
+        "thermalDiffusivity": {
+          "value": "4.5e-07",
+          "unit": "m²/s",
+          "source": "ai_research",
+          "min": 0,
+          "max": 0.000001
+        },
+        "ablationThreshold": {
+          "value": 1.8,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser cleaning of calcareous stone surfaces: Evaluation of damage threshold",
+          "citation": "Sanz et al., Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.123",
+          "context": "Traditional lime-based stucco (calcium carbonate matrix with sand aggregates, 80% CaCO3 purity equivalent), 20°C, 1064 nm Nd:YAG laser, pulse duration 10 ns",
+          "researched_date": "2025-11-24T12:20:28.338605",
+          "needs_validation": true,
+          "min": 0.85,
+          "max": 4.2
         }
       }
     },
@@ -408,28 +483,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 773,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "youngsModulus",
       "name": "Youngs Modulus",
       "description": "Youngs Modulus - material characteristics",
@@ -448,39 +501,6 @@
       "unitText": "dimensionless (relative scale 0-1)",
       "minValue": "0.00095",
       "maxValue": 1155,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.72,
-      "unitText": "W/m·K",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 0.00001,
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
       "measurementTechnique": "ai_research"
     },
     {
@@ -518,17 +538,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.42,
-      "unitText": "",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "compressiveStrength",
       "name": "Compressive Strength",
       "description": "Compressive Strength - material characteristics",
@@ -536,17 +545,6 @@
       "unitText": "MPa",
       "minValue": 5,
       "maxValue": 100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "4.5e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
       "measurementTechnique": "ai_research"
     },
     {
@@ -580,6 +578,94 @@
       "unitText": "MPa m^{0.5}",
       "minValue": 0.15,
       "maxValue": 1.1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "minValue": 1.1,
+      "maxValue": 8.8,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 773,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 880,
+      "unitText": "J/(kg·K)",
+      "minValue": 828,
+      "maxValue": 1102,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.28,
+      "unitText": "dimensionless",
+      "minValue": 0.21,
+      "maxValue": 0.33,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 0.72,
+      "unitText": "W/m·K",
+      "minValue": 0.08,
+      "maxValue": 2.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.00001,
+      "unitText": "K^{-1}",
+      "minValue": 0.000006,
+      "maxValue": "1.2e-05",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.42,
+      "unitText": "",
+      "minValue": 0.11,
+      "maxValue": 126000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": "4.5e-07",
+      "unitText": "m²/s",
+      "minValue": 0,
+      "maxValue": 0.000001,
       "measurementTechnique": "ai_research"
     },
     {
@@ -658,6 +744,94 @@
       "minValue": 10,
       "maxValue": 200,
       "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 773,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 880,
+      "unitText": "J/(kg·K)",
+      "minValue": 828,
+      "maxValue": 1102,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.28,
+      "unitText": "dimensionless",
+      "minValue": 0.21,
+      "maxValue": 0.33,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.72,
+      "unitText": "W/m·K",
+      "minValue": 0.08,
+      "maxValue": 2.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.00001,
+      "unitText": "K^{-1}",
+      "minValue": 0.000006,
+      "maxValue": "1.2e-05",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.42,
+      "unitText": "",
+      "minValue": 0.11,
+      "maxValue": 126000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": "4.5e-07",
+      "unitText": "m²/s",
+      "minValue": 0,
+      "maxValue": 0.000001,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.8,
+      "unitText": "J/cm²",
+      "minValue": 0.85,
+      "maxValue": 4.2,
+      "measurementTechnique": "scientific_literature"
     }
   ],
   "citation": "Z-Beam (2025). Stucco Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/concrete/stucco-laser-cleaning"

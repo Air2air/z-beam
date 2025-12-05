@@ -361,6 +361,27 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
       });
     });
     
+    it('should not include site name in title (layout template adds it)', () => {
+      // Layout template adds " | Z-Beam" suffix, so formatter should NOT include it
+      const materialTitle = formatMaterialTitle({
+        pageType: 'material',
+        materialName: 'Aluminum',
+        machineSettings: { wavelength: { value: 1064, unit: 'nm' } }
+      });
+      
+      const settingsTitle = formatSettingsTitle({
+        pageType: 'settings',
+        materialName: 'Aluminum',
+        machineSettings: { wavelength: { value: 1064, unit: 'nm' } }
+      });
+      
+      // Should NOT contain site name - layout template adds it
+      expect(materialTitle).not.toContain('Z-Beam');
+      expect(materialTitle).not.toContain('| Z-Beam');
+      expect(settingsTitle).not.toContain('Z-Beam');
+      expect(settingsTitle).not.toContain('| Z-Beam');
+    });
+    
     it('should include technical terminology', () => {
       const desc = formatMaterialDescription({
         pageType: 'material',

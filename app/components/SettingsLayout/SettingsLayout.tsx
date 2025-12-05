@@ -203,7 +203,7 @@ export function SettingsLayout({
     power: findParam('powerRange')?.value || 100,
     rep_rate: findParam('repetitionRate')?.value || 50,
     scan_speed: findParam('scanSpeed')?.value || 500,
-    pass_count: findParam('passCount')?.value || 2
+    pass_count: findParam('passCount')?.value || 4
   };
 
   // Extract diagnostic data

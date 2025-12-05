@@ -309,10 +309,10 @@ describe('SettingsJsonLD Component - Merged Schema Generation', () => {
       
       expect(schemas['@graph']).toBeInstanceOf(Array);
       
-      // Should have Article (or TechnicalArticle), HowTo, FAQPage, and Dataset
+      // Should have TechArticle, HowTo, FAQPage, and Dataset
       const schemaTypes = schemas['@graph'].map((s: any) => s['@type']);
-      // SchemaFactory generates 'Article' type for settings pages
-      expect(schemaTypes.some((t: string) => t === 'Article' || t === 'TechnicalArticle')).toBe(true);
+      // SchemaFactory generates 'TechArticle' type for settings pages (technical specifications)
+      expect(schemaTypes.some((t: string) => t === 'Article' || t === 'TechArticle')).toBe(true);
       expect(schemaTypes).toContain('HowTo');
       expect(schemaTypes).toContain('FAQPage');
       expect(schemaTypes).toContain('Dataset');

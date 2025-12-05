@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Cerium Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-02
+Last Updated:   2025-12-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-02
+Last Verified:  2025-12-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -90,12 +90,6 @@ MATERIAL PROPERTIES
 
 MATERIAL CHARACTERISTICS:
 --------------------------------------------------------------------------------
-  thermalDestruction:
-    Value:  1071 K
-    Min:    273 K
-    Max:    3520 K
-    Source: ai_research
-
   density:
     Value:  6.8 g/cm³
     Min:    4.3 g/cm³
@@ -106,6 +100,36 @@ MATERIAL CHARACTERISTICS:
     Value:  -2.5 V
     Min:    0 V
     Max:    149 V
+    Source: ai_research
+
+  youngsModulus:
+    Value:  33 GPa
+    Min:    15.8 GPa
+    Max:    63.5 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  27 HV
+    Min:    0.38 HV
+    Max:    906 HV
+    Source: ai_research
+
+  boilingPoint:
+    Value:  3716 K
+    Min:    1705 K
+    Max:    3834 K
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.42 dimensionless
+    Min:    0.25 dimensionless
+    Max:    0.6 dimensionless
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1071 K
+    Min:    273 K
+    Max:    3520 K
     Source: ai_research
 
   laserReflectivity:
@@ -126,18 +150,6 @@ MATERIAL CHARACTERISTICS:
     Max:    17.5 W/m·K
     Source: ai_research
 
-  youngsModulus:
-    Value:  33 GPa
-    Min:    15.8 GPa
-    Max:    63.5 GPa
-    Source: ai_research
-
-  hardness:
-    Value:  27 HV
-    Min:    0.38 HV
-    Max:    906 HV
-    Source: ai_research
-
   specificHeat:
     Value:  192 J/(kg·K)
     Min:    113 J/(kg·K)
@@ -148,18 +160,6 @@ MATERIAL CHARACTERISTICS:
     Value:  1.5 J/cm²
     Min:    0.65 J/cm²
     Max:    2.9 J/cm²
-    Source: ai_research
-
-  boilingPoint:
-    Value:  3716 K
-    Min:    1705 K
-    Max:    3834 K
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.42 dimensionless
-    Min:    0.25 dimensionless
-    Max:    0.6 dimensionless
     Source: ai_research
 
   absorptionCoefficient:
@@ -175,6 +175,60 @@ LASER MATERIAL INTERACTION:
     Min:    0.25 dimensionless
     Max:    0.6 dimensionless
     Source: ai_research
+
+  thermalDestruction:
+    Value:  1071 K
+    Min:    273 K
+    Max:    3520 K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.92 dimensionless
+    Min:    0.4 dimensionless
+    Max:    0.94 dimensionless
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  6.3e-06 K^{-1}
+    Min:    0.000006 K^{-1}
+    Max:    26.2 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  11.3 W/m·K
+    Min:    10.4 W/m·K
+    Max:    17.5 W/m·K
+    Source: ai_research
+
+  specificHeat:
+    Value:  192 J/(kg·K)
+    Min:    113 J/(kg·K)
+    Max:    457 J/(kg·K)
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.5 J/cm²
+    Min:    0.65 J/cm²
+    Max:    2.9 J/cm²
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  1.2e+07 m^{-1}
+    Min:    298300 m^{-1}
+    Max:    6.6e+07 m^{-1}
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.8 J/cm²
+    Min:    1.1 J/cm²
+    Max:    3.3 J/cm²
+    Source: scientific_literature
+
+  thermalDiffusivity:
+    Value:  8.7e-06 m²/s
+    Min:    0.000007 m²/s
+    Max:    1.9e-05 m²/s
+    Source: scientific_literature
 
 ================================================================================
 CITATION & USAGE

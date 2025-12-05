@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/metal/ferrous/stainless-steel-laser-cleaning
-# Updated: 2025-12-02 | Version: 1.0
+# Updated: 2025-12-05 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Stainless Steel Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/ferrous/stainless-steel-laser-cleaning
 #
@@ -23,25 +23,17 @@ Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
 Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
 Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
 Machine,Settings,dwellTime,100,μs,,,,Machine setting: dwellTime
-Property,material_characteristics,thermalDestruction,1673,K,256,3859,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,500,J/kg·K,43.4,1905,ai_research,Material property: specificHeat
 Property,material_characteristics,youngsModulus,193,GPa,10.4,200000000000,ai_research,Material property: youngsModulus
 Property,material_characteristics,oxidationResistance,1173,K,-554,1762,ai_research,Material property: oxidationResistance
-Property,material_characteristics,laserReflectivity,0.65,dimensionless,0.4,73.5,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,16.2,W/m·K,7.4,450,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,17.3,10^{-6} K^{-1},0.000004,31.7,ai_research,Material property: thermalExpansion
 Property,material_characteristics,density,8000,kg/m³,1.7,9408,ai_research,Material property: density
 Property,material_characteristics,hardness,170,HV,0.2,3500,ai_research,Material property: hardness
 Property,material_characteristics,corrosionResistance,0.005,mm/year,-1.1,1.1e+06,ai_research,Material property: corrosionResistance
-Property,material_characteristics,laserAbsorption,0.35,dimensionless,0.02,4.2e+08,ai_research,Material property: laserAbsorption
 Property,material_characteristics,compressiveStrength,215,MPa,8,2625,ai_research,Material property: compressiveStrength
-Property,material_characteristics,thermalDiffusivity,0.000004,m²/s,0.000002,0.00017,ai_research,Material property: thermalDiffusivity
 Property,material_characteristics,flexuralStrength,517,MPa,11.4,2897,ai_research,Material property: flexuralStrength
 Property,material_characteristics,tensileStrength,515,MPa,3,3000,ai_research,Material property: tensileStrength
 Property,material_characteristics,fractureToughness,200,MPa√m,0.67,157,ai_research,Material property: fractureToughness
 Property,material_characteristics,porosity,0,fraction,0,15,ai_research,Material property: porosity
 Property,material_characteristics,electricalResistivity,7.2e-07,Ω·m,0,0.000002,ai_research,Material property: electricalResistivity
-Property,material_characteristics,ablationThreshold,1.5,J/cm²,0.09,4.3,ai_research,Material property: ablationThreshold
 Property,material_characteristics,absorptivity,0.35,dimensionless,0.02,0.6,ai_research,Material property: absorptivity
 Property,material_characteristics,boilingPoint,3073,K,929,6454,ai_research,Material property: boilingPoint
 Property,material_characteristics,absorptionCoefficient,4.5e+07,m^{-1},589000,9.9e+07,ai_research,Material property: absorptionCoefficient
@@ -53,6 +45,14 @@ Property,material_characteristics,reflectivity,0.65,dimensionless (fraction),0.3
 Property,material_characteristics,thermalShockResistance,1770,W/m,6.7,379050,ai_research,Material property: thermalShockResistance
 Property,material_characteristics,surfaceRoughness,1.6,μm,0.02,6.6,ai_research,Material property: surfaceRoughness
 Property,material_characteristics,laserDamageThreshold,1.8,J/cm²,0.27,15750,ai_research,Material property: laserDamageThreshold
+Property,material_characteristics,thermalDestruction,1673,K,256,3859,ai_research,Material property: thermalDestruction
+Property,material_characteristics,specificHeat,500,J/kg·K,43.4,1905,ai_research,Material property: specificHeat
+Property,material_characteristics,laserReflectivity,0.65,dimensionless,0.4,73.5,ai_research,Material property: laserReflectivity
+Property,material_characteristics,thermalConductivity,16.2,W/m·K,7.4,450,ai_research,Material property: thermalConductivity
+Property,material_characteristics,thermalExpansion,17.3,10^{-6} K^{-1},0.000004,31.7,ai_research,Material property: thermalExpansion
+Property,material_characteristics,laserAbsorption,0.35,dimensionless,0.02,4.2e+08,ai_research,Material property: laserAbsorption
+Property,material_characteristics,thermalDiffusivity,0.000004,m²/s,0.000002,0.00017,ai_research,Material property: thermalDiffusivity
+Property,material_characteristics,ablationThreshold,1.5,J/cm²,0.09,4.3,ai_research,Material property: ablationThreshold
 Property,laser_material_interaction,absorptivity,0.4,dimensionless,0.3,0.5,ai_research,Material property: absorptivity
 Property,laser_material_interaction,absorptionCoefficient,50000000,m⁻¹,10000000,100000000,ai_research,Material property: absorptionCoefficient
 Property,laser_material_interaction,laserDamageThreshold,5,J/cm²,1,10,ai_research,Material property: laserDamageThreshold
@@ -60,3 +60,11 @@ Property,laser_material_interaction,thermalShockResistance,2.5,MW/m,1,5,ai_resea
 Property,laser_material_interaction,reflectivity,0.6,dimensionless,0.5,0.7,ai_research,Material property: reflectivity
 Property,laser_material_interaction,thermalDestructionPoint,1700,K,1600,1800,ai_research,Material property: thermalDestructionPoint
 Property,laser_material_interaction,vaporPressure,1,Pa,0.1,10,ai_research,Material property: vaporPressure
+Property,laser_material_interaction,thermalDestruction,1673,K,256,3859,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,specificHeat,500,J/kg·K,43.4,1905,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserReflectivity,0.65,dimensionless,0.4,73.5,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalConductivity,16.2,W/m·K,7.4,450,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,thermalExpansion,17.3,10^{-6} K^{-1},0.000004,31.7,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,laserAbsorption,0.35,dimensionless,0.02,4.2e+08,ai_research,Material property: laserAbsorption
+Property,laser_material_interaction,thermalDiffusivity,0.000004,m²/s,0.000002,0.00017,ai_research,Material property: thermalDiffusivity
+Property,laser_material_interaction,ablationThreshold,1.5,J/cm²,0.09,4.3,ai_research,Material property: ablationThreshold

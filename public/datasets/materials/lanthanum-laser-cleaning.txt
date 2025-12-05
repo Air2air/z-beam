@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Lanthanum Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-02
+Last Updated:   2025-12-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-02
+Last Verified:  2025-12-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -90,18 +90,6 @@ MATERIAL PROPERTIES
 
 MATERIAL CHARACTERISTICS:
 --------------------------------------------------------------------------------
-  thermalDestruction:
-    Value:  1194 K
-    Min:    273 K
-    Max:    3520 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  195 J/kg·K
-    Min:    113 J/kg·K
-    Max:    457 J/kg·K
-    Source: ai_research
-
   youngsModulus:
     Value:  61.3 GPa
     Min:    15.8 GPa
@@ -112,6 +100,42 @@ MATERIAL CHARACTERISTICS:
     Value:  1.1 
     Min:    0 
     Max:    149 
+    Source: ai_research
+
+  density:
+    Value:  6.2 g/cm³
+    Min:    4.3 g/cm³
+    Max:    8.8 g/cm³
+    Source: ai_research
+
+  hardness:
+    Value:  0.35 GPa
+    Min:    0.38 GPa
+    Max:    906 GPa
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.12 dimensionless
+    Min:    0.25 dimensionless
+    Max:    0.6 dimensionless
+    Source: ai_research
+
+  boilingPoint:
+    Value:  3737 K
+    Min:    1705 K
+    Max:    3834 K
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1194 K
+    Min:    273 K
+    Max:    3520 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  195 J/kg·K
+    Min:    113 J/kg·K
+    Max:    457 J/kg·K
     Source: ai_research
 
   laserReflectivity:
@@ -132,34 +156,10 @@ MATERIAL CHARACTERISTICS:
     Max:    26.2 K^{-1}
     Source: ai_research
 
-  density:
-    Value:  6.2 g/cm³
-    Min:    4.3 g/cm³
-    Max:    8.8 g/cm³
-    Source: ai_research
-
-  hardness:
-    Value:  0.35 GPa
-    Min:    0.38 GPa
-    Max:    906 GPa
-    Source: ai_research
-
   ablationThreshold:
     Value:  1.2 J/cm²
     Min:    0.65 J/cm²
     Max:    2.9 J/cm²
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.12 dimensionless
-    Min:    0.25 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  boilingPoint:
-    Value:  3737 K
-    Min:    1705 K
-    Max:    3834 K
     Source: ai_research
 
   absorptionCoefficient:
@@ -175,6 +175,60 @@ LASER MATERIAL INTERACTION:
     Min:    0.25 dimensionless
     Max:    0.6 dimensionless
     Source: ai_research
+
+  thermalDestruction:
+    Value:  1194 K
+    Min:    273 K
+    Max:    3520 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  195 J/kg·K
+    Min:    113 J/kg·K
+    Max:    457 J/kg·K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.42 dimensionless
+    Min:    0.4 dimensionless
+    Max:    0.94 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  13.4 W/m·K
+    Min:    10.4 W/m·K
+    Max:    17.5 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  1.2e-05 K^{-1}
+    Min:    0.000006 K^{-1}
+    Max:    26.2 K^{-1}
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.2 J/cm²
+    Min:    0.65 J/cm²
+    Max:    2.9 J/cm²
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  2.8e+07 m^{-1}
+    Min:    298300 m^{-1}
+    Max:    6.6e+07 m^{-1}
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.3 J/cm²
+    Min:    1.1 J/cm²
+    Max:    3.3 J/cm²
+    Source: scientific_literature
+
+  thermalDiffusivity:
+    Value:  1.1e-05 m²/s
+    Min:    0.000007 m²/s
+    Max:    1.9e-05 m²/s
+    Source: scientific_literature
 
 ================================================================================
 CITATION & USAGE

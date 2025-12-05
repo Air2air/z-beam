@@ -5,8 +5,8 @@
   "name": "Fiber Reinforced Polyurethane FRPU Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Fiber Reinforced Polyurethane FRPU. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-02",
-  "datePublished": "2025-12-02",
+  "dateModified": "2025-12-05",
+  "datePublished": "2025-12-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-02"
+    "lastVerified": "2025-12-05"
   },
   "material": {
     "name": "Fiber Reinforced Polyurethane FRPU",
@@ -167,13 +167,6 @@
           "min": 0.01,
           "max": 26.2
         },
-        "thermalDestruction": {
-          "value": 573,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 206,
-          "max": 1952
-        },
         "density": {
           "value": 1.2,
           "unit": "g/cm³",
@@ -187,6 +180,68 @@
           "source": "ai_research",
           "min": 0,
           "max": 1668
+        },
+        "youngsModulus": {
+          "value": 3.2,
+          "unit": "GPa",
+          "source": "ai_research",
+          "min": "0.0047",
+          "max": "1.4e+11"
+        },
+        "hardness": {
+          "value": 65,
+          "unit": "Shore D",
+          "source": "ai_research",
+          "min": 5,
+          "max": 120
+        },
+        "compressiveStrength": {
+          "value": 145,
+          "unit": "MPa",
+          "source": "ai_research",
+          "min": 6.6,
+          "max": 1260
+        },
+        "tensileStrength": {
+          "value": 48,
+          "unit": "MPa",
+          "source": "ai_research",
+          "min": 16.1,
+          "max": 1627
+        },
+        "flexuralStrength": {
+          "value": 115,
+          "unit": "MPa",
+          "source": "ai_research",
+          "min": 4.6,
+          "max": 1197
+        },
+        "corrosionResistance": {
+          "value": 9.2,
+          "unit": "dimensionless (corrosion resistance rating scale 0-10)",
+          "source": "ai_research",
+          "min": 0,
+          "max": 4725
+        },
+        "laserDamageThreshold": {
+          "value": 1.8,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Ablation Thresholds of Fiber-Reinforced Polyurethane Composites",
+          "citation": "Johnson, A. et al., Composites Science and Technology, 2019, DOI: 10.1016/j.compscitech.2019.107892",
+          "context": "FRPU with 60% glass fiber volume fraction, 1064 nm Nd:YAG laser, 10 ns pulse duration, room temperature (25°C), vacuum conditions",
+          "researched_date": "2025-11-24T11:57:10.479953",
+          "needs_validation": true,
+          "min": 0.44,
+          "max": 8.4
+        },
+        "thermalDestruction": {
+          "value": 573,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 206,
+          "max": 1952
         },
         "laserReflectivity": {
           "value": 0.32,
@@ -209,20 +264,6 @@
           "min": 0.03,
           "max": 400
         },
-        "youngsModulus": {
-          "value": 3.2,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": "0.0047",
-          "max": "1.4e+11"
-        },
-        "hardness": {
-          "value": 65,
-          "unit": "Shore D",
-          "source": "ai_research",
-          "min": 5,
-          "max": 120
-        },
         "specificHeat": {
           "value": 1120,
           "unit": "J/(kg·K)",
@@ -237,40 +278,12 @@
           "min": 0.14,
           "max": 525000
         },
-        "compressiveStrength": {
-          "value": 145,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 6.6,
-          "max": 1260
-        },
-        "tensileStrength": {
-          "value": 48,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 16.1,
-          "max": 1627
-        },
         "thermalDiffusivity": {
           "value": "1.3e-07",
           "unit": "m²/s",
           "source": "ai_research",
           "min": 0,
           "max": "7.6e-05"
-        },
-        "flexuralStrength": {
-          "value": 115,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 4.6,
-          "max": 1197
-        },
-        "corrosionResistance": {
-          "value": 9.2,
-          "unit": "dimensionless (corrosion resistance rating scale 0-10)",
-          "source": "ai_research",
-          "min": 0,
-          "max": 4725
         }
       },
       "laser_material_interaction": {
@@ -324,6 +337,68 @@
           "min": 1,
           "max": 100,
           "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 573,
+          "unit": "K",
+          "source": "ai_research",
+          "min": 206,
+          "max": 1952
+        },
+        "laserReflectivity": {
+          "value": 0.32,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": "0.0043",
+          "max": 0.92
+        },
+        "thermalExpansion": {
+          "value": "3.5e-05",
+          "unit": "1/K",
+          "source": "ai_research",
+          "min": -1,
+          "max": 250
+        },
+        "thermalConductivity": {
+          "value": 0.32,
+          "unit": "W/m·K",
+          "source": "ai_research",
+          "min": 0.03,
+          "max": 400
+        },
+        "specificHeat": {
+          "value": 1120,
+          "unit": "J/(kg·K)",
+          "source": "ai_research",
+          "min": 500,
+          "max": 2500
+        },
+        "laserAbsorption": {
+          "value": 0.87,
+          "unit": "dimensionless",
+          "source": "ai_research",
+          "min": 0.14,
+          "max": 525000
+        },
+        "thermalDiffusivity": {
+          "value": "1.3e-07",
+          "unit": "m²/s",
+          "source": "ai_research",
+          "min": 0,
+          "max": "7.6e-05"
+        },
+        "ablationThreshold": {
+          "value": 1.4,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of Laser Applications",
+          "citation": "Kumar, R. et al., 'Laser ablation thresholds of fiber-reinforced polyurethane composites for cleaning applications', Journal of Laser Applications, 2020, DOI: 10.2351/7.0000123",
+          "context": "FRPU with 25 wt% carbon fiber reinforcement, room temperature (25°C), measured using 1064 nm Nd:YAG nanosecond pulsed laser under ambient conditions",
+          "researched_date": "2025-11-24T11:57:15.382324",
+          "needs_validation": true,
+          "min": 0.49,
+          "max": 2.9
         }
       }
     },
@@ -437,17 +512,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 573,
-      "unitText": "K",
-      "minValue": 206,
-      "maxValue": 1952,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "density",
       "name": "Density",
       "description": "Density - material characteristics",
@@ -466,6 +530,94 @@
       "unitText": "%/hour",
       "minValue": 0,
       "maxValue": 1668,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 3.2,
+      "unitText": "GPa",
+      "minValue": "0.0047",
+      "maxValue": "1.4e+11",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 65,
+      "unitText": "Shore D",
+      "minValue": 5,
+      "maxValue": 120,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 145,
+      "unitText": "MPa",
+      "minValue": 6.6,
+      "maxValue": 1260,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 48,
+      "unitText": "MPa",
+      "minValue": 16.1,
+      "maxValue": 1627,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 115,
+      "unitText": "MPa",
+      "minValue": 4.6,
+      "maxValue": 1197,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 9.2,
+      "unitText": "dimensionless (corrosion resistance rating scale 0-10)",
+      "minValue": 0,
+      "maxValue": 4725,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 1.8,
+      "unitText": "J/cm²",
+      "minValue": 0.44,
+      "maxValue": 8.4,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 573,
+      "unitText": "K",
+      "minValue": 206,
+      "maxValue": 1952,
       "measurementTechnique": "ai_research"
     },
     {
@@ -503,28 +655,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 3.2,
-      "unitText": "GPa",
-      "minValue": "0.0047",
-      "maxValue": "1.4e+11",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 65,
-      "unitText": "Shore D",
-      "minValue": 5,
-      "maxValue": 120,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "specificHeat",
       "name": "Specific Heat",
       "description": "Specific Heat - material characteristics",
@@ -547,28 +677,6 @@
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 145,
-      "unitText": "MPa",
-      "minValue": 6.6,
-      "maxValue": 1260,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 48,
-      "unitText": "MPa",
-      "minValue": 16.1,
-      "maxValue": 1627,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
       "propertyID": "thermalDiffusivity",
       "name": "Thermal Diffusivity",
       "description": "Thermal Diffusivity - material characteristics",
@@ -576,28 +684,6 @@
       "unitText": "m²/s",
       "minValue": 0,
       "maxValue": "7.6e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 115,
-      "unitText": "MPa",
-      "minValue": 4.6,
-      "maxValue": 1197,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 9.2,
-      "unitText": "dimensionless (corrosion resistance rating scale 0-10)",
-      "minValue": 0,
-      "maxValue": 4725,
       "measurementTechnique": "ai_research"
     },
     {
@@ -676,6 +762,94 @@
       "minValue": 1,
       "maxValue": 100,
       "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 573,
+      "unitText": "K",
+      "minValue": 206,
+      "maxValue": 1952,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.32,
+      "unitText": "dimensionless",
+      "minValue": "0.0043",
+      "maxValue": 0.92,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": "3.5e-05",
+      "unitText": "1/K",
+      "minValue": -1,
+      "maxValue": 250,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.32,
+      "unitText": "W/m·K",
+      "minValue": 0.03,
+      "maxValue": 400,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 1120,
+      "unitText": "J/(kg·K)",
+      "minValue": 500,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.87,
+      "unitText": "dimensionless",
+      "minValue": 0.14,
+      "maxValue": 525000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": "1.3e-07",
+      "unitText": "m²/s",
+      "minValue": 0,
+      "maxValue": "7.6e-05",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.4,
+      "unitText": "J/cm²",
+      "minValue": 0.49,
+      "maxValue": 2.9,
+      "measurementTechnique": "scientific_literature"
     }
   ],
   "citation": "Z-Beam (2025). Fiber Reinforced Polyurethane FRPU Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning"

@@ -174,12 +174,11 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     });
   }
   
-  // Use title directly
+  // Use title directly - layout template will add site name suffix
   const actualTitle = seoTitle || title || '';
   
-  const formattedTitle = actualTitle && !safeIncludes(actualTitle, SITE_CONFIG.shortName) 
-    ? `${actualTitle} | ${SITE_CONFIG.shortName}` 
-    : actualTitle || SITE_CONFIG.shortName;
+  // Don't add site name here - layout template handles it with: %s | Z-Beam Laser Cleaning
+  const formattedTitle = actualTitle || SITE_CONFIG.shortName;
   
   // Enhanced description with subtitle and technical details for better SEO
   let enhancedDescription = seoDescription || description;

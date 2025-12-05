@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Bronze Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-02
+Last Updated:   2025-12-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-02
+Last Verified:  2025-12-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -130,18 +130,6 @@ MATERIAL CHARACTERISTICS:
     Min:    1 scale 1-10
     Max:    10 scale 1-10
 
-  thermalDestruction:
-    Value:  1223 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  7.8e+07 m^{-1}
-    Min:    0.02 m^{-1}
-    Max:    4.2e+08 m^{-1}
-    Source: ai_research
-
   compressiveStrength:
     Value:  345 MPa
     Min:    8 MPa
@@ -166,6 +154,30 @@ MATERIAL CHARACTERISTICS:
     Max:    6454 K
     Source: ai_research
 
+  electricalConductivity:
+    Value:  7000000 S/m
+    Min:    659300 S/m
+    Max:    6.6e+07 S/m
+    Source: ai_research
+
+  meltingPoint:
+    Value:  950 °C
+    Min:    133 °C
+    Max:    3865 °C
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1223 K
+    Min:    256 K
+    Max:    3859 K
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  7.8e+07 m^{-1}
+    Min:    0.02 m^{-1}
+    Max:    4.2e+08 m^{-1}
+    Source: ai_research
+
   absorptivity:
     Value:  0.35 dimensionless
     Min:    0.02 dimensionless
@@ -178,22 +190,10 @@ MATERIAL CHARACTERISTICS:
     Max:    1 
     Source: ai_research
 
-  electricalConductivity:
-    Value:  7000000 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: ai_research
-
   vaporPressure:
     Value:  0.14 Pa
     Min:    0 Pa
     Max:    106391 Pa
-    Source: ai_research
-
-  meltingPoint:
-    Value:  950 °C
-    Min:    133 °C
-    Max:    3865 °C
     Source: ai_research
 
   thermalDestructionPoint:
@@ -248,6 +248,42 @@ LASER MATERIAL INTERACTION:
     Value:  1.8 J/cm²
     Min:    0.1 J/cm²
     Max:    20 J/cm²
+
+  thermalDestruction:
+    Value:  1223 K
+    Min:    256 K
+    Max:    3859 K
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  7.8e+07 m^{-1}
+    Min:    0.02 m^{-1}
+    Max:    4.2e+08 m^{-1}
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.35 dimensionless
+    Min:    0.02 dimensionless
+    Max:    0.6 dimensionless
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.65 
+    Min:    0.35 
+    Max:    1 
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.14 Pa
+    Min:    0 Pa
+    Max:    106391 Pa
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  950 °C
+    Min:    133 °C
+    Max:    3865 °C
+    Source: ai_research
 
 ================================================================================
 CITATION & USAGE
