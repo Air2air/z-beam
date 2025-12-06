@@ -11,9 +11,9 @@ const yaml = require('js-yaml');
 describe('Author Architecture Tests', () => {
   
   describe('1. Centralized Types', () => {
-    test('AuthorInfo interface structure is correct', () => {
+    test('Author interface structure is correct', () => {
       // Test that our types are properly structured
-      const mockAuthorInfo = {
+      const mockAuthor = {
         id: 1,
         name: 'Test Author',
         title: 'Ph.D.',
@@ -29,17 +29,17 @@ describe('Author Architecture Tests', () => {
       };
 
       // Verify all required fields are present
-      expect(mockAuthorInfo).toHaveProperty('id');
-      expect(mockAuthorInfo).toHaveProperty('name');
-      expect(mockAuthorInfo).toHaveProperty('title');
-      expect(mockAuthorInfo).toHaveProperty('expertise');
-      expect(mockAuthorInfo).toHaveProperty('country');
-      expect(mockAuthorInfo).toHaveProperty('sex');
-      expect(mockAuthorInfo).toHaveProperty('image');
-      expect(mockAuthorInfo).toHaveProperty('profile');
-      expect(mockAuthorInfo.profile).toHaveProperty('description');
-      expect(mockAuthorInfo.profile).toHaveProperty('expertiseAreas');
-      expect(mockAuthorInfo.profile).toHaveProperty('contactNote');
+      expect(mockAuthor).toHaveProperty('id');
+      expect(mockAuthor).toHaveProperty('name');
+      expect(mockAuthor).toHaveProperty('title');
+      expect(mockAuthor).toHaveProperty('expertise');
+      expect(mockAuthor).toHaveProperty('country');
+      expect(mockAuthor).toHaveProperty('sex');
+      expect(mockAuthor).toHaveProperty('image');
+      expect(mockAuthor).toHaveProperty('profile');
+      expect(mockAuthor.profile).toHaveProperty('description');
+      expect(mockAuthor.profile).toHaveProperty('expertiseAreas');
+      expect(mockAuthor.profile).toHaveProperty('contactNote');
     });
   });
 
@@ -129,10 +129,10 @@ describe('Author Architecture Tests', () => {
         
         // Check if author is properly loaded
         if (result.frontmatter.author) {
-          expect(result.metadata.authorInfo).toBeDefined();
-          expect(result.metadata.authorInfo.name).toBe('Ikmanda Roswati');
-          expect(result.metadata.authorInfo.title).toBe('Ph.D.');
-          expect(result.metadata.authorInfo.image).toBe('/images/author/ikmanda-roswati.jpg');
+          expect(result.metadata.author).toBeDefined();
+          expect(result.metadata.author.name).toBe('Ikmanda Roswati');
+          expect(result.metadata.author.title).toBe('Ph.D.');
+          expect(result.metadata.author.image).toBe('/images/author/ikmanda-roswati.jpg');
         }
       } catch (error) {
         // If aluminum page doesn't exist, skip this test
@@ -150,10 +150,10 @@ describe('Author Architecture Tests', () => {
         
         // Check if author is properly loaded
         if (result.frontmatter.author) {
-          expect(result.metadata.authorInfo).toBeDefined();
-          expect(result.metadata.authorInfo.name).toBe('Todd Dunning');
-          expect(result.metadata.authorInfo.title).toBe('MA');
-          expect(result.metadata.authorInfo.image).toBe('/images/author/todd-dunning.jpg');
+          expect(result.metadata.author).toBeDefined();
+          expect(result.metadata.author.name).toBe('Todd Dunning');
+          expect(result.metadata.author.title).toBe('MA');
+          expect(result.metadata.author.image).toBe('/images/author/todd-dunning.jpg');
         }
       } catch (error) {
         // If copper page doesn't exist, skip this test
@@ -333,8 +333,8 @@ describe('Author Architecture Tests', () => {
       try {
         const result = await getArticle('aluminum-laser-cleaning');
         if (result && result.frontmatter.author) {
-          expect(result.metadata.authorInfo).toBeDefined();
-          expect(result.metadata.authorInfo.name).toBe(result.frontmatter.author);
+          expect(result.metadata.author).toBeDefined();
+          expect(result.metadata.author.name).toBe(result.frontmatter.author);
         }
       } catch (error) {
         console.log('Article not found, skipping integration test');

@@ -1,10 +1,10 @@
 // app/utils/authorParser.ts
 // Simplified utility for parsing author content from markdown
 
-import { AuthorInfo } from '@/types';
+import { Author } from '@/types';
 
 // Re-export for convenience
-export type { AuthorInfo };
+export type { Author };
 
 /**
  * Parse author information from markdown content
@@ -15,7 +15,7 @@ export type { AuthorInfo };
  * Line 4: Country
  * Line 5: Avatar path
  */
-export function parseAuthorContent(content: string): AuthorInfo | null {
+export function parseAuthorContent(content: string): Author | null {
   if (!content?.trim()) return null;
   
   try {
@@ -87,7 +87,7 @@ export function parseAuthorContent(content: string): AuthorInfo | null {
     
     if (!name) return null;
     
-    const authorData: AuthorInfo = {
+    const authorData: Author = {
       name: name, // Standardized field name
     };
     
@@ -118,6 +118,6 @@ export function parseAuthorContent(content: string): AuthorInfo | null {
 /**
  * Validate that author data has required fields
  */
-export function validateAuthorData(author: AuthorInfo): boolean {
+export function validateAuthorData(author: Author): boolean {
   return Boolean(author.name && author.name.trim().length > 0);
 }

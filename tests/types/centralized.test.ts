@@ -16,7 +16,7 @@ import {
   FrontmatterType,
   ParsedCaptionData,
   MetricsGridProps,
-  AuthorInfo,
+  Author,
   MaterialType,
   TableProps
 } from '@/types/centralized';
@@ -227,7 +227,7 @@ describe('Centralized Types - Type Safety', () => {
   });
 
   test('should maintain interface inheritance', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: 'Test Author',
       title: 'Senior Researcher',
       expertise: ['Laser Technology', 'Materials Science'],

@@ -2,7 +2,7 @@
  * @file types/centralized.ts
  * @purpose SINGLE SOURCE OF TRUTH for all Z-Beam types - 1,830+ consolidated type definitions
  * @aiContext ALWAYS import types from '@/types' - never create local interfaces in components
- *           Key types: ArticleMetadata, CardProps, CaptionProps, AuthorInfo, CardGridProps
+ *           Key types: ArticleMetadata, CardProps, CaptionProps, Author, CardGridProps
  * @usage import type { TypeName } from '@/types'
  * @warning Never create duplicate interfaces - add new types to this file
  * @exports 100+ interfaces covering all component props, data structures, and utilities
@@ -20,8 +20,10 @@ import { ReactNode } from 'react';
 /**
  * Author information structure - enhanced comprehensive version
  * Standardized field names to eliminate redundancy
+ * 
+ * @preferred Use `Author` - this is the canonical type name
  */
-export interface AuthorInfo {
+export interface Author {
   id?: string | number; // Support both string and number IDs
   slug?: string; // Added from AuthorMetadata for routing
   name: string;
@@ -41,6 +43,9 @@ export interface AuthorInfo {
     expertiseAreas?: string[];
     contactNote?: string;
   };
+  
+  // Social media handles
+  twitter?: string; // Twitter/X handle (without @)
   
   // Enhanced author object fields
   affiliation?: string;
@@ -148,7 +153,7 @@ export interface ArticleMetadata {
   slug: string;
   category?: string;
   tags?: string[];
-  author?: AuthorInfo; // Author object from YAML
+  author?: Author; // Author object from YAML
   lastModified?: string;
   datePublished?: string;
   image?: string;
@@ -453,7 +458,7 @@ export interface FrontmatterType {
   /** SEO keywords array */
   keywords?: string[];
   /** Author object from YAML */
-  author?: AuthorInfo;
+  author?: Author;
   /** Material name (e.g., "Alumina", "Bamboo") */
   name?: string;
   /** Material images - hero and micro views */
@@ -1896,7 +1901,8 @@ export interface CategoryMetadata {
 
 // Re-exports for backward compatibility
 export type Metadata = ArticleMetadata;
-export type Author = AuthorInfo;
+/** @deprecated Use `Author` instead */
+export type AuthorInfo = Author;
 export type Badge = BadgeData;
 
 // Legacy type aliases
@@ -2834,7 +2840,7 @@ export interface SettingsMetadata {
   content_type?: string;
   schema_version?: string;
   active?: boolean;
-  author?: AuthorInfo;
+  author?: Author;
   datePublished?: string;
   dateModified?: string;
   breadcrumb?: BreadcrumbItem[];

@@ -107,6 +107,19 @@ export interface ListItemObject {
   item?: string;
 }
 
+/**
+ * SpeakableSpecification for voice search optimization
+ * Marks content sections that are especially suitable for text-to-speech
+ * @see https://schema.org/SpeakableSpecification
+ */
+export interface SpeakableSpecification {
+  '@type': 'SpeakableSpecification';
+  /** CSS selectors pointing to speakable content */
+  cssSelector?: string[];
+  /** XPath expressions pointing to speakable content */
+  xpath?: string[];
+}
+
 // Material properties types
 export interface MaterialPropertyValue {
   value?: unknown;

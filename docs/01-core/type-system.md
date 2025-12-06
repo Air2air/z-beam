@@ -53,7 +53,7 @@ interface ArticleMetadata {
   slug: string;
   category?: string;
   tags?: string[];
-  authorInfo?: AuthorInfo;
+  author?: Author;
   keywords?: string[];
   publishedDate?: string;
   lastModified?: string;
@@ -62,11 +62,11 @@ interface ArticleMetadata {
 }
 ```
 
-#### `AuthorInfo`
+#### `Author`
 Unified author interface supporting both YAML and CMS data.
 
 ```typescript
-interface AuthorInfo {
+interface Author {
   id?: string | number;
   name: string;
   email?: string;
@@ -96,7 +96,7 @@ interface SearchResultItem {
   url: string;
   score?: number;
   excerpt?: string;
-  authorInfo?: AuthorInfo;
+  author?: Author;
   publishedDate?: string;
   featured?: boolean;
 }
@@ -294,7 +294,7 @@ interface PageProps {
 // ✅ Preferred: Import from main types
 import { 
   ArticleMetadata, 
-  AuthorInfo, 
+  Author, 
   BadgeData,
   CaptionDataStructure,
   QualityMetrics 
@@ -424,7 +424,7 @@ describe('Centralized Types', () => {
 
 **SearchResultItem**: Was defined in 6 different locations → Single comprehensive interface
 **BadgeData**: UI badges vs chemical badges conflicts → Unified interface supporting both
-**AuthorInfo**: AuthorInfo vs AuthorMetadata mismatches → Single unified AuthorInfo
+**Author**: Author vs AuthorMetadata mismatches → Single unified Author
 **Page Props**: Mixed Promise/non-Promise patterns → Consistent async params throughout
 **Caption Types**: Scattered across multiple files → Centralized with zero duplication
 

@@ -27,7 +27,7 @@ jest.mock('../../app/components/Title/Title', () => ({
 jest.mock('../../app/components/Author/Author', () => ({
   Author: ({ frontmatter }: any) => (
     <div data-testid="author">
-      Author: {frontmatter?.authorInfo?.name}
+      Author: {frontmatter?.author?.name}
     </div>
   ),
 }));

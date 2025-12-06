@@ -54,7 +54,7 @@ This document identifies **additional HTML best practice opportunities** beyond 
 - Author component with name, image, credentials, country, specialties
 - Links to author search pages
 - Table display of author information
-- AuthorInfo type with comprehensive fields
+- Author type with comprehensive fields
 
 **What's Missing:**
 - No Person schema microdata or JSON-LD
@@ -74,16 +74,16 @@ export function Author({
   showSpecialties = true,
   className = "",
 }: AuthorProps) {
-  const authorInfo = frontmatter?.author && typeof frontmatter.author === 'object' ? frontmatter.author : null;
+  const author = frontmatter?.author && typeof frontmatter.author === 'object' ? frontmatter.author : null;
   const authorString = typeof frontmatter?.author === 'string' ? frontmatter.author : null;
   
-  const authorName = authorInfo?.name || authorString || SITE_CONFIG.author;
-  const authorImage = authorInfo?.image || '';
-  const credentials = authorInfo?.title || '';
-  const country = authorInfo?.country || '';
-  const field = Array.isArray(authorInfo?.expertise) 
-    ? authorInfo.expertise.join(', ') 
-    : authorInfo?.expertise || '';
+  const authorName = author?.name || authorString || SITE_CONFIG.author;
+  const authorImage = author?.image || '';
+  const credentials = author?.title || '';
+  const country = author?.country || '';
+  const field = Array.isArray(author?.expertise) 
+    ? author.expertise.join(', ') 
+    : author?.expertise || '';
 
   const encodedAuthorName = encodeURIComponent(authorName);
 
@@ -146,8 +146,8 @@ export function Author({
       </Link>
       
       {/* Hidden structured data for additional fields */}
-      {authorInfo?.profile?.description && (
-        <meta itemProp="description" content={authorInfo.profile.description} />
+      {author?.profile?.description && (
+        <meta itemProp="description" content={author.profile.description} />
       )}
     </section>
   );

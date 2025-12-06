@@ -30,7 +30,7 @@ jest.mock('next/image', () => {
 });
 
 describe('Author Component', () => {
-  const mockAuthorInfo = {
+  const mockAuthor = {
     id: 1,
     name: 'Test Author',
     title: 'Ph.D.',
@@ -47,7 +47,7 @@ describe('Author Component', () => {
 
   describe('1. Basic Rendering', () => {
     test('renders author component with all information', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       // Check if all elements are present
       expect(screen.getByText('Test Author')).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe('Author Component', () => {
     });
 
     test('renders with correct CSS classes', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass('block', 'rounded-lg', 'px-4', 'py-3');
@@ -80,7 +80,7 @@ describe('Author Component', () => {
     });
 
     test('creates correct tag link', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/search?q=Test%20Author');
@@ -92,7 +92,7 @@ describe('Author Component', () => {
   describe('2. Author Name Variations', () => {
     test('handles author names with special characters', () => {
       const specialAuthor = {
-        ...mockAuthorInfo,
+        ...mockAuthor,
         name: 'José María García-López'
       };
       
@@ -105,7 +105,7 @@ describe('Author Component', () => {
 
     test('handles author names with spaces', () => {
       const multiWordAuthor = {
-        ...mockAuthorInfo,
+        ...mockAuthor,
         name: 'Dr. John Michael Smith Jr.'
       };
       
@@ -123,7 +123,7 @@ describe('Author Component', () => {
       
       titles.forEach(title => {
         const { unmount } = render(
-          <Author frontmatter={{ author: { ...mockAuthorInfo, title } }} />
+          <Author frontmatter={{ author: { ...mockAuthor, title } }} />
         );
         
         expect(screen.getByText(title)).toBeInTheDocument();
@@ -135,7 +135,7 @@ describe('Author Component', () => {
 
     test('handles empty or missing title', () => {
       const noTitleAuthor = {
-        ...mockAuthorInfo,
+        ...mockAuthor,
         title: ''
       };
       
@@ -159,7 +159,7 @@ describe('Author Component', () => {
       
       countries.forEach(country => {
         const { unmount } = render(
-          <Author frontmatter={{ author: { ...mockAuthorInfo, country } }} />
+          <Author frontmatter={{ author: { ...mockAuthor, country } }} />
         );
         
         expect(screen.getByText(country)).toBeInTheDocument();
@@ -174,7 +174,7 @@ describe('Author Component', () => {
     test('handles long expertise descriptions', () => {
       const longExpertise = 'Ultrafast Laser Physics and Material Interactions with Advanced Photonic Systems';
       const longExpertiseAuthor = {
-        ...mockAuthorInfo,
+        ...mockAuthor,
         expertise: longExpertise
       };
       
@@ -187,7 +187,7 @@ describe('Author Component', () => {
     test('handles short expertise descriptions', () => {
       const shortExpertise = 'Optics';
       const shortExpertiseAuthor = {
-        ...mockAuthorInfo,
+        ...mockAuthor,
         expertise: shortExpertise
       };
       
@@ -199,7 +199,7 @@ describe('Author Component', () => {
 
   describe('6. Image Handling', () => {
     test('renders image with correct attributes', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const image = screen.getByAltText('Test Author');
       expect(image).toHaveAttribute('src', '/images/author/test-author.jpg');
@@ -218,7 +218,7 @@ describe('Author Component', () => {
       
       imageFormats.forEach(imagePath => {
         const { unmount } = render(
-          <Author frontmatter={{ author: { ...mockAuthorInfo, image: imagePath } }} />
+          <Author frontmatter={{ author: { ...mockAuthor, image: imagePath } }} />
         );
         
         const image = screen.getByAltText('Test Author');
@@ -231,7 +231,7 @@ describe('Author Component', () => {
 
   describe('7. Interactive Elements', () => {
     test('has correct hover classes', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass(
@@ -241,7 +241,7 @@ describe('Author Component', () => {
     });
 
     test('link is properly structured', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass('block', 'rounded-lg');
@@ -254,7 +254,7 @@ describe('Author Component', () => {
 
   describe('8. Flex Layout Structure', () => {
     test('renders proper flex layout structure', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass('block', 'rounded-lg');
@@ -272,7 +272,7 @@ describe('Author Component', () => {
 
   describe('9. Accessibility', () => {
     test('has proper semantic structure', () => {
-      const { container } = render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      const { container } = render(<Author frontmatter={{ author: mockAuthor }} />);
       
       // Check for proper link wrapping
       const link = screen.getByRole('link');
@@ -283,7 +283,7 @@ describe('Author Component', () => {
     });
 
     test('image has descriptive alt text', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const image = screen.getByAltText('Test Author');
       expect(image).toBeInTheDocument();
@@ -347,7 +347,7 @@ describe('Author Component', () => {
   });
 
   describe('11. Error Boundaries', () => {
-    test('handles missing authorInfo gracefully', () => {
+    test('handles missing author gracefully', () => {
       // This test verifies the component handles edge cases
       const minimalAuthor = {
         id: 1,

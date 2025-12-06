@@ -13,7 +13,7 @@
 // Use any type since Metadata isn't being exported correctly from next
 type NextMetadata = any;
 
-import { ArticleMetadata, AuthorInfo } from '@/types';
+import { ArticleMetadata, Author } from '@/types';
 import { extractSafeValue } from './stringHelpers';
 import { SITE_CONFIG } from './constants';
 import { 
@@ -24,7 +24,7 @@ import {
 } from './seoMetadataFormatter';
 
 // Re-export centralized types
-export type { ArticleMetadata, AuthorInfo };
+export type { ArticleMetadata, Author };
 
 /**
  * Generates hreflang alternates for international SEO
@@ -118,7 +118,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const slug = extractSafeValue(rawSlug);
   
   // Simplified helper function to safely extract author name
-  const getAuthorName = (author: AuthorInfo | string | undefined): string | undefined => {
+  const getAuthorName = (author: Author | string | undefined): string | undefined => {
     if (typeof author === 'string') return author;
     return author?.name;
   };
@@ -217,6 +217,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const authorDetails = typeof author === 'object' && author !== null ? author : null;
   const authorTitle = authorDetails?.title; // e.g., "Ph.D."
   const authorExpertise = authorDetails?.expertise;
+  const authorTwitter = authorDetails?.twitter; // Individual author Twitter handle
   
   const result: NextMetadata = {
     title: formattedTitle,
@@ -276,7 +277,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
         url: heroImageUrl,
         alt: heroImageAlt,
       }] : undefined,
-      creator: authorName ? `@${authorName.replace(/\s+/g, '')}` : '@ZBeamLaser',
+      creator: authorTwitter ? `@${authorTwitter.replace(/^@/, '')}` : '@ZBeamLaser',
       players: [{
         playerUrl: 'https://www.youtube.com/embed/t8fB3tJCfQw',
         streamUrl: 'https://www.youtube.com/watch?v=t8fB3tJCfQw',

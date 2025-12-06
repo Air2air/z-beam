@@ -268,7 +268,7 @@ The Z-Beam project uses a **centralized type system** for consistency and mainta
 
 ```typescript
 // Core Content Types
-import { ArticleMetadata, AuthorInfo, SearchResultItem } from '@/types';
+import { ArticleMetadata, Author, SearchResultItem } from '@/types';
 
 // UI Component Types  
 import { BadgeData, ComponentData, UIBadgeProps } from '@/types';
@@ -283,7 +283,7 @@ import { SearchApiResponse, MaterialsApiResponse } from '@/types';
 ### Recent Consolidations
 - ✅ **SearchResultItem**: 6 definitions → 1 comprehensive interface
 - ✅ **BadgeData**: Unified UI badges + chemical badges
-- ✅ **AuthorInfo**: Consolidated AuthorInfo + AuthorMetadata  
+- ✅ **Author**: Consolidated Author + AuthorMetadata  
 - ✅ **PageProps**: Modern Promise-based async params
 - ✅ **Specialized Metadata**: All moved to centralized source
 - ✅ **Type Deduplication (Oct 2025)**: Removed 8 duplicate type exports

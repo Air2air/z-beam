@@ -12,7 +12,7 @@ Layout.tsx (app/components/Layout/)
 ├── Uses: Author.tsx, SITE_CONFIG
 ├── Types: LayoutProps (centralized)
 ├── Purpose: Global page wrapper with author rendering
-└── AI Note: Always imports AuthorInfo from centralized types
+└── AI Note: Always imports Author from centralized types
 ```
 
 ### **Grid & Display Components**

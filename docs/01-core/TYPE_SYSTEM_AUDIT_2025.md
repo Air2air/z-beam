@@ -29,7 +29,7 @@ The Z-Beam type system is **properly centralized, deduped, and well-maintained**
  * @file types/centralized.ts
  * @purpose SINGLE SOURCE OF TRUTH for all Z-Beam types - 1,830+ consolidated type definitions
  * @aiContext ALWAYS import types from '@/types' - never create local interfaces in components
- *           Key types: ArticleMetadata, CardProps, CaptionProps, AuthorInfo, CardGridProps
+ *           Key types: ArticleMetadata, CardProps, CaptionProps, Author, CardGridProps
  * @usage import type { TypeName } from '@/types'
  * @warning Never create duplicate interfaces - add new types to this file
  * @exports 100+ interfaces covering all component props, data structures, and utilities
@@ -39,7 +39,7 @@ The Z-Beam type system is **properly centralized, deduped, and well-maintained**
 ## Type Categories
 
 ### 1. Core Content Types
-- `AuthorInfo` - Author metadata and profile
+- `Author` - Author metadata and profile
 - `ContentCardItem` - Unified content card structure
 - `WorkflowItem` - Process step definitions
 - `BenefitItem` - Benefit/feature data
@@ -145,7 +145,7 @@ import { Card } from "../Card/Card";
 - CardGrid.tsx → `CardGridProps, CardItem, GridColumns, GridGap`
 - Card/Card.tsx → Exports `CardProps` from @/types
 - Caption → `CaptionProps, ParsedCaptionData`
-- Author → `AuthorProps, AuthorInfo`
+- Author → `AuthorProps, Author`
 - MetricsCard → `MetricsCardProps, QualityMetrics`
 - MetricsGrid → `MetricsGridProps`
 - Title → `TitleProps`
@@ -231,7 +231,7 @@ No consolidation needed. The type system is well-architected.
 3. **Export Grouping** - Group related exports:
    ```typescript
    // Core types
-   export type { AuthorInfo, ArticleMetadata, ContentCardItem };
+   export type { Author, ArticleMetadata, ContentCardItem };
    
    // Component props
    export type { CardProps, CardGridProps, CaptionProps };

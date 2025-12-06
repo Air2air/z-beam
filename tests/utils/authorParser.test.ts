@@ -4,7 +4,7 @@
  */
 
 import { parseAuthorContent, validateAuthorData } from '@/app/utils/authorParser';
-import type { AuthorInfo } from '@/types';
+import type { Author } from '@/types';
 
 // =============================================================================
 // PARSE AUTHOR CONTENT TESTS
@@ -473,14 +473,14 @@ Ph.D.`;
 
 describe('validateAuthorData', () => {
   test('should return true for valid author with name', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: 'John Smith'
     };
     expect(validateAuthorData(author)).toBe(true);
   });
 
   test('should return true for complete author data', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: 'John Smith',
       title: 'Ph.D.',
       expertise: 'Mechanical Engineering',
@@ -491,21 +491,21 @@ describe('validateAuthorData', () => {
   });
 
   test('should return false for empty name', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: ''
     };
     expect(validateAuthorData(author)).toBe(false);
   });
 
   test('should return false for whitespace-only name', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: '   '
     };
     expect(validateAuthorData(author)).toBe(false);
   });
 
   test('should return false for missing name', () => {
-    const author = {} as AuthorInfo;
+    const author = {} as Author;
     expect(validateAuthorData(author)).toBe(false);
   });
 
@@ -520,21 +520,21 @@ describe('validateAuthorData', () => {
   });
 
   test('should return true even if other fields are missing', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: 'John Smith'
     };
     expect(validateAuthorData(author)).toBe(true);
   });
 
   test('should return true for name with spaces', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: 'John Q. Smith Jr.'
     };
     expect(validateAuthorData(author)).toBe(true);
   });
 
   test('should return true for unicode names', () => {
-    const author: AuthorInfo = {
+    const author: Author = {
       name: '李明'
     };
     expect(validateAuthorData(author)).toBe(true);

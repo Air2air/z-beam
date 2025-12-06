@@ -98,7 +98,7 @@ testimonials: [
 
 2. **Author Credentials**
    ```typescript
-   AuthorInfo {
+   Author {
      name: "Ikmanda Roswati",
      title: "Ph.D.",
      expertise: "Ultrafast Laser Physics and Material Interactions",

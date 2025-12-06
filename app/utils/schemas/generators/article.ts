@@ -5,7 +5,7 @@
 
 import { SITE_CONFIG } from '../../constants';
 import { createAuthorReference } from './person';
-import type { SchemaContext, AuthorData, ImageData } from './types';
+import type { SchemaContext, AuthorData, ImageData, SpeakableSpecification } from './types';
 
 export interface ArticleSchemaOptions {
   context: SchemaContext;
@@ -31,6 +31,13 @@ export interface ArticleSchemaOptions {
   reviewedBy?: AuthorData;
   citations?: string[];
   isBasedOn?: string | { '@type': string; name: string; url: string };
+  // Voice search optimization
+  speakable?: {
+    /** CSS selectors for speakable content (e.g., ['.article-headline', '.article-summary']) */
+    cssSelector?: string[];
+    /** Enable default speakable selectors for headline and description */
+    useDefaults?: boolean;
+  };
 }
 
 /**
@@ -137,6 +144,41 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
       isBasedOn: typeof isBasedOn === 'string' 
         ? { '@type': 'CreativeWork', name: isBasedOn }
         : isBasedOn
+    }),
+    
+    // Voice search optimization - SpeakableSpecification
+    ...(options.speakable && {
+      speakable: generateSpeakableSpec(options.speakable)
     })
+  };
+}
+
+/**
+ * Generate SpeakableSpecification for voice search optimization
+ * Marks content that is especially suitable for text-to-speech (Google Assistant, etc.)
+ */
+function generateSpeakableSpec(options: { cssSelector?: string[]; useDefaults?: boolean }): SpeakableSpecification {
+  const { cssSelector = [], useDefaults = true } = options;
+  
+  // Default selectors for article headline and description
+  const defaultSelectors = useDefaults 
+    ? ['[data-speakable="headline"]', '[data-speakable="description"]', '.article-headline', '.article-summary']
+    : [];
+  
+  const allSelectors = [...new Set([...defaultSelectors, ...cssSelector])];
+  
+  return {
+    '@type': 'SpeakableSpecification',
+    cssSelector: allSelectors
+  };
+}
+
+/**
+ * Standalone speakable schema generator for custom content
+ */
+export function generateSpeakableSchema(cssSelectors: string[]): SpeakableSpecification {
+  return {
+    '@type': 'SpeakableSpecification',
+    cssSelector: cssSelectors
   };
 }

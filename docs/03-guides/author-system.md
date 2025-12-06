@@ -36,8 +36,8 @@ YAML Files → ContentAPI → Layout → Author Component
 **Author Rendering Logic**:
 ```typescript
 // Global author rendering in header section
-{metadata?.authorInfo && (
-  <Author authorInfo={metadata.authorInfo} />
+{metadata?.author && (
+  <Author author={metadata.author} />
 )}
 ```
 
@@ -145,10 +145,10 @@ ls public/images/author/author-name.jpg
 
 ### 2. TypeScript Errors
 
-#### **Problem**: Type errors related to AuthorInfo
+#### **Problem**: Type errors related to Author
 **Solution**: Import types from centralized location:
 ```typescript
-import { AuthorInfo } from '@/types';
+import { Author } from '@/types';
 // NOT from individual component files
 ```
 
@@ -158,13 +158,13 @@ import { AuthorInfo } from '@/types';
 **Debugging Steps**:
 ```typescript
 // Add debug logging in Layout component
-console.log('Author data:', metadata?.authorInfo);
+console.log('Author data:', metadata?.author);
 console.log('Author field:', metadata?.author);
 ```
 
 **Common Causes**:
 - YAML parsing errors
-- Missing `authorInfo` processing in content API
+- Missing `author` processing in content API
 - Case sensitivity in author names
 
 ### 4. Styling Issues
@@ -183,12 +183,12 @@ console.log('Author field:', metadata?.author);
 ### Author Loading Process
 1. **YAML Processing**: ContentAPI loads author YAML files
 2. **Name Matching**: Matches frontmatter `author` field to YAML `name`
-3. **Data Enrichment**: Adds full author object as `authorInfo`
+3. **Data Enrichment**: Adds full author object as `author`
 4. **Component Rendering**: Layout component renders Author with full data
 
 ### Author Data Structure
 ```typescript
-interface AuthorInfo {
+interface Author {
   id: number;
   name: string;
   title?: string;
@@ -219,7 +219,7 @@ app/components/
 ├── Layout/Layout.tsx              # Global author rendering
 └── Author/Author.tsx              # Author display component
 
-types/centralized.ts               # AuthorInfo type definition
+types/centralized.ts               # Author type definition
 app/utils/contentAPI.ts           # YAML processing
 ```
 

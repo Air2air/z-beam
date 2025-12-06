@@ -34,6 +34,7 @@ export {
 // Export content schemas
 export {
   generateArticleSchema,
+  generateSpeakableSchema,
   type ArticleSchemaOptions
 } from './article';
 
