@@ -39,6 +39,7 @@ const REPORT_FORMAT = args.report || 'console';
 const OUTPUT_FILE = args.output;
 const CATEGORY = args.category || 'all';
 const VERBOSE = args.verbose || false;
+const SKIP_FEEDS = args['skip-feeds'] || false;
 
 // Results storage
 const results = {
@@ -747,6 +748,266 @@ async function validateSettingsPageSchemas() {
 }
 
 // ============================================================================
+// CATEGORY: Feed Validation (Google Merchant Center)
+// ============================================================================
+async function validateFeeds() {
+  console.log('\n📦 Validating Google Merchant Feeds...');
+  
+  const xml2js = require('xml2js');
+  const parser = new xml2js.Parser();
+  
+  // Configuration
+  const XML_FEED_URL = new URL('/feeds/google-merchant-feed.xml', TARGET_URL).toString();
+  const CSV_FEED_URL = new URL('/feeds/google-merchant-feed.csv', TARGET_URL).toString();
+  const MIN_PRODUCTS = 100;
+  const MAX_PRODUCTS = 200;
+  
+  const REQUIRED_FIELDS = [
+    'g:id', 'g:title', 'g:description', 'g:link', 'g:image_link',
+    'g:price', 'g:availability', 'g:condition', 'g:brand', 'g:google_product_category'
+  ];
+  
+  try {
+    // =========================================================================
+    // XML Feed Validation
+    // =========================================================================
+    console.log('  📄 Validating XML feed...');
+    
+    let xmlFeedData;
+    try {
+      const xmlResponse = await fetchUrl(XML_FEED_URL);
+      
+      addResult('feeds', 'XML Feed Accessible',
+        xmlResponse.statusCode === 200,
+        xmlResponse.statusCode === 200 ? 'XML feed accessible' : `XML feed returned ${xmlResponse.statusCode}`,
+        { url: XML_FEED_URL, statusCode: xmlResponse.statusCode }
+      );
+      
+      if (xmlResponse.statusCode === 200) {
+        // Parse XML
+        try {
+          xmlFeedData = await parser.parseStringPromise(xmlResponse.body);
+          
+          addResult('feeds', 'XML Structure Valid', true,
+            'XML feed parses successfully',
+            { url: XML_FEED_URL }
+          );
+          
+          // Validate RSS structure
+          if (!xmlFeedData.rss || !xmlFeedData.rss.channel || !xmlFeedData.rss.channel[0].item) {
+            throw new Error('Invalid RSS structure - missing channel or items');
+          }
+          
+          const products = xmlFeedData.rss.channel[0].item;
+          const productCount = products.length;
+          
+          console.log(`    ℹ️  Found ${productCount} products in feed`);
+          
+          // Product count validation
+          addResult('feeds', 'Product Count',
+            productCount >= MIN_PRODUCTS && productCount <= MAX_PRODUCTS,
+            `${productCount} products (expected ${MIN_PRODUCTS}-${MAX_PRODUCTS})`,
+            { count: productCount, min: MIN_PRODUCTS, max: MAX_PRODUCTS }
+          );
+          
+          // Sample product validation (check first 5 products)
+          const sampleSize = Math.min(5, productCount);
+          let validProducts = 0;
+          const skus = new Set();
+          const duplicateSKUs = [];
+          const invalidProducts = [];
+          
+          for (let i = 0; i < productCount; i++) {
+            const product = products[i];
+            let isValid = true;
+            const missingFields = [];
+            
+            // Check required fields
+            for (const field of REQUIRED_FIELDS) {
+              if (!product[field] || !product[field][0]) {
+                missingFields.push(field);
+                isValid = false;
+              }
+            }
+            
+            // Check SKU uniqueness
+            const productId = product['g:id'] ? product['g:id'][0] : `product-${i}`;
+            if (skus.has(productId)) {
+              duplicateSKUs.push(productId);
+            }
+            skus.add(productId);
+            
+            // Detailed validation for sample products
+            if (i < sampleSize) {
+              if (isValid) {
+                validProducts++;
+                
+                // Additional checks for sample products
+                const id = product['g:id'][0];
+                const brand = product['g:brand'] ? product['g:brand'][0] : '';
+                const availability = product['g:availability'] ? product['g:availability'][0] : '';
+                const condition = product['g:condition'] ? product['g:condition'][0] : '';
+                const link = product['g:link'] ? product['g:link'][0] : '';
+                const imageLink = product['g:image_link'] ? product['g:image_link'][0] : '';
+                
+                // SKU format validation
+                const validSKUPrefix = id.startsWith('ZB-PROF-CLEAN-') || id.startsWith('ZB-EQUIP-RENT-');
+                if (!validSKUPrefix) {
+                  invalidProducts.push(`${id}: Invalid SKU format`);
+                }
+                
+                // Brand validation
+                if (brand !== 'Z-Beam') {
+                  invalidProducts.push(`${id}: Invalid brand "${brand}"`);
+                }
+                
+                // Availability validation
+                if (availability !== 'in stock') {
+                  invalidProducts.push(`${id}: Invalid availability "${availability}"`);
+                }
+                
+                // Condition validation
+                if (condition !== 'new') {
+                  invalidProducts.push(`${id}: Invalid condition "${condition}"`);
+                }
+                
+                // URL validation
+                if (!link.startsWith(TARGET_URL)) {
+                  invalidProducts.push(`${id}: Link doesn't start with ${TARGET_URL}`);
+                }
+                if (!imageLink.startsWith(TARGET_URL)) {
+                  invalidProducts.push(`${id}: Image link doesn't start with ${TARGET_URL}`);
+                }
+              } else {
+                invalidProducts.push(`Product ${i + 1}: Missing fields: ${missingFields.join(', ')}`);
+              }
+            }
+          }
+          
+          // Sample product validation result
+          addResult('feeds', 'Sample Products Valid',
+            validProducts === sampleSize && invalidProducts.length === 0,
+            `${validProducts}/${sampleSize} sample products valid` +
+              (invalidProducts.length > 0 ? ` (Issues: ${invalidProducts.length})` : ''),
+            { validProducts, sampleSize, issues: invalidProducts }
+          );
+          
+          if (invalidProducts.length > 0 && VERBOSE) {
+            console.log('    ⚠️  Product issues:');
+            invalidProducts.forEach(issue => console.log(`      - ${issue}`));
+          }
+          
+          // SKU uniqueness check
+          addResult('feeds', 'SKU Uniqueness',
+            duplicateSKUs.length === 0,
+            duplicateSKUs.length === 0 
+              ? 'All SKUs are unique' 
+              : `${duplicateSKUs.length} duplicate SKUs found`,
+            { duplicates: duplicateSKUs }
+          );
+          
+          // Service type distribution
+          const profCleanCount = Array.from(skus).filter(sku => sku.startsWith('ZB-PROF-CLEAN-')).length;
+          const equipRentCount = Array.from(skus).filter(sku => sku.startsWith('ZB-EQUIP-RENT-')).length;
+          
+          console.log(`    ℹ️  Professional Cleaning: ${profCleanCount} products`);
+          console.log(`    ℹ️  Equipment Rental: ${equipRentCount} products`);
+          
+        } catch (parseError) {
+          addResult('feeds', 'XML Structure Valid', false,
+            `Failed to parse XML: ${parseError.message}`,
+            { error: parseError.message }
+          );
+        }
+      }
+    } catch (fetchError) {
+      addResult('feeds', 'XML Feed Accessible', false,
+        `Failed to fetch XML feed: ${fetchError.message}`,
+        { url: XML_FEED_URL, error: fetchError.message }
+      );
+    }
+    
+    // =========================================================================
+    // CSV Feed Validation
+    // =========================================================================
+    console.log('  📄 Validating CSV feed...');
+    
+    try {
+      const csvResponse = await fetchUrl(CSV_FEED_URL);
+      
+      addResult('feeds', 'CSV Feed Accessible',
+        csvResponse.statusCode === 200,
+        csvResponse.statusCode === 200 ? 'CSV feed accessible' : `CSV feed returned ${csvResponse.statusCode}`,
+        { url: CSV_FEED_URL, statusCode: csvResponse.statusCode }
+      );
+      
+      if (csvResponse.statusCode === 200) {
+        // Basic CSV validation
+        const lines = csvResponse.body.trim().split('\n');
+        const headers = lines[0].split('\t');
+        const productCount = lines.length - 1; // Exclude header
+        
+        console.log(`    ℹ️  Found ${productCount} products in CSV`);
+        
+        // Check for required columns
+        const requiredColumns = ['id', 'title', 'description', 'link', 'image_link', 'price', 'availability', 'condition', 'brand'];
+        const missingColumns = requiredColumns.filter(col => !headers.includes(col));
+        
+        addResult('feeds', 'CSV Structure Valid',
+          missingColumns.length === 0,
+          missingColumns.length === 0 
+            ? 'All required columns present' 
+            : `Missing columns: ${missingColumns.join(', ')}`,
+          { headers, missingColumns }
+        );
+        
+        // Product count validation
+        addResult('feeds', 'CSV Product Count',
+          productCount >= MIN_PRODUCTS && productCount <= MAX_PRODUCTS,
+          `${productCount} products (expected ${MIN_PRODUCTS}-${MAX_PRODUCTS})`,
+          { count: productCount, min: MIN_PRODUCTS, max: MAX_PRODUCTS }
+        );
+      }
+    } catch (fetchError) {
+      addResult('feeds', 'CSV Feed Accessible', false,
+        `Failed to fetch CSV feed: ${fetchError.message}`,
+        { url: CSV_FEED_URL, error: fetchError.message }
+      );
+    }
+    
+    // =========================================================================
+    // Sitemap Check (Informational)
+    // =========================================================================
+    console.log('  📄 Checking sitemap for feed discoverability...');
+    
+    try {
+      const sitemapUrl = new URL('/sitemap.xml', TARGET_URL).toString();
+      const sitemapResponse = await fetchUrl(sitemapUrl);
+      
+      if (sitemapResponse.statusCode === 200) {
+        const hasFeedReference = sitemapResponse.body.includes('/feeds/google-merchant-feed');
+        
+        // This is informational - feeds don't need to be in sitemap
+        addResult('feeds', 'Feed Sitemap Reference', null,
+          hasFeedReference 
+            ? 'Feeds referenced in sitemap (optional)' 
+            : 'Feeds not in sitemap (this is fine - Google Merchant Center crawls feed URLs directly)',
+          { hasFeedReference }
+        );
+      }
+    } catch (error) {
+      // Sitemap check is optional
+    }
+    
+    console.log('  ✓ Feed validation completed');
+    
+  } catch (error) {
+    console.error(`  ✗ Feed validation failed: ${error.message}`);
+    addResult('feeds', 'Feed Validation', false, error.message);
+  }
+}
+
+// ============================================================================
 // CATEGORY: Additional Checks
 // ============================================================================
 async function validateAdditional() {
@@ -833,6 +1094,9 @@ async function main() {
         await validateMaterialPageSchemas();
         await validateSettingsPageSchemas();
       }
+    }
+    if (!SKIP_FEEDS && (CATEGORY === 'all' || CATEGORY === 'feeds')) {
+      await validateFeeds();
     }
     if (CATEGORY === 'all') {
       await validateAdditional();

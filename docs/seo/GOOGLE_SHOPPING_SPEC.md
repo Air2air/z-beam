@@ -356,7 +356,68 @@ Each material page includes Service schema with:
 - URLs resolve ✓
 - Images accessible ✓
 
-### 3. Manual Verification
+### 3. Automated Post-Deployment Validation
+**Integration**: Built into production deployment pipeline
+
+**Script**: `scripts/validation/post-deployment/validate-production.js`
+
+**Feed-Specific Checks**:
+- ✅ XML feed accessibility (HTTP 200 status)
+- ✅ CSV feed accessibility (HTTP 200 status)
+- ✅ XML structure validation (RSS 2.0 with Google namespace)
+- ✅ Product count validation (100-200 expected range)
+- ✅ Required fields check (all 10 required fields present)
+- ✅ Sample product validation (first 5 products)
+- ✅ SKU format validation (`ZB-PROF-CLEAN-*` or `ZB-EQUIP-RENT-*`)
+- ✅ Brand validation (must be "Z-Beam")
+- ✅ Availability validation (must be "in stock")
+- ✅ Condition validation (must be "new")
+- ✅ URL validation (links must start with base URL)
+- ✅ SKU uniqueness check (no duplicate SKUs)
+- ✅ Service type distribution analysis
+
+**Run Validation**:
+```bash
+# Full post-deployment validation (includes feeds)
+npm run validate:production
+
+# Feed validation only
+npm run validate:production -- --category=feeds
+
+# Skip feed validation
+npm run validate:production -- --skip-feeds
+
+# Verbose output with detailed errors
+npm run validate:production -- --category=feeds --verbose
+```
+
+**Standalone Feed Validation**:
+```bash
+# Independent feed validation script
+node scripts/validation/post-deployment/validate-feeds.js
+
+# Expected output:
+# ✅ XML feed accessible
+# ✅ 153 products in expected range
+# ✅ All required fields present
+# ✅ Sample products valid
+# ✅ All SKUs unique
+# ✅ CSV feed accessible
+```
+
+**Exit Codes**:
+- `0`: All validations passed
+- `1`: Critical failures detected (feeds broken or invalid)
+
+**Integration**:
+```bash
+# Runs automatically after deployment
+npm run postdeploy
+  → npm run validate:production
+    → includes feed validation
+```
+
+### 4. Manual Verification
 ```bash
 # Check feed is accessible
 curl https://www.z-beam.com/feeds/google-merchant-feed.xml
