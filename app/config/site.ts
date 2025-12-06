@@ -48,14 +48,16 @@ export const SITE_CONFIG = {
       currency: 'USD',
       label: 'Professional Laser Cleaning',
       unit: 'hour',
-      description: 'On-site professional laser cleaning service with experienced technicians'
+      description: 'On-site professional laser cleaning service with experienced technicians',
+      sku: 'ZB-PROF-CLEAN'
     },
     equipmentRental: {
       hourlyRate: 320,
       currency: 'USD',
       label: 'Equipment Rental',
       unit: 'hour',
-      description: 'Self-service equipment rental with training and support included'
+      description: 'Self-service equipment rental with training and support included',
+      sku: 'ZB-EQUIP-RENT'
     }
   },
   

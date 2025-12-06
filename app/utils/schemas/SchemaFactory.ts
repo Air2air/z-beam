@@ -868,8 +868,12 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
   if (serviceOffering?.enabled) {
     // Build Service schema from frontmatter serviceOffering
     const serviceType = serviceOffering.type || 'professionalCleaning';
-    const pricing = SITE_CONFIG.pricing[serviceType as keyof typeof SITE_CONFIG.pricing] 
-      || SITE_CONFIG.pricing.professionalCleaning;
+    const pricing = SITE_CONFIG.pricing[serviceType as keyof typeof SITE_CONFIG.pricing];
+    
+    if (!pricing) {
+      throw new Error(`Pricing configuration missing for service type: ${serviceType}`);
+    }
+    
     const materialSpecific = serviceOffering.materialSpecific || {} as ServiceOffering['materialSpecific'];
     
     // Calculate price range from hours estimates
@@ -903,6 +907,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
       'serviceType': 'Laser Cleaning',
       'offers': {
         '@type': 'Offer',
+        'sku': pricing.sku,
         'priceSpecification': {
           '@type': 'UnitPriceSpecification',
           'price': pricing.hourlyRate,
