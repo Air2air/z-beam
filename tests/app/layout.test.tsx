@@ -55,7 +55,7 @@ describe('RootLayout', () => {
 
     it('should export metadata with title template', () => {
       expect(metadata.title).toBeDefined();
-      expect(metadata.title.template).toBe(`%s | ${SITE_CONFIG.name}`);
+      expect(metadata.title.template).toBe(`%s | ${SITE_CONFIG.shortName}`);
       expect(metadata.title.default).toBe(SITE_CONFIG.name);
     });
 

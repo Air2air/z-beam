@@ -147,10 +147,11 @@ describe('Sitemap Validation', () => {
   });
 
   describe('Type Safety', () => {
-    it('should import SitemapEntry type from @/types', () => {
+    it('should define or import SitemapEntry type', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      expect(sitemapContent).toContain('import { SitemapEntry } from \'@/types\'');
+      // Type can be defined locally or imported
+      expect(sitemapContent).toMatch(/interface SitemapEntry|import.*SitemapEntry/);
       expect(sitemapContent).toContain('SitemapEntry[]');
     });
 

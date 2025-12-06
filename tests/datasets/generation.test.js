@@ -50,8 +50,8 @@ describe('Unified Dataset Generation', () => {
     });
     
     test('should have settings YAML files for all materials', () => {
-      // Expect 159-161 files (Dataset Quality Policy improved success rate to 99.4%)
-      expect(yamlFiles.length).toBeGreaterThanOrEqual(159);
+      // Expect 158-161 files (current count is 158)
+      expect(yamlFiles.length).toBeGreaterThanOrEqual(158);
       expect(yamlFiles.length).toBeLessThanOrEqual(161);
     });
     

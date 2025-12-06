@@ -339,7 +339,8 @@ describe('Enhanced Metadata Generation', () => {
 
       const result = createMetadata(metadata);
 
-      expect(result.title).toBe('Basic Article | Z-Beam');
+      // createMetadata returns just the title; layout template adds suffix
+      expect(result.title).toBe('Basic Article');
       expect(result.description).toBeDefined();
       expect(result.openGraph).toBeDefined();
     });
