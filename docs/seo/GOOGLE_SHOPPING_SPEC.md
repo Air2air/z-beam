@@ -331,7 +331,41 @@ Each material page includes Service schema with:
 
 ---
 
-## Validation & Testing
+## Testing & Validation
+
+### Unit Tests
+
+**Location**: `tests/seo/`
+
+#### Feed Generation Tests (`feed-generation.test.ts`)
+- Product ID generation
+- SKU format validation
+- Description extraction priority (material_description → caption → generated)
+- Price calculation logic
+- XML escaping
+- Service type configuration
+- CSV format generation
+
+#### Feed Validation Tests (`feed-validation.test.ts`)
+- Product count range validation (100-200)
+- SKU format compliance (ZB-PROF-CLEAN-*, ZB-EQUIP-RENT-*)
+- Brand validation (must be "Z-Beam")
+- Availability validation (must be "in stock")
+- Condition validation (must be "new")
+- URL validation (must start with base URL)
+- SKU uniqueness checks
+- Required fields presence
+- Service type distribution
+- Price format validation
+
+**Run Tests**:
+```bash
+npm test -- tests/seo/feed-generation.test.ts
+npm test -- tests/seo/feed-validation.test.ts
+npm test -- tests/seo/  # All SEO tests
+```
+
+### Validation & Testing
 
 ### 1. Rich Results Test
 **URL**: https://search.google.com/test/rich-results
@@ -425,6 +459,67 @@ curl https://www.z-beam.com/feeds/google-merchant-feed.xml
 # Verify SKU in production HTML
 curl https://www.z-beam.com/materials/ceramic/oxide/stoneware-laser-cleaning | grep -o '"sku":"[^"]*"'
 ```
+
+---
+
+## Maintenance & Updates
+
+### Feed Regeneration
+
+**When to Regenerate**:
+1. New materials added with service offerings
+2. Pricing changes in `app/config/site.ts`
+3. Service type modifications
+4. Description updates in frontmatter
+
+**Command**:
+```bash
+node scripts/seo/generate-google-merchant-feed.js
+```
+
+**Output**:
+- `public/feeds/google-merchant-feed.xml` (153 products)
+- `public/feeds/google-merchant-feed.csv` (153 products)
+
+### Configuration Management
+
+**Single Source of Truth**: `app/config/site.ts`
+```typescript
+export default {
+  pricing: {
+    professionalCleaning: {
+      hourlyRate: 390,
+      currency: 'USD',
+      sku: 'ZB-PROF-CLEAN'
+    },
+    equipmentRental: {
+      hourlyRate: 320,
+      currency: 'USD',
+      sku: 'ZB-EQUIP-RENT'
+    }
+  }
+};
+```
+
+**Feed generator reads from config** - no duplication.
+
+### Automated Updates (Future)
+
+Consider adding to build process:
+```json
+{
+  "scripts": {
+    "prebuild": "node scripts/seo/generate-google-merchant-feed.js",
+    "build": "next build"
+  }
+}
+```
+
+### Monitoring
+- Check Merchant Center diagnostics weekly
+- Monitor product approval status
+- Track impression/click data
+- Review disapproved items
 
 ---
 
