@@ -363,7 +363,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
                     return (
                       <div
                         key={`${rowIdx}-${colIdx}`}
-                        className="heatmap-cell"
+                        className="heatmap-cell cursor-pointer transition-all duration-150 hover:z-10 hover:scale-110 hover:border-2 hover:border-white hover:shadow-lg"
                         style={{ backgroundColor: displayColor, opacity: 0.9 }}
                         onMouseEnter={() => handleCellHover(power, pulse, { ...analysis, level })}
                         onMouseLeave={handleCellLeave}
