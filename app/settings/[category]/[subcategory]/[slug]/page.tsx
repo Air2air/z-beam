@@ -11,6 +11,10 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+export const revalidate = false;
+
 interface SettingsPageProps {
   params: Promise<{
     category: string;

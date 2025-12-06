@@ -73,7 +73,7 @@ export function SettingsJsonLD({
   }
 
   // Remove escaped forward slashes for cleaner markup
-  const jsonString = JSON.stringify(jsonLdSchema, null, 2).replace(/\\\//g, '/');
+  const jsonString = JSON.stringify(jsonLdSchema).replace(/\\\//g, '/');
 
   return (
     <script
@@ -127,6 +127,7 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
       title: settings.title,
       description: settings.settings_description || settings.description,
       name: settings.name,
+      slug: settings.slug, // Include slug for ImageObject generation
       category: settings.category || category,
       subcategory: settings.subcategory || subcategory,
       author: settings.author,
@@ -158,6 +159,7 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
       title: settings.title,
       description: settings.settings_description || settings.description,
       name: settings.name,
+      slug: settings.slug, // Include slug for ImageObject generation
       category: settings.category || category,
       subcategory: settings.subcategory || subcategory,
       author: settings.author,

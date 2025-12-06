@@ -83,7 +83,7 @@ export function MaterialJsonLD({
   }
   
   // Remove unnecessary escaped forward slashes for cleaner markup
-  const jsonString = JSON.stringify(jsonLdSchema, null, 2).replace(/\\\//g, '/');
+  const jsonString = JSON.stringify(jsonLdSchema).replace(/\\\//g, '/');
   
   return (
     <script

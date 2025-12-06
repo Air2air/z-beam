@@ -1463,21 +1463,27 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
     ...(mainImage.height && { 'height': mainImage.height })
   };
 
-  // Add license metadata if available
-  if (mainImage.license) {
-    imageObject.license = mainImage.license;
-  }
+  // Image License Metadata - use image-specific values or fall back to site defaults
+  // @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
   
-  if (mainImage.acquireLicensePage) {
-    imageObject.acquireLicensePage = mainImage.acquireLicensePage;
-  }
+  // License URL (required for full license metadata)
+  imageObject.license = mainImage.license || 'https://creativecommons.org/licenses/by/4.0/';
   
-  // Use creditText from image, or fall back to caption.description for micro images
+  // Page where users can acquire/request license
+  imageObject.acquireLicensePage = mainImage.acquireLicensePage || `${context.baseUrl}/contact`;
+  
+  // Credit text - use image-specific, caption description, or default
   if (mainImage.creditText) {
     imageObject.creditText = mainImage.creditText;
   } else if (mainImage.isMicro && (data.frontmatter?.caption?.description || data.caption?.description)) {
     imageObject.creditText = data.frontmatter?.caption?.description || data.caption?.description;
+  } else {
+    imageObject.creditText = 'Z-Beam Laser Cleaning';
   }
+  
+  // Copyright notice - use image-specific or generate default
+  imageObject.copyrightNotice = mainImage.copyrightNotice 
+    || `© ${new Date().getFullYear()} Z-Beam Laser Cleaning. All rights reserved.`;
   
   // Use image creator if specified, otherwise fall back to page author
   if (mainImage.creator) {
@@ -1494,10 +1500,6 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
         ...(author.url && { 'url': author.url })
       };
     }
-  }
-  
-  if (mainImage.copyrightNotice) {
-    imageObject.copyrightNotice = mainImage.copyrightNotice;
   }
 
   return imageObject;

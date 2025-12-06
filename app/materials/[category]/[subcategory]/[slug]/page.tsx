@@ -9,6 +9,7 @@ import { SITE_CONFIG } from "@/app/utils/constants";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
 
 export const dynamic = 'force-static';
+export const dynamicParams = false;
 export const revalidate = false;
 
 interface MaterialPageProps {

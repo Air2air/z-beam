@@ -65,6 +65,13 @@ export interface ImageObject {
   height?: number;
   caption?: string;
   contentUrl?: string;
+  // Image License Metadata (Google Rich Results)
+  // @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
+  license?: string;
+  acquireLicensePage?: string;
+  creditText?: string;
+  copyrightNotice?: string;
+  creator?: PersonObject | { '@type': 'Person'; name: string; url?: string };
 }
 
 export interface PersonObject {

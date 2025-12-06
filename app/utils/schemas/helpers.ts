@@ -132,8 +132,12 @@ export function hasVideoData(data: any): boolean {
 
 /**
  * Check if has image data for ImageObject schema
+ * Checks for images array, hero image, micro image, or slug (which generates a hero URL)
+ * We always generate ImageObject for pages with slugs since we have fallback image URLs
  */
 export function hasImageData(data: any): boolean {
   const meta = getMetadata(data);
-  return !!(data.images || meta.images);
+  // Check for explicit images OR slug (which triggers fallback hero image URL generation)
+  const hasSlug = !!(data.slug || meta.slug);
+  return !!(data.images || meta.images || meta.hero || data.hero || meta.micro || data.micro || hasSlug);
 }

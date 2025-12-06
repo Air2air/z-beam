@@ -243,6 +243,19 @@ export const SITE_CONFIG = {
         'Do not imply Z-Beam endorsement without permission'
       ]
     }
+  },
+  
+  // Image License Configuration for Schema.org ImageObject
+  // @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
+  imageLicense: {
+    // Creative Commons license URL
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    // Page where users can acquire/request license
+    acquireLicensePage: 'https://www.z-beam.com/contact',
+    // Default copyright notice
+    copyrightNotice: `© ${new Date().getFullYear()} Z-Beam Laser Cleaning. All rights reserved.`,
+    // Default credit text (used when not specified per-image)
+    creditText: 'Z-Beam Laser Cleaning'
   }
 } as const;
 

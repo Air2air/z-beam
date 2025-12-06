@@ -16,6 +16,13 @@ const nextConfig = {
     return process.env.VERCEL_GIT_COMMIT_SHA || 'development'
   },
 
+  // Compiler optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+
   // Disable type checking during build (we do it in predeploy)
   typescript: {
     ignoreBuildErrors: true,
@@ -34,7 +41,7 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: process.env.NODE_ENV === 'development', // Optimize in production
     dangerouslyAllowSVG: true,
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000, // 1 year cache for static images
     loader: 'default',
   },
 

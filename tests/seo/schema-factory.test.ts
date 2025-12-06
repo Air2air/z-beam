@@ -616,3 +616,106 @@ describe('Edge Cases', () => {
     expect(webPage?.name).toContain('&');
   });
 });
+
+describe('ImageObject Schema with License Metadata', () => {
+  const imageData = {
+    frontmatter: {
+      title: 'Aluminum Laser Cleaning',
+      description: 'Professional guide to cleaning aluminum',
+      images: {
+        hero: {
+          url: '/images/material/aluminum-laser-cleaning-hero.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Aluminum being laser cleaned'
+        }
+      },
+      caption: {
+        before: 'Aluminum surface before laser cleaning',
+        description: 'High-quality professional image'
+      },
+      author: {
+        name: 'Dr. Sarah Chen',
+        url: 'https://www.z-beam.com/about/team/sarah-chen'
+      }
+    }
+  };
+
+  it('generates ImageObject with default license metadata', () => {
+    const factory = new SchemaFactory(imageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    // Should have license URL (Creative Commons)
+    expect(imageObject?.license).toBe('https://creativecommons.org/licenses/by/4.0/');
+  });
+
+  it('includes acquireLicensePage pointing to contact page', () => {
+    const factory = new SchemaFactory(imageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.acquireLicensePage).toContain('/contact');
+  });
+
+  it('includes default creditText', () => {
+    const factory = new SchemaFactory(imageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.creditText).toBe('Z-Beam Laser Cleaning');
+  });
+
+  it('includes copyrightNotice with current year', () => {
+    const factory = new SchemaFactory(imageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    const currentYear = new Date().getFullYear().toString();
+    expect(imageObject?.copyrightNotice).toContain(currentYear);
+    expect(imageObject?.copyrightNotice).toContain('Z-Beam');
+    expect(imageObject?.copyrightNotice).toContain('All rights reserved');
+  });
+
+  it('uses page author as creator when no image creator specified', () => {
+    const factory = new SchemaFactory(imageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.creator).toBeDefined();
+    expect((imageObject?.creator as any)?.['@type']).toBe('Person');
+    expect((imageObject?.creator as any)?.name).toBe('Dr. Sarah Chen');
+  });
+
+  it('includes caption from image alt text', () => {
+    const factory = new SchemaFactory(imageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    // Caption comes from hero image alt text
+    expect(imageObject?.caption).toBe('Aluminum being laser cleaned');
+  });
+
+  it('uses image-specific license when provided', () => {
+    const dataWithCustomLicense = {
+      frontmatter: {
+        ...imageData.frontmatter,
+        images: {
+          hero: {
+            ...imageData.frontmatter.images.hero,
+            license: 'https://example.com/custom-license',
+            creditText: 'Custom Credit',
+            copyrightNotice: '© 2024 Custom Notice'
+          }
+        }
+      }
+    };
+    const factory = new SchemaFactory(dataWithCustomLicense, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.license).toBe('https://example.com/custom-license');
+    expect(imageObject?.creditText).toBe('Custom Credit');
+    expect(imageObject?.copyrightNotice).toBe('© 2024 Custom Notice');
+  });
+});
