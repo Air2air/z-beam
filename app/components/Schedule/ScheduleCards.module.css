@@ -1,11 +1,11 @@
 /* Schedule and Contact Cards Custom Styles */
 
 .scheduleCard {
-  background: radial-gradient(circle at 50% 50%, #3a4454 0%, #2a323f 100%);
+  background: radial-gradient(circle at 50% 50%, #4982ed 0%, #324d8e 100%);
 }
 
 .contactCard {
-  background: radial-gradient(circle at 50% 50%, #3a4454 0%, #2a323f 100%);
+  background: radial-gradient(circle at 50% 50%, #ff9933 0%, #cc6600 100%);
 }
 
 .cardContainer {
@@ -21,8 +21,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateY(-15%);
   opacity: 0.9;
   transition: opacity 300ms ease-out;
+}
+
+@media (min-width: 768px) {
+  .logoContainer {
+    transform: translateY(-10%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .logoContainer {
+    transform: translateY(-5%);
+  }
 }
 
 .group:hover .logoContainer {

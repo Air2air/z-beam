@@ -23,9 +23,9 @@ export function ScheduleCards() {
               <Image
                 src="/images/schedule-logo.svg"
                 alt=""
-                width={120}
-                height={120}
-                className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36"
+                width={144}
+                height={144}
+                className="w-28 h-28 md:w-40 md:h-40 lg:w-44 lg:h-44"
                 aria-hidden="true"
               />
             </div>
@@ -75,9 +75,9 @@ export function ScheduleCards() {
               <Image
                 src="/images/contact-logo.svg"
                 alt=""
-                width={120}
-                height={120}
-                className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36"
+                width={144}
+                height={144}
+                className="w-28 h-28 md:w-40 md:h-40 lg:w-44 lg:h-44"
                 aria-hidden="true"
               />
             </div>
