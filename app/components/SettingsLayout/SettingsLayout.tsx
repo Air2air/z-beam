@@ -9,6 +9,7 @@ import { Citations } from '@/app/components/Citations';
 import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
 import MaterialDatasetCardWrapper from '@/app/components/Dataset/MaterialDatasetCardWrapper';
 import { MachineSettings } from '@/app/components/MachineSettings/MachineSettings';
+import { ScheduleCards } from '@/app/components/Schedule/ScheduleCards';
 import { SettingsMetadata } from '@/types/centralized';
 
 interface SettingsLayoutProps {
@@ -592,6 +593,11 @@ export function SettingsLayout({
         heroImage={heroImage}
         materialLink={materialLink}
       />
+
+      {/* Schedule Cards */}
+      <div className="mb-16">
+        <ScheduleCards />
+      </div>
 
       {/* Custom content slot */}
       {children}

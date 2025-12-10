@@ -31,7 +31,7 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
     
     // Typography
-    titleClass: "card-title text-base truncate text-primary font-medium",
+    titleClass: "card-title text-lg truncate text-primary font-medium",
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
@@ -49,7 +49,7 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     cardHeight: "h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem]",
     
     // Typography
-    titleClass: "card-title text-base truncate text-primary font-medium",
+    titleClass: "card-title text-lg truncate text-primary font-medium",
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance

@@ -49,7 +49,7 @@ export const SITE_CONFIG = {
       label: 'Professional Laser Cleaning',
       unit: 'hour',
       description: 'On-site professional laser cleaning service with experienced technicians',
-      sku: 'ZB-PROF-CLEAN'
+      sku: 'Z-BEAM-CLEAN'
     },
     equipmentRental: {
       hourlyRate: 320,

@@ -269,7 +269,7 @@ Dataset
 
 ```
 ZB-{SERVICE}-{MATERIAL}           ✅ Standard pattern
-ZB-PROF-CLEAN-ALUMINUM            ✅ Example
+Z-BEAM-CLEAN-ALUMINUM            ✅ Example
 ZB-EQUIP-RENT-STAINLESS-STEEL     ✅ Example
 ```
 

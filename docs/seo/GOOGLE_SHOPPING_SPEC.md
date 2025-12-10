@@ -24,7 +24,7 @@ Z-Beam offers **hourly laser cleaning services**, not physical products. Each ma
 
 | Service Type | SKU Prefix | Hourly Rate | Description |
 |-------------|------------|-------------|-------------|
-| Professional Cleaning | `ZB-PROF-CLEAN` | $390 USD | On-site professional laser cleaning with experienced technicians |
+| Professional Cleaning | `Z-BEAM-CLEAN` | $390 USD | On-site professional laser cleaning with experienced technicians |
 | Equipment Rental | `ZB-EQUIP-RENT` | $320 USD | Self-service equipment rental with training and support |
 
 ### Material-Specific SKU Format
@@ -34,8 +34,8 @@ Each material gets a unique SKU by combining service prefix with material identi
 **Format**: `{SERVICE_PREFIX}-{MATERIAL_SLUG_UPPERCASE}`
 
 **Examples**:
-- `ZB-PROF-CLEAN-STONEWARE-LASER-CLEANING`
-- `ZB-PROF-CLEAN-ALUMINUM-LASER-CLEANING`
+- `Z-BEAM-CLEAN-STONEWARE-LASER-CLEANING`
+- `Z-BEAM-CLEAN-ALUMINUM-LASER-CLEANING`
 - `ZB-EQUIP-RENT-STAINLESS-STEEL-LASER-CLEANING`
 
 ---
@@ -60,7 +60,7 @@ Each material gets a unique SKU by combining service prefix with material identi
 
 | Field | Description | Example |
 |-------|-------------|---------|
-| `mpn` | Manufacturer part number | `ZB-PROF-CLEAN-stoneware-laser-cleaning` |
+| `mpn` | Manufacturer part number | `Z-BEAM-CLEAN-stoneware-laser-cleaning` |
 | `product_type` | Material hierarchy | `Ceramic > Oxide > Stoneware` |
 | `google_product_category` | Google's taxonomy | `Business & Industrial > Industrial Machinery > Cleaning Equipment` |
 | `custom_label_0` | Service type label | `Professional Laser Cleaning` |
@@ -90,7 +90,7 @@ pricing: {
     label: 'Professional Laser Cleaning',
     unit: 'hour',
     description: '...',
-    sku: 'ZB-PROF-CLEAN'
+    sku: 'Z-BEAM-CLEAN'
   },
   equipmentRental: {
     hourlyRate: 320,
@@ -124,7 +124,7 @@ serviceOffering:
   "@type": "Service",
   "offers": {
     "@type": "Offer",
-    "sku": "ZB-PROF-CLEAN",
+    "sku": "Z-BEAM-CLEAN",
     "priceSpecification": {
       "@type": "UnitPriceSpecification",
       "price": 390,
@@ -178,7 +178,7 @@ serviceOffering:
       <g:availability>in stock</g:availability>
       <g:condition>new</g:condition>
       <g:brand>Z-Beam</g:brand>
-      <g:mpn>ZB-PROF-CLEAN-stoneware-laser-cleaning</g:mpn>
+      <g:mpn>Z-BEAM-CLEAN-stoneware-laser-cleaning</g:mpn>
       <g:product_type>Ceramic &gt; Oxide</g:product_type>
       <g:google_product_category>Business &amp; Industrial &gt; Industrial Machinery &gt; Cleaning Equipment</g:google_product_category>
       <g:custom_label_0>Professional Laser Cleaning</g:custom_label_0>
@@ -307,7 +307,7 @@ Each material page includes Service schema with:
   "serviceType": "Laser Cleaning",
   "offers": {
     "@type": "Offer",
-    "sku": "ZB-PROF-CLEAN",
+    "sku": "Z-BEAM-CLEAN",
     "priceSpecification": {
       "@type": "UnitPriceSpecification",
       "price": 390,
@@ -348,7 +348,7 @@ Each material page includes Service schema with:
 
 #### Feed Validation Tests (`feed-validation.test.ts`)
 - Product count range validation (100-200)
-- SKU format compliance (ZB-PROF-CLEAN-*, ZB-EQUIP-RENT-*)
+- SKU format compliance (Z-BEAM-CLEAN-*, ZB-EQUIP-RENT-*)
 - Brand validation (must be "Z-Beam")
 - Availability validation (must be "in stock")
 - Condition validation (must be "new")
@@ -402,7 +402,7 @@ npm test -- tests/seo/  # All SEO tests
 - ✅ Product count validation (100-200 expected range)
 - ✅ Required fields check (all 10 required fields present)
 - ✅ Sample product validation (first 5 products)
-- ✅ SKU format validation (`ZB-PROF-CLEAN-*` or `ZB-EQUIP-RENT-*`)
+- ✅ SKU format validation (`Z-BEAM-CLEAN-*` or `ZB-EQUIP-RENT-*`)
 - ✅ Brand validation (must be "Z-Beam")
 - ✅ Availability validation (must be "in stock")
 - ✅ Condition validation (must be "new")
@@ -490,7 +490,7 @@ export default {
     professionalCleaning: {
       hourlyRate: 390,
       currency: 'USD',
-      sku: 'ZB-PROF-CLEAN'
+      sku: 'Z-BEAM-CLEAN'
     },
     equipmentRental: {
       hourlyRate: 320,

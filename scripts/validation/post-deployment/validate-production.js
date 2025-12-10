@@ -851,7 +851,7 @@ async function validateFeeds() {
                 const imageLink = product['g:image_link'] ? product['g:image_link'][0] : '';
                 
                 // SKU format validation
-                const validSKUPrefix = id.startsWith('ZB-PROF-CLEAN-') || id.startsWith('ZB-EQUIP-RENT-');
+                const validSKUPrefix = id.startsWith('Z-BEAM-CLEAN-') || id.startsWith('ZB-EQUIP-RENT-');
                 if (!validSKUPrefix) {
                   invalidProducts.push(`${id}: Invalid SKU format`);
                 }
@@ -907,7 +907,7 @@ async function validateFeeds() {
           );
           
           // Service type distribution
-          const profCleanCount = Array.from(skus).filter(sku => sku.startsWith('ZB-PROF-CLEAN-')).length;
+          const profCleanCount = Array.from(skus).filter(sku => sku.startsWith('Z-BEAM-CLEAN-')).length;
           const equipRentCount = Array.from(skus).filter(sku => sku.startsWith('ZB-EQUIP-RENT-')).length;
           
           console.log(`    ℹ️  Professional Cleaning: ${profCleanCount} products`);

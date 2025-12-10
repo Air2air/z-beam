@@ -1,6 +1,6 @@
 // app/contact/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { MaterialJsonLD } from '../components/JsonLD/JsonLD';
+import { JsonLD } from '../components/JsonLD/JsonLD';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import dynamic from 'next/dynamic';
@@ -53,14 +53,59 @@ export const metadata = {
 export default async function ContactPage() {
   const { metadata: pageMetadata } = await loadPageData('contact');
   
+  // Generate ContactPage schema
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Z-Beam Laser Cleaning',
+    description: 'Get a free quote for precision laser cleaning services in the Bay Area',
+    url: `${SITE_CONFIG.url}/contact`,
+    mainEntity: {
+      '@type': 'LocalBusiness',
+      '@id': `${SITE_CONFIG.url}/#organization`,
+      name: SITE_CONFIG.name,
+      description: 'Precision laser cleaning services for industrial and heritage applications',
+      url: SITE_CONFIG.url,
+      telephone: '+1-415-555-0123',
+      email: 'info@z-beam.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bay Area',
+        addressRegion: 'CA',
+        addressCountry: 'US'
+      },
+      areaServed: {
+        '@type': 'GeoCircle',
+        geoMidpoint: {
+          '@type': 'GeoCoordinates',
+          latitude: 37.7749,
+          longitude: -122.4194
+        },
+        geoRadius: '100'
+      },
+      serviceType: [
+        'Laser Cleaning',
+        'Industrial Cleaning',
+        'Heritage Conservation',
+        'Surface Preparation'
+      ]
+    }
+  };
+  
   return (
     <>
-      <MaterialJsonLD article={{ metadata: pageMetadata }} slug="contact" />
+      <JsonLD data={contactSchema} />
       <Layout
         title="Send us a Z-mail"
         description=""
         rightContent={null}
-        metadata={pageMetadata as unknown as ArticleMetadata}
+        metadata={{
+          ...pageMetadata,
+          breadcrumb: [
+            { label: 'Home', href: '/' },
+            { label: 'Contact', href: '/contact' }
+          ]
+        } as unknown as ArticleMetadata}
         slug="contact"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">

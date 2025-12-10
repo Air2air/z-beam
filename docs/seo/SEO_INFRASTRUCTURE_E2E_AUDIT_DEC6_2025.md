@@ -162,13 +162,13 @@ export function generateBreadcrumbSchema(...)
 ```javascript
 // generate-google-merchant-feed.js
 const SERVICE_PRICING = {
-  professionalCleaning: { hourlyRate: 390, sku: 'ZB-PROF-CLEAN' }
+  professionalCleaning: { hourlyRate: 390, sku: 'Z-BEAM-CLEAN' }
 };
 
 // app/config/site.ts
 export default {
   pricing: {
-    professionalCleaning: { hourlyRate: 390, sku: 'ZB-PROF-CLEAN' }
+    professionalCleaning: { hourlyRate: 390, sku: 'Z-BEAM-CLEAN' }
   }
 };
 ```

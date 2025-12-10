@@ -24,7 +24,7 @@ const REQUIRED_FIELDS = [
 const VALIDATION_RULES = {
   minProducts: 100, // Expect at least 100 products
   maxProducts: 200, // Should not exceed 200
-  requiredSKUPrefix: ['ZB-PROF-CLEAN', 'ZB-EQUIP-RENT'],
+  requiredSKUPrefix: ['Z-BEAM-CLEAN', 'ZB-EQUIP-RENT'],
   requiredBrand: 'Z-Beam',
   requiredAvailability: 'in stock',
   requiredCondition: 'new'

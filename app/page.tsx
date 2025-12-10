@@ -2,6 +2,7 @@
 
 import { Layout } from "./components/Layout/Layout";
 import { HomePageGrid } from "./components/HomePageGrid";
+import { ScheduleCards } from "./components/Schedule/ScheduleCards";
 import { JsonLD } from "./components/JsonLD/JsonLD";
 import { createMetadata } from "./utils/metadata";
 import { SITE_CONFIG } from "./utils/constants";
@@ -112,6 +113,11 @@ export default async function HomePage() {
           metadata={heroFrontmatter}
           customHeroOverlay={true}
         >
+          {/* Schedule Cards Section */}
+          <div className="mb-12">
+            <ScheduleCards />
+          </div>
+
           {/* Featured Solutions Section */}
           {featuredSections.length > 0 && (
             <HomePageGrid items={featuredSections} />

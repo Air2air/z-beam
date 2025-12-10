@@ -418,12 +418,11 @@ async function generateSchemas() {
       : [
           '/',
           '/about',
-          '/booking',
+          '/schedule',
           '/rental',
           '/services',
           '/contact',
           '/materials',
-          '/safety',
         ];
     
     for (const pagePath of pagesToCheck) {

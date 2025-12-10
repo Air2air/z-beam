@@ -1,6 +1,6 @@
 // app/safety/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { MaterialJsonLD } from '../components/JsonLD/JsonLD';
+import { JsonLD } from '../components/JsonLD/JsonLD';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '../utils/constants';
@@ -40,11 +40,48 @@ export const metadata = {
 };
 
 export default async function SafetyPage() {
-  const { metadata: pageMetadata } = await loadPageData('contact');
+  const { metadata: pageMetadata } = await loadPageData('safety');
+  
+  // Generate WebPage schema for safety guidelines
+  const safetySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Laser Cleaning Safety Guidelines',
+    description: 'Comprehensive safety protocols, hazard information, and best practices for industrial laser cleaning operations',
+    url: `${SITE_CONFIG.url}/safety`,
+    about: {
+      '@type': 'Thing',
+      name: 'Laser Safety',
+      description: 'Industrial laser cleaning safety protocols and best practices'
+    },
+    mainEntity: {
+      '@type': 'HowTo',
+      name: 'Safe Laser Cleaning Operations',
+      description: 'Step-by-step safety protocols for industrial laser cleaning',
+      totalTime: 'PT30M',
+      tool: [
+        {
+          '@type': 'HowToTool',
+          name: 'Safety Glasses',
+          requiredQuantity: 1
+        },
+        {
+          '@type': 'HowToTool',
+          name: 'Ventilation System',
+          requiredQuantity: 1
+        },
+        {
+          '@type': 'HowToTool',
+          name: 'Protective Equipment',
+          requiredQuantity: 1
+        }
+      ]
+    }
+  };
   
   return (
     <>
-      <MaterialJsonLD article={{ metadata: pageMetadata }} slug="safety" />
+      <JsonLD data={safetySchema} />
       <Layout
         title="Laser Cleaning Safety Guidelines"
         description="Professional safety protocols and best practices for industrial laser cleaning operations"

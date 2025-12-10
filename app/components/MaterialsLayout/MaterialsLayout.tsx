@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import { Layout } from '../Layout/Layout';
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
-import { Services } from '../Services/Services';
+import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { LaserMaterialInteraction } from '../LaserMaterialInteraction/LaserMaterialInteraction';
 import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialCharacteristics';
 import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
@@ -113,9 +113,9 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         showFullDataset={true}
       />
       
-      {/* Services */}
+      {/* Schedule Cards */}
       <div className="mb-16">
-        <Services />
+        <ScheduleCards />
       </div>
     </Layout>
   );

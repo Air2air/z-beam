@@ -17,7 +17,7 @@ const SERVICE_PRICING = {
     hourlyRate: 390,
     currency: 'USD',
     label: 'Professional Laser Cleaning',
-    sku: 'ZB-PROF-CLEAN',
+    sku: 'Z-BEAM-CLEAN',
     description: 'On-site professional laser cleaning service with experienced technicians'
   },
   equipmentRental: {
@@ -46,7 +46,7 @@ function escapeXml(text) {
  * Generate product ID from material slug and service type
  */
 function generateProductId(slug, serviceType) {
-  return `${slug}-${serviceType}`;
+  return slug;
 }
 
 /**
@@ -146,8 +146,8 @@ function generateXmlFeed(materials) {
       <g:condition>${escapeXml(product.condition)}</g:condition>
       <g:brand>${escapeXml(product.brand)}</g:brand>
       <g:mpn>${escapeXml(product.mpn)}</g:mpn>
-      <g:product_type>${escapeXml(product.category)} &gt; ${escapeXml(product.subcategory)}</g:product_type>
-      <g:google_product_category>Business &amp; Industrial &gt; Industrial Machinery &gt; Cleaning Equipment</g:google_product_category>
+      <g:product_type>${escapeXml(product.category.charAt(0).toUpperCase() + product.category.slice(1))}; ${escapeXml(product.subcategory.charAt(0).toUpperCase() + product.subcategory.slice(1))}</g:product_type>
+      <g:google_product_category>6987</g:google_product_category>
       <g:custom_label_0>${escapeXml(product.serviceType)}</g:custom_label_0>
       <g:custom_label_1>Hourly Rate: $${product.price.split(' ')[0]}/hour</g:custom_label_1>
       <g:custom_label_2>Est. Range: $${product.minPrice}-$${product.maxPrice}</g:custom_label_2>
@@ -185,7 +185,7 @@ function generateCsvFeed(materials) {
       product.condition,
       product.brand,
       product.mpn,
-      `${product.category} > ${product.subcategory}`,
+      `${product.category.charAt(0).toUpperCase() + product.category.slice(1)}; ${product.subcategory.charAt(0).toUpperCase() + product.subcategory.slice(1)}`,
       'Business & Industrial > Industrial Machinery > Cleaning Equipment',
       product.serviceType,
       `Hourly Rate: $${product.price.split(' ')[0]}/hour`,

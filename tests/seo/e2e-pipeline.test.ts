@@ -425,9 +425,9 @@ describe('SEO Pipeline E2E Integration', () => {
 
     it('should generate SKU format matching feed requirements', () => {
       const serviceType = mockFrontmatterData.serviceOffering.type;
-      const skuPrefix = serviceType === 'professionalCleaning' ? 'ZB-PROF-CLEAN' : 'ZB-EQUIP-RENT';
+      const skuPrefix = serviceType === 'professionalCleaning' ? 'Z-BEAM-CLEAN' : 'ZB-EQUIP-RENT';
       
-      expect(skuPrefix).toMatch(/^ZB-(PROF-CLEAN|EQUIP-RENT)$/);
+      expect(skuPrefix).toMatch(/^(Z-BEAM-CLEAN|ZB-EQUIP-RENT)$/);
     });
   });
 

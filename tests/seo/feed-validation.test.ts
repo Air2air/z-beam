@@ -46,15 +46,15 @@ describe('Feed Validation', () => {
   });
 
   describe('SKU Format Validation', () => {
-    const validSKUPrefixes = ['ZB-PROF-CLEAN', 'ZB-EQUIP-RENT'];
+    const validSKUPrefixes = ['Z-BEAM-CLEAN', 'ZB-EQUIP-RENT'];
 
     it('should validate professional cleaning SKU format', () => {
-      const sku = 'ZB-PROF-CLEAN-ALUMINUM-LASER-CLEANING';
+      const sku = 'Z-BEAM-CLEAN-ALUMINUM-LASER-CLEANING';
       
       const hasValidPrefix = validSKUPrefixes.some(prefix => sku.startsWith(prefix));
       
       expect(hasValidPrefix).toBe(true);
-      expect(sku).toContain('ZB-PROF-CLEAN');
+      expect(sku).toContain('Z-BEAM-CLEAN');
     });
 
     it('should validate equipment rental SKU format', () => {
@@ -156,9 +156,9 @@ describe('Feed Validation', () => {
   describe('SKU Uniqueness', () => {
     it('should detect duplicate SKUs', () => {
       const skus = [
-        'ZB-PROF-CLEAN-ALUMINUM',
-        'ZB-PROF-CLEAN-STEEL',
-        'ZB-PROF-CLEAN-ALUMINUM' // duplicate
+        'Z-BEAM-CLEAN-ALUMINUM',
+        'Z-BEAM-CLEAN-STEEL',
+        'Z-BEAM-CLEAN-ALUMINUM' // duplicate
       ];
       
       const uniqueSkus = new Set(skus);
@@ -171,8 +171,8 @@ describe('Feed Validation', () => {
 
     it('should pass validation with all unique SKUs', () => {
       const skus = [
-        'ZB-PROF-CLEAN-ALUMINUM',
-        'ZB-PROF-CLEAN-STEEL',
+        'Z-BEAM-CLEAN-ALUMINUM',
+        'Z-BEAM-CLEAN-STEEL',
         'ZB-EQUIP-RENT-ALUMINUM'
       ];
       
@@ -235,14 +235,14 @@ describe('Feed Validation', () => {
   describe('Service Type Distribution', () => {
     it('should count products by service type', () => {
       const skus = [
-        'ZB-PROF-CLEAN-ALUMINUM',
-        'ZB-PROF-CLEAN-STEEL',
-        'ZB-PROF-CLEAN-COPPER',
+        'Z-BEAM-CLEAN-ALUMINUM',
+        'Z-BEAM-CLEAN-STEEL',
+        'Z-BEAM-CLEAN-COPPER',
         'ZB-EQUIP-RENT-ALUMINUM',
         'ZB-EQUIP-RENT-STEEL'
       ];
 
-      const profCleanCount = skus.filter(sku => sku.startsWith('ZB-PROF-CLEAN')).length;
+      const profCleanCount = skus.filter(sku => sku.startsWith('Z-BEAM-CLEAN')).length;
       const equipRentCount = skus.filter(sku => sku.startsWith('ZB-EQUIP-RENT')).length;
       
       expect(profCleanCount).toBe(3);

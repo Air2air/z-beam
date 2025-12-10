@@ -1,6 +1,6 @@
 // app/about/page.tsx
 import { Layout } from '../components/Layout/Layout';
-import { MaterialJsonLD } from '../components/JsonLD/JsonLD';
+import { JsonLD } from '../components/JsonLD/JsonLD';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '../utils/constants';
@@ -37,9 +37,39 @@ export const metadata = {
 export default async function AboutPage() {
   const { metadata: pageMetadata, components } = await loadPageData('about');
   
+  // Generate AboutPage schema
+  const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Z-Beam Laser Cleaning',
+    description: 'Learn about Z-Beam\'s mission, team, and expertise in laser cleaning technology for industrial applications',
+    url: `${SITE_CONFIG.url}/about`,
+    mainEntity: {
+      '@type': 'Organization',
+      '@id': `${SITE_CONFIG.url}/#organization`,
+      name: SITE_CONFIG.name,
+      description: 'Bay Area precision laser cleaning since 2020',
+      url: SITE_CONFIG.url,
+      foundingDate: '2020',
+      numberOfEmployees: {
+        '@type': 'QuantitativeValue',
+        value: 10
+      },
+      areaServed: {
+        '@type': 'GeoCircle',
+        geoMidpoint: {
+          '@type': 'GeoCoordinates',
+          latitude: 37.7749,
+          longitude: -122.4194
+        },
+        geoRadius: '100'
+      }
+    }
+  };
+  
   return (
     <>
-      <MaterialJsonLD article={{ metadata: pageMetadata }} slug="about" />
+      <JsonLD data={aboutSchema} />
       <Layout
         components={components}
         metadata={pageMetadata as unknown as ArticleMetadata}

@@ -56,19 +56,19 @@ describe('Google Merchant Feed Generation', () => {
   });
 
   describe('SKU Format', () => {
-    it('should follow ZB-{SERVICE}-{MATERIAL} pattern', () => {
-      const sku = 'ZB-PROF-CLEAN-ALUMINUM-LASER-CLEANING';
+    it('should follow Z-BEAM-{SERVICE}-{MATERIAL} pattern', () => {
+      const sku = 'Z-BEAM-CLEAN-ALUMINUM-LASER-CLEANING';
       
-      expect(sku).toMatch(/^ZB-(PROF-CLEAN|EQUIP-RENT)-[A-Z-]+$/);
-      expect(sku).toContain('ZB-PROF-CLEAN');
+      expect(sku).toMatch(/^(Z-BEAM-CLEAN|ZB-EQUIP-RENT)-[A-Z-]+$/);
+      expect(sku).toContain('Z-BEAM-CLEAN');
       expect(sku).toContain('ALUMINUM');
     });
 
     it('should uppercase material slug in SKU', () => {
       const materialSlug = 'aluminum-laser-cleaning';
-      const sku = `ZB-PROF-CLEAN-${materialSlug.toUpperCase()}`;
+      const sku = `Z-BEAM-CLEAN-${materialSlug.toUpperCase()}`;
       
-      expect(sku).toBe('ZB-PROF-CLEAN-ALUMINUM-LASER-CLEANING');
+      expect(sku).toBe('Z-BEAM-CLEAN-ALUMINUM-LASER-CLEANING');
       expect(sku).not.toContain('aluminum');
     });
   });
@@ -187,7 +187,7 @@ describe('Google Merchant Feed Generation', () => {
         'g:availability': 'in stock',
         'g:condition': 'new',
         'g:brand': 'Z-Beam',
-        'g:mpn': 'ZB-PROF-CLEAN-aluminum-laser-cleaning'
+        'g:mpn': 'Z-BEAM-CLEAN-aluminum-laser-cleaning'
       };
 
       expect(productData['g:availability']).toBe('in stock');
@@ -204,7 +204,7 @@ describe('Google Merchant Feed Generation', () => {
           hourlyRate: 390,
           currency: 'USD',
           label: 'Professional Laser Cleaning',
-          sku: 'ZB-PROF-CLEAN'
+          sku: 'Z-BEAM-CLEAN'
         },
         equipmentRental: {
           hourlyRate: 320,
@@ -216,7 +216,7 @@ describe('Google Merchant Feed Generation', () => {
 
       expect(servicePricing.professionalCleaning.hourlyRate).toBe(390);
       expect(servicePricing.equipmentRental.hourlyRate).toBe(320);
-      expect(servicePricing.professionalCleaning.sku).toBe('ZB-PROF-CLEAN');
+      expect(servicePricing.professionalCleaning.sku).toBe('Z-BEAM-CLEAN');
       expect(servicePricing.equipmentRental.sku).toBe('ZB-EQUIP-RENT');
     });
   });
@@ -241,7 +241,7 @@ describe('Google Merchant Feed Generation', () => {
         'in stock',
         'new',
         'Z-Beam',
-        'ZB-PROF-CLEAN-aluminum'
+        'Z-BEAM-CLEAN-aluminum'
       ].join('\t');
 
       expect(productRow.split('\t')).toHaveLength(10);

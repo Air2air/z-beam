@@ -41,10 +41,10 @@ export function SafetyWarning({
               {warningText || defaultWarning}
             </p>
             <Link 
-              href="/safety"
+              href="/contact"
               className="inline-flex items-center gap-2 text-red-600400 hover:text-red-700:text-red-300 font-semibold underline transition-colors"
             >
-              View Safety Guidelines
+              Contact Safety Specialists
               <span aria-hidden="true">→</span>
             </Link>
           </div>

@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
     "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com",
     "media-src 'self' data: blob:",
     "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com",
-    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
+    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://calendly.com",
     "frame-ancestors 'none'",
     "form-action 'self'",
     "base-uri 'self'",

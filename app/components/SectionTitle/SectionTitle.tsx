@@ -125,7 +125,7 @@ export function SectionTitle({
   // Thumbnail content - always render, with fallback
   const thumbnailContent = (
     <div 
-      className={`flex-shrink-0 w-24 h-14 rounded overflow-hidden shadow-md transition-all duration-200 ${thumbnailLink ? 'group-hover:scale-105 group-hover:shadow-lg cursor-pointer' : ''}`}
+      className={`flex-shrink-0 w-24 h-14 rounded overflow-hidden shadow-md ${thumbnailLink ? 'cursor-pointer' : ''}`}
     >
       {!showFallback ? (
         <Image
