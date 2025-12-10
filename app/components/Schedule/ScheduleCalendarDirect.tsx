@@ -1,10 +1,12 @@
 // app/components/Schedule/ScheduleCalendar.tsx
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { trackEvent } from "@/app/utils/analytics";
 
 export function ScheduleCalendar() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
   // Calendly scheduling URL - configure in environment variables
   const SCHEDULE_URL =
     process.env.NEXT_PUBLIC_CALENDLY_URL ||
@@ -17,38 +19,37 @@ export function ScheduleCalendar() {
       event_label: "Consultation",
     });
 
-    // Load Calendly widget script directly (more reliable than react-calendly)
+    // Load Calendly widget script directly
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
+    script.onload = () => setIsLoaded(true);
     document.body.appendChild(script);
-
-    // Initialize widget after script loads
-    script.onload = () => {
-      // Widget auto-initializes from data-url attribute
-      console.log('Calendly widget loaded');
-    };
 
     return () => {
       // Cleanup script on unmount
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript && existingScript.parentNode) {
-        existingScript.parentNode.removeChild(existingScript);
+      if (existingScript) {
+        document.body.removeChild(existingScript);
       }
     };
   }, []);
 
   return (
     <div className="calendly-inline-widget-container">
-      {/* Using official Calendly embed method instead of react-calendly */}
       <div 
         className="calendly-inline-widget"
-        data-url={`${SCHEDULE_URL}?background_color=394150&text_color=f3f4f6&primary_color=ff8500`}
+        data-url={SCHEDULE_URL}
         style={{
           minWidth: '320px',
           height: '700px',
         }}
       />
+      {!isLoaded && (
+        <div className="flex items-center justify-center h-[700px]">
+          <div className="text-gray-400">Loading calendar...</div>
+        </div>
+      )}
     </div>
   );
 }
