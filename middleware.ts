@@ -57,7 +57,7 @@ export function middleware(request: NextRequest) {
   );
   response.headers.set(
     'Permissions-Policy',
-    'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+    'camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(self)'
   );
   
   // Cross-Origin Policies - relaxed for YouTube embeds
