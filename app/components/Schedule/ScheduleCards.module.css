@@ -1,0 +1,30 @@
+/* Schedule and Contact Cards Custom Styles */
+
+.scheduleCard {
+  background: radial-gradient(circle at 50% 50%, #3a4454 0%, #2a323f 100%);
+}
+
+.contactCard {
+  background: radial-gradient(circle at 50% 50%, #3a4454 0%, #2a323f 100%);
+}
+
+.cardContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logoContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: opacity 300ms ease-out;
+}
+
+.group:hover .logoContainer {
+  opacity: 1;
+}

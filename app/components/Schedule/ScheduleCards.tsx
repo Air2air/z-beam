@@ -1,30 +1,32 @@
 /**
  * @component ScheduleCards
  * @purpose Two-card grid for homepage showing Schedule Consultation and Contact Us
- * @design Normalized to match standard Card component structure
+ * @design Gradient backgrounds with SVG logo overlays
  */
 import Link from 'next/link';
 import Image from 'next/image';
+import styles from './ScheduleCards.module.css';
 
 export function ScheduleCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 lg:gap-6 max-w-4xl mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 lg:gap-6">
       {/* Schedule Consultation Card */}
       <Link
         href="/schedule"
-        className="group card-base h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem] card-enhanced-hover transition-smooth card-focus"
+        className="group card-base h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem] card-enhanced-hover transition-smooth card-focus"
         aria-label="Schedule a consultation"
       >
         <article className="absolute-inset" role="article">
-          <div className="relative w-full h-full bg-secondary">
-            {/* Image */}
-            <div className="relative w-full h-full overflow-hidden">
+          <div className={`${styles.cardContainer} ${styles.scheduleCard}`}>
+            {/* Foreground Logo - Zoom Icon */}
+            <div className={styles.logoContainer}>
               <Image
-                src="/images/schedule-card.svg"
-                alt="Schedule consultation"
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 50vw"
+                src="/images/schedule-logo.svg"
+                alt=""
+                width={120}
+                height={120}
+                className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36"
+                aria-hidden="true"
               />
             </div>
 
@@ -32,7 +34,7 @@ export function ScheduleCards() {
             <header className="absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm px-3 py-3 md:px-4 md:py-2.5 z-10" role="banner" aria-label="Card title">
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
-                  <h3 className="card-title text-lg truncate text-primary font-medium text-truncate">
+                  <h3 className="card-title text-lg truncate text-primary font-medium">
                     Schedule Consultation
                   </h3>
                 </div>
@@ -63,19 +65,20 @@ export function ScheduleCards() {
       {/* Contact Us Card */}
       <Link
         href="/contact"
-        className="group card-base h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem] card-enhanced-hover transition-smooth card-focus"
+        className="group card-base h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem] card-enhanced-hover transition-smooth card-focus"
         aria-label="Contact us"
       >
         <article className="absolute-inset" role="article">
-          <div className="relative w-full h-full bg-secondary">
-            {/* Image */}
-            <div className="relative w-full h-full overflow-hidden">
+          <div className={`${styles.cardContainer} ${styles.contactCard}`}>
+            {/* Foreground Logo - Email/Phone Icons */}
+            <div className={styles.logoContainer}>
               <Image
-                src="/images/contact-card.svg"
-                alt="Contact us"
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 50vw"
+                src="/images/contact-logo.svg"
+                alt=""
+                width={120}
+                height={120}
+                className="w-24 h-24 md:w-32 md:h-32 lg:w-36 lg:h-36"
+                aria-hidden="true"
               />
             </div>
 
@@ -83,7 +86,7 @@ export function ScheduleCards() {
             <header className="absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm px-3 py-3 md:px-4 md:py-2.5 z-10" role="banner" aria-label="Card title">
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
-                  <h3 className="card-title text-lg truncate text-primary font-medium text-truncate">
+                  <h3 className="card-title text-lg truncate text-primary font-medium">
                     Contact Us
                   </h3>
                 </div>
