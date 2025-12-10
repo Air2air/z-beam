@@ -234,15 +234,15 @@ export function Hero({
           />
           
           {/* Text content at full opacity */}
-          <div className="relative z-10 w-full flex flex-col items-center justify-center font-sans">
-            <p className="text-primary w-full text-center uppercase font-sans" style={{ fontSize: 'clamp(0.5rem, 11cqw, 12rem)' }}>
-              <strong>THE BAY AREA IS</strong>
+          <div className="relative z-10 w-full flex flex-col items-center justify-center">
+            <p className="text-primary w-full text-center uppercase font-medium pb-2" style={{ fontSize: 'clamp(0.42rem, 9.2cqw, 10rem)', lineHeight: '0.9', letterSpacing: '-0.02em' }}>
+              The Bay Area Is
             </p>
-            <div className="text-primary w-full text-center py-2 font-sans" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
-              LASER
+            <div className="text-primary w-full text-center py-2" style={{ fontSize: 'clamp(2.79rem, 27.9cqw, 37.2rem)', lineHeight: '0.7', letterSpacing: '-0.03em' }}>
+              Laser
             </div>
-            <div className="text-primary w-full text-center py-2 font-sans" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
-              CLEAN
+            <div className="text-primary w-full text-center py-2" style={{ fontSize: 'clamp(2.79rem, 27.9cqw, 37.2rem)', lineHeight: '0.7', letterSpacing: '-0.03em' }}>
+              clean.
             </div>
           </div>
         </div>
