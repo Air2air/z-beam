@@ -5,10 +5,9 @@ import { useEffect } from "react";
 import { trackEvent } from "@/app/utils/analytics";
 
 export function ScheduleCalendar() {
-  // Calendly scheduling URL - configure in environment variables
-  const SCHEDULE_URL =
-    process.env.NEXT_PUBLIC_CALENDLY_URL ||
-    "https://calendly.com/z-beam/30min";
+  // Calendly scheduling URL - using direct URL for reliability
+  // This ensures the widget always loads even if env var isn't set
+  const SCHEDULE_URL = "https://calendly.com/z-beam/30min";
 
   useEffect(() => {
     // Track when users view the scheduling calendar
