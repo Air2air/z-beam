@@ -11,7 +11,7 @@ This document outlines the comprehensive semantic enhancement updates made to th
 **New Sections Added**:
 - **Semantic Enhancement and SEO Integration**: Comprehensive guide to maximum specificity data attributes
 - **Schema.org Integration Patterns**: Complete PropertyValue implementation
-- **Component-Specific Enhancements**: MetricsCard and Caption semantic structures
+- **Component-Specific Enhancements**: MetricsCard and Micro semantic structures
 
 **Key Enhancements**:
 ```tsx
@@ -74,8 +74,8 @@ This document outlines the comprehensive semantic enhancement updates made to th
 - ✅ **SEO Query Capabilities**: Validates property/unit/context-based searches
 - ✅ **Performance Impact**: Validates render time and markup size
 
-#### Caption Semantic Enhancement Tests
-**File**: `tests/accessibility/Caption.semantic-enhancement.test.tsx`
+#### Micro Semantic Enhancement Tests
+**File**: `tests/accessibility/Micro.semantic-enhancement.test.tsx`
 
 **Test Coverage**:
 - ✅ **Quality Metrics Enhancement**: Surface analysis specific attributes
@@ -129,8 +129,8 @@ data-component="metric-title"
 itemProp="name"
 ```
 
-### 2. Caption Component Enhancements
-**File**: `app/components/Caption/Caption.tsx`
+### 2. Micro Component Enhancements
+**File**: `app/components/Micro/Micro.tsx`
 
 **Quality Metrics Attributes Added**:
 ```tsx
@@ -180,7 +180,7 @@ itemType="https://schema.org/PropertyValue"
 
 #### Performance Validation
 - **Render Time**: <50ms for enhanced components (tested)
-- **Markup Size**: <5KB per MetricsCard, <15KB per Caption (tested)
+- **Markup Size**: <5KB per MetricsCard, <15KB per Micro (tested)
 - **Network Impact**: Negligible on modern connections
 - **SEO Benefit Ratio**: 10:1 benefit-to-cost ratio for enhanced discoverability
 
@@ -188,7 +188,7 @@ itemType="https://schema.org/PropertyValue"
 
 ### Phase 1: Completed ✅
 - MetricsCard data elements with maximum specificity
-- Caption quality metrics enhancement
+- Micro quality metrics enhancement
 - Comprehensive test coverage
 - Documentation updates
 

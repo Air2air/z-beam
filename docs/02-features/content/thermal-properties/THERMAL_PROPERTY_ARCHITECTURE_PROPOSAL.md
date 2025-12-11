@@ -30,7 +30,7 @@ chemicalProperties:
 
 ### 2. **Current Component Usage**
 
-The `SEOOptimizedCaption` component (recently updated) dynamically determines labels:
+The `SEOOptimizedMicro` component (recently updated) dynamically determines labels:
 
 ```tsx
 // Determines label based on material name
@@ -226,16 +226,16 @@ export function getThermalProperty(
 }
 ```
 
-### Phase 4: Update SEOOptimizedCaption Component
+### Phase 4: Update SEOOptimizedMicro Component
 
 Replace current hardcoded logic with smart accessor:
 
 ```tsx
-// app/components/Caption/SEOOptimizedCaption.tsx
+// app/components/Micro/SEOOptimizedMicro.tsx
 
 import { getThermalProperty } from '@/app/utils/thermalPropertyHelpers';
 
-export function SEOOptimizedCaption({ materialName, frontmatter, ... }) {
+export function SEOOptimizedMicro({ materialName, frontmatter, ... }) {
   // Get intelligent thermal property
   const thermalProperty = getThermalProperty(
     frontmatter?.chemicalProperties || {},
@@ -393,7 +393,7 @@ chemicalProperties:
 ## Implementation Plan
 
 ### ✅ Already Completed
-- [x] Dynamic label generation in `SEOOptimizedCaption`
+- [x] Dynamic label generation in `SEOOptimizedMicro`
 - [x] Material categorization logic
 - [x] Documentation of thermal behaviors
 
@@ -404,7 +404,7 @@ chemicalProperties:
 - [ ] Update YAML schema documentation
 
 ### 📋 Phase 2: Component Updates (Week 1-2)
-- [ ] Refactor `SEOOptimizedCaption` to use smart accessor
+- [ ] Refactor `SEOOptimizedMicro` to use smart accessor
 - [ ] Update any other components reading `meltingPoint`
 - [ ] Add fallback logic for backward compatibility
 - [ ] Create migration helper for legacy data

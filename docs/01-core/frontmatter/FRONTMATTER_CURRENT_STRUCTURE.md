@@ -10,7 +10,7 @@
 
 ---
 
-This document describes the current frontmatter YAML structure used across all material files in `/frontmatter/materials/`. The structure was enhanced in November 2025 to support nested FAQ and caption formats, along with enriched property metadata.
+This document describes the current frontmatter YAML structure used across all material files in `/frontmatter/materials/`. The structure was enhanced in November 2025 to support nested FAQ and micro formats, along with enriched property metadata.
 
 ## 📊 Structure Summary
 
@@ -30,7 +30,7 @@ Each material has a comprehensive YAML frontmatter file containing:- **laserAbso
 
 - **Image assets** (hero, micro images)- **thermalConductivity** - Heat transfer rate
 
-- **Nested caption structure** (before/after treatment descriptions)- **thermalDiffusivity** - Thermal response rate
+- **Nested micro structure** (before/after treatment descriptions)- **thermalDiffusivity** - Thermal response rate
 
 - **Regulatory standards** with organization details- **thermalExpansion** - Expansion coefficient
 
@@ -182,17 +182,17 @@ images:
 
 - ✅ youngsModulus: 31.0 GPa
 
-### Caption Structure (Nested)- ✅ compressiveStrength: 45 MPa
+### Micro Structure (Nested)- ✅ compressiveStrength: 45 MPa
 
 
 
-**NEW in v2.2.0** - Captions now use nested `before` and `after` fields:**Machine Settings** (9/9 parameters):
+**NEW in v2.2.0** - Micros now use nested `before` and `after` fields:**Machine Settings** (9/9 parameters):
 
 - ✅ powerRange: 90 W
 
 ```yaml- ✅ wavelength: 1064 nm
 
-caption:- ✅ spotSize: 80 μm
+micro:- ✅ spotSize: 80 μm
 
   before: This titanium surface shows significant contamination with scattered - ✅ repetitionRate: 50 kHz
 
@@ -230,19 +230,19 @@ caption:- ✅ spotSize: 80 μm
 
 - `after` - Surface condition after laser treatment (results description)- ✅ (thermalDegradationPoint present but not shown in excerpt)
 
-- `author` - Caption author name
+- `author` - Micro author name
 
 - `character_count` - Text length metrics (before/after)**Material Characteristics** (6/6 properties):
 
 - `generated` - ISO 8601 timestamp of generation- ✅ density: 21.45 g/cm³
 
-- `generation_method` - Source of caption content- ✅ oxidationResistance: 1000.0 °C (metal-specific)
+- `generation_method` - Source of micro content- ✅ oxidationResistance: 1000.0 °C (metal-specific)
 
 - `word_count` - Word count metrics (before/after)- ✅ electricalResistivity: 1.06e-07 Ω·m (metal-specific)
 
 - ✅ hardness: 41.0 HV
 
-**Usage:** The Caption component extracts `caption.before` and `caption.after` for display.- ✅ tensileStrength: 125 MPa
+**Usage:** The Micro component extracts `micro.before` and `micro.after` for display.- ✅ tensileStrength: 125 MPa
 
 - ✅ (youngsModulus and compressiveStrength present but not shown)
 
@@ -781,14 +781,14 @@ faq:
       answer: "..."
 ```
 
-**Caption Structure Change:**
+**Micro Structure Change:**
 ```yaml
 # Old (flat fields)
 before_text: "..."
 after_text: "..."
 
 # New (nested)
-caption:
+micro:
   before: "..."
   after: "..."
 ```
@@ -810,7 +810,7 @@ thermalConductivity:
 
 **Component Updates:**
 - `Layout.tsx` - Updated FAQ extraction logic
-- `Caption.tsx` - Integrated parsed caption data
+- `Micro.tsx` - Integrated parsed micro data
 - `generate-datasets.ts` - Enhanced property export
 
 ---
@@ -823,7 +823,7 @@ All materials are validated against this structure:
 - **Metadata validation** - `validate-metadata.js`
 - **Property validation** - Type checking in dataset generation
 - **FAQ validation** - `tests/components/Layout-faq-structure.test.tsx`
-- **Caption validation** - `tests/components/CaptionContentValidation.test.ts`
+- **Micro validation** - `tests/components/MicroContentValidation.test.ts`
 
 **Build Status:** All 132 materials pass validation with 0 errors.
 
@@ -850,7 +850,7 @@ The `scripts/generate-datasets.ts` script processes frontmatter and generates:
 - `docs/architecture/LAYOUT_STANDARDIZATION.md` - Layout width decisions
 - `docs/NAMING_NORMALIZATION_EVALUATION.md` - Naming conventions
 - `tests/components/Layout-faq-structure.test.tsx` - FAQ structure tests
-- `tests/components/CaptionContentValidation.test.ts` - Caption validation tests
+- `tests/components/MicroContentValidation.test.ts` - Micro validation tests
 
 ---
 

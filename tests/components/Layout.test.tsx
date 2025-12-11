@@ -43,10 +43,10 @@ jest.mock('../../app/components/JsonLD/JsonLD', () => ({
   },
 }));
 
-jest.mock('../../app/components/Caption/Caption', () => ({
-  Caption: ({ content, frontmatter, config }: any) => (
-    <div data-testid="caption-component" data-content={content}>
-      Caption: {frontmatter?.title}
+jest.mock('../../app/components/Micro/Micro', () => ({
+  Micro: ({ content, frontmatter, config }: any) => (
+    <div data-testid="micro-component" data-content={content}>
+      Micro: {frontmatter?.title}
     </div>
   ),
 }));
@@ -144,8 +144,8 @@ describe('Layout Component', () => {
         content: 'Test article content',
         config: { style: 'default' },
       },
-      caption: {
-        content: 'Test caption content',
+      micro: {
+        content: 'Test micro content',
         config: { variant: 'default' },
       },
       tags: {

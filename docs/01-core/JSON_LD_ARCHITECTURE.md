@@ -461,7 +461,7 @@ contentCards:
   "logo": {
     "@type": "ImageObject",
     "url": "https://z-beam.com/images/logo.png",
-    "caption": "Logo"
+    "micro": "Logo"
   },
   "address": {
     "@type": "PostalAddress",

@@ -47,7 +47,7 @@
 - Progressive disclosure functionality
 - Type safety with SmartTableData interface
 - Empty data handling
-- Caption and configuration support
+- Micro and configuration support
 
 ### Legacy Table Tests (Backward Compatibility)
 - Basic table rendering with data

@@ -35,7 +35,7 @@ The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverag
 - ✅ Detailed process steps from `machineSettings`
 - ✅ Outcome metrics from `outcomeMetrics`
 - ✅ Application areas from `applications`
-- ✅ Before/after descriptions from `caption`
+- ✅ Before/after descriptions from `micro`
 - ✅ Environmental impact data from `environmentalImpact`
 
 #### 2. **Expertise** (Technical knowledge demonstration)
@@ -70,7 +70,7 @@ The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverag
 - `title`, `description`, `subtitle`
 - `author` (name, title, expertise, country, id, image)
 - `images.hero` (url, alt)
-- `caption` (beforeText, afterText, description)
+- `micro` (beforeText, afterText, description)
 - `applications` array
 - `datePublished`, `dateModified`
 
@@ -79,7 +79,7 @@ The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverag
 **Key Features**:
 - Author profile with credentials and expertise areas
 - Publisher information with logo
-- Image with caption from microscopy analysis
+- Image with micro from microscopy analysis
 - Application domains
 - Freshness signals (datePublished, dateModified)
 
@@ -247,7 +247,7 @@ The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverag
 | `outcomeMetrics` | Results | HowTo | Experience |
 | `regulatoryStandards` | Compliance | Certification | Trustworthiness |
 | `images.hero` | Visual content | Article | Experience |
-| `caption.*` | Detailed analysis | Article | Expertise |
+| `micro.*` | Detailed analysis | Article | Expertise |
 | `datePublished` | Publication date | Article, WebPage | Trustworthiness |
 | `dateModified` | Update date | Article, WebPage, Dataset | Trustworthiness |
 
@@ -265,7 +265,7 @@ The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverag
 1. **Real-world process documentation**: HowTo schema with actual machine settings
 2. **Outcome metrics**: Expected results with typical ranges
 3. **Application examples**: Multiple industry use cases
-4. **Before/after analysis**: Detailed caption with microscopy data
+4. **Before/after analysis**: Detailed micro with microscopy data
 5. **Environmental impact**: Quantified benefits
 
 ### Expertise Signals

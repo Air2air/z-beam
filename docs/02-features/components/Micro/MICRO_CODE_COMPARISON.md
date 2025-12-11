@@ -1,4 +1,4 @@
-# Caption Component Code Comparison
+# Micro Component Code Comparison
 
 ## State Management Comparison
 
@@ -11,7 +11,7 @@ const [isInView, setIsInView] = useState(false);
 const [focusedMetricIndex, setFocusedMetricIndex] = useState(-1);
 const [metricsExpanded, setMetricsExpanded] = useState(true);
 const [announceMessage, setAnnounceMessage] = useState('');
-const captionRef = useRef<HTMLElement>(null);
+const microRef = useRef<HTMLElement>(null);
 const metricsRef = useRef<HTMLDivElement>(null);
 const imageRef = useRef<HTMLDivElement>(null);
 ```
@@ -20,7 +20,7 @@ const imageRef = useRef<HTMLDivElement>(null);
 ```tsx
 const [imageLoaded, setImageLoaded] = useState(false);
 const [isInView, setIsInView] = useState(false);
-const captionRef = useRef<HTMLElement>(null);
+const microRef = useRef<HTMLElement>(null);
 ```
 
 **Reduction: 80% fewer state variables, 67% fewer refs**
@@ -43,7 +43,7 @@ const captionRef = useRef<HTMLElement>(null);
   onKeyDown={handleKeyDown}
 >
   <div id={`${metricsId}-desc`} className="sr-only">
-    Quality metrics overlay with {Object.keys(captionData.quality_metrics).length} measurements. 
+    Quality metrics overlay with {Object.keys(microData.quality_metrics).length} measurements. 
     Use arrow keys to navigate, Enter to toggle, Escape to exit.
   </div>
   <div 
@@ -51,7 +51,7 @@ const captionRef = useRef<HTMLElement>(null);
     role="list"
     aria-label="Quality metrics list"
   >
-    {Object.entries(captionData.quality_metrics)
+    {Object.entries(microData.quality_metrics)
       .filter(([key]) => key !== 'substrate_integrity')
       .map(([key, value], index) => {
         const isFocused = focusedMetricIndex === index;
@@ -86,7 +86,7 @@ const captionRef = useRef<HTMLElement>(null);
 ```tsx
 <div className="absolute bottom-4 left-0 right-0 px-4">
   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-    {Object.entries(captionData.quality_metrics)
+    {Object.entries(microData.quality_metrics)
       .filter(([key]) => key !== 'substrate_integrity')
       .map(([key, value]) => (
         <div 
@@ -102,7 +102,7 @@ const captionRef = useRef<HTMLElement>(null);
               data-property={key}
               data-metric-type="quality_measurement"
               data-context="surface_analysis"
-              data-material={captionData.material || 'unknown'}
+              data-material={microData.material || 'unknown'}
               data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
               data-magnitude={Math.abs(Number(value)) >= 100 ? 'high' : Math.abs(Number(value)) >= 1 ? 'medium' : 'low'}
               itemProp="value"
@@ -126,9 +126,9 @@ const captionRef = useRef<HTMLElement>(null);
 ### BEFORE (100 lines of complexity)
 ```tsx
 const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
-  if (!captionData.quality_metrics) return;
+  if (!microData.quality_metrics) return;
   
-  const metricsEntries = Object.entries(captionData.quality_metrics)
+  const metricsEntries = Object.entries(microData.quality_metrics)
     .filter(([key]) => key !== 'substrate_integrity')
     .slice(0, 2);
   
@@ -171,11 +171,11 @@ const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
     case 'Escape':
       event.preventDefault();
       setFocusedMetricIndex(-1);
-      captionRef.current?.focus();
-      setAnnounceMessage('Focus returned to main caption');
+      microRef.current?.focus();
+      setAnnounceMessage('Focus returned to main micro');
       break;
   }
-}, [captionData.quality_metrics, focusedMetricIndex, metricsExpanded]);
+}, [microData.quality_metrics, focusedMetricIndex, metricsExpanded]);
 ```
 
 ### AFTER
@@ -233,14 +233,14 @@ onLoad={() => setImageLoaded(true)}
 ### BEFORE (8+ unique IDs)
 ```tsx
 const analysisId = `analysis-${materialName}-${Date.now()}`;
-const sectionId = `caption-section-${analysisId}`;
-const titleId = `caption-title-${analysisId}`;
-const imageId = `caption-image-${analysisId}`;
-const metricsId = `caption-metrics-${analysisId}`;
-const descriptionId = `caption-desc-${analysisId}`;
+const sectionId = `micro-section-${analysisId}`;
+const titleId = `micro-title-${analysisId}`;
+const imageId = `micro-image-${analysisId}`;
+const metricsId = `micro-metrics-${analysisId}`;
+const descriptionId = `micro-desc-${analysisId}`;
 const beforeId = `before-treatment-${analysisId}`;
 const afterId = `after-treatment-${analysisId}`;
-const liveRegionId = `caption-announcements-${analysisId}`;
+const liveRegionId = `micro-announcements-${analysisId}`;
 ```
 
 ### AFTER
@@ -259,15 +259,15 @@ const liveRegionId = `caption-announcements-${analysisId}`;
 ```tsx
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": captionData.seo_data?.schema_type || "TechArticle",
+  "@type": microData.seo_data?.schema_type || "TechArticle",
   "@id": `#${analysisId}`,
-  "headline": captionData.title || `${capitalizedMaterial} Laser Cleaning Analysis`,
-  "description": captionData.description || `Professional laser cleaning analysis...`,
+  "headline": microData.title || `${capitalizedMaterial} Laser Cleaning Analysis`,
+  "description": microData.description || `Professional laser cleaning analysis...`,
   "author": {
     "@type": "Person",
-    "name": captionData.author_object?.name || "Z-Beam Research Team",
-    "jobTitle": captionData.author_object?.title,
-    "affiliation": captionData.author_object?.affiliation,
+    "name": microData.author_object?.name || "Z-Beam Research Team",
+    "jobTitle": microData.author_object?.title,
+    "affiliation": microData.author_object?.affiliation,
     // ... many more lines
   },
   "about": {
@@ -282,24 +282,24 @@ const structuredData = {
 ### AFTER
 ```tsx
 // Removed - can be added at page level when needed
-// Not required for every caption instance
+// Not required for every micro instance
 ```
 
 **Impact: Minimal - can be added to page metadata instead**
 
 ---
 
-## CaptionImage Component Comparison
+## MicroImage Component Comparison
 
 ### BEFORE (148 lines with duplicate IntersectionObserver)
 ```tsx
-export function CaptionImage({ imageSource, frontmatter, materialName, seoData }) {
+export function MicroImage({ imageSource, frontmatter, materialName, seoData }) {
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  // Duplicate IntersectionObserver (already in Caption!)
+  // Duplicate IntersectionObserver (already in Micro!)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -329,7 +329,7 @@ export function CaptionImage({ imageSource, frontmatter, materialName, seoData }
 
 ### AFTER (70 lines, simplified)
 ```tsx
-export function CaptionImage({ imageSource, materialName, alt, seoData }) {
+export function MicroImage({ imageSource, materialName, alt, seoData }) {
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
@@ -352,8 +352,8 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }) {
 
 | Metric | Before | After | Improvement |
 |--------|--------|-------|-------------|
-| **Caption.tsx lines** | 589 | ~150 | **75% reduction** |
-| **CaptionImage.tsx lines** | 148 | ~70 | **53% reduction** |
+| **Micro.tsx lines** | 589 | ~150 | **75% reduction** |
+| **MicroImage.tsx lines** | 148 | ~70 | **53% reduction** |
 | **State variables** | 10+ | 2 | **80% reduction** |
 | **useEffect hooks** | 4 | 1 | **75% reduction** |
 | **Generated IDs** | 9 | 0 | **100% reduction** |

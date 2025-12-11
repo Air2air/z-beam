@@ -49,10 +49,10 @@ All major component prop types are **centralized**:
 |------|----------|------|--------|
 | `MetricsCardProps` | types/centralized.ts | 539 | ✅ Centralized |
 | `MetricsGridProps` | types/centralized.ts | 562 | ✅ Centralized |
-| `CaptionProps` | types/centralized.ts | 514 | ✅ Centralized |
+| `MicroProps` | types/centralized.ts | 514 | ✅ Centralized |
 | `LayoutProps` | types/centralized.ts | ~640 | ✅ Centralized |
 | `AuthorProps` | types/centralized.ts | 611 | ✅ Centralized |
-| `ParsedCaptionData` | types/centralized.ts | 586 | ✅ Centralized |
+| `ParsedMicroData` | types/centralized.ts | 586 | ✅ Centralized |
 
 **MetricsCardProps Structure:**
 ```typescript
@@ -83,15 +83,15 @@ export interface MetricsCardProps {
 
 Found **3 local interface definitions** in component files. These are acceptable as they're component-specific and not reused elsewhere.
 
-### 2.1 SEOOptimizedCaption.tsx
+### 2.1 SEOOptimizedMicro.tsx
 
-**Location:** `app/components/Caption/SEOOptimizedCaption.tsx:11`
+**Location:** `app/components/Micro/SEOOptimizedMicro.tsx:11`
 
 ```typescript
-interface SEOOptimizedCaptionProps {
+interface SEOOptimizedMicroProps {
   materialName: string;
   frontmatter?: FrontmatterType;
-  captionData?: ParsedCaptionData;
+  microData?: ParsedMicroData;
   imageData?: {
     beforeUrl: string;
     afterUrl: string;
@@ -101,12 +101,12 @@ interface SEOOptimizedCaptionProps {
 }
 
 // Export alias for external use
-export type SEOCaptionProps = SEOOptimizedCaptionProps;
+export type SEOMicroProps = SEOOptimizedMicroProps;
 ```
 
 **Analysis:**
 - ✅ **Component-specific** - only used in this file
-- ✅ **Imports centralized types** (FrontmatterType, ParsedCaptionData)
+- ✅ **Imports centralized types** (FrontmatterType, ParsedMicroData)
 - ✅ **Provides export alias** for external consumers
 - ✅ **No duplication** with centralized types
 
@@ -184,9 +184,9 @@ import { MetricsCardProps, MetricsGridProps, MaterialProperties,
          MachineSettings, PropertyCategory } from '@/types';
 ```
 
-**SEOOptimizedCaption.tsx:**
+**SEOOptimizedMicro.tsx:**
 ```typescript
-import { ParsedCaptionData, FrontmatterType } from '@/types';
+import { ParsedMicroData, FrontmatterType } from '@/types';
 ```
 
 **Tests:**
@@ -288,7 +288,7 @@ export interface MaterialProperties {
 
 - MetricsCardProps ✅
 - MetricsGridProps ✅
-- CaptionProps ✅
+- MicroProps ✅
 - LayoutProps ✅
 - AuthorProps ✅
 - TitleProps ✅

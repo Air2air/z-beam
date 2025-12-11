@@ -1,32 +1,32 @@
-// app/components/Caption/CaptionHeader.tsx
+// app/components/Micro/MicroHeader.tsx
 "use client";
 
-import { FrontmatterType, ParsedCaptionData } from '@/types';
+import { FrontmatterType, ParsedMicroData } from '@/types';
 import React from 'react';
 import { capitalizeFirst } from '../../utils/formatting';
 import { Title } from '../Title';
 
-interface CaptionHeaderProps {
+interface MicroHeaderProps {
   materialName: string;
   frontmatter?: FrontmatterType;
-  captionData?: ParsedCaptionData;
+  microData?: ParsedMicroData;
 }
 
-export function CaptionHeader({ materialName, frontmatter, captionData }: CaptionHeaderProps) {
+export function MicroHeader({ materialName, frontmatter, microData }: MicroHeaderProps) {
   const capitalizedMaterial = capitalizeFirst(materialName);
   const materialType = frontmatter?.chemicalProperties?.materialType || 'material';
 
   return (
-    <header className="caption-header mb-4">
+    <header className="micro-header mb-4">
       <Title 
         level="card"
         title={`${capitalizedMaterial} Surface Topography`}
-        className="caption-heading text-xl mb-2"
+        className="micro-heading text-xl mb-2"
         id="surface-analysis-heading"
       />
       <p className="text-sm text-tertiary mb-3" itemProp="description">
         Microscopic analysis of {materialType} surface before and after laser cleaning treatment
-        {captionData?.laserParams?.wavelength && ` at ${captionData.laserParams.wavelength} nm`}
+        {microData?.laserParams?.wavelength && ` at ${microData.laserParams.wavelength} nm`}
       </p>
     </header>
   );

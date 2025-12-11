@@ -198,7 +198,7 @@ npm test -- --testNamePattern="accessibility"
 ✅ Navigation: 18 tests passing
 ✅ Contact: 22 tests passing  
 ✅ Hero: 11 tests passing
-✅ Caption: 15 tests passing
+✅ Micro: 15 tests passing
 ✅ Author: 4 tests passing
 ✅ Tags: 4 tests passing
 ```
@@ -249,7 +249,7 @@ npm run test:contrast
 
 #### Perceivable
 - ✅ Text alternatives for images
-- ✅ Captions and alternatives for multimedia
+- ✅ Micros and alternatives for multimedia
 - ✅ Content can be presented in different ways without losing meaning
 - ✅ Sufficient color contrast
 
@@ -298,7 +298,7 @@ npm run test:contrast
 ### Hearing Impairments
 - **Visual Cues**: Important information not conveyed by audio alone
 - **Text Alternatives**: Written equivalents for audio content
-- **Captions**: Video content includes captions (when applicable)
+- **Micros**: Video content includes micros (when applicable)
 
 ### Cognitive Impairments
 - **Clear Language**: Plain language and simple sentence structure

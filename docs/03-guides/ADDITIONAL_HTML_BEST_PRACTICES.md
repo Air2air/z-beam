@@ -174,7 +174,7 @@ export function Author({
 ## 2. Time Elements for Dates
 
 ### Current State
-**Location**: `app/components/Caption/SEOOptimizedCaption.tsx` (1 instance found)
+**Location**: `app/components/Micro/SEOOptimizedMicro.tsx` (1 instance found)
 
 **What Exists:**
 - One `<time>` element with `dateTime` and `itemProp="datePublished"`
@@ -187,12 +187,12 @@ export function Author({
 
 ### Current Usage Example
 ```tsx
-// app/components/Caption/SEOOptimizedCaption.tsx (line 286)
+// app/components/Micro/SEOOptimizedMicro.tsx (line 286)
 <time 
-  dateTime={captionData?.metadata?.generated}
+  dateTime={microData?.metadata?.generated}
   itemProp="datePublished"
 >
-  Analysis conducted: {new Date(captionData?.metadata?.generated || '').toLocaleDateString()}
+  Analysis conducted: {new Date(microData?.metadata?.generated || '').toLocaleDateString()}
 </time>
 ```
 

@@ -29,7 +29,7 @@ The Z-Beam type system is **properly centralized, deduped, and well-maintained**
  * @file types/centralized.ts
  * @purpose SINGLE SOURCE OF TRUTH for all Z-Beam types - 1,830+ consolidated type definitions
  * @aiContext ALWAYS import types from '@/types' - never create local interfaces in components
- *           Key types: ArticleMetadata, CardProps, CaptionProps, Author, CardGridProps
+ *           Key types: ArticleMetadata, CardProps, MicroProps, Author, CardGridProps
  * @usage import type { TypeName } from '@/types'
  * @warning Never create duplicate interfaces - add new types to this file
  * @exports 100+ interfaces covering all component props, data structures, and utilities
@@ -49,7 +49,7 @@ The Z-Beam type system is **properly centralized, deduped, and well-maintained**
 ### 2. Component Props (Centralized)
 - `CardProps` - Card component
 - `CardGridProps` - Grid layouts
-- `CaptionProps` - Caption component
+- `MicroProps` - Micro component
 - `MetricsCardProps` - Metrics display
 - `MetricsGridProps` - Metrics grid
 - `AuthorProps` - Author component
@@ -78,13 +78,13 @@ These are correctly kept in component files because they're only used by that co
 - `DebugLayoutProps` - Only in DebugLayout.tsx (internal)
 - `UniversalPageProps` - Only in UniversalPage.tsx (internal)
 
-**Caption Sub-Components (Internal):**
-- `CaptionHeaderProps` - Caption internal
-- `CaptionImageProps` - Caption internal
-- `CaptionContentProps` - Caption internal
-- `TechnicalDetailsProps` - Caption internal
-- `SEOOptimizedCaptionProps` - Caption internal
-- `MetadataDisplayProps` - Caption internal
+**Micro Sub-Components (Internal):**
+- `MicroHeaderProps` - Micro internal
+- `MicroImageProps` - Micro internal
+- `MicroContentProps` - Micro internal
+- `TechnicalDetailsProps` - Micro internal
+- `SEOOptimizedMicroProps` - Micro internal
+- `MetadataDisplayProps` - Micro internal
 
 **Search Sub-Components (Internal):**
 - `SearchHeaderProps` - Search internal
@@ -92,9 +92,9 @@ These are correctly kept in component files because they're only used by that co
 
 ### 4. Data Structures
 - `BadgeData` - Badge information
-- `CaptionDataStructure` - Caption data format
+- `MicroDataStructure` - Micro data format
 - `FrontmatterType` - Frontmatter parsing
-- `ParsedCaptionData` - Caption parsing
+- `ParsedMicroData` - Micro parsing
 - `QualityMetrics` - Quality data
 - `ComponentData` - Component metadata
 - `PageData` - Page configuration
@@ -144,7 +144,7 @@ import { Card } from "../Card/Card";
 ### Components Properly Using Centralized Types
 - CardGrid.tsx → `CardGridProps, CardItem, GridColumns, GridGap`
 - Card/Card.tsx → Exports `CardProps` from @/types
-- Caption → `CaptionProps, ParsedCaptionData`
+- Micro → `MicroProps, ParsedMicroData`
 - Author → `AuthorProps, Author`
 - MetricsCard → `MetricsCardProps, QualityMetrics`
 - MetricsGrid → `MetricsGridProps`
@@ -166,7 +166,7 @@ These components correctly keep their props in the component file because:
 
 1. **Shared Types** → centralized.ts (e.g., `CardGridProps`, `ArticleMetadata`)
 2. **Component Props** → Component file if only used there (e.g., `SectionTitleProps`)
-3. **Internal Props** → Component file, not exported (e.g., `CaptionHeaderProps`)
+3. **Internal Props** → Component file, not exported (e.g., `MicroHeaderProps`)
 
 ## Type System Strengths
 
@@ -234,7 +234,7 @@ No consolidation needed. The type system is well-architected.
    export type { Author, ArticleMetadata, ContentCardItem };
    
    // Component props
-   export type { CardProps, CardGridProps, CaptionProps };
+   export type { CardProps, CardGridProps, MicroProps };
    
    // Data structures
    export type { BadgeData, QualityMetrics };

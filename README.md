@@ -128,7 +128,7 @@ if (isProduction()) {
 - `List` - Displays a list of articles
 - `AuthorArticles` - Shows articles by author
 - `Table` - Enhanced Smart Table component with intelligent frontmatter organization, multiple display modes (content/technical/hybrid), and centralized type system
-- `Caption` - Before/after text content for laser cleaning descriptions
+- `Micro` - Before/after text content for laser cleaning descriptions
 - `MetricsCard` - **Individual metric card component** - Displays single metrics with progress bars and smart value positioning
 - `MetricsGrid` - **Metrics grid container** - Renders collections of MetricsCard components with title mapping
 
@@ -287,7 +287,7 @@ import { SearchApiResponse, MaterialsApiResponse } from '@/types';
 - ✅ **PageProps**: Modern Promise-based async params
 - ✅ **Specialized Metadata**: All moved to centralized source
 - ✅ **Type Deduplication (Oct 2025)**: Removed 8 duplicate type exports
-  - BreadcrumbsProps, ButtonProps, GridColumns, GridGap, GridContainer, StandardGridProps, NavItem, SEOCaptionProps
+  - BreadcrumbsProps, ButtonProps, GridColumns, GridGap, GridContainer, StandardGridProps, NavItem, SEOMicroProps
   - All component and config files now import from `@/types`
   - 100% consolidation achieved - `types/centralized.ts` is the single source of truth
 

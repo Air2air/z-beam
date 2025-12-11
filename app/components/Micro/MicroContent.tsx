@@ -1,4 +1,4 @@
-// app/components/Caption/CaptionContent.tsx
+// app/components/Micro/MicroContent.tsx
 "use client";
 
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 import { FrontmatterType } from '@/types';
 import { SITE_CONFIG } from '../../utils/constants';
 
-interface CaptionContentProps {
+interface MicroContentProps {
   before: string;
   after: string;
   content: string;
@@ -19,39 +19,39 @@ interface CaptionContentProps {
   };
 }
 
-export default function CaptionContent({
+export default function MicroContent({
   before: _before,
   after: _after,
   content,
   materialName: _materialName,
   frontmatter,
   seoData,
-}: CaptionContentProps) {
-  const captionTextRef = useRef<HTMLDivElement>(null);
+}: MicroContentProps) {
+  const microTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const transformParagraphs = () => {
-      if (captionTextRef.current) {
+      if (microTextRef.current) {
         // Remove any existing markdown wrapper div to prevent nesting
-        const markdownDiv = captionTextRef.current.querySelector('div');
+        const markdownDiv = microTextRef.current.querySelector('div');
         if (markdownDiv && markdownDiv.children.length > 0) {
           // Move children up one level and remove the wrapper
           const children = Array.from(markdownDiv.children);
-          children.forEach(child => captionTextRef.current!.appendChild(child));
+          children.forEach(child => microTextRef.current!.appendChild(child));
           markdownDiv.remove();
         }
         
-        const paragraphs = captionTextRef.current.querySelectorAll('p');
+        const paragraphs = microTextRef.current.querySelectorAll('p');
         paragraphs.forEach((p, index) => {
           if (index === 0) {
             const div = document.createElement('div');
-            div.className = 'caption-before mb-3';
+            div.className = 'micro-before mb-3';
             div.innerHTML = p.innerHTML;
             div.setAttribute('itemProp', 'before');
             p.replaceWith(div);
           } else if (index === 1) {
             const div = document.createElement('div');
-            div.className = 'caption-after';
+            div.className = 'micro-after';
             div.innerHTML = p.innerHTML;
             div.setAttribute('itemProp', 'after');
             p.replaceWith(div);
@@ -60,7 +60,7 @@ export default function CaptionContent({
       }
     };
 
-    if (captionTextRef.current) {
+    if (microTextRef.current) {
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
@@ -73,7 +73,7 @@ export default function CaptionContent({
         });
       });
 
-      observer.observe(captionTextRef.current, {
+      observer.observe(microTextRef.current, {
         childList: true,
         subtree: true
       });
@@ -89,11 +89,11 @@ export default function CaptionContent({
 
   return (
     <article 
-      ref={captionTextRef} 
+      ref={microTextRef} 
       itemScope 
       itemType={`${SITE_CONFIG.schema.context}/TechnicalArticle`}
       role="article"
-      aria-labelledby="caption-content"
+      aria-labelledby="micro-content"
     >
       <meta itemProp="description" content={seoData?.description || frontmatter?.description || "Laser cleaning surface analysis"} />
       {seoData?.keywords && <meta itemProp="keywords" content={seoData.keywords.join(', ')} />}

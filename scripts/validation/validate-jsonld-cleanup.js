@@ -13,7 +13,7 @@ function validateCleanup() {
   
   const results = {
     staticFilesRemoved: false,
-    captionJsonLdRemoved: false,
+    microJsonLdRemoved: false,
     materialJsonLdExists: false,
     jsonLdHelperExists: false,
     validationScriptExists: false
@@ -29,21 +29,21 @@ function validateCleanup() {
     console.log('❌ Static JSON-LD directory still exists');
   }
 
-  // 2. Check that SEOOptimizedCaption no longer generates JSON-LD
-  console.log('\n2️⃣ Checking Caption JSON-LD removal...');
-  const captionFile = 'app/components/Caption/SEOOptimizedCaption.tsx';
-  if (fs.existsSync(captionFile)) {
-    const content = fs.readFileSync(captionFile, 'utf8');
+  // 2. Check that SEOOptimizedMicro no longer generates JSON-LD
+  console.log('\n2️⃣ Checking Micro JSON-LD removal...');
+  const microFile = 'app/components/Micro/SEOOptimizedMicro.tsx';
+  if (fs.existsSync(microFile)) {
+    const content = fs.readFileSync(microFile, 'utf8');
     const hasJsonLd = content.includes('application/ld+json') || content.includes('dangerouslySetInnerHTML');
     if (!hasJsonLd) {
-      console.log('✅ SEOOptimizedCaption JSON-LD generation successfully removed');
-      results.captionJsonLdRemoved = true;
+      console.log('✅ SEOOptimizedMicro JSON-LD generation successfully removed');
+      results.microJsonLdRemoved = true;
     } else {
-      console.log('❌ SEOOptimizedCaption still contains JSON-LD generation');
+      console.log('❌ SEOOptimizedMicro still contains JSON-LD generation');
     }
   } else {
-    console.log('ℹ️  SEOOptimizedCaption file not found (may have been removed)');
-    results.captionJsonLdRemoved = true;
+    console.log('ℹ️  SEOOptimizedMicro file not found (may have been removed)');
+    results.microJsonLdRemoved = true;
   }
 
   // 3. Check that MaterialJsonLD component exists and is functional

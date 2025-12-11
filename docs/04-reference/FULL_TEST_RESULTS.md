@@ -15,7 +15,7 @@
 ## Test Categories Status
 
 ### ✅ **Passing Systems** (929/946 tests)
-- **Component Tests**: Hero, Caption, Settings, Tags, Templates
+- **Component Tests**: Hero, Micro, Settings, Tags, Templates
 - **Utility Functions**: String helpers, article enrichment, validation  
 - **System Integration**: Material system, regional content, performance
 - **API Routes**: Search API, content loading

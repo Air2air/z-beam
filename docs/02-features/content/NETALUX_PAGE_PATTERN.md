@@ -204,7 +204,7 @@ For single equipment specifications:
 <Table 
   frontmatterData={jangoSpecs}
   config={{
-    caption: "Jango® Specifications"
+    micro: "Jango® Specifications"
   }}
 />
 ```

@@ -11,19 +11,19 @@ import {
   QualityMetrics,
   ComponentData,
   LayoutProps,
-  CaptionDataStructure,
-  CaptionProps,
+  MicroDataStructure,
+  MicroProps,
   FrontmatterType,
-  ParsedCaptionData,
+  ParsedMicroData,
   MetricsGridProps,
   Author,
   MaterialType,
   TableProps
 } from '@/types/centralized';
 
-describe('Centralized Types - Caption System', () => {
-  test('CaptionDataStructure should support all required fields', () => {
-    const captionData: CaptionDataStructure = {
+describe('Centralized Types - Micro System', () => {
+  test('MicroDataStructure should support all required fields', () => {
+    const microData: MicroDataStructure = {
       before_text: 'Before analysis text',
       after_text: 'After analysis text',
       material: 'steel',
@@ -47,18 +47,18 @@ describe('Centralized Types - Caption System', () => {
       }
     };
 
-    expect(captionData.before_text).toBe('Before analysis text');
-    expect(captionData.after_text).toBe('After analysis text');
-    expect(captionData.material).toBe('steel');
-    expect(captionData.quality_metrics?.contamination_removal).toBe('95%');
-    expect(captionData.technicalSpecifications?.wavelength).toBe('1064nm');
-    expect(captionData.metadata?.version).toBe('2.0');
+    expect(microData.before_text).toBe('Before analysis text');
+    expect(microData.after_text).toBe('After analysis text');
+    expect(microData.material).toBe('steel');
+    expect(microData.quality_metrics?.contamination_removal).toBe('95%');
+    expect(microData.technicalSpecifications?.wavelength).toBe('1064nm');
+    expect(microData.metadata?.version).toBe('2.0');
   });
 
-  test('CaptionProps should support all component configurations', () => {
-    const captionProps: CaptionProps = {
+  test('MicroProps should support all component configurations', () => {
+    const microProps: MicroProps = {
       frontmatter: {
-        caption: {
+        micro: {
           before: 'Before text content',
           after: 'After text content'
         },
@@ -74,10 +74,10 @@ describe('Centralized Types - Caption System', () => {
       }
     };
 
-    expect(captionProps.frontmatter.caption?.before).toBe('Before text content');
-    expect(captionProps.frontmatter.caption?.after).toBe('After text content');
-    expect(captionProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
-    expect(captionProps.config?.showTechnicalDetails).toBe(true);
+    expect(microProps.frontmatter.micro?.before).toBe('Before text content');
+    expect(microProps.frontmatter.micro?.after).toBe('After text content');
+    expect(microProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
+    expect(microProps.config?.showTechnicalDetails).toBe(true);
   });
 
   test('FrontmatterType should maintain backward compatibility', () => {
@@ -103,9 +103,9 @@ describe('Centralized Types - Caption System', () => {
     expect(frontmatter.chemicalProperties?.composition).toBe('Fe, C, Mn');
   });
 
-  test('ParsedCaptionData should support parsing results', () => {
-    const parsedData: ParsedCaptionData = {
-      renderedContent: 'Rendered caption content',
+  test('ParsedMicroData should support parsing results', () => {
+    const parsedData: ParsedMicroData = {
+      renderedContent: 'Rendered micro content',
       before: 'Before text',
       after: 'After text',
       material: 'aluminum',
@@ -115,7 +115,7 @@ describe('Centralized Types - Caption System', () => {
       }
     };
 
-    expect(parsedData.renderedContent).toBe('Rendered caption content');
+    expect(parsedData.renderedContent).toBe('Rendered micro content');
     expect(parsedData.isEnhanced).toBe(true);
     expect(parsedData.qualityMetrics?.contamination_removal).toBe('98%');
   });
@@ -175,7 +175,7 @@ describe('Centralized Types - Component Props', () => {
       content: 'Table content',
       config: {
         showHeader: true,
-        caption: 'Test Table',
+        micro: 'Test Table',
         variant: 'compact'
       },
       striped: true,
@@ -209,21 +209,21 @@ describe('Centralized Types - Type Safety', () => {
   });
 
   test('should support optional properties', () => {
-    const minimalCaption: CaptionDataStructure = {
+    const minimalMicro: MicroDataStructure = {
       // All properties are optional
     };
 
-    const minimalProps: CaptionProps = {
+    const minimalProps: MicroProps = {
       frontmatter: {
-        caption: {
+        micro: {
           before: 'Minimal content'
         }
       }
       // Config is optional
     };
 
-    expect(minimalCaption).toBeDefined();
-    expect(minimalProps.frontmatter.caption?.before).toBe('Minimal content');
+    expect(minimalMicro).toBeDefined();
+    expect(minimalProps.frontmatter.micro?.before).toBe('Minimal content');
   });
 
   test('should maintain interface inheritance', () => {
@@ -244,22 +244,22 @@ describe('Centralized Types - Export Validation', () => {
   test('should export all required types', () => {
     // This test ensures all types are properly exported from the centralized file
     // The fact that we can import and use these types without errors proves they're exported correctly
-    const testCaption: CaptionDataStructure = {};
-    const testProps: CaptionProps = { frontmatter: {} };
+    const testMicro: MicroDataStructure = {};
+    const testProps: MicroProps = { frontmatter: {} };
     const testMetrics: QualityMetrics = {};
     const testGridProps: MetricsGridProps = { 
       metadata: { title: 'Test', slug: 'test' },
       qualityMetrics: {} 
     };
     
-    expect(testCaption).toBeDefined();
+    expect(testMicro).toBeDefined();
     expect(testProps).toBeDefined();
     expect(testMetrics).toBeDefined();
     expect(testGridProps).toBeDefined();
   });
 
   test('should support complex type combinations', () => {
-    const complexCaption: CaptionDataStructure = {
+    const complexMicro: MicroDataStructure = {
       before: 'Complex before text',
       after: 'Complex after text',
       quality_metrics: {
@@ -273,15 +273,15 @@ describe('Centralized Types - Export Validation', () => {
       }
     };
 
-    const complexProps: CaptionProps = {
+    const complexProps: MicroProps = {
       frontmatter: {
         title: 'Complex Test',
         author: 'Test Author',
-        caption: complexCaption
+        micro: complexMicro
       }
     };
 
-    expect(complexCaption.quality_metrics?.contamination_removal).toBe('95%');
+    expect(complexMicro.quality_metrics?.contamination_removal).toBe('95%');
     expect(complexProps.frontmatter?.title).toBe('Complex Test');
   });
 });

@@ -114,7 +114,7 @@ const TITLE_MAPPING: Record<string, string> = {
 
 ---
 
-### 3. SEOOptimizedCaption Component (`app/components/Caption/SEOOptimizedCaption.tsx`)
+### 3. SEOOptimizedMicro Component (`app/components/Micro/SEOOptimizedMicro.tsx`)
 
 #### Updated Property Display with Smart Label Conversion
 ```tsx
@@ -255,7 +255,7 @@ thermalDestructionPoint:
 - [ ] Fallback to "Thermal Point" if thermalDestructionType missing
 - [ ] Legacy meltingPoint still displays correctly
 
-### ✅ SEOOptimizedCaption Tests
+### ✅ SEOOptimizedMicro Tests
 - [ ] Reads from materialProperties.thermalDestructionPoint.value
 - [ ] Uses materialProperties.thermalDestructionType for label
 - [ ] Falls back to chemicalProperties.meltingPoint

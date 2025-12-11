@@ -1,4 +1,4 @@
-// app/components/Caption/MetadataDisplay.tsx
+// app/components/Micro/MetadataDisplay.tsx
 "use client";
 
 import { FrontmatterType } from '@/types';

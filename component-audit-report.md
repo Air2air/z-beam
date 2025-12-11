@@ -10,7 +10,7 @@ Generated: 2025-11-14T21:16:16.493Z
 ## High Priority Recommendations
 
 ### EXTRACT: Extract common patterns from high-risk components into shared utilities
-- **Components**: ButtonIcons, Caption, Card, CardGrid, CardGridSSR, Citations, ComparisonTable, ContactForm, ContentCard, BulkDownload, BulkDownloadWrapper, DatasetCard, DatasetsContent, MaterialBrowser, SubcategoryDatasetCards, PreventionTab, QuickReferenceTab, TroubleshootingTab, BaseHeatmap, MaterialSafetyHeatmap, ProcessEffectivenessHeatmap, Hero, DebugLayout, Layout, breadcrumbs, footer, nav, ParameterRelationships, PropertyBars, RegulatoryStandards, ResearchPage, SettingsLayout, SmartTable, Tags, ThermalAccumulation, Title, search-client
+- **Components**: ButtonIcons, Micro, Card, CardGrid, CardGridSSR, Citations, ComparisonTable, ContactForm, ContentCard, BulkDownload, BulkDownloadWrapper, DatasetCard, DatasetsContent, MaterialBrowser, SubcategoryDatasetCards, PreventionTab, QuickReferenceTab, TroubleshootingTab, BaseHeatmap, MaterialSafetyHeatmap, ProcessEffectivenessHeatmap, Hero, DebugLayout, Layout, breadcrumbs, footer, nav, ParameterRelationships, PropertyBars, RegulatoryStandards, ResearchPage, SettingsLayout, SmartTable, Tags, ThermalAccumulation, Title, search-client
 - **Benefits**: Reduced code duplication, Improved maintainability, Consistent behavior across components
 - **Effort**: moderate
 

@@ -95,7 +95,7 @@ New reporting capabilities:
 
 ### 🎯 Major Changes
 
-**Nested Frontmatter Structures**: Updated frontmatter architecture to support nested FAQ and caption structures across all 132 materials.
+**Nested Frontmatter Structures**: Updated frontmatter architecture to support nested FAQ and micro structures across all 132 materials.
 
 **Layout Standardization**: Consolidated all page layouts to consistent `max-w-5xl` width for uniform user experience.
 
@@ -106,9 +106,9 @@ New reporting capabilities:
 - Updated FAQ extraction logic to handle both legacy and new formats
 - Maintains backward compatibility with flat FAQ arrays
 
-**Caption Component** (`app/components/Caption/Caption.tsx`):
-- Integrated parsed caption data from `useCaptionParsing` hook
-- Maps nested `caption.before` and `caption.after` frontmatter fields
+**Micro Component** (`app/components/Micro/Micro.tsx`):
+- Integrated parsed micro data from `useMicroParsing` hook
+- Maps nested `micro.before` and `micro.after` frontmatter fields
 - Removed redundant description text display
 - Added quality metrics support from parsed data
 
@@ -137,9 +137,9 @@ faq:
       answer: "..."
 ```
 
-**Caption Structure** (132 materials):
+**Micro Structure** (132 materials):
 ```yaml
-caption:
+micro:
   before: "Surface condition description..."
   after: "Post-treatment description..."
 ```
@@ -160,7 +160,7 @@ property_name:
 **Updated Dataset Pipeline** (`scripts/generate-datasets.ts`):
 - Successfully processes nested FAQ structures
 - Exports FAQ question count to dataset metadata
-- Handles nested caption before/after fields
+- Handles nested micro before/after fields
 - Supports enhanced property format with confidence intervals
 - Generated 396 dataset files (132 materials × 3 formats + index.json)
 - Zero errors during regeneration
@@ -173,7 +173,7 @@ property_name:
 
 ### 🎨 UI Improvements
 
-**Caption Display**:
+**Micro Display**:
 - Removed redundant "Laser cleaning parameters for [Material]" description text
 - Cleaner visual hierarchy focusing on before/after treatment descriptions
 - Better content spacing and typography
@@ -187,7 +187,7 @@ property_name:
 
 **Components** (3 files):
 - `app/components/Layout/Layout.tsx`
-- `app/components/Caption/Caption.tsx`
+- `app/components/Micro/Micro.tsx`
 - `app/components/Hero/Hero.tsx`
 
 **Utilities** (1 file):
@@ -300,7 +300,7 @@ docs/
 
 **Moved to Appropriate Directories:**
 - MetricsCard docs → `components/MetricsCard/docs/` (7 files)
-- Caption docs → `components/Caption/` (2 files)
+- Micro docs → `components/Micro/` (2 files)
 - Accessibility docs → `guides/accessibility/` (8 files)
 - Categorized Properties → `features/categorized-properties/` (8 files)
 - Thermal Properties → `features/thermal-properties/` (3 files)

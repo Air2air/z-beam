@@ -14,7 +14,7 @@ import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetCardWrapper from '../Dataset/MaterialDatasetCardWrapper';
 import type { LayoutProps } from '@/types';
 
-const Caption = dynamic(() => import('../Caption/Caption').then(mod => ({ default: mod.Caption })), {
+const Micro = dynamic(() => import('../Micro/Micro').then(mod => ({ default: mod.Micro })), {
   ssr: true
 });
 
@@ -59,10 +59,10 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         </div>
       )}
       
-      {/* Caption - hidden if no micro image */}
+      {/* Micro - hidden if no micro image */}
       {metadata?.images?.micro?.url && (
         <div className="mb-16">
-          <Caption 
+          <Micro 
             frontmatter={metadata as any}
             config={{}}
           />

@@ -69,8 +69,8 @@ describe('Image Naming Conventions', () => {
       
       // Search TypeScript files
       const tsFiles = [
-        'streamlined-seo-caption-data.ts',
-        'example-seo-caption-data.ts'
+        'streamlined-seo-micro-data.ts',
+        'example-seo-micro-data.ts'
       ];
       
       tsFiles.forEach(file => {
@@ -91,8 +91,8 @@ describe('Image Naming Conventions', () => {
       
       // Search TypeScript files
       const tsFiles = [
-        'streamlined-seo-caption-data.ts',
-        'example-seo-caption-data.ts'
+        'streamlined-seo-micro-data.ts',
+        'example-seo-micro-data.ts'
       ];
       
       tsFiles.forEach(file => {
@@ -112,8 +112,8 @@ describe('Image Naming Conventions', () => {
   describe('New Pattern Implementation', () => {
     test('should use laser-cleaning-micro.jpg pattern in TypeScript files', () => {
       const expectedFiles = [
-        'streamlined-seo-caption-data.ts',
-        'example-seo-caption-data.ts'
+        'streamlined-seo-micro-data.ts',
+        'example-seo-micro-data.ts'
       ];
       
       expectedFiles.forEach(file => {
@@ -127,8 +127,8 @@ describe('Image Naming Conventions', () => {
 
     test('should use laser-cleaning-micro-social.jpg pattern for social images', () => {
       const expectedFiles = [
-        'streamlined-seo-caption-data.ts',
-        'example-seo-caption-data.ts'
+        'streamlined-seo-micro-data.ts',
+        'example-seo-micro-data.ts'
       ];
       
       expectedFiles.forEach(file => {
@@ -144,8 +144,8 @@ describe('Image Naming Conventions', () => {
   describe('YAML Files Pattern Compliance', () => {
     test('should verify YAML files use new naming pattern', () => {
       const yamlFiles = [
-        'example-seo-caption-data.yaml',
-        'streamlined-seo-caption-data.yaml'
+        'example-seo-micro-data.yaml',
+        'streamlined-seo-micro-data.yaml'
       ];
       
       yamlFiles.forEach(file => {
@@ -163,19 +163,19 @@ describe('Image Naming Conventions', () => {
     });
   });
 
-  describe('Caption Files Pattern Compliance', () => {
-    test.skip('should verify caption YAML files use new naming pattern', () => {
-      // Skipping this test as caption files may not contain image references
-      // after caption cleanup
-      const captionDir = path.join(process.cwd(), 'content/components/caption');
+  describe('Micro Files Pattern Compliance', () => {
+    test.skip('should verify micro YAML files use new naming pattern', () => {
+      // Skipping this test as micro files may not contain image references
+      // after micro cleanup
+      const microDir = path.join(process.cwd(), 'content/components/micro');
       
-      if (fs.existsSync(captionDir)) {
-        const yamlFiles = fs.readdirSync(captionDir)
+      if (fs.existsSync(microDir)) {
+        const yamlFiles = fs.readdirSync(microDir)
           .filter(file => file.endsWith('.yaml'))
           .slice(0, 5); // Test a sample of files
         
         yamlFiles.forEach(file => {
-          const filePath = path.join(captionDir, file);
+          const filePath = path.join(microDir, file);
           const content = fs.readFileSync(filePath, 'utf8');
           
           // Should contain new pattern
@@ -259,10 +259,10 @@ describe('Image Naming Conventions', () => {
 
     test('should validate consistency across file types', () => {
       const files = [
-        'streamlined-seo-caption-data.ts',
-        'streamlined-seo-caption-data.yaml',
-        'example-seo-caption-data.ts',
-        'example-seo-caption-data.yaml'
+        'streamlined-seo-micro-data.ts',
+        'streamlined-seo-micro-data.yaml',
+        'example-seo-micro-data.ts',
+        'example-seo-micro-data.yaml'
       ];
       
       files.forEach(file => {

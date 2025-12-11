@@ -3,7 +3,7 @@
 ## Comprehensive Testing Framework for WCAG 2.1 AA Compliance
 
 ### Overview
-This document provides detailed testing specifications for validating accessibility implementations across MetricsCard and Caption components. All tests must verify WCAG 2.1 AA compliance with specific technical assertions.
+This document provides detailed testing specifications for validating accessibility implementations across MetricsCard and Micro components. All tests must verify WCAG 2.1 AA compliance with specific technical assertions.
 
 ## Automated Testing Framework
 
@@ -158,17 +158,17 @@ describe('MetricsCard Semantic Enhancement', () => {
 });
 ```
 
-### Caption Quality Metrics Enhancement Tests
+### Micro Quality Metrics Enhancement Tests
 ```typescript
-// tests/accessibility/Caption.semantic-enhancement.test.tsx
-describe('Caption Quality Metrics Semantic Enhancement', () => {
+// tests/accessibility/Micro.semantic-enhancement.test.tsx
+describe('Micro Quality Metrics Semantic Enhancement', () => {
   test('implements surface analysis specific attributes', () => {
     const mockData = {
       material: 'Aluminum 6061-T6',
       quality_metrics: { surface_roughness_ra: 0.8, thermal_conductivity: 167 }
     };
     
-    const { container } = render(<Caption frontmatter={mockData} />);
+    const { container } = render(<Micro frontmatter={mockData} />);
     
     const metricElements = container.querySelectorAll('[data-metric-type="quality_measurement"]');
     metricElements.forEach((element: Element) => {
@@ -183,7 +183,7 @@ describe('Caption Quality Metrics Semantic Enhancement', () => {
     
     materials.forEach(material => {
       const { container, unmount } = render(
-        <Caption frontmatter={{ material, quality_metrics: { test_metric: 42 } }} />
+        <Micro frontmatter={{ material, quality_metrics: { test_metric: 42 } }} />
       );
       
       const dataElements = container.querySelectorAll('[data-material]');
@@ -202,7 +202,7 @@ describe('Caption Quality Metrics Semantic Enhancement', () => {
       electrical_conductivity: 38.2  // precision: 1, magnitude: medium
     };
     
-    const { container } = render(<Caption frontmatter={{ quality_metrics: qualityMetrics }} />);
+    const { container } = render(<Micro frontmatter={{ quality_metrics: qualityMetrics }} />);
     
     // Validate precision calculations
     expect(container.querySelector('[data-property="surface_roughness_ra"]')).toHaveAttribute('data-precision', '1');
@@ -482,16 +482,16 @@ describe('MetricsCard Keyboard Navigation', () => {
 });
 ```
 
-## Caption Component Accessibility Tests
+## Micro Component Accessibility Tests
 
 ### Complex Navigation Tests
 ```typescript
-// tests/accessibility/Caption.navigation.test.tsx
+// tests/accessibility/Micro.navigation.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Caption from '@/app/components/Caption/Caption';
+import Micro from '@/app/components/Micro/Micro';
 
-describe('Caption Keyboard Navigation', () => {
+describe('Micro Keyboard Navigation', () => {
   const mockData = {
     material: 'Aluminum',
     quality_metrics: {
@@ -506,7 +506,7 @@ describe('Caption Keyboard Navigation', () => {
 
   test('implements complex arrow key navigation through metrics', async () => {
     const user = userEvent.setup();
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const mainSection = screen.getByRole('region');
     await user.tab();
@@ -535,7 +535,7 @@ describe('Caption Keyboard Navigation', () => {
 
   test('implements Home and End key navigation', async () => {
     const user = userEvent.setup();
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const mainSection = screen.getByRole('region');
     await user.tab();
@@ -552,7 +552,7 @@ describe('Caption Keyboard Navigation', () => {
 
   test('implements Escape key to exit metrics overlay', async () => {
     const user = userEvent.setup();
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const mainSection = screen.getByRole('region');
     await user.tab();
@@ -568,7 +568,7 @@ describe('Caption Keyboard Navigation', () => {
 
   test('announces navigation changes via live region', async () => {
     const user = userEvent.setup();
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const liveRegion = screen.getByRole('status');
     expect(liveRegion).toHaveAttribute('aria-live', 'polite');
@@ -586,14 +586,14 @@ describe('Caption Keyboard Navigation', () => {
 
 ### Live Regions and State Tests
 ```typescript
-// tests/accessibility/Caption.states.test.tsx
+// tests/accessibility/Micro.states.test.tsx
 import { render, screen, waitFor } from '@testing-library/react';
-import Caption from '@/app/components/Caption/Caption';
+import Micro from '@/app/components/Micro/Micro';
 
-describe('Caption State Management', () => {
+describe('Micro State Management', () => {
   test('implements loading state with progress bar', async () => {
     const loadingData = { material: 'Loading', isLoading: true };
-    render(<Caption data={loadingData} />);
+    render(<Micro data={loadingData} />);
     
     const progressbar = screen.getByRole('progressbar');
     expect(progressbar).toHaveAttribute('aria-label', 'Loading surface analysis image');
@@ -605,7 +605,7 @@ describe('Caption State Management', () => {
 
   test('implements error state with alert role', async () => {
     const errorData = { material: 'Error', hasError: true };
-    render(<Caption data={errorData} />);
+    render(<Micro data={errorData} />);
     
     const alert = screen.getByRole('alert');
     expect(alert).toHaveAttribute('aria-live', 'assertive');
@@ -621,26 +621,26 @@ describe('Caption State Management', () => {
       quality_metrics: { test_metric: 1.0 }
     };
     
-    const { rerender } = render(<Caption data={mockData} />);
+    const { rerender } = render(<Micro data={mockData} />);
     
     const metricsRegion = screen.getByLabelText('Interactive quality metrics overlay');
     expect(metricsRegion).toHaveAttribute('aria-expanded', 'false');
     
     // Simulate expanding metrics
     fireEvent.click(metricsRegion);
-    rerender(<Caption data={mockData} expanded={true} />);
+    rerender(<Micro data={mockData} expanded={true} />);
     
     expect(metricsRegion).toHaveAttribute('aria-expanded', 'true');
   });
 
   test('updates live regions on state changes', async () => {
     const mockData = { material: 'Test' };
-    const { rerender } = render(<Caption data={mockData} />);
+    const { rerender } = render(<Micro data={mockData} />);
     
     const liveRegion = screen.getByRole('status');
     
     // Simulate image loading completion
-    rerender(<Caption data={{ ...mockData, imageLoaded: true }} />);
+    rerender(<Micro data={{ ...mockData, imageLoaded: true }} />);
     
     await waitFor(() => {
       expect(liveRegion).toHaveTextContent('Surface analysis image loaded successfully');
@@ -651,18 +651,18 @@ describe('Caption State Management', () => {
 
 ### Image and Media Accessibility Tests
 ```typescript
-// tests/accessibility/Caption.media.test.tsx
+// tests/accessibility/Micro.media.test.tsx
 import { render, screen } from '@testing-library/react';
-import Caption from '@/app/components/Caption/Caption';
+import Micro from '@/app/components/Micro/Micro';
 
-describe('Caption Media Accessibility', () => {
+describe('Micro Media Accessibility', () => {
   test('implements accessible image with figure pattern', () => {
     const mockData = {
       material: 'Aluminum',
       imageSource: '/test-image.jpg'
     };
     
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const figure = screen.getByRole('img');
     expect(figure.tagName).toBe('FIGURE');
@@ -679,7 +679,7 @@ describe('Caption Media Accessibility', () => {
       imageSource: null
     };
     
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const noImageMessage = screen.getByText(/No image available for Aluminum surface analysis/);
     expect(noImageMessage).toHaveClass('sr-only');
@@ -691,7 +691,7 @@ describe('Caption Media Accessibility', () => {
       imageSource: '/responsive-image.jpg'
     };
     
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const img = screen.getByAltText(/Surface analysis showing Steel/);
     expect(img).toHaveAttribute('loading', 'lazy');
@@ -715,7 +715,7 @@ describe('Caption Media Accessibility', () => {
 - [ ] Focus navigation clear and logical
 - [ ] No repeated or redundant announcements
 
-### Caption Component  
+### Micro Component  
 - [ ] Region role announced correctly
 - [ ] Image content described adequately
 - [ ] Quality metrics navigation clear
@@ -770,14 +770,14 @@ describe('Screen Reader Content', () => {
     expect(accessibleDescription).toContain('Press Enter or Space to search');
   });
 
-  test('Caption provides comprehensive image description', () => {
+  test('Micro provides comprehensive image description', () => {
     const mockData = {
       material: 'Aluminum',
       quality_metrics: { roughness: 2.5 },
       hasMetrics: true
     };
     
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     const figure = screen.getByRole('img');
     const accessibleDescription = getComputedAccessibleDescription(figure);
@@ -832,7 +832,7 @@ describe('Accessibility Performance', () => {
     };
     
     const startTime = performance.now();
-    render(<Caption data={mockData} />);
+    render(<Micro data={mockData} />);
     
     // Simulate rapid navigation
     for (let i = 0; i < 50; i++) {
@@ -877,7 +877,7 @@ describe('Real Data Integration', () => {
     }
   ];
 
-  const realCaptionData = {
+  const realMicroData = {
     material: 'Aluminum 6061-T6',
     quality_metrics: {
       surface_roughness_ra: 0.8,
@@ -923,8 +923,8 @@ describe('Real Data Integration', () => {
     expect(screen.getAllByRole('article')[1]).toHaveFocus();
   });
 
-  test('Caption with complex real data maintains accessibility', async () => {
-    const { container } = render(<Caption data={realCaptionData} />);
+  test('Micro with complex real data maintains accessibility', async () => {
+    const { container } = render(<Micro data={realMicroData} />);
 
     // Should pass comprehensive accessibility scan
     const results = await axe(container);
@@ -994,7 +994,7 @@ const { axe, configureAxe } = require('jest-axe');
 const generateAccessibilityReport = async () => {
   const results = {
     metrics: [],
-    captions: [],
+    micros: [],
     summary: {
       totalViolations: 0,
       totalPasses: 0,

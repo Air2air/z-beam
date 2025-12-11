@@ -51,7 +51,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
     const images = frontmatter.images || {};
     const applications = frontmatter.applications || [];
     const regulatoryStandards = frontmatter.regulatoryStandards || [];
-    const caption = frontmatter.caption || {};
+    const micro = frontmatter.micro || {};
     const faq = frontmatter.faq || [];
     
     const title = frontmatter.title || metadata.title || 'Material Guide';
@@ -82,7 +82,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
         modifiedDate,
         author,
         images,
-        caption,
+        micro,
         applications,
         articleType: 'TechnicalArticle'
       }),
@@ -160,7 +160,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
 
 // 1. Technical Article Schema (E-E-A-T: Experience & Expertise)
 function createTechnicalArticleSchema(data: any) {
-  const { title, description, subtitle: material_description, pageUrl, publishDate, modifiedDate, author, images, caption, applications, faq } = data;
+  const { title, description, subtitle: material_description, pageUrl, publishDate, modifiedDate, author, images, micro, applications, faq } = data;
   const baseUrl = SITE_CONFIG.url;
   
   // Process FAQ questions if available
@@ -174,10 +174,10 @@ function createTechnicalArticleSchema(data: any) {
     }
   })) : [];
   
-  // Get caption text safely from {before, after} format
-  const captionText = caption?.before;
-  const captionAfterText = caption?.after;
-  const articleBodyText = captionText ? `${captionText}\n\n${captionAfterText || ''}` : description;
+  // Get micro text safely from {before, after} format
+  const microText = micro?.before;
+  const microAfterText = micro?.after;
+  const articleBodyText = microText ? `${microText}\n\n${microAfterText || ''}` : description;
   
   return {
     '@type': 'Article',
@@ -223,12 +223,12 @@ function createTechnicalArticleSchema(data: any) {
         ...(images?.hero?.url ? [{
           '@type': 'ImageObject',
           url: `${baseUrl}${images.hero.url}`,
-          caption: images.hero.alt || caption?.description
+          micro: images.hero.alt || micro?.description
         }] : []),
         ...(images?.micro?.url ? [{
           '@type': 'ImageObject',
           url: `${baseUrl}${images.micro.url}`,
-          caption: images.micro.alt || caption?.description
+          micro: images.micro.alt || micro?.description
         }] : [])
       ]
     }),
@@ -306,7 +306,7 @@ function createMaterialProductSchema(data: any) {
     productImages.push({
       '@type': 'ImageObject',
       url: `${baseUrl}${images.hero.url}`,
-      caption: images.hero.alt || description
+      micro: images.hero.alt || description
     });
   }
   // Add micro image for detailed surface view
@@ -314,7 +314,7 @@ function createMaterialProductSchema(data: any) {
     productImages.push({
       '@type': 'ImageObject',
       url: `${baseUrl}${images.micro.url}`,
-      caption: images.micro.alt || `Detailed microscopic view of ${materialName} surface after laser cleaning`
+      micro: images.micro.alt || `Detailed microscopic view of ${materialName} surface after laser cleaning`
     });
   }
   
@@ -494,7 +494,7 @@ function createHowToSchema(data: any) {
       image: {
         '@type': 'ImageObject',
         url: `${baseUrl}${images.micro.url}`,
-        caption: images.micro.alt || `Detailed result of laser cleaning ${materialName}`
+        micro: images.micro.alt || `Detailed result of laser cleaning ${materialName}`
       }
     }),
     

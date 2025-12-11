@@ -29,7 +29,7 @@
 ```
 140K  Dataset          ← Largest component
 68K   Heatmap
-48K   Caption
+48K   Micro
 44K   Table
 40K   ParameterRelationships
 36K   ThermalAccumulation
@@ -165,7 +165,7 @@ app/components/Dataset/*.tsx                     console.log('Download Debug:')
 **Review These Components**:
 ```
 ❓ Can these be Server Components?
-   - Caption (dynamic import already exists)
+   - Micro (dynamic import already exists)
    - PropertyBars (data display only?)
    - MaterialDatasetCardWrapper
    - ContentCard
@@ -398,7 +398,7 @@ First Load JS:     150 KB (25% reduction)
 
 1. ✅ No heavy dependencies
 2. ✅ No test files in app/ directory (proper separation)
-3. ✅ Good use of dynamic imports (Caption component)
+3. ✅ Good use of dynamic imports (Micro component)
 4. ✅ Server-side rendering where appropriate
 5. ✅ Comprehensive validation scripts
 6. ✅ Well-documented codebase

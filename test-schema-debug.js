@@ -51,7 +51,7 @@ function getMainImage(data) {
       'url': `https://www.z-beam.com${hero.url}`,
       'width': hero.width || 1200,
       'height': hero.height || 630,
-      'caption': hero.alt
+      'micro': hero.alt
     };
   }
   

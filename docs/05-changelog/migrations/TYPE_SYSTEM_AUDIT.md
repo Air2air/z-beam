@@ -24,7 +24,7 @@ The type system is **mostly centralized** with `types/centralized.ts` serving as
    - Clear documentation in type files
 
 3. **Appropriate Local Types**
-   - Component-specific props interfaces (e.g., `BadgeSymbolProps`, `CaptionImageProps`)
+   - Component-specific props interfaces (e.g., `BadgeSymbolProps`, `MicroImageProps`)
    - Page-specific props (e.g., `CategoryPageProps`, `MaterialPageProps`)
    - Internal utility types (e.g., `CardVariantKey`, `SizeVariant`)
    - These are correctly scoped to their files and don't need centralization
@@ -80,8 +80,8 @@ The type system is **mostly centralized** with `types/centralized.ts` serving as
 - **Recommendation**: Keep in `types/centralized.ts`, remove from `site.ts`
 - **Impact**: Medium - used in navigation throughout app
 
-### 8. **SEOCaptionProps** (Duplicate)
-- **Location 1**: `app/components/Caption/SEOOptimizedCaption.tsx:24` - `type SEOCaptionProps = SEOOptimizedCaptionProps`
+### 8. **SEOMicroProps** (Duplicate)
+- **Location 1**: `app/components/Micro/SEOOptimizedMicro.tsx:24` - `type SEOMicroProps = SEOOptimizedMicroProps`
 - **Location 2**: `types/centralized.ts:2008`
 - **Recommendation**: Remove from component file, import from `@/types`
 - **Impact**: Low - component-specific
@@ -103,7 +103,7 @@ Duplicates in this file:
 ### Component Files (3 duplicates)
 - `app/components/Navigation/breadcrumbs.tsx` - BreadcrumbsProps
 - `app/components/ContactButton/Button.tsx` - ButtonProps
-- `app/components/Caption/SEOOptimizedCaption.tsx` - SEOCaptionProps
+- `app/components/Micro/SEOOptimizedMicro.tsx` - SEOMicroProps
 
 **Recommendation**: Remove local exports, import from `@/types` instead.
 
@@ -170,7 +170,7 @@ These are correctly placed in their utility files:
 3. **Update Component Files**
    - `breadcrumbs.tsx`: Remove `BreadcrumbsProps` export, import from `@/types`
    - `Button.tsx`: Remove `ButtonProps` export, import from `@/types`
-   - `SEOOptimizedCaption.tsx`: Remove `SEOCaptionProps` type alias, import directly
+   - `SEOOptimizedMicro.tsx`: Remove `SEOMicroProps` type alias, import directly
 
 ### Medium Priority (Verification)
 
@@ -227,12 +227,12 @@ import type { ButtonProps } from '@/types';
 // Remove: export interface ButtonProps { ... }
 ```
 
-**`app/components/Caption/SEOOptimizedCaption.tsx`:**
+**`app/components/Micro/SEOOptimizedMicro.tsx`:**
 ```typescript
-import type { SEOCaptionProps } from '@/types';
+import type { SEOMicroProps } from '@/types';
 
-// Remove: export type SEOCaptionProps = SEOOptimizedCaptionProps;
-// Remove: interface SEOOptimizedCaptionProps { ... }
+// Remove: export type SEOMicroProps = SEOOptimizedMicroProps;
+// Remove: interface SEOOptimizedMicroProps { ... }
 ```
 
 ### Step 3: Fix Re-exports
@@ -327,7 +327,7 @@ The type system is **85-90% consolidated** and well-structured. The remaining 8 
 1. ✅ **types/centralized.ts**
    - Updated `NavItem` interface to include all required fields
    - Updated `BreadcrumbsProps` to match actual component usage
-   - Updated `SEOCaptionProps` to match actual component usage
+   - Updated `SEOMicroProps` to match actual component usage
 
 2. ✅ **app/config/site.ts**
    - Added import: `import type { GridColumns, GridGap, GridContainer, StandardGridProps, NavItem } from '@/types'`
@@ -342,9 +342,9 @@ The type system is **85-90% consolidated** and well-structured. The remaining 8 
    - Removed `ButtonProps` export
    - Added import: `import type { ButtonProps } from '@/types'`
 
-5. ✅ **app/components/Caption/SEOOptimizedCaption.tsx**
-   - Removed local `SEOCaptionProps` type alias
-   - Added import: `import type { ParsedCaptionData, FrontmatterType, SEOCaptionProps } from '@/types'`
+5. ✅ **app/components/Micro/SEOOptimizedMicro.tsx**
+   - Removed local `SEOMicroProps` type alias
+   - Added import: `import type { ParsedMicroData, FrontmatterType, SEOMicroProps } from '@/types'`
 
 6. ✅ **app/utils/gridConfig.ts**
    - Updated to import types from `@/types` and re-export

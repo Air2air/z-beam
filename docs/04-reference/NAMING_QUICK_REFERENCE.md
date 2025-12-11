@@ -40,15 +40,15 @@ import {
   SearchGridProps,     // was: SearchResultsGridProps
 } from '@/types/centralized';
 
-// Caption types (37-46% shorter)
+// Micro types (37-46% shorter)
 import {
-  CaptionImgProps,     // was: CaptionImageComponentProps
-  SEOCaptionProps,     // was: SEOOptimizedCaptionProps
-} from '@/app/components/Caption/...';
+  MicroImgProps,     // was: MicroImageComponentProps
+  SEOMicroProps,     // was: SEOOptimizedMicroProps
+} from '@/app/components/Micro/...';
 
 import {
-  CaptionDataV2,       // was: EnhancedCaptionYamlData
-} from '@/app/components/Caption/useCaptionParsing';
+  MicroDataV2,       // was: EnhancedMicroYamlData
+} from '@/app/components/Micro/useMicroParsing';
 
 // Utility functions (19-27% shorter)
 import {
@@ -68,13 +68,13 @@ import {
 // Good: Specific, describes the domain
 interface MetricConfig { }
 interface TemplateProps { }
-interface CaptionData { }
+interface MicroData { }
 ```
 
 #### ✅ Version Indicators
 ```typescript
 // Good: Clear versioning
-interface CaptionDataV2 { }
+interface MicroDataV2 { }
 interface APIResponseV3 { }
 const CONFIG_VERSION_2 = { };
 ```
@@ -172,24 +172,24 @@ const enhancedData = fetchData();
 const improvedResults = process(enhancedData);
 
 // ✅ GOOD - Descriptive
-const captionData = fetchData();
-const filteredResults = process(captionData);
+const microData = fetchData();
+const filteredResults = process(microData);
 ```
 
 ### Example 3: Component Props
 
 ```typescript
 // ❌ BAD - Overly verbose
-import { SEOOptimizedCaptionProps } from './SEOOptimizedCaption';
+import { SEOOptimizedMicroProps } from './SEOOptimizedMicro';
 
-function MyComponent(props: SEOOptimizedCaptionProps) {
+function MyComponent(props: SEOOptimizedMicroProps) {
   // ...
 }
 
 // ✅ GOOD - Concise alias
-import { SEOCaptionProps } from './SEOOptimizedCaption';
+import { SEOMicroProps } from './SEOOptimizedMicro';
 
-function MyComponent(props: SEOCaptionProps) {
+function MyComponent(props: SEOMicroProps) {
   // ...
 }
 ```
@@ -260,7 +260,7 @@ Need to name something?
 | Types | `EnhancedData` | `DataV2` | Version clear |
 | Types | `GenericConfig` | `Config` | Remove redundant |
 | Types | `UniversalProps` | `TemplateProps` | Be specific |
-| Variables | `enhancedData` | `captionData` | Descriptive |
+| Variables | `enhancedData` | `microData` | Descriptive |
 | Variables | `isEnhanced` | `hasV2Features` | Clear intent |
 | Variables | `improvedResults` | `filteredResults` | Operation clear |
 | CSS | `.enhanced-section` | `.feature-section` | Semantic |

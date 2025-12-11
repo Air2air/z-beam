@@ -15,7 +15,7 @@ This comprehensive audit evaluates all Z-Beam components against WCAG 2.1 AA sta
 **Overall Assessment:** 🟡 MOSTLY COMPLIANT with areas for improvement
 
 ### Key Findings:
-- ✅ **Strengths:** Strong ARIA implementation in MetricsCard and Caption components
+- ✅ **Strengths:** Strong ARIA implementation in MetricsCard and Micro components
 - ✅ **Strengths:** Excellent semantic HTML structure in navigation components
 - ⚠️ **Concerns:** Inconsistent focus management across components
 - ⚠️ **Concerns:** Missing ARIA labels and descriptions in several components
@@ -394,7 +394,7 @@ This comprehensive audit evaluates all Z-Beam components against WCAG 2.1 AA sta
    // Implement debouncing if needed
    ```
 
-#### 4.2 Caption Component
+#### 4.2 Micro Component
 
 **WCAG Compliance: 🟢 EXCELLENT** (9.5/10)
 
@@ -660,7 +660,7 @@ This comprehensive audit evaluates all Z-Beam components against WCAG 2.1 AA sta
 
 ## Conclusion
 
-The Z-Beam component library has strong accessibility foundations, particularly in the MetricsCard and Caption components which follow WCAG 2.1 AA standards comprehensively. However, several critical issues need to be addressed across navigation, forms, and interactive components.
+The Z-Beam component library has strong accessibility foundations, particularly in the MetricsCard and Micro components which follow WCAG 2.1 AA standards comprehensively. However, several critical issues need to be addressed across navigation, forms, and interactive components.
 
 **Priority Actions:**
 1. Fix focus indicators immediately

@@ -44,7 +44,7 @@ const deepSearchFields = [
   'materialProperties',     // ← CONFIRMED: Searches all material properties
   'environmentalImpact',
   'outcomeMetrics',
-  'caption',
+  'micro',
   'regulatoryStandards',
   'processing',
   'keywords',

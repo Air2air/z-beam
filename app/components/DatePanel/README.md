@@ -155,5 +155,5 @@ Date information is considered secondary metadata that can be omitted on small s
 ## Related Components
 
 - **Author**: Primary consumer of DatePanel
-- **Caption**: Another metadata display component
+- **Micro**: Another metadata display component
 - **SectionContainer**: Similar pattern of optional title/metadata display

@@ -1,14 +1,14 @@
 /**
- * Test Suite: Caption Component Layout Validation
+ * Test Suite: Micro Component Layout Validation
  * Testing the new side-by-side layout for before/after sections
  * Updated to use centralized types
  */
 
-import { Caption } from '@/app/components/Caption/Caption';
-import { CaptionDataStructure, CaptionProps, FrontmatterType } from '@/types/centralized';
+import { Micro } from '@/app/components/Micro/Micro';
+import { MicroDataStructure, MicroProps, FrontmatterType } from '@/types/centralized';
 
-describe('Caption Component Layout Integration', () => {
-  const mockCaptionData: CaptionDataStructure = {
+describe('Micro Component Layout Integration', () => {
+  const mockMicroData: MicroDataStructure = {
     before_text: 'Surface shows contamination and oxidation',
     after_text: 'Surface is clean with restored metallic finish',
     material: 'steel',
@@ -17,19 +17,19 @@ describe('Caption Component Layout Integration', () => {
 
   test('should have proper data structure for side-by-side layout', () => {
     // Test that the component can accept the expected data structure
-    expect(mockCaptionData.before_text).toBeTruthy();
-    expect(mockCaptionData.after_text).toBeTruthy();
-    expect(typeof mockCaptionData.before_text).toBe('string');
-    expect(typeof mockCaptionData.after_text).toBe('string');
+    expect(mockMicroData.before_text).toBeTruthy();
+    expect(mockMicroData.after_text).toBeTruthy();
+    expect(typeof mockMicroData.before_text).toBe('string');
+    expect(typeof mockMicroData.after_text).toBe('string');
   });
 
   test('should handle single section data structures', () => {
-    const beforeOnly: CaptionDataStructure = {
+    const beforeOnly: MicroDataStructure = {
       before_text: 'Surface shows contamination',
       material: 'aluminum'
     };
     
-    const afterOnly: CaptionDataStructure = {
+    const afterOnly: MicroDataStructure = {
       after_text: 'Surface is clean',
       material: 'titanium'
     };
@@ -43,7 +43,7 @@ describe('Caption Component Layout Integration', () => {
 
   test('should support both string and object content', () => {
     const stringContent = "Simple text content";
-    const objectContent = mockCaptionData;
+    const objectContent = mockMicroData;
     
     expect(typeof stringContent).toBe('string');
     expect(typeof objectContent).toBe('object');
@@ -62,17 +62,17 @@ describe('Caption Component Layout Integration', () => {
     expect(frontmatter.name).toBeTruthy();
   });
 
-  test('caption data structure should be valid', () => {
-    // Validate the caption data structure
-    expect(mockCaptionData).toHaveProperty('before_text');
-    expect(mockCaptionData).toHaveProperty('after_text');
-    expect(mockCaptionData).toHaveProperty('material');
-    expect(mockCaptionData).toHaveProperty('title');
+  test('micro data structure should be valid', () => {
+    // Validate the micro data structure
+    expect(mockMicroData).toHaveProperty('before_text');
+    expect(mockMicroData).toHaveProperty('after_text');
+    expect(mockMicroData).toHaveProperty('material');
+    expect(mockMicroData).toHaveProperty('title');
   });
 
-  test('should support CaptionProps interface', () => {
-    const captionProps: CaptionProps = {
-      content: mockCaptionData,
+  test('should support MicroProps interface', () => {
+    const microProps: MicroProps = {
+      content: mockMicroData,
       frontmatter: {
         title: 'Test',
         name: 'test-material',
@@ -89,15 +89,15 @@ describe('Caption Component Layout Integration', () => {
       }
     };
 
-    expect(captionProps.content).toBeDefined();
-    expect(captionProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
-    expect(captionProps.config?.className).toBe('test-class');
+    expect(microProps.content).toBeDefined();
+    expect(microProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
+    expect(microProps.config?.className).toBe('test-class');
   });
 });
 
-describe('Caption Component Centralized Types', () => {
-  test('should use centralized CaptionDataStructure type', () => {
-    const captionData: CaptionDataStructure = {
+describe('Micro Component Centralized Types', () => {
+  test('should use centralized MicroDataStructure type', () => {
+    const microData: MicroDataStructure = {
       before_text: 'Before cleaning',
       after_text: 'After cleaning',
       quality_metrics: {
@@ -107,12 +107,12 @@ describe('Caption Component Centralized Types', () => {
       }
     };
 
-    expect(captionData.quality_metrics?.contamination_removal).toBe('95%');
-    expect(captionData.quality_metrics?.surface_roughness_before).toBe('12μm');
+    expect(microData.quality_metrics?.contamination_removal).toBe('95%');
+    expect(microData.quality_metrics?.surface_roughness_before).toBe('12μm');
   });
 
   test('should support extended properties from centralized types', () => {
-    const caption: CaptionDataStructure = {
+    const micro: MicroDataStructure = {
       title: 'Advanced Analysis',
       description: 'Comprehensive surface treatment',
       technicalSpecifications: {
@@ -126,8 +126,8 @@ describe('Caption Component Centralized Types', () => {
       }
     };
 
-    expect(caption.technicalSpecifications?.wavelength).toBe('1064nm');
-    expect(caption.accessibility?.technical_level).toBe('Advanced');
+    expect(micro.technicalSpecifications?.wavelength).toBe('1064nm');
+    expect(micro.accessibility?.technical_level).toBe('Advanced');
   });
 
   // Test for author object rendering fix
@@ -174,8 +174,8 @@ describe('Caption Component Centralized Types', () => {
 
     expect(authorContent).toBe('Todd Dunning');
 
-    // Test caption data structure
-    const caption = {
+    // Test micro data structure
+    const micro = {
       technicalSpecifications: {
         wavelength: '1064nm',
         power: '20W',
@@ -187,7 +187,7 @@ describe('Caption Component Centralized Types', () => {
       }
     };
 
-    expect(caption.technicalSpecifications?.wavelength).toBe('1064nm');
-    expect(caption.accessibility?.technical_level).toBe('Advanced');
+    expect(micro.technicalSpecifications?.wavelength).toBe('1064nm');
+    expect(micro.accessibility?.technical_level).toBe('Advanced');
   });
 });

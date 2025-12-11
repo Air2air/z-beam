@@ -246,7 +246,7 @@ The components appear in this order on material pages:
 3. **Author Info**
 4. **Material Properties** (MetricsGrid - materialProperties)
 5. **Machine Settings** (MetricsGrid - machineSettings)
-6. **Caption** (images.micro with before/after text)
+6. **Micro** (images.micro with before/after text)
 7. **Applications List** ← NEW
 8. **Regulatory Standards** ← NEW
 9. **Environmental Impact** ← NEW

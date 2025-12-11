@@ -41,7 +41,7 @@
 - ✅ `app/components/Title/styles.css` - Migrated to inline Tailwind
 - ✅ `app/components/Content/styles.css` - Migrated to inline Tailwind
 - ✅ `app/components/Base/styles.css` - Migrated to inline Tailwind
-- ✅ `app/components/Caption/styles.css` - Legacy, not imported
+- ✅ `app/components/Micro/styles.css` - Legacy, not imported
 - ✅ `app/components/BadgeSymbol/styles.css` - Migrated to inline Tailwind
 
 ---

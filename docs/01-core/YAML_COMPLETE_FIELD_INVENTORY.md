@@ -128,9 +128,9 @@ outcomeMetrics:
     units: Array<String>
 ```
 
-#### 11. **caption**
+#### 11. **micro**
 ```yaml
-caption:
+micro:
   beforeText: String
   afterText: String
   description: String
@@ -379,7 +379,7 @@ outcomes:
 - ✅ author (Author component)
 - ✅ images (Hero, Thumbnail)
 - ✅ tags (Tags component)
-- ✅ caption (Caption component)
+- ✅ micro (Micro component)
 - ✅ applications (displayed in text/lists)
 - ✅ regulatoryStandards (displayed in text/lists)
 - ✅ environmentalImpact (displayed in structured lists)
@@ -418,7 +418,7 @@ outcomes:
 - environmentalImpact
 - subtitle
 - outcomeMetrics
-- caption
+- micro
 - tags
 
 ### Optional Fields (< 100% of files)

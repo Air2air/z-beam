@@ -19,21 +19,21 @@ These tests reference components that no longer exist:
    - Error: `Cannot find module '../../app/components/Templates/UniversalPage'`
    - **Action:** DELETE - Component removed during refactoring
 
-2. **tests/components/Caption.author.test.tsx**
-   - Likely testing old Caption structure
+2. **tests/components/Micro.author.test.tsx**
+   - Likely testing old Micro structure
    - **Action:** VERIFY if still needed, likely DELETE
 
 3. **tests/components/Layout.test.tsx**
    - May be testing old Layout component
    - **Action:** CHECK for new Layout location, update imports or DELETE
 
-4. **tests/accessibility/Caption.semantic-enhancement.test.tsx**
-   - Testing old Caption accessibility features
-   - **Action:** DELETE if Caption refactored
+4. **tests/accessibility/Micro.semantic-enhancement.test.tsx**
+   - Testing old Micro accessibility features
+   - **Action:** DELETE if Micro refactored
 
-5. **tests/accessibility/Caption.comprehensive.test.tsx**
-   - Old Caption accessibility suite
-   - **Action:** DELETE if Caption refactored
+5. **tests/accessibility/Micro.comprehensive.test.tsx**
+   - Old Micro accessibility suite
+   - **Action:** DELETE if Micro refactored
 
 6. **tests/app/static-pages-render.test.tsx**
    - May reference old page structure
@@ -54,7 +54,7 @@ These tests reference components that no longer exist:
 **Tests Affected:**
 1. Author Architecture - YAML Loading (2 tests)
 2. Content API - Page Data Loading (1 test)
-3. Caption Validation - Structure Check (1 test)
+3. Micro Validation - Structure Check (1 test)
 
 **Solution:**
 ```javascript
@@ -77,7 +77,7 @@ metadata:
 **Files to Fix:**
 - Test fixtures in `tests/components/author-architecture.test.js`
 - Test fixtures in `tests/utils/contentAPI.test.js`
-- Test fixtures in `tests/components/CaptionContentValidation.test.ts`
+- Test fixtures in `tests/components/MicroContentValidation.test.ts`
 
 **Time Estimate:** 10-15 minutes
 
@@ -204,9 +204,9 @@ expect(element?.className).toContain('tracking-');
 1. ✅ **Delete Obsolete Tests**
    ```bash
    rm tests/components/UniversalPage.test.tsx
-   rm tests/components/Caption.author.test.tsx
-   rm tests/accessibility/Caption.semantic-enhancement.test.tsx
-   rm tests/accessibility/Caption.comprehensive.test.tsx
+   rm tests/components/Micro.author.test.tsx
+   rm tests/accessibility/Micro.semantic-enhancement.test.tsx
+   rm tests/accessibility/Micro.comprehensive.test.tsx
    ```
 
 2. ✅ **Fix YAML Fixtures**
@@ -302,9 +302,9 @@ expect(element?.className).toContain('tracking-');
 ```bash
 cd /Users/todddunning/Desktop/Z-Beam/z-beam
 rm tests/components/UniversalPage.test.tsx
-rm tests/components/Caption.author.test.tsx
-rm tests/accessibility/Caption.semantic-enhancement.test.tsx
-rm tests/accessibility/Caption.comprehensive.test.tsx
+rm tests/components/Micro.author.test.tsx
+rm tests/accessibility/Micro.semantic-enhancement.test.tsx
+rm tests/accessibility/Micro.comprehensive.test.tsx
 ```
 
 ### Run Specific Test Suite

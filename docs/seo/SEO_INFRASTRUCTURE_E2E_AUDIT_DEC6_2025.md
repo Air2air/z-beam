@@ -353,7 +353,7 @@ mv SEO_INFRASTRUCTURE_STRATEGY.md docs/seo/
 # Frontmatter
 material_description: "..."
 settings_description: "..."
-caption: "..."
+micro: "..."
 
 # TypeScript
 materialDescription: "..."  # camelCase

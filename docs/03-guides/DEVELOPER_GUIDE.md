@@ -33,7 +33,7 @@ z-beam/
 │   │   ├── Navigation/     # Navigation components (nav.tsx, footer.tsx)
 │   │   ├── Contact/        # Contact form and info components
 │   │   ├── Hero/          # Hero section components
-│   │   ├── Caption/       # Caption and media components
+│   │   ├── Micro/       # Micro and media components
 │   │   └── ErrorBoundary/ # Error handling components
 │   ├── [slug]/            # Dynamic route handling
 │   ├── about/             # About page
@@ -725,7 +725,7 @@ npm test -- --watch
 ✅ Navigation: 18 accessibility tests passing
 ✅ Contact: 22 accessibility tests passing  
 ✅ Hero: 11 accessibility tests passing
-✅ Caption: 15 accessibility tests passing
+✅ Micro: 15 accessibility tests passing
 ✅ Author: 4 accessibility tests passing
 ✅ Tags: 4 accessibility tests passing
 Total: 74 tests passing

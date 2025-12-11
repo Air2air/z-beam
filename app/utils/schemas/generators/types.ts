@@ -21,7 +21,7 @@ export interface AuthorData {
 export interface ImageData {
   url: string;
   alt?: string;
-  caption?: string;
+  micro?: string;
   width?: number;
   height?: number;
 }
@@ -63,7 +63,7 @@ export interface ImageObject {
   url: string;
   width?: number;
   height?: number;
-  caption?: string;
+  micro?: string;
   contentUrl?: string;
   // Image License Metadata (Google Rich Results)
   // @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata

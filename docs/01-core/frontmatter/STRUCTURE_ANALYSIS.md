@@ -11,7 +11,7 @@ The frontmatter files contain a **comprehensive, well-structured** data schema w
 1. **Basic Metadata** - name, category, subcategory, title, subtitle, description
 2. **Author Information** - Full author object with credentials
 3. **Visual Assets** - Hero and micro images
-4. **Content Elements** - Caption with before/after analysis text
+4. **Content Elements** - Micro with before/after analysis text
 5. **Compliance** - regulatoryStandards array
 6. **Use Cases** - applications array
 7. **Technical Properties** - materialProperties (nested categories)
@@ -59,8 +59,8 @@ images:
 # ============================================================================
 # CONTENT ELEMENTS
 # ============================================================================
-caption:
-  description: String                 # Brief caption description
+micro:
+  description: String                 # Brief micro description
   beforeText: String                  # Long-form analysis text (before cleaning)
   afterText: String                   # Long-form analysis text (after cleaning)
 
@@ -248,7 +248,7 @@ research_basis: "environmental_monitoring_studies"
 4. **Detailed Properties**: Extensive property data with research citations
 5. **Categorized Organization**: Properties logically grouped into categories
 6. **Range Data**: Min/max values for all numeric properties
-7. **Professional Content**: Long-form caption analysis (beforeText/afterText)
+7. **Professional Content**: Long-form micro analysis (beforeText/afterText)
 8. **Compliance Info**: Regulatory standards with official URLs and logos
 
 ### ✅ Normalization Status
@@ -265,7 +265,7 @@ research_basis: "environmental_monitoring_studies"
 1. **Component Support**: Do all components read this complex structure?
 2. **Author Display**: Is author information rendered on pages?
 3. **Image Usage**: Are hero/micro images properly displayed?
-4. **Caption Text**: Is beforeText/afterText displayed?
+4. **Micro Text**: Is beforeText/afterText displayed?
 5. **Standards Rendering**: Are regulatoryStandards shown with logos?
 6. **Applications Display**: Are applications listed?
 
@@ -295,7 +295,7 @@ images:
     alt: Microscopic view of aluminum surface after laser cleaning showing restored metallic luster and minimal thermal effects
     url: /images/material/aluminum-laser-cleaning-micro.jpg
 
-caption:
+micro:
   description: Microscopic analysis of aluminum surface quality before and after laser cleaning
   beforeText: "Surface analysis reveals significant oxidation layer and contamination on untreated aluminum. The oxide layer, measuring 5-15 micrometers thick, exhibits uneven thickness distribution with embedded particulates from manufacturing processes. Energy Dispersive X-ray Spectroscopy (EDS) confirms the presence of aluminum oxide (Al2O3) along with trace contaminants including carbon compounds, silicates, and manufacturing residues. Surface roughness measurements indicate Ra values of 2.5-4.2 micrometers, primarily due to oxidation irregularities. The compromised surface shows reduced reflectivity at 532nm wavelength, with measured values of 45-60% compared to clean aluminum's typical 92-95% reflectivity."
   afterText: "Post-cleaning analysis demonstrates remarkable surface restoration with oxide layer completely removed. X-ray Photoelectron Spectroscopy (XPS) confirms surface composition of >99.5% pure aluminum with minimal oxidation (<0.5% Al2O3) only at the atomic surface level. Surface roughness improved to Ra 0.8-1.5 micrometers, representing 60-70% reduction from pre-cleaning values. Reflectivity measurements show recovery to 88-93% at 532nm wavelength. Scanning Electron Microscopy (SEM) reveals uniform surface morphology with no evidence of laser-induced damage, melting, or microcracking. The cleaned surface maintains structural integrity while achieving contamination removal exceeding 99.8% effectiveness."
@@ -409,7 +409,7 @@ Based on the structure, these components should read the data:
 Need to check if these fields are actually rendered:
 
 1. **Author display** - Is author bio shown? (author.name, author.expertise, author.image)
-2. **Caption text** - Is beforeText/afterText displayed?
+2. **Micro text** - Is beforeText/afterText displayed?
 3. **Regulatory standards** - Are standards shown with logos?
 4. **Applications** - Are applications listed?
 5. **Environmental impact** - Are emission/safety metrics displayed?
@@ -430,7 +430,7 @@ Need to check if these fields are actually rendered:
 1. **Are all sections being used?** - Some fields may not be rendered
 2. **Is author info displayed?** - Author component may not be on material pages
 3. **Are images used?** - Hero/micro images may not be shown
-4. **Is caption text displayed?** - BeforeText/afterText may be unused
+4. **Is micro text displayed?** - BeforeText/afterText may be unused
 5. **Are standards shown?** - Regulatory section may not be rendered
 
 ### 🎯 Recommendation
@@ -438,7 +438,7 @@ Need to check if these fields are actually rendered:
 The frontmatter structure is **production-ready** and **well-normalized**. The priority now is to:
 
 1. Audit which fields are **actually displayed** on material pages
-2. Add components for **unused sections** (author, caption, standards, etc.)
+2. Add components for **unused sections** (author, micro, standards, etc.)
 3. Verify **all categorized properties** render correctly in MetricsGrid
 4. Document the **complete schema** for future developers
 

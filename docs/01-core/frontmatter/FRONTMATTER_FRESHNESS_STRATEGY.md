@@ -5,7 +5,7 @@
 **Problem**: Frontmatter YAML files lack `datePublished` and `dateModified` fields, preventing Google from recognizing content freshness signals.
 
 **Solution**: Automated timestamp management system that:
-- Adds missing publication dates (using existing `caption.generated` timestamps)
+- Adds missing publication dates (using existing `micro.generated` timestamps)
 - Updates modification dates on a strategic rotation
 - Maintains authentic update history
 - Aligns with Google's freshness ranking signals
@@ -25,7 +25,7 @@
 **Timestamp Gap Discovered:**
 ```yaml
 # ❌ Current frontmatter structure
-caption:
+micro:
   generated: '2025-10-25T13:53:55.449239Z'  # Internal timestamp
   author: Todd Dunning
 
@@ -117,10 +117,10 @@ node scripts/update-freshness-timestamps.js --execute --batch=132 --oldest
 title: Aluminum Laser Cleaning
 material_description: Precision surface preparation...
 description: Comprehensive guide...
-datePublished: '2025-10-25T13:53:55.449239Z'  # ← NEW (from caption.generated)
+datePublished: '2025-10-25T13:53:55.449239Z'  # ← NEW (from micro.generated)
 dateModified: '2025-11-15T14:22:33.891234Z'   # ← NEW (current timestamp)
 
-caption:
+micro:
   generated: '2025-10-25T13:53:55.449239Z'
   author: Todd Dunning
 ```

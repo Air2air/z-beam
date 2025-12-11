@@ -87,11 +87,11 @@ Create `/docs/COMPONENT_MAP.md`:
 ## Core Components
 - `CardGrid` → Uses: `Card`, `TagFilter` → Types: `CardGridProps`, `CardItem`
 - `Card` → Uses: `Thumbnail`, `BadgeSymbol` → Types: `CardProps`, `BadgeData`
-- `Caption` → Uses: `MetricsCard`, `TechnicalDetails` → Types: `CaptionProps`
+- `Micro` → Uses: `MetricsCard`, `TechnicalDetails` → Types: `MicroProps`
 
 ## Utility Dependencies
 - `CardGrid` → `@/utils/formatting` (cleanupFloat, capitalizeWords)
-- `Caption` → `@/utils/stringHelpers` (extractSafeValue)
+- `Micro` → `@/utils/stringHelpers` (extractSafeValue)
 - `Card` → `@/utils/constants` (SITE_CONFIG)
 ```
 
@@ -133,7 +133,7 @@ Document which components still need type consolidation:
 ```typescript
 /**
  * @aiPattern When components can fail, wrap in error boundaries
- * @example <ErrorBoundary><Caption frontmatter={data} /></ErrorBoundary>
+ * @example <ErrorBoundary><Micro frontmatter={data} /></ErrorBoundary>
  */
 ```
 

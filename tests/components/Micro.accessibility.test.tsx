@@ -1,12 +1,12 @@
 /**
- * Test Suite: Caption Component Accessibility & Performance Standards
- * Testing caption component with Hero-level accessibility compliance
+ * Test Suite: Micro Component Accessibility & Performance Standards
+ * Testing micro component with Hero-level accessibility compliance
  */
 
 import React from 'react';
 
-// Comprehensive accessibility and performance testing for Caption component
-describe('Caption Component - Comprehensive Accessibility & Performance Standards', () => {
+// Comprehensive accessibility and performance testing for Micro component
+describe('Micro Component - Comprehensive Accessibility & Performance Standards', () => {
   
   describe('Accessibility Requirements (WCAG 2.1 AA)', () => {
     test('should meet WCAG 2.1 AA standards with Hero-level compliance', () => {
@@ -116,7 +116,7 @@ describe('Caption Component - Comprehensive Accessibility & Performance Standard
 
   describe('Component Feature Support', () => {
     test('should have complete TypeScript interface with accessibility props', () => {
-      // CaptionProps interface should include complete functionality
+      // MicroProps interface should include complete functionality
       const expectedProps = [
         'content', 'image', 'frontmatter', 'config',
         'accessibility support', 'error handling', 'loading states'
@@ -236,8 +236,8 @@ describe('Caption Component - Comprehensive Accessibility & Performance Standard
 
   describe('Image Requirement Behavior', () => {
     test('should return null when no image source is provided', () => {
-      // Caption component now requires an image to render
-      // Without frontmatter.images.micro.url OR caption object with images, returns null
+      // Micro component now requires an image to render
+      // Without frontmatter.images.micro.url OR micro object with images, returns null
       const requiredImageBehavior = {
         requiresImage: true, // Component returns null without image
         imageSourceFallback: true, // Checks multiple sources for image
@@ -250,16 +250,16 @@ describe('Caption Component - Comprehensive Accessibility & Performance Standard
       });
     });
 
-    test('should require image for Caption component to render', () => {
+    test('should require image for Micro component to render', () => {
       // Image source priority:
       // 1. frontmatter.images.micro.url
-      // 2. caption.images.micro.url
-      // 3. caption.imageUrl.url
+      // 2. micro.images.micro.url
+      // 3. micro.imageUrl.url
       // If all null/undefined -> returns null (no render)
       const imageSourcePriority = [
         'frontmatter.images.micro.url',
-        'caption.images.micro.url', 
-        'caption.imageUrl.url'
+        'micro.images.micro.url', 
+        'micro.imageUrl.url'
       ];
       
       expect(imageSourcePriority.length).toBe(3);
@@ -269,7 +269,7 @@ describe('Caption Component - Comprehensive Accessibility & Performance Standard
   describe('Integration with Z-Beam System', () => {
     test('should integrate seamlessly with v2.0 data structures', () => {
       const integrationFeatures = {
-        enhancedDataCompatibility: true, // Works with CaptionDataStructure
+        enhancedDataCompatibility: true, // Works with MicroDataStructure
         frontmatterIntegration: true, // Merges frontmatter with content data
         qualityMetricsSupport: true, // Displays quality metrics overlay
         accessibilityDataSupport: true, // Uses accessibility.alt_text_detailed

@@ -34,11 +34,11 @@ Card.tsx (app/components/Card/)
 
 ### **Content Components**
 ```
-Caption.tsx (app/components/Caption/) ⭐ COMPLEX DATA PARSING
-├── Uses: MetricsCard.tsx, useCaptionParsing.ts, Image (Next.js)
-├── Types: CaptionProps, CaptionDataStructure (centralized)
+Micro.tsx (app/components/Micro/) ⭐ COMPLEX DATA PARSING
+├── Uses: MetricsCard.tsx, useMicroParsing.ts, Image (Next.js)
+├── Types: MicroProps, MicroDataStructure (centralized)
 ├── Purpose: Material images with technical metadata
-└── AI Note: Handles multiple caption formats - let useCaptionParsing do the work
+└── AI Note: Handles multiple micro formats - let useMicroParsing do the work
 
 MetricsCard.tsx (app/components/MetricsCard/)
 ├── Uses: ProgressBar.tsx, @/utils/formatting
@@ -94,11 +94,11 @@ MarkdownRenderer.tsx (app/components/Base/)
 />
 ```
 
-### **Caption with Metrics Pattern**
+### **Micro with Metrics Pattern**
 ```tsx
 // Technical content pattern
-<Caption frontmatter={frontmatter} />
-// Caption automatically renders MetricsCard if technical data exists
+<Micro frontmatter={frontmatter} />
+// Micro automatically renders MetricsCard if technical data exists
 ```
 
 ### **Typography Usage Pattern** ⭐ NEW
@@ -161,7 +161,7 @@ Thumbnail + BadgeSymbol (visual elements)
 
 Technical Content
     ↓
-Caption (image + metadata)
+Micro (image + metadata)
     ↓
 MetricsCard (structured data)
     ↓

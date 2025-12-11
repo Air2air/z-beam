@@ -1,7 +1,7 @@
 # WCAG 2.1 AA Accessibility Implementation Guide
 
 ## Overview
-This document outlines the comprehensive WCAG 2.1 AA accessibility implementation across all Z-Beam components, with specific focus on MetricsCard and Caption components.
+This document outlines the comprehensive WCAG 2.1 AA accessibility implementation across all Z-Beam components, with specific focus on MetricsCard and Micro components.
 
 ## Semantic Enhancement and SEO Integration
 
@@ -58,7 +58,7 @@ All data elements now include comprehensive semantic attributes for enhanced SEO
 >
 ```
 
-#### Caption Quality Metrics Enhancement
+#### Micro Quality Metrics Enhancement
 ```tsx
 <data 
   value={value}
@@ -175,14 +175,14 @@ All data elements now include comprehensive semantic attributes for enhanced SEO
 - **Tab**: Standard focus progression
 - **Escape**: Exit focused metric, return to grid
 
-### Caption Component
+### Micro Component
 #### Semantic HTML Structure
 ```html
-<section role="region" aria-labelledby="caption-title-{id}" aria-describedby="caption-desc-{id}">
+<section role="region" aria-labelledby="micro-title-{id}" aria-describedby="micro-desc-{id}">
   <header>
-    <h3 id="caption-title-{id}" role="heading" aria-level="3">{title}</h3>
+    <h3 id="micro-title-{id}" role="heading" aria-level="3">{title}</h3>
   </header>
-  <figure role="img" aria-labelledby="caption-title-{id}">
+  <figure role="img" aria-labelledby="micro-title-{id}">
     <div role="region" aria-label="Interactive quality metrics overlay">
       <div role="list" aria-label="Quality metrics list">
         <div role="listitem">
@@ -195,14 +195,14 @@ All data elements now include comprehensive semantic attributes for enhanced SEO
         </div>
       </div>
     </div>
-    <figcaption role="group">
+    <figmicro role="group">
       <section role="region" aria-labelledby="before-treatment-{id}">
         <h4 id="before-treatment-{id}" role="heading" aria-level="4">Before Treatment</h4>
       </section>
       <section role="region" aria-labelledby="after-treatment-{id}">
         <h4 id="after-treatment-{id}" role="heading" aria-level="4">After Treatment</h4>
       </section>
-    </figcaption>
+    </figmicro>
   </figure>
 </section>
 ```
@@ -217,7 +217,7 @@ All data elements now include comprehensive semantic attributes for enhanced SEO
 #### Keyboard Navigation
 - **Arrow Keys**: Navigate quality metrics overlay
 - **Enter/Space**: Toggle metrics expansion
-- **Escape**: Return focus to main caption
+- **Escape**: Return focus to main micro
 - **Tab**: Navigate through image and content sections
 
 ## Testing Requirements

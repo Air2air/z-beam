@@ -11,7 +11,7 @@ import '@testing-library/jest-dom';
 const MockTable = ({ content, config, frontmatterData }: {
   content?: string;
   config?: {
-    caption?: string;
+    micro?: string;
     showHeader?: boolean;
   };
   frontmatterData?: any;
@@ -54,8 +54,8 @@ const MockTable = ({ content, config, frontmatterData }: {
   
   return (
     <div data-testid="smart-table-container" className="enhanced-table-container">
-      {config?.caption && (
-        <h2 data-testid="table-caption">{config.caption}</h2>
+      {config?.micro && (
+        <h2 data-testid="table-micro">{config.micro}</h2>
       )}
       
       <table data-testid="simple-table">
@@ -215,15 +215,15 @@ describe('Smart Table Component', () => {
       expect(screen.getByText('Weld cleaning, Surface preparation, Rust removal')).toBeInTheDocument();
     });
 
-    test('should render table caption when provided', () => {
+    test('should render table micro when provided', () => {
       render(
         <MockTable 
           frontmatterData={sampleFrontmatterData}
-          config={{ caption: 'Equipment Specifications' }}
+          config={{ micro: 'Equipment Specifications' }}
         />
       );
       
-      expect(screen.getByTestId('table-caption')).toHaveTextContent('Equipment Specifications');
+      expect(screen.getByTestId('table-micro')).toHaveTextContent('Equipment Specifications');
     });
 
     test('should show no data message when frontmatterData is undefined', () => {

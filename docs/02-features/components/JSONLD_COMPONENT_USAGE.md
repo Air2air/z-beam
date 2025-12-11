@@ -210,7 +210,7 @@ export default function FAQPage() {
 - ✅ Detailed process steps from `machineSettings`
 - ✅ Outcome metrics with typical ranges
 - ✅ Application examples from `applications` array
-- ✅ Before/after analysis from `caption`
+- ✅ Before/after analysis from `micro`
 - ✅ Environmental impact data
 
 ### Expertise Signals

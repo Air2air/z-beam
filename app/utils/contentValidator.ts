@@ -69,7 +69,7 @@ class ContentValidator {
       metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
       content: path.join(process.cwd(), 'content', 'components', 'content'),
       bullets: path.join(process.cwd(), 'content', 'components', 'bullets'),
-      caption: path.join(process.cwd(), 'content', 'components', 'caption'),
+      micro: path.join(process.cwd(), 'content', 'components', 'micro'),
       table: path.join(process.cwd(), 'content', 'components', 'table'),
       author: path.join(process.cwd(), 'content', 'components', 'author'),
       tags: path.join(process.cwd(), 'content', 'components', 'tags'),

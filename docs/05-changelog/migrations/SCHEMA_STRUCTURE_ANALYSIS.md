@@ -26,7 +26,7 @@
   },
   components: {
     text: { content: "...", config: {} },
-    caption: { content: "...", config: {} },
+    micro: { content: "...", config: {} },
     // ... other components
   }
 }

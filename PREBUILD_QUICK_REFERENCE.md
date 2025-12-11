@@ -88,7 +88,7 @@ npm run postbuild  # or npm run validate:urls
 
 **Checks:**
 - Forbidden properties (applications, environmentalImpact, beforeText, afterText)
-- Caption structure (before/after format)
+- Micro structure (before/after format)
 - Property type mismatches
 
 **Fix:** Update YAML files to match expected structure
@@ -318,16 +318,16 @@ images:
   hero: /images/materials/aluminum-laser-cleaning-hero.jpg
 ```
 
-### Caption Structure
+### Micro Structure
 
 ```yaml
 # ❌ Wrong
-caption:
+micro:
   beforeText: "Before cleaning"
   afterText: "After cleaning"
 
 # ✅ Correct
-caption:
+micro:
   before: "Before cleaning"
   after: "After cleaning"
 ```

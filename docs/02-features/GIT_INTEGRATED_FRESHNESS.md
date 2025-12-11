@@ -42,7 +42,7 @@ Files automatically updated:
 **Timestamps Added:**
 ```yaml
 # aluminum-laser-cleaning.yaml (example)
-datePublished: '2025-10-25T13:53:55.449239Z'  # From caption.generated
+datePublished: '2025-10-25T13:53:55.449239Z'  # From micro.generated
 dateModified: '2025-10-26T04:14:15.694Z'      # Auto-updated by hook
 ```
 

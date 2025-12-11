@@ -1,7 +1,7 @@
 # FAQ Generation Specification for YAML Processor
 
 ## Overview
-Generate material-specific, data-driven FAQs during YAML processing using actual cross-material comparisons, statistical analysis, and extracted caption data. All FAQs should be factual, precise, and avoid marketing rhetoric.
+Generate material-specific, data-driven FAQs during YAML processing using actual cross-material comparisons, statistical analysis, and extracted micro data. All FAQs should be factual, precise, and avoid marketing rhetoric.
 
 ## Output Structure
 
@@ -19,7 +19,7 @@ faqs:
 
 ### 1. Contaminant-Specific FAQ
 **Data Sources:**
-- `caption.beforeText` - Parse for contaminant mentions
+- `micro.beforeText` - Parse for contaminant mentions
 - Pattern matching: oxide, rust, paint, oil, carbon, scale, coating, corrosion, pitting
 
 **Question Template:**
@@ -36,7 +36,7 @@ faqs:
 ```yaml
 question: "What types of contaminants can laser cleaning remove from Aluminum?"
 answer: "Analysis of aluminum samples shows typical contamination includes: oxide layers (Al₂O₃) measuring 4-6 microns thick, carbonaceous grime embedded in surface irregularities, and light pitting with uneven depth distribution. At 1064nm wavelength, removal efficiency for aluminum oxide is 97-99%, with carbonaceous deposits removed at 95% efficiency. Total processing achieves surface cleanliness meeting ISO 8501-1 Sa 2.5 standard."
-dataSource: "caption.beforeText + outcomeMetrics[0] + machineSettings.wavelength"
+dataSource: "micro.beforeText + outcomeMetrics[0] + machineSettings.wavelength"
 confidence: 92
 ```
 
@@ -193,7 +193,7 @@ confidence: 91
 
 ### 6. Expected Outcomes FAQ
 **Data Sources:**
-- `caption.afterText` - Extract all numerical measurements
+- `micro.afterText` - Extract all numerical measurements
 - `outcomeMetrics` - Structured outcome data
 
 **Question Template:**
@@ -221,7 +221,7 @@ removal_efficiency = outcomeMetrics.find("Contaminant Removal Efficiency")
 ```yaml
 question: "What surface quality results should I expect from laser cleaning Aluminum?"
 answer: "Surface roughness reduces from pre-cleaning baseline to 0.74 microns (Ra). Reflectivity improves from contaminated state (62%) to 89% post-cleaning. Analysis confirms zero heat-affected zones—no microstructural changes, grain growth, or phase transformations detected via metallography. Dimensional tolerances are maintained within ±2 microns of original specifications. Contaminant removal efficiency: 97.3% for aluminum oxide, 95.8% for carbonaceous deposits. Surface chemistry shows activated aluminum ready for bonding/coating with no residual organics (XPS confirmed)."
-dataSource: "caption.afterText extraction + outcomeMetrics + surface_analysis_data"
+dataSource: "micro.afterText extraction + outcomeMetrics + surface_analysis_data"
 confidence: 96
 ```
 
@@ -311,7 +311,7 @@ def calculate_confidence(faq_data_sources):
         confidence -= 10
     if no_actual_comparison_materials:
         confidence -= 20
-    if no_caption_data:
+    if no_micro_data:
         confidence -= 5
     
     # Deduct for low sample size
@@ -323,10 +323,10 @@ def calculate_confidence(faq_data_sources):
 
 ### Required vs Optional FAQs
 **Always Generate:**
-1. Contaminant-Specific (if caption.beforeText exists)
+1. Contaminant-Specific (if micro.beforeText exists)
 2. Cross-Material Comparison (always)
 3. Material Challenge (always)
-4. Expected Outcomes (if caption.afterText or outcomeMetrics exist)
+4. Expected Outcomes (if micro.afterText or outcomeMetrics exist)
 
 **Generate If Data Available:**
 5. Wavelength/Absorption (if laserAbsorption data exists)
@@ -361,10 +361,10 @@ def get_comparison_materials(material, category, property_name):
     return neighbors
 ```
 
-### Property Extraction from Caption Text
+### Property Extraction from Micro Text
 ```python
 def extract_measurements(text):
-    """Extract numerical measurements from caption text."""
+    """Extract numerical measurements from micro text."""
     patterns = {
         "roughness": r'roughness.*?(\d+\.?\d*)\s*(?:microns?|μm)',
         "thickness": r'(\d+\.?\d*)\s*(?:to|-)?\s*(\d+\.?\d*)?\s*(?:microns?|μm)',
@@ -399,7 +399,7 @@ Before finalizing FAQs, validate:
 faqs:
   - question: "What types of contaminants can laser cleaning remove from Aluminum?"
     answer: "..." # 100-300 words, factual, data-driven
-    dataSource: "caption.beforeText + outcomeMetrics[0]"
+    dataSource: "micro.beforeText + outcomeMetrics[0]"
     confidence: 92
   
   - question: "How does Aluminum compare to other metals for laser cleaning?"
@@ -422,7 +422,7 @@ faq_generator = MaterialFAQGenerator(materials_database)
 faqs = faq_generator.generate_faqs(
     material_data=current_material,
     category_materials=get_category_materials(current_material.category),
-    caption_data=current_material.caption
+    micro_data=current_material.micro
 )
 
 # Add to output YAML

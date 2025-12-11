@@ -76,7 +76,7 @@
 - ✅ **9 Machine Settings Parameters** with ranges
 - ✅ **7 FAQ Items** with detailed answers
 - ✅ **4 Regulatory Standards** (FDA, ANSI, IEC, OSHA)
-- ✅ **Before/After Captions** with voice-enhanced content
+- ✅ **Before/After Micros** with voice-enhanced content
 - ✅ **Author E-E-A-T Signals** (Todd Dunning, MA, Coherent Inc.)
 - ✅ **Dataset Download Options** (JSON, CSV, TXT)
 
@@ -469,7 +469,7 @@ License:
 - ✅ Hero image with descriptive alt text
 - ✅ Author card with credentials
 - ✅ Property bars with min/typical/max visualization
-- ✅ Before/After captions with SEM descriptions
+- ✅ Before/After micros with SEM descriptions
 - ✅ FAQ accordion sections
 - ✅ Related materials carousel
 - ✅ Dataset download buttons
@@ -505,7 +505,7 @@ License:
   - "basically", "typically", "pretty", "fairly" (USA)
   - "straightforwardly", "practically", "efficiently", "ya" (Indonesia)
   - Regional variations implemented correctly
-- ✅ Before/After captions have descriptive SEM imagery language
+- ✅ Before/After micros have descriptive SEM imagery language
 - ✅ FAQ answers use conversational style while maintaining technical accuracy
 
 **Settings Pages:** Voice enhancement DISABLED

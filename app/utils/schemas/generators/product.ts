@@ -49,14 +49,14 @@ export function generateProductSchema(options: ProductSchemaOptions) {
     productImages.push({
       '@type': 'ImageObject',
       url: `${baseUrl}${images.hero.url}`,
-      caption: images.hero.alt || description
+      micro: images.hero.alt || description
     });
   }
   if (images?.micro?.url) {
     productImages.push({
       '@type': 'ImageObject',
       url: `${baseUrl}${images.micro.url}`,
-      caption: images.micro.alt || `Microscopic view of ${name}`
+      micro: images.micro.alt || `Microscopic view of ${name}`
     });
   }
   

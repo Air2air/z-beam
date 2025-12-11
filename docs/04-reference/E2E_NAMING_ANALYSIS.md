@@ -22,8 +22,8 @@ tests/components/MetricsGrid.test.tsx
 tests/components/MetricsGrid.categorized.test.tsx
 tests/components/MetricsGrid.complex-properties.test.tsx
 
-tests/components/Caption.accessibility.test.tsx
-tests/components/Caption.layout.test.tsx
+tests/components/Micro.accessibility.test.tsx
+tests/components/Micro.layout.test.tsx
 
 tests/accessibility/MetricsCard.comprehensive.test.tsx
 tests/accessibility/MetricsCard.semantic-enhancement.test.tsx
@@ -56,7 +56,7 @@ test-property-extraction.js     ← Root level (should be in tests/e2e/)
 - **Inconsistent**: Mix of descriptive suffixes (`.accessibility.`, `.frontmatter.`, `.layout.`, etc.)
 
 #### File Naming Patterns
-- **camelCase**: `CaptionContentValidation.test.ts`
+- **camelCase**: `MicroContentValidation.test.ts`
 - **kebab-case**: `universal-templates-layout-integration.test.tsx`
 - **PascalCase**: `OrganizationSchemaIntegration.test.tsx`
 - **snake_case**: Some legacy patterns
@@ -99,7 +99,7 @@ MetricsCard.test.tsx
 # Aspect-specific tests  
 Hero.accessibility.test.tsx
 MetricsCard.performance.test.tsx
-Caption.layout.test.tsx
+Micro.layout.test.tsx
 
 # Comprehensive tests
 MetricsGrid.comprehensive.test.tsx

@@ -429,7 +429,7 @@ function generateOrganizationSchema(data: any, context: SchemaContext): SchemaOr
         org.logo = {
           '@type': 'ImageObject',
           'url': `${baseUrl}${card.image.url}`,
-          'caption': card.image.alt || card.heading
+          'micro': card.image.alt || card.heading
         };
       }
 
@@ -1445,17 +1445,17 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
  * ImageObject Schema - Enhanced with License Metadata
  * Implements Google's image license structured data
  * Uses page author as default creator if not explicitly specified
- * Uses caption.before for image descriptions
+ * Uses micro.before for image descriptions
  * @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
  */
 function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const mainImage = getMainImage(data);
   if (!mainImage) return null;
 
-  // Get caption from multiple sources (priority order)
-  const caption = mainImage.caption 
-    || data.frontmatter?.caption?.before 
-    || data.caption?.before
+  // Get micro from multiple sources (priority order)
+  const micro = mainImage.micro 
+    || data.frontmatter?.micro?.before 
+    || data.micro?.before
     || data.title 
     || '';
 
@@ -1463,7 +1463,7 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
     '@type': 'ImageObject',
     '@id': `${context.pageUrl}#image`,
     'url': mainImage.url,
-    'caption': caption,
+    'micro': micro,
     ...(mainImage.width && { 'width': mainImage.width }),
     ...(mainImage.height && { 'height': mainImage.height })
   };
@@ -1477,11 +1477,11 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
   // Page where users can acquire/request license
   imageObject.acquireLicensePage = mainImage.acquireLicensePage || `${context.baseUrl}/contact`;
   
-  // Credit text - use image-specific, caption description, or default
+  // Credit text - use image-specific, micro description, or default
   if (mainImage.creditText) {
     imageObject.creditText = mainImage.creditText;
-  } else if (mainImage.isMicro && (data.frontmatter?.caption?.description || data.caption?.description)) {
-    imageObject.creditText = data.frontmatter?.caption?.description || data.caption?.description;
+  } else if (mainImage.isMicro && (data.frontmatter?.micro?.description || data.micro?.description)) {
+    imageObject.creditText = data.frontmatter?.micro?.description || data.micro?.description;
   } else {
     imageObject.creditText = 'Z-Beam Laser Cleaning';
   }
@@ -1893,7 +1893,7 @@ function getMainImage(data: any): any | null {
       return {
         '@type': 'ImageObject',
         'url': `${SITE_CONFIG.url}${cardWithImage.image.url}`,
-        'caption': cardWithImage.image.alt || data.frontmatter?.caption?.before || data.caption?.before || data.title
+        'micro': cardWithImage.image.alt || data.frontmatter?.micro?.before || data.micro?.before || data.title
       };
     }
   }
@@ -1908,7 +1908,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}${hero.url}`,
       'width': hero.width || 1200,  // P0 enhancement: default dimensions for rich snippets
       'height': hero.height || 630,  // P0 enhancement: default dimensions for rich snippets
-      'caption': hero.alt || (frontmatter as any).caption?.before || (data as any).caption?.before || data.title,
+      'micro': hero.alt || (frontmatter as any).micro?.before || (data as any).micro?.before || data.title,
       'isMicro': false,
       // Pass through license metadata if present
       ...(hero.license && { 'license': hero.license }),
@@ -1927,7 +1927,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}${micro.url}`,
       'width': micro.width || 1200,  // P0 enhancement: default dimensions for rich snippets
       'height': micro.height || 630,  // P0 enhancement: default dimensions for rich snippets
-      'caption': micro.alt || (frontmatter as any).caption?.before || (data as any).caption?.before || data.title,
+      'micro': micro.alt || (frontmatter as any).micro?.before || (data as any).micro?.before || data.title,
       'isMicro': true,
       // Pass through license metadata if present
       ...(micro.license && { 'license': micro.license }),
@@ -1943,7 +1943,7 @@ function getMainImage(data: any): any | null {
     return {
       '@type': 'ImageObject',
       'url': typeof data.image === 'string' ? data.image : `${SITE_CONFIG.url}${data.image.url}`,
-      'caption': data.frontmatter?.caption?.before || data.caption?.before || data.title
+      'micro': data.frontmatter?.micro?.before || data.micro?.before || data.title
     };
   }
 
@@ -1955,7 +1955,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}/images/material/${slug}-hero.jpg`,
       'width': 1200,
       'height': 630,
-      'caption': data.title || data.frontmatter?.title || 'Laser cleaning process'
+      'micro': data.title || data.frontmatter?.title || 'Laser cleaning process'
     };
   }
 
@@ -1965,7 +1965,7 @@ function getMainImage(data: any): any | null {
     'url': `${SITE_CONFIG.url}/images/og-image.jpg`,
     'width': 1200,
     'height': 630,
-    'caption': 'Z-Beam Laser Cleaning'
+    'micro': 'Z-Beam Laser Cleaning'
   };
 }
 

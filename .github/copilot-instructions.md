@@ -254,9 +254,9 @@ Before documenting as "COMPLETE":
 
 ### **User Requests Content Generation?**
 → **READ THIS FIRST**: `.github/COPILOT_GENERATION_GUIDE.md`
-- Handles: "Generate material description for Aluminum", "Create caption for Steel", etc.
+- Handles: "Generate material description for Aluminum", "Create micro for Steel", etc.
 - Shows: Exact commands to run, terminal output handling, result reporting
-- Covers: All component types (material_description, caption, FAQ, settings_description)
+- Covers: All component types (material_description, micro, FAQ, settings_description)
 
 ### **Need Documentation?**
 → **PRIMARY GUIDE**: `docs/08-development/AI_ASSISTANT_GUIDE.md` - 30-second navigation (NEW)
@@ -719,7 +719,7 @@ All required components must be explicitly provided - no silent degradation.
 **ALL generation and validation happens on Materials.yaml ONLY.**
 
 - ✅ **Materials.yaml** - Single source of truth + all generation/validation happens here
-  - ALL AI text generation (captions, descriptions, etc.)
+  - ALL AI text generation (micros, descriptions, etc.)
   - ALL property research and discovery
   - ALL completeness validation
   - ALL quality scoring and thresholds
@@ -738,12 +738,12 @@ All required components must be explicitly provided - no silent degradation.
 - ✅ **Dual-Write**: Every Materials.yaml update triggers frontmatter field sync
 
 ### 🚨 **MANDATORY: Field Isolation During Generation** 🔥 **NEW (Nov 22, 2025)**
-**Component generation flags (--description, --caption, etc.) MUST ONLY update the specified field.**
+**Component generation flags (--description, --micro, etc.) MUST ONLY update the specified field.**
 
-- ✅ `--description` → Updates ONLY description field (preserves subtitle, caption, faq, author, etc.)
-- ✅ `--caption` → Updates ONLY caption field (preserves description, subtitle, faq, etc.)
-- ✅ `--subtitle` → Updates ONLY subtitle field (preserves description, caption, faq, etc.)
-- ✅ `--faq` → Updates ONLY faq field (preserves description, caption, subtitle, etc.)
+- ✅ `--description` → Updates ONLY description field (preserves subtitle, micro, faq, author, etc.)
+- ✅ `--micro` → Updates ONLY micro field (preserves description, subtitle, faq, etc.)
+- ✅ `--subtitle` → Updates ONLY subtitle field (preserves description, micro, faq, etc.)
+- ✅ `--faq` → Updates ONLY faq field (preserves description, micro, subtitle, etc.)
 - ❌ **VIOLATION**: Overwriting ANY unrelated field during component generation
 
 **Enforcement**: 15 automated tests verify field isolation (`tests/test_frontmatter_partial_field_sync.py`)
@@ -790,18 +790,18 @@ See `docs/prompts/CONTENT_INSTRUCTION_POLICY.md` for complete policy.
 **Component types MUST ONLY be defined in prompts/*.txt and config.yaml.**
 
 - ✅ **prompts/*.txt files** - Define component types by filename
-  - Create `prompts/caption.txt` to define 'caption' component
+  - Create `prompts/micro.txt` to define 'micro' component
   - Create `prompts/material_description.txt` to define 'material_description' component
   - Each .txt file = one component type
 - ✅ **config.yaml** - Define component word counts
   ```yaml
   component_lengths:
-    caption: 25
+    micro: 25
     material_description: 15
   ```
 - ❌ **processing/*.py files** - NO hardcoded component types
-  - ❌ `if component_type == 'caption':`
-  - ❌ `SPEC_DEFINITIONS = {'caption': {...}}`
+  - ❌ `if component_type == 'micro':`
+  - ❌ `SPEC_DEFINITIONS = {'micro': {...}}`
   - ❌ Hardcoded component lists
 - ✅ **Dynamic Discovery**: Components discovered at runtime from prompts/
 - ✅ **Generic Code**: Use `component_type` parameter, iterate `ComponentRegistry.list_types()`
@@ -817,14 +817,14 @@ See `docs/architecture/COMPONENT_DISCOVERY.md` for complete policy.
   - Format specifications, example outputs, voice/tone rules
   - COMPLETE content strategy for each component type
 - ❌ **processing/*.py** - ZERO component-specific code
-  - ❌ NO `if component_type == 'caption':` checks
-  - ❌ NO component-specific methods (`_build_caption_prompt()`, `_extract_caption()`)
+  - ❌ NO `if component_type == 'micro':` checks
+  - ❌ NO component-specific methods (`_build_micro_prompt()`, `_extract_micro()`)
   - ❌ NO hardcoded content instructions in code
   - ❌ NO component-specific extraction logic in generators
 - ✅ **Strategy Pattern**: Use `extraction_strategy` in config.yaml
   ```yaml
   component_lengths:
-    caption:
+    micro:
       default: 50
       extraction_strategy: before_after  # Strategy-based extraction
     material_description:
@@ -834,7 +834,7 @@ See `docs/architecture/COMPONENT_DISCOVERY.md` for complete policy.
 - ✅ **Generic Methods**: Use strategy dispatch, not component checks
   - ✅ `adapter.extract_content(text, component_type)` - delegates to strategy
   - ✅ `_load_prompt_template(component_type)` - loads generic template
-  - ❌ `_extract_caption(text)` - component-specific method
+  - ❌ `_extract_micro(text)` - component-specific method
 - ✅ **Full Reusability**: /processing works for ANY domain (materials, contaminants, regions)
 - ✅ **Zero Code Changes**: Add new component = create template + config entry only
 
@@ -866,7 +866,7 @@ See `docs/08-development/TEMPLATE_ONLY_POLICY.md` for complete policy.
   - ❌ `prompt.replace("text", "YOU MUST NOT...")`
   - ❌ Inline content instructions of any kind
 - ✅ **Generator code** - Load prompts from templates ONLY
-  - ✅ `prompt = self._load_prompt_template('caption.txt')`
+  - ✅ `prompt = self._load_prompt_template('micro.txt')`
   - ✅ Technical parameters (temperature, penalties) in code
   - ✅ Data insertion (material names, properties) allowed
 - ✅ **ENFORCEMENT**: Automated tests verify zero hardcoded prompts
@@ -904,7 +904,7 @@ See `docs/08-development/PROMPT_PURITY_POLICY.md` for complete policy.
 
 💾 STORAGE:
    • Location: data/materials/Materials.yaml
-   • Component: caption
+   • Component: micro
    • Material: Aluminum
 
 ================================================================================
@@ -912,7 +912,7 @@ See `docs/08-development/PROMPT_PURITY_POLICY.md` for complete policy.
 
 **Purpose**: Provides complete transparency and verification of generation results.
 **Implementation**: `shared/commands/generation.py` - all generation handlers
-**Compliance**: Mandatory for caption, material_description, FAQ generation
+**Compliance**: Mandatory for micro, material_description, FAQ generation
 
 
 

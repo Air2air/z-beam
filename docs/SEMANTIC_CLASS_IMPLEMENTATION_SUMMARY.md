@@ -31,7 +31,7 @@ Semantic CSS classes for component identification + streamlined CSS codebase.
 - ~200 unused semantic utilities (flex-center, card-base, shadow-*, etc.)
 
 ### Active Classes Retained (25 total)
-**Grids**: `grid-2col`, `grid-2col-md`, `grid-3col-md`, `grid-caption`
+**Grids**: `grid-2col`, `grid-2col-md`, `grid-3col-md`, `grid-micro`
 **Flex**: `flex-stack-row`, `flex-stack-row-md-center`
 **Spacing**: `gap-6-responsive`
 **Components**: `badge`, `date-panel`, `nav-logo`, `footer-logo`, `cta-text`, `cta-icon`

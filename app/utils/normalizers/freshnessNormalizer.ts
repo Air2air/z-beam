@@ -87,9 +87,9 @@ export function normalizeFreshnessTimestamps(
   
   // 1. Ensure datePublished exists
   if (!data.datePublished) {
-    // Try to use caption.generated as fallback
-    if (data.caption && data.caption.generated) {
-      data.datePublished = data.caption.generated;
+    // Try to use micro.generated as fallback
+    if (data.micro && data.micro.generated) {
+      data.datePublished = data.micro.generated;
     } else {
       // Set to current timestamp (first time seeing this file)
       data.datePublished = now;

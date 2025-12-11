@@ -1,7 +1,7 @@
-// app/components/Caption/useCaptionParsing.ts
+// app/components/Micro/useMicroParsing.ts
 "use client";
 
-interface CaptionYamlData {
+interface MicroYamlData {
   before?: string;
   after?: string;
   material?: string;
@@ -21,7 +21,7 @@ interface CaptionYamlData {
 }
 
 // Extended interface for YAML v2.0 data structure with quality metrics and metadata
-interface EnhancedCaptionYamlData extends CaptionYamlData {
+interface EnhancedMicroYamlData extends MicroYamlData {
   before_text?: string;
   after_text?: string;
   quality_metrics?: {
@@ -85,18 +85,18 @@ interface EnhancedCaptionYamlData extends CaptionYamlData {
   };
 }
 
-// Import centralized ParsedCaptionData type
-import { ParsedCaptionData } from '@/types';
+// Import centralized ParsedMicroData type
+import { ParsedMicroData } from '@/types';
 
 // Union type for backward compatibility
-type CaptionData = CaptionYamlData | EnhancedCaptionYamlData;
+type MicroData = MicroYamlData | EnhancedMicroYamlData;
 
 // Phase 2A: Cleaner alias removing "Enhanced" decoration
-type CaptionDataV2 = EnhancedCaptionYamlData;
+type MicroDataV2 = EnhancedMicroYamlData;
 
-export type { CaptionYamlData, EnhancedCaptionYamlData, CaptionData, CaptionDataV2 };
+export type { MicroYamlData, EnhancedMicroYamlData, MicroData, MicroDataV2 };
 
-export function useCaptionParsing(content: string | CaptionData): ParsedCaptionData {
+export function useMicroParsing(content: string | MicroData): ParsedMicroData {
   // Handle string content (legacy markdown)
   if (typeof content === 'string') {
     return {
@@ -107,7 +107,7 @@ export function useCaptionParsing(content: string | CaptionData): ParsedCaptionD
 
   // Handle YAML v2.0 structure
   if (content && typeof content === 'object') {
-    const yamlData = content as EnhancedCaptionYamlData;
+    const yamlData = content as EnhancedMicroYamlData;
     let renderedContent = '';
     
     // Check if this is v2.0 data (has new extended fields)
@@ -179,7 +179,7 @@ export function useCaptionParsing(content: string | CaptionData): ParsedCaptionD
 
   // Fallback for malformed content
   return {
-    renderedContent: 'Caption content not available',
+    renderedContent: 'Micro content not available',
     isEnhanced: false,
   };
 }

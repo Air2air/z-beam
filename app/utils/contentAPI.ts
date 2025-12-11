@@ -66,7 +66,7 @@ const CONTENT_DIRS = {
   components: {
     frontmatter: path.join(process.cwd(), 'frontmatter', 'materials'),
     metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
-    caption: path.join(process.cwd(), 'content', 'components', 'caption'),
+    micro: path.join(process.cwd(), 'content', 'components', 'micro'),
     table: path.join(process.cwd(), 'content', 'components', 'table-yaml'), // Use table-yaml for new tables
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
@@ -679,15 +679,15 @@ export const loadComponent = cache(async (
             config: authorInfo
           };
         }
-      } else if (type === 'caption') {
-        // Handle YAML caption files (v2.0 format)
-        const captionData = yamlData;
+      } else if (type === 'micro') {
+        // Handle YAML micro files (v2.0 format)
+        const microData = yamlData;
         
-        if (captionData) {
-          // Return the full YAML data structure for the Caption component to parse
-          // The Caption component will handle rendering based on data structure
+        if (microData) {
+          // Return the full YAML data structure for the Micro component to parse
+          // The Micro component will handle rendering based on data structure
           return {
-            content: captionData, // Pass YAML data directly
+            content: microData, // Pass YAML data directly
             config: {
               showTechnicalDetails: true, // Enable laser parameters by default
               showMetadata: false, // Metadata off by default
@@ -748,7 +748,7 @@ export const loadAllComponents = cache(async (slug: string): Promise<{ [componen
     await Promise.all(
       componentTypes.map(async (type) => {
         // Use raw content for all components - let each component handle its own parsing
-        // This provides consistency and flexibility for components like tags, captions, etc.
+        // This provides consistency and flexibility for components like tags, micros, etc.
         const componentData = await loadComponent(type, slug, { convertMarkdown: false });
         if (componentData) {
           components[type] = componentData;
@@ -907,11 +907,11 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
     const components: Record<string, ComponentData> = {};
     
     // Load standard components that Layout looks for
-    const componentTypes = ['text', 'caption', 'table', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
+    const componentTypes = ['text', 'micro', 'table', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
     
     for (const type of componentTypes) {
       try {
-        const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'caption' });
+        const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'micro' });
         if (componentData && (componentData.content || componentData.config)) {
           components[type] = componentData;
         }
@@ -937,8 +937,8 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
  */
 export const loadComponentData = cache(async (type: string, slug: string): Promise<{ content: string; config?: Record<string, unknown> } | null> => {
   return safeContentOperation(async () => {
-    // Skip markdown conversion for caption (which may contain YAML data structures)
-    const shouldConvertMarkdown = type !== 'caption';
+    // Skip markdown conversion for micro (which may contain YAML data structures)
+    const shouldConvertMarkdown = type !== 'micro';
     const componentData = await loadComponent(type, slug, { convertMarkdown: shouldConvertMarkdown });
     
     if (!componentData) {

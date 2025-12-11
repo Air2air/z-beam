@@ -373,7 +373,7 @@ const deepSearchFields = [
   'applications',
   'environmentalImpact',
   'outcomeMetrics',
-  'caption',
+  'micro',
   'regulatoryStandards',
   'processing',
   'keywords',

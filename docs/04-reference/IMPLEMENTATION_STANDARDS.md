@@ -238,7 +238,7 @@ import { Hero } from "@/app/components/Hero/Hero";
   image={metadata.images?.hero}
   title={metadata.title}
   subtitle={metadata.subtitle}
-  caption={metadata.caption}
+  micro={metadata.micro}
 />
 ```
 

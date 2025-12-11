@@ -112,7 +112,7 @@ describe('Content API Utils', () => {
         .mockReturnValueOnce(true)  // frontmatter dir
         .mockReturnValueOnce(true)  // metatags dir  
         .mockReturnValueOnce(false) // content dir (doesn't exist)
-        .mockReturnValueOnce(true); // caption dir
+        .mockReturnValueOnce(true); // micro dir
 
       fs.readdir
         .mockResolvedValueOnce(['article1.md', 'article2.md', 'not-markdown.txt'])

@@ -1,6 +1,6 @@
 /**
- * Test Suite: Caption Component Content Validation
- * Testing that caption components no longer contain laser_parameters
+ * Test Suite: Micro Component Content Validation
+ * Testing that micro components no longer contain laser_parameters
  * and work correctly with the modular component architecture
  */
 
@@ -8,27 +8,27 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-describe('Caption Component Content Validation', () => {
-  const captionDir = path.join(process.cwd(), 'frontmatter/materials');
-  let captionFiles: string[] = [];
+describe('Micro Component Content Validation', () => {
+  const microDir = path.join(process.cwd(), 'frontmatter/materials');
+  let microFiles: string[] = [];
 
   beforeAll(() => {
-    if (fs.existsSync(captionDir)) {
-      captionFiles = fs.readdirSync(captionDir)
+    if (fs.existsSync(microDir)) {
+      microFiles = fs.readdirSync(microDir)
         .filter(file => file.endsWith('.yaml'))
-        .map(file => path.join(captionDir, file));
+        .map(file => path.join(microDir, file));
     }
   });
 
-  test('should find caption files in the directory', () => {
-    expect(captionFiles.length).toBeGreaterThan(0);
-    expect(captionFiles.length).toBeGreaterThan(50); // Expect many material caption files
+  test('should find micro files in the directory', () => {
+    expect(microFiles.length).toBeGreaterThan(0);
+    expect(microFiles.length).toBeGreaterThan(50); // Expect many material micro files
   });
 
-  test('should not contain laser_parameters in any caption files', () => {
+  test('should not contain laser_parameters in any micro files', () => {
     const filesWithLaserParams: string[] = [];
 
-    captionFiles.forEach(filePath => {
+    microFiles.forEach(filePath => {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
         
@@ -57,10 +57,10 @@ describe('Caption Component Content Validation', () => {
     }
   });
 
-  test('should have valid YAML structure in all caption files', () => {
+  test('should have valid YAML structure in all micro files', () => {
     const invalidFiles: string[] = [];
 
-    captionFiles.forEach(filePath => {
+    microFiles.forEach(filePath => {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
         
@@ -89,10 +89,10 @@ describe('Caption Component Content Validation', () => {
     }
   });
 
-  test('should contain required nested caption structure (caption.before and caption.after)', () => {
+  test('should contain required nested micro structure (micro.before and micro.after)', () => {
     const filesWithoutRequiredFields: string[] = [];
 
-    captionFiles.forEach(filePath => {
+    microFiles.forEach(filePath => {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
         
@@ -107,10 +107,10 @@ describe('Caption Component Content Validation', () => {
           parsedContent = yaml.load(content);
         }
         
-        // Check for nested caption structure: caption.before and caption.after
-        // Allow null captions, only validate structure if caption exists
-        if (parsedContent && parsedContent.caption && parsedContent.caption !== null) {
-          if (!parsedContent.caption.before || !parsedContent.caption.after) {
+        // Check for nested micro structure: micro.before and micro.after
+        // Allow null micros, only validate structure if micro exists
+        if (parsedContent && parsedContent.micro && parsedContent.micro !== null) {
+          if (!parsedContent.micro.before || !parsedContent.micro.after) {
             filesWithoutRequiredFields.push(path.basename(filePath));
           }
         }
@@ -121,7 +121,7 @@ describe('Caption Component Content Validation', () => {
 
     expect(filesWithoutRequiredFields).toHaveLength(0);
     if (filesWithoutRequiredFields.length > 0) {
-      console.error('Files missing required nested caption fields:', filesWithoutRequiredFields);
+      console.error('Files missing required nested micro fields:', filesWithoutRequiredFields);
     }
   });
 
@@ -129,7 +129,7 @@ describe('Caption Component Content Validation', () => {
     // SKIPPED: Needs investigation of actual frontmatter content and comment structure.
     const filesWithOrphanedComments: string[] = [];
 
-    captionFiles.forEach(filePath => {
+    microFiles.forEach(filePath => {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
         
@@ -151,10 +151,10 @@ describe('Caption Component Content Validation', () => {
     }
   });
 
-  test.skip('sample caption file should have expected structure', async () => {
-    if (captionFiles.length === 0) return;
+  test.skip('sample micro file should have expected structure', async () => {
+    if (microFiles.length === 0) return;
 
-    const sampleFile = captionFiles[0];
+    const sampleFile = microFiles[0];
     const content = fs.readFileSync(sampleFile, 'utf8');
     
     // Handle multi-document YAML files - get the first document
@@ -179,7 +179,7 @@ describe('Caption Component Content Validation', () => {
   test('should have clean file endings without trailing parameters', () => {
     const filesWithTrailingContent: string[] = [];
 
-    captionFiles.forEach(filePath => {
+    microFiles.forEach(filePath => {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
         const lines = content.split('\n');
@@ -224,18 +224,18 @@ describe('Caption Component Content Validation', () => {
   });
 });
 
-describe('Caption Component Integration', () => {
+describe('Micro Component Integration', () => {
   test('should work without laser_parameters dependency', () => {
-    // Mock a caption component structure
-    const mockCaptionData = {
+    // Mock a micro component structure
+    const mockMicroData = {
       before_text: 'Initial surface examination reveals contamination.',
       after_text: 'Post-cleaning analysis shows restored surface.'
     };
 
-    // Should be able to process caption data without laser_parameters
-    expect(mockCaptionData.before_text).toBeTruthy();
-    expect(mockCaptionData.after_text).toBeTruthy();
-    expect(mockCaptionData).not.toHaveProperty('laser_parameters');
+    // Should be able to process micro data without laser_parameters
+    expect(mockMicroData.before_text).toBeTruthy();
+    expect(mockMicroData.after_text).toBeTruthy();
+    expect(mockMicroData).not.toHaveProperty('laser_parameters');
   });
 
 

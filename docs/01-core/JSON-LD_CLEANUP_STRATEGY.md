@@ -15,7 +15,7 @@
 - **Problem**: Duplicate content in different formats
 
 #### 3. **Component-Level JSON-LD** ❌
-- Caption components generate their own JSON-LD
+- Micro components generate their own JSON-LD
 - Layout components have separate JSON-LD generation
 - **Problem**: Multiple JSON-LD blocks on same page can cause conflicts
 
@@ -32,7 +32,7 @@ const applications = frontmatter.applications || [];                // ✅ FULL
 const environmentalImpact = frontmatter.environmentalImpact || [];   // ✅ FULL
 const outcomeMetrics = frontmatter.outcomeMetrics || [];            // ✅ FULL
 const regulatoryStandards = frontmatter.regulatoryStandards || [];  // ✅ FULL
-const caption = frontmatter.caption || {};                          // ✅ FULL
+const micro = frontmatter.micro || {};                          // ✅ FULL
 const title = frontmatter.title || metadata.title;                  // ✅ FULL
 const description = frontmatter.description || metadata.description; // ✅ FULL
 const category = frontmatter.category || metadata.category;         // ✅ FULL
@@ -92,15 +92,15 @@ const subcategory = frontmatter.subcategory || '';                  // ✅ FULL
 ### **Phase 2: Consolidate Component JSON-LD** 🚨 **HIGH PRIORITY**
 
 #### **Current Problems:**
-- Caption generates its own JSON-LD (conflicts with page-level)
+- Micro generates its own JSON-LD (conflicts with page-level)
 - Multiple JSON-LD blocks per page
-- SEOOptimizedCaption has invalid Schema.org types
+- SEOOptimizedMicro has invalid Schema.org types
 
 #### **Action Items:**
 
-1. **Remove Caption JSON-LD Generation**
-   - Update `SEOOptimizedCaption.tsx` to remove JSON-LD block
-   - Caption data already included in MaterialJsonLD component
+1. **Remove Micro JSON-LD Generation**
+   - Update `SEOOptimizedMicro.tsx` to remove JSON-LD block
+   - Micro data already included in MaterialJsonLD component
    - Prevents duplicate/conflicting schemas
 
 2. **Centralize to Page Level Only**
@@ -187,7 +187,7 @@ cp -r [REMOVED] content/components/jsonld/ backup/jsonld-$(date +%Y%m%d)/
 
 ### **Immediate Actions (This Week):**
 1. ✅ **Already Complete**: MaterialJsonLD covers 100% of frontmatter fields
-2. 🚨 **Remove Caption JSON-LD**: Fix SEOOptimizedCaption.tsx
+2. 🚨 **Remove Micro JSON-LD**: Fix SEOOptimizedMicro.tsx
 3. 🚨 **Delete Static Files**: Remove 239 redundant JSON-LD files
 4. ✅ **Validate System**: Run comprehensive tests
 
@@ -213,6 +213,6 @@ The dynamic MaterialJsonLD component represents best-in-class implementation wit
 
 **Priority Order:**
 1. 🚨 **Critical**: Remove static JSON-LD files (storage/performance)
-2. 🚨 **Critical**: Fix Caption component JSON-LD conflicts  
+2. 🚨 **Critical**: Fix Micro component JSON-LD conflicts  
 3. ✅ **Complete**: Validate system functionality
 4. 📈 **Monitor**: SEO impact and Rich Results appearance

@@ -37,7 +37,7 @@ describe('MaterialJsonLD Component', () => {
           height: 1080
         }
       },
-      caption: {
+      micro: {
         before: 'Contaminated surface',
         after: 'Clean surface',
         description: 'Surface analysis shows improved cleanliness'

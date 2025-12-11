@@ -1,24 +1,24 @@
 /**
- * @component Caption
+ * @component Micro
  * @purpose Displays material images with technical metadata and machine settings
- * @dependencies SectionContainer, @/types (CaptionProps, FrontmatterType), useCaptionParsing, MetricsCard
- * @related MetricsCard/MetricsCard.tsx, CaptionImage.tsx, CaptionContent.tsx
+ * @dependencies SectionContainer, @/types (MicroProps, FrontmatterType), useMicroParsing, MetricsCard
+ * @related MetricsCard/MetricsCard.tsx, MicroImage.tsx, MicroContent.tsx
  * @complexity Medium (154 lines, handles image loading and metadata parsing)
- * @aiContext Use CaptionProps from @/types. Pass frontmatter.caption data structure.
- *           Component auto-parses different caption formats (YAML, object, string).
+ * @aiContext Use MicroProps from @/types. Pass frontmatter.micro data structure.
+ *           Component auto-parses different micro formats (YAML, object, string).
  */
-// app/components/Caption/Caption.tsx
+// app/components/Micro/Micro.tsx
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { useCaptionParsing } from './useCaptionParsing';
-import { CaptionDataStructure, CaptionProps } from '@/types';
+import { useMicroParsing } from './useMicroParsing';
+import { MicroDataStructure, MicroProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { SITE_CONFIG } from '../../utils/constants';
 import { capitalizeFirst } from '@/app/utils/formatting';
-import './caption-accessibility.css';
+import './micro-accessibility.css';
 
 // Utility function to wrap first sentence in markdown bold syntax
 function emphasizeFirstSentence(text: string): string {
@@ -37,19 +37,19 @@ function emphasizeFirstSentence(text: string): string {
   return text;
 }
 
-export function Caption({ frontmatter, config }: CaptionProps) {
-  const captionContent = frontmatter?.caption;
+export function Micro({ frontmatter, config }: MicroProps) {
+  const microContent = frontmatter?.micro;
   
   // Call hooks unconditionally - MUST be before any early returns
-  const parsedCaption = useCaptionParsing(captionContent as any);
+  const parsedMicro = useMicroParsing(microContent as any);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isInView, setIsInView] = useState(false);
-  const captionRef = useRef<HTMLElement>(null);
+  const microRef = useRef<HTMLElement>(null);
   
   // Intersection Observer for lazy loading
   useEffect(() => {
-    if (!captionRef.current) return;
+    if (!microRef.current) return;
     
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -61,25 +61,25 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       { threshold: 0.1 }
     );
 
-    observer.observe(captionRef.current);
+    observer.observe(microRef.current);
     return () => observer.disconnect();
   }, []);
   
-  // Early return AFTER all hooks - check if caption is just a string with before/after structure
-  if (!captionContent) {
+  // Early return AFTER all hooks - check if micro is just a string with before/after structure
+  if (!microContent) {
     return null;
   }
   
-  // Handle case where caption might be just {before: "text", after: "text"} without other fields
-  const isCaptionObject = typeof captionContent === 'object' && captionContent !== null;
-  const hasImageData = isCaptionObject && (
-    (captionContent as any).images?.micro?.url || 
-    (captionContent as any).imageUrl?.url
+  // Handle case where micro might be just {before: "text", after: "text"} without other fields
+  const isMicroObject = typeof microContent === 'object' && microContent !== null;
+  const hasImageData = isMicroObject && (
+    (microContent as any).images?.micro?.url || 
+    (microContent as any).imageUrl?.url
   );
   
-  // Get image source from frontmatter or caption object
+  // Get image source from frontmatter or micro object
   const imageSource = frontmatter?.images?.micro?.url || 
-    (isCaptionObject && hasImageData ? ((captionContent as CaptionDataStructure).images?.micro?.url || (captionContent as CaptionDataStructure).imageUrl?.url) : null);
+    (isMicroObject && hasImageData ? ((microContent as MicroDataStructure).images?.micro?.url || (microContent as MicroDataStructure).imageUrl?.url) : null);
   
   // Return null if no image or image failed to load
   if (!imageSource || imageError) {
@@ -88,19 +88,19 @@ export function Caption({ frontmatter, config }: CaptionProps) {
   
   const { className = '' } = config || {};
 
-  // Simplified caption data - use parsed caption data
-  const captionData: CaptionDataStructure = {
-    ...(isCaptionObject ? (captionContent as CaptionDataStructure) : {}),
-    title: (isCaptionObject ? (captionContent as CaptionDataStructure).title : undefined) || frontmatter?.title,
-    description: (isCaptionObject ? (captionContent as CaptionDataStructure).description : undefined) || frontmatter?.description,
-    material: (isCaptionObject ? (captionContent as CaptionDataStructure).material : undefined) || frontmatter?.name,
+  // Simplified micro data - use parsed micro data
+  const microData: MicroDataStructure = {
+    ...(isMicroObject ? (microContent as MicroDataStructure) : {}),
+    title: (isMicroObject ? (microContent as MicroDataStructure).title : undefined) || frontmatter?.title,
+    description: (isMicroObject ? (microContent as MicroDataStructure).description : undefined) || frontmatter?.description,
+    material: (isMicroObject ? (microContent as MicroDataStructure).material : undefined) || frontmatter?.name,
     // Add parsed before/after text from the hook
-    before: parsedCaption.before,
-    after: parsedCaption.after,
-    quality_metrics: parsedCaption.qualityMetrics,
+    before: parsedMicro.before,
+    after: parsedMicro.after,
+    quality_metrics: parsedMicro.qualityMetrics,
   };
 
-  const materialName = captionData.material || 'material';
+  const materialName = microData.material || 'material';
   const capitalizedMaterial = capitalizeFirst(materialName);
 
   return (
@@ -112,8 +112,8 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       {/* Image Section */}
       {imageSource && (
         <figure 
-          ref={captionRef}
-          className={`seo-caption relative aspect-[16/9] overflow-hidden rounded-lg ${className}`}
+          ref={microRef}
+          className={`seo-micro relative aspect-[16/9] overflow-hidden rounded-lg ${className}`}
           itemScope 
           itemType={`${SITE_CONFIG.schema.context}/TechArticle`}
         >
@@ -132,10 +132,10 @@ export function Caption({ frontmatter, config }: CaptionProps) {
               />
 
               {/* Quality Metrics Overlay */}
-              {captionData.quality_metrics && imageLoaded && (
+              {microData.quality_metrics && imageLoaded && (
                 <div className="absolute bottom-4 left-0 right-0 px-4">
-                  <div className="grid-caption gap-2">
-                    {Object.entries(captionData.quality_metrics)
+                  <div className="grid-micro gap-2">
+                    {Object.entries(microData.quality_metrics)
                       .filter(([key]) => key !== 'substrate_integrity')
                       .map(([key, value]) => (
                         <div 
@@ -151,7 +151,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
                               data-property={key}
                               data-metric-type="quality_measurement"
                               data-context="surface_analysis"
-                              data-material={captionData.material || 'unknown'}
+                              data-material={microData.material || 'unknown'}
                               data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
                               data-magnitude={Math.abs(Number(value)) >= 100 ? 'high' : Math.abs(Number(value)) >= 1 ? 'medium' : 'low'}
                               itemProp="value"
@@ -171,25 +171,25 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       )}
 
         {/* Before/After Content */}
-        {(captionData.before || captionData.after) && (
+        {(microData.before || microData.after) && (
           <div className="grid-2col-md gap-6">
-            {captionData.before && (
+            {microData.before && (
               <div className="p-6 md:p-8 card-background rounded-lg">
                 <h4>
                   Before Treatment
                 </h4>
                 <div className="text-secondary text-sm">
-                  <MarkdownRenderer content={emphasizeFirstSentence(captionData.before)} />
+                  <MarkdownRenderer content={emphasizeFirstSentence(microData.before)} />
                 </div>
               </div>
             )}
-            {captionData.after && (
+            {microData.after && (
               <div className="p-6 md:p-8 card-background rounded-lg">
                 <h4>
                   After Treatment
                 </h4>
                 <div className="text-secondary text-sm">
-                  <MarkdownRenderer content={emphasizeFirstSentence(captionData.after)} />
+                  <MarkdownRenderer content={emphasizeFirstSentence(microData.after)} />
                 </div>
               </div>
             )}

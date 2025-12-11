@@ -219,7 +219,7 @@ export function generateHowToSchema(options: HowToSchemaOptions) {
         url: `${baseUrl}${images.micro.url}`,
         width: images.micro.width || 1200,
         height: images.micro.height || 630,
-        caption: images.micro.alt || `Result of laser cleaning ${name}`
+        micro: images.micro.alt || `Result of laser cleaning ${name}`
       }
     }),
     

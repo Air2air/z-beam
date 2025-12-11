@@ -22,8 +22,8 @@ TTI: 21-24 seconds (Target: <3.8s)
 
 ### 2. Heavy Client Components That Need It ✓ NECESSARY
 
-#### Caption Component
-- **Location**: `app/components/Caption/Caption.tsx`
+#### Micro Component
+- **Location**: `app/components/Micro/Micro.tsx`
 - **Reason**: Uses useState, useEffect, Intersection Observer
 - **Optimization**: Consider lazy loading below-the-fold
 
@@ -59,7 +59,7 @@ All debug pages under `app/debug/` are client components and shouldn't be in pro
 2. **Lazy load below-the-fold client components**
    ```tsx
    // In material pages
-   const Caption = dynamic(() => import('@/components/Caption/Caption'), {
+   const Micro = dynamic(() => import('@/components/Micro/Micro'), {
      loading: () => <div>Loading...</div>,
    });
    ```

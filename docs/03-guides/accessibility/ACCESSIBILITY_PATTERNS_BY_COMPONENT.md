@@ -386,9 +386,9 @@ const handleSubmit = async (e: React.FormEvent) => {
          className="focus:ring-2">
       {/* progress visualization */}
     </div>
-    <figcaption id="progress-label" className="sr-only">
+    <figmicro id="progress-label" className="sr-only">
       {title} progress indicator
-    </figcaption>
+    </figmicro>
   </figure>
   
   <data

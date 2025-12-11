@@ -8,7 +8,7 @@ import { CONTAINER_STYLES } from '../../utils/containerStyles';
 import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
-import CaptionSkeleton from '../Caption/CaptionSkeleton';
+import MicroSkeleton from '../Micro/MicroSkeleton';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Settings } from 'lucide-react';
@@ -18,12 +18,12 @@ import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 
-// Dynamic import Caption component for code-splitting (reduces initial bundle by ~15-20 KB)
+// Dynamic import Micro component for code-splitting (reduces initial bundle by ~15-20 KB)
 // Below-fold content, no SEO impact from ssr: false
-const _Caption = dynamic(
-  () => import('../Caption/Caption').then(mod => mod.Caption),
+const _Micro = dynamic(
+  () => import('../Micro/Micro').then(mod => mod.Micro),
   {
-    loading: () => <CaptionSkeleton />,
+    loading: () => <MicroSkeleton />,
     ssr: false,
   }
 );

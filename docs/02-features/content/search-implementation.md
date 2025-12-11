@@ -52,7 +52,7 @@ Search executes in order of priority for optimal performance:
 - **`materialProperties`** (all categories and properties automatically)
 - `environmentalImpact`
 - `outcomeMetrics`
-- `caption`
+- `micro`
 - `regulatoryStandards`
 - `processing`
 - `keywords`
@@ -195,11 +195,11 @@ materialProperties:
 - `outcomeMetrics[].factorsAffecting[]`
 
 **Detailed Descriptions:**
-- `caption.beforeText`
-- `caption.afterText`
-- `caption.description`
-- `caption.alt`
-- `caption.technicalAnalysis.*`
+- `micro.beforeText`
+- `micro.afterText`
+- `micro.description`
+- `micro.alt`
+- `micro.technicalAnalysis.*`
 
 **Processing Information:**
 - `processing.method`
@@ -271,7 +271,7 @@ Finds: Materials complying with FDA standards
 ### Search by Technical Description
 ```
 Search: "oxide removal"
-Finds: Materials mentioning oxide removal in captions, descriptions, or parameters
+Finds: Materials mentioning oxide removal in micros, descriptions, or parameters
 ```
 
 ---
@@ -347,7 +347,7 @@ const skipKeys = ['image', 'imageUrl', 'yourFieldToSkip'];
 - [ ] Search for application (e.g., "automotive")
 - [ ] Search for environmental benefit (e.g., "water reduction")
 - [ ] Search for regulatory standard (e.g., "ANSI")
-- [ ] Search for technical term in caption (e.g., "oxide")
+- [ ] Search for technical term in micro (e.g., "oxide")
 - [ ] Search for author name (e.g., "Ikmanda")
 - [ ] Search for new frontmatter field (verify automatic search)
 

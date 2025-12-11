@@ -340,7 +340,7 @@ Each material page includes Service schema with:
 #### Feed Generation Tests (`feed-generation.test.ts`)
 - Product ID generation
 - SKU format validation
-- Description extraction priority (material_description → caption → generated)
+- Description extraction priority (material_description → micro → generated)
 - Price calculation logic
 - XML escaping
 - Service type configuration

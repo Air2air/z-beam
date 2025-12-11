@@ -103,7 +103,7 @@ describe('HTML Standards Compliance - Modern Web Standards', () => {
         lazyLoading: true, // loading="lazy" for below-fold images
         aspectRatioMaintenance: true, // CSS aspect-ratio or intrinsic sizing
         altTextQuality: true, // Descriptive, contextual alt text
-        figureCaption: true, // <figure> and <figcaption> for images with captions
+        figureMicro: true, // <figure> and <figcaption> for images with captions
         decorativeImages: true, // Empty alt="" for decorative images
       };
       

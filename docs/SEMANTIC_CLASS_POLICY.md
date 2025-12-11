@@ -73,9 +73,9 @@ export function CallToAction() {
 - `footer-logo` - Footer logo
 
 ### 3. Content Components
-- `caption` - Image caption component
-- `caption-before` / `caption-after` - Caption content sections
-- `seo-caption` - SEO-optimized caption
+- `micro` - Image micro component
+- `micro-before` / `micro-after` - Micro content sections
+- `seo-micro` - SEO-optimized micro
 - `date-panel` - Date publication panel
 - `article-grid` - Article grid layouts
 - `card-container` - Card wrapper
@@ -137,7 +137,7 @@ export function CallToAction() {
 .footer-logo { ... }
 
 /* Content Components */
-.caption { ... }
+.micro { ... }
 .date-panel { ... }
 .article-grid { ... }
 
@@ -173,7 +173,7 @@ export function CallToAction() {
 - `Nav` - `.nav-logo`
 - `Footer` - `.footer-logo`
 - `Breadcrumbs` - `.breadcrumb-item`
-- `Caption` - `.seo-caption`, `.caption-before`, `.caption-after`
+- `Micro` - `.seo-micro`, `.micro-before`, `.micro-after`
 - `CardGridSSR` - `.article-grid`
 - `Card` - `.card-container`
 - `Badge` - `.badge`
@@ -181,7 +181,7 @@ export function CallToAction() {
 - `Icons` - `.icon-sm`, `.icon-md`
 
 ### 📊 Available Semantic Classes (responsive.css)
-**Grids**: `grid-2col`, `grid-2col-md`, `grid-3col-md`, `grid-caption`
+**Grids**: `grid-2col`, `grid-2col-md`, `grid-3col-md`, `grid-micro`
 **Flex**: `flex-stack-row`, `flex-stack-row-md-center`, `flex-between`
 **Spacing**: `gap-6-responsive`
 **Components**: `badge`, `date-panel`, `nav-logo`, `footer-logo`, `cta-text`, `cta-icon`
@@ -223,7 +223,7 @@ export function CallToAction() {
 
 ### ✅ Phase 1: Core Components - COMPLETE
 - Navigation (Nav, Footer, Breadcrumbs)
-- Content (Caption, DatePanel)
+- Content (Micro, DatePanel)
 - Layout components
 
 ### ✅ Phase 2: Interactive Components - COMPLETE

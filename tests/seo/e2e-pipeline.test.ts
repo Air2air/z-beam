@@ -22,7 +22,7 @@ const mockFrontmatterData = {
   title: 'Aluminum Laser Cleaning',
   name: 'Aluminum',
   material_description: 'Industrial aluminum surface cleaning with precise laser parameters for optimal oxide removal',
-  caption: 'High-conductivity non-ferrous metal requiring precise thermal management',
+  micro: 'High-conductivity non-ferrous metal requiring precise thermal management',
   category: 'metal',
   subcategory: 'non-ferrous',
   slug: 'aluminum-laser-cleaning',
@@ -411,14 +411,14 @@ describe('SEO Pipeline E2E Integration', () => {
     });
 
     it('should provide description fallback chain for feed', () => {
-      // Feed uses: material_description → caption → title
+      // Feed uses: material_description → micro → title
       expect(mockFrontmatterData.material_description).toBeTruthy();
-      expect(mockFrontmatterData.caption).toBeTruthy();
+      expect(mockFrontmatterData.micro).toBeTruthy();
       expect(mockFrontmatterData.title).toBeTruthy();
       
       // Verify description priority
       const feedDescription = mockFrontmatterData.material_description || 
-                              mockFrontmatterData.caption || 
+                              mockFrontmatterData.micro || 
                               mockFrontmatterData.title;
       expect(feedDescription).toBe(mockFrontmatterData.material_description);
     });

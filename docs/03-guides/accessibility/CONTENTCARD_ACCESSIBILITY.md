@@ -7,7 +7,7 @@ This document details the comprehensive accessibility enhancements implemented i
 ## Overview
 
 The ContentCard component now implements:
-- **Semantic HTML5**: `<article>`, `<header>`, `<section>`, `<figure>`, `<figcaption>`, `<data>`, proper heading hierarchy
+- **Semantic HTML5**: `<article>`, `<header>`, `<section>`, `<figure>`, `<figmicro>`, `<data>`, proper heading hierarchy
 - **ARIA Landmarks & Roles**: Complete ARIA implementation with unique IDs and relationship attributes
 - **Schema.org Structured Data**: Rich semantic markup for search engines and semantic web
 - **Keyboard Navigation**: Full keyboard accessibility with visible focus indicators
@@ -136,7 +136,7 @@ const categoryId = `${uniqueId}-category`;
 - `itemProp="category"`: Schema.org category classification
 - Unique ID for potential ARIA references
 
-### 6. Figure and Figcaption for Images
+### 6. Figure and Figmicro for Images
 
 ```tsx
 <figure 
@@ -156,19 +156,19 @@ const categoryId = `${uniqueId}-category`;
       itemProp="contentUrl"
     />
   </div>
-  <figcaption id={imageId} className="sr-only">
+  <figmicro id={imageId} className="sr-only">
     Illustration for {cardType}: {heading}. {image.alt || `Visual representation of ${text.substring(0, 100)}`}
-  </figcaption>
+  </figmicro>
 </figure>
 ```
 
 **Purpose:**
 - `<figure role="img">`: Semantic container for images with explicit ARIA role
 - `aria-labelledby={titleId}`: Links image to card heading
-- `aria-describedby={imageId}`: Links to detailed figcaption
+- `aria-describedby={imageId}`: Links to detailed figmicro
 - `itemScope`/`itemType`: Schema.org ImageObject for search engines
 - `itemProp="contentUrl"`: Schema.org image URL property
-- `<figcaption className="sr-only">`: Hidden but accessible image description
+- `<figmicro className="sr-only">`: Hidden but accessible image description
 - Dynamic alt text generation if not provided
 - Context-aware description includes card type and truncated text
 
@@ -287,7 +287,7 @@ The ContentCard now implements multiple Schema.org types:
 | Keyboard navigation | 2.1.1 Keyboard | `tabIndex={0}`, all interactive elements keyboard accessible |
 | Focus visible | 2.4.7 Focus Visible | `focus:ring-2 focus:ring-blue-500`, high-contrast outline |
 | Heading hierarchy | 1.3.1, 2.4.6 | Proper h2/h3 with `aria-level`, `role="heading"` |
-| Alternative text | 1.1.1 Non-text Content | Comprehensive alt text, figcaption descriptions |
+| Alternative text | 1.1.1 Non-text Content | Comprehensive alt text, figmicro descriptions |
 | Meaningful sequence | 1.3.2 Meaningful Sequence | Logical DOM order, proper ARIA relationships |
 | Labels/instructions | 3.3.2 Labels or Instructions | `aria-label`, `aria-labelledby` on all elements |
 | Name, role, value | 4.1.2 Name, Role, Value | Proper ARIA roles, semantic HTML, explicit states |
@@ -359,7 +359,7 @@ The ContentCard now implements multiple Schema.org types:
 - Article with heading level 3
 - Order badge with `role="status"` and `<data>` element
 - Semantic list with Schema.org ItemList
-- Figure with comprehensive figcaption
+- Figure with comprehensive figmicro
 - "Step 1: Consultation & Assessment..." announcement
 - All 3 details announced as list items
 
@@ -458,7 +458,7 @@ npm run audit:wcag
 - [ ] Enhance with AI-generated alt text
 
 ### Advanced Features
-- [ ] Interactive metrics overlay (like Caption component)
+- [ ] Interactive metrics overlay (like Micro component)
 - [ ] Expandable/collapsible details sections
 - [ ] Inline editing with accessibility preservation
 - [ ] Multi-language support with lang attributes

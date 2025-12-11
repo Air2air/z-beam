@@ -26,15 +26,15 @@ The Z-Beam application uses a **centralized type system** that provides a single
 │   └── BaseProps.ts       ← Base component properties
 └── legacy/                ← Deprecated scattered types (archived)
 
-/app/components/Caption/
-├── Caption.tsx            ← Imports from centralized types
+/app/components/Micro/
+├── Micro.tsx            ← Imports from centralized types
 ├── MetricsGrid/
 │   ├── MetricsGrid.tsx   ← Imports from centralized types
 │   └── index.ts          ← Re-exports centralized types
-└── useCaptionParsing.ts  ← Uses centralized types
+└── useMicroParsing.ts  ← Uses centralized types
 
-/app/modules/Caption/
-├── Caption.tsx           ← Imports from centralized types
+/app/modules/Micro/
+├── Micro.tsx           ← Imports from centralized types
 └── index.ts             ← Re-exports centralized types
 ```
 
@@ -102,13 +102,13 @@ interface SearchResultItem {
 }
 ```
 
-### **Caption System Types**
+### **Micro System Types**
 
-#### `CaptionDataStructure`
-Complete interface for caption content data.
+#### `MicroDataStructure`
+Complete interface for micro content data.
 
 ```typescript
-interface CaptionDataStructure {
+interface MicroDataStructure {
   before_text?: string;
   after_text?: string;
   material?: string;
@@ -145,7 +145,7 @@ interface CaptionDataStructure {
   // SEO and accessibility
   accessibility?: {
     alt_text_detailed?: string;
-    caption_language?: string;
+    micro_language?: string;
     technical_level?: string;
     visual_description?: string;
   };
@@ -296,7 +296,7 @@ import {
   ArticleMetadata, 
   Author, 
   BadgeData,
-  CaptionDataStructure,
+  MicroDataStructure,
   QualityMetrics 
 } from '@/types';
 
@@ -313,15 +313,15 @@ import { BadgeData } from '@/types/families/ComponentTypes';
 import { SearchApiResponse, MaterialsApiResponse } from '@/types/families/ApiTypes';
 ```
 
-### **Caption System Import**
+### **Micro System Import**
 ```typescript
 import { 
-  CaptionDataStructure,
-  CaptionProps,
+  MicroDataStructure,
+  MicroProps,
   FrontmatterType,
   QualityMetrics,
   MetricsGridProps,
-  ParsedCaptionData 
+  ParsedMicroData 
 } from '@/types/centralized';
 ```
 
@@ -341,22 +341,22 @@ import {
 All centralized types are covered by comprehensive tests:
 
 - **Type Validation Tests**: `/tests/types/centralized.test.ts`
-- **Component Integration Tests**: `/tests/components/Caption.layout.test.tsx`
+- **Component Integration Tests**: `/tests/components/Micro.layout.test.tsx`
 - **MetricsGrid Tests**: `/tests/components/MetricsGrid.test.tsx`
 - **Search Tests**: `/tests/api/search.test.ts`
 
 ### **Test Example**
 ```typescript
 import { 
-  CaptionDataStructure, 
+  MicroDataStructure, 
   QualityMetrics,
   SearchResultItem,
   MaterialMetadata 
 } from '@/types/centralized';
 
 describe('Centralized Types', () => {
-  test('should support complete caption data', () => {
-    const caption: CaptionDataStructure = {
+  test('should support complete micro data', () => {
+    const micro: MicroDataStructure = {
       before_text: 'Before analysis',
       after_text: 'After analysis',
       quality_metrics: {
@@ -366,7 +366,7 @@ describe('Centralized Types', () => {
       }
     };
     
-    expect(caption.quality_metrics?.contamination_removal).toBe('95%');
+    expect(micro.quality_metrics?.contamination_removal).toBe('95%');
   });
   
   test('should support material metadata', () => {
@@ -389,10 +389,10 @@ describe('Centralized Types', () => {
 ## 🔄 Migration Status
 
 ### **✅ Completed**
-- Caption component types fully centralized
+- Micro component types fully centralized
 - MetricsGrid component types fully centralized
-- Original Caption component updated to use centralized types
-- Modular Caption component updated to use centralized types
+- Original Micro component updated to use centralized types
+- Modular Micro component updated to use centralized types
 - Search result types unified and centralized
 - Author system types consolidated
 - Badge system types unified
@@ -426,7 +426,7 @@ describe('Centralized Types', () => {
 **BadgeData**: UI badges vs chemical badges conflicts → Unified interface supporting both
 **Author**: Author vs AuthorMetadata mismatches → Single unified Author
 **Page Props**: Mixed Promise/non-Promise patterns → Consistent async params throughout
-**Caption Types**: Scattered across multiple files → Centralized with zero duplication
+**Micro Types**: Scattered across multiple files → Centralized with zero duplication
 
 ## 🔗 Type Dependency Graph
 
@@ -435,7 +435,7 @@ graph TD
     A[/types/centralized.ts] --> B[/types/index.ts]
     A --> C[/types/families/]
     
-    B --> D[Caption Components]
+    B --> D[Micro Components]
     B --> E[MetricsGrid Components]
     B --> F[Search Components]
     B --> G[Page Components]
@@ -445,9 +445,9 @@ graph TD
     C --> J[ApiTypes.ts]
     C --> K[BaseProps.ts]
     
-    D --> L[CaptionHeader.tsx]
-    D --> M[CaptionImage.tsx]
-    D --> N[CaptionContent.tsx]
+    D --> L[MicroHeader.tsx]
+    D --> M[MicroImage.tsx]
+    D --> N[MicroContent.tsx]
     D --> O[TechnicalDetails.tsx]
     
     E --> P[MetricsGrid.tsx]
@@ -497,7 +497,7 @@ interface CustomApiResponse extends ApiResponse {
 
 // ✅ Create component-specific props
 interface CustomComponentProps {
-  data: CaptionDataStructure;
+  data: MicroDataStructure;
   config?: {
     showAdvanced: boolean;
     theme: 'light' | 'dark';
@@ -508,7 +508,7 @@ interface CustomComponentProps {
 ## 📚 Related Documentation
 
 - **Author System**: [`guides/author-system.md`](../guides/author-system.md)
-- **Caption Components**: [`guides/caption-components.md`](../guides/caption-components.md)
+- **Micro Components**: [`guides/micro-components.md`](../guides/micro-components.md)
 - **API Documentation**: [`reference/api-types.md`](../reference/api-types.md)
 - **Testing Guide**: [`development/testing-guide.md`](../development/testing-guide.md)
 

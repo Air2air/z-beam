@@ -459,7 +459,7 @@ function validateSchemaOrgCompliance(schemas) {
       required: ['name']
     },
     ImageObject: {
-      valid: ['url', 'width', 'height', 'caption', 'description'],
+      valid: ['url', 'width', 'height', 'micro', 'description'],
       required: ['url']
     }
   };

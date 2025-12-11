@@ -8,7 +8,7 @@ After reviewing all 28+ component `index.ts` files, **all are justified** and se
 #### 1. **Multi-Component Folders** (Majority)
 Components with multiple related files that benefit from a single import point:
 
-- **Caption/** - 7 exports (Caption, CaptionHeader, CaptionImage, CaptionContent, TechnicalDetails, MetadataDisplay, useCaptionParsing)
+- **Micro/** - 7 exports (Micro, MicroHeader, MicroImage, MicroContent, TechnicalDetails, MetadataDisplay, useMicroParsing)
 - **Typography/** - 16 exports (H1-H6, P, A, Strong, Em, UL, OL, LI, Code, Pre, Blockquote)
 - **MetricsCard/** - 2 exports (MetricsCard, MetricsGrid)
 - **CardGrid/** - Multiple grid components
@@ -32,7 +32,7 @@ import { Title } from '@/components/Title';  // named
 
 ### Benefits of Current Structure
 
-1. **Clean Imports**: `import { Caption } from '@/components/Caption'` vs `import { Caption } from '@/components/Caption/Caption'`
+1. **Clean Imports**: `import { Micro } from '@/components/Micro'` vs `import { Micro } from '@/components/Micro/Micro'`
 2. **Type Safety**: Co-locates component and type exports
 3. **Flexibility**: Supports both named and default imports
 4. **Maintainability**: Single point to modify exports
@@ -49,10 +49,10 @@ No changes needed. The barrel file pattern is well-implemented and provides valu
 ### Examples of Good Patterns
 
 ```typescript
-// ✅ Multi-component folder (Caption)
-export { Caption } from './Caption';
-export { CaptionHeader } from './CaptionHeader';
-export { useCaptionParsing } from './useCaptionParsing';
+// ✅ Multi-component folder (Micro)
+export { Micro } from './Micro';
+export { MicroHeader } from './MicroHeader';
+export { useMicroParsing } from './useMicroParsing';
 
 // ✅ Component + Types (StaticPage)
 export { StaticPage } from './StaticPage';

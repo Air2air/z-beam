@@ -204,7 +204,7 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
     "url": "https://z-beam.com/images/material/alumina-hero.jpg",
     "width": 1200,
     "height": 630,
-    "caption": "Alumina surface during laser cleaning"
+    "micro": "Alumina surface during laser cleaning"
   }
 }
 ```
@@ -217,7 +217,7 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
   'url': `${context.baseUrl}${frontmatter.images.hero.url}`,
   'width': frontmatter.images.hero.width || 1200,
   'height': frontmatter.images.hero.height || 630,
-  'caption': frontmatter.images.hero.alt
+  'micro': frontmatter.images.hero.alt
 } : undefined
 ```
 

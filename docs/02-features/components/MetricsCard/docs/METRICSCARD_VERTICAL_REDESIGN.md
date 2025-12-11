@@ -287,7 +287,7 @@ item.metadata?.articleType?.toLowerCase() === filterBy.toLowerCase() ||
 - `tests/components/MetricsGrid.test.tsx` — Core functionality
 - `tests/api/routes.test.tsx` — API endpoints
 - `tests/types/centralized.test.ts` — Type validation
-- `tests/components/Caption.layout.test.tsx` — Layout integration
+- `tests/components/Micro.layout.test.tsx` — Layout integration
 - `tests/components/Hero.test.tsx` — Accessibility standards
 - `tests/deployment/pre-deployment-validation.test.js` — Build validation
 

@@ -63,7 +63,7 @@ export type {
 // import { TypeName } from '@/types'
 // 
 // This provides access to all centralized types including:
-// - Caption system types (CaptionDataStructure, CaptionProps, ParsedCaptionData)
+// - Micro system types (MicroDataStructure, MicroProps, ParsedMicroData)
 // - MetricsGrid types (MetricsGridProps, MetricsCardProps, QualityMetrics)
 // - Component props (AuthorProps, TitleProps, LayoutProps, HeroProps, etc.)
 // - Article and content types (ArticleMetadata, MaterialMetadata, etc.)

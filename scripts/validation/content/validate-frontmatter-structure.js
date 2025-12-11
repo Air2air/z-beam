@@ -21,8 +21,8 @@ const SAMPLE_COUNT = FULL_VALIDATION ? Infinity : 10; // Check all files with --
 const FORBIDDEN_PROPERTIES = [
   'applications',
   'environmentalImpact',
-  'beforeText', // Should be caption.before
-  'afterText',  // Should be caption.after
+  'beforeText', // Should be micro.before
+  'afterText',  // Should be micro.after
 ];
 
 // Expected properties structure
@@ -37,7 +37,7 @@ const EXPECTED_STRUCTURE = {
     hero: { url: 'string', alt: 'string' },
     micro: { url: 'string', alt: 'string' }
   },
-  caption: {
+  micro: {
     before: 'string',
     after: 'string'
   },
@@ -72,17 +72,17 @@ function validateFrontmatter() {
       }
     });
     
-    // Validate caption structure
-    if (content.includes('caption:')) {
+    // Validate micro structure
+    if (content.includes('micro:')) {
       if (content.includes('beforeText:') || content.includes('afterText:')) {
-        errors.push(`❌ ${file}: caption has beforeText/afterText instead of before/after`);
+        errors.push(`❌ ${file}: micro has beforeText/afterText instead of before/after`);
       }
-      const hasCaption = content.includes('caption:');
+      const hasMicro = content.includes('micro:');
       const hasBefore = content.match(/^\s*before:/m);
       const hasAfter = content.match(/^\s*after:/m);
       
-      if (hasCaption && !hasBefore && !hasAfter) {
-        warnings.push(`⚠️  ${file}: caption exists but has no before/after text`);
+      if (hasMicro && !hasBefore && !hasAfter) {
+        warnings.push(`⚠️  ${file}: micro exists but has no before/after text`);
       }
     }
   });

@@ -2,7 +2,7 @@
  * @file types/centralized.ts
  * @purpose SINGLE SOURCE OF TRUTH for all Z-Beam types - 1,830+ consolidated type definitions
  * @aiContext ALWAYS import types from '@/types' - never create local interfaces in components
- *           Key types: ArticleMetadata, CardProps, CaptionProps, Author, CardGridProps
+ *           Key types: ArticleMetadata, CardProps, MicroProps, Author, CardGridProps
  * @usage import type { TypeName } from '@/types'
  * @warning Never create duplicate interfaces - add new types to this file
  * @exports 100+ interfaces covering all component props, data structures, and utilities
@@ -211,8 +211,8 @@ export interface ArticleMetadata {
   cost_analysis?: Record<string, PropertyWithUnits>;
   quality_metrics?: Record<string, PropertyWithUnits>;
   
-  // Caption integration - frontmatter.caption support
-  caption?: CaptionDataStructure;
+  // Micro integration - frontmatter.micro support
+  micro?: MicroDataStructure;
   
   // FAQ support for material pages
   faq?: Array<{question: string; answer: string}> | { questions?: Array<{question: string; answer: string}> };
@@ -376,12 +376,12 @@ export interface BadgeData {
 // ===============================
 
 /**
- * Enhanced Caption Data Structure - Complete interface for caption content
+ * Enhanced Micro Data Structure - Complete interface for micro content
  */
 /**
- * CaptionDataStructure - Before/After Caption Text
+ * MicroDataStructure - Before/After Micro Text
  * 
- * ⚠️ CRITICAL: This interface MUST match actual YAML caption structure
+ * ⚠️ CRITICAL: This interface MUST match actual YAML micro structure
  * 
  * ONLY two fields exist in YAML:
  * - before: Description of material before laser cleaning
@@ -392,14 +392,14 @@ export interface BadgeData {
  * 
  * Example from YAML:
  * ```yaml
- * caption:
+ * micro:
  *   before: "Contaminated surface with..."
  *   after: "Clean surface showing..."
  * ```
  * 
  * @see frontmatter/materials/bamboo-laser-cleaning.yaml lines 52-53
  */
-export interface CaptionDataStructure {
+export interface MicroDataStructure {
   /** Description of material BEFORE laser cleaning */
   before?: string;
   /** Description of material AFTER laser cleaning */
@@ -446,7 +446,7 @@ export interface CaptionDataStructure {
  * Properties that DO NOT exist (DO NOT ADD):
  * ❌ applications - does not exist in YAML
  * ❌ environmentalImpact - does not exist in YAML
- * ❌ caption.beforeText/afterText - use caption.before/after instead
+ * ❌ micro.beforeText/afterText - use micro.before/after instead
  * 
  * @see frontmatter/materials/alumina-laser-cleaning.yaml for reference structure
  */
@@ -503,8 +503,8 @@ export interface FrontmatterType {
     thermalDestructionType?: string; // Label for thermal destruction type
   };
   
-  // Caption data from frontmatter.caption
-  caption?: CaptionDataStructure;
+  // Micro data from frontmatter.micro
+  micro?: MicroDataStructure;
   
   /** Material category (e.g., "ceramic", "wood", "metal") */
   category?: string;
@@ -532,9 +532,9 @@ export interface FrontmatterType {
 }
 
 /**
- * Caption component props
+ * Micro component props
  */
-export interface CaptionProps {
+export interface MicroProps {
   frontmatter: FrontmatterType;
   config?: {
     className?: string;
@@ -600,33 +600,33 @@ export interface MetricsGridProps {
   defaultExpandedCategories?: string[]; // Categories expanded by default
   maxCards?: number; // Limit the number of cards displayed
   
-  // Legacy compatibility (for older Caption system usage)
+  // Legacy compatibility (for older Micro system usage)
   qualityMetrics?: QualityMetrics;
   excludeMetrics?: string[];
 }
 
 /**
- * Parsed caption data interface for useCaptionParsing hook
+ * Parsed micro data interface for useMicroParsing hook
  */
-export interface ParsedCaptionData {
+export interface ParsedMicroData {
   renderedContent: string;
   before?: string;
   after?: string;
   // DEPRECATED: beforeText and afterText are deprecated. Use before/after instead.
   // beforeText?: string;
   // afterText?: string;
-  laserParams?: any; // CaptionYamlData['laser_parameters']
-  metadata?: any; // CaptionYamlData['metadata']
+  laserParams?: any; // MicroYamlData['laser_parameters']
+  metadata?: any; // MicroYamlData['metadata']
   material?: string;
   // Enhanced data fields
   isEnhanced?: boolean;
-  qualityMetrics?: any; // EnhancedCaptionYamlData['quality_metrics']
-  authorObject?: any; // EnhancedCaptionYamlData['author_object']
-  technicalSpecs?: any; // EnhancedCaptionYamlData['technical_specifications']
-  materialProps?: any; // EnhancedCaptionYamlData['material_properties']
-  methodology?: any; // EnhancedCaptionYamlData['analysis_methodology']
-  seoMetadata?: any; // EnhancedCaptionYamlData['seo_metadata']
-  accessibility?: any; // EnhancedCaptionYamlData['accessibility']
+  qualityMetrics?: any; // EnhancedMicroYamlData['quality_metrics']
+  authorObject?: any; // EnhancedMicroYamlData['author_object']
+  technicalSpecs?: any; // EnhancedMicroYamlData['technical_specifications']
+  materialProps?: any; // EnhancedMicroYamlData['material_properties']
+  methodology?: any; // EnhancedMicroYamlData['analysis_methodology']
+  seoMetadata?: any; // EnhancedMicroYamlData['seo_metadata']
+  accessibility?: any; // EnhancedMicroYamlData['accessibility']
 }
 
 // ===============================
@@ -762,7 +762,7 @@ export interface TableProps {
   content: string;
   config?: {
     showHeader?: boolean;
-    caption?: string;
+    micro?: string;
     className?: string;
     variant?: 'default' | 'sectioned' | 'compact';
     includedFields?: string[];
@@ -778,7 +778,7 @@ export interface TableProps {
   bordered?: boolean;
   hover?: boolean;
   responsive?: boolean;
-  caption?: string;
+  micro?: string;
 }
 
 /**
@@ -818,7 +818,7 @@ export interface PageData {
 // ===============================
 
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ComponentType = 'author' | 'badgesymbol' | 'caption' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'settings' | 'table' | 'text';
+export type ComponentType = 'author' | 'badgesymbol' | 'micro' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'settings' | 'table' | 'text';
 export type BadgeVariant = 'outline' | 'subtle' | 'solid' | 'card';
 export type BadgeSize = 'card' | 'large' | 'small' | 'inline';
 export type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'gray';
@@ -2109,12 +2109,12 @@ export interface DebugLayoutProps {
 }
 
 /**
- * SEO caption props
+ * SEO micro props
  */
-export interface SEOCaptionProps {
+export interface SEOMicroProps {
   materialName: string;
   frontmatter?: FrontmatterType;
-  captionData?: ParsedCaptionData;
+  microData?: ParsedMicroData;
   imageData?: {
     beforeUrl: string;
     afterUrl: string;
@@ -2150,12 +2150,12 @@ export interface SearchResultsGridProps {
 }
 
 /**
- * Caption image props
+ * Micro image props
  */
-export interface CaptionImageProps {
+export interface MicroImageProps {
   src?: string;
   alt?: string;
-  caption?: string;
+  micro?: string;
   width?: number;
   height?: number;
 }

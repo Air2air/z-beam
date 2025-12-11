@@ -1,4 +1,4 @@
-// app/components/Caption/TechnicalDetails.tsx
+// app/components/Micro/TechnicalDetails.tsx
 "use client";
 
 import { FrontmatterType } from '@/types';

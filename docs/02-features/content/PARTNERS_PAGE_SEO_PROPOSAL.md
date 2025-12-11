@@ -150,7 +150,7 @@ export function createPartnersJsonLd(partners: Partner[]) {
         logo: {
           '@type': 'ImageObject',
           url: `${baseUrl}${partner.image.url}`,
-          caption: partner.image.alt
+          micro: partner.image.alt
         }
       }),
       address: {
@@ -334,7 +334,7 @@ export default async function PartnersPage() {
       "logo": {
         "@type": "ImageObject",
         "url": "https://z-beam.com/images/partners/partner_laserverse.png",
-        "caption": "Laserverse logo - North American laser cleaning equipment distributor"
+        "micro": "Laserverse logo - North American laser cleaning equipment distributor"
       },
       "address": {
         "@type": "PostalAddress",
@@ -361,7 +361,7 @@ export default async function PartnersPage() {
       "logo": {
         "@type": "ImageObject",
         "url": "https://z-beam.com/images/partners/partner_mack.png",
-        "caption": "MacK Laser Restoration logo - Professional laser cleaning services"
+        "micro": "MacK Laser Restoration logo - Professional laser cleaning services"
       },
       "address": {
         "@type": "PostalAddress",
@@ -388,7 +388,7 @@ export default async function PartnersPage() {
       "logo": {
         "@type": "ImageObject",
         "url": "https://z-beam.com/images/partners/partner_netalux.png",
-        "caption": "Netalux logo - European laser cleaning equipment manufacturer"
+        "micro": "Netalux logo - European laser cleaning equipment manufacturer"
       },
       "address": {
         "@type": "PostalAddress",

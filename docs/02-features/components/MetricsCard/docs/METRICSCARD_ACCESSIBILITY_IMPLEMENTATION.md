@@ -11,7 +11,7 @@ Successfully implemented comprehensive ARIA and WCAG 2.1 AA accessibility improv
 ### **1. Semantic HTML Structure**
 - ✅ **`<article>`** elements for individual metric cards
 - ✅ **`<section>`** elements for metric visualization and content areas
-- ✅ **`<figure>` and `<figcaption>`** for progress bar visualizations
+- ✅ **`<figure>` and `<figmicro>`** for progress bar visualizations
 - ✅ **`<header>`** elements for grid titles and descriptions
 - ✅ **`<h4>`** proper heading hierarchy for metric titles
 - ✅ **`<data>`** elements for machine-readable metric values

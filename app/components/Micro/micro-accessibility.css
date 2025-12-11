@@ -14,14 +14,14 @@
 }
 
 /* Focus management and indicators */
-.enhanced-seo-caption:focus-within {
+.enhanced-seo-micro:focus-within {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-.enhanced-seo-caption [tabindex="0"]:focus,
-.enhanced-seo-caption [tabindex="-1"]:focus {
+.enhanced-seo-micro [tabindex="0"]:focus,
+.enhanced-seo-micro [tabindex="-1"]:focus {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
   border-radius: 4px;
@@ -38,7 +38,7 @@
 
 /* High contrast support */
 @media (prefers-contrast: high) {
-  .enhanced-seo-caption {
+  .enhanced-seo-micro {
     border: 1px solid currentColor;
   }
   
@@ -48,7 +48,7 @@
     color: CanvasText;
   }
   
-  .enhanced-seo-caption [tabindex="0"]:focus {
+  .enhanced-seo-micro [tabindex="0"]:focus {
     outline: 3px solid Highlight;
     outline-offset: 2px;
   }
@@ -56,9 +56,9 @@
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .enhanced-seo-caption *,
-  .enhanced-seo-caption *::before,
-  .enhanced-seo-caption *::after {
+  .enhanced-seo-micro *,
+  .enhanced-seo-micro *::before,
+  .enhanced-seo-micro *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -72,7 +72,7 @@
 
 /* Touch accessibility improvements */
 @media (pointer: coarse) {
-  .enhanced-seo-caption [tabindex="0"] {
+  .enhanced-seo-micro [tabindex="0"] {
     min-height: 44px;
     min-width: 44px;
     padding: 8px;
@@ -86,7 +86,7 @@
 }
 
 /* Keyboard navigation hints */
-.enhanced-seo-caption:focus::after {
+.enhanced-seo-micro:focus::after {
   content: "Use arrow keys to navigate metrics, Enter to toggle, Escape to exit";
   position: absolute;
   bottom: -2rem;
@@ -109,11 +109,11 @@
 }
 
 /* Loading state accessibility */
-.caption-loading {
+.micro-loading {
   position: relative;
 }
 
-.caption-loading::before {
+.micro-loading::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -125,12 +125,12 @@
 }
 
 /* Error state accessibility */
-.caption-error {
+.micro-error {
   border: 2px solid #ef4444;
   background-color: rgba(239, 68, 68, 0.1);
 }
 
-.caption-error [role="alert"] {
+.micro-error [role="alert"] {
   background-color: #ef4444;
   color: white;
   padding: 1rem;
@@ -157,8 +157,8 @@
 /* Live region styling - handled by browser/screen reader */
 
 /* Section heading accessibility */
-.enhanced-seo-caption h3[role="heading"],
-.enhanced-seo-caption h4[role="heading"] {
+.enhanced-seo-micro h3[role="heading"],
+.enhanced-seo-micro h4[role="heading"] {
   scroll-margin-top: 2rem;
 }
 
@@ -174,12 +174,12 @@
 }
 
 /* Ensure proper text contrast */
-.enhanced-seo-caption {
+.enhanced-seo-micro {
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  .enhanced-seo-caption {
+  .enhanced-seo-micro {
     --text-primary: #f9fafb;
     --text-secondary: #d1d5db;
     --bg-overlay: rgba(0, 0, 0, 0.8);
@@ -187,7 +187,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .enhanced-seo-caption {
+  .enhanced-seo-micro {
     --text-primary: #111827;
     --text-secondary: #6b7280;
     --bg-overlay: rgba(255, 255, 255, 0.9);

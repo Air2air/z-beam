@@ -217,7 +217,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         flattenToSearchableText(metadata?.materialProperties),
         flattenToSearchableText(metadata?.machineSettings),
         flattenToSearchableText(metadata?.applications),
-        flattenToSearchableText(metadata?.caption),
+        flattenToSearchableText(metadata?.micro),
         flattenToSearchableText(metadata?.regulatoryStandards),
       ];
       

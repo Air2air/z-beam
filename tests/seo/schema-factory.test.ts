@@ -630,7 +630,7 @@ describe('ImageObject Schema with License Metadata', () => {
           alt: 'Aluminum being laser cleaned'
         }
       },
-      caption: {
+      micro: {
         before: 'Aluminum surface before laser cleaning',
         description: 'High-quality professional image'
       },
@@ -687,13 +687,13 @@ describe('ImageObject Schema with License Metadata', () => {
     expect((imageObject?.creator as any)?.name).toBe('Dr. Sarah Chen');
   });
 
-  it('includes caption from image alt text', () => {
+  it('includes micro from image alt text', () => {
     const factory = new SchemaFactory(imageData, 'materials/aluminum');
     const result = factory.generate();
     const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
     
-    // Caption comes from hero image alt text
-    expect(imageObject?.caption).toBe('Aluminum being laser cleaned');
+    // Micro comes from hero image alt text
+    expect(imageObject?.micro).toBe('Aluminum being laser cleaned');
   });
 
   it('uses image-specific license when provided', () => {

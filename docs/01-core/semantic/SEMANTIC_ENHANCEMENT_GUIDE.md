@@ -284,7 +284,7 @@ const attributes = BUILD_TARGET === 'seo' ? fullAttributes : basicAttributes;
 
 #### **High Priority (Implement First)**
 1. **MetricsCard data elements** ✅ (Already implemented)
-2. **Caption quality metrics** ✅ (Already implemented)
+2. **Micro quality metrics** ✅ (Already implemented)
 3. **Search result items**
 4. **Material property listings**
 
@@ -322,7 +322,7 @@ const measureMarkupImpact = () => {
 
 ### **Phase 1: Core Components (Current)**
 - ✅ MetricsCard data elements
-- ✅ Caption quality metrics
+- ✅ Micro quality metrics
 - ✅ Progress bar semantics
 
 ### **Phase 2: Content Discovery**

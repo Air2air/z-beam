@@ -89,7 +89,7 @@ function collectMaterials() {
             materials.push({
               id: generateProductId(slug, serviceType),
               title: data.title || slug,
-              description: data.material_description || data.caption || `Professional laser cleaning service for ${data.title || slug}`,
+              description: data.material_description || data.micro || `Professional laser cleaning service for ${data.title || slug}`,
               link: productUrl,
               imageLink: `${SITE_URL}/images/material/${slug}-hero.jpg`,
               price: `${pricing.hourlyRate} ${pricing.currency}`,

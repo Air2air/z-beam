@@ -35,7 +35,7 @@ This directory contains comprehensive accessibility documentation for the Z-Beam
 
 5. **[ARIA Semantic Reference](./ARIA_SEMANTIC_REFERENCE.md)**
    - Complete ARIA attribute guide
-   - MetricsCard and Caption implementations
+   - MetricsCard and Micro implementations
    - Screen reader optimizations
    - Keyboard navigation patterns
 
@@ -137,7 +137,7 @@ Based on the [Component Accessibility Audit](./COMPONENT_ACCESSIBILITY_AUDIT.md)
 🟡 **MOSTLY COMPLIANT** with WCAG 2.1 Level AA
 
 ### Strong Areas
-- ✅ MetricsCard and Caption components (9.5/10)
+- ✅ MetricsCard and Micro components (9.5/10)
 - ✅ Navigation structure and semantics (8.5/10)
 - ✅ Semantic HTML usage
 - ✅ Skip navigation links

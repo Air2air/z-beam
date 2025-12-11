@@ -53,7 +53,7 @@ This is what the MaterialJsonLD component automatically generates from the Alaba
       "image": {
         "@type": "ImageObject",
         "url": "https://z-beam.com/images/material/alabaster-laser-cleaning-hero.jpg",
-        "caption": "High-resolution microscopy analysis reveals significant surface quality improvements. Pre-treatment examination shows extensive surface contamination and discoloration, with accumulated environmental pollutants and organic matter visible at 50x magnification. Post-laser cleaning analysis demonstrates restored natural translucency and color, with microscopic examination confirming gentle contaminant removal while preserving the delicate crystalline structure."
+        "micro": "High-resolution microscopy analysis reveals significant surface quality improvements. Pre-treatment examination shows extensive surface contamination and discoloration, with accumulated environmental pollutants and organic matter visible at 50x magnification. Post-laser cleaning analysis demonstrates restored natural translucency and color, with microscopic examination confirming gentle contaminant removal while preserving the delicate crystalline structure."
       },
       "about": [
         { "@type": "Thing", "name": "Cultural Heritage" },
@@ -587,7 +587,7 @@ This is what the MaterialJsonLD component automatically generates from the Alaba
 
 ### 1. TechnicalArticle
 - **Lines**: 6-58
-- **Key Fields**: headline, author link, publisher, dates, image with caption
+- **Key Fields**: headline, author link, publisher, dates, image with micro
 - **E-E-A-T**: Experience (applications), Expertise (abstract)
 
 ### 2. Product

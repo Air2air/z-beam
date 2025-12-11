@@ -119,7 +119,7 @@ showHero: true
 
 ## ⚙️ Advanced Configuration
 
-### With Caption Data
+### With Micro Data
 ```yaml
 title: "Material Page"
 slug: "silicon"
@@ -132,8 +132,8 @@ images:
     width: 1920
     height: 1080
 
-# Caption data for additional context
-caption:
+# Micro data for additional context
+micro:
   material: "Silicon"
   imageUrl:
     url: "/images/materials/silicon-micro.webp"

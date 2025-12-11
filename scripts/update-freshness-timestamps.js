@@ -25,7 +25,7 @@
  * 
  * STRATEGY:
  * 1. Add `dateModified` field to all frontmatter files
- * 2. Set initial `datePublished` if missing (use caption.generated)
+ * 2. Set initial `datePublished` if missing (use micro.generated)
  * 3. Update `dateModified` on a rotating schedule
  * 4. Track update history for authenticity
  * 
@@ -320,7 +320,7 @@ function selectFilesForUpdate(files, tracking, options = {}) {
     const { data, slug } = file;
     
     // Get existing dates
-    const datePublished = data.datePublished || data.caption?.generated;
+    const datePublished = data.datePublished || data.micro?.generated;
     const dateModified = data.dateModified;
     
     // Get last update from tracking
@@ -403,9 +403,9 @@ function generateUpdates(file, tracking) {
   const { data, slug } = file;
   const updates = {};
   
-  // Set datePublished if missing (use caption.generated or current time)
+  // Set datePublished if missing (use micro.generated or current time)
   if (!data.datePublished) {
-    updates.datePublished = data.caption?.generated || getCurrentTimestamp(false);
+    updates.datePublished = data.micro?.generated || getCurrentTimestamp(false);
   }
   
   // Set or update dateModified

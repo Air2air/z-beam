@@ -1,11 +1,11 @@
-// app/components/Caption/CaptionImage.tsx
+// app/components/Micro/MicroImage.tsx
 "use client";
 
 import Image from 'next/image';
 import { useState } from 'react';
 import { SITE_CONFIG } from '../../utils/constants';
 
-interface CaptionImageProps {
+interface MicroImageProps {
   imageSource?: string;
   materialName?: string;
   alt?: string;
@@ -14,7 +14,7 @@ interface CaptionImageProps {
   };
 }
 
-export function CaptionImage({ imageSource, materialName, alt, seoData }: CaptionImageProps) {
+export function MicroImage({ imageSource, materialName, alt, seoData }: MicroImageProps) {
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 

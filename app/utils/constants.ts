@@ -102,7 +102,7 @@ const SITE_CONFIG_OLD = {
         disablekb: '1',          // Disable keyboard controls
         fs: '0',                 // Hide fullscreen button
         playsinline: '1',        // Play inline on iOS (no fullscreen)
-        cc_load_policy: '0',     // Hide closed captions by default
+        cc_load_policy: '0',     // Hide closed micros by default
         color: 'white',          // Use white progress bar (less branding)
         enablejsapi: '0',        // Disable JS API (cleaner embed)
         origin: typeof window !== 'undefined' ? window.location.origin : undefined

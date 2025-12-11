@@ -177,7 +177,7 @@ author:
   sex: m
   image: /images/author/todd-dunning.jpg
 
-caption:
+micro:
   description: Brief description
   beforeText: Analysis before treatment
   afterText: Analysis after treatment

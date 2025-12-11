@@ -20,7 +20,7 @@ export interface ArticleSchemaOptions {
     hero?: ImageData;
     micro?: ImageData;
   };
-  caption?: {
+  micro?: {
     before?: string;
     after?: string;
   };
@@ -53,7 +53,7 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     modifiedDate,
     author = {},
     images,
-    caption,
+    micro,
     applications = [],
     keywords,
     articleType = 'TechnicalArticle',
@@ -66,11 +66,11 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
   const pubDate = publishDate || currentDate || new Date().toISOString();
   const modDate = modifiedDate || pubDate;
   
-  // Build article body from caption using {before, after} format
-  const captionBefore = (caption as any)?.before;
-  const captionAfter = (caption as any)?.after;
-  const articleBody = captionBefore 
-    ? `${captionBefore}\n\n${captionAfter || ''}`
+  // Build article body from micro using {before, after} format
+  const microBefore = (micro as any)?.before;
+  const microAfter = (micro as any)?.after;
+  const articleBody = microBefore 
+    ? `${microBefore}\n\n${microAfter || ''}`
     : description;
   
   // Build image object with dimensions (P0 enhancement for rich snippets)
@@ -79,7 +79,7 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     url: `${baseUrl}${images.hero.url}`,
     width: images.hero.width || 1200,
     height: images.hero.height || 630,
-    caption: images.hero.alt || description
+    micro: images.hero.alt || description
   } : undefined;
 
   return {

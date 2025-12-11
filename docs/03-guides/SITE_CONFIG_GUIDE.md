@@ -430,7 +430,7 @@ All hardcoded site configuration values were migrated to `SITE_CONFIG`:
 **Files Updated:** 20+
 - Page files (contact, about, services, home, slug)
 - Utility files (jsonld-schema, metadata, materials/metadata)
-- Component files (Caption, JsonLD, Author, Hero, Layout, etc.)
+- Component files (Micro, JsonLD, Author, Hero, Layout, etc.)
 
 **Key Changes:**
 1. All "Z-Beam" references → `SITE_CONFIG.shortName` or `SITE_CONFIG.name`

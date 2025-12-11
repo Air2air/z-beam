@@ -97,7 +97,7 @@ const value = metrics?.totalRequests ?? 0;
 | `CardGrid` | `CardGridProps` | `articles`, `mode`, `columns` | Mode: simple/category-grouped/search-results |
 | `Card` | `CardProps` | `frontmatter`, `href`, `variant` | Variant: standard/compact/featured/preview |
 | `HeroCard` | `HeroCardProps` | `image`, `title`, `items?` | Hero image section with badge list |
-| `Caption` | `CaptionProps` | `text` | Subtitle/eyebrow text |
+| `Micro` | `MicroProps` | `text` | Subtitle/eyebrow text |
 | `ContentCard` | `ContentCardProps` | `image?`, `alt?`, `title`, `children` | Flexible content display |
 | `MetricsCard` | `MetricsCardProps` | `title`, `data`, `mode` | Displays technical metrics |
 | `ProgressBar` | `ProgressBarProps` | `min`, `max`, `value`, `title` | Auto-calculates percentages |

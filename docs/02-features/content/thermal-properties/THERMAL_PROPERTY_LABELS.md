@@ -6,7 +6,7 @@ The material properties component now dynamically displays the correct thermal d
 
 ## Implementation
 
-Location: `app/components/Caption/SEOOptimizedCaption.tsx`
+Location: `app/components/Micro/SEOOptimizedMicro.tsx`
 
 Function: `getThermalPropertyLabel(materialName: string)`
 
@@ -228,5 +228,5 @@ Test with various materials to verify correct labels:
 ---
 
 **Implementation Date:** October 13, 2025  
-**Component:** SEOOptimizedCaption.tsx  
+**Component:** SEOOptimizedMicro.tsx  
 **Impact:** All material property displays across the site

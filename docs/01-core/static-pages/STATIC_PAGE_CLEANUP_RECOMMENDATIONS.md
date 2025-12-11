@@ -85,7 +85,7 @@ Found in 20+ files across the app:
 - Layout.tsx (both article and page layouts)
 - Contact page
 - Services page
-- All major components (MetricsGrid, Tags, Caption, Table, etc.)
+- All major components (MetricsGrid, Tags, Micro, Table, etc.)
 - Error pages (error.tsx, global-error.tsx)
 - Search pages
 - Debug pages

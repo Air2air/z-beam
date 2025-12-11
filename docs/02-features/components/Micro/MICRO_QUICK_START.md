@@ -1,4 +1,4 @@
-# Caption Component Quick Start Guide
+# Micro Component Quick Start Guide
 
 **Last Updated:** September 30, 2025
 
@@ -9,13 +9,13 @@
 ### Basic Implementation
 
 ```tsx
-import { Caption } from '@/components/Caption/Caption';
+import { Micro } from '@/components/Micro/Micro';
 
 // In your component
-<Caption frontmatter={metadata} />
+<Micro frontmatter={metadata} />
 ```
 
-The Caption component expects metadata with a `caption` property at `frontmatter.caption`.
+The Micro component expects metadata with a `micro` property at `frontmatter.micro`.
 
 ---
 
@@ -25,7 +25,7 @@ The Caption component expects metadata with a `caption` property at `frontmatter
 
 ```typescript
 const metadata = {
-  caption: {
+  micro: {
     material: 'Aluminum 6061-T6',
     imageUrl: {
       url: '/images/analysis/aluminum-comparison.jpg',
@@ -59,10 +59,10 @@ const metadata = {
 
 ```typescript
 // ✅ Correct
-import { CaptionProps, ParsedCaptionData, FrontmatterType } from '@/types';
+import { MicroProps, ParsedMicroData, FrontmatterType } from '@/types';
 
 // ❌ Wrong
-import { CaptionProps } from './Caption';  // Don't import from component
+import { MicroProps } from './Micro';  // Don't import from component
 ```
 
 ---
@@ -72,7 +72,7 @@ import { CaptionProps } from './Caption';  // Don't import from component
 ### With Next.js Page
 
 ```tsx
-import { Caption } from '@/components/Caption/Caption';
+import { Micro } from '@/components/Micro/Micro';
 import { getContentMetadata } from '@/utils/contentAPI';
 
 export default function ArticlePage({ slug }) {
@@ -80,7 +80,7 @@ export default function ArticlePage({ slug }) {
   
   return (
     <main>
-      <Caption frontmatter={metadata} />
+      <Micro frontmatter={metadata} />
       {/* other content */}
     </main>
   );
@@ -90,7 +90,7 @@ export default function ArticlePage({ slug }) {
 ### With Custom Styling
 
 ```tsx
-<Caption 
+<Micro 
   frontmatter={metadata}
   config={{
     className: 'my-custom-class'
@@ -106,7 +106,7 @@ export default function ArticlePage({ slug }) {
 
 ```typescript
 import { render, screen } from '@testing-library/react';
-import { Caption } from '@/components/Caption/Caption';
+import { Micro } from '@/components/Micro/Micro';
 
 const mockData = {
   material: 'Test Material',
@@ -116,20 +116,20 @@ const mockData = {
 };
 
 // ✅ Correct test render
-render(<Caption frontmatter={{ caption: mockData }} />);
+render(<Micro frontmatter={{ micro: mockData }} />);
 
 // ❌ Wrong - old API
-render(<Caption data={mockData} />);
+render(<Micro data={mockData} />);
 ```
 
 ---
 
 ## Troubleshooting
 
-### Caption Not Displaying
+### Micro Not Displaying
 
 **Check:**
-1. Metadata structure has `caption` property at correct path
+1. Metadata structure has `micro` property at correct path
 2. Using camelCase for `beforeText` and `afterText`
 3. Image source available (checks both `images.micro.url` and `imageUrl.url`)
 
@@ -137,12 +137,12 @@ render(<Caption data={mockData} />);
 
 **Solution:**
 - Import types from `@/types` only
-- Ensure `CaptionDataStructure` properties match your data
+- Ensure `MicroDataStructure` properties match your data
 
 ### Test Failures
 
 **Common issues:**
-- Using `data` prop instead of `frontmatter={{ caption: ... }}`
+- Using `data` prop instead of `frontmatter={{ micro: ... }}`
 - Using snake_case properties in test data
 - Missing closing braces in JSX
 
@@ -151,7 +151,7 @@ render(<Caption data={mockData} />);
 ## Best Practices
 
 1. ✅ **Always use centralized types** from `@/types`
-2. ✅ **Use camelCase** for all Caption data properties
+2. ✅ **Use camelCase** for all Micro data properties
 3. ✅ **Provide image fallbacks** when possible
 4. ✅ **Test with both image sources** (micro and imageUrl)
 5. ✅ **Keep metadata structure consistent** across pages
@@ -160,10 +160,10 @@ render(<Caption data={mockData} />);
 
 ## API Reference
 
-### CaptionProps
+### MicroProps
 
 ```typescript
-interface CaptionProps {
+interface MicroProps {
   frontmatter: FrontmatterType;  // Required
   config?: {
     className?: string;           // Optional
@@ -171,10 +171,10 @@ interface CaptionProps {
 }
 ```
 
-### CaptionDataStructure
+### MicroDataStructure
 
 ```typescript
-interface CaptionDataStructure {
+interface MicroDataStructure {
   material?: string;
   imageUrl?: { url?: string; alt?: string; };
   images?: { micro?: { url?: string; }; };
@@ -190,19 +190,19 @@ See `types/centralized.ts` for complete definitions.
 
 ## Related Documentation
 
-- **Full Details:** [CAPTION_COMPONENT_FIXES_SUMMARY.md](./CAPTION_COMPONENT_FIXES_SUMMARY.md)
+- **Migration Guide:** [CAPTION_TO_MICRO_MIGRATION_DEC11_2025.md](../../../CAPTION_TO_MICRO_MIGRATION_DEC11_2025.md)
 - **Type Definitions:** `types/centralized.ts`
-- **Component Source:** `app/components/Caption/Caption.tsx`
-- **Test Examples:** `tests/accessibility/Caption.comprehensive.test.tsx`
+- **Component Source:** `app/components/Micro/Micro.tsx`
+- **Test Examples:** `tests/components/Micro.accessibility.test.tsx`
 
 ---
 
 ## Support
 
 For issues or questions:
-1. Check [CAPTION_COMPONENT_FIXES_SUMMARY.md](./CAPTION_COMPONENT_FIXES_SUMMARY.md) for detailed information
+1. Check [CAPTION_TO_MICRO_MIGRATION_DEC11_2025.md](../../../CAPTION_TO_MICRO_MIGRATION_DEC11_2025.md) for migration details
 2. Review type definitions in `types/centralized.ts`
-3. Examine working tests in `tests/accessibility/Caption.comprehensive.test.tsx`
+3. Examine working tests in `tests/components/Micro.accessibility.test.tsx`
 
 ---
 

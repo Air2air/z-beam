@@ -56,7 +56,7 @@ Replaced generic `<div>` elements with proper semantic HTML5 tags for better acc
 ```tsx
 // Main heatmap visualization
 <figure aria-label="${title} interactive heatmap">
-  <figcaption>Pulse Duration (ns)</figcaption>
+  <figmicro>Pulse Duration (ns)</figmicro>
   
   <div role="list" aria-label="Pulse duration scale">
     {/* Y-axis scale values */}
@@ -66,7 +66,7 @@ Replaced generic `<div>` elements with proper semantic HTML5 tags for better acc
     {/* Heatmap grid cells */}
   </div>
   
-  <figcaption>Power (W)</figcaption>
+  <figmicro>Power (W)</figmicro>
 </figure>
 
 // Analysis panels container
@@ -116,7 +116,7 @@ Replaced generic `<div>` elements with proper semantic HTML5 tags for better acc
 | Element | Purpose | Location |
 |---------|---------|----------|
 | `<figure>` | Contains the interactive heatmap grid | Main visualization container |
-| `<figcaption>` | Labels for axes (Pulse Duration, Power) | Top/bottom of heatmap |
+| `<figmicro>` | Labels for axes (Pulse Duration, Power) | Top/bottom of heatmap |
 | `<section>` | Major content divisions | Current Settings, Analysis Breakdown panels |
 | `<article>` | Individual factor breakdowns | Each scoring factor (Damage Risk, Power, etc.) |
 | `<aside>` | Complementary analysis content | Right sidebar container |

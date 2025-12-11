@@ -42,9 +42,9 @@ This document provides detailed specifications for all ARIA roles, properties, a
   aria-labelledby="progress-label-{uniqueId}"
   aria-describedby="progress-desc-{uniqueId}"
 >
-  <figcaption id="progress-label-{uniqueId}" className="sr-only">
+  <figmicro id="progress-label-{uniqueId}" className="sr-only">
     {title} progress indicator
-  </figcaption>
+  </figmicro>
   
   <div id="progress-desc-{uniqueId}" className="sr-only">
     Current value: <data value={value}>{value}</data> {unit}.
@@ -77,15 +77,15 @@ This document provides detailed specifications for all ARIA roles, properties, a
 >
 ```
 
-## Caption Component ARIA Implementation
+## Micro Component ARIA Implementation
 
 ### Main Section ARIA Pattern
 ```typescript
 <section 
-  id="caption-section-{uniqueId}"
+  id="micro-section-{uniqueId}"
   role="region"
-  aria-labelledby="caption-title-{uniqueId}"
-  aria-describedby="caption-desc-{uniqueId} caption-announcements-{uniqueId}"
+  aria-labelledby="micro-title-{uniqueId}"
+  aria-describedby="micro-desc-{uniqueId} micro-announcements-{uniqueId}"
   tabIndex={0}
   onKeyDown={handleKeyDown}
 >
@@ -95,7 +95,7 @@ This document provides detailed specifications for all ARIA roles, properties, a
 ```typescript
 // Polite announcements for navigation feedback
 <div 
-  id="caption-announcements-{uniqueId}"
+  id="micro-announcements-{uniqueId}"
   className="sr-only" 
   aria-live="polite" 
   aria-atomic="true"
@@ -109,10 +109,10 @@ This document provides detailed specifications for all ARIA roles, properties, a
 ```typescript
 <figure 
   role="img"
-  aria-labelledby="caption-title-{uniqueId}"
-  aria-describedby="caption-image-{uniqueId}"
+  aria-labelledby="micro-title-{uniqueId}"
+  aria-describedby="micro-image-{uniqueId}"
 >
-  <div id="caption-image-{uniqueId}" className="sr-only">
+  <div id="micro-image-{uniqueId}" className="sr-only">
     {imageSource 
       ? `Surface analysis image showing ${capitalizedMaterial} before and after laser cleaning treatment with ${hasMetrics ? 'interactive quality metrics overlay' : 'technical details'}`
       : `No image available for ${capitalizedMaterial} surface analysis`
@@ -124,15 +124,15 @@ This document provides detailed specifications for all ARIA roles, properties, a
 ### Interactive Quality Metrics ARIA Pattern
 ```typescript
 <div 
-  id="caption-metrics-{uniqueId}"
+  id="micro-metrics-{uniqueId}"
   role="region"
   aria-label="Interactive quality metrics overlay"
-  aria-describedby="caption-metrics-desc-{uniqueId}"
+  aria-describedby="micro-metrics-desc-{uniqueId}"
   aria-expanded={metricsExpanded}
   tabIndex={0}
   onKeyDown={handleKeyDown}
 >
-  <div id="caption-metrics-desc-{uniqueId}" className="sr-only">
+  <div id="micro-metrics-desc-{uniqueId}" className="sr-only">
     Quality metrics overlay with {Object.keys(enhancedData.quality_metrics).length} measurements. 
     Use arrow keys to navigate, Enter to toggle, Escape to exit.
   </div>
@@ -173,11 +173,11 @@ This document provides detailed specifications for all ARIA roles, properties, a
 <div 
   role="progressbar"
   aria-label="Loading surface analysis image"
-  aria-describedby="caption-image-loading-{uniqueId}"
+  aria-describedby="micro-image-loading-{uniqueId}"
   tabIndex={0}
   className="focus:ring-2 focus:ring-blue-500 focus:outline-none"
 >
-  <span id="caption-image-loading-{uniqueId}" className="sr-only">
+  <span id="micro-image-loading-{uniqueId}" className="sr-only">
     Loading surface analysis image for {capitalizedMaterial}...
   </span>
 </div>
@@ -189,9 +189,9 @@ This document provides detailed specifications for all ARIA roles, properties, a
 <div 
   role="alert"
   aria-live="assertive"
-  aria-describedby="caption-error-{uniqueId}"
+  aria-describedby="micro-error-{uniqueId}"
 >
-  <div id="caption-error-{uniqueId}">
+  <div id="micro-error-{uniqueId}">
     Surface analysis image could not be loaded
   </div>
   <span className="sr-only">
@@ -334,21 +334,21 @@ This document provides detailed specifications for all ARIA roles, properties, a
 </article>
 ```
 
-### Figure and Figcaption
+### Figure and Figmicro
 ```html
 <!-- Progress visualization as figure -->
 <figure role="img">
   <div role="progressbar"><!-- progress content --></div>
-  <figcaption>Progress indicator for thermal conductivity</figcaption>
+  <figmicro>Progress indicator for thermal conductivity</figmicro>
 </figure>
 
 <!-- Image analysis as figure -->
 <figure role="img">
   <img src="analysis.jpg" alt="Detailed surface analysis" />
-  <figcaption role="group">
+  <figmicro role="group">
     <section><!-- Before treatment --></section>
     <section><!-- After treatment --></section>
-  </figcaption>
+  </figmicro>
 </figure>
 ```
 

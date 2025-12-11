@@ -189,7 +189,7 @@ The FAQ issue was traced to the data structure from `contentAPI.getArticle()`:
   },
   components: {
     text: { /* ... */ },
-    caption: { /* ... */ }
+    micro: { /* ... */ }
   }
 }
 ```

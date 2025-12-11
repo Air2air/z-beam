@@ -44,7 +44,7 @@ The static accessibility validator checks for:
 5. **Image Alt Text** ⚠️ WARNING
    - Validates images have alt attributes
    - Found 17/18 images missing alt attributes
-   - Files: Thumbnail.tsx, Caption.tsx, CaptionImage.tsx
+   - Files: Thumbnail.tsx, Micro.tsx, MicroImage.tsx
    - Currently warning (not error) to avoid blocking pushes
 
 6. **Skip Links** ⚠️ WARNING
@@ -87,7 +87,7 @@ Now includes 11 checks total:
 
 ### Immediate Actions
 1. **Fix Image Alt Attributes** (17/18 images)
-   - Priority files: Thumbnail.tsx, Caption.tsx, CaptionImage.tsx
+   - Priority files: Thumbnail.tsx, Micro.tsx, MicroImage.tsx
    - Add descriptive alt text for all content images
    - Use empty alt="" for decorative images
 
