@@ -2243,7 +2243,7 @@ export type MetricData = GenericMetricData;
  * JSON-LD component props
  */
 export interface JsonLdProps {
-  data: Record<string, unknown>;
+  data: Record<string, unknown> | { '@context': string; '@graph': unknown[] };
 }
 
 /**

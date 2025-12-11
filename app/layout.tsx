@@ -38,10 +38,10 @@ const ConditionalCTA = dynamic(() => import("./components/CTA").then(mod => ({ d
 });
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
-import { generateOrganizationSchema } from "./utils/business-config";
+import { SchemaRegistry } from "./utils/schemas/registry";
 
-// Generate the business schema
-const organizationSchema = generateOrganizationSchema();
+// Generate the business schema using centralized registry
+const organizationSchema = SchemaRegistry.business();
 
 // Define viewport manually since Viewport type is not exported from next
 export const viewport = {
@@ -132,26 +132,8 @@ export const metadata = {
   },
 };
 
-// Website schema
-const websiteSchema = {
-  "@context": SITE_CONFIG.schema.context,
-  "@type": SITE_CONFIG.schema.websiteType,
-  "@id": `${SITE_CONFIG.url}#website`,
-  "url": SITE_CONFIG.url,
-  "name": SITE_CONFIG.name,
-  "description": SITE_CONFIG.description,
-  "publisher": {
-    "@id": `${SITE_CONFIG.url}#organization`
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${SITE_CONFIG.url}/search?q={search_term_string}`
-    },
-    "query-input": "required name=search_term_string"
-  }
-};
+// Website schema using centralized registry
+const websiteSchema = SchemaRegistry.website();
 
 export default async function RootLayout({
   children,

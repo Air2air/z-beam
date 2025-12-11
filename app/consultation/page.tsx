@@ -5,6 +5,7 @@ import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '../utils/constants';
 import { ConsultationContent } from '../components/Consultation/ConsultationContent';
+import { SchemaRegistry } from '../utils/schemas/registry';
 
 export const metadata = {
   title: 'Schedule a Consultation - Z-Beam Laser Cleaning',
@@ -41,36 +42,8 @@ export const metadata = {
 export default async function ConsultationPage() {
   const { metadata: pageMetadata } = await loadPageData('consultation');
   
-  // Generate schema for consultation page
-  const consultationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Schedule a Consultation',
-    description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts',
-    url: `${SITE_CONFIG.url}/consultation`,
-    mainEntity: {
-      '@type': 'Service',
-      name: 'Laser Cleaning Consultation',
-      description: 'Free 30-minute consultation with laser cleaning experts',
-      provider: {
-        '@type': 'Organization',
-        '@id': `${SITE_CONFIG.url}/#organization`,
-        name: SITE_CONFIG.name
-      },
-      serviceType: 'Professional Consultation',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock',
-        description: 'Free 30-minute consultation • No obligation • Expert advice'
-      },
-      areaServed: {
-        '@type': 'Country',
-        name: 'United States'
-      }
-    }
-  };
+  // Generate schema using centralized registry
+  const consultationSchema = SchemaRegistry.getPageSchemas('consultation');
   
   return (
     <>

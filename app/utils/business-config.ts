@@ -323,7 +323,17 @@ export function generateOrganizationSchema() {
           "@type": "Service",
           "name": service.name,
           "description": service.description
-        }
+        },
+        "price": "0",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "0",
+          "priceCurrency": "USD",
+          "valueAddedTaxIncluded": false
+        },
+        "availability": "https://schema.org/InStock",
+        "url": BUSINESS_CONFIG.url + "/services"
       }))
     },
     

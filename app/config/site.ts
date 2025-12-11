@@ -719,7 +719,18 @@ export function generateOrganizationSchema() {
           "@type": "Service",
           "name": service.name,
           "description": service.description
-        }
+        },
+        "price": String(SITE_CONFIG.pricing.professionalCleaning.hourlyRate),
+        "priceCurrency": SITE_CONFIG.pricing.professionalCleaning.currency,
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": String(SITE_CONFIG.pricing.professionalCleaning.hourlyRate),
+          "priceCurrency": SITE_CONFIG.pricing.professionalCleaning.currency,
+          "unitCode": "HUR"
+        },
+        "availability": "https://schema.org/InStock",
+        "url": `${SITE_CONFIG.url}/services`,
+        "category": "Laser Cleaning Service"
       }))
     },
     
