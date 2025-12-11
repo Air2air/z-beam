@@ -681,6 +681,8 @@ export function generateOrganizationSchema() {
       "longitude": SITE_CONFIG.address.geo.longitude
     },
     
+    "email": "info@z-beam.com",
+    
     "contactPoint": [
       {
         "@type": "ContactPoint",
