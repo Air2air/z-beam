@@ -658,7 +658,7 @@ export interface TitleProps {
   className?: string;
   id?: string;
   description?: string;
-  rightContent?: React.ReactNode;
+  rightContent?: ReactNode;
   
   // WCAG & Accessibility Props
   'aria-label'?: string;
@@ -697,7 +697,7 @@ export interface LayoutProps {
   children?: ReactNode;
   title?: string;
   description?: string;
-  rightContent?: React.ReactNode;
+  rightContent?: ReactNode;
   className?: string;
   customHeroOverlay?: boolean; // Enable custom overlay on Hero (homepage only)
 }
@@ -791,7 +791,7 @@ export interface HeroProps {
   // Layout and behavior only
   theme?: 'dark' | 'light';
   variant?: 'default' | 'fullwidth';
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
   customOverlay?: boolean; // Enable custom left-side overlay (homepage only)
 }
@@ -882,6 +882,14 @@ export interface BaseLinkProps {
   className?: string;
   target?: '_blank' | '_self';
   rel?: string;
+}
+
+/**
+ * Base component props - minimal interface for styled components
+ */
+export interface BaseComponentProps {
+  className?: string;
+  children?: ReactNode;
 }
 
 /**
@@ -2075,7 +2083,7 @@ export interface TableRow {
  */
 export interface ComponentLayoutProps {
   metadata: ArticleMetadata;
-  content?: React.ReactNode;
+  content?: ReactNode;
   showDebug?: boolean;
 }
 
@@ -2152,19 +2160,31 @@ export interface SearchResultsGridProps {
 /**
  * Micro image props
  */
+/**
+ * Micro image component props
+ * Supports both simple image display (src, alt, width, height) and
+ * enhanced material-specific images (imageSource, materialName, seoData)
+ */
 export interface MicroImageProps {
+  // Simple image props
   src?: string;
   alt?: string;
   micro?: string;
   width?: number;
   height?: number;
+  // Enhanced material-specific props
+  imageSource?: string;
+  materialName?: string;
+  seoData?: {
+    author?: string | { name: string };
+  };
 }
 
 /**
  * FadeIn wrapper props
  */
 export interface FadeInWrapperProps {
-  children: React.ReactNode;
+  children: ReactNode;
   delay?: number;
   duration?: number;
   className?: string;
@@ -2439,10 +2459,10 @@ export interface SectionContainerProps {
   bgColor?: 'transparent' | 'default' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
   horizPadding?: boolean;
   radius?: boolean;
-  icon?: React.ReactNode;
-  action?: React.ReactNode; // Optional action button/element on right side of title
+  icon?: ReactNode;
+  action?: ReactNode; // Optional action button/element on right side of title
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**
@@ -3145,7 +3165,7 @@ export interface BaseHeatmapProps {
   materialProperties?: HeatmapMaterialProperties;
   title: string;
   description?: string;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   thumbnail?: string;
   materialLink?: string;
   gridRows?: number;
@@ -3167,10 +3187,10 @@ export interface BaseHeatmapProps {
   scoreType?: 'safety' | 'effectiveness';  // Controls status summary styling
   
   // Option 2: Provide custom renderer for full control
-  renderAnalysisPanel?: (hoveredCell: HeatmapHoveredCell | null, currentPower: number, currentPulse: number) => React.ReactNode;
+  renderAnalysisPanel?: (hoveredCell: HeatmapHoveredCell | null, currentPower: number, currentPulse: number) => ReactNode;
   
   // Optional: Footer description
-  footerDescription?: React.ReactNode;
+  footerDescription?: ReactNode;
   
   // Adaptive color scaling: normalize colors to actual data range (default: true)
   adaptiveColorScale?: boolean;
@@ -3227,4 +3247,546 @@ export interface Citation {
 export interface CitationsProps {
   research_library: Record<string, Citation>;
   materialName?: string;
+}
+
+// ============================================================================
+// COMPONENT-SPECIFIC INTERFACES
+// Centralized from individual component files for complete type consolidation
+// ============================================================================
+
+/**
+ * Micro component internal interfaces
+ */
+export interface MicroContentProps {
+  before: string;
+  after: string;
+  content: string;
+  materialName?: string;
+  frontmatter?: FrontmatterType;
+  seoData?: {
+    description?: string;
+    keywords?: string[];
+    author?: string;
+  };
+}
+
+export interface MicroHeaderProps {
+  materialName: string;
+  frontmatter?: FrontmatterType;
+  microData?: ParsedMicroData;
+}
+
+export interface MetadataDisplayProps {
+  metadata?: {
+    generated?: string;
+    format?: string;
+    version?: string;
+  };
+  material?: string;
+  show: boolean;
+  frontmatter?: FrontmatterType;
+}
+
+export interface TechnicalDetailsProps {
+  laserParams?: {
+    wavelength?: number;
+    power?: number;
+    pulse_duration?: number;
+    spot_size?: number;
+    frequency?: number;
+    energy_density?: number;
+  };
+  show: boolean;
+  frontmatter?: FrontmatterType;
+}
+
+export interface MicroYamlData {
+  before?: string;
+  after?: string;
+  material?: string;
+  laser_parameters?: {
+    wavelength?: number;
+    power?: number;
+    pulse_duration?: number;
+    spot_size?: number;
+    frequency?: number;
+    energy_density?: number;
+  };
+  metadata?: {
+    generated?: string;
+    format?: string;
+    version?: string;
+  };
+}
+
+export interface EnhancedMicroYamlData extends MicroYamlData {
+  before_text?: string;
+  after_text?: string;
+  quality_metrics?: {
+    contamination_removal?: string;
+    surface_roughness_before?: string;
+    surface_roughness_after?: string;
+    thermal_damage?: string;
+    substrate_integrity?: string;
+    processing_efficiency?: string;
+    confidence_score?: number;
+    validation_status?: string;
+  };
+  author_object?: Author;
+}
+
+/**
+ * Schedule component interfaces
+ */
+export interface BookingCTAProps {
+  variant?: 'default' | 'featured';
+  className?: string;
+}
+
+export interface WorkizWidgetProps {
+  className?: string;
+}
+
+/**
+ * Dataset component interfaces
+ */
+export interface BulkDownloadWrapperProps {
+  materials: any[];
+  categoryStats: Record<string, number>;
+}
+
+export interface CategoryBundlesProps {
+  categoryStats: Record<string, number>;
+  materials: any[];
+}
+
+export interface CompleteDatabaseProps {
+  totalMaterials: number;
+}
+
+export interface DatasetDownloadProps extends MaterialDatasetCardWrapperProps {
+  showFullDataset?: boolean;
+}
+
+export interface DatasetSectionClientProps {
+  title: string;
+  description: string;
+  stats: Array<{
+    value: string | number;
+    label: string;
+  }>;
+  formats: Array<'json' | 'csv' | 'txt'>;
+  includes?: Array<string>;
+  note?: string;
+  categoryLink?: {
+    href: string;
+    label: string;
+  };
+  fullDatasetLink?: boolean;
+  materialData?: any;
+}
+
+export interface DatasetsContentProps {
+  materials: any[];
+}
+
+export interface DownloadCardProps {
+  format: 'JSON' | 'CSV' | 'TXT';
+  size: string;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
+export interface MaterialBrowserExtendedProps extends MaterialBrowserProps {
+  showSearch?: boolean;
+  showFilters?: boolean;
+}
+
+export interface SubcategoryData {
+  name: string;
+  materialCount: number;
+  materials: Array<{
+    name: string;
+    slug: string;
+  }>;
+}
+
+export interface SubcategoryDatasetCardsProps {
+  subcategories: SubcategoryData[];
+  category: string;
+}
+
+export interface SubcategoryDatasetWrapperProps {
+  category: string;
+  subcategory: string;
+  materials: Array<{
+    name: string;
+    slug: string;
+    category: string;
+    subcategory: string;
+  }>;
+}
+
+/**
+ * Heatmap component interfaces
+ */
+
+/**
+ * Shared props for all heatmap visualization components
+ * Use this type for MaterialSafetyHeatmap, ProcessEffectivenessHeatmap,
+ * ThermalStressHeatmap, and EnergyCouplingHeatmap
+ */
+export interface HeatmapVisualizationProps {
+  powerRange: HeatmapRange;
+  pulseRange: HeatmapRange;
+  optimalPower: [number, number];
+  optimalPulse: [number, number];
+  materialProperties?: HeatmapMaterialProperties;
+}
+
+export interface AnalysisCardsProps {
+  hoveredCell: {
+    power: number;
+    pulse: number;
+    analysis: {
+      level: number;
+      finalScore: number;
+      [key: string]: any;
+    };
+  } | null;
+  currentPower: number;
+  currentPulse: number;
+}
+
+/**
+ * Energy coupling heatmap props
+ * @see HeatmapVisualizationProps
+ */
+export type EnergyCouplingHeatmapProps = HeatmapVisualizationProps;
+
+export interface HeatmapFactorCardProps {
+  id: string;
+  label: string;
+  weight: string;
+  description: string;
+  score: number;
+  color: 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'lime';
+  dataRows?: Array<{
+    label: string;
+    value: string;
+    color?: string;
+  }>;
+  status?: {
+    text: string;
+    color: 'green' | 'yellow' | 'orange' | 'red' | 'lime';
+  } | null;
+}
+
+export interface HeatmapStatusSummaryProps {
+  level: number;
+  scoreType?: 'safety' | 'effectiveness';
+}
+
+/**
+ * Material safety heatmap props
+ * @see HeatmapVisualizationProps
+ */
+export type MaterialSafetyHeatmapProps = HeatmapVisualizationProps;
+
+/**
+ * Process effectiveness heatmap props
+ * @see HeatmapVisualizationProps
+ */
+export type ProcessEffectivenessHeatmapProps = HeatmapVisualizationProps;
+
+/**
+ * Thermal stress heatmap props
+ * @see HeatmapVisualizationProps
+ */
+export type ThermalStressHeatmapProps = HeatmapVisualizationProps;
+
+export interface StatusSummaryData {
+  level: number;
+  scoreType?: 'safety' | 'effectiveness';
+}
+
+/**
+ * Heat Buildup component interfaces
+ */
+export interface HeatAnalysisCardsProps {
+  heatAccumulation: number;
+  thermalRelaxation: number;
+  effectiveRepRate: number;
+  thermalStress: number;
+  materialProperties?: HeatmapMaterialProperties;
+}
+
+export interface HeatBuildupProps {
+  materialProperties?: HeatmapMaterialProperties;
+  defaultPower?: number;
+  defaultRepRate?: number;
+  defaultScanSpeed?: number;
+  defaultPassCount?: number;
+}
+
+export interface HeatFactorData {
+  label: string;
+  value: string;
+  description: string;
+  status: 'safe' | 'warning' | 'danger';
+  icon?: ReactNode;
+}
+
+export interface HeatStatusData {
+  status: 'safe' | 'warning' | 'danger';
+  message: string;
+  recommendation?: string;
+}
+
+/**
+ * Icon component interfaces
+ */
+export interface IconProps {
+  className?: string;
+  size?: number;
+}
+
+/**
+ * Contamination component interfaces
+ */
+export interface IndustriesGridProps {
+  industries: Industry[];
+}
+
+export interface Industry {
+  name: string;
+  frequency: string;
+  use_cases: string[];
+  materials: string[];
+}
+
+export interface QuickFactsCardProps {
+  facts: QuickFact[];
+}
+
+export interface QuickFact {
+  label: string;
+  value: string;
+  unit?: string;
+  icon?: string;
+}
+
+export interface SafetyWarningsGridProps {
+  warnings: SafetyData;
+}
+
+export interface SafetyData {
+  critical_warnings: Warning[];
+  high_priority_warnings: Warning[];
+  moderate_warnings: Warning[];
+  hazardous_fumes: Fume[];
+}
+
+export interface Warning {
+  icon: string;
+  message: string;
+  ppe_required?: string;
+  mitigation?: string;
+  best_practice?: string;
+}
+
+export interface Fume {
+  compound: string;
+  concentration: string;
+  exposure_limit: string;
+  hazard_class: string;
+  exceeds_limit: boolean;
+}
+
+export interface TechnicalSpecsTableProps {
+  specs: Record<string, {
+    min: number;
+    max: number;
+    recommended: number;
+    unit: string;
+  }>;
+}
+
+/**
+ * Other component interfaces
+ */
+export interface BadgeProps {
+  text: string;
+  variant?: BadgeVariant;
+  color?: BadgeColor;
+  size?: ComponentSize;
+  className?: string;
+}
+
+export interface BadgeSymbolProps {
+  symbol: string;
+  formula?: string;
+  materialType?: MaterialType;
+  className?: string;
+}
+
+export interface ButtonIconProps {
+  icon: ReactNode;
+  label?: string;
+  onClick?: () => void;
+  className?: string;
+}
+
+export interface DatePanelProps {
+  datePublished?: string;
+  dateModified?: string;
+  className?: string;
+}
+
+export interface DiagnosticCenterProps {
+  challenges?: Record<string, any[]>;
+  troubleshooting?: any[];
+  materialName?: string;
+}
+
+export interface Issue {
+  symptom: string;
+  causes: string[];
+  solutions: string[];
+  verification: string;
+  prevention: string[];
+}
+
+export interface Challenge {
+  challenge: string;
+  severity: 'critical' | 'high' | 'medium' | 'low';
+  impact: string;
+  solutions: string[];
+  prevention?: string;
+}
+
+export interface PreventionTabProps {
+  challenges: Record<string, Challenge[]>;
+}
+
+export interface QuickReferenceTabProps {
+  challenges: Record<string, Challenge[]>;
+  troubleshooting: Issue[];
+}
+
+export interface TroubleshootingTabProps {
+  issues: Issue[];
+}
+
+export interface LaserMaterialInteractionProps {
+  materialProperties?: HeatmapMaterialProperties;
+  currentPower?: number;
+  currentPulse?: number;
+}
+
+export interface MachineSettingsProps {
+  metadata: SettingsMetadata | ArticleMetadata;
+}
+
+export interface MaterialCharacteristicsProps {
+  properties: Record<string, any>;
+}
+
+export interface MaterialsLayoutProps extends LayoutProps {
+  showMicroImage?: boolean;
+}
+
+export interface PricingProps {
+  plans: Array<{
+    name: string;
+    price: string;
+    features: string[];
+    highlighted?: boolean;
+  }>;
+}
+
+export interface PropertyBarsProps {
+  properties: Record<string, PropertyValue | PropertyCategory>;
+  materialName?: string;
+}
+
+export interface PropertyData {
+  key: string;
+  value: number;
+  unit: string;
+  min?: number;
+  max?: number;
+}
+
+export interface ResearchPageProps {
+  data: any;
+  category: string;
+  subcategory: string;
+  materialSlug: string;
+  property: string;
+}
+
+export interface SafetyWarningProps {
+  materialName: string;
+  warningText?: string;
+  className?: string;
+}
+
+export interface SectionContainerInternalProps extends SectionContainerBaseProps {
+  variant?: 'default' | 'dark' | 'light';
+}
+
+export interface SectionContainerBaseProps {
+  children: ReactNode;
+  className?: string;
+  variant?: 'default' | 'dark' | 'light';
+  id?: string;
+}
+
+export interface SectionTitleProps {
+  title: string;
+  subtitle?: string;
+  alignment?: 'left' | 'center' | 'right';
+  className?: string;
+}
+
+export interface SettingValue {
+  value: number | string;
+  unit?: string;
+  min?: number;
+  max?: number;
+}
+
+export interface SettingsLayoutProps {
+  metadata: SettingsMetadata | ArticleMetadata;
+  children: ReactNode;
+}
+
+/**
+ * Content Section component interfaces
+ */
+export interface EnvironmentalImpactProps {
+  environmentalImpact: Record<string, any>;
+  className?: string;
+}
+
+export interface FAQMaterialProps {
+  materialName: string;
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
+  className?: string;
+}
+
+export interface FAQSettingsProps {
+  settingName: string;
+  help?: HelpSection[];
+  expertAnswers?: ExpertAnswerItem[];
+  className?: string;
+}
+
+export interface MarkdownRendererProps {
+  content: string;
+  className?: string;
 }
