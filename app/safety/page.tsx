@@ -406,7 +406,7 @@ export default async function SafetyPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="tel:+16502418510"
+                  href="tel:+16505905040"
                   className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
                 >
                   <PhoneIcon />

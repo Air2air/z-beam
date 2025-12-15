@@ -34,17 +34,17 @@ const SITE_CONFIG_OLD = {
     general: {
       email: 'info@z-beam.com',
       phone: '(650) 590-5040',
-      phoneHref: 'tel:+16502418510'
+      phoneHref: 'tel:+16505905040'
     },
     sales: {
       email: 'info@z-beam.com',
       phone: '(650) 590-5040',
-      phoneHref: 'tel:+16502418510'
+      phoneHref: 'tel:+16505905040'
     },
     support: {
       email: 'info@z-beam.com',
       phone: '(650) 590-5040',
-      phoneHref: 'tel:+16502418510',
+      phoneHref: 'tel:+16505905040',
       emergency: '24/7 for existing customers'
     }
   },

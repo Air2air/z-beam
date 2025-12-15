@@ -249,7 +249,7 @@ const schema = {
 **Before (Hardcoded):**
 ```typescript
 <a href="mailto:info@z-beam.com">info@z-beam.com</a>
-<a href="tel:+16502418510">(650) 590-5040</a>
+<a href="tel:+16505905040">(650) 590-5040</a>
 ```
 
 **After (Centralized):**

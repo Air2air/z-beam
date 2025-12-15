@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle, Calendar, Mail, Phone, ArrowRight } from 'lucide-react';
+import { SITE_CONFIG } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Booking Confirmed | Z-Beam Laser Cleaning',
@@ -96,16 +97,16 @@ export default function ConfirmSchedulingPage() {
                   </p>
                   <div className="space-y-2">
                     <a
-                      href="tel:+15555551234"
+                      href={SITE_CONFIG.contact.general.phoneHref}
                       className="block text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
                     >
-                      📞 (555) 555-1234
+                      📞 {SITE_CONFIG.contact.general.phone}
                     </a>
                     <a
-                      href="mailto:info@z-beam.com"
+                      href={`mailto:${SITE_CONFIG.contact.general.email}`}
                       className="block text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
                     >
-                      ✉️ info@z-beam.com
+                      ✉️ {SITE_CONFIG.contact.general.email}
                     </a>
                   </div>
                 </div>

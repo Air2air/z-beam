@@ -33,13 +33,13 @@ describe('Organization Schema Integration', () => {
       // Customer service contact
       const customerService = schema.contactPoint.find((cp: any) => cp.contactType === 'customer service');
       expect(customerService).toBeDefined();
-      expect(customerService.telephone).toMatch(/\+1650241851|tel:\+16502418510/); // Accept different formats
+      expect(customerService.telephone).toMatch(/\+1650241851|tel:\+16505905040/); // Accept different formats
       expect(customerService.email).toBe('info@z-beam.com');
       
       // Sales contact
       const sales = schema.contactPoint.find((cp: any) => cp.contactType === 'sales');
       expect(sales).toBeDefined();
-      expect(sales.telephone).toMatch(/\+1650241851|tel:\+16502418510/);
+      expect(sales.telephone).toMatch(/\+1650241851|tel:\+16505905040/);
       expect(sales.email).toBe(SITE_CONFIG.contact.sales.email);
     });
 
@@ -131,7 +131,7 @@ describe('Organization Schema Integration', () => {
     test('should have correct contact information', () => {
       // Verify phone number consistency (accept tel: URI format)
       schema.contactPoint.forEach((contact: any) => {
-        expect(contact.telephone).toMatch(/\+1650241851|tel:\+16502418510/);
+        expect(contact.telephone).toMatch(/\+1650241851|tel:\+16505905040/);
       });
       
       // Verify business address
