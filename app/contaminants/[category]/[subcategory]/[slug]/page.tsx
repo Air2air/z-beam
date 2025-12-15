@@ -3,8 +3,8 @@
 
 import { getContentConfig } from '@/app/config/contentTypes';
 import { generateItemMetadata } from '@/app/utils/contentPages/helpers';
-import { generateItemStaticParams } from '@/app/utils/categories/index';
-import { ItemPage } from '@/app/components/ContentPages';
+import { generateItemStaticParams } from '@/app/utils/categories';
+import { ItemPage } from '@/app/components/ContentPages/ItemPage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
