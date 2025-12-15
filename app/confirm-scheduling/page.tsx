@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle, Calendar, Mail, Phone, ArrowRight } from 'lucide-react';
-import { SITE_CONFIG } from '@/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 
 export const metadata: Metadata = {
   title: 'Booking Confirmed | Z-Beam Laser Cleaning',
