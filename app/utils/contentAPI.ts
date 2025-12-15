@@ -933,6 +933,46 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
 });
 
 /**
+ * Load contaminant article data from frontmatter/contaminants directory
+ */
+export const getContaminantArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+  return safeContentOperation(async () => {
+    // Load from contaminants frontmatter directory
+    const frontmatterPath = path.join(process.cwd(), 'frontmatter', 'contaminants', `${slug}.yaml`);
+    
+    if (!existsSync(frontmatterPath)) {
+      return null;
+    }
+    
+    const fileContents = readFileSync(frontmatterPath, 'utf-8');
+    const parsed = safeMatterParse(fileContents, frontmatterPath);
+    
+    if (!parsed?.data || Object.keys(parsed.data).length === 0) {
+      return null;
+    }
+    
+    // Use frontmatter data as the primary metadata source
+    const metadata = {
+      ...parsed.data,
+      slug,
+      authorInfo: (typeof parsed.data.author === 'object' ? parsed.data.author : null) || parsed.data.authorInfo
+    };
+
+    // Contaminants may have minimal components - just provide essentials
+    const components: Record<string, ComponentData> = {};
+    
+    // Always provide title and author components with frontmatter data
+    components.title = { config: parsed.data, content: '' };
+    components.author = { config: parsed.data, content: '' };
+    
+    return {
+      metadata,
+      components
+    };
+  }, null, 'getContaminantArticle', slug);
+});
+
+/**
  * Backward compatibility for loadComponentData function from contentIntegrator
  */
 export const loadComponentData = cache(async (type: string, slug: string): Promise<{ content: string; config?: Record<string, unknown> } | null> => {
