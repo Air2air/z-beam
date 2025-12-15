@@ -313,7 +313,7 @@ If you encounter any accessibility barriers on our website, please contact us:
 
 **Z-Beam Accessibility Team**
 - **Email**: accessibility@z-beam.com
-- **Phone**: (650) 241-8510
+- **Phone**: (650) 590-5040
 - **Mail**: Contact via phone or email for physical service location
 
 ### Response Commitment

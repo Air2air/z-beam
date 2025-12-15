@@ -33,17 +33,17 @@ const SITE_CONFIG_OLD = {
   contact: {
     general: {
       email: 'info@z-beam.com',
-      phone: '(650) 241-8510',
+      phone: '(650) 590-5040',
       phoneHref: 'tel:+16502418510'
     },
     sales: {
       email: 'info@z-beam.com',
-      phone: '(650) 241-8510',
+      phone: '(650) 590-5040',
       phoneHref: 'tel:+16502418510'
     },
     support: {
       email: 'info@z-beam.com',
-      phone: '(650) 241-8510',
+      phone: '(650) 590-5040',
       phoneHref: 'tel:+16502418510',
       emergency: '24/7 for existing customers'
     }
@@ -51,7 +51,7 @@ const SITE_CONFIG_OLD = {
   
   // Legacy fields (for backward compatibility)
   email: 'info@z-beam.com',
-  phone: '(650) 241-8510',
+  phone: '(650) 590-5040',
   
   address: {
     company: 'Z-Beam LLC',

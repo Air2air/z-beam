@@ -41,9 +41,9 @@ const BUSINESS_CONFIG_OLD = {
     
     // UPDATE: Your contact details
     phone: {
-      main: "+1-650-241-8510", // UPDATE: Your main phone number
-      sales: "+1-650-241-8510", // UPDATE: Your sales phone number
-      support: "+1-650-241-8510" // UPDATE: Your support phone number
+      main: "+1-650-590-5040", // UPDATE: Your main phone number
+      sales: "+1-650-590-5040", // UPDATE: Your sales phone number
+      support: "+1-650-590-5040" // UPDATE: Your support phone number
     },
     
     email: {

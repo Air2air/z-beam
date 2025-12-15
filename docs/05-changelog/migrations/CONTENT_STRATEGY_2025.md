@@ -433,7 +433,7 @@ sections:
       - Local references available
   
   - heading: "Contact for [City] Service"
-    cta: "Call (650) 241-8510 or request quote"
+    cta: "Call (650) 590-5040 or request quote"
 
 schema:
   - LocalBusiness with geo coordinates

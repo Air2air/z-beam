@@ -217,7 +217,7 @@ export const ContactForm = memo(function ContactForm() {
             value={formData.phone}
             onChange={handleInputChange}
             className="w-full px-4 py-2 border border-gray-600 bg-secondary placeholder-gray-400 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none"
-            placeholder="(650) 241-8510"
+            placeholder="(650) 590-5040"
           />
         </div>
 

@@ -39,7 +39,7 @@
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+1-650-241-8510",
+      "telephone": "+1-650-590-5040",
       "contactType": "customer service",
       "email": "info@z-beam.com"
     }

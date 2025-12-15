@@ -35,7 +35,7 @@
    
 3. **Real Business Information**
    - Physical address: Belmont, CA (street address private for security)
-   - Real phone: (650) 241-8510
+   - Real phone: (650) 590-5040
    - Verified social media presence
 
 ### ❌ Critical Gaps:
