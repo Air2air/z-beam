@@ -1,5 +1,6 @@
 // app/contaminants/[category]/[subcategory]/[slug]/page.tsx
 // Dynamic contaminant item pages - uses unified content system
+// Force cache bust for Vercel build
 
 import { getContentConfig } from '@/app/config/contentTypes';
 import { generateItemMetadata } from '@/app/utils/contentPages/helpers';
