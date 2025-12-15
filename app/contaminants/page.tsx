@@ -4,10 +4,10 @@
 import { notFound } from 'next/navigation';
 import { CardGridSSR } from '@/app/components/CardGrid';
 import { Layout } from '@/app/components/Layout/Layout';
+import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { createMetadata } from '@/app/utils/metadata';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/contaminantCategories';
-import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { generateCollectionPageSchema, generateWebPageSchema, generateItemListSchema } from '@/app/utils/schemas/collectionPageSchema';
 
 export const dynamic = 'force-static';
@@ -26,10 +26,9 @@ export async function generateMetadata() {
 }
 
 export default async function ContaminantsPage() {
-  // Get all categories
-  const allCategories = await getAllCategories();
+  const categories = await getAllCategories();
   
-  if (!allCategories || allCategories.length === 0) {
+  if (!categories || categories.length === 0) {
     notFound();
   }
   
@@ -37,7 +36,6 @@ export default async function ContaminantsPage() {
   const pageDescription = 'Explore our comprehensive database of contaminant types and laser cleaning solutions for industrial applications.';
   const pageUrl = `${SITE_CONFIG.url}/contaminants`;
 
-  // Create metadata object with breadcrumb configuration
   const metadata = {
     title: pageTitle,
     description: pageDescription,
@@ -47,35 +45,27 @@ export default async function ContaminantsPage() {
     ]
   };
 
-  // Generate comprehensive JSON-LD schemas
   const schemas = {
     '@context': 'https://schema.org',
     '@graph': [
-      // 1. CollectionPage schema
       generateCollectionPageSchema({
         url: pageUrl,
         name: pageTitle,
         description: pageDescription,
-        numberOfItems: allCategories.reduce((sum, cat) => sum + cat.contaminants.length, 0),
-        itemListElement: allCategories.flatMap((category, catIndex) => 
-          category.subcategories.flatMap((subcategory, subIndex) => 
-            subcategory.contaminants.map((contaminant, conIndex) => ({
-              '@type': 'ListItem',
-              'position': catIndex * 1000 + subIndex * 100 + conIndex + 1,
-              'name': contaminant.name,
-              'url': `${SITE_CONFIG.url}/contaminants/${category.slug}/${subcategory.slug}/${contaminant.slug}`,
-              'item': {
-                '@type': 'Article',
-                '@id': `${SITE_CONFIG.url}/contaminants/${category.slug}/${subcategory.slug}/${contaminant.slug}`,
-                'name': contaminant.name,
-                'url': `${SITE_CONFIG.url}/contaminants/${category.slug}/${subcategory.slug}/${contaminant.slug}`
-              }
-            }))
-          )
-        )
+        numberOfItems: categories.length,
+        itemListElement: categories.map((category, index) => ({
+          '@type': 'ListItem',
+          'position': index + 1,
+          'name': category.label,
+          'url': `${SITE_CONFIG.url}/contaminants/${category.slug}`,
+          'item': {
+            '@type': 'CollectionPage',
+            '@id': `${SITE_CONFIG.url}/contaminants/${category.slug}`,
+            'name': `${category.label} Contamination`,
+            'url': `${SITE_CONFIG.url}/contaminants/${category.slug}`
+          }
+        }))
       }),
-      
-      // 2. BreadcrumbList schema
       {
         '@type': 'BreadcrumbList',
         '@id': `${pageUrl}#breadcrumb`,
@@ -84,23 +74,15 @@ export default async function ContaminantsPage() {
           { '@type': 'ListItem', 'position': 2, 'name': 'Contaminants', 'item': pageUrl }
         ]
       },
-      
-      // 3. ItemList schema
       generateItemListSchema({
         url: pageUrl,
         name: pageTitle,
         description: pageDescription,
-        items: allCategories.flatMap(cat => 
-          cat.subcategories.flatMap(sub => 
-            sub.contaminants.map(con => ({
-              name: con.name,
-              url: `${SITE_CONFIG.url}/contaminants/${cat.slug}/${sub.slug}/${con.slug}`
-            }))
-          )
-        )
+        items: categories.map(cat => ({
+          name: cat.label,
+          url: `${SITE_CONFIG.url}/contaminants/${cat.slug}`
+        }))
       }),
-      
-      // 4. WebPage schema
       generateWebPageSchema({
         url: pageUrl,
         name: pageTitle,
@@ -111,6 +93,21 @@ export default async function ContaminantsPage() {
     ]
   };
 
+  // Map categories to card format
+  const categoryCards = categories.map(category => {
+    const firstContaminant = category.subcategories[0]?.contaminants[0];
+    const imageUrl = `/images/contaminant/${firstContaminant?.slug || category.slug}-hero.jpg`;
+    
+    return {
+      slug: `contaminants/${category.slug}`,
+      title: category.label,
+      description: `Laser cleaning solutions for ${category.label.toLowerCase()} contamination types`,
+      href: `/contaminants/${category.slug}`,
+      imageUrl,
+      imageAlt: `${category.label} contamination removal`,
+    };
+  });
+
   return (
     <>
       <JsonLD data={schemas} />
@@ -120,26 +117,13 @@ export default async function ContaminantsPage() {
         metadata={metadata as any}
         slug="contaminants"
       >
-        {/* Group contaminants by category */}
-        {allCategories.map((category) => (
-          <div key={category.slug} className="mb-12">
-            <h2 className="text-2xl font-semibold mb-6">{category.label}</h2>
-            
-            {/* Group by subcategory within each category */}
-            {category.subcategories.map((subcategory) => (
-              <div key={subcategory.slug} className="mb-8">
-                <h3 className="text-xl font-semibold mb-4">{subcategory.label}</h3>
-                <CardGridSSR
-                  slugs={subcategory.contaminants.map(c => c.slug)}
-                  columns={3}
-                  mode="contaminants"
-                  showBadgeSymbols={false}
-                  loadBadgeSymbolData={false}
-                />
-              </div>
-            ))}
-          </div>
-        ))}
+        <div className="mb-8">
+          <CardGridSSR
+            items={categoryCards}
+            columns={3}
+            variant="default"
+          />
+        </div>
       </Layout>
     </>
   );
