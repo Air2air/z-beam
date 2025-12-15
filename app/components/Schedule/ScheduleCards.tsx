@@ -1,7 +1,7 @@
 /**
  * @component ScheduleCards
- * @purpose Two-card grid for homepage showing Schedule Service and Contact Us
- * @design Gradient backgrounds with SVG logo overlays
+ * @purpose Two-card grid for homepage showing Schedule with us and Contact Us
+ * @design Gradient backgrounds with SVG icon overlays
  */
 import Link from 'next/link';
 import Image from 'next/image';
@@ -18,10 +18,10 @@ export function ScheduleCards() {
       >
         <article className="absolute-inset" role="article">
           <div className={`${styles.cardContainer} ${styles.scheduleCard}`}>
-            {/* Foreground Logo - Zoom Icon */}
+            {/* Foreground Logo - Calendar Icon */}
             <div className={styles.logoContainer}>
               <Image
-                src="/images/schedule-logo.svg"
+                src="/images/calendar-logo.svg"
                 alt=""
                 width={144}
                 height={144}
@@ -35,7 +35,7 @@ export function ScheduleCards() {
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                   <h3 className="card-title text-lg truncate text-primary font-medium">
-                    Schedule Service
+                    Schedule with us
                   </h3>
                 </div>
                 

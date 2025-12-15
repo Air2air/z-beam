@@ -168,7 +168,7 @@ export function Navbar() {
                             }
                           }}
                           className={`
-                            inline-flex items-center px-3 pb-1 text-base font-medium min-h-[44px]
+                            inline-flex items-center px-3 pb-1 text-[15px] font-medium min-h-[44px]
                             focus-visible:outline-none transition-colors duration-200
                             ${
                               isActive
@@ -199,11 +199,11 @@ export function Navbar() {
                                   key={dropdownItem.href}
                                   href={dropdownItem.href}
                                   className={`
-                                    block px-4 py-2 text-base
+                                    block px-4 py-2 text-[15px]
                                     ${
                                       isDropdownActive
-                                        ? "text-blue-600400 bg-blue-900/20"
-                                        : "text-secondary hover:bg-gray-100:bg-primary"
+                                        ? "text-blue-400 bg-blue-900/20"
+                                        : "text-secondary hover:bg-gray-700"
                                     }
                                   `}
                                 >
@@ -224,7 +224,7 @@ export function Navbar() {
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         role="menuitem"
                         className={`
-                          flex items-end px-3 pb-1 text-base font-medium min-h-[44px]
+                          flex items-end px-3 pb-1 text-[15px] font-medium min-h-[44px]
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -324,7 +324,7 @@ export function Navbar() {
                           toggleDropdown(item.name);
                         }}
                         className={`
-                          w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-base
+                          w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-[15px]
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -356,11 +356,11 @@ export function Navbar() {
                                 href={dropdownItem.href}
                                 onClick={closeMenu}
                                 className={`
-                                  block px-4 py-2 text-base
+                                    block px-4 py-2 text-sm
                                   ${
                                     isDropdownActive
-                                      ? "text-blue-600400 bg-blue-900/20"
-                                      : "text-secondary hover:bg-gray-100:bg-primary"
+                                      ? "text-blue-400 bg-blue-900/20"
+                                      : "text-secondary hover:bg-gray-700"
                                   }
                                 `}
                               >
@@ -386,7 +386,7 @@ export function Navbar() {
                         }
                       }}
                       className={`
-                        block py-2 px-3 rounded-md text-base
+                        block py-2 px-3 rounded-md text-[15px]
                         focus-visible:outline-none transition-colors duration-200
                         ${
                           isActive
