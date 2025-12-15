@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from 'next/types';
 import Link from 'next/link';
 import { CheckCircle, Calendar, Mail, Phone, ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '@/app/config/site';

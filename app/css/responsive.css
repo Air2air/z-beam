@@ -408,7 +408,13 @@ hr {
 }
 
 .breadcrumb-item {
-  font-size: 1em;
+  font-size: 1.0625em;
+}
+
+@media (min-width: 640px) {
+  .breadcrumb-item {
+    font-size: 1.125em;
+  }
 }
 
 .breadcrumb-item:not(:last-child)::after {
