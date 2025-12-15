@@ -26,6 +26,7 @@ interface MetadataConfig {
   // Frontmatter data
   materialDescription?: string;
   settingsDescription?: string;
+  contaminationDescription?: string;
   machineSettings?: {
     powerRange?: { value: number; unit: string };
     wavelength?: { value: number; unit: string };
@@ -445,4 +446,41 @@ function truncateDescription(text: string, limit: number): string {
   const lastSpace = truncated.lastIndexOf(' ');
   
   return truncated.substring(0, lastSpace) + '...';
+}
+
+/**
+ * Format contaminant page title for optimal CTR
+ * Pattern: [Contaminant Name] Removal: Laser Cleaning Methods | Z-Beam
+ * Target: 50-60 characters
+ */
+export function formatContaminantTitle(config: MetadataConfig): string {
+  if (config.customTitle) return config.customTitle;
+  
+  const { materialName } = config;
+  
+  // Build concise title focused on removal
+  const title = `${materialName} Removal: Laser Cleaning Methods`;
+  return truncateTitle(title);
+}
+
+/**
+ * Format contaminant page description for optimal CTR
+ * Structure: Use authored contaminationDescription (first 155-160 chars)
+ * Target: 155-160 characters (no mobile truncation)
+ */
+export function formatContaminantDescription(config: MetadataConfig): string {
+  if (config.customDescription) return config.customDescription;
+  
+  const { contaminationDescription, materialName } = config;
+  
+  // Use authored description if available
+  if (contaminationDescription && contaminationDescription.trim().length > 0) {
+    return truncateDescription(contaminationDescription, 160);
+  }
+  
+  // Fallback
+  return truncateDescription(
+    `Professional laser cleaning for ${materialName} removal. Technical specifications, parameters, and industrial methods for effective contamination removal.`,
+    160
+  );
 }

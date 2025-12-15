@@ -272,6 +272,9 @@ const TEST_PAGES = [
   { url: '/', type: 'home', name: 'Homepage' },
   { url: '/materials/metal/non-ferrous/aluminum-laser-cleaning', type: 'material', name: 'Material Page' },
   { url: '/settings/metal/non-ferrous/aluminum-settings', type: 'settings', name: 'Settings Page' },
+  { url: '/contaminants/oxidation/ferrous/rust-oxidation-contamination', type: 'contaminant', name: 'Contaminant Page' },
+  { url: '/contaminants/oxidation', type: 'contaminant-category', name: 'Contaminant Category' },
+  { url: '/contaminants/oxidation/ferrous', type: 'contaminant-subcategory', name: 'Contaminant Subcategory' },
   { url: '/services', type: 'service', name: 'Service Page' },
   { url: '/about', type: 'static', name: 'Static Page' }
 ];
@@ -523,12 +526,14 @@ async function validateDatasetQuality(page, pageInfo, schemaTypes) {
   // Extract material/settings/contaminant name from URL
   // URL structure: /materials/category/subcategory/material-slug
   // URL structure: /settings/category/subcategory/material-settings
+  // URL structure: /contaminants/category/subcategory/contaminant-slug
   const pageData = await page.evaluate(() => {
     const url = window.location.pathname;
     
     // Extract the final slug from the URL path
     // /materials/metal/non-ferrous/aluminum-laser-cleaning -> aluminum-laser-cleaning
     // /settings/metal/non-ferrous/aluminum-settings -> aluminum (strip -settings suffix)
+    // /contaminants/industrial/chemical/rust-contamination -> rust-contamination
     const pathParts = url.split('/').filter(Boolean);
     const lastSegment = pathParts[pathParts.length - 1];
     
@@ -544,7 +549,7 @@ async function validateDatasetQuality(page, pageInfo, schemaTypes) {
       name = lastSegment.replace(/-settings$/, '') + '-laser-cleaning'; // e.g., "aluminum-laser-cleaning"
     } else if (url.includes('/contaminants/')) {
       type = 'contaminants';
-      name = lastSegment;
+      name = lastSegment; // e.g., "rust-contamination"
     }
     
     return { name, type, url };

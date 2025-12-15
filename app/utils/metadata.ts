@@ -20,7 +20,9 @@ import {
   formatMaterialTitle, 
   formatMaterialDescription, 
   formatSettingsTitle, 
-  formatSettingsDescription 
+  formatSettingsDescription,
+  formatContaminantTitle,
+  formatContaminantDescription
 } from './seoMetadataFormatter';
 
 // Re-export centralized types
@@ -81,6 +83,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const meta_description = 'meta_description' in metadata ? (metadata as any).meta_description : undefined;
   const material_description = 'material_description' in metadata ? (metadata as any).material_description : undefined;
   const settings_description = 'settings_description' in metadata ? (metadata as any).settings_description : undefined;
+  const contamination_description = 'contamination_description' in metadata ? (metadata as any).contamination_description : undefined;
   
   // Determine Open Graph type dynamically
   const ogType: 'article' | 'website' = (datePublished || category) ? 'article' : 'website';
@@ -171,6 +174,25 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
       machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
       settingsDescription: settings_description
+    });
+  }
+  
+  // Apply SEO formatting for contaminant pages
+  if (contentType === 'unified_contamination') {
+    seoTitle = formatContaminantTitle({
+      pageType: 'contaminant',
+      materialName: materialName || title || '',
+      category: extractSafeValue(category),
+      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+      contaminationDescription: contamination_description
+    });
+    
+    seoDescription = formatContaminantDescription({
+      pageType: 'contaminant',
+      materialName: materialName || title || '',
+      category: extractSafeValue(category),
+      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+      contaminationDescription: contamination_description
     });
   }
   
