@@ -51,9 +51,20 @@ Your booking URL might be one of these formats:
 - `https://YOURCOMPANY.workiz.com/booking`
 - `https://booking.workiz.com/COMPANY_ID`
 
+## 🎥 Virtual Consultations via Zoom
+
+For video call consultations:
+1. Customer books "Virtual Consultation" via Workiz widget
+2. You manually create Zoom meeting for that time
+3. Add Zoom link to Workiz job notes
+4. Email customer with Zoom details 24hrs before meeting
+
+**Full Process:** See `docs/WORKIZ_ZOOM_INTEGRATION.md`
+
 ## 🆘 Need Help?
 
 - **Workiz not loading?** Check browser console for errors
 - **Wrong company ID?** Verify in Workiz dashboard settings
 - **Styling issues?** Adjust height prop in booking page.tsx
+- **Virtual meetings?** See `docs/WORKIZ_ZOOM_INTEGRATION.md`
 - **Full docs:** See `docs/WORKIZ_INTEGRATION.md`

@@ -1,6 +1,6 @@
 /**
  * @component ScheduleCards
- * @purpose Two-card grid for homepage showing Schedule Consultation and Contact Us
+ * @purpose Two-card grid for homepage showing Schedule Service and Contact Us
  * @design Gradient backgrounds with SVG logo overlays
  */
 import Link from 'next/link';
@@ -10,11 +10,11 @@ import styles from './ScheduleCards.module.css';
 export function ScheduleCards() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 lg:gap-6">
-      {/* Schedule Consultation Card */}
+      {/* Schedule Service Card */}
       <Link
         href="/schedule"
         className="group card-base h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem] card-enhanced-hover transition-smooth card-focus"
-        aria-label="Schedule a consultation"
+        aria-label="Schedule a service or consultation"
       >
         <article className="absolute-inset" role="article">
           <div className={`${styles.cardContainer} ${styles.scheduleCard}`}>
@@ -35,7 +35,7 @@ export function ScheduleCards() {
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                   <h3 className="card-title text-lg truncate text-primary font-medium">
-                    Schedule Consultation
+                    Schedule Service
                   </h3>
                 </div>
                 

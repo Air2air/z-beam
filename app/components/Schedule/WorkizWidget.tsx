@@ -20,9 +20,9 @@ interface WorkizWidgetProps {
  */
 export function WorkizWidget({ 
   companyId, 
-  height = '600px',
+  height = '700px',
   className = '',
-  theme = 'light'
+  theme = 'dark'
 }: WorkizWidgetProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const scriptLoadedRef = useRef(false);

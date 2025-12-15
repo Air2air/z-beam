@@ -20,13 +20,13 @@ export function middleware(request: NextRequest) {
   const cspHeader = [
     "default-src 'self'",
     // Use unsafe-inline for Next.js framework scripts (no nonce to avoid conflicts)
-    `script-src 'self' 'unsafe-inline'${evalPolicy} https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com https://assets.calendly.com`,
-    "style-src 'self' 'unsafe-inline' https://assets.calendly.com", // Tailwind + Calendly
+    `script-src 'self' 'unsafe-inline'${evalPolicy} https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com https://online-booking.workiz.com`,
+    "style-src 'self' 'unsafe-inline' https://online-booking.workiz.com",
     "font-src 'self' data:",
-    "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com https://assets.calendly.com",
+    "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com https://online-booking.workiz.com",
     "media-src 'self' data: blob:",
-    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://calendly.com",
-    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://calendly.com",
+    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://online-booking.workiz.com https://app.workiz.com",
+    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://online-booking.workiz.com",
     "frame-ancestors 'none'",
     "form-action 'self'",
     "base-uri 'self'",
@@ -57,7 +57,7 @@ export function middleware(request: NextRequest) {
   );
   response.headers.set(
     'Permissions-Policy',
-    'camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(self)'
+    'camera=(self "https://online-booking.workiz.com"), microphone=(self "https://online-booking.workiz.com"), geolocation=(self "https://online-booking.workiz.com"), interest-cohort=()'
   );
   
   // Cross-Origin Policies - relaxed for YouTube embeds

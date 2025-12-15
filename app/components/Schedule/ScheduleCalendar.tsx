@@ -1,53 +1,64 @@
 // app/components/Schedule/ScheduleCalendar.tsx
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { trackEvent } from "@/app/utils/analytics";
 
-export function ScheduleCalendar() {
-  // Calendly scheduling URL - using direct URL for reliability
-  // This ensures the widget always loads even if env var isn't set
-  const SCHEDULE_URL = "https://calendly.com/z-beam/30min";
+interface WorkizWidgetProps {
+  height?: string;
+  className?: string;
+}
+
+export function ScheduleCalendar({ 
+  height = '700px',
+  className = ''
+}: WorkizWidgetProps = {}) {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // Get Workiz booking URL from environment
+  const workizUrl = process.env.NEXT_PUBLIC_WORKIZ_URL || 'https://online-booking.workiz.com/?ac=a92273bb2e08e9ada5fbf60a0243f8a863a000f6bdd5c583c0f98ae74aef35fb';
 
   useEffect(() => {
     // Track when users view the scheduling calendar
     trackEvent("schedule_calendar_viewed", {
       event_category: "Schedule",
-      event_label: "Consultation",
+      event_label: "Workiz Booking",
     });
-
-    // Load Calendly widget script directly (more reliable than react-calendly)
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Initialize widget after script loads
-    script.onload = () => {
-      // Widget auto-initializes from data-url attribute
-      console.log('Calendly widget loaded');
-    };
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript && existingScript.parentNode) {
-        existingScript.parentNode.removeChild(existingScript);
-      }
-    };
   }, []);
 
   return (
-    <div className="calendly-inline-widget-container">
-      {/* Using official Calendly embed method instead of react-calendly */}
-      <div 
-        className="calendly-inline-widget"
-        data-url={`${SCHEDULE_URL}?background_color=394150&text_color=f3f4f6&primary_color=ff8500`}
+    <div className={`workiz-widget-container ${className}`}>
+      <iframe
+        ref={iframeRef}
+        src={workizUrl}
+        width="100%"
+        height={height}
         style={{
-          minWidth: '320px',
-          height: '700px',
+          border: 'none',
+          display: 'block',
+          minHeight: height,
         }}
+        title="Workiz Booking Portal"
+        loading="lazy"
+        allow="geolocation; camera; microphone"
       />
+
+      {/* Fallback for no JavaScript */}
+      <noscript>
+        <div className="p-8 text-center bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
+            JavaScript is required to load the booking widget.
+          </p>
+          <a 
+            href={workizUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+          >
+            Open Booking Portal →
+          </a>
+        </div>
+      </noscript>
     </div>
   );
 }

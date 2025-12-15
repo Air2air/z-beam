@@ -293,19 +293,7 @@ export const SchemaRegistry = {
         generateBreadcrumbSchema('contact')
       ],
 
-      // Schedule/Consultation page schemas
-      consultation: () => [
-        generateServiceSchema({
-          serviceName: 'Free Consultation',
-          description: 'Schedule a free consultation to discuss your laser cleaning needs'
-        }),
-        generateBreadcrumbSchema('consultation'),
-        generateWebPageSchema({
-          slug: 'consultation',
-          title: 'Schedule Consultation',
-          description: 'Book a free consultation with our laser cleaning experts'
-        })
-      ],
+      // Schedule page schemas
 
       // Materials listing page
       materials: () => [

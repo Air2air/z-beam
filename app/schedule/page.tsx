@@ -7,8 +7,8 @@ import { SITE_CONFIG } from '../utils/constants';
 import { ScheduleContent } from '../components/Schedule/ScheduleContent';
 
 export const metadata = {
-  title: 'Schedule a Consultation - Z-Beam Laser Cleaning',
-  description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts. Get personalized advice on laser cleaning solutions for your industrial applications.',
+  title: 'Schedule a Service - Z-Beam Laser Cleaning',
+  description: 'Schedule laser cleaning services with Z-Beam. Book equipment rental, professional cleaning, or on-site services through our online booking portal.',
   robots: {
     index: false,
     follow: true,
@@ -17,8 +17,8 @@ export const metadata = {
     canonical: `${SITE_CONFIG.url}/schedule`,
   },
   openGraph: {
-    title: 'Schedule a Consultation - Z-Beam Laser Cleaning',
-    description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts. Get personalized advice on laser cleaning solutions for your industrial applications.',
+    title: 'Schedule a Service - Z-Beam Laser Cleaning',
+    description: 'Schedule laser cleaning services with Z-Beam. Book equipment rental, professional cleaning, or on-site services.',
     url: `${SITE_CONFIG.url}/schedule`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -27,14 +27,14 @@ export const metadata = {
         url: `${SITE_CONFIG.url}/images/og-schedule.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Schedule a Consultation with Z-Beam',
+        alt: 'Schedule a Service with Z-Beam',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Schedule a Consultation - Z-Beam Laser Cleaning',
-    description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts.',
+    title: 'Schedule a Service - Z-Beam Laser Cleaning',
+    description: 'Schedule laser cleaning services with Z-Beam.',
   },
 };
 
@@ -45,24 +45,20 @@ export default async function SchedulePage() {
   const scheduleSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Schedule a Consultation',
-    description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts',
+    name: 'Schedule a Service',
+    description: 'Schedule laser cleaning services with Z-Beam',
     url: `${SITE_CONFIG.url}/schedule`,
     mainEntity: {
       '@type': 'Service',
-      name: 'Laser Cleaning Consultation',
-      description: 'Free consultation with laser cleaning experts',
+      name: 'Laser Cleaning Services',
+      description: 'Professional laser cleaning, equipment rental, and on-site services',
       provider: {
         '@type': 'Organization',
         '@id': `${SITE_CONFIG.url}/#organization`,
         name: SITE_CONFIG.name
       },
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'USD',
-        description: 'Free 30-minute consultation'
-      }
+      serviceType: 'Laser Cleaning',
+      areaServed: 'United States'
     }
   };
   
@@ -70,7 +66,7 @@ export default async function SchedulePage() {
     <>
       <JsonLD data={scheduleSchema} />
       <Layout
-        title="Schedule a Consultation"
+        title="Schedule Your Service"
         description=""
         rightContent={null}
         metadata={{

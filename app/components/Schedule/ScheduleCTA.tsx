@@ -22,12 +22,12 @@ export function BookingCTA({ variant = 'default', className = '' }: BookingCTAPr
   if (variant === 'compact') {
     return (
       <Link
-        href="/booking"
+        href="/schedule"
         onClick={handleClick}
         className={`inline-flex items-center gap-2 bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors ${className}`}
       >
         <CalendarIcon className="w-5 h-5" />
-        Book Consultation
+        Schedule Service
       </Link>
     );
   }
@@ -39,15 +39,15 @@ export function BookingCTA({ variant = 'default', className = '' }: BookingCTAPr
         Ready to Get Started?
       </h3>
       <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-        Book a free 30-minute consultation with our laser cleaning experts. 
+        Schedule a consultation or service appointment with our laser cleaning experts. 
         Get personalized recommendations for your specific application.
       </p>
       <Link
-        href="/booking"
+        href="/schedule"
         onClick={handleClick}
         className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
       >
-        Schedule Your Consultation
+        Schedule Appointment
       </Link>
     </div>
   );
