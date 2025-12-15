@@ -1,0 +1,294 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Engine Coolant Scale Contamination Data",
+  "description": "Coolant-scale contamination arises from silicate and phosphate deposits in engine cooling systems, where coolants degrade during operation and so minerals precipitate onto surfaces. This scale exhibits layered hardness and poor adhesion compared to rust or oil residues, because it forms crystalline structures that bond tightly yet crack unevenly under stress. On aluminum and cast iron, scale clings stubbornly and so resists scraping without surface damage, while on brass it flakes more readily but leaves residues; removal challenges include avoiding substrate erosion during mechanical methods, yet laser cleaning succeeds by vaporizing layers precisely through thermal expansion, so surfaces restore uniformity without harm.",
+  "url": "http://localhost:3000/contaminants/thermal-damage/scale/coolant-scale-contamination",
+  "identifier": "contaminant-coolant-scale-contamination",
+  "keywords": [],
+  "variableMeasured": [
+    "Fire/Explosion Risk Level",
+    "Toxic Gas Risk Level",
+    "Visibility Hazard Level",
+    "PPE Requirements",
+    "Ventilation Requirements",
+    "Particulate Generation"
+  ],
+  "measurementTechnique": [
+    "Laser-induced breakdown spectroscopy (LIBS)",
+    "Safety hazard assessment",
+    "Fume generation analysis",
+    "PPE requirement evaluation"
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/coolant-scale-contamination.json",
+      "name": "Engine Coolant Scale - JSON Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/coolant-scale-contamination.csv",
+      "name": "Engine Coolant Scale - CSV Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/plain",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/coolant-scale-contamination.txt",
+      "name": "Engine Coolant Scale - Text Format"
+    }
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Technical Team",
+    "url": "http://localhost:3000/about"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "contamination": {
+    "name": "Engine Coolant Scale",
+    "slug": "coolant-scale-contamination",
+    "category": "thermal-damage",
+    "subcategory": "scale",
+    "description": "Coolant-scale contamination arises from silicate and phosphate deposits in engine cooling systems, where coolants degrade during operation and so minerals precipitate onto surfaces. This scale exhibits layered hardness and poor adhesion compared to rust or oil residues, because it forms crystalline structures that bond tightly yet crack unevenly under stress. On aluminum and cast iron, scale clings stubbornly and so resists scraping without surface damage, while on brass it flakes more readily but leaves residues; removal challenges include avoiding substrate erosion during mechanical methods, yet laser cleaning succeeds by vaporizing layers precisely through thermal expansion, so surfaces restore uniformity without harm."
+  },
+  "safetyData": {
+    "fire_explosion_risk": "low",
+    "fumes_generated": [
+      {
+        "compound": "Ethylene Glycol",
+        "concentration_mg_m3": "5-50",
+        "exposure_limit_mg_m3": 127,
+        "hazard_class": "irritant"
+      },
+      {
+        "compound": "Glycolic Acid",
+        "concentration_mg_m3": "2-20",
+        "exposure_limit_mg_m3": 8,
+        "hazard_class": "irritant"
+      },
+      {
+        "compound": "Oxalic Acid",
+        "concentration_mg_m3": "1-15",
+        "exposure_limit_mg_m3": 1,
+        "hazard_class": "toxic"
+      },
+      {
+        "compound": "Carbon Monoxide",
+        "concentration_mg_m3": "10-100",
+        "exposure_limit_mg_m3": 29,
+        "hazard_class": "toxic"
+      },
+      {
+        "compound": "Formaldehyde",
+        "concentration_mg_m3": "1-10",
+        "exposure_limit_mg_m3": 0.37,
+        "hazard_class": "carcinogenic"
+      }
+    ],
+    "particulate_generation": {
+      "respirable_fraction": 0.7,
+      "size_range_um": [
+        0.1,
+        10
+      ]
+    },
+    "ppe_requirements": {
+      "eye_protection": "goggles",
+      "respiratory": "half_mask",
+      "skin_protection": "gloves"
+    },
+    "substrate_compatibility_warnings": [
+      "Laser may etch or discolor underlying metal surfaces",
+      "Thermal stress may cause micro-cracking in thin substrates",
+      "Residual glycol compounds may require post-cleaning solvent wipe"
+    ],
+    "toxic_gas_risk": "moderate",
+    "ventilation_requirements": {
+      "exhaust_velocity_m_s": 0.5,
+      "filtration_type": "carbon",
+      "minimum_air_changes_per_hour": 12
+    },
+    "visibility_hazard": "moderate"
+  },
+  "laserProperties": {
+    "laser_parameters": {
+      "beam_profile": "flat_top",
+      "fluence_range": {
+        "max_j_cm2": 1.5,
+        "min_j_cm2": 0.8,
+        "recommended_j_cm2": 1.1
+      },
+      "overlap_percentage": 50,
+      "polarization": "circular",
+      "pulse_duration_range": {
+        "max_ns": 200,
+        "min_ns": 50,
+        "recommended_ns": 100
+      },
+      "repetition_rate_khz": {
+        "max": 100,
+        "min": 20,
+        "recommended": 50
+      },
+      "safety_margin_factor": 0.75,
+      "scan_speed_mm_s": {
+        "max": 2000,
+        "min": 500,
+        "recommended": 1000
+      },
+      "spot_size_mm": {
+        "max": 0.1,
+        "min": 0.03,
+        "recommended": 0.05
+      },
+      "wavelength_preference": [
+        1064,
+        532
+      ]
+    },
+    "optical_properties": {
+      "absorption_coefficient": {
+        "wavelength_1064nm": 1200,
+        "wavelength_355nm": 28000,
+        "wavelength_532nm": 4500
+      },
+      "reflectivity": {
+        "wavelength_1064nm": 0.15,
+        "wavelength_355nm": 0.03,
+        "wavelength_532nm": 0.08
+      },
+      "refractive_index": {
+        "imaginary_part": 0.12,
+        "real_part": 1.55
+      },
+      "transmission_depth": 83.3
+    },
+    "removal_characteristics": {
+      "byproducts": [
+        {
+          "compound": "CO2",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "H2O",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "CaO/MgO",
+          "hazard_level": "low",
+          "phase": "solid"
+        },
+        {
+          "compound": "organic residues",
+          "hazard_level": "moderate",
+          "phase": "solid"
+        }
+      ],
+      "damage_risk_to_substrate": "low",
+      "primary_mechanism": "thermal_ablation",
+      "process_speed": {
+        "area_coverage_rate_cm2_min": 240,
+        "typical_scan_speed_mm_s": 800
+      },
+      "removal_efficiency": {
+        "diminishing_returns_after": 4,
+        "optimal_passes": 3,
+        "single_pass": 0.7
+      },
+      "secondary_mechanisms": [
+        "photochemical",
+        "mechanical_spallation"
+      ],
+      "surface_quality_after_removal": {
+        "color_change": "no",
+        "residual_stress": "compressive",
+        "roughness_increase": "minimal"
+      }
+    },
+    "safety_data": {
+      "fire_explosion_risk": "low",
+      "fumes_generated": [
+        {
+          "compound": "Ethylene Glycol",
+          "concentration_mg_m3": "5-50",
+          "exposure_limit_mg_m3": 127,
+          "hazard_class": "irritant"
+        },
+        {
+          "compound": "Glycolic Acid",
+          "concentration_mg_m3": "2-20",
+          "exposure_limit_mg_m3": 8,
+          "hazard_class": "irritant"
+        },
+        {
+          "compound": "Oxalic Acid",
+          "concentration_mg_m3": "1-15",
+          "exposure_limit_mg_m3": 1,
+          "hazard_class": "toxic"
+        },
+        {
+          "compound": "Carbon Monoxide",
+          "concentration_mg_m3": "10-100",
+          "exposure_limit_mg_m3": 29,
+          "hazard_class": "toxic"
+        },
+        {
+          "compound": "Formaldehyde",
+          "concentration_mg_m3": "1-10",
+          "exposure_limit_mg_m3": 0.37,
+          "hazard_class": "carcinogenic"
+        }
+      ],
+      "particulate_generation": {
+        "respirable_fraction": 0.7,
+        "size_range_um": [
+          0.1,
+          10
+        ]
+      },
+      "ppe_requirements": {
+        "eye_protection": "goggles",
+        "respiratory": "half_mask",
+        "skin_protection": "gloves"
+      },
+      "substrate_compatibility_warnings": [
+        "Laser may etch or discolor underlying metal surfaces",
+        "Thermal stress may cause micro-cracking in thin substrates",
+        "Residual glycol compounds may require post-cleaning solvent wipe"
+      ],
+      "toxic_gas_risk": "moderate",
+      "ventilation_requirements": {
+        "exhaust_velocity_m_s": 0.5,
+        "filtration_type": "carbon",
+        "minimum_air_changes_per_hour": 12
+      },
+      "visibility_hazard": "moderate"
+    },
+    "thermal_properties": {
+      "ablation_threshold": {
+        "pulse_duration_100ns": 2.5,
+        "pulse_duration_10ns": 1.2,
+        "wavelength_1064nm": 1.8
+      },
+      "decomposition_temperature": 350,
+      "heat_affected_zone_depth": 15,
+      "melting_point": null,
+      "specific_heat": 1200,
+      "thermal_conductivity": 0.8,
+      "thermal_diffusivity": 0.67,
+      "vaporization_temperature": 1200
+    }
+  },
+  "validMaterials": [
+    "Aluminum",
+    "Cast Iron",
+    "Brass"
+  ],
+  "regulatoryStandards": []
+}

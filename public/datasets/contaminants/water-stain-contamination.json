@@ -1,0 +1,268 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Water Staining and Marks Contamination Data",
+  "description": "Water-stain contamination, it forms via evaporation of hard water, depositing minerals that adhere tenaciously to surfaces. This pattern exhibits irregular crystalline formations, chalky and translucent, which distinguish it from uniform rust or even organic films. On porous stones like marble or limestone, the stain penetrates deeply, whereas on smooth metals such as stainless steel, it creates superficial layers; challenges stem from chemical bonding, resistant to solvents and abrasion, that risks substrate damage. Laser cleaning, it selectively ablates deposits through targeted energy, preserving underlying integrity.",
+  "url": "http://localhost:3000/contaminants/organic-residue/other/water-stain-contamination",
+  "identifier": "contaminant-water-stain-contamination",
+  "keywords": [],
+  "variableMeasured": [
+    "Fire/Explosion Risk Level",
+    "Toxic Gas Risk Level",
+    "Visibility Hazard Level",
+    "PPE Requirements",
+    "Ventilation Requirements",
+    "Particulate Generation"
+  ],
+  "measurementTechnique": [
+    "Laser-induced breakdown spectroscopy (LIBS)",
+    "Safety hazard assessment",
+    "Fume generation analysis",
+    "PPE requirement evaluation"
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/water-stain-contamination.json",
+      "name": "Water Staining and Marks - JSON Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/water-stain-contamination.csv",
+      "name": "Water Staining and Marks - CSV Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/plain",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/water-stain-contamination.txt",
+      "name": "Water Staining and Marks - Text Format"
+    }
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Technical Team",
+    "url": "http://localhost:3000/about"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "contamination": {
+    "name": "Water Staining and Marks",
+    "slug": "water-stain-contamination",
+    "category": "organic-residue",
+    "subcategory": "other",
+    "description": "Water-stain contamination, it forms via evaporation of hard water, depositing minerals that adhere tenaciously to surfaces. This pattern exhibits irregular crystalline formations, chalky and translucent, which distinguish it from uniform rust or even organic films. On porous stones like marble or limestone, the stain penetrates deeply, whereas on smooth metals such as stainless steel, it creates superficial layers; challenges stem from chemical bonding, resistant to solvents and abrasion, that risks substrate damage. Laser cleaning, it selectively ablates deposits through targeted energy, preserving underlying integrity."
+  },
+  "safetyData": {
+    "fire_explosion_risk": "none",
+    "fumes_generated": [
+      {
+        "compound": "Water Vapor",
+        "concentration_mg_m3": 50,
+        "exposure_limit_mg_m3": "N/A",
+        "hazard_class": "irritant"
+      }
+    ],
+    "particulate_generation": {
+      "respirable_fraction": 0.8,
+      "size_range_um": [
+        0.1,
+        10
+      ]
+    },
+    "ppe_requirements": {
+      "eye_protection": "goggles",
+      "respiratory": "dust_mask",
+      "skin_protection": "gloves"
+    },
+    "substrate_compatibility_warnings": [
+      "Laser cleaning of water-stained surfaces may cause thermal stress or discoloration on sensitive materials",
+      "Rapid heating of trapped moisture can cause micro-fracturing in porous materials"
+    ],
+    "toxic_gas_risk": "none",
+    "ventilation_requirements": {
+      "exhaust_velocity_m_s": 0.5,
+      "filtration_type": "HEPA",
+      "minimum_air_changes_per_hour": 10
+    },
+    "visibility_hazard": "low"
+  },
+  "laserProperties": {
+    "laser_parameters": {
+      "beam_profile": "flat_top",
+      "fluence_range": {
+        "max_j_cm2": 1.2,
+        "min_j_cm2": 0.3,
+        "recommended_j_cm2": 0.8
+      },
+      "overlap_percentage": 50,
+      "polarization": "any",
+      "pulse_duration_range": {
+        "max_ns": 200,
+        "min_ns": 10,
+        "recommended_ns": 50
+      },
+      "repetition_rate_khz": {
+        "max": 200,
+        "min": 20,
+        "recommended": 50
+      },
+      "safety_margin_factor": 0.7,
+      "scan_speed_mm_s": {
+        "max": 2000,
+        "min": 500,
+        "recommended": 1000
+      },
+      "spot_size_mm": {
+        "max": 0.1,
+        "min": 0.02,
+        "recommended": 0.05
+      },
+      "wavelength_preference": [
+        1064,
+        532
+      ]
+    },
+    "optical_properties": {
+      "absorption_coefficient": {
+        "wavelength_1064nm": 150,
+        "wavelength_355nm": 3200,
+        "wavelength_532nm": 850
+      },
+      "reflectivity": {
+        "wavelength_1064nm": 0.05,
+        "wavelength_355nm": 0.02,
+        "wavelength_532nm": 0.03
+      },
+      "refractive_index": {
+        "imaginary_part": 0.001,
+        "real_part": 1.33
+      },
+      "transmission_depth": 66.7
+    },
+    "removal_characteristics": {
+      "byproducts": [
+        {
+          "compound": "H₂O",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "CO₂",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "mineral dust",
+          "hazard_level": "low",
+          "phase": "solid"
+        }
+      ],
+      "damage_risk_to_substrate": "low",
+      "primary_mechanism": "thermal_ablation",
+      "process_speed": {
+        "area_coverage_rate_cm2_min": 240,
+        "typical_scan_speed_mm_s": 800
+      },
+      "removal_efficiency": {
+        "diminishing_returns_after": 3,
+        "optimal_passes": 2,
+        "single_pass": 0.7
+      },
+      "secondary_mechanisms": [
+        "photochemical",
+        "mechanical_spallation"
+      ],
+      "surface_quality_after_removal": {
+        "color_change": "no",
+        "residual_stress": "compressive",
+        "roughness_increase": "minimal"
+      }
+    },
+    "safety_data": {
+      "fire_explosion_risk": "none",
+      "fumes_generated": [
+        {
+          "compound": "Water Vapor",
+          "concentration_mg_m3": 50,
+          "exposure_limit_mg_m3": "N/A",
+          "hazard_class": "irritant"
+        }
+      ],
+      "particulate_generation": {
+        "respirable_fraction": 0.8,
+        "size_range_um": [
+          0.1,
+          10
+        ]
+      },
+      "ppe_requirements": {
+        "eye_protection": "goggles",
+        "respiratory": "dust_mask",
+        "skin_protection": "gloves"
+      },
+      "substrate_compatibility_warnings": [
+        "Laser cleaning of water-stained surfaces may cause thermal stress or discoloration on sensitive materials",
+        "Rapid heating of trapped moisture can cause micro-fracturing in porous materials"
+      ],
+      "toxic_gas_risk": "none",
+      "ventilation_requirements": {
+        "exhaust_velocity_m_s": 0.5,
+        "filtration_type": "HEPA",
+        "minimum_air_changes_per_hour": 10
+      },
+      "visibility_hazard": "low"
+    },
+    "thermal_properties": {
+      "ablation_threshold": {
+        "pulse_duration_100ns": 1.2,
+        "pulse_duration_10ns": 0.6,
+        "wavelength_1064nm": 0.8
+      },
+      "decomposition_temperature": 100,
+      "heat_affected_zone_depth": 15,
+      "melting_point": 0,
+      "specific_heat": 4180,
+      "thermal_conductivity": 0.6,
+      "thermal_diffusivity": 0.14,
+      "vaporization_temperature": 100
+    }
+  },
+  "validMaterials": [
+    "Concrete",
+    "Granite",
+    "Marble",
+    "Limestone",
+    "Sandstone",
+    "Basalt",
+    "Slate",
+    "Quartzite",
+    "Travertine",
+    "Bluestone",
+    "Soapstone",
+    "Aluminum",
+    "Steel",
+    "Stainless Steel",
+    "Cast Iron",
+    "Copper",
+    "Bronze",
+    "Brass",
+    "Titanium",
+    "Zinc",
+    "Nickel",
+    "Lead",
+    "Tin",
+    "Cobalt",
+    "Chromium",
+    "Crown Glass",
+    "Float Glass",
+    "Borosilicate Glass",
+    "Aluminosilicate Glass",
+    "Fused Silica",
+    "Gorilla Glass",
+    "Tempered Glass"
+  ],
+  "regulatoryStandards": []
+}

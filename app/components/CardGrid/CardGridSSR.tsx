@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from "../Card/Card";
 import { GridItemSSR, CardGridSSRProps, MaterialType, BadgeData, Article, ArticleMetadata } from "@/types";
-import { getArticle, loadComponent } from "../../utils/contentAPI";
+import { getArticle, getContaminantArticle, getSettingsArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { Title } from '../Title';
@@ -60,7 +60,9 @@ export async function CardGridSSR({
   showBadgeSymbols = true,
   loadBadgeSymbolData = false,
   className = "",
-  variant = "default"
+  variant = "default",
+  category,
+  subcategory
 }: CardGridSSRProps) {
   
   // Process input data into unified format
@@ -73,26 +75,43 @@ export async function CardGridSSR({
     processedItems = await Promise.all(
       slugs.map(async (slug) => {
         try {
-          const article = await getArticle(slug);
+          // Use appropriate loader based on mode
+          const article = mode === 'contaminants' 
+            ? await getContaminantArticle(slug)
+            : mode === 'settings'
+            ? await getSettingsArticle(slug)
+            : await getArticle(slug);
           
-          const itemName = article?.metadata?.name as string || '';
-          const itemTitle = article?.metadata?.subject || 
-            article?.metadata?.title ||
+          // Settings returns flat structure, materials/contaminants have nested metadata
+          const metadata = mode === 'settings' ? article as any : (article?.metadata as any);
+          
+          const itemName = metadata?.name as string || '';
+          const itemTitle = metadata?.subject || 
+            metadata?.title ||
             slugToDisplayName(slug);
 
-          const itemDescription = article?.metadata?.description || '';
-          const itemImageUrl = article?.metadata?.image || '';
+          const itemDescription = metadata?.description || '';
           
-          // Extract category and subcategory from article metadata
-          const category = article?.metadata?.category as string ||
-                          article?.metadata?.articleType as string ||
+          // Get image URL - unified structure for all content types
+          const itemImageUrl = metadata?.images?.hero?.url || metadata?.image || '';
+          
+          // Use provided category/subcategory or extract from article metadata
+          const itemCategory = category || metadata?.category as string ||
+                          metadata?.articleType as string ||
                           'Other';
-          const subcategory = article?.metadata?.subcategory as string;
+          const itemSubcategory = subcategory || metadata?.subcategory as string;
 
-          // Build URL using centralized utility
+          // Build URL using centralized utility with appropriate rootPath
+          const rootPath = mode === 'contaminants' 
+            ? 'contaminants' 
+            : mode === 'settings'
+            ? 'settings'
+            : undefined;
+          
           const itemHref = buildUrlFromMetadata({
-            category,
-            subcategory,
+            rootPath,
+            category: itemCategory,
+            subcategory: itemSubcategory,
             slug
           });
 

@@ -120,9 +120,12 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
     try {
       // Parse as pure YAML since these are now .yaml files
       const yaml = await import('js-yaml');
-      let data = yaml.load(fileContent) as any;
+      const parsed = yaml.load(fileContent) as any;
       
-      if (!data) return {};
+      if (!parsed) return {};
+      
+      // Handle normalized structure (parsed.metadata) or legacy flat structure
+      let data = parsed.metadata || parsed;
       
       // Apply all normalizations
       
@@ -182,8 +185,11 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
           const content = await fs.readFile(filePath, 'utf8');
           const parsed = safeMatterParse(content, { excerpt: false, engines: { yaml: (s: string) => require('js-yaml').load(s, { schema: require('js-yaml').JSON_SCHEMA }) } });
           
+          // Handle normalized structure (parsed.data.metadata) or legacy flat structure
+          const data = parsed.data.metadata || parsed.data;
+          
           // Only add slug if YAML is complete
-          if (isYamlComplete(parsed.data)) {
+          if (isYamlComplete(data)) {
             const slug = stripParenthesesFromSlug(file.replace('.yaml', ''));
             slugs.add(slug);
           } else {
@@ -937,38 +943,55 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
  */
 export const getContaminantArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return safeContentOperation(async () => {
-    // Load from contaminants frontmatter directory
-    const frontmatterPath = path.join(process.cwd(), 'frontmatter', 'contaminants', `${slug}.yaml`);
+    // Load from contaminants frontmatter directory using same robust approach as getArticle
+    const frontmatterDir = path.join(process.cwd(), 'frontmatter', 'contaminants');
+    const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
     
     if (!existsSync(frontmatterPath)) {
       return null;
     }
     
-    const fileContents = readFileSync(frontmatterPath, 'utf-8');
-    const parsed = safeMatterParse(fileContents, frontmatterPath);
+    validateFilePath(frontmatterPath, [frontmatterDir]);
     
-    if (!parsed?.data || Object.keys(parsed.data).length === 0) {
+    const fileContents = readFileSync(frontmatterPath, 'utf-8');
+    
+    try {
+      const yaml = await import('js-yaml');
+      const parsed = yaml.load(fileContents) as any;
+      
+      if (!parsed) return null;
+      
+      // Handle normalized structure (parsed.metadata) or legacy flat structure
+      let frontmatterData = parsed.metadata || parsed;
+      
+      // Apply all normalizations (same as getArticle)
+      frontmatterData = normalizeAllTextFields(frontmatterData);
+      frontmatterData = normalizeCategoryFields(frontmatterData);
+      frontmatterData = normalizeFreshnessTimestamps(frontmatterData);
+      frontmatterData = normalizeNumericValues(frontmatterData);
+      
+      // Use frontmatter data as the primary metadata source
+      const metadata = {
+        ...frontmatterData,
+        slug,
+        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+      };
+
+      // Contaminants may have minimal components - just provide essentials
+      const components: Record<string, ComponentData> = {};
+      
+      // Always provide title and author components with frontmatter data
+      components.title = { config: frontmatterData, content: '' };
+      components.author = { config: frontmatterData, content: '' };
+      
+      return {
+        metadata,
+        components
+      };
+    } catch (error) {
+      console.error(`Failed to parse contaminant YAML for ${slug}:`, error);
       return null;
     }
-    
-    // Use frontmatter data as the primary metadata source
-    const metadata = {
-      ...parsed.data,
-      slug,
-      authorInfo: (typeof parsed.data.author === 'object' ? parsed.data.author : null) || parsed.data.authorInfo
-    };
-
-    // Contaminants may have minimal components - just provide essentials
-    const components: Record<string, ComponentData> = {};
-    
-    // Always provide title and author components with frontmatter data
-    components.title = { config: parsed.data, content: '' };
-    components.author = { config: parsed.data, content: '' };
-    
-    return {
-      metadata,
-      components
-    };
   }, null, 'getContaminantArticle', slug);
 });
 
@@ -1107,49 +1130,51 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       return null;
     }
     
-    // Construct SettingsMetadata with all available data
+    // Construct SettingsMetadata with all available data from metadata property
+    const metadata = data.metadata || data; // Fallback for old format during transition
     return {
-      name: data.name,
-      materialRef: data.materialRef,
-      category: data.category,
-      subcategory: data.subcategory,
-      title: data.title,
-      subtitle: data.subtitle,
-      description: data.description,
-      settings_description: data.settings_description,
+      name: metadata.name,
+      materialRef: metadata.materialRef,
+      category: metadata.category,
+      subcategory: metadata.subcategory,
+      title: metadata.title,
+      subtitle: metadata.subtitle,
+      description: metadata.description,
+      settings_description: metadata.settings_description,
       slug,
-      author: data.author,
-      datePublished: data.datePublished,
-      dateModified: data.dateModified,
-      breadcrumb: data.breadcrumb,
+      author: metadata.author,
+      datePublished: metadata.datePublished,
+      dateModified: metadata.dateModified,
+      breadcrumb: metadata.breadcrumb,
+      images: metadata.images,
       
       // Component-specific data
-      components: data.components,
-      essential_parameters: data.essential_parameters,
-      heatmap_config: data.heatmap_config,
-      thermal_accumulation: data.thermal_accumulation,
-      material_challenges: data.material_challenges,
-      common_issues: data.common_issues,
+      components: metadata.components,
+      essential_parameters: metadata.essential_parameters,
+      heatmap_config: metadata.heatmap_config,
+      thermal_accumulation: metadata.thermal_accumulation,
+      material_challenges: metadata.material_challenges,
+      common_issues: metadata.common_issues,
       
       // Research and documentation
-      research_library: data.research_library,
-      equipment_requirements: data.equipment_requirements,
-      expected_outcomes: data.expected_outcomes,
+      research_library: metadata.research_library,
+      equipment_requirements: metadata.equipment_requirements,
+      expected_outcomes: metadata.expected_outcomes,
       
       // Expert answers for E-E-A-T
-      expertAnswers: data.expertAnswers,
+      expertAnswers: metadata.expertAnswers,
       
       // Legacy support
-      machineSettings: data.machineSettings,
+      machineSettings: metadata.machineSettings,
       
       // SEO and E-E-A-T
-      seo: data.seo || data.seo_settings_page,
-      eeat: data.eeat,
+      seo: metadata.seo || metadata.seo_settings_page,
+      eeat: metadata.eeat,
       
       // Attached data
       _materialProperties: materialProperties,
       _metadata: {
-        ...(data._metadata || {}),
+        ...(metadata._metadata || {}),
         sourceType, // Track whether data came from separate file or hybrid
       }
     } as SettingsMetadata;

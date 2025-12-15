@@ -1,0 +1,287 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Anti-Seize Compound Contamination Data",
+  "description": "During assembly, anti-seize contamination forms as sticky metallic and graphite-based deposits so tenacious adhesion builds up over time from heat and friction on surfaces. This contamination exhibits heat-resistant properties and strong bonding on steel, stainless steel, and aluminum, which distinguishes it from rust or oils because mechanical removal damages substrates during process. Key challenges occur in removal due to that bonding, so laser cleaning ablates layers precisely and base materials remain unharmed after treatment.",
+  "url": "http://localhost:3000/contaminants/organic-residue/lubricant/anti-seize-contamination",
+  "identifier": "contaminant-anti-seize-contamination",
+  "keywords": [],
+  "variableMeasured": [
+    "Fire/Explosion Risk Level",
+    "Toxic Gas Risk Level",
+    "Visibility Hazard Level",
+    "PPE Requirements",
+    "Ventilation Requirements",
+    "Particulate Generation"
+  ],
+  "measurementTechnique": [
+    "Laser-induced breakdown spectroscopy (LIBS)",
+    "Safety hazard assessment",
+    "Fume generation analysis",
+    "PPE requirement evaluation"
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/anti-seize-contamination.json",
+      "name": "Anti-Seize Compound - JSON Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/anti-seize-contamination.csv",
+      "name": "Anti-Seize Compound - CSV Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/plain",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/anti-seize-contamination.txt",
+      "name": "Anti-Seize Compound - Text Format"
+    }
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Technical Team",
+    "url": "http://localhost:3000/about"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "contamination": {
+    "name": "Anti-Seize Compound",
+    "slug": "anti-seize-contamination",
+    "category": "organic-residue",
+    "subcategory": "lubricant",
+    "description": "During assembly, anti-seize contamination forms as sticky metallic and graphite-based deposits so tenacious adhesion builds up over time from heat and friction on surfaces. This contamination exhibits heat-resistant properties and strong bonding on steel, stainless steel, and aluminum, which distinguishes it from rust or oils because mechanical removal damages substrates during process. Key challenges occur in removal due to that bonding, so laser cleaning ablates layers precisely and base materials remain unharmed after treatment."
+  },
+  "safetyData": {
+    "fire_explosion_risk": "low",
+    "fumes_generated": [
+      {
+        "compound": "Nickel compounds (as Ni)",
+        "concentration_mg_m3": "0.5-2.0",
+        "exposure_limit_mg_m3": 0.1,
+        "hazard_class": "carcinogenic"
+      },
+      {
+        "compound": "Copper fume",
+        "concentration_mg_m3": "0.1-0.5",
+        "exposure_limit_mg_m3": 0.1,
+        "hazard_class": "irritant"
+      },
+      {
+        "compound": "Aluminum oxide fume",
+        "concentration_mg_m3": "1.0-3.0",
+        "exposure_limit_mg_m3": 5,
+        "hazard_class": "irritant"
+      },
+      {
+        "compound": "Graphite fume",
+        "concentration_mg_m3": "0.5-1.5",
+        "exposure_limit_mg_m3": 2,
+        "hazard_class": "irritant"
+      }
+    ],
+    "particulate_generation": {
+      "respirable_fraction": 0.7,
+      "size_range_um": [
+        0.1,
+        10
+      ]
+    },
+    "ppe_requirements": {
+      "eye_protection": "goggles",
+      "respiratory": "PAPR",
+      "skin_protection": "gloves"
+    },
+    "substrate_compatibility_warnings": [
+      "Laser cleaning may embed metallic particles into substrate surface",
+      "Thermal decomposition can create refractory metal oxides",
+      "Residual contamination may affect surface properties"
+    ],
+    "toxic_gas_risk": "low",
+    "ventilation_requirements": {
+      "exhaust_velocity_m_s": 0.5,
+      "filtration_type": "HEPA",
+      "minimum_air_changes_per_hour": 12
+    },
+    "visibility_hazard": "moderate"
+  },
+  "laserProperties": {
+    "laser_parameters": {
+      "beam_profile": "flat_top",
+      "fluence_range": {
+        "max_j_cm2": 1.2,
+        "min_j_cm2": 0.3,
+        "recommended_j_cm2": 0.7
+      },
+      "overlap_percentage": 50,
+      "polarization": "circular",
+      "pulse_duration_range": {
+        "max_ns": 100,
+        "min_ns": 4,
+        "recommended_ns": 20
+      },
+      "repetition_rate_khz": {
+        "max": 200,
+        "min": 20,
+        "recommended": 50
+      },
+      "safety_margin_factor": 0.7,
+      "scan_speed_mm_s": {
+        "max": 2000,
+        "min": 500,
+        "recommended": 1000
+      },
+      "spot_size_mm": {
+        "max": 0.1,
+        "min": 0.02,
+        "recommended": 0.05
+      },
+      "wavelength_preference": [
+        355,
+        532
+      ]
+    },
+    "optical_properties": {
+      "absorption_coefficient": {
+        "wavelength_1064nm": 850,
+        "wavelength_355nm": 18500,
+        "wavelength_532nm": 4200
+      },
+      "reflectivity": {
+        "wavelength_1064nm": 0.15,
+        "wavelength_355nm": 0.02,
+        "wavelength_532nm": 0.08
+      },
+      "refractive_index": {
+        "imaginary_part": 0.15,
+        "real_part": 1.72
+      },
+      "transmission_depth": 11.8
+    },
+    "removal_characteristics": {
+      "byproducts": [
+        {
+          "compound": "CO2",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "H2O",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "Metal oxides (from metallic fillers)",
+          "hazard_level": "moderate",
+          "phase": "solid"
+        },
+        {
+          "compound": "Graphite/soot particles",
+          "hazard_level": "moderate",
+          "phase": "solid"
+        },
+        {
+          "compound": "Volatile organic compounds",
+          "hazard_level": "moderate",
+          "phase": "gas"
+        }
+      ],
+      "damage_risk_to_substrate": "low",
+      "primary_mechanism": "thermal_ablation",
+      "process_speed": {
+        "area_coverage_rate_cm2_min": 240,
+        "typical_scan_speed_mm_s": 800
+      },
+      "removal_efficiency": {
+        "diminishing_returns_after": 3,
+        "optimal_passes": 2,
+        "single_pass": 0.85
+      },
+      "secondary_mechanisms": [
+        "photochemical",
+        "mechanical_spallation"
+      ],
+      "surface_quality_after_removal": {
+        "color_change": "no",
+        "residual_stress": "none",
+        "roughness_increase": "minimal"
+      }
+    },
+    "safety_data": {
+      "fire_explosion_risk": "low",
+      "fumes_generated": [
+        {
+          "compound": "Nickel compounds (as Ni)",
+          "concentration_mg_m3": "0.5-2.0",
+          "exposure_limit_mg_m3": 0.1,
+          "hazard_class": "carcinogenic"
+        },
+        {
+          "compound": "Copper fume",
+          "concentration_mg_m3": "0.1-0.5",
+          "exposure_limit_mg_m3": 0.1,
+          "hazard_class": "irritant"
+        },
+        {
+          "compound": "Aluminum oxide fume",
+          "concentration_mg_m3": "1.0-3.0",
+          "exposure_limit_mg_m3": 5,
+          "hazard_class": "irritant"
+        },
+        {
+          "compound": "Graphite fume",
+          "concentration_mg_m3": "0.5-1.5",
+          "exposure_limit_mg_m3": 2,
+          "hazard_class": "irritant"
+        }
+      ],
+      "particulate_generation": {
+        "respirable_fraction": 0.7,
+        "size_range_um": [
+          0.1,
+          10
+        ]
+      },
+      "ppe_requirements": {
+        "eye_protection": "goggles",
+        "respiratory": "PAPR",
+        "skin_protection": "gloves"
+      },
+      "substrate_compatibility_warnings": [
+        "Laser cleaning may embed metallic particles into substrate surface",
+        "Thermal decomposition can create refractory metal oxides",
+        "Residual contamination may affect surface properties"
+      ],
+      "toxic_gas_risk": "low",
+      "ventilation_requirements": {
+        "exhaust_velocity_m_s": 0.5,
+        "filtration_type": "HEPA",
+        "minimum_air_changes_per_hour": 12
+      },
+      "visibility_hazard": "moderate"
+    },
+    "thermal_properties": {
+      "ablation_threshold": {
+        "pulse_duration_100ns": 0.4,
+        "pulse_duration_10ns": 0.6,
+        "wavelength_1064nm": 0.8
+      },
+      "decomposition_temperature": 450,
+      "heat_affected_zone_depth": 15,
+      "melting_point": null,
+      "specific_heat": 1200,
+      "thermal_conductivity": 0.3,
+      "thermal_diffusivity": 0.25,
+      "vaporization_temperature": 600
+    }
+  },
+  "validMaterials": [
+    "Steel",
+    "Stainless Steel",
+    "Aluminum"
+  ],
+  "regulatoryStandards": []
+}

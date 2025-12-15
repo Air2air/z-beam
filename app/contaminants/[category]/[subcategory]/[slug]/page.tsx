@@ -1,6 +1,7 @@
 // app/contaminants/[category]/[subcategory]/[slug]/page.tsx
 // Dynamic contaminant item pages - uses unified content system
-// Force cache bust for Vercel build
+// Second cache bust attempt - Dec 15, 2025
+// Vercel cache invalidation test
 
 import { getContentConfig } from '@/app/config/contentTypes';
 import { generateItemMetadata } from '@/app/utils/contentPages/helpers';

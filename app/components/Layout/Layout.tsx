@@ -146,7 +146,7 @@ export function Layout(props: LayoutProps) {
             level="page" 
             title={title || metadata?.title || 'Article'} 
             description={(() => {
-              const desc = metadata?.material_description || metadata?.settings_description || metadata?.description;
+              const desc = metadata?.material_description || metadata?.settings_description || metadata?.contamination_description || metadata?.description;
               if (typeof desc === 'object' && desc !== null && 'before' in desc) {
                 return (desc as { before?: string }).before;
               }

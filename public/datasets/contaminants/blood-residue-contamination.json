@@ -1,0 +1,304 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Biological Blood Residue Contamination Data",
+  "description": "Blood-residue contamination, it arises from biological sources like proteins and hemoglobin. When blood contacts surfaces, drying happens quickly and sticky layers form, thus oxidation and coagulation harden them over time. This residue embeds into microstructures rapidly after exposure, and unique reddish-brown staining with fluorescence under lights distinguishes it from inorganic dust or oils.\n\nBehavior on materials varies thus. On stainless steel, residue adheres firmly and causes corrosion, while crown glass and float glass suffer cracking from penetration. Borosilicate glass resists bonding deeper, yet fused silica and Gorilla glass still trap it in pores, so alumina and silicon carbide hold it in rough textures.\n\nKey challenges emerge in removal, tenacity demands aggressive methods and risks damage, solvents fail to dissolve bonds so contamination lingers in crevices. Laser cleaning addresses this effectively, pulses target organic bonds precisely and ablation vaporizes residues without heat spread, thus surfaces exhibit cleanliness and integrity preserves.",
+  "url": "http://localhost:3000/contaminants/biological/deposit/blood-residue-contamination",
+  "identifier": "contaminant-blood-residue-contamination",
+  "keywords": [],
+  "variableMeasured": [
+    "Fire/Explosion Risk Level",
+    "Toxic Gas Risk Level",
+    "Visibility Hazard Level",
+    "PPE Requirements",
+    "Ventilation Requirements",
+    "Particulate Generation"
+  ],
+  "measurementTechnique": [
+    "Laser-induced breakdown spectroscopy (LIBS)",
+    "Safety hazard assessment",
+    "Fume generation analysis",
+    "PPE requirement evaluation"
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/blood-residue-contamination.json",
+      "name": "Biological Blood Residue - JSON Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/blood-residue-contamination.csv",
+      "name": "Biological Blood Residue - CSV Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/plain",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/blood-residue-contamination.txt",
+      "name": "Biological Blood Residue - Text Format"
+    }
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Technical Team",
+    "url": "http://localhost:3000/about"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "contamination": {
+    "name": "Biological Blood Residue",
+    "slug": "blood-residue-contamination",
+    "category": "biological",
+    "subcategory": "deposit",
+    "description": "Blood-residue contamination, it arises from biological sources like proteins and hemoglobin. When blood contacts surfaces, drying happens quickly and sticky layers form, thus oxidation and coagulation harden them over time. This residue embeds into microstructures rapidly after exposure, and unique reddish-brown staining with fluorescence under lights distinguishes it from inorganic dust or oils.\n\nBehavior on materials varies thus. On stainless steel, residue adheres firmly and causes corrosion, while crown glass and float glass suffer cracking from penetration. Borosilicate glass resists bonding deeper, yet fused silica and Gorilla glass still trap it in pores, so alumina and silicon carbide hold it in rough textures.\n\nKey challenges emerge in removal, tenacity demands aggressive methods and risks damage, solvents fail to dissolve bonds so contamination lingers in crevices. Laser cleaning addresses this effectively, pulses target organic bonds precisely and ablation vaporizes residues without heat spread, thus surfaces exhibit cleanliness and integrity preserves."
+  },
+  "safetyData": {
+    "fire_explosion_risk": "low",
+    "fumes_generated": [
+      {
+        "compound": "Carbon Monoxide",
+        "concentration_mg_m3": 5,
+        "exposure_limit_mg_m3": 29,
+        "hazard_class": "toxic"
+      },
+      {
+        "compound": "Hydrogen Cyanide",
+        "concentration_mg_m3": 1.5,
+        "exposure_limit_mg_m3": 5,
+        "hazard_class": "toxic"
+      },
+      {
+        "compound": "Benzene",
+        "concentration_mg_m3": 0.8,
+        "exposure_limit_mg_m3": 1.6,
+        "hazard_class": "carcinogenic"
+      },
+      {
+        "compound": "Formaldehyde",
+        "concentration_mg_m3": 0.5,
+        "exposure_limit_mg_m3": 0.37,
+        "hazard_class": "carcinogenic"
+      },
+      {
+        "compound": "Acrolein",
+        "concentration_mg_m3": 0.1,
+        "exposure_limit_mg_m3": 0.23,
+        "hazard_class": "irritant"
+      }
+    ],
+    "particulate_generation": {
+      "respirable_fraction": 0.7,
+      "size_range_um": [
+        0.1,
+        10
+      ]
+    },
+    "ppe_requirements": {
+      "eye_protection": "goggles",
+      "respiratory": "PAPR",
+      "skin_protection": "full_suit"
+    },
+    "substrate_compatibility_warnings": [
+      "Laser parameters must be carefully controlled to prevent surface damage to underlying material",
+      "Biohazard containment required for all generated aerosols and debris"
+    ],
+    "toxic_gas_risk": "moderate",
+    "ventilation_requirements": {
+      "exhaust_velocity_m_s": 0.5,
+      "filtration_type": "HEPA",
+      "minimum_air_changes_per_hour": 12
+    },
+    "visibility_hazard": "moderate"
+  },
+  "laserProperties": {
+    "laser_parameters": {
+      "beam_profile": "flat_top",
+      "fluence_range": {
+        "max_j_cm2": 1.2,
+        "min_j_cm2": 0.3,
+        "recommended_j_cm2": 0.6
+      },
+      "overlap_percentage": 50,
+      "polarization": "any",
+      "pulse_duration_range": {
+        "max_ns": 150,
+        "min_ns": 10,
+        "recommended_ns": 30
+      },
+      "repetition_rate_khz": {
+        "max": 200,
+        "min": 20,
+        "recommended": 50
+      },
+      "safety_margin_factor": 0.6,
+      "scan_speed_mm_s": {
+        "max": 2000,
+        "min": 500,
+        "recommended": 1000
+      },
+      "spot_size_mm": {
+        "max": 0.1,
+        "min": 0.02,
+        "recommended": 0.05
+      },
+      "wavelength_preference": [
+        355,
+        1064
+      ]
+    },
+    "optical_properties": {
+      "absorption_coefficient": {
+        "wavelength_1064nm": 120,
+        "wavelength_355nm": 3200,
+        "wavelength_532nm": 850
+      },
+      "reflectivity": {
+        "wavelength_1064nm": 0.15,
+        "wavelength_355nm": 0.04,
+        "wavelength_532nm": 0.08
+      },
+      "refractive_index": {
+        "imaginary_part": 0.012,
+        "real_part": 1.38
+      },
+      "transmission_depth": 83
+    },
+    "removal_characteristics": {
+      "byproducts": [
+        {
+          "compound": "H₂O",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "CO₂",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "NOx",
+          "hazard_level": "moderate",
+          "phase": "gas"
+        },
+        {
+          "compound": "Carbonaceous char",
+          "hazard_level": "moderate",
+          "phase": "solid"
+        }
+      ],
+      "damage_risk_to_substrate": "low",
+      "primary_mechanism": "thermal_ablation",
+      "process_speed": {
+        "area_coverage_rate_cm2_min": 240,
+        "typical_scan_speed_mm_s": 800
+      },
+      "removal_efficiency": {
+        "diminishing_returns_after": 5,
+        "optimal_passes": 3,
+        "single_pass": 0.75
+      },
+      "secondary_mechanisms": [
+        "photochemical",
+        "mechanical_spallation"
+      ],
+      "surface_quality_after_removal": {
+        "color_change": "no",
+        "residual_stress": "none",
+        "roughness_increase": "minimal"
+      }
+    },
+    "safety_data": {
+      "fire_explosion_risk": "low",
+      "fumes_generated": [
+        {
+          "compound": "Carbon Monoxide",
+          "concentration_mg_m3": 5,
+          "exposure_limit_mg_m3": 29,
+          "hazard_class": "toxic"
+        },
+        {
+          "compound": "Hydrogen Cyanide",
+          "concentration_mg_m3": 1.5,
+          "exposure_limit_mg_m3": 5,
+          "hazard_class": "toxic"
+        },
+        {
+          "compound": "Benzene",
+          "concentration_mg_m3": 0.8,
+          "exposure_limit_mg_m3": 1.6,
+          "hazard_class": "carcinogenic"
+        },
+        {
+          "compound": "Formaldehyde",
+          "concentration_mg_m3": 0.5,
+          "exposure_limit_mg_m3": 0.37,
+          "hazard_class": "carcinogenic"
+        },
+        {
+          "compound": "Acrolein",
+          "concentration_mg_m3": 0.1,
+          "exposure_limit_mg_m3": 0.23,
+          "hazard_class": "irritant"
+        }
+      ],
+      "particulate_generation": {
+        "respirable_fraction": 0.7,
+        "size_range_um": [
+          0.1,
+          10
+        ]
+      },
+      "ppe_requirements": {
+        "eye_protection": "goggles",
+        "respiratory": "PAPR",
+        "skin_protection": "full_suit"
+      },
+      "substrate_compatibility_warnings": [
+        "Laser parameters must be carefully controlled to prevent surface damage to underlying material",
+        "Biohazard containment required for all generated aerosols and debris"
+      ],
+      "toxic_gas_risk": "moderate",
+      "ventilation_requirements": {
+        "exhaust_velocity_m_s": 0.5,
+        "filtration_type": "HEPA",
+        "minimum_air_changes_per_hour": 12
+      },
+      "visibility_hazard": "moderate"
+    },
+    "thermal_properties": {
+      "ablation_threshold": {
+        "pulse_duration_100ns": 1.2,
+        "pulse_duration_10ns": 0.7,
+        "wavelength_1064nm": 0.8
+      },
+      "decomposition_temperature": 300,
+      "heat_affected_zone_depth": 15,
+      "melting_point": "N/A",
+      "specific_heat": 3600,
+      "thermal_conductivity": 0.5,
+      "thermal_diffusivity": 0.14,
+      "vaporization_temperature": 100
+    }
+  },
+  "validMaterials": [
+    "Stainless Steel",
+    "Crown Glass",
+    "Float Glass",
+    "Borosilicate Glass",
+    "Aluminosilicate Glass",
+    "Fused Silica",
+    "Gorilla Glass",
+    "Tempered Glass",
+    "Alumina",
+    "Silicon Carbide",
+    "Zirconia",
+    "Aluminum Nitride",
+    "Boron Carbide",
+    "Boron Nitride",
+    "Silicon Nitride"
+  ],
+  "regulatoryStandards": []
+}

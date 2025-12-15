@@ -43,7 +43,10 @@ export async function getAllCategories(): Promise<CategoryInfo[]> {
   for (const file of yamlFiles) {
     const filePath = path.join(frontmatterDir, file);
     const content = await fs.readFile(filePath, 'utf8');
-    const data = yaml.load(content) as any;
+    const parsed = yaml.load(content) as any;
+    
+    // Handle normalized structure (parsed.metadata) or legacy flat structure
+    const data = parsed.metadata || parsed;
     
     if (!data.category) continue;
     

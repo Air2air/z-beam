@@ -34,11 +34,11 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       {children}
       
       {/* Laser-Material Interaction */}
-      {(metadata as any)?.materialProperties && (
+      {metadata?.materialProperties && (
         <div className="mb-16">
           <LaserMaterialInteraction
             materialName={materialName}
-            materialProperties={(metadata as any).materialProperties}
+            materialProperties={metadata.materialProperties}
             category={category}
             subcategory={subcategory}
             slug={slug}
@@ -47,11 +47,11 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       )}
       
       {/* Material Characteristics */}
-      {(metadata as any)?.materialProperties && (
+      {metadata?.materialProperties && (
         <div className="mb-16">
           <MaterialCharacteristics
             materialName={materialName}
-            materialProperties={(metadata as any).materialProperties}
+            materialProperties={metadata.materialProperties}
             category={category}
             subcategory={subcategory}
             slug={slug}
@@ -63,7 +63,7 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       {metadata?.images?.micro?.url && (
         <div className="mb-16">
           <Micro 
-            frontmatter={metadata as any}
+            frontmatter={metadata}
             config={{}}
           />
         </div>
@@ -79,12 +79,12 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       </div>
       
       {/* FAQ */}
-      {(metadata as any)?.faq && (metadata as any).faq.length > 0 && (
+      {metadata?.faq && Array.isArray(metadata.faq) && metadata.faq.length > 0 && (
         <div className="mb-16">
           <MaterialFAQ 
             materialName={materialName}
-            faq={(metadata as any).faq}
-            heroImage={(metadata as any)?.images?.hero?.url}
+            faq={metadata.faq as any}
+            heroImage={metadata?.images?.hero?.url}
             thumbnailLink={`/materials/${category}/${subcategory}/${slug}`}
           />
         </div>
@@ -106,9 +106,9 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         slug={slug}
         category={category}
         subcategory={subcategory}
-        machineSettings={(metadata as any)?.machineSettings}
-        materialProperties={(metadata as any)?.materialProperties}
-        faq={(metadata as any)?.faq}
+        machineSettings={metadata?.machineSettings as any}
+        materialProperties={metadata?.materialProperties as any}
+        faq={metadata?.faq as any}
         regulatoryStandards={(metadata as any)?.regulatoryStandards}
         showFullDataset={true}
       />

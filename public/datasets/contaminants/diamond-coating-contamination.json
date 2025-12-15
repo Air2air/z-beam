@@ -1,0 +1,276 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Diamond-Like Carbon Removal Contamination Data",
+  "description": "Diamond-coating contamination arises from residues during deposition processes, so layer forms on surfaces and adheres strongly because of carbon bonding. This contamination shows unique hardness and low friction unlike softer oxide types, and behaves differently on steel where it bonds tightly, on titanium with even spreading, and on tungsten carbide showing partial resistance during exposure. Removal challenges include high thermal stability that resists mild methods, so laser cleaning applies effectively by ablating layer selectively without damaging substrate underneath.",
+  "url": "http://localhost:3000/contaminants/inorganic-coating/coating/diamond-coating-contamination",
+  "identifier": "contaminant-diamond-coating-contamination",
+  "keywords": [],
+  "variableMeasured": [
+    "Fire/Explosion Risk Level",
+    "Toxic Gas Risk Level",
+    "Visibility Hazard Level",
+    "PPE Requirements",
+    "Ventilation Requirements",
+    "Particulate Generation"
+  ],
+  "measurementTechnique": [
+    "Laser-induced breakdown spectroscopy (LIBS)",
+    "Safety hazard assessment",
+    "Fume generation analysis",
+    "PPE requirement evaluation"
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/diamond-coating-contamination.json",
+      "name": "Diamond-Like Carbon Removal - JSON Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/diamond-coating-contamination.csv",
+      "name": "Diamond-Like Carbon Removal - CSV Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/plain",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/diamond-coating-contamination.txt",
+      "name": "Diamond-Like Carbon Removal - Text Format"
+    }
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Technical Team",
+    "url": "http://localhost:3000/about"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "contamination": {
+    "name": "Diamond-Like Carbon Removal",
+    "slug": "diamond-coating-contamination",
+    "category": "inorganic-coating",
+    "subcategory": "coating",
+    "description": "Diamond-coating contamination arises from residues during deposition processes, so layer forms on surfaces and adheres strongly because of carbon bonding. This contamination shows unique hardness and low friction unlike softer oxide types, and behaves differently on steel where it bonds tightly, on titanium with even spreading, and on tungsten carbide showing partial resistance during exposure. Removal challenges include high thermal stability that resists mild methods, so laser cleaning applies effectively by ablating layer selectively without damaging substrate underneath."
+  },
+  "safetyData": {
+    "fire_explosion_risk": "low",
+    "fumes_generated": [
+      {
+        "compound": "Carbon Monoxide",
+        "concentration_mg_m3": "5-50",
+        "exposure_limit_mg_m3": 29,
+        "hazard_class": "toxic"
+      },
+      {
+        "compound": "Carbon Dioxide",
+        "concentration_mg_m3": "900-5000",
+        "exposure_limit_mg_m3": 9000,
+        "hazard_class": "toxic"
+      },
+      {
+        "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
+        "concentration_mg_m3": "0.1-2.0",
+        "exposure_limit_mg_m3": 0.2,
+        "hazard_class": "carcinogenic"
+      },
+      {
+        "compound": "Ultrafine Carbon Particles",
+        "concentration_mg_m3": "1-20",
+        "exposure_limit_mg_m3": 3,
+        "hazard_class": "toxic"
+      }
+    ],
+    "particulate_generation": {
+      "respirable_fraction": 0.85,
+      "size_range_um": [
+        0.01,
+        10
+      ]
+    },
+    "ppe_requirements": {
+      "eye_protection": "goggles",
+      "respiratory": "PAPR",
+      "skin_protection": "gloves"
+    },
+    "substrate_compatibility_warnings": [
+      "Avoid laser cleaning on substrates containing chlorinated compounds (risk of phosgene generation)",
+      "Ensure substrate does not contain heavy metals that could vaporize",
+      "Test for potential hydrogen cyanide generation if nitrogen-containing compounds are present"
+    ],
+    "toxic_gas_risk": "moderate",
+    "ventilation_requirements": {
+      "exhaust_velocity_m_s": 0.5,
+      "filtration_type": "HEPA",
+      "minimum_air_changes_per_hour": 12
+    },
+    "visibility_hazard": "moderate"
+  },
+  "laserProperties": {
+    "laser_parameters": {
+      "beam_profile": "gaussian",
+      "fluence_range": {
+        "max_j_cm2": 1.2,
+        "min_j_cm2": 0.4,
+        "recommended_j_cm2": 0.8
+      },
+      "overlap_percentage": 50,
+      "polarization": "any",
+      "pulse_duration_range": {
+        "max_ns": 100,
+        "min_ns": 4,
+        "recommended_ns": 10
+      },
+      "repetition_rate_khz": {
+        "max": 300,
+        "min": 20,
+        "recommended": 100
+      },
+      "safety_margin_factor": 0.7,
+      "scan_speed_mm_s": {
+        "max": 2000,
+        "min": 500,
+        "recommended": 1000
+      },
+      "spot_size_mm": {
+        "max": 0.1,
+        "min": 0.02,
+        "recommended": 0.05
+      },
+      "wavelength_preference": [
+        1064,
+        355
+      ]
+    },
+    "optical_properties": {
+      "absorption_coefficient": {
+        "wavelength_1064nm": 80000,
+        "wavelength_355nm": 450000,
+        "wavelength_532nm": 150000
+      },
+      "reflectivity": {
+        "wavelength_1064nm": 0.25,
+        "wavelength_355nm": 0.12,
+        "wavelength_532nm": 0.18
+      },
+      "refractive_index": {
+        "imaginary_part": 0.15,
+        "real_part": 2.4
+      },
+      "transmission_depth": 1.25
+    },
+    "removal_characteristics": {
+      "byproducts": [
+        {
+          "compound": "CO",
+          "hazard_level": "high",
+          "phase": "gas"
+        },
+        {
+          "compound": "CO₂",
+          "hazard_level": "moderate",
+          "phase": "gas"
+        },
+        {
+          "compound": "C (nanoparticles)",
+          "hazard_level": "moderate",
+          "phase": "solid"
+        }
+      ],
+      "damage_risk_to_substrate": "low",
+      "primary_mechanism": "thermal_ablation",
+      "process_speed": {
+        "area_coverage_rate_cm2_min": 120,
+        "typical_scan_speed_mm_s": 500
+      },
+      "removal_efficiency": {
+        "diminishing_returns_after": 3,
+        "optimal_passes": 2,
+        "single_pass": 0.85
+      },
+      "secondary_mechanisms": [
+        "photochemical"
+      ],
+      "surface_quality_after_removal": {
+        "color_change": "no",
+        "residual_stress": "compressive",
+        "roughness_increase": "minimal"
+      }
+    },
+    "safety_data": {
+      "fire_explosion_risk": "low",
+      "fumes_generated": [
+        {
+          "compound": "Carbon Monoxide",
+          "concentration_mg_m3": "5-50",
+          "exposure_limit_mg_m3": 29,
+          "hazard_class": "toxic"
+        },
+        {
+          "compound": "Carbon Dioxide",
+          "concentration_mg_m3": "900-5000",
+          "exposure_limit_mg_m3": 9000,
+          "hazard_class": "toxic"
+        },
+        {
+          "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
+          "concentration_mg_m3": "0.1-2.0",
+          "exposure_limit_mg_m3": 0.2,
+          "hazard_class": "carcinogenic"
+        },
+        {
+          "compound": "Ultrafine Carbon Particles",
+          "concentration_mg_m3": "1-20",
+          "exposure_limit_mg_m3": 3,
+          "hazard_class": "toxic"
+        }
+      ],
+      "particulate_generation": {
+        "respirable_fraction": 0.85,
+        "size_range_um": [
+          0.01,
+          10
+        ]
+      },
+      "ppe_requirements": {
+        "eye_protection": "goggles",
+        "respiratory": "PAPR",
+        "skin_protection": "gloves"
+      },
+      "substrate_compatibility_warnings": [
+        "Avoid laser cleaning on substrates containing chlorinated compounds (risk of phosgene generation)",
+        "Ensure substrate does not contain heavy metals that could vaporize",
+        "Test for potential hydrogen cyanide generation if nitrogen-containing compounds are present"
+      ],
+      "toxic_gas_risk": "moderate",
+      "ventilation_requirements": {
+        "exhaust_velocity_m_s": 0.5,
+        "filtration_type": "HEPA",
+        "minimum_air_changes_per_hour": 12
+      },
+      "visibility_hazard": "moderate"
+    },
+    "thermal_properties": {
+      "ablation_threshold": {
+        "pulse_duration_100ns": 1.2,
+        "pulse_duration_10ns": 0.6,
+        "wavelength_1064nm": 0.8
+      },
+      "decomposition_temperature": 450,
+      "heat_affected_zone_depth": 2.5,
+      "melting_point": "N/A",
+      "specific_heat": 750,
+      "thermal_conductivity": 1.5,
+      "thermal_diffusivity": 0.8,
+      "vaporization_temperature": 1200
+    }
+  },
+  "validMaterials": [
+    "Steel",
+    "Titanium",
+    "Tungsten Carbide"
+  ],
+  "regulatoryStandards": []
+}

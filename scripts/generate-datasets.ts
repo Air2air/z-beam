@@ -661,8 +661,269 @@ async function generateAllDatasets() {
     process.exit(1);
   }
   
-  console.log(`\n✨ Done!\n`);
+  // Generate material index
+  generateIndexFile(outputDir);
+  
+  // Generate contaminant datasets
+  await generateContaminantDatasets();
+  
+  // Generate contaminant index
+  generateContaminantIndexFile();
+  
+  console.log(`\n✨ All datasets generated successfully!\n`);
   process.exit(0);
+}
+
+// Generate contaminant datasets
+async function generateContaminantDatasets() {
+  console.log('\n📦 Generating contaminant datasets...\n');
+  
+  const contaminantDir = path.join(process.cwd(), 'frontmatter/contaminants');
+  const outputDir = path.join(process.cwd(), 'public/datasets/contaminants');
+  
+  // Ensure output directory exists
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+  
+  const files = fs.readdirSync(contaminantDir).filter(f => f.endsWith('.yaml'));
+  let successCount = 0;
+  let skipCount = 0;
+  
+  for (const file of files) {
+    const filePath = path.join(contaminantDir, file);
+    const slug = file.replace('.yaml', '');
+    
+    try {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const data = yaml.load(content) as any;
+      
+      if (!data || !data.slug) {
+        console.log(`⚠️  Skipping ${file}: Invalid structure`);
+        skipCount++;
+        continue;
+      }
+      
+      const category = normalizeForUrl(data.category || '');
+      const subcategory = normalizeForUrl(data.subcategory || '');
+      const baseUrl = SITE_CONFIG.url;
+      const contaminantUrl = `${baseUrl}/contaminants/${category}/${subcategory}/${slug}`;
+      
+      // Generate Dataset schema
+      const dataset = {
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        name: `${data.name || data.title} Contamination Data`,
+        description: data.contamination_description || data.description || '',
+        url: contaminantUrl,
+        identifier: `contaminant-${slug}`,
+        keywords: data.keywords || [],
+        
+        // Variable measurements
+        variableMeasured: data.laser_properties?.safety_data ? [
+          'Fire/Explosion Risk Level',
+          'Toxic Gas Risk Level',
+          'Visibility Hazard Level',
+          'PPE Requirements',
+          'Ventilation Requirements',
+          'Particulate Generation'
+        ] : [],
+        
+        // Measurement techniques
+        measurementTechnique: [
+          'Laser-induced breakdown spectroscopy (LIBS)',
+          'Safety hazard assessment',
+          'Fume generation analysis',
+          'PPE requirement evaluation'
+        ],
+        
+        // Distribution formats
+        distribution: [
+          {
+            '@type': 'DataDownload',
+            encodingFormat: 'application/json',
+            contentUrl: `${baseUrl}/datasets/contaminants/${slug}.json`,
+            name: `${data.name || data.title} - JSON Format`
+          },
+          {
+            '@type': 'DataDownload',
+            encodingFormat: 'text/csv',
+            contentUrl: `${baseUrl}/datasets/contaminants/${slug}.csv`,
+            name: `${data.name || data.title} - CSV Format`
+          },
+          {
+            '@type': 'DataDownload',
+            encodingFormat: 'text/plain',
+            contentUrl: `${baseUrl}/datasets/contaminants/${slug}.txt`,
+            name: `${data.name || data.title} - Text Format`
+          }
+        ],
+        
+        // Creator
+        creator: {
+          '@type': 'Organization',
+          name: 'Z-Beam Technical Team',
+          url: `${baseUrl}/about`
+        },
+        
+        // License
+        license: 'https://creativecommons.org/licenses/by/4.0/',
+        
+        // Dates
+        datePublished: data.datePublished || new Date().toISOString().split('T')[0],
+        dateModified: fs.statSync(filePath).mtime.toISOString().split('T')[0],
+        
+        // Contamination data
+        contamination: {
+          name: data.name || data.title,
+          slug: slug,
+          category: data.category,
+          subcategory: data.subcategory,
+          description: data.contamination_description || data.description
+        },
+        
+        // Safety data
+        safetyData: data.laser_properties?.safety_data || null,
+        
+        // Laser properties
+        laserProperties: data.laser_properties || null,
+        
+        // Valid materials
+        validMaterials: data.valid_materials || [],
+        
+        // Regulatory standards
+        regulatoryStandards: data.eeat?.citations || []
+      };
+      
+      // Write JSON
+      const jsonPath = path.join(outputDir, `${slug}.json`);
+      fs.writeFileSync(jsonPath, JSON.stringify(dataset, null, 2));
+      
+      // Write CSV
+      const csvPath = path.join(outputDir, `${slug}.csv`);
+      const csvData = convertContaminantToCSV(dataset);
+      fs.writeFileSync(csvPath, csvData);
+      
+      // Write TXT
+      const txtPath = path.join(outputDir, `${slug}.txt`);
+      const txtData = convertContaminantToText(dataset);
+      fs.writeFileSync(txtPath, txtData);
+      
+      console.log(`✅ ${slug}`);
+      successCount++;
+    } catch (error) {
+      console.error(`❌ Error processing ${file}:`, error);
+      skipCount++;
+    }
+  }
+  
+  console.log(`\n📊 Contaminant dataset summary:`);
+  console.log(`   • Generated: ${successCount}`);
+  console.log(`   • Skipped: ${skipCount}`);
+  console.log(`   • Total files: ${successCount * 3} (JSON + CSV + TXT)`);
+}
+
+// Convert contaminant to CSV format
+function convertContaminantToCSV(dataset: any): string {
+  const rows: string[] = [];
+  
+  // Header
+  rows.push('Property,Value');
+  
+  // Basic info
+  rows.push(`Name,"${dataset.contamination.name}"`);
+  rows.push(`Category,"${dataset.contamination.category}"`);
+  rows.push(`Subcategory,"${dataset.contamination.subcategory}"`);
+  rows.push(`Description,"${dataset.contamination.description}"`);
+  
+  // Safety data
+  if (dataset.safetyData) {
+    rows.push('');
+    rows.push('SAFETY INFORMATION,');
+    rows.push(`Fire/Explosion Risk,"${dataset.safetyData.fire_explosion_risk || 'N/A'}"`);
+    rows.push(`Toxic Gas Risk,"${dataset.safetyData.toxic_gas_risk || 'N/A'}"`);
+    rows.push(`Visibility Hazard,"${dataset.safetyData.visibility_hazard || 'N/A'}"`);
+    
+    if (dataset.safetyData.ppe_requirements) {
+      rows.push(`Respiratory Protection,"${dataset.safetyData.ppe_requirements.respiratory || 'N/A'}"`);
+      rows.push(`Eye Protection,"${dataset.safetyData.ppe_requirements.eye_protection || 'N/A'}"`);
+      rows.push(`Skin Protection,"${dataset.safetyData.ppe_requirements.skin_protection || 'N/A'}"`);
+    }
+  }
+  
+  // Valid materials
+  if (dataset.validMaterials && dataset.validMaterials.length > 0) {
+    rows.push('');
+    rows.push('COMPATIBLE MATERIALS,');
+    dataset.validMaterials.forEach((mat: any) => {
+      rows.push(`"${mat.name || mat}","${mat.effectiveness || 'Compatible'}"`);
+    });
+  }
+  
+  return rows.join('\n');
+}
+
+// Convert contaminant to text format
+function convertContaminantToText(dataset: any): string {
+  const lines: string[] = [];
+  
+  lines.push('='.repeat(80));
+  lines.push(`${dataset.contamination.name} - Contamination Dataset`);
+  lines.push('='.repeat(80));
+  lines.push('');
+  
+  lines.push(`Category: ${dataset.contamination.category}`);
+  lines.push(`Subcategory: ${dataset.contamination.subcategory}`);
+  lines.push(`URL: ${dataset.url}`);
+  lines.push('');
+  
+  lines.push('DESCRIPTION');
+  lines.push('-'.repeat(80));
+  lines.push(dataset.contamination.description);
+  lines.push('');
+  
+  // Safety information
+  if (dataset.safetyData) {
+    lines.push('SAFETY INFORMATION');
+    lines.push('-'.repeat(80));
+    lines.push(`Fire/Explosion Risk: ${dataset.safetyData.fire_explosion_risk || 'N/A'}`);
+    lines.push(`Toxic Gas Risk: ${dataset.safetyData.toxic_gas_risk || 'N/A'}`);
+    lines.push(`Visibility Hazard: ${dataset.safetyData.visibility_hazard || 'N/A'}`);
+    lines.push('');
+    
+    if (dataset.safetyData.ppe_requirements) {
+      lines.push('PPE REQUIREMENTS:');
+      lines.push(`  • Respiratory: ${dataset.safetyData.ppe_requirements.respiratory || 'N/A'}`);
+      lines.push(`  • Eye Protection: ${dataset.safetyData.ppe_requirements.eye_protection || 'N/A'}`);
+      lines.push(`  • Skin Protection: ${dataset.safetyData.ppe_requirements.skin_protection || 'N/A'}`);
+      lines.push('');
+    }
+    
+    if (dataset.safetyData.ventilation_requirements) {
+      lines.push('VENTILATION REQUIREMENTS:');
+      lines.push(`  • Air Changes/Hour: ${dataset.safetyData.ventilation_requirements.minimum_air_changes_per_hour || 'N/A'}`);
+      lines.push(`  • Exhaust Velocity: ${dataset.safetyData.ventilation_requirements.exhaust_velocity_m_s || 'N/A'} m/s`);
+      lines.push(`  • Filtration Type: ${dataset.safetyData.ventilation_requirements.filtration_type || 'N/A'}`);
+      lines.push('');
+    }
+  }
+  
+  // Valid materials
+  if (dataset.validMaterials && dataset.validMaterials.length > 0) {
+    lines.push('COMPATIBLE MATERIALS');
+    lines.push('-'.repeat(80));
+    dataset.validMaterials.forEach((mat: any) => {
+      lines.push(`  • ${mat.name || mat}${mat.effectiveness ? ` (${mat.effectiveness})` : ''}`);
+    });
+    lines.push('');
+  }
+  
+  lines.push('='.repeat(80));
+  lines.push(`Generated: ${new Date().toISOString().split('T')[0]}`);
+  lines.push(`License: Creative Commons Attribution 4.0 (CC BY 4.0)`);
+  lines.push('='.repeat(80));
+  
+  return lines.join('\n');
 }
 
 // Generate index.json with all materials metadata
@@ -706,6 +967,59 @@ function generateIndexFile(outputDir: string) {
   );
   
   console.log(`\n📋 Generated index file with ${materials.length} materials`);
+}
+
+// Generate contaminant index.json with all contaminants metadata
+function generateContaminantIndexFile() {
+  const outputDir = path.join(process.cwd(), 'public/datasets/contaminants');
+  const files = fs.readdirSync(outputDir).filter(f => f.endsWith('.json') && f !== 'index.json');
+  
+  const contaminants = files.map(file => {
+    const content = fs.readFileSync(path.join(outputDir, file), 'utf8');
+    const data = JSON.parse(content);
+    
+    return {
+      name: data.contamination.name,
+      slug: data.contamination.slug,
+      category: data.contamination.category,
+      subcategory: data.contamination.subcategory,
+      description: data.contamination.description,
+      url: data.url,
+      downloads: {
+        json: data.distribution[0].contentUrl,
+        csv: data.distribution[1].contentUrl,
+        txt: data.distribution[2].contentUrl
+      },
+      safetyRisks: data.safetyData ? {
+        fire: data.safetyData.fire_explosion_risk,
+        toxicGas: data.safetyData.toxic_gas_risk,
+        visibility: data.safetyData.visibility_hazard
+      } : null
+    };
+  });
+  
+  const index = {
+    '@context': 'https://schema.org',
+    '@type': 'DataCatalog',
+    name: 'Z-Beam Contamination Datasets',
+    description: 'Comprehensive database of laser cleaning contamination data including safety information, PPE requirements, and removal properties',
+    url: `${SITE_CONFIG.url}/datasets/contaminants/`,
+    provider: {
+      '@type': 'Organization',
+      name: 'Z-Beam Technical Team',
+      url: `${SITE_CONFIG.url}/about`
+    },
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    totalDatasets: contaminants.length,
+    datasets: contaminants
+  };
+  
+  fs.writeFileSync(
+    path.join(outputDir, 'index.json'),
+    JSON.stringify(index, null, 2)
+  );
+  
+  console.log(`\n📋 Generated contaminant index file with ${contaminants.length} contaminants`);
 }
 
 // Run the script

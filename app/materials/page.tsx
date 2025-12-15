@@ -8,6 +8,7 @@ import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { getCategoryDescription, getCategoryMaterialType } from '@/app/config/categoryDescriptions';
+import { getArticle } from '@/app/utils/contentAPI';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -93,7 +94,7 @@ export default async function MaterialsPage() {
       {
         '@type': 'ItemList',
         '@id': `${SITE_CONFIG.url}/materials#itemlist`,
-        'numberOfItems': categories.length,
+        'numberOfItems': categories.reduce((sum, cat) => sum + cat.materials.length, 0),
         'itemListElement': categories.map((category, index) => ({
           '@type': 'ListItem',
           'position': index + 1,
@@ -153,20 +154,30 @@ export default async function MaterialsPage() {
     ]
   };
 
-  // Map categories to card format
-  const categoryCards = categories.map(category => {
+  // Map categories to card format - load actual material data for images
+  const categoryCards = await Promise.all(categories.map(async (category) => {
     // Get material type from config
     const materialType = getCategoryMaterialType(category.slug);
     
     // Get description from config
     const description = getCategoryDescription(category.slug, category.label);
     
-    // Get image URL based on first material in category or default
+    // Load first material to get actual image URL
     const firstMaterial = category.materials[0];
-    const imageUrl = `/images/material/${firstMaterial?.slug || category.slug}-hero.jpg`;
+    let imageUrl = `/images/material/${category.slug}-hero.jpg`; // fallback
+    
+    if (firstMaterial?.slug) {
+      try {
+        const article = await getArticle(firstMaterial.slug);
+        imageUrl = article?.metadata?.images?.hero?.url || imageUrl;
+      } catch (error) {
+        // Use fallback if material can't be loaded
+        console.warn(`Could not load image for ${firstMaterial.slug}`);
+      }
+    }
     
     return {
-      slug: `materials/${category.slug}`,
+      slug: category.slug, // Just the slug, not the full path
       title: category.label,
       description,
       href: `/materials/${category.slug}`,
@@ -178,7 +189,7 @@ export default async function MaterialsPage() {
         formula: "",
       },
     };
-  });
+  }));
 
   return (
     <>

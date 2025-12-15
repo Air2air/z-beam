@@ -1,0 +1,279 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Concrete Efflorescence Contamination Data",
+  "description": "Efflorescence appears as white, crystalline salt deposits that form when moisture draws soluble salts through porous materials like concrete or brick, crystallizing on the surface as water evaporates. This contamination sets it apart from dirt or algae by its powdery, water-soluble nature that flakes easily yet recurs without addressing underlying moisture issues, behaving more aggressively on absorbent stones such as limestone or sandstone where it embeds deeply. Removal poses a solid challenge due to the risk of substrate damage from abrasive methods, but laser cleaning addresses this effectively by vaporizing the salts layer by layer while preserving the material's integrity.",
+  "url": "http://localhost:3000/contaminants/inorganic-coating/mineral/efflorescence-contamination",
+  "identifier": "contaminant-efflorescence-contamination",
+  "keywords": [],
+  "variableMeasured": [
+    "Fire/Explosion Risk Level",
+    "Toxic Gas Risk Level",
+    "Visibility Hazard Level",
+    "PPE Requirements",
+    "Ventilation Requirements",
+    "Particulate Generation"
+  ],
+  "measurementTechnique": [
+    "Laser-induced breakdown spectroscopy (LIBS)",
+    "Safety hazard assessment",
+    "Fume generation analysis",
+    "PPE requirement evaluation"
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/efflorescence-contamination.json",
+      "name": "Concrete Efflorescence - JSON Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/efflorescence-contamination.csv",
+      "name": "Concrete Efflorescence - CSV Format"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/plain",
+      "contentUrl": "http://localhost:3000/datasets/contaminants/efflorescence-contamination.txt",
+      "name": "Concrete Efflorescence - Text Format"
+    }
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Technical Team",
+    "url": "http://localhost:3000/about"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "datePublished": "2025-12-15",
+  "dateModified": "2025-12-15",
+  "contamination": {
+    "name": "Concrete Efflorescence",
+    "slug": "efflorescence-contamination",
+    "category": "inorganic-coating",
+    "subcategory": "mineral",
+    "description": "Efflorescence appears as white, crystalline salt deposits that form when moisture draws soluble salts through porous materials like concrete or brick, crystallizing on the surface as water evaporates. This contamination sets it apart from dirt or algae by its powdery, water-soluble nature that flakes easily yet recurs without addressing underlying moisture issues, behaving more aggressively on absorbent stones such as limestone or sandstone where it embeds deeply. Removal poses a solid challenge due to the risk of substrate damage from abrasive methods, but laser cleaning addresses this effectively by vaporizing the salts layer by layer while preserving the material's integrity."
+  },
+  "safetyData": {
+    "fire_explosion_risk": "low",
+    "fumes_generated": [
+      {
+        "compound": "Crystalline Silica (as respirable dust)",
+        "concentration_mg_m3": "5-50",
+        "exposure_limit_mg_m3": 0.025,
+        "hazard_class": "carcinogenic"
+      },
+      {
+        "compound": "Carbon Dioxide",
+        "concentration_mg_m3": "900-1800",
+        "exposure_limit_mg_m3": 9000,
+        "hazard_class": "toxic"
+      },
+      {
+        "compound": "Calcium Oxide dust",
+        "concentration_mg_m3": "2-20",
+        "exposure_limit_mg_m3": 2,
+        "hazard_class": "irritant"
+      }
+    ],
+    "particulate_generation": {
+      "respirable_fraction": 0.3,
+      "size_range_um": [
+        0.1,
+        100
+      ]
+    },
+    "ppe_requirements": {
+      "eye_protection": "goggles",
+      "respiratory": "PAPR",
+      "skin_protection": "full_suit"
+    },
+    "substrate_compatibility_warnings": [
+      "Laser cleaning may alter concrete surface chemistry and increase porosity",
+      "Thermal stress may cause micro-cracking in concrete substrate",
+      "Efflorescence salts may vaporize and redeposit on adjacent surfaces"
+    ],
+    "toxic_gas_risk": "low",
+    "ventilation_requirements": {
+      "exhaust_velocity_m_s": 0.5,
+      "filtration_type": "HEPA",
+      "minimum_air_changes_per_hour": 10
+    },
+    "visibility_hazard": "moderate"
+  },
+  "laserProperties": {
+    "laser_parameters": {
+      "beam_profile": "flat_top",
+      "fluence_range": {
+        "max_j_cm2": 1.2,
+        "min_j_cm2": 0.3,
+        "recommended_j_cm2": 0.8
+      },
+      "overlap_percentage": 50,
+      "polarization": "circular",
+      "pulse_duration_range": {
+        "max_ns": 100,
+        "min_ns": 10,
+        "recommended_ns": 30
+      },
+      "repetition_rate_khz": {
+        "max": 100,
+        "min": 20,
+        "recommended": 50
+      },
+      "safety_margin_factor": 0.7,
+      "scan_speed_mm_s": {
+        "max": 2000,
+        "min": 500,
+        "recommended": 1000
+      },
+      "spot_size_mm": {
+        "max": 0.2,
+        "min": 0.05,
+        "recommended": 0.1
+      },
+      "wavelength_preference": [
+        1064,
+        532
+      ]
+    },
+    "optical_properties": {
+      "absorption_coefficient": {
+        "wavelength_1064nm": 120,
+        "wavelength_355nm": 2800,
+        "wavelength_532nm": 450
+      },
+      "reflectivity": {
+        "wavelength_1064nm": 0.65,
+        "wavelength_355nm": 0.08,
+        "wavelength_532nm": 0.35
+      },
+      "refractive_index": {
+        "imaginary_part": 0.012,
+        "real_part": 1.48
+      },
+      "transmission_depth": 83
+    },
+    "removal_characteristics": {
+      "byproducts": [
+        {
+          "compound": "CaCO₃",
+          "hazard_level": "low",
+          "phase": "solid"
+        },
+        {
+          "compound": "CO₂",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "H₂O",
+          "hazard_level": "low",
+          "phase": "gas"
+        },
+        {
+          "compound": "CaO",
+          "hazard_level": "moderate",
+          "phase": "solid"
+        }
+      ],
+      "damage_risk_to_substrate": "medium",
+      "primary_mechanism": "thermal_ablation",
+      "process_speed": {
+        "area_coverage_rate_cm2_min": 2400,
+        "typical_scan_speed_mm_s": 800
+      },
+      "removal_efficiency": {
+        "diminishing_returns_after": 3,
+        "optimal_passes": 2,
+        "single_pass": 0.7
+      },
+      "secondary_mechanisms": [
+        "mechanical_spallation",
+        "photochemical_decomposition"
+      ],
+      "surface_quality_after_removal": {
+        "color_change": "yes",
+        "residual_stress": "compressive",
+        "roughness_increase": "minimal"
+      }
+    },
+    "safety_data": {
+      "fire_explosion_risk": "low",
+      "fumes_generated": [
+        {
+          "compound": "Crystalline Silica (as respirable dust)",
+          "concentration_mg_m3": "5-50",
+          "exposure_limit_mg_m3": 0.025,
+          "hazard_class": "carcinogenic"
+        },
+        {
+          "compound": "Carbon Dioxide",
+          "concentration_mg_m3": "900-1800",
+          "exposure_limit_mg_m3": 9000,
+          "hazard_class": "toxic"
+        },
+        {
+          "compound": "Calcium Oxide dust",
+          "concentration_mg_m3": "2-20",
+          "exposure_limit_mg_m3": 2,
+          "hazard_class": "irritant"
+        }
+      ],
+      "particulate_generation": {
+        "respirable_fraction": 0.3,
+        "size_range_um": [
+          0.1,
+          100
+        ]
+      },
+      "ppe_requirements": {
+        "eye_protection": "goggles",
+        "respiratory": "PAPR",
+        "skin_protection": "full_suit"
+      },
+      "substrate_compatibility_warnings": [
+        "Laser cleaning may alter concrete surface chemistry and increase porosity",
+        "Thermal stress may cause micro-cracking in concrete substrate",
+        "Efflorescence salts may vaporize and redeposit on adjacent surfaces"
+      ],
+      "toxic_gas_risk": "low",
+      "ventilation_requirements": {
+        "exhaust_velocity_m_s": 0.5,
+        "filtration_type": "HEPA",
+        "minimum_air_changes_per_hour": 10
+      },
+      "visibility_hazard": "moderate"
+    },
+    "thermal_properties": {
+      "ablation_threshold": {
+        "pulse_duration_100ns": 1.2,
+        "pulse_duration_10ns": 0.6,
+        "wavelength_1064nm": 0.8
+      },
+      "decomposition_temperature": 120,
+      "heat_affected_zone_depth": 15,
+      "melting_point": "N/A",
+      "specific_heat": 900,
+      "thermal_conductivity": 0.8,
+      "thermal_diffusivity": 0.3,
+      "vaporization_temperature": 285
+    }
+  },
+  "validMaterials": [
+    "Concrete",
+    "Brick",
+    "Granite",
+    "Marble",
+    "Limestone",
+    "Sandstone",
+    "Basalt",
+    "Slate",
+    "Quartzite",
+    "Travertine",
+    "Bluestone",
+    "Soapstone"
+  ],
+  "regulatoryStandards": []
+}

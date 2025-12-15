@@ -150,7 +150,7 @@ export function SettingsLayout({
 }: SettingsLayoutProps) {
   
   // Extract hero image URL for thumbnails
-  const heroImage = (settings as any)?.images?.hero?.url;
+  const heroImage = settings.images?.hero?.url;
   console.log('SettingsLayout heroImage:', heroImage);
   
   // Construct material page link from settings slug

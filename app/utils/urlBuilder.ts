@@ -8,7 +8,9 @@
 
 import { SITE_CONFIG } from './constants';
 
-export type ContentType = 'material' | 'service' | 'article' | 'page' | 'product' | 'equipment' | 'custom';
+// Note: Renamed to UrlContentType to avoid conflict with ContentType in contentTypes.ts
+// This type is for URL building patterns, not for the unified content system
+export type UrlContentType = 'material' | 'service' | 'article' | 'page' | 'product' | 'equipment' | 'custom';
 
 /**
  * Normalizes a string for use in URLs
@@ -29,6 +31,7 @@ export function normalizeForUrl(value: string): string {
     .toLowerCase()
     .replace(/[()]/g, '')      // MANDATORY: Strip all parentheses
     .replace(/\s+/g, '-')      // Replace spaces with hyphens
+    .replace(/_/g, '-')        // Replace underscores with hyphens
     .replace(/-+/g, '-')       // Collapse multiple hyphens
     .replace(/^-|-$/g, '');    // Trim leading/trailing hyphens
 }
@@ -53,7 +56,7 @@ export interface ContentMetadata {
 /**
  * Determines the content type from metadata
  */
-export function getContentType(metadata?: Record<string, unknown>): ContentType {
+export function getContentType(metadata?: Record<string, unknown>): UrlContentType {
   if (!metadata) return 'page';
   
   // Check for explicit rootPath (most reliable)
@@ -257,7 +260,7 @@ export function validateUrl(url: string, metadata: ContentMetadata): boolean {
 /**
  * Gets all possible URL patterns for documentation/testing
  */
-export function getUrlPatterns(): Record<ContentType, string> {
+export function getUrlPatterns(): Record<UrlContentType, string> {
   return {
     material: '/materials/[category]/[subcategory]/[slug]',
     product: '/products/[category]/[subcategory]/[slug]',

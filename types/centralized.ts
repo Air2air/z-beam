@@ -14,6 +14,24 @@
 import { ReactNode } from 'react';
 
 // ===============================
+// UNIFIED CONTENT SYSTEM TYPES
+// ===============================
+
+/**
+ * Content types for the unified content management system
+ * Used across materials, contaminants, and settings pages
+ * @see app/config/contentTypes.ts for configuration
+ */
+export type ContentType = 'materials' | 'contaminants' | 'settings';
+
+/**
+ * URL building content types - used for URL pattern generation
+ * Separate from ContentType to avoid confusion
+ * @see app/utils/urlBuilder.ts
+ */
+export type UrlContentType = 'material' | 'service' | 'article' | 'page' | 'product' | 'equipment' | 'custom';
+
+// ===============================
 // CORE CONTENT TYPES
 // ===============================
 

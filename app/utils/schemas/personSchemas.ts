@@ -64,18 +64,32 @@ export function generateCategoryAuthorSchema(
 export function generateSubcategoryAuthorSchema(
   category: string,
   categoryLabel: string,
-  subcategory: string,
-  subcategoryLabel: string
+  subcategory?: string,
+  subcategoryLabel?: string
 ) {
+  // Format labels from slugs if not provided
+  const formattedCategoryLabel = categoryLabel || formatLabel(category);
+  const formattedSubcategoryLabel = subcategoryLabel || (subcategory ? formatLabel(subcategory) : '');
+  
   return {
     ...TECHNICAL_TEAM_SCHEMA,
     'knowsAbout': [
-      `${subcategoryLabel} ${categoryLabel} laser cleaning`,
-      `${categoryLabel} materials science`,
+      `${formattedSubcategoryLabel} ${formattedCategoryLabel} laser cleaning`,
+      `${formattedCategoryLabel} materials science`,
       'Industrial laser systems',
       'Laser ablation parameters',
-      `${subcategoryLabel} material properties`
+      `${formattedSubcategoryLabel} material properties`
     ],
-    'description': `Expert team specializing in laser cleaning research, material analysis, and industrial surface treatment applications for ${subcategoryLabel.toLowerCase()} ${categoryLabel.toLowerCase()} materials.`
+    'description': `Expert team specializing in laser cleaning research, material analysis, and industrial surface treatment applications for ${formattedSubcategoryLabel.toLowerCase()} ${formattedCategoryLabel.toLowerCase()} materials.`
   };
+}
+
+/**
+ * Helper to format slug into label
+ */
+function formatLabel(slug: string): string {
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 }

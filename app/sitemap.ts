@@ -228,5 +228,88 @@ export default function sitemap(): SitemapEntry[] {
     console.error('Error generating settings routes:', error);
   }
 
-  return [...staticRoutes, ...materialRoutes, ...materialPageRoutes, ...settingsRoutes, ...settingsPageRoutes];
+  // Contaminant routes (parallel to materials/settings)
+  const contaminantRoutes: SitemapEntry[] = [];
+  const contaminantPageRoutes: SitemapEntry[] = [];
+  
+  try {
+    const contaminantDir = path.join(process.cwd(), 'frontmatter/contaminants');
+    const contaminantFiles = fs.readdirSync(contaminantDir);
+    const contaminantYamlFiles = contaminantFiles.filter(f => f.endsWith('.yaml'));
+    
+    // Track categories and subcategories we've seen
+    const contaminantCategorySet = new Set<string>();
+    const contaminantSubcategorySet = new Set<string>();
+    
+    contaminantYamlFiles.forEach((file) => {
+      const filePath = path.join(contaminantDir, file);
+      const stats = fs.statSync(filePath);
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      
+      // Simple YAML parsing to extract category and subcategory
+      const categoryMatch = fileContent.match(/^category:\s*(.+)$/m);
+      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+      
+      if (categoryMatch) {
+        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
+        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
+        const slug = file.replace('.yaml', '');
+        
+        // Skip if category is empty
+        if (!category) return;
+        
+        // Add category page if not seen before
+        if (!contaminantCategorySet.has(category)) {
+          contaminantCategorySet.add(category);
+          const categoryUrl = buildCategoryUrl('contaminants', category, true);
+          contaminantRoutes.push({
+            url: categoryUrl,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+            alternates: getAlternates(categoryUrl),
+          });
+        }
+        
+        // Add subcategory page if not seen before
+        if (subcategory && !contaminantSubcategorySet.has(`${category}/${subcategory}`)) {
+          contaminantSubcategorySet.add(`${category}/${subcategory}`);
+          const subcategoryUrl = buildSubcategoryUrl('contaminants', category, subcategory, true);
+          contaminantRoutes.push({
+            url: subcategoryUrl,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.7,
+            alternates: getAlternates(subcategoryUrl),
+          });
+        }
+        
+        // Add contaminant item page
+        const itemUrl = buildUrlFromMetadata(
+          { category, subcategory, slug },
+          'contaminants',
+          true
+        );
+        contaminantPageRoutes.push({
+          url: itemUrl,
+          lastModified: stats.mtime,
+          changeFrequency: 'monthly' as const,
+          priority: 0.6,
+          alternates: getAlternates(itemUrl),
+        });
+      }
+    });
+  } catch (error) {
+    console.error('Error generating contaminant routes:', error);
+  }
+
+  return [
+    ...staticRoutes, 
+    ...materialRoutes, 
+    ...materialPageRoutes, 
+    ...settingsRoutes, 
+    ...settingsPageRoutes,
+    ...contaminantRoutes,
+    ...contaminantPageRoutes
+  ];
 }
