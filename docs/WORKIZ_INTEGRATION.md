@@ -184,16 +184,6 @@ For issues specific to the Z-Beam integration, check:
 - Page: `app/booking/page.tsx`
 - Environment: `.env.local`
 
-## Alternative: Calendly to Workiz Migration
-
-If migrating from Calendly:
-
-1. **Export Calendly bookings** (if needed)
-2. **Update environment variable** from `NEXT_PUBLIC_CALENDLY_URL` to `NEXT_PUBLIC_WORKIZ_COMPANY_ID`
-3. **Test thoroughly** - Workiz may have different booking flow
-4. **Update confirmation emails** if you reference the booking system
-5. **Train staff** on Workiz dashboard if coming from Calendly
-
 ## Next Steps
 
 1. ✅ Configure environment variable

@@ -22,10 +22,10 @@ This guide outlines the implementation of appointment scheduling functionality f
 - Limited customization
 - Basic features compared to dedicated booking platforms
 
-### Option 2: Calendly + Workiz Integration
+### Option 2: Workiz Integration
 
 **Pros:**
-- More robust booking features
+- Robust booking and CRM features
 - Better customization options
 - Advanced scheduling logic
 - Native Workiz integration available
@@ -501,8 +501,14 @@ ZAPIER_WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/xxxxx/yyyyy/
 - Zapier: Free (100 tasks/month) or $19.99/month (750 tasks)
 - **Total: $0-32/month**
 
-### Option 2: Calendly + Native Workiz Integration
-- Calendly: $8-16/user/month
+## Cost Comparison
+
+### Option 1: Google Calendar Direct Integration
+- Cost: $0 (using existing Google Workspace)
+- Features: Basic booking
+
+### Option 2: Workiz Integration
+- Workiz: Varies by plan (includes CRM)
 - Workiz: Existing subscription
 - **Total: $8-16/month**
 

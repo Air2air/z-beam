@@ -209,12 +209,7 @@ Periodically check:
 
 ## Alternative Booking Solutions
 
-If dark mode is a dealbreaker, consider:
-
-1. **Calendly** - Has dark mode support via `?background=1a1a1a&text=ffffff`
-2. **Cal.com** - Open source with full theme customization
-3. **Acuity Scheduling** - Supports custom CSS
-4. **Savvycal** - Modern design with dark mode
+If dark mode is a dealbreaker, consider alternative booking solutions with native dark mode support.
 
 ## Summary
 
