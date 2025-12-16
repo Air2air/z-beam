@@ -4,6 +4,7 @@
 import { notFound, redirect } from 'next/navigation';
 import { MaterialsLayout } from '@/app/components/MaterialsLayout/MaterialsLayout';
 import { ContaminantsLayout } from '@/app/components/ContaminantsLayout/ContaminantsLayout';
+import { SettingsLayout } from '@/app/components/SettingsLayout/SettingsLayout';
 import { MaterialJsonLD } from '@/app/components/JsonLD/JsonLD';
 import { ContentTypeConfig } from '@/app/config/contentTypes';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
@@ -34,6 +35,38 @@ export async function ItemPage({
       notFound();
     }
     
+    // SETTINGS PAGES: Use SettingsLayout with SettingsMetadata structure
+    if (config.type === 'settings') {
+      const settings = article as any; // SettingsMetadata type
+      
+      // Verify category/subcategory match for settings
+      const settingsCategory = settings.category ? normalizeForUrl(settings.category) : undefined;
+      const settingsSubcategory = settings.subcategory ? normalizeForUrl(settings.subcategory) : undefined;
+      
+      if (settingsCategory && settingsSubcategory) {
+        if (settingsCategory !== categorySlug || settingsSubcategory !== subcategorySlug) {
+          redirect(`/${config.rootPath}/${settingsCategory}/${settingsSubcategory}/${itemSlug}`);
+        }
+      }
+      
+      return (
+        <>
+          <MaterialJsonLD 
+            article={settings} 
+            slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`} 
+          />
+          <SettingsLayout 
+            settings={settings}
+            materialProperties={settings._materialProperties}
+            category={categorySlug}
+            subcategory={subcategorySlug}
+            slug={itemSlug}
+          />
+        </>
+      );
+    }
+    
+    // MATERIALS & CONTAMINANTS: Standard article structure with metadata and components
     // Extract metadata from article
     const metadata = article.metadata as any;
     const articleCategory = metadata?.category ? normalizeForUrl(metadata.category) : undefined;

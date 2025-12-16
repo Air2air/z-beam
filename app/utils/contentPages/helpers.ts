@@ -90,23 +90,25 @@ export async function generateItemMetadata(
       };
     }
     
+    // Settings pages have flat structure, materials/contaminants have metadata wrapper
+    const articleMeta = config.type === 'settings' ? article : (article.metadata as any);
+    
     // Verify category and subcategory match
-    const articleMeta = article.metadata as any;
     const articleCategory = articleMeta.category ? normalizeForUrl(articleMeta.category) : undefined;
     const articleSubcategory = articleMeta.subcategory ? normalizeForUrl(articleMeta.subcategory) : undefined;
     
     if (articleCategory !== categorySlug || articleSubcategory !== subcategorySlug) {
       // Wrong URL structure - will redirect in page component
       return {
-        title: article.metadata.title || SITE_CONFIG.shortName,
-        description: article.metadata.description || ''
+        title: articleMeta.title || SITE_CONFIG.shortName,
+        description: articleMeta.description || ''
       };
     }
     
     const canonicalUrl = `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`;
     
     const baseMetadata = createMetadata({
-      ...article.metadata,
+      ...articleMeta,
       canonical: canonicalUrl
     } as any);
     
