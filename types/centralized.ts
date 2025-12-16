@@ -3775,9 +3775,15 @@ export interface SettingValue {
   max?: number;
 }
 
-export interface SettingsLayoutProps {
-  metadata: SettingsMetadata | ArticleMetadata;
-  children: ReactNode;
+/**
+ * Settings Layout Props - Extends base LayoutProps for consistency
+ * Normalized to match MaterialsLayoutProps and ContaminantsLayoutProps pattern
+ */
+export interface SettingsLayoutProps extends LayoutProps {
+  materialProperties?: any;
+  category: string;
+  subcategory: string;
+  slug: string;
 }
 
 /**

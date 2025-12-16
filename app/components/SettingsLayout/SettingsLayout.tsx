@@ -10,15 +10,13 @@ import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
 import MaterialDatasetCardWrapper from '@/app/components/Dataset/MaterialDatasetCardWrapper';
 import { MachineSettings } from '@/app/components/MachineSettings/MachineSettings';
 import { ScheduleCards } from '@/app/components/Schedule/ScheduleCards';
-import { SettingsMetadata } from '@/types/centralized';
+import { SettingsMetadata, LayoutProps } from '@/types/centralized';
 
-interface SettingsLayoutProps {
-  settings: SettingsMetadata;
+interface SettingsLayoutProps extends LayoutProps {
   materialProperties?: any;
   category: string;
   subcategory: string;
   slug: string;
-  children?: React.ReactNode;
 }
 
 /**
@@ -135,19 +133,21 @@ function prepareSettingsData(
  * 
  * Usage:
  * ```tsx
- * <SettingsLayout settings={settings} materialProperties={props} category={cat} subcategory={subcat} slug={slug}>
+ * <SettingsLayout metadata={settings} materialProperties={props} category={cat} subcategory={subcat} slug={slug}>
  *   // Optional: Additional custom content
  * </SettingsLayout>
  * ```
  */
 export function SettingsLayout({
-  settings,
+  metadata,
   materialProperties,
   category,
   subcategory,
   slug,
   children
 }: SettingsLayoutProps) {
+  // Cast metadata to SettingsMetadata for internal use
+  const settings = metadata as SettingsMetadata;
   
   // Extract hero image URL for thumbnails
   const heroImage = settings.images?.hero?.url;
@@ -160,7 +160,7 @@ export function SettingsLayout({
   const materialLink = `/materials/${category}/${subcategory}/${baseMaterialSlug}-laser-cleaning`;
   
   // Prepare enriched metadata for Layout component (includes all fields Layout expects)
-  const metadata = {
+  const enrichedMetadata = {
     ...settings,
     slug,
     category,
@@ -277,7 +277,7 @@ export function SettingsLayout({
 
   return (
     <Layout 
-      metadata={metadata}
+      metadata={enrichedMetadata}
       slug={slug}
       title={settings.title}
       components={{ _settings: { content: '' } }} // Enable author section with dummy component
@@ -286,7 +286,7 @@ export function SettingsLayout({
       
       {/* Machine Settings Parameters Table */}
       <MachineSettings 
-        metadata={metadata}
+        metadata={enrichedMetadata}
         materialName={settings.name}
         heroImage={heroImage}
         materialLink={materialLink}

@@ -56,7 +56,7 @@ export async function ItemPage({
             slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`} 
           />
           <SettingsLayout 
-            settings={settings}
+            metadata={settings}
             materialProperties={settings._materialProperties}
             category={categorySlug}
             subcategory={subcategorySlug}
