@@ -66,7 +66,7 @@ export async function ItemPage({
     return (
       <>
         <MaterialJsonLD 
-          article={{ metadata: article }} 
+          article={article} 
           slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`} 
         />
         {config.type === 'contaminants' ? (

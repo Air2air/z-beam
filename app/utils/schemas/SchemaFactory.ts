@@ -176,10 +176,12 @@ export class SchemaFactory {
     this.register('Article', generateArticleSchema, { 
       priority: 80,
       condition: (data, context) => {
-        // Article for material pages (not settings pages)
-        const hasCategory = !!(data.frontmatter?.category || data.metadata?.category);
+        // Article for material/contaminant pages (not settings pages)
+        const meta = getMetadata(data);
+        const hasCategory = !!(meta.category);
         const isSettingsPage = context.slug.startsWith('settings/');
-        return hasCategory && !isSettingsPage;
+        const isMaterialOrContaminant = context.slug.startsWith('materials/') || context.slug.startsWith('contaminants/');
+        return hasCategory && !isSettingsPage && isMaterialOrContaminant;
       }
     });
     this.register('TechArticle', generateTechArticleSchema, { 

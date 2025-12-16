@@ -286,8 +286,7 @@ export default function sitemap(): SitemapEntry[] {
         
         // Add contaminant item page
         const itemUrl = buildUrlFromMetadata(
-          { category, subcategory, slug },
-          'contaminants',
+          { rootPath: 'contaminants', category, subcategory, slug },
           true
         );
         contaminantPageRoutes.push({
