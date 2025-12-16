@@ -570,7 +570,7 @@ async function validateMaterialPageSchemas() {
   const materialPages = [
     '/materials/metal/non-ferrous/aluminum-laser-cleaning',
     '/materials/metal/ferrous/stainless-steel-laser-cleaning',
-    '/materials/composite/carbon-fiber-reinforced-polymer-laser-cleaning'
+    '/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning'
   ];
   
   const requiredSchemas = ['Article', 'FAQPage', 'Dataset', 'Person', 'ImageObject'];
@@ -1008,6 +1008,81 @@ async function validateFeeds() {
 }
 
 // ============================================================================
+// CATEGORY: Broken Link Detection
+// ============================================================================
+async function validateBrokenLinks() {
+  console.log('\\n🔗 Checking for Broken Links...');
+  
+  try {
+    const pagesToCheck = [
+      '/',
+      '/materials',
+      '/settings',
+      '/contaminants',
+      '/materials/metal/non-ferrous/aluminum-laser-cleaning',
+      '/settings/metal/non-ferrous/aluminum-settings'
+    ];
+    
+    let totalLinks = 0;
+    let brokenLinks = 0;
+    const broken = [];
+    
+    for (const pagePath of pagesToCheck) {
+      try {
+        const pageUrl = new URL(pagePath, TARGET_URL).toString();
+        const response = await fetchUrl(pageUrl);
+        
+        if (response.statusCode !== 200) {
+          console.log(`  ⚠️  Skipping ${pagePath} (status: ${response.statusCode})`);
+          continue;
+        }
+        
+        const html = response.body;
+        
+        // Find all internal links (href starting with /)
+        const linkMatches = html.match(/href=["\\']\\/[^"\\'\\ \\?#]+/gi) || [];
+        const uniqueLinks = [...new Set(linkMatches.map(m => m.replace(/href=["\\']/, '')))];
+        
+        // Test each link
+        for (const link of uniqueLinks.slice(0, 10)) { // Limit to 10 links per page for performance
+          totalLinks++;
+          try {
+            const linkUrl = new URL(link, TARGET_URL).toString();
+            const linkResponse = await fetchUrl(linkUrl);
+            
+            if (linkResponse.statusCode === 404) {
+              brokenLinks++;
+              broken.push({ page: pagePath, link: link });
+              if (VERBOSE) {
+                console.log(`    ✗ Broken link: ${link}`);
+              }
+            }
+          } catch (_e) {
+            // Skip invalid URLs
+          }
+        }
+      } catch (error) {
+        console.log(`  ✗ Error checking ${pagePath}: ${error.message}`);
+      }
+    }
+    
+    addResult('broken-links', 'Internal Links',
+      brokenLinks === 0,
+      brokenLinks === 0 
+        ? `All ${totalLinks} checked links valid`
+        : `${brokenLinks}/${totalLinks} broken links found`,
+      { totalLinks, brokenLinks, broken: broken.slice(0, 5) }
+    );
+    
+    console.log(`  📊 Checked ${totalLinks} links, ${brokenLinks} broken`);
+    
+  } catch (error) {
+    console.error(`  ✗ Broken link check failed: ${error.message}`);
+    addResult('broken-links', 'Link Check', false, error.message);
+  }
+}
+
+// ============================================================================
 // CATEGORY: Additional Checks
 // ============================================================================
 async function validateAdditional() {
@@ -1097,6 +1172,9 @@ async function main() {
     }
     if (!SKIP_FEEDS && (CATEGORY === 'all' || CATEGORY === 'feeds')) {
       await validateFeeds();
+    }
+    if (CATEGORY === 'all' || CATEGORY === 'links' || CATEGORY === 'broken-links') {
+      await validateBrokenLinks();
     }
     if (CATEGORY === 'all') {
       await validateAdditional();

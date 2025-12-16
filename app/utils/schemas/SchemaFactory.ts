@@ -1599,12 +1599,14 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   const frontmatter = getMetadata(data);
   if (!frontmatter.materialProperties && !frontmatter.machineSettings) return null;
 
-  // DATASET QUALITY POLICY: Import validation at top of file, but check here
-  // Validate dataset completeness before generating schema
-  // Note: This will be fully enforced once datasetValidation is imported
-  // For now, we check basic requirements: machineSettings must exist
-  if (!frontmatter.machineSettings) {
-    console.warn(`📊 Dataset schema excluded: No machine settings available`);
+  // DATASET QUALITY POLICY: Dataset schema requires EITHER machineSettings OR materialProperties
+  // Material pages: use machineSettings (loaded from settings files) and/or materialProperties
+  // Settings pages: use machineSettings primarily
+  const hasMachineSettings = !!frontmatter.machineSettings;
+  const hasMaterialProperties = !!frontmatter.materialProperties;
+  
+  if (!hasMachineSettings && !hasMaterialProperties) {
+    console.warn(`📊 Dataset schema excluded: No machineSettings or materialProperties available`);
     return null;
   }
   
