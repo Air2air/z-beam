@@ -103,15 +103,17 @@ export async function generateItemMetadata(
       };
     }
     
+    const canonicalUrl = `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`;
+    
     const baseMetadata = createMetadata({
       ...article.metadata,
-      canonical: `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`
+      canonical: canonicalUrl
     } as any);
     
     return {
       ...baseMetadata,
       alternates: {
-        canonical: `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`
+        canonical: canonicalUrl
       }
     };
   } catch (error) {

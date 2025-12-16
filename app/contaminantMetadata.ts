@@ -7,7 +7,7 @@ export const CONTAMINANT_CATEGORY_METADATA: Record<string, CategoryMetadata> = {
   oxidation: {
     title: `Oxidation Contamination Removal | ${SITE_CONFIG.shortName}`,
     subtitle: "Oxidation requires selective ablation targeting oxide layers while preserving base metal integrity—critical for rust removal, patina cleaning, and corrosion treatment in industrial and heritage applications.",
-    description: "Professional laser removal of rust, oxidation, and corrosion from ferrous and non-ferrous metals. Industrial and restoration applications with precision cleaning technology.",
+    description: "Professional laser removal of rust, oxidation, and corrosion. Industrial and restoration applications with precision cleaning technology.",
     keywords: ["rust removal", "oxidation cleaning", "corrosion treatment", "metal restoration", "iron oxide removal"],
     ogImage: "/images/contamination/rust-oxidation-hero.jpg",
     schema: {

@@ -37,6 +37,26 @@ export const metadata = {
 export default async function AboutPage() {
   const { metadata: pageMetadata, components } = await loadPageData('about');
   
+  // Generate BreadcrumbList schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_CONFIG.url
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'About',
+        item: `${SITE_CONFIG.url}/about`
+      }
+    ]
+  };
+
   // Generate AboutPage schema
   const aboutSchema = {
     '@context': 'https://schema.org',
@@ -69,6 +89,7 @@ export default async function AboutPage() {
   
   return (
     <>
+      <JsonLD data={breadcrumbSchema} />
       <JsonLD data={aboutSchema} />
       <Layout
         components={components}
