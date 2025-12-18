@@ -1,136 +1,50 @@
-name: Gallium Arsenide
+id: Gallium Arsenide
 slug: gallium-arsenide
-category: semiconductor
-subcategory: elemental
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
-title: Gallium Arsenide Laser Cleaning Settings
-settings_description: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends to decompose easily under intense beams, unlike tougher silicon wafers. I've seen this cause surface cracks if you push too hard, so begin with gentle pulses to lift contaminants without harming the fragile lattice. This material stands out among semiconductors for absorbing energy well, which helps clear residues fast but demands slower scans to spread the heat. Adjust to multiple light passes with good overlap, and you'll restore that clean finish for electronics work without risking brittleness.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Semiconductor
-  href: /materials/semiconductor
-- label: Elemental
-  href: /materials/semiconductor/elemental
-- label: Gallium Arsenide
-  href: /materials/gallium-arsenide
-images:
-  hero:
-    alt: Gallium Arsenide surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/gallium-arsenide-laser-cleaning-hero.jpg
-  micro:
-    alt: Gallium Arsenide microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/gallium-arsenide-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.491175Z'
+dateModified: '2025-12-18T21:35:08.491175Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for GaAs surface cleaning without thermal damage
     unit: W
     value: 8
-    min: 1
-    max: 120
   wavelength:
+    description: Green wavelength optimized for GaAs absorption characteristics
     unit: nm
     value: 532
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning resolution
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Fluence threshold for GaAs surface cleaning without substrate damage
     unit: J/cm²
     value: 0.8
-    min: 0.3
-    max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of contaminants
     unit: ns
     value: 15
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Number of cleaning passes for complete contaminant removal
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning coverage
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 32.0
-    unit: mm²/s
-  thermalConductivity:
-    value: 55.0
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1511
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 4.5
-    unit: J/cm²
-  ablationThreshold:
-    value: 0.85
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 1.02
-    max: 3.6
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.5
-    unit: K
-  reflectivity:
-    value: 0.3
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Crystal lattice damage and doping redistribution
     severity: critical
@@ -178,6 +92,19 @@ material_challenges:
     - UV laser (355nm) more effective for organic materials
     - Oxygen-rich environment aids in organic ablation
     - Post-cleaning oxygen plasma for complete residue removal
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:01.007802'
+settings_description: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends
+  to decompose easily under intense beams, unlike tougher silicon wafers. I've seen this cause surface cracks if you push
+  too hard, so begin with gentle pulses to lift contaminants without harming the fragile lattice. This material stands out
+  among semiconductors for absorbing energy well, which helps clear residues fast but demands slower scans to spread the heat.
+  Adjust to multiple light passes with good overlap, and you'll restore that clean finish for electronics work without risking
+  brittleness.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends to
+  decompose easily under intense beams, unlike tougher...
+excerpt: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends to decompose
+  easily under intense beams, unlike tougher silicon wafers. I've seen this cause surface cracks if you push too hard, so
+  begin with gentle pulses to lift contaminants without harming the fragile lattice....

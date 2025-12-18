@@ -1,0 +1,317 @@
+id: uv-chalking-contamination
+name: UV Photodegradation / Polymer Chalking
+slug: uv-photodegradation-polymer-chalking
+category: aging
+subcategory: photodegradation
+datePublished: '2025-12-18T21:35:06.600765Z'
+dateModified: '2025-12-18T21:35:06.600765Z'
+description: UV-chalking contamination, it arises from photodegradation under ultraviolet exposure, where polymer chains fragment
+  on the surface and thus form a white chalky residue that scatters and adheres as a powdery film. This residue distinguishes
+  itself from dust or oxidation marks through its brittle texture that flakes easily under touch and pure white matte color,
+  contrasting with sticky grime or yellowish patina, while on materials like ABS and polycarbonate it builds thickly and cracks
+  during flexing, yet on nylon and polypropylene it develops sparse spots that roughen texture over time, so removal challenges
+  include embedding into pores that worsens coverage with mechanical wiping or chemical dissolution damaging the base. Laser
+  cleaning addresses these issues effectively, as pulses target the residue selectively and vaporize it without heat spread
+  to the substrate, thus restoring surface uniformity already on delicate layers like acrylic or redwood.
+micro:
+  after: Post-cleaning reveals restored surface with uv photodegradation / polymer chalking successfully removed through precise
+    laser ablation.
+  before: Surface shows contamination from uv photodegradation / polymer chalking affecting material appearance and properties.
+relationships:
+  related_materials:
+  - id: redwood-laser-cleaning
+    slug: redwood
+    title: Redwood
+    url: /materials/redwood
+    image: /images/materials/redwood.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: acrylic-pmma-laser-cleaning
+    slug: acrylic-pmma
+    title: Acrylic (PMMA)
+    url: /materials/acrylic-pmma
+    image: /images/materials/acrylic-pmma.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: polycarbonate-laser-cleaning
+    slug: polycarbonate
+    title: Polycarbonate
+    url: /materials/polycarbonate
+    image: /images/materials/polycarbonate.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: polypropylene-laser-cleaning
+    slug: polypropylene
+    title: Polypropylene
+    url: /materials/polypropylene
+    image: /images/materials/polypropylene.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: polyethylene-laser-cleaning
+    slug: polyethylene
+    title: Polyethylene
+    url: /materials/polyethylene
+    image: /images/materials/polyethylene.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: nylon-laser-cleaning
+    slug: nylon
+    title: Nylon
+    url: /materials/nylon
+    image: /images/materials/nylon.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: general
+author:
+  id: 3
+eeat:
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+  reviewedBy: Z-Beam Quality Assurance Team
+formation_conditions:
+- uv_radiation
+- sunlight
+- time
+- outdoor_exposure
+invalid_materials:
+- Metals
+- Ceramics
+- Glass
+- Wood
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.2
+      recommended_j_cm2: 0.6
+    overlap_percentage: 50
+    polarization: any
+    pulse_duration_range:
+      max_ns: 100
+      min_ns: 10
+      recommended_ns: 30
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.6
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 355
+    - 266
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 150
+      wavelength_355nm: 8500
+      wavelength_532nm: 1200
+    reflectivity:
+      wavelength_1064nm: 0.08
+      wavelength_355nm: 0.03
+      wavelength_532nm: 0.05
+    refractive_index:
+      imaginary_part: 0.012
+      real_part: 1.55
+    transmission_depth: 11.8
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: carbon_particulates
+      hazard_level: moderate
+      phase: solid
+    - compound: vocs
+      hazard_level: moderate
+      phase: gas
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.85
+    secondary_mechanisms:
+    - photochemical
+    - mechanical_spallation
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: compressive
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 5.0
+      exposure_limit_mg_m3: 29.0
+      hazard_class: toxic
+    - compound: Formaldehyde
+      concentration_mg_m3: 1.2
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Acetaldehyde
+      concentration_mg_m3: 0.8
+      exposure_limit_mg_m3: 45.0
+      hazard_class: irritant
+    - compound: Volatile Organic Compounds (VOCs)
+      concentration_mg_m3: 15.0
+      exposure_limit_mg_m3: 100.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - UV laser interaction may generate ozone near work surface
+    - Polymer substrates may produce hydrogen cyanide if containing nitrogen compounds
+    - Chlorinated polymers may produce phosgene gas under thermal decomposition
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 0.4
+      pulse_duration_10ns: 0.6
+      wavelength_1064nm: 0.8
+    decomposition_temperature: 350
+    heat_affected_zone_depth: 15
+    melting_point: null
+    specific_heat: 1500
+    thermal_conductivity: 0.2
+    thermal_diffusivity: 0.08
+    vaporization_temperature: 450
+realism_notes: UV chalking is specific to polymers with carbon-based chains. Metals and ceramics do not chalk.
+required_elements:
+- organic_polymer
+- carbon_chains
+scientific_name: Polymer chain scission
+title: UV Photodegradation / Polymer Chalking Laser Cleaning
+valid_material_categories:
+- polymers_thermoplastic
+- polymers_engineering
+- polymers_elastomer
+valid_materials:
+- ABS
+- Acrylic (PMMA)
+- Polycarbonate
+- PVC
+- Nylon
+- Polyethylene
+- Polypropylene
+- Redwood
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Glossy surfaces become dull with a chalky white or discolored film, and textures may roughen.
+      coverage: Coverage is typically widespread but can be spotty if the ceramic is partially shielded.
+      pattern: Appears as uniform fading or in patches, especially on glazed or painted areas.
+    composite:
+      appearance: Surface becomes chalky, faded, or discolored, with possible fiber exposure or delamination.
+      coverage: Varies widely; can be localized or extensive, depending on composite type and exposure.
+      pattern: Distributed in patches or uniform layers, influenced by material composition and UV intensity.
+    concrete:
+      appearance: Chalky white or light gray powder appears, making the surface rough and faded.
+      coverage: Can range from small areas to extensive coverage, influenced by concrete mix and environment.
+      pattern: Develops in patches or uniform layers, often on upward-facing or sun-exposed surfaces.
+    fabric:
+      appearance: Fibers become brittle with color fading to whitish or pale hues, and a powdery residue may form.
+      coverage: Coverage is usually partial to full on sun-exposed sides, varying with fabric type.
+      pattern: Shows as uniform fading or in patches, following areas of direct sunlight exposure.
+    glass:
+      appearance: Hazy or cloudy film develops, sometimes with fine cracks or etching, reducing transparency.
+      coverage: Often extensive and uniform, covering large areas with gradual onset.
+      pattern: Generally uniform across the surface, but may show streaks or spots in high-exposure zones.
+    metal:
+      appearance: Chalky white or gray powdery residue forms on the surface, often with a dull, faded finish.
+      coverage: Can range from localized spots to extensive coverage, varying with exposure duration.
+      pattern: Typically appears as uniform patches or streaks, especially on exposed areas.
+    mineral:
+      appearance: Surface develops a chalky, powdery coating with color fading or whitening, and increased brittleness.
+      coverage: Varies from localized to widespread, often correlating with exposure duration and mineral type.
+      pattern: Typically uniform or in patches, depending on mineral composition and UV exposure levels.
+    plastic:
+      appearance: Chalky white or discolored surface with cracking, brittleness, and loss of gloss.
+      coverage: Usually extensive, covering most of the UV-exposed surface with little variation.
+      pattern: Often uniform across exposed surfaces, but may show streaks or blotches in stressed areas.
+    rubber:
+      appearance: Chalky white or gray powder forms, accompanied by cracking, hardening, and color fading.
+      coverage: Often extensive, covering the entire exposed surface with consistent degradation.
+      pattern: Typically appears as uniform surface coating or in cracks and stressed regions.
+    semiconductor:
+      appearance: Surface may show discoloration, hazing, or oxide layers, leading to reduced performance and gloss loss.
+      coverage: Often minimal to moderate, focused on exposed areas, with variation based on protective coatings.
+      pattern: Generally uniform across the device surface, but can be spotty in high-stress or exposed regions.
+    specialty:
+      appearance: Varies by material; commonly includes chalky residues, color changes, and texture degradation specific to
+        the specialty type.
+      coverage: Coverage is highly variable, ranging from isolated spots to full surface degradation, based on exposure and
+        material resilience.
+      pattern: Distribution depends on material properties, often appearing in patches or uniformly on exposed surfaces.
+    stone:
+      appearance: Chalky white or light-colored powder forms, making the surface appear faded and gritty.
+      coverage: Varies from small spots to widespread coverage, depending on stone type and UV exposure.
+      pattern: Distributed in patches or uniform layers, particularly on porous or weathered areas.
+    wood:
+      appearance: Surface turns grayish or silvery with a rough, fibrous texture as the wood fibers lift.
+      coverage: Coverage is usually partial, starting on sun-facing sides and spreading unevenly.
+      pattern: Often develops in patches or streaks, following the wood grain or sun-exposed sections.
+  color_range:
+  - white
+  - chalky white
+  - faded original color
+  texture: powdery, chalky, rough, crazed
+  thickness: thin surface degradation
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Aging
+  href: /contaminants/aging
+- label: Photodegradation
+  href: /contaminants/aging/photodegradation
+- label: UV Photodegradation / Polymer Chalking
+  href: /contaminants/aging/photodegradation/uv-photodegradation-polymer-chalking

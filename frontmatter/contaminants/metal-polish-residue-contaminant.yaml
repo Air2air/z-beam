@@ -1,0 +1,241 @@
+id: metal-polish-contamination
+name: Metal Polish Residue
+slug: metal-polish-residue
+category: organic-residue
+subcategory: wax
+datePublished: '2025-12-17T23:27:18.263644Z'
+dateModified: '2025-12-17T23:27:18.263644Z'
+composition:
+- Al₂O₃
+- CeO₂
+- Wax
+- Surfactants
+description: Metal-polish contamination consists of fine abrasive compound residues that embed into metal surfaces during
+  polishing operations to achieve a smooth finish. These deposits stand out from oils or rust by their gritty, tenacious particles,
+  which adhere deeply and often oxidize on brass or copper, while forming a tougher film on steel and aluminum. Removal proves
+  challenging due to the risk of substrate damage from scraping, yet laser cleaning effectively ablates them layer by layer,
+  preserving material integrity without harsh chemicals.
+relationships:
+  related_materials:
+  - id: Steel
+    title: Steel
+    url: /materials/metal/ferrous/Steel
+    image: /images/materials/metal/ferrous/Steel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Aluminum
+    title: Aluminum
+    url: /materials/metal/non-ferrous/Aluminum
+    image: /images/materials/metal/non-ferrous/Aluminum.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: brass
+    title: Brass
+    url: /materials/brass
+    image: /images/materials/brass.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Copper
+    title: Copper
+    url: /materials/metal/non-ferrous/Copper
+    image: /images/materials/metal/non-ferrous/Copper.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  related_compounds: []
+  regulatory_compliance: []
+  ppe_requirements: []
+author:
+  id: 4
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.6
+    overlap_percentage: 30
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 50
+      min_ns: 4
+      recommended_ns: 10
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 3000
+      min: 500
+      recommended: 1500
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 355
+    - 1064
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 850
+      wavelength_532nm: 18500
+    reflectivity:
+      wavelength_1064nm: 0.65
+      wavelength_355nm: 0.08
+      wavelength_532nm: 0.25
+    refractive_index:
+      imaginary_part: 0.12
+      real_part: 1.55
+    transmission_depth: 11.8
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: Various hydrocarbons
+      hazard_level: moderate
+      phase: gas
+    - compound: Metal oxide nanoparticles
+      hazard_level: moderate
+      phase: solid
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.85
+    secondary_mechanisms:
+    - photochemical
+    - mechanical_spallation
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: compressive
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Metal oxide nanoparticles
+      concentration_mg_m3: 5.0
+      exposure_limit_mg_m3: 3.0
+      hazard_class: toxic
+    - compound: Volatile organic compounds
+      concentration_mg_m3: 15.0
+      exposure_limit_mg_m3: 100.0
+      hazard_class: irritant
+    - compound: Formaldehyde
+      concentration_mg_m3: 0.8
+      exposure_limit_mg_m3: 0.3
+      hazard_class: carcinogenic
+    - compound: Ammonia
+      concentration_mg_m3: 2.5
+      exposure_limit_mg_m3: 17.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.85
+      size_range_um:
+      - 0.01
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - May generate toxic fumes when heated on copper or brass substrates
+    - Avoid use on zinc-coated surfaces due to potential zinc oxide fume generation
+    - Thermal decomposition risk increases with laser power density above 100W/cm²
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: dual
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 0.4
+      pulse_duration_10ns: 0.6
+      wavelength_1064nm: 0.8
+    decomposition_temperature: 300
+    heat_affected_zone_depth: 15
+    melting_point: null
+    specific_heat: 1200
+    thermal_conductivity: 0.15
+    thermal_diffusivity: 0.12
+    vaporization_temperature: 450
+prohibited_materials:
+- Plastics
+- Glass
+- Ceramics
+valid_materials:
+- Steel
+- Aluminum
+- Brass
+- Copper
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Oily or hazy film that dulls the glossy finish, sometimes showing as whitish streaks or spots.
+      coverage: Generally uneven, with residue clinging to textured or polished areas.
+      pattern: Appears as streaks or smudges, often concentrated in grooves or on glazed surfaces.
+    composite:
+      appearance: Dull, streaky residue that can highlight surface inconsistencies, often with a greasy or filmy look.
+      coverage: Partial and irregular, influenced by the material's porosity and finish.
+      pattern: Typically uneven, with streaks or patches following the composite's texture or polishing direction.
+    concrete:
+      appearance: Dull, filmy coating that masks the rough texture, sometimes showing as greasy or light-colored spots.
+      coverage: Often partial and uneven, concentrated in polished or porous regions.
+      pattern: Forms patches or streaks, especially on sealed or polished concrete surfaces.
+    fabric:
+      appearance: Greasy or waxy stains that darken fibers, appearing as dull, discolored patches on the material.
+      coverage: Typically localized to affected areas, with uneven distribution due to fabric absorption.
+      pattern: Irregular patches or streaks, often following the weave or application method.
+    glass:
+      appearance: Cloudy or smeared film that reduces transparency, often with a greasy or streaky look under light.
+      coverage: Usually partial, with streaks and spots rather than uniform coverage.
+      pattern: Typically forms streaks or hazy patches, following the motion of polishing or wiping.
+    metal:
+      appearance: Hazy or streaky film, often with a dull, greasy sheen that obscures the natural metallic luster.
+      coverage: Often partial, with uneven distribution concentrated in polished areas and crevices.
+      pattern: Typically appears as streaks or smears following the direction of polishing, sometimes forming patchy areas.
+    mineral:
+      appearance: Hazy or oily film that obscures natural luster and color, often appearing as dull streaks or spots.
+      coverage: Variable, from light spotting to more extensive coverage on treated surfaces.
+      pattern: Typically uneven, with residue accumulating in crevices or on polished facets.
+    plastic:
+      appearance: Greasy or cloudy film that reduces shine, often appearing as smears or dull patches on smooth surfaces.
+      coverage: Varies from light, spotty coverage to more extensive smearing, depending on surface texture.
+      pattern: Forms streaks or spots, sometimes uniform if applied broadly, but often patchy.
+    rubber:
+      appearance: Oily or sticky film that may darken the surface, creating a blotchy or smeared appearance.
+      coverage: Usually spotty or streaky, with variation based on rubber composition and polishing intensity.
+      pattern: Often forms patches or streaks, particularly on smooth rubber where residue adheres easily.
+    semiconductor:
+      appearance: Thin, greasy or particulate film that can cause hazing or interference, visible under magnification.
+      coverage: Generally minimal but critical, with potential for uniform thin layers or localized spots.
+      pattern: Often uniform or speckled, depending on application, potentially forming micro-streaks.
+    specialty:
+      appearance: Residue varies by material but often appears as a dull, streaky, or greasy film that alters the intended
+        finish.
+      coverage: Highly variable, tailored to the specific material's texture and application method.
+      pattern: Distribution depends on surface properties, commonly forming streaks, patches, or uniform layers.
+    stone:
+      appearance: Dull, filmy layer that masks the stone's natural color and texture, sometimes appearing as whitish or greasy
+        spots.
+      coverage: Can be localized to polished sections or spread unevenly across the surface.
+      pattern: Often appears as streaks or patches, particularly on polished surfaces where residue accumulates.
+    wood:
+      appearance: Oily or waxy spots that darken the wood, creating a blotchy, uneven finish with reduced clarity.
+      coverage: Variable, ranging from small spots to larger areas, depending on application and wood absorption.
+      pattern: Forms irregular patches or streaks, often more visible on porous or unfinished surfaces.
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb_text: Home / Contaminants / organic-residue / Metal Polish Residue

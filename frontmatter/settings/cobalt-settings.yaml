@@ -1,137 +1,50 @@
-name: Cobalt
+id: Cobalt
 slug: cobalt
-category: metal
-subcategory: specialty
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
-title: Cobalt Laser Cleaning Settings
-settings_description: 'When laser cleaning cobalt, you must tackle its moderate reflectivity first. This sets it apart from highly absorptive metals like titanium, where energy soaks in quickly. With cobalt, the laser beam bounces back more, so contaminants linger longer if you blast too hard.
-
-
-  Start with lower power settings to build absorption gradually. Make sure you scan slowly at first. This avoids surface pitting, a common pitfall mid-process when heat builds unevenly.
-
-
-  Cobalt''s strength and heat resistance shine here compared to softer alloys. They let you ramp up passes without warping. Just overlap beams well to clear tough buildup from aerospace parts or medical tools. Adjust fluence as you go to keep the base intact.'
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Metal
-  href: /materials/metal
-- label: Specialty
-  href: /materials/metal/specialty
-- label: Cobalt
-  href: /materials/cobalt
-images:
-  hero:
-    alt: Cobalt surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/cobalt-laser-cleaning-hero.jpg
-  micro:
-    alt: Cobalt microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/cobalt-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.404718Z'
+dateModified: '2025-12-18T21:35:08.404718Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Cobalt oxide removal without substrate damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength for optimal Cobalt absorption and thermal processing
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Optimal beam diameter for precision cleaning of Cobalt components
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: High repetition rate for efficient cleaning coverage on Cobalt surfaces
     unit: kHz
     value: 100
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Fluence threshold for Cobalt oxide removal without substrate damage
     unit: J/cm²
     value: 2.5
-    min: 0.3
-    max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for efficient Cobalt oxide ablation
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Scanning speed for efficient Cobalt surface cleaning
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Number of cleaning passes for complete Cobalt oxide removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform Cobalt surface cleaning
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 26.7
-    unit: mm²/s
-  thermalConductivity:
-    value: 100.0
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1768.0
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 0.45
-    unit: J/cm²
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-  thermalShockResistance:
-    value: 4.2
-    unit: K
-  reflectivity:
-    value: 0.68
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: High thermal conductivity and heat spread
     severity: medium
@@ -181,6 +94,24 @@ material_challenges:
     - Use fume extraction to prevent redeposition
     - Higher scan speeds (3000-5000 mm/s) for thin films
     - Chemical pre-cleaning for heavy contamination
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.660876'
+settings_description: 'When laser cleaning cobalt, you must tackle its moderate reflectivity first. This sets it apart from
+  highly absorptive metals like titanium, where energy soaks in quickly. With cobalt, the laser beam bounces back more, so
+  contaminants linger longer if you blast too hard.
+
+
+  Start with lower power settings to build absorption gradually. Make sure you scan slowly at first. This avoids surface pitting,
+  a common pitfall mid-process when heat builds unevenly.
+
+
+  Cobalt''s strength and heat resistance shine here compared to softer alloys. They let you ramp up passes without warping.
+  Just overlap beams well to clear tough buildup from aerospace parts or medical tools. Adjust fluence as you go to keep the
+  base intact.'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning cobalt, you must tackle its moderate reflectivity first.
+excerpt: When laser cleaning cobalt, you must tackle its moderate reflectivity first. This sets it apart from highly absorptive
+  metals like titanium, where energy soaks in quickly. With cobalt, the laser beam bounces back more, so contaminants linger
+  longer if you blast too hard. Start with lower power settings to build...

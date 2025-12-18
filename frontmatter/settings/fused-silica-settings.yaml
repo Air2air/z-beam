@@ -1,135 +1,50 @@
-name: Fused Silica
+id: Fused Silica
 slug: fused-silica
-category: glass
-subcategory: soda-lime
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-title: Fused Silica Laser Cleaning Settings
-settings_description: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This makes the process slower since the beam tends to pass through the material with minimal interaction. I've seen that pulsing at moderate rates removes surface contaminants effectively without overheating. Multiple gentle passes reveal the underlying clarity. Adjust scan speeds to avoid thermal buildup, which can lead to cracking.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Glass
-  href: /materials/glass
-- label: Soda Lime
-  href: /materials/glass/soda-lime
-- label: Fused Silica
-  href: /materials/fused-silica
-images:
-  hero:
-    alt: Fused Silica surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/fused-silica-laser-cleaning-hero.jpg
-  micro:
-    alt: Fused Silica microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/fused-silica-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.480762Z'
+dateModified: '2025-12-18T21:35:08.480762Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power range for Fused Silica surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength providing optimal absorption balance for Fused Silica contamination removal
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Optimal beam spot diameter for precision cleaning with sufficient energy density
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: High repetition rate for efficient cleaning coverage while maintaining thermal management
     unit: kHz
     value: 100
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Critical fluence threshold for effective contaminant removal without Fused Silica damage
     unit: J/cm²
     value: 2.5
-    min: 0.3
-    max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for efficient contaminant ablation with minimal substrate heating
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage and process efficiency
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of cleaning passes for complete contaminant removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap percentage for uniform cleaning without excessive energy deposition
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.84
-    unit: mm²/s
-  thermalConductivity:
-    value: 1.38
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1800
-    unit: K
-    type: softening
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 15
-    unit: J/cm²
-  ablationThreshold:
-    value: 9.2
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 11.04
-    max: 12.0
-    unit: J/cm²
-  thermalShockResistance:
-    value: 2
-    unit: K
-  reflectivity:
-    value: 0.035
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Thermal shock and catastrophic failure
     severity: critical
@@ -177,6 +92,16 @@ material_challenges:
     - Use air assist to blow debris away from surface
     - Chemical pre-treatment reduces laser exposure time
     - Avoid dragging ablated material across clean areas
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.948638'
+settings_description: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This
+  makes the process slower since the beam tends to pass through the material with minimal interaction. I've seen that pulsing
+  at moderate rates removes surface contaminants effectively without overheating. Multiple gentle passes reveal the underlying
+  clarity. Adjust scan speeds to avoid thermal buildup, which can lead to cracking.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy.
+excerpt: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This makes the process
+  slower since the beam tends to pass through the material with minimal interaction. I've seen that pulsing at moderate rates
+  removes surface contaminants effectively without overheating. Multiple gentle passes reveal the...

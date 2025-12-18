@@ -1,145 +1,54 @@
-name: Redwood
+id: Redwood
 slug: redwood
-category: wood
-subcategory: hardwood
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
-title: Redwood Laser Cleaning Settings
-settings_description: 'We''ve found that cleaning redwood with lasers requires careful initial setup to avoid surface charring from its porous structure. Start low on power and speed. This softwood, unlike denser hardwoods, absorbs energy quickly but holds heat poorly.
-
-
-  In our experience, it cleans beautifully for heritage pieces or outdoor restorations. We typically use short pulses to lift dirt without digging into the grain. Its natural oils help resist moisture, so it shines up fast after marine or garden use.
-
-
-  But watch the high porosity—it soaks up residue if you overlap too much. Adjust by increasing passes lightly. Compared to oak, redwood flexes more under heat, so steady scanning prevents cracks. This keeps the wood''s warm tone intact for furniture or art work.'
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Wood
-  href: /materials/wood
-- label: Hardwood
-  href: /materials/wood/hardwood
-- label: Redwood
-  href: /materials/redwood
-images:
-  hero:
-    alt: Redwood surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/redwood-laser-cleaning-hero.jpg
-  micro:
-    alt: Redwood microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/redwood-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.804322Z'
+dateModified: '2025-12-18T21:35:08.804322Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal power range for Redwood surface cleaning without charring
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-infrared wavelength optimized for Redwood lignin absorption
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control
     unit: μm
     value: 100
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal without wood damage
     unit: J/cm²
     value: 1.2
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse width for controlled ablation of contaminants
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete cleaning
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning pattern
     unit: '%'
     value: 50
-    min: 10
-    max: 90
   dwellTime:
+    description: Optimal dwell time per cleaning spot
     unit: μs
     value: 100
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.125
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.11
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 600
-    unit: K
-    type: charring
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 5
-    unit: J/cm²
-  ablationThreshold:
-    value: 1.05
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 1.26
-    max: 4.0
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1
-    unit: K
-  reflectivity:
-    value: 0.032
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Charring and carbonization
     severity: high
@@ -184,6 +93,26 @@ material_challenges:
     - Second pass 60W slow (800 mm/s) for residue
     - Use fume extraction to prevent redeposition
     - Limit to 2-3 passes maximum to avoid substrate damage
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:02.532655'
+settings_description: 'We''ve found that cleaning redwood with lasers requires careful initial setup to avoid surface charring
+  from its porous structure. Start low on power and speed. This softwood, unlike denser hardwoods, absorbs energy quickly
+  but holds heat poorly.
+
+
+  In our experience, it cleans beautifully for heritage pieces or outdoor restorations. We typically use short pulses to lift
+  dirt without digging into the grain. Its natural oils help resist moisture, so it shines up fast after marine or garden
+  use.
+
+
+  But watch the high porosity—it soaks up residue if you overlap too much. Adjust by increasing passes lightly. Compared to
+  oak, redwood flexes more under heat, so steady scanning prevents cracks. This keeps the wood''s warm tone intact for furniture
+  or art work.'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: We've found that cleaning redwood with lasers requires careful initial setup to avoid surface charring from
+  its porous structure.
+excerpt: We've found that cleaning redwood with lasers requires careful initial setup to avoid surface charring from its porous
+  structure. Start low on power and speed. This softwood, unlike denser hardwoods, absorbs energy quickly but holds heat poorly.
+  In our experience, it cleans beautifully for heritage pieces or outdoor restorations. We...

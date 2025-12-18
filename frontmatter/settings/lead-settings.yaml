@@ -1,144 +1,50 @@
-name: Lead
+id: Lead
 slug: lead
-category: metal
-subcategory: non-ferrous
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 2
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
-title: Lead Laser Cleaning Settings
-settings_description: 'When laser cleaning lead, watch its tendency to melt easily. Start with very low power right away. I''ve seen surfaces puddle if you push too hard.
-
-
-  This works when you keep pulses short and focused. Lead''s softness means it responds quickly to heat. So, gentle passes bring back the shine without damage.
-
-
-  Tends to reflect a lot of laser energy too. That makes cleaning slower than on darker metals. Adjust by overlapping scans a bit more.
-
-
-  Its density holds heat in spots, so move the beam steadily. I''ve found this prevents warping on thin pieces.
-
-
-  Avoid rushing with high speed. Lead can smear or oxidize if you do. Instead, do multiple light passes. That clears rust and grime safely, especially on old roofing or shields. In my experience, it restores heritage items perfectly this way.'
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Metal
-  href: /materials/metal
-- label: Non Ferrous
-  href: /materials/metal/non-ferrous
-- label: Lead
-  href: /materials/lead
-images:
-  hero:
-    alt: Lead surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/lead-laser-cleaning-hero.jpg
-  micro:
-    alt: Lead microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/lead-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.581601Z'
+dateModified: '2025-12-18T21:35:08.581601Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power range for Lead surface cleaning
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength optimized for Lead absorption and minimal reflectivity
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise Lead surface treatment
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient Lead cleaning process
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Minimum fluence required for effective Lead removal
     unit: J/cm²
     value: 2.5
-    min: 0.3
-    max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for controlled Lead ablation
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform Lead cleaning
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete Lead contamination removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform Lead surface cleaning
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 24.3
-    unit: mm²/s
-  thermalConductivity:
-    value: 35.3
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 601.0
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 0.15
-    unit: J/cm²
-  ablationThreshold:
-    value: 0.42
-    unit: J/cm²
-  thermalShockResistance:
-    value: 0.0005
-    unit: K
-  reflectivity:
-    value: 0.98
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: High thermal conductivity and heat spread
     severity: medium
@@ -188,6 +94,29 @@ material_challenges:
     - Use fume extraction to prevent redeposition
     - Higher scan speeds (3000-5000 mm/s) for thin films
     - Chemical pre-cleaning for heavy contamination
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:01.502636'
+settings_description: 'When laser cleaning lead, watch its tendency to melt easily. Start with very low power right away.
+  I''ve seen surfaces puddle if you push too hard.
+
+
+  This works when you keep pulses short and focused. Lead''s softness means it responds quickly to heat. So, gentle passes
+  bring back the shine without damage.
+
+
+  Tends to reflect a lot of laser energy too. That makes cleaning slower than on darker metals. Adjust by overlapping scans
+  a bit more.
+
+
+  Its density holds heat in spots, so move the beam steadily. I''ve found this prevents warping on thin pieces.
+
+
+  Avoid rushing with high speed. Lead can smear or oxidize if you do. Instead, do multiple light passes. That clears rust
+  and grime safely, especially on old roofing or shields. In my experience, it restores heritage items perfectly this way.'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning lead, watch its tendency to melt easily.
+excerpt: When laser cleaning lead, watch its tendency to melt easily. Start with very low power right away. I've seen surfaces
+  puddle if you push too hard. This works when you keep pulses short and focused. Lead's softness means it responds quickly
+  to heat. So, gentle passes bring back the shine...

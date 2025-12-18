@@ -1,135 +1,50 @@
-name: Concrete
+id: Concrete
 slug: concrete
-category: masonry
-subcategory: general
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-title: Concrete Laser Cleaning Settings
-settings_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling, a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy, which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Masonry
-  href: /materials/masonry
-- label: General
-  href: /materials/masonry/general
-- label: Concrete
-  href: /materials/concrete
-images:
-  hero:
-    alt: Concrete surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/concrete-laser-cleaning-hero.jpg
-  micro:
-    alt: Concrete microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/concrete-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.410480Z'
+dateModified: '2025-12-18T21:35:08.410480Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for concrete surface cleaning and contaminant removal
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-infrared wavelength optimized for concrete absorption and minimal substrate damage
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for effective cleaning coverage and energy density control
     unit: mm
     value: 0.8
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for continuous cleaning coverage without thermal buildup
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal while preserving concrete integrity
     unit: J/cm²
     value: 2.5
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Pulse duration balancing efficient contaminant removal with concrete substrate preservation
     unit: ns
     value: 12
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning with sufficient energy deposition
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete contaminant removal
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap percentage for uniform cleaning coverage
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.5
-    unit: mm²/s
-  thermalConductivity:
-    value: 1.4
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1000
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 8
-    unit: J/cm²
-  ablationThreshold:
-    value: 3.2
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 3.84
-    max: 6.4
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.5
-    unit: K
-  reflectivity:
-    value: 0.35
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Moisture-induced spalling and explosive failure
     severity: critical
@@ -178,6 +93,17 @@ material_challenges:
     - Third pass 50W very slow (500 mm/s) for residual staining
     - Chemical stripping pre-treatment reduces laser exposure
     - Heritage masonry requires gentler approach (max 60W)
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.685080'
+settings_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
+  a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy,
+  which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans
+  to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
+  a risk not as prevalent in denser stones like granite.
+excerpt: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling, a risk
+  not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy, which
+  reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans to...

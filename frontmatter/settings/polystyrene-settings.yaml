@@ -1,137 +1,50 @@
-name: Polystyrene
+id: Polystyrene
 slug: polystyrene
-category: plastic
-subcategory: thermoplastic
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 2
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
-title: Polystyrene Laser Cleaning Settings
-settings_description: "When laser cleaning Polystyrene, watch its tendency to soften under heat—I've seen it deform quickly if you push the power too high right away. This plastic heats unevenly compared to tougher thermoplastics like acrylic, so start slow to avoid melting the surface. \n\nFirst, lower the energy input to let the laser gently lift dirt without penetrating deep. Polystyrene's lightweight nature makes it less forgiving than metals, which shrug off minor overheating, but it cleans up nicely once you control the beam. \n\nScan at a steady pace, overlapping passes lightly to build even coverage. I've found this works best when you keep the spot focused, preventing hot spots that could warp the material. Unlike denser plastics, its poor heat spread means you must pause between passes to cool down. \n\nFinish by checking for residue—Polystyrene holds onto grime stubbornly, but a second gentle run brings back its smooth finish without yellowing. Tends to shine up well for packaging\
-  \ or electronics jobs."
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Plastic
-  href: /materials/plastic
-- label: Thermoplastic
-  href: /materials/plastic/thermoplastic
-- label: Polystyrene
-  href: /materials/polystyrene
-images:
-  hero:
-    alt: Polystyrene surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/polystyrene-laser-cleaning-hero.jpg
-  micro:
-    alt: Polystyrene microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/polystyrene-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.743707Z'
+dateModified: '2025-12-18T21:35:08.743707Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Polystyrene surface cleaning without thermal damage
     unit: W
     value: 25
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength providing good absorption in Polystyrene with minimal thermal penetration
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control on Polystyrene surfaces
     unit: μm
     value: 100
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
     unit: kHz
     value: 20
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal without substrate damage
     unit: J/cm²
     value: 2.5
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of Polystyrene surface contaminants
     unit: ns
     value: 100
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete contaminant removal
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning pattern
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.102
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.12
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 620
-    unit: K
-    type: softening
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 2.0
-    unit: J/cm²
-  ablationThreshold:
-    value: 0.25
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 0.3
-    max: 1.6
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.0
-    unit: K
-  reflectivity:
-    value: 0.052
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Low melting/degradation temperatures
     severity: high
@@ -162,6 +75,22 @@ material_challenges:
     solutions:
     - Use UV wavelength (355nm) for better photochemical ablation
     - Multiple gentle passes instead of single high-power pass
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:02.268750'
+settings_description: "When laser cleaning Polystyrene, watch its tendency to soften under heat—I've seen it deform quickly\
+  \ if you push the power too high right away. This plastic heats unevenly compared to tougher thermoplastics like acrylic,\
+  \ so start slow to avoid melting the surface. \n\nFirst, lower the energy input to let the laser gently lift dirt without\
+  \ penetrating deep. Polystyrene's lightweight nature makes it less forgiving than metals, which shrug off minor overheating,\
+  \ but it cleans up nicely once you control the beam. \n\nScan at a steady pace, overlapping passes lightly to build even\
+  \ coverage. I've found this works best when you keep the spot focused, preventing hot spots that could warp the material.\
+  \ Unlike denser plastics, its poor heat spread means you must pause between passes to cool down. \n\nFinish by checking\
+  \ for residue—Polystyrene holds onto grime stubbornly, but a second gentle run brings back its smooth finish without yellowing.\
+  \ Tends to shine up well for packaging or electronics jobs."
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning Polystyrene, watch its tendency to soften under heat—I've seen it deform quickly if you
+  push the power too high right away.
+excerpt: When laser cleaning Polystyrene, watch its tendency to soften under heat—I've seen it deform quickly if you push
+  the power too high right away. This plastic heats unevenly compared to tougher thermoplastics like acrylic, so start slow
+  to avoid melting the surface. First, lower the energy input to let the...

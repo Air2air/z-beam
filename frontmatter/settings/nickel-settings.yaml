@@ -1,131 +1,50 @@
-name: Nickel
+id: Nickel
 slug: nickel
-category: metal
-subcategory: specialty
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-title: Nickel Laser Cleaning Settings
-settings_description: When laser cleaning nickel, we often run into its strong reflectivity first. This bounces back a good portion of the beam. So, the energy doesn't sink in as deeply as we'd like. We've found that starting with focused pulses helps overcome this. Nickel conducts heat quickly too. That spreads warmth evenly and avoids hot spots. But it also means you need steady control to prevent warping. Its tough surface resists corrosion well. So, cleaning uncovers a durable base without extra damage risks. We typically use multiple light passes for even removal. Watch out at the end—overdo the power, and you risk surface cracks from thermal stress.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Metal
-  href: /materials/metal
-- label: Specialty
-  href: /materials/metal/specialty
-- label: Nickel
-  href: /materials/nickel
-images:
-  hero:
-    alt: Nickel surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/nickel-laser-cleaning-hero.jpg
-  micro:
-    alt: Nickel microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/nickel-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.659155Z'
+dateModified: '2025-12-18T21:35:08.659155Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Nickel oxide and contaminant removal
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength for efficient Nickel processing with good absorption
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Optimal beam diameter for precision cleaning
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: High repetition rate for efficient cleaning coverage
     unit: kHz
     value: 100
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Minimum fluence required for effective Nickel contaminant removal
     unit: J/cm²
     value: 2.5
-    min: 0.3
-    max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for effective contaminant ablation without substrate damage
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Scanning speed for efficient area coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Number of cleaning passes for complete contaminant removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal overlap between adjacent scan lines for uniform cleaning
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 22.9
-    unit: mm²/s
-  thermalConductivity:
-    value: 90.7
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1726.0
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 0.45
-    unit: J/cm²
-  ablationThreshold:
-    value: 2.1
-    unit: J/cm²
-  thermalShockResistance:
-    value: 450.0
-    unit: K
-  reflectivity:
-    value: 0.65
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: High thermal conductivity and heat spread
     severity: medium
@@ -175,6 +94,18 @@ material_challenges:
     - Use fume extraction to prevent redeposition
     - Higher scan speeds (3000-5000 mm/s) for thin films
     - Chemical pre-cleaning for heavy contamination
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:01.890179'
+settings_description: When laser cleaning nickel, we often run into its strong reflectivity first. This bounces back a good
+  portion of the beam. So, the energy doesn't sink in as deeply as we'd like. We've found that starting with focused pulses
+  helps overcome this. Nickel conducts heat quickly too. That spreads warmth evenly and avoids hot spots. But it also means
+  you need steady control to prevent warping. Its tough surface resists corrosion well. So, cleaning uncovers a durable base
+  without extra damage risks. We typically use multiple light passes for even removal. Watch out at the end—overdo the power,
+  and you risk surface cracks from thermal stress.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning nickel, we often run into its strong reflectivity first.
+excerpt: When laser cleaning nickel, we often run into its strong reflectivity first. This bounces back a good portion of
+  the beam. So, the energy doesn't sink in as deeply as we'd like. We've found that starting with focused pulses helps overcome
+  this. Nickel conducts heat quickly too. That spreads warmth...

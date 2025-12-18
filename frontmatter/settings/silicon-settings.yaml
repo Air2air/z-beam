@@ -1,131 +1,50 @@
-name: Silicon
+id: Silicon
 slug: silicon
-category: semiconductor
-subcategory: elemental
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-title: Silicon Laser Cleaning Settings
-settings_description: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity. This property lets heat spread quickly, unlike brittle ceramics that trap it locally. You must keep pulse durations short to avoid microcracks, since silicon's stiffness makes it prone to fracturing under sudden stress. We've found that moderate scan speeds work best, revealing contaminants without altering the surface. Adjust overlap ratios carefully to ensure even coverage, as silicon's moderate reflectivity absorbs energy steadily compared to shiny metals. This approach restores semiconductor wafers effectively for electronics use. Make sure you monitor for thermal buildup at the end, or you risk subsurface damage that compromises device performance.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Semiconductor
-  href: /materials/semiconductor
-- label: Elemental
-  href: /materials/semiconductor/elemental
-- label: Silicon
-  href: /materials/silicon
-images:
-  hero:
-    alt: Silicon surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/silicon-laser-cleaning-hero.jpg
-  micro:
-    alt: Silicon microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/silicon-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.877278Z'
+dateModified: '2025-12-18T21:35:08.877278Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Silicon surface cleaning without substrate damage
     unit: W
     value: 25
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength with good Silicon absorption for contaminant removal
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning with adequate energy density
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage and process control
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Fluence threshold for effective contaminant removal without Silicon damage
     unit: J/cm²
     value: 2.5
-    min: 0.3
-    max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for effective contaminant ablation with minimal thermal diffusion
     unit: ns
     value: 100
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Number of cleaning passes for complete contaminant removal
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 88.0
-    unit: mm²/s
-  thermalConductivity:
-    value: 148.0
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1687
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 1.0
-    unit: J/cm²
-  ablationThreshold:
-    value: 2.5
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.2
-    unit: K
-  reflectivity:
-    value: 0.36
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Crystal lattice damage and doping redistribution
     severity: critical
@@ -173,6 +92,19 @@ material_challenges:
     - UV laser (355nm) more effective for organic materials
     - Oxygen-rich environment aids in organic ablation
     - Post-cleaning oxygen plasma for complete residue removal
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:02.837437'
+settings_description: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity.
+  This property lets heat spread quickly, unlike brittle ceramics that trap it locally. You must keep pulse durations short
+  to avoid microcracks, since silicon's stiffness makes it prone to fracturing under sudden stress. We've found that moderate
+  scan speeds work best, revealing contaminants without altering the surface. Adjust overlap ratios carefully to ensure even
+  coverage, as silicon's moderate reflectivity absorbs energy steadily compared to shiny metals. This approach restores semiconductor
+  wafers effectively for electronics use. Make sure you monitor for thermal buildup at the end, or you risk subsurface damage
+  that compromises device performance.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity.
+excerpt: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity. This property
+  lets heat spread quickly, unlike brittle ceramics that trap it locally. You must keep pulse durations short to avoid microcracks,
+  since silicon's stiffness makes it prone to fracturing under sudden stress. We've found...

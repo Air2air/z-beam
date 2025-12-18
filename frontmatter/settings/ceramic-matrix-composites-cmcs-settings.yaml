@@ -1,132 +1,50 @@
-name: Ceramic Matrix Composites CMCs
+id: Ceramic Matrix Composites CMCs
 slug: ceramic-matrix-composites-cmcs
-category: composite
-subcategory: fiber-reinforced
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
-title: Ceramic Matrix Composites CMCs Laser Cleaning Settings
-settings_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded fibers, as these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early check helps prevent thermal stress that might crack the brittle matrix, so we recommend a gentle initial scan to test response. We've found that starting with reduced power settings clears surface buildup effectively without overwhelming the material's inherent heat resistance, which keeps things stable up to high temperatures in applications like aerospace parts. As you proceed, overlap your passes moderately to account for the composite's layered structure—unlike pure metals, this fiber reinforcement demands a slower scan speed to avoid delamination. In our experience, this approach leverages the material's durability and low expansion under heat, ensuring clean results for automotive or energy components while dodging common pitfalls like subsurface
-  damage from over-aggressive pulses. Finally, inspect between passes to confirm no oxidation creeps in, adjusting as needed for optimal preservation.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Composite
-  href: /materials/composite
-- label: Fiber Reinforced
-  href: /materials/composite/fiber-reinforced
-- label: Ceramic Matrix Composites CMCs
-  href: /materials/ceramic-matrix-composites-cmcs
-images:
-  hero:
-    alt: Ceramic Matrix Composites Cmcs surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/ceramic-matrix-composites-cmcs-laser-cleaning-hero.jpg
-  micro:
-    alt: Ceramic Matrix Composites Cmcs microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/ceramic-matrix-composites-cmcs-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.381808Z'
+dateModified: '2025-12-18T21:35:08.381808Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for CMC surface contaminant removal without substrate damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength providing optimal absorption balance for CMC ceramic phases and contaminants
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter optimized for precision cleaning of CMC surface features
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: High repetition rate for efficient area coverage while maintaining thermal management
     unit: kHz
     value: 100
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence level sufficient for contaminant ablation while below CMC damage threshold
     unit: J/cm²
     value: 5
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for efficient contaminant ablation with minimal thermal diffusion into CMC substrate
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform contaminant removal across CMC surfaces
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Number of cleaning passes for thorough contaminant removal with process control
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Beam overlap percentage ensuring complete coverage without excessive heat accumulation
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 5.2
-    unit: mm²/s
-  thermalConductivity:
-    value: 2.8
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1700
-    unit: K
-    type: decomposition
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 2
-    unit: J/cm²
-  ablationThreshold:
-    value: 3.2
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.5
-    unit: K
-  reflectivity:
-    value: 0.36
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Matrix degradation and delamination
     severity: critical
@@ -172,6 +90,23 @@ material_challenges:
     - Second pass 50W slow (800 mm/s) for residue
     - Chemical pre-treatment improves results for stubborn adhesives
     - Monitor for matrix damage; stop if surface texture changes
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.551432'
+settings_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded
+  fibers, as these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early check
+  helps prevent thermal stress that might crack the brittle matrix, so we recommend a gentle initial scan to test response.
+  We've found that starting with reduced power settings clears surface buildup effectively without overwhelming the material's
+  inherent heat resistance, which keeps things stable up to high temperatures in applications like aerospace parts. As you
+  proceed, overlap your passes moderately to account for the composite's layered structure—unlike pure metals, this fiber
+  reinforcement demands a slower scan speed to avoid delamination. In our experience, this approach leverages the material's
+  durability and low expansion under heat, ensuring clean results for automotive or energy components while dodging common
+  pitfalls like subsurface damage from over-aggressive pulses. Finally, inspect between passes to confirm no oxidation creeps
+  in, adjusting as needed for optimal preservation.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded
+  fibers, as these can trap contaminants and lead to...
+excerpt: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded fibers,
+  as these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early check helps
+  prevent thermal stress that might crack the brittle matrix, so we recommend...

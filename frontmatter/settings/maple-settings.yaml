@@ -1,132 +1,50 @@
-name: Maple
+id: Maple
 slug: maple
-category: wood
-subcategory: hardwood
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 2
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
-title: Maple Laser Cleaning Settings
-settings_description: When laser cleaning Maple, I've found gentle pulses work best. This hardwood's tight grain absorbs energy evenly, unlike looser woods that char fast. It brings back finishes on furniture or instruments without splintering. Tends to heat slowly due to low conductivity compared to denser hardwoods. So, keep passes light. Watch for overexposure at the end—it can dull the natural luster if you push too hard.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Wood
-  href: /materials/wood
-- label: Hardwood
-  href: /materials/wood/hardwood
-- label: Maple
-  href: /materials/maple
-images:
-  hero:
-    alt: Maple surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/maple-laser-cleaning-hero.jpg
-  micro:
-    alt: Maple microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/maple-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.622006Z'
+dateModified: '2025-12-18T21:35:08.622006Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for surface cleaning without charring
     unit: W
     value: 45
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength for controlled wood ablation with minimal thermal damage
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Optimal beam diameter for precise cleaning control on wood surface
     unit: μm
     value: 80
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Balanced repetition rate for efficient cleaning with controlled thermal input
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal without wood damage
     unit: J/cm²
     value: 2.8
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for efficient contaminant removal with minimal substrate heating
     unit: ns
     value: 12
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete surface cleaning
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.13
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.17
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 673
-    unit: K
-    type: charring
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 1.5
-    unit: J/cm²
-  ablationThreshold:
-    value: 2.8
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.2
-    unit: K
-  reflectivity:
-    value: 0.072
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Charring and carbonization
     severity: high
@@ -171,6 +89,16 @@ material_challenges:
     - Second pass 60W slow (800 mm/s) for residue
     - Use fume extraction to prevent redeposition
     - Limit to 2-3 passes maximum to avoid substrate damage
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:01.708092'
+settings_description: When laser cleaning Maple, I've found gentle pulses work best. This hardwood's tight grain absorbs energy
+  evenly, unlike looser woods that char fast. It brings back finishes on furniture or instruments without splintering. Tends
+  to heat slowly due to low conductivity compared to denser hardwoods. So, keep passes light. Watch for overexposure at the
+  end—it can dull the natural luster if you push too hard.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning Maple, I've found gentle pulses work best.
+excerpt: When laser cleaning Maple, I've found gentle pulses work best. This hardwood's tight grain absorbs energy evenly,
+  unlike looser woods that char fast. It brings back finishes on furniture or instruments without splintering. Tends to heat
+  slowly due to low conductivity compared to denser hardwoods. So, keep passes light. Watch...

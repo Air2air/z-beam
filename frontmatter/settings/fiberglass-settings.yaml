@@ -1,134 +1,54 @@
-name: Fiberglass
+id: Fiberglass
 slug: fiberglass
-category: composite
-subcategory: fiber-reinforced
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
-title: Fiberglass Laser Cleaning Settings
-settings_description: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process go smoothly. This composite material holds up well because of its strong, lightweight fibers that resist corrosion in tough environments like marine or aerospace settings. But watch out midway—its poor heat spread can cause localized damage if you push too hard, so adjust to multiple light passes instead of one heavy go. Tends to clean contaminants without scratching the surface when you keep the energy low and overlap spots just right. This way, you preserve its flexibility for applications in wind energy or construction.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Composite
-  href: /materials/composite
-- label: Fiber Reinforced
-  href: /materials/composite/fiber-reinforced
-- label: Fiberglass
-  href: /materials/fiberglass
-images:
-  hero:
-    alt: Fiberglass surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/fiberglass-laser-cleaning-hero.jpg
-  micro:
-    alt: Fiberglass microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/fiberglass-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.458324Z'
+dateModified: '2025-12-18T21:35:08.458324Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Fiberglass surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-infrared wavelength for optimal Fiberglass absorption and minimal transmission
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Optimal spot diameter for precision cleaning resolution
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: High repetition rate for efficient cleaning coverage
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal
     unit: J/cm²
     value: 5
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of contaminants
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Scanning speed for efficient area coverage without thermal buildup
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Number of cleaning passes for complete contaminant removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning coverage
     unit: '%'
     value: 50
-    min: 10
-    max: 90
   dwellTime:
+    description: Effective dwell time per spot for contaminant ablation
     unit: μs
     value: 100
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.18
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.3
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 650
-    unit: K
-    type: decomposition
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 3.5
-    unit: J/cm²
-  ablationThreshold:
-    value: 2.7
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.5
-    unit: K
-  reflectivity:
-    value: 0.04
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Matrix degradation and delamination
     severity: critical
@@ -174,6 +94,18 @@ material_challenges:
     - Second pass 50W slow (800 mm/s) for residue
     - Chemical pre-treatment improves results for stubborn adhesives
     - Monitor for matrix damage; stop if surface texture changes
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.872317'
+settings_description: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process
+  go smoothly. This composite material holds up well because of its strong, lightweight fibers that resist corrosion in tough
+  environments like marine or aerospace settings. But watch out midway—its poor heat spread can cause localized damage if
+  you push too hard, so adjust to multiple light passes instead of one heavy go. Tends to clean contaminants without scratching
+  the surface when you keep the energy low and overlap spots just right. This way, you preserve its flexibility for applications
+  in wind energy or construction.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process go smoothly.
+excerpt: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process go smoothly.
+  This composite material holds up well because of its strong, lightweight fibers that resist corrosion in tough environments
+  like marine or aerospace settings. But watch out midway—its poor heat spread can cause...

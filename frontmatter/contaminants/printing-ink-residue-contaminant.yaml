@@ -1,0 +1,352 @@
+id: ink-stains-contamination
+name: Printing Ink Residue
+slug: printing-ink-residue
+category: organic-residue
+subcategory: marking
+datePublished: '2025-12-17T23:27:17.929520Z'
+dateModified: '2025-12-17T23:27:17.929520Z'
+composition:
+- Pigments
+- Binder Resin
+- Solvents
+description: Ink-stains contamination, it arises from pigmented deposits of industrial printing, markers, and spray paint
+  that adhere through solvent evaporation and penetration. This pattern distinguishes itself by irregular pigmentation and
+  strong bonding, unlike uniform rust or dust layers, and on porous paper or cardboard, it seeps deeply while on durable steel
+  or concrete, it forms tenacious surface films. Removal challenges include chemical resistance and substrate damage risk,
+  thus laser cleaning excels as pulsed energy vaporizes stains selectively and restores material integrity without abrasion.
+relationships:
+  related_materials:
+  - id: paper
+    title: Paper
+    url: /materials/paper
+    image: /images/materials/paper.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: cardboard
+    title: Cardboard
+    url: /materials/cardboard
+    image: /images/materials/cardboard.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Concrete
+    title: Concrete
+    url: /materials/masonry/general/Concrete
+    image: /images/materials/masonry/general/Concrete.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Aluminum
+    title: Aluminum
+    url: /materials/metal/non-ferrous/Aluminum
+    image: /images/materials/metal/non-ferrous/Aluminum.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Steel
+    title: Steel
+    url: /materials/metal/ferrous/Steel
+    image: /images/materials/metal/ferrous/Steel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Stainless Steel
+    title: Stainless Steel
+    url: /materials/metal/ferrous/Stainless Steel
+    image: /images/materials/metal/ferrous/Stainless Steel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: cast-iron
+    title: Cast Iron
+    url: /materials/cast-iron
+    image: /images/materials/cast-iron.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Copper
+    title: Copper
+    url: /materials/metal/non-ferrous/Copper
+    image: /images/materials/metal/non-ferrous/Copper.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: bronze
+    title: Bronze
+    url: /materials/bronze
+    image: /images/materials/bronze.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: brass
+    title: Brass
+    url: /materials/brass
+    image: /images/materials/brass.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Titanium
+    title: Titanium
+    url: /materials/metal/specialty/Titanium
+    image: /images/materials/metal/specialty/Titanium.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Zinc
+    title: Zinc
+    url: /materials/metal/alloy/Zinc
+    image: /images/materials/metal/alloy/Zinc.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Nickel
+    title: Nickel
+    url: /materials/metal/specialty/Nickel
+    image: /images/materials/metal/specialty/Nickel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Lead
+    title: Lead
+    url: /materials/metal/non-ferrous/Lead
+    image: /images/materials/metal/non-ferrous/Lead.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Tin
+    title: Tin
+    url: /materials/metal/alloy/Tin
+    image: /images/materials/metal/alloy/Tin.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Cobalt
+    title: Cobalt
+    url: /materials/metal/specialty/Cobalt
+    image: /images/materials/metal/specialty/Cobalt.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Chromium
+    title: Chromium
+    url: /materials/metal/specialty/Chromium
+    image: /images/materials/metal/specialty/Chromium.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  related_compounds: []
+  regulatory_compliance: []
+  ppe_requirements: []
+author:
+  id: 3
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.8
+    overlap_percentage: 60
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 100
+      min_ns: 10
+      recommended_ns: 30
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 80
+    safety_margin_factor: 0.6
+    scan_speed_mm_s:
+      max: 3000
+      min: 500
+      recommended: 1500
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 1064
+    - 532
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 8500
+      wavelength_355nm: 65000
+      wavelength_532nm: 22000
+    reflectivity:
+      wavelength_1064nm: 0.15
+      wavelength_355nm: 0.02
+      wavelength_532nm: 0.08
+    refractive_index:
+      imaginary_part: 0.12
+      real_part: 1.65
+    transmission_depth: 1.5
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: Carbon nanoparticles
+      hazard_level: moderate
+      phase: solid
+    - compound: VOCs
+      hazard_level: moderate
+      phase: gas
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 480
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.85
+    secondary_mechanisms:
+    - photochemical
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: none
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 10.0
+      exposure_limit_mg_m3: 29.0
+      hazard_class: toxic
+    - compound: Carbon Dioxide
+      concentration_mg_m3: 900.0
+      exposure_limit_mg_m3: 9000.0
+      hazard_class: toxic
+    - compound: Volatile Organic Compounds
+      concentration_mg_m3: 50.0
+      exposure_limit_mg_m3: 100.0
+      hazard_class: irritant
+    - compound: Polycyclic Aromatic Hydrocarbons
+      concentration_mg_m3: 0.5
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    - compound: Formaldehyde
+      concentration_mg_m3: 0.5
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - Avoid laser cleaning on chlorinated polymer substrates to prevent phosgene gas formation
+    - Test on inconspicuous area first - laser may discolor or damage underlying material
+    - Metallic substrates may reflect laser energy creating additional safety hazards
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 1.2
+      pulse_duration_10ns: 0.6
+      wavelength_1064nm: 0.8
+    decomposition_temperature: 350
+    heat_affected_zone_depth: 15
+    melting_point: null
+    specific_heat: 1200
+    thermal_conductivity: 0.25
+    thermal_diffusivity: 0.08
+    vaporization_temperature: 450
+prohibited_materials:
+- Porous Wood
+valid_materials:
+- Paper
+- Cardboard
+- Concrete
+- Aluminum
+- Steel
+- Stainless Steel
+- Cast Iron
+- Copper
+- Bronze
+- Brass
+- Titanium
+- Zinc
+- Nickel
+- Lead
+- Tin
+- Cobalt
+- Chromium
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Displays as vivid marks in hues like green or red, often glossy and resistant to absorption on the glazed
+        surface.
+      coverage: Mostly limited to small areas, with low to moderate variation.
+      pattern: Usually forms spots or smears, sometimes in circular patterns from contact.
+    composite:
+      appearance: Presents as mixed-color stains like brown or blue, blending with the material's texture for a mottled effect.
+      coverage: Variable, from isolated spots to broader areas, with inconsistent spread.
+      pattern: Distributes unevenly as patches or streaks, influenced by composite layers.
+    concrete:
+      appearance: Shows as bold stains in shades such as black or green, with a rough, absorbed look on the porous surface.
+      coverage: Generally sparse and localized, with minimal overall coverage.
+      pattern: Commonly forms splatters or patches, often random and influenced by surface irregularities.
+    fabric:
+      appearance: Manifests as dyed patches in colors like red or blue, with a soaked-in or surface-level texture.
+      coverage: Ranges from small spots to large areas, highly variable based on fabric type.
+      pattern: Often appears as stains or prints, sometimes in repeated designs if from intentional contact.
+    glass:
+      appearance: Visible as translucent or opaque smudges in colors such as cyan or black, with a smooth, sometimes streaky
+        texture.
+      coverage: Typically light and patchy, concentrated on surfaces like windows or containers.
+      pattern: Tends to appear as streaks or fingerprints, often uniform in high-touch areas.
+    metal:
+      appearance: Appears as glossy or matte smears in various colors like black, blue, or red, often with a sticky or oily
+        texture.
+      coverage: Usually partial, ranging from small spots to larger areas, with uneven distribution.
+      pattern: Typically forms irregular streaks or patches, sometimes concentrated along edges or handling points.
+    mineral:
+      appearance: Displays as contrasting residues like orange or blue, adhering to crystalline or rough surfaces with a slight
+        sheen.
+      coverage: Typically very low, with spotty and minimal distribution.
+      pattern: Tends to appear as isolated spots or thin films, following mineral cleavages.
+    plastic:
+      appearance: Shows up as colorful residues such as purple or orange, with a slightly tacky or smeared finish on smooth
+        surfaces.
+      coverage: Can range from minimal spots to full coverage, depending on application methods.
+      pattern: Commonly appears as streaks or patches, often uniform if from printing processes.
+    rubber:
+      appearance: Appears as dark or bright smudges such as black or yellow, often with a greasy or embedded texture.
+      coverage: Usually partial and irregular, with low to moderate amounts.
+      pattern: Typically forms blotches or smears, following surface contours and flex points.
+    semiconductor:
+      appearance: Appears as fine, colored smudges such as gray or yellow, often microscopic and affecting surface conductivity.
+      coverage: Extremely minimal and controlled, with precise, low-variation application.
+      pattern: Usually uniform or speckled, resulting from manufacturing or handling processes.
+    specialty:
+      appearance: Varies widely by material, but often shows as multicolored residues with textures matching the specialty
+        surface, like glossy on coatings.
+      coverage: Highly variable, from trace amounts to full coverage, tailored to specific applications.
+      pattern: Distribution depends on the material; it can be uniform, patterned, or random based on use.
+    stone:
+      appearance: Manifests as bright, contrasting stains like blue or yellow on the surface, usually with a slick or adhered
+        finish.
+      coverage: Generally sparse and localized, with minimal to moderate coverage depending on exposure.
+      pattern: Often forms random spots or smears, influenced by the stone's texture and porosity.
+    wood:
+      appearance: Shows as vibrant stains in colors such as black or magenta, often seeping into the grain and creating a
+        rough or absorbed look.
+      coverage: Varies from light spotting to extensive patches, often uneven due to porous absorption.
+      pattern: Commonly appears as blotches or streaks following the wood grain, with occasional drips or splatters.
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb_text: Home / Contaminants / organic-residue / Printing Ink Residue

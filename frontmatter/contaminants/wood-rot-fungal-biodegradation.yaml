@@ -1,0 +1,356 @@
+id: wood-rot-contamination
+name: Wood Rot / Fungal Biodegradation
+slug: wood-rot-fungal-biodegradation
+category: biological
+subcategory: growth
+datePublished: '2025-12-18T21:35:06.660118Z'
+dateModified: '2025-12-18T21:35:06.660118Z'
+description: Wood rot forms through fungal biodegradation of wood fibers, so discoloration appears and softening occurs with
+  structural weakening over time. This contamination penetrates deeply into material unlike surface dust or chemical stains,
+  and behaves faster on softwoods like pine while slower on hardwoods like oak. Removal challenges arise because rot makes
+  wood brittle, yet laser cleaning succeeds by selectively ablating decayed layers without damaging healthy substrate.
+micro:
+  after: Post-cleaning reveals restored surface with wood rot / fungal biodegradation successfully removed through precise
+    laser ablation.
+  before: Surface shows contamination from wood rot / fungal biodegradation affecting material appearance and properties.
+relationships:
+  related_materials:
+  - id: redwood-laser-cleaning
+    slug: redwood
+    title: Redwood
+    url: /materials/redwood
+    image: /images/materials/redwood.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: mdf-laser-cleaning
+    slug: mdf
+    title: MDF
+    url: /materials/mdf
+    image: /images/materials/mdf.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: maple-laser-cleaning
+    slug: maple
+    title: Maple
+    url: /materials/maple
+    image: /images/materials/maple.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: plywood-laser-cleaning
+    slug: plywood
+    title: Plywood
+    url: /materials/plywood
+    image: /images/materials/plywood.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: walnut-laser-cleaning
+    slug: walnut
+    title: Walnut
+    url: /materials/walnut
+    image: /images/materials/walnut.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: pine-laser-cleaning
+    slug: pine
+    title: Pine
+    url: /materials/pine
+    image: /images/materials/pine.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: oak-laser-cleaning
+    slug: oak
+    title: Oak
+    url: /materials/oak
+    image: /images/materials/oak.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: cherry-laser-cleaning
+    slug: cherry
+    title: Cherry
+    url: /materials/cherry
+    image: /images/materials/cherry.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: cedar-laser-cleaning
+    slug: cedar
+    title: Cedar
+    url: /materials/cedar
+    image: /images/materials/cedar.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: general
+author:
+  id: 1
+eeat:
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+  reviewedBy: Z-Beam Quality Assurance Team
+formation_conditions:
+- moisture
+- fungal_spores
+- warmth
+- poor_ventilation
+invalid_materials:
+- Metals
+- Plastics
+- Ceramics
+- Glass
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.8
+    overlap_percentage: 50
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 200
+      min_ns: 10
+      recommended_ns: 100
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.5
+      min: 0.05
+      recommended: 0.2
+    wavelength_preference:
+    - 1064
+    - 532
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 120
+      wavelength_355nm: 2800
+      wavelength_532nm: 450
+    reflectivity:
+      wavelength_1064nm: 0.15
+      wavelength_355nm: 0.03
+      wavelength_532nm: 0.08
+    refractive_index:
+      imaginary_part: 0.012
+      real_part: 1.55
+    transmission_depth: 83.3
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: Carbonaceous char
+      hazard_level: moderate
+      phase: solid
+    - compound: Volatile Organic Compounds
+      hazard_level: moderate
+      phase: gas
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 480
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 5
+      optimal_passes: 3
+      single_pass: 0.7
+    secondary_mechanisms:
+    - photochemical
+    - mechanical_spallation
+    surface_quality_after_removal:
+      color_change: 'yes'
+      residual_stress: none
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 50-200
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Carbon Dioxide
+      concentration_mg_m3: 500-2000
+      exposure_limit_mg_m3: 9000
+      hazard_class: toxic
+    - compound: Formaldehyde
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Acetaldehyde
+      concentration_mg_m3: 2-15
+      exposure_limit_mg_m3: 45
+      hazard_class: carcinogenic
+    - compound: Acetic Acid
+      concentration_mg_m3: 10-50
+      exposure_limit_mg_m3: 25
+      hazard_class: irritant
+    - compound: Methanol
+      concentration_mg_m3: 5-30
+      exposure_limit_mg_m3: 260
+      hazard_class: toxic
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: full_face
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - Laser cleaning may not penetrate deep fungal hyphae, leaving active biodegradation
+    - Heat-affected zone may create favorable conditions for future fungal growth
+    - Charred surface may require additional cleaning to remove carbon residue
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 10
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 2.5
+      pulse_duration_10ns: 1.2
+      wavelength_1064nm: 1.8
+    decomposition_temperature: 300
+    heat_affected_zone_depth: 80
+    melting_point: N/A
+    specific_heat: 1500
+    thermal_conductivity: 0.15
+    thermal_diffusivity: 0.1
+    vaporization_temperature: 450
+realism_notes: Wood rot ONLY occurs in organic wood materials. Metals and plastics cannot rot.
+required_elements:
+- cellulose
+- lignin
+- organic_matter
+scientific_name: Fungal decomposition of cellulose and lignin
+title: Wood Rot / Fungal Biodegradation Laser Cleaning
+valid_material_categories:
+- wood_hardwood
+- wood_softwood
+- wood_engineered
+valid_materials:
+- Oak
+- Pine
+- Maple
+- Cherry
+- Walnut
+- Cedar
+- Plywood
+- MDF
+- Redwood
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Discolored patches in green, black, or brown, with a gritty or slimy texture on glazed or unglazed surfaces.
+      coverage: Usually minimal and patchy, with high variation depending on surface finish and exposure.
+      pattern: Localized spots or streaks, commonly in grout lines or unsealed areas where moisture accumulates.
+    composite:
+      appearance: Stains in brown or black hues, with a softened or degraded texture, especially in organic-rich components.
+      coverage: Patchy and variable, depending on the composite's susceptibility and environmental factors.
+      pattern: Irregular patches or streaks, often following material interfaces or weak points.
+    concrete:
+      appearance: Green, black, or brown discoloration with a powdery or slimy texture, sometimes accompanied by moss or algae.
+      coverage: Patchy and localized, with variation due to porosity and environmental exposure.
+      pattern: Irregular patches or streaks, commonly in cracks, joints, or shaded, moist surfaces.
+    fabric:
+      appearance: Mottled stains in green, black, or yellow, with a musty odor and possible fuzzy or slimy fungal growth.
+      coverage: Can range from small spots to large areas, highly variable based on fabric material and humidity.
+      pattern: Patches or streaks, often following folds or damp areas where moisture is trapped.
+    glass:
+      appearance: Cloudy or hazy films with possible green or black spots, as fungal residues etch or adhere to the surface.
+      coverage: Generally light and uneven, varying from sparse spots to thin layers in high-moisture environments.
+      pattern: Scattered spots or uniform films, often forming in humid, stagnant conditions.
+    metal:
+      appearance: Rust-colored or brownish stains, often with a powdery or flaky texture, as fungal byproducts corrode the
+        surface.
+      coverage: Usually minimal, covering small areas with high variation depending on environmental exposure.
+      pattern: Localized spots or streaks, typically forming around moisture-trapping areas like joints or crevices.
+    mineral:
+      appearance: Stains in hues like green or brown, with a powdery or etched surface as fungal acids alter the mineral.
+      coverage: Typically minimal and uneven, depending on mineral hardness and moisture presence.
+      pattern: Localized spots or streaks, often in fissures or on porous mineral types.
+    plastic:
+      appearance: Discoloration to green, black, or pink, often with a fuzzy or slimy surface texture as fungi colonize.
+      coverage: Light to moderate, varying with plastic composition and humidity levels.
+      pattern: Scattered spots or streaks, frequently in crevices or on porous plastic types.
+    rubber:
+      appearance: Discolored areas in black, green, or white, with a cracked, sticky, or powdery surface as fungi break down
+        polymers.
+      coverage: Generally localized and uneven, varying with rubber type and exposure to elements.
+      pattern: Spots or streaks, typically in flexed or moist regions like seams.
+    semiconductor:
+      appearance: Discolored spots in dark colors, with a hazy or corroded surface that can impair electronic function.
+      coverage: Very light and sparse, as semiconductors are often protected, but variation occurs in failures.
+      pattern: Scattered spots or fine streaks, usually in contaminated or humid environments.
+    specialty:
+      appearance: Varies widely by material; common signs include discoloration and texture changes like softening or pitting.
+      coverage: Highly variable, ranging from isolated spots to widespread areas, influenced by specific material properties.
+      pattern: Irregular and material-dependent, often forming in vulnerable areas based on composition.
+    stone:
+      appearance: Green, black, or brown stains with a slimy or powdery surface, sometimes accompanied by moss or lichen.
+      coverage: Typically patchy and localized, with variation based on porosity and environmental conditions.
+      pattern: Irregular patches or streaks, often concentrated in shaded, moist areas or cracks.
+    wood:
+      appearance: Discolored areas ranging from brown to black, with a soft, spongy, or crumbly texture and possible visible
+        fungal growth.
+      coverage: Can range from small spots to extensive areas, varying with moisture levels and wood type.
+      pattern: Patches or streaks that follow the wood grain, often starting in damp, unsealed sections.
+  color_range:
+  - brown
+  - yellow
+  - white
+  - gray
+  - black
+  texture: soft, spongy, crumbly, stringy
+  thickness: surface to deep penetration
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Biological
+  href: /contaminants/biological
+- label: Growth
+  href: /contaminants/biological/growth
+- label: Wood Rot / Fungal Biodegradation
+  href: /contaminants/biological/growth/wood-rot-fungal-biodegradation

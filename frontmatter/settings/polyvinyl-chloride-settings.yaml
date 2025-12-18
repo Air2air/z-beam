@@ -1,136 +1,50 @@
-name: Polyvinyl Chloride
+id: Polyvinyl Chloride
 slug: polyvinyl-chloride
-category: plastic
-subcategory: thermoplastic
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 2
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
-title: Polyvinyl Chloride Laser Cleaning Settings
-settings_description: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's a thermoplastic that softens quickly under intense energy, leading to warping or melting if you're not careful. This makes it different from metals, where heat spreads out fast; here, the energy stays localized because it doesn't conduct heat well, so you risk damaging the surface before buildup even clears. Start with reduced power to build up gradually, and keep scan speeds high to limit exposure time on any spot. You'll find it absorbs laser light readily, which helps remove contaminants efficiently without much reflection loss, but always test on a small area first to avoid pitting. For best results, use multiple light passes with good overlap, letting it cool between them—this restores the smooth finish on pipes or panels without compromising its corrosion resistance or flexibility.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Plastic
-  href: /materials/plastic
-- label: Thermoplastic
-  href: /materials/plastic/thermoplastic
-- label: Polyvinyl Chloride
-  href: /materials/polyvinyl-chloride
-images:
-  hero:
-    alt: Polyvinyl Chloride surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/polyvinyl-chloride-laser-cleaning-hero.jpg
-  micro:
-    alt: Polyvinyl Chloride microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/polyvinyl-chloride-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.752834Z'
+dateModified: '2025-12-18T21:35:08.752834Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for PVC cleaning without thermal damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength for optimal PVC absorption and minimal substrate damage
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise PVC cleaning
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient PVC removal
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective PVC ablation
     unit: J/cm²
     value: 5
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for controlled PVC ablation
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform PVC removal
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete PVC removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform PVC cleaning
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.12
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.19
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 523
-    unit: K
-    type: softening
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-  ablationThreshold:
-    value: 0.65
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 0.78
-    max: 2.0
-    unit: J/cm²
-  thermalShockResistance:
-    value: 0.8
-    unit: K
-  reflectivity:
-    value: 0.045
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Low melting/degradation temperatures
     severity: high
@@ -161,6 +75,21 @@ material_challenges:
     solutions:
     - Use UV wavelength (355nm) for better photochemical ablation
     - Multiple gentle passes instead of single high-power pass
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:02.318749'
+settings_description: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's
+  a thermoplastic that softens quickly under intense energy, leading to warping or melting if you're not careful. This makes
+  it different from metals, where heat spreads out fast; here, the energy stays localized because it doesn't conduct heat
+  well, so you risk damaging the surface before buildup even clears. Start with reduced power to build up gradually, and keep
+  scan speeds high to limit exposure time on any spot. You'll find it absorbs laser light readily, which helps remove contaminants
+  efficiently without much reflection loss, but always test on a small area first to avoid pitting. For best results, use
+  multiple light passes with good overlap, letting it cool between them—this restores the smooth finish on pipes or panels
+  without compromising its corrosion resistance or flexibility.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's a
+  thermoplastic that softens quickly under intense...
+excerpt: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's a thermoplastic
+  that softens quickly under intense energy, leading to warping or melting if you're not careful. This makes it different
+  from metals, where heat spreads out fast; here, the energy stays localized because...

@@ -1,132 +1,50 @@
-name: Stucco
+id: Stucco
 slug: stucco
-category: masonry
-subcategory: concrete
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
-title: Stucco Laser Cleaning Settings
-settings_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants deeply while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother masonry, so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the fragile matrix—watch out for overexposure here, as it can dry out and weaken the bonds mid-process. To handle this, we adjust by overlapping scans lightly and adding a damp post-treatment to restore evenness, ensuring clean results for heritage restorations.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Masonry
-  href: /materials/masonry
-- label: Concrete
-  href: /materials/masonry/concrete
-- label: Stucco
-  href: /materials/stucco
-images:
-  hero:
-    alt: Stucco surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/stucco-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Stucco surface after laser cleaning showing detailed surface structure
-    url: /images/material/stucco-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.946319Z'
+dateModified: '2025-12-18T21:35:08.946319Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Stucco surface cleaning without substrate damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for balanced cleaning efficiency and resolution
     unit: mm
     value: 0.2
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage and process speed
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective Stucco surface cleaning
     unit: J/cm²
     value: 3.2
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning without thermal accumulation
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete contaminant removal
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning coverage
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.45
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.72
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 800
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-  ablationThreshold:
-    value: 1.8
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.5
-    unit: K
-  reflectivity:
-    value: 0.28
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Moisture-induced spalling and explosive failure
     severity: critical
@@ -175,6 +93,18 @@ material_challenges:
     - Third pass 50W very slow (500 mm/s) for residual staining
     - Chemical stripping pre-treatment reduces laser exposure
     - Heritage masonry requires gentler approach (max 60W)
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:03.159818'
+settings_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants
+  deeply while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother
+  masonry, so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the fragile
+  matrix—watch out for overexposure here, as it can dry out and weaken the bonds mid-process. To handle this, we adjust by
+  overlapping scans lightly and adding a damp post-treatment to restore evenness, ensuring clean results for heritage restorations.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants
+  deeply while resisting heat buildup effectively...
+excerpt: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants deeply
+  while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother masonry,
+  so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the...

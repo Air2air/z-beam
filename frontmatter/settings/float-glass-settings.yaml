@@ -1,135 +1,54 @@
-name: Float Glass
+id: Float Glass
 slug: float-glass
-category: glass
-subcategory: soda-lime
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
-title: Float Glass Laser Cleaning Settings
-settings_description: When laser cleaning Float Glass, I've found you get the best results by starting with a gentle scan to test its smooth, even surface. This glass, made through the float process, holds up well to contaminants like oils or residues from manufacturing, but its brittleness means you must keep the energy low right from the first pass to prevent micro-cracks. Tends to absorb heat slowly, so overlap your paths just enough for thorough coverage without building up too much warmth that could warp the edges. I've seen it restore architectural panels beautifully this way, but watch out midway—ramp up passes only if needed, or you'll risk thermal stress on its thin structure. Finish by cooling naturally to maintain that clear finish.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Glass
-  href: /materials/glass
-- label: Soda Lime
-  href: /materials/glass/soda-lime
-- label: Float Glass
-  href: /materials/float-glass
-images:
-  hero:
-    alt: Float Glass surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/float-glass-laser-cleaning-hero.jpg
-  micro:
-    alt: Float Glass microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/float-glass-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.471558Z'
+dateModified: '2025-12-18T21:35:08.471558Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Float Glass surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength optimized for Float Glass absorption and minimal subsurface damage
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning with adequate energy density
     unit: μm
     value: 100
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage and thermal management
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal below glass damage threshold
     unit: J/cm²
     value: 2.5
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for effective contaminant removal without glass damage
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Number of cleaning passes for complete contaminant removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
     unit: '%'
     value: 50
-    min: 10
-    max: 90
   dwellTime:
+    description: Effective dwell time per spot for contaminant ablation
     unit: μs
     value: 100
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.47
-    unit: mm²/s
-  thermalConductivity:
-    value: 1.0
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 1700
-    unit: K
-    type: softening
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 5
-    unit: J/cm²
-  ablationThreshold:
-    value: 4.2
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1
-    unit: K
-  reflectivity:
-    value: 0.04
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Thermal shock and catastrophic failure
     severity: critical
@@ -177,6 +96,20 @@ material_challenges:
     - Use air assist to blow debris away from surface
     - Chemical pre-treatment reduces laser exposure time
     - Avoid dragging ablated material across clean areas
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.923368'
+settings_description: When laser cleaning Float Glass, I've found you get the best results by starting with a gentle scan
+  to test its smooth, even surface. This glass, made through the float process, holds up well to contaminants like oils or
+  residues from manufacturing, but its brittleness means you must keep the energy low right from the first pass to prevent
+  micro-cracks. Tends to absorb heat slowly, so overlap your paths just enough for thorough coverage without building up too
+  much warmth that could warp the edges. I've seen it restore architectural panels beautifully this way, but watch out midway—ramp
+  up passes only if needed, or you'll risk thermal stress on its thin structure. Finish by cooling naturally to maintain that
+  clear finish.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning Float Glass, I've found you get the best results by starting with a gentle scan to test
+  its smooth, even surface.
+excerpt: When laser cleaning Float Glass, I've found you get the best results by starting with a gentle scan to test its smooth,
+  even surface. This glass, made through the float process, holds up well to contaminants like oils or residues from manufacturing,
+  but its brittleness means you must keep the...

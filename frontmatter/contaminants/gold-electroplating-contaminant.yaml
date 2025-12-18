@@ -1,0 +1,238 @@
+id: gold-plating-contamination
+name: Gold Electroplating
+slug: gold-electroplating
+category: metallic-coating
+subcategory: plating
+datePublished: '2025-12-17T23:27:17.638133Z'
+dateModified: '2025-12-17T23:27:17.638133Z'
+composition:
+- Au
+- Au Alloys
+description: Gold-plating contamination hits when thin gold layers flake off or transfer during handling of electronics and
+  jewelry, often forming through wear on base metals like copper or nickel. It stands out with its shiny, stubborn metallic
+  film that clings tighter than typical oxides or grime, showing up brighter and harder to scrape without scratching. On brass,
+  it bonds deep and resists solvents, while on copper it loosens faster but still demands care to avoid base damage—laser
+  cleaning nails this by zapping the gold precisely, clearing it clean without harming the substrate underneath.
+relationships:
+  related_materials:
+  - id: Copper
+    title: Copper
+    url: /materials/metal/non-ferrous/Copper
+    image: /images/materials/metal/non-ferrous/Copper.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: brass
+    title: Brass
+    url: /materials/brass
+    image: /images/materials/brass.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Nickel
+    title: Nickel
+    url: /materials/metal/specialty/Nickel
+    image: /images/materials/metal/specialty/Nickel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  related_compounds: []
+  regulatory_compliance: []
+  ppe_requirements: []
+author:
+  id: 4
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.6
+    overlap_percentage: 50
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 20
+      min_ns: 4
+      recommended_ns: 10
+    repetition_rate_khz:
+      max: 100
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.08
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 532
+    - 355
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 1.2e6
+      wavelength_355nm: 7.5e6
+      wavelength_532nm: 3.8e6
+    reflectivity:
+      wavelength_1064nm: 0.98
+      wavelength_355nm: 0.45
+      wavelength_532nm: 0.85
+    refractive_index:
+      imaginary_part: 6.71
+      real_part: 0.28
+    transmission_depth: 0.083
+  removal_characteristics:
+    byproducts:
+    - compound: Au
+      hazard_level: low
+      phase: gas
+    - compound: Au nanoparticles
+      hazard_level: low
+      phase: solid
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 48
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.85
+    secondary_mechanisms:
+    - melting_ejection
+    - vaporization
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: compressive
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Gold nanoparticles
+      concentration_mg_m3: 0.5-5.0
+      exposure_limit_mg_m3: 0.1
+      hazard_class: toxic
+    - compound: Cyanide compounds
+      concentration_mg_m3: 0.1-2.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: toxic
+    - compound: Metal oxides
+      concentration_mg_m3: 1.0-10.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.01
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - Thermal damage possible to underlying substrate
+    - May generate reflective plasma plume requiring laser safety eyewear
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: low
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 3.5
+      pulse_duration_10ns: 2.1
+      wavelength_1064nm: 1.8
+    decomposition_temperature: 450
+    heat_affected_zone_depth: 15
+    melting_point: 1064
+    specific_heat: 129
+    thermal_conductivity: 318
+    thermal_diffusivity: 127
+    vaporization_temperature: 2856
+prohibited_materials:
+- Steel
+- Aluminum
+valid_materials:
+- Copper
+- Brass
+- Nickel
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Gold electroplating manifests as a bright, gold layer that may look glossy or slightly textured, adhering
+        to the glazed or unglazed surface.
+      coverage: Coverage is typically complete and consistent on smooth surfaces, but may vary on rough or porous areas.
+      pattern: It often forms a uniform coating, but can appear as spots or patches if the ceramic has uneven porosity.
+    composite:
+      appearance: Gold electroplating looks like a gold layer that may appear mottled or varied, reflecting the different
+        materials in the composite.
+      coverage: Coverage is generally partial and irregular, varying with the composition and surface properties.
+      pattern: It tends to form an uneven pattern, with patches or streaks corresponding to the composite's heterogeneous
+        structure.
+    concrete:
+      appearance: The contamination appears as a dull, gold-colored layer that may look speckled or rough, adhering poorly
+        to the porous surface.
+      coverage: Coverage is typically sparse and inconsistent, with large variations due to surface roughness.
+      pattern: It forms patchy or streaky patterns, often following cracks or uneven areas in the concrete.
+    fabric:
+      appearance: Gold electroplating shows as a metallic gold sheen that can be stiff or flaky, often not integrating well
+        with the fibrous material.
+      coverage: Coverage is minimal and highly variable, usually limited to surface contact points.
+      pattern: Distribution is irregular, forming patches or lines along the weave, with a tendency to flake off.
+    glass:
+      appearance: It appears as a reflective, gold-colored coating that can be transparent or opaque, giving a metallic sheen
+        to the glass surface.
+      coverage: Coverage is generally even and full, though defects can cause localized thin or thick areas.
+      pattern: The pattern is usually uniform if applied correctly, but may show streaks or bubbles if the process is flawed.
+    metal:
+      appearance: Gold electroplating appears as a bright, metallic yellow-gold layer with a smooth, shiny finish, often masking
+        the underlying metal.
+      coverage: Coverage is usually complete and consistent, with minimal variation, as it is intentionally applied to coat
+        the entire surface.
+      pattern: It typically forms a uniform, even coating across the surface, though it may show streaks or patches if applied
+        unevenly.
+    mineral:
+      appearance: Gold electroplating manifests as a bright, gold coating that can enhance or obscure the mineral's natural
+        luster and color.
+      coverage: Coverage varies widely, from full on smooth surfaces to partial on rough or crystalline areas.
+      pattern: Distribution is often uneven, with spots or uniform layers depending on the mineral's crystal structure and
+        smoothness.
+    plastic:
+      appearance: The contamination appears as a thin, metallic gold film that can be shiny or prone to peeling, depending
+        on the plastic type and surface treatment.
+      coverage: Coverage is often full but can be inconsistent, with variations in thickness and adherence.
+      pattern: Distribution is usually even if pre-treated, but may show blotches or uneven areas due to poor adhesion.
+    rubber:
+      appearance: It appears as a flaky or peeling gold coating that may not bond well, often looking dull or cracked on the
+        flexible surface.
+      coverage: Coverage is sparse and uneven, with poor adhesion leading to significant variation.
+      pattern: The pattern is typically spotty or streaky, concentrating on raised areas or where the rubber is less elastic.
+    semiconductor:
+      appearance: It appears as a thin, conductive gold layer with a shiny, metallic finish, often used for electrical contacts
+        in microelectronics.
+      coverage: Coverage is highly controlled and localized, with minimal variation to ensure electrical performance.
+      pattern: The pattern is precisely uniform and controlled, typically applied in specific areas like pads or traces without
+        spreading.
+    specialty:
+      appearance: Gold electroplating looks variable, from glossy to textured, depending on the specialty material's unique
+        properties and surface conditions.
+      coverage: Coverage is customized and often inconsistent, designed to meet particular functional or aesthetic requirements.
+      pattern: Distribution can range from uniform to highly irregular, tailored to the material's specific application and
+        structure.
+    stone:
+      appearance: Gold electroplating shows as a shiny, gold layer that may appear speckled or dull, depending on the stone's
+        texture and porosity.
+      coverage: Coverage is typically partial and inconsistent, with variations based on surface irregularities.
+      pattern: Distribution is often patchy or streaky, following the natural fissures and rough surfaces of the stone.
+    wood:
+      appearance: The contamination appears as a thin, metallic gold film that can look glossy or flaky, often not adhering
+        well to the porous surface.
+      coverage: Coverage is generally sparse and uneven, with significant variation due to wood's absorbent nature.
+      pattern: It tends to form irregular patches or spots, concentrating in grooves or damaged areas where the wood is more
+        receptive.
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb_text: Home / Contaminants / metallic-coating / Gold Electroplating

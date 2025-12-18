@@ -1,135 +1,50 @@
-name: Birch
+id: Birch
 slug: birch
-category: wood
-subcategory: hardwood
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-title: Birch Laser Cleaning Settings
-settings_description: The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser energy than denser hardwoods. This property allows the process to remove surface contaminants and restore natural grain effectively, but it also increases the risk of uneven heating if not managed carefully. We typically start with reduced power levels to prevent charring in those open pores, gradually increasing as the cleaning progresses to expose underlying layers without compromising structural integrity. In our experience, this approach improves adhesion removal in applications like furniture manufacturing or architectural restoration, where preserving the wood's flexibility is essential. Watch for localized discoloration mid-process, and adjust scan speeds upward to reduce dwell time on porous areas, ensuring the material's moderate strength holds up across multiple passes.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Wood
-  href: /materials/wood
-- label: Hardwood
-  href: /materials/wood/hardwood
-- label: Birch
-  href: /materials/birch
-images:
-  hero:
-    alt: Birch surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/birch-laser-cleaning-hero.jpg
-  micro:
-    alt: Birch microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/birch-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.308567Z'
+dateModified: '2025-12-18T21:35:08.308567Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Birch surface cleaning without charring
     unit: W
     value: 45
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength for optimal Birch wood absorption and minimal subsurface damage
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning resolution on Birch surface features
     unit: μm
     value: 80
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage while maintaining thermal control
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal without damaging Birch substrate
     unit: J/cm²
     value: 4.5
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of contaminants without excessive heat diffusion
     unit: ns
     value: 12
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage without excessive dwell time
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of cleaning passes for complete contaminant removal
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap percentage for uniform cleaning coverage
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.13
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.163
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 573
-    unit: K
-    type: charring
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 1.44
-    max: 2.0
-    unit: J/cm²
-  thermalShockResistance:
-    value: 0.8
-    unit: K
-  reflectivity:
-    value: 0.12
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Charring and carbonization
     severity: high
@@ -174,6 +89,21 @@ material_challenges:
     - Second pass 60W slow (800 mm/s) for residue
     - Use fume extraction to prevent redeposition
     - Limit to 2-3 passes maximum to avoid substrate damage
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.249986'
+settings_description: The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser
+  energy than denser hardwoods. This property allows the process to remove surface contaminants and restore natural grain
+  effectively, but it also increases the risk of uneven heating if not managed carefully. We typically start with reduced
+  power levels to prevent charring in those open pores, gradually increasing as the cleaning progresses to expose underlying
+  layers without compromising structural integrity. In our experience, this approach improves adhesion removal in applications
+  like furniture manufacturing or architectural restoration, where preserving the wood's flexibility is essential. Watch for
+  localized discoloration mid-process, and adjust scan speeds upward to reduce dwell time on porous areas, ensuring the material's
+  moderate strength holds up across multiple passes.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser energy
+  than denser hardwoods.
+excerpt: The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser energy than denser
+  hardwoods. This property allows the process to remove surface contaminants and restore natural grain effectively, but it
+  also increases the risk of uneven heating if not managed carefully. We...

@@ -1,130 +1,54 @@
-name: Cerium
+id: Cerium
 slug: cerium
-category: rare-earth
-subcategory: lanthanide
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-title: Cerium Laser Cleaning Settings
-settings_description: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters much of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make sure you start with lower power settings to compensate, allowing the process to gradually expose and restore the underlying metal without excessive scattering that could prolong treatment times. Cerium's low thermal conductivity further complicates this, as localized heat buildup risks damaging the soft structure, so you must control pulse durations carefully to prevent warping or uneven ablation. What sets cerium apart from common metals is its reactive nature as a rare-earth element, which forms a tenacious oxide layer that clings tightly and demands multiple passes for complete removal, while its moderate density aids in precise handling during setup. This combination improves outcomes in applications like optical component cleaning or aerospace parts,
-  where restoring surface integrity matters most. Adjust scan speeds to overlap coverage adequately, ensuring the laser removes residues without compromising the material's ductility. Finally, watch out for overexposure, as cerium's sensitivity to oxidation post-cleaning can lead to rapid recontamination if not sealed promptly.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Rare-Earth
-  href: /materials/rare-earth
-- label: Lanthanide
-  href: /materials/rare-earth/lanthanide
-- label: Cerium
-  href: /materials/cerium
-images:
-  hero:
-    alt: Cerium surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/cerium-laser-cleaning-hero.jpg
-  micro:
-    alt: Cerium microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/cerium-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.387641Z'
+dateModified: '2025-12-18T21:35:08.387641Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Cerium oxide removal without substrate damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength for optimal Cerium absorption and thermal processing
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control on Cerium surfaces
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Fluence threshold for effective Cerium cleaning
     unit: J/cm²
     value: 5.1
-    min: 0.3
-    max: 4.5
   energyDensity:
+    description: Fluence threshold for effective Cerium oxide removal
     unit: J/cm²
     value: 5.1
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of Cerium oxides
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete contaminant removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal pulse overlap for uniform cleaning without excessive heating
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 8.67
-    unit: mm²/s
-  thermalConductivity:
-    value: 11.3
-    unit: W/(m·K)
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 1.8
-    unit: J/cm²
-  ablationThreshold:
-    value: 1.5
-    unit: J/cm²
-  reflectivity:
-    value: 0.92
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Rapid oxidation and pyrophoricity
     severity: critical
@@ -182,6 +106,24 @@ material_challenges:
     - Secure storage of cleaned materials
     - Follow applicable export control regulations
     - Chain of custody documentation for high-value materials
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:00.575477'
+settings_description: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property
+  scatters much of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make sure
+  you start with lower power settings to compensate, allowing the process to gradually expose and restore the underlying metal
+  without excessive scattering that could prolong treatment times. Cerium's low thermal conductivity further complicates this,
+  as localized heat buildup risks damaging the soft structure, so you must control pulse durations carefully to prevent warping
+  or uneven ablation. What sets cerium apart from common metals is its reactive nature as a rare-earth element, which forms
+  a tenacious oxide layer that clings tightly and demands multiple passes for complete removal, while its moderate density
+  aids in precise handling during setup. This combination improves outcomes in applications like optical component cleaning
+  or aerospace parts, where restoring surface integrity matters most. Adjust scan speeds to overlap coverage adequately, ensuring
+  the laser removes residues without compromising the material's ductility. Finally, watch out for overexposure, as cerium's
+  sensitivity to oxidation post-cleaning can lead to rapid recontamination if not sealed promptly.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters
+  much of the laser energy away from the surface and...
+excerpt: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters much
+  of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make sure you start with
+  lower power settings to compensate, allowing the process to gradually expose and restore...

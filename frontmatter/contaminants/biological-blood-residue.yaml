@@ -1,0 +1,415 @@
+id: blood-residue-contamination
+name: Biological Blood Residue
+slug: biological-blood-residue
+category: biological
+subcategory: deposit
+datePublished: '2025-12-18T21:35:05.342471Z'
+dateModified: '2025-12-18T21:35:05.342471Z'
+composition:
+- Hemoglobin
+- Proteins
+- Lipids
+description: 'Blood-residue contamination, it arises from biological sources like proteins and hemoglobin. When blood contacts
+  surfaces, drying happens quickly and sticky layers form, thus oxidation and coagulation harden them over time. This residue
+  embeds into microstructures rapidly after exposure, and unique reddish-brown staining with fluorescence under lights distinguishes
+  it from inorganic dust or oils.
+
+
+  Behavior on materials varies thus. On stainless steel, residue adheres firmly and causes corrosion, while crown glass and
+  float glass suffer cracking from penetration. Borosilicate glass resists bonding deeper, yet fused silica and Gorilla glass
+  still trap it in pores, so alumina and silicon carbide hold it in rough textures.
+
+
+  Key challenges emerge in removal, tenacity demands aggressive methods and risks damage, solvents fail to dissolve bonds
+  so contamination lingers in crevices. Laser cleaning addresses this effectively, pulses target organic bonds precisely and
+  ablation vaporizes residues without heat spread, thus surfaces exhibit cleanliness and integrity preserves.'
+relationships:
+  related_materials:
+  - id: stainless-steel-laser-cleaning
+    slug: stainless-steel
+    title: Stainless Steel
+    url: /materials/stainless-steel
+    image: /images/materials/stainless-steel.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: crown-glass-laser-cleaning
+    slug: crown-glass
+    title: Crown Glass
+    url: /materials/crown-glass
+    image: /images/materials/crown-glass.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: aluminosilicate-glass-laser-cleaning
+    slug: aluminosilicate-glass
+    title: Aluminosilicate Glass
+    url: /materials/aluminosilicate-glass
+    image: /images/materials/aluminosilicate-glass.jpg
+    category: glass
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: tempered-glass-laser-cleaning
+    slug: tempered-glass
+    title: Tempered Glass
+    url: /materials/tempered-glass
+    image: /images/materials/tempered-glass.jpg
+    category: glass
+    subcategory: specialty-glass
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: boron-carbide-laser-cleaning
+    slug: boron-carbide
+    title: Boron Carbide
+    url: /materials/boron-carbide
+    image: /images/materials/boron-carbide.jpg
+    category: ceramic
+    subcategory: carbide
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: fused-silica-laser-cleaning
+    slug: fused-silica
+    title: Fused Silica
+    url: /materials/fused-silica
+    image: /images/materials/fused-silica.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: borosilicate-glass-laser-cleaning
+    slug: borosilicate-glass
+    title: Borosilicate Glass
+    url: /materials/borosilicate-glass
+    image: /images/materials/borosilicate-glass.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: boron-nitride-laser-cleaning
+    slug: boron-nitride
+    title: Boron Nitride
+    url: /materials/boron-nitride
+    image: /images/materials/boron-nitride.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: float-glass-laser-cleaning
+    slug: float-glass
+    title: Float Glass
+    url: /materials/float-glass
+    image: /images/materials/float-glass.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: silicon-nitride-laser-cleaning
+    slug: silicon-nitride
+    title: Silicon Nitride
+    url: /materials/silicon-nitride
+    image: /images/materials/silicon-nitride.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: gorilla-glass-laser-cleaning
+    slug: gorilla-glass
+    title: Gorilla Glass
+    url: /materials/gorilla-glass
+    image: /images/materials/gorilla-glass.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: zirconia-laser-cleaning
+    slug: zirconia
+    title: Zirconia
+    url: /materials/zirconia
+    image: /images/materials/zirconia.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: aluminum-nitride-laser-cleaning
+    slug: aluminum-nitride
+    title: Aluminum Nitride
+    url: /materials/aluminum-nitride
+    image: /images/materials/aluminum-nitride.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: alumina-laser-cleaning
+    slug: alumina
+    title: Alumina
+    url: /materials/alumina
+    image: /images/materials/alumina.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: general
+author:
+  id: 3
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.6
+    overlap_percentage: 50
+    polarization: any
+    pulse_duration_range:
+      max_ns: 150
+      min_ns: 10
+      recommended_ns: 30
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.6
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 355
+    - 1064
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 120
+      wavelength_355nm: 3200
+      wavelength_532nm: 850
+    reflectivity:
+      wavelength_1064nm: 0.15
+      wavelength_355nm: 0.04
+      wavelength_532nm: 0.08
+    refractive_index:
+      imaginary_part: 0.012
+      real_part: 1.38
+    transmission_depth: 83
+  removal_characteristics:
+    byproducts:
+    - compound: H₂O
+      hazard_level: low
+      phase: gas
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: nitrogen-oxides
+      hazard_level: moderate
+      phase: gas
+    - compound: Carbonaceous char
+      hazard_level: moderate
+      phase: solid
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 5
+      optimal_passes: 3
+      single_pass: 0.75
+    secondary_mechanisms:
+    - photochemical
+    - mechanical_spallation
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: none
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 5.0
+      exposure_limit_mg_m3: 29.0
+      hazard_class: toxic
+    - compound: Hydrogen Cyanide
+      concentration_mg_m3: 1.5
+      exposure_limit_mg_m3: 5.0
+      hazard_class: toxic
+    - compound: Benzene
+      concentration_mg_m3: 0.8
+      exposure_limit_mg_m3: 1.6
+      hazard_class: carcinogenic
+    - compound: Formaldehyde
+      concentration_mg_m3: 0.5
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Acrolein
+      concentration_mg_m3: 0.1
+      exposure_limit_mg_m3: 0.23
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+    substrate_compatibility_warnings:
+    - Laser parameters must be carefully controlled to prevent surface damage to underlying material
+    - Biohazard containment required for all generated aerosols and debris
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 1.2
+      pulse_duration_10ns: 0.7
+      wavelength_1064nm: 0.8
+    decomposition_temperature: 300
+    heat_affected_zone_depth: 15
+    melting_point: N/A
+    specific_heat: 3600
+    thermal_conductivity: 0.5
+    thermal_diffusivity: 0.14
+    vaporization_temperature: 100
+prohibited_materials: []
+valid_materials:
+- Stainless Steel
+- Crown Glass
+- Float Glass
+- Borosilicate Glass
+- Aluminosilicate Glass
+- Fused Silica
+- Gorilla Glass
+- Tempered Glass
+- Alumina
+- Silicon Carbide
+- Zirconia
+- Aluminum Nitride
+- Boron Carbide
+- Boron Nitride
+- Silicon Nitride
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: On ceramic, blood stains are reddish-brown to dark, with a glossy or matte finish matching the glaze, and
+        may appear slightly raised if dried.
+      coverage: Typically sparse to moderate, ranging from small droplets to larger smears, with uneven distribution based
+        on surface texture.
+      pattern: It distributes as spots, streaks, or patches, with smooth edges on glazed surfaces and potential absorption
+        into unglazed areas.
+    composite:
+      appearance: On composites, blood appears as reddish-brown to dark stains, with a variable finish from matte to glossy
+        depending on the material blend and surface treatment.
+      coverage: Coverage ranges from sparse to moderate, often uneven with variations in absorption across different components
+        of the composite.
+      pattern: It may form irregular spots, streaks, or patches, with distribution influenced by porosity and texture of the
+        composite layers.
+    concrete:
+      appearance: On concrete, blood stains are dark reddish-brown to blackish, with a matte, rough texture that may seep
+        into pores and appear crusty when dry.
+      coverage: Typically sparse to moderate, varying from isolated drops to larger stains, with inconsistent absorption due
+        to the porous nature.
+      pattern: It forms irregular spots, patches, or pooled areas, often with spreading into cracks and uneven surfaces.
+    fabric:
+      appearance: Blood residue on fabric appears as dark reddish-brown to brownish stains, often with a dull, absorbed look
+        that may stiffen the fibers as it dries.
+      coverage: Coverage can range from small spots to extensive areas, varying with fabric type and absorbency, often showing
+        saturation gradients.
+      pattern: It spreads in irregular patches, spots, or streaks, with feathering edges and potential for wicking along threads
+        or weaves.
+    glass:
+      appearance: Blood residue on glass appears as translucent to opaque reddish-brown smears or droplets, often with a shiny
+        or reflective quality when wet.
+      coverage: Coverage is usually light to moderate, with variations from fine spatter to larger smears, often concentrated
+        at impact sites.
+      pattern: It tends to form streaks, splatters, or pooled areas, with clear definition on the smooth surface and possible
+        running if inclined.
+    metal:
+      appearance: Blood residue on metal often appears as reddish-brown to dark brown stains, with a glossy or matte finish
+        depending on the metal's surface texture.
+      coverage: Coverage is usually sparse to moderate, varying from isolated droplets to larger patches, with uneven distribution
+        based on the force and angle of contact.
+      pattern: It typically forms irregular spots, streaks, or splatters due to the non-porous nature, often concentrating
+        at impact points or along edges.
+    mineral:
+      appearance: Blood on minerals shows as reddish-brown to dark stains, with a finish ranging from glossy on smooth crystals
+        to matte on rough surfaces, possibly altering color slightly.
+      coverage: Coverage is usually sparse, with variations from tiny droplets to small accumulations, often uneven based
+        on mineral hardness and porosity.
+      pattern: It distributes as spots, streaks, or patches, with irregular edges and potential for absorption in porous minerals
+        or beading on non-porous ones.
+    plastic:
+      appearance: Blood residue on plastic shows as reddish-brown to dark stains, often with a smooth, slightly glossy surface
+        that may bead up or smear easily.
+      coverage: Coverage is usually light to moderate, varying from isolated drops to larger patches, with inconsistent spread
+        due to low absorption.
+      pattern: It forms spots, streaks, or smears, with defined edges on non-porous plastics and potential for pooling in
+        textured areas.
+    rubber:
+      appearance: Blood on rubber manifests as dark reddish-brown stains, with a matte or slightly textured surface that can
+        appear smeared or absorbed.
+      coverage: Usually sparse to moderate, with variations from small droplets to larger areas, and uneven distribution due
+        to surface elasticity and texture.
+      pattern: It typically forms spots, smears, or patches, with possible spreading into pores or grooves of the rubber material.
+    semiconductor:
+      appearance: Blood residue on semiconductors appears as reddish-brown to dark micro-stains, with a smooth, often glossy
+        surface that may interfere with electronic properties.
+      coverage: Typically very sparse, limited to microscopic areas, with minimal variation due to the sensitive and clean
+        nature of semiconductor materials.
+      pattern: It forms fine spots, streaks, or smears, with precise distribution influenced by the highly controlled, non-porous
+        surface and potential for contamination in circuits.
+    specialty:
+      appearance: On specialty materials, blood stains vary widely but generally appear reddish-brown to dark, adapting to
+        unique surfaces like coatings or composites with mixed finishes.
+      coverage: Coverage ranges from sparse to moderate, with high variation based on the material's design, often uneven
+        and tailored to its specialized use.
+      pattern: Distribution depends on material properties, forming spots, streaks, or patches with irregular patterns influenced
+        by specific porosity and texture.
+    stone:
+      appearance: Blood on stone shows as reddish-brown to dark stains, with a matte or slightly glossy look depending on
+        the stone's porosity and finish.
+      coverage: Typically sparse to moderate, varying from isolated drops to larger accumulations in crevices or low points,
+        with inconsistent spread.
+      pattern: It forms spots, streaks, or pooled patches, often with irregular edges and potential for running on smoother
+        surfaces.
+    wood:
+      appearance: On wood, blood residue soaks in, creating dark reddish-brown to blackish stains that may appear dull or
+        slightly raised as it dries.
+      coverage: Coverage ranges from small spots to extensive areas, often uneven with deeper saturation in more absorbent
+        parts of the wood.
+      pattern: It spreads in irregular patches or along the grain, with possible feathering edges due to the porous surface
+        absorbing the liquid.
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Biological
+  href: /contaminants/biological
+- label: Deposit
+  href: /contaminants/biological/deposit
+- label: Biological Blood Residue
+  href: /contaminants/biological/deposit/biological-blood-residue

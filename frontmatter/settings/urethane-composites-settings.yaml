@@ -1,135 +1,50 @@
-name: Urethane Composites
+id: Urethane Composites
 slug: urethane-composites
-category: composite
-subcategory: structural
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-title: Urethane Composites Laser Cleaning Settings
-settings_description: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to leverage their high absorption, which efficiently removes surface contaminants without immediate deep penetration. This approach accounts for the material's low thermal conductivity, so heat stays localized and reduces the risk of underlying delamination in these layered structures. We've found that slower scan speeds with multiple overlapping passes restore the surface integrity effectively, as the flexibility of urethane prevents cracking under controlled exposure. Always monitor for excessive buildup, which can degrade the composite's durability if power exceeds safe thresholds.
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Composite
-  href: /materials/composite
-- label: Structural
-  href: /materials/composite/structural
-- label: Urethane Composites
-  href: /materials/urethane-composites
-images:
-  hero:
-    alt: Urethane Composites surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/urethane-composites-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Urethane Composites surface after laser cleaning showing detailed surface structure
-    url: /images/material/urethane-composites-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:09.037319Z'
+dateModified: '2025-12-18T21:35:09.037319Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Urethane Composites cleaning without thermal damage
     unit: W
     value: 100
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength optimized for Urethane absorption characteristics
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for effective cleaning resolution
     unit: μm
     value: 100
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   fluenceThreshold:
+    description: Fluence threshold for Urethane Composites ablation
     unit: J/cm²
     value: 2.5
-    min: 0.3
-    max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of composite surface
     unit: ns
     value: 10
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete contaminant removal
     unit: passes
     value: 3
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive heating
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 0.12
-    unit: mm²/s
-  thermalConductivity:
-    value: 0.22
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 523
-    unit: K
-    type: decomposition
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-  optimalFluenceRange:
-    min: 1.44
-    max: 2.0
-    unit: J/cm²
-  thermalShockResistance:
-    value: 1.2
-    unit: K
-  reflectivity:
-    value: 0.065
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: Matrix degradation and delamination
     severity: critical
@@ -175,6 +90,20 @@ material_challenges:
     - Second pass 50W slow (800 mm/s) for residue
     - Chemical pre-treatment improves results for stubborn adhesives
     - Monitor for matrix damage; stop if surface texture changes
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:03.548587'
+settings_description: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to leverage
+  their high absorption, which efficiently removes surface contaminants without immediate deep penetration. This approach
+  accounts for the material's low thermal conductivity, so heat stays localized and reduces the risk of underlying delamination
+  in these layered structures. We've found that slower scan speeds with multiple overlapping passes restore the surface integrity
+  effectively, as the flexibility of urethane prevents cracking under controlled exposure. Always monitor for excessive buildup,
+  which can degrade the composite's durability if power exceeds safe thresholds.
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to leverage
+  their high absorption, which efficiently removes...
+excerpt: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to leverage their
+  high absorption, which efficiently removes surface contaminants without immediate deep penetration. This approach accounts
+  for the material's low thermal conductivity, so heat stays localized and reduces the risk of underlying delamination in
+  these...

@@ -1,137 +1,50 @@
-name: Ruthenium
+id: Ruthenium
 slug: ruthenium
-category: metal
-subcategory: non-ferrous
-content_type: unified_settings
-schema_version: 4.0.0
-active: true
-datePublished: null
-dateModified: null
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
-title: Ruthenium Laser Cleaning Settings
-settings_description: 'When laser cleaning Ruthenium, you''ll want to contrast it with softer non-ferrous metals like aluminum. Ruthenium stands out for its extreme hardness and density, which make it resist deformation better than those. This means you must start with controlled pulses to avoid uneven ablation.
-
-
-  Watch out here—its high reflectivity bounces most laser energy away, so mid-process, you need to increase overlap without overheating. Make sure you adjust scan speed slower than for copper, since Ruthenium conducts heat quickly and evenly.
-
-
-  That spreads energy well, but it cuts risk of cracks if you keep passes minimal. You should test on scrap first, as its corrosion resistance holds up post-clean but demands gentle settings to preserve shine.'
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Metal
-  href: /materials/metal
-- label: Non Ferrous
-  href: /materials/metal/non-ferrous
-- label: Ruthenium
-  href: /materials/ruthenium
-images:
-  hero:
-    alt: Ruthenium surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/ruthenium-laser-cleaning-hero.jpg
-  micro:
-    alt: Ruthenium microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/ruthenium-laser-cleaning-micro.jpg
-machineSettings:
+content_type: settings
+schema_version: 5.0.0
+datePublished: '2025-12-18T21:35:08.838446Z'
+dateModified: '2025-12-18T21:35:08.838446Z'
+relationships:
+  related_materials: []
+  related_contaminants: []
+machine_settings:
   powerRange:
+    description: Optimal average power for Ruthenium oxide removal without substrate damage
     unit: W
     value: 45
-    min: 1
-    max: 120
   wavelength:
+    description: Near-IR wavelength for efficient Ruthenium oxide absorption with minimal substrate interaction
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
   spotSize:
+    description: Beam spot diameter for precise Ruthenium surface cleaning
     unit: μm
     value: 50
-    min: 0.1
-    max: 500
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
     unit: kHz
     value: 50
-    min: 1
-    max: 200
   energyDensity:
+    description: Fluence threshold for Ruthenium oxide removal without bulk material damage
     unit: J/cm²
     value: 2.3
-    min: 0.1
-    max: 20
   pulseWidth:
+    description: Nanosecond pulse duration for controlled Ruthenium oxide ablation
     unit: ns
     value: 8
-    min: 0.1
-    max: 1000
   scanSpeed:
+    description: Optimal scanning speed for uniform Ruthenium surface treatment
     unit: mm/s
     value: 500
-    min: 10
-    max: 5000
   passCount:
+    description: Recommended number of passes for complete Ruthenium oxide removal
     unit: passes
     value: 2
-    min: 1
-    max: 10
   overlapRatio:
+    description: Optimal beam overlap for uniform Ruthenium surface cleaning
     unit: '%'
     value: 50
-    min: 10
-    max: 90
-thermalProperties:
-  thermalDiffusivity:
-    value: 39.5
-    unit: mm²/s
-  thermalConductivity:
-    value: 117.0
-    unit: W/(m·K)
-  thermalDestructionPoint:
-    value: 2523.0
-    unit: K
-    type: melting
-laserMaterialInteraction:
-  laserDamageThreshold:
-    value: 0.45
-    unit: J/cm²
-  ablationThreshold:
-    value: 0.92
-    unit: J/cm²
-  thermalShockResistance:
-    value: 450.0
-    unit: K
-  reflectivity:
-    value: 0.68
-    wavelength: 1064
-material_challenges:
+challenges:
   thermal_management:
   - challenge: High thermal conductivity and heat spread
     severity: medium
@@ -181,6 +94,23 @@ material_challenges:
     - Use fume extraction to prevent redeposition
     - Higher scan speeds (3000-5000 mm/s) for thin films
     - Chemical pre-cleaning for heavy contamination
-preservedData:
-  generationMetadata:
-    generated_date: '2025-12-15T12:03:02.673112'
+settings_description: 'When laser cleaning Ruthenium, you''ll want to contrast it with softer non-ferrous metals like aluminum.
+  Ruthenium stands out for its extreme hardness and density, which make it resist deformation better than those. This means
+  you must start with controlled pulses to avoid uneven ablation.
+
+
+  Watch out here—its high reflectivity bounces most laser energy away, so mid-process, you need to increase overlap without
+  overheating. Make sure you adjust scan speed slower than for copper, since Ruthenium conducts heat quickly and evenly.
+
+
+  That spreads energy well, but it cuts risk of cracks if you keep passes minimal. You should test on scrap first, as its
+  corrosion resistance holds up post-clean but demands gentle settings to preserve shine.'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+seo_description: When laser cleaning Ruthenium, you'll want to contrast it with softer non-ferrous metals like aluminum.
+excerpt: When laser cleaning Ruthenium, you'll want to contrast it with softer non-ferrous metals like aluminum. Ruthenium
+  stands out for its extreme hardness and density, which make it resist deformation better than those. This means you must
+  start with controlled pulses to avoid uneven ablation. Watch out here—its high reflectivity bounces...

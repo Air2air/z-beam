@@ -1,0 +1,251 @@
+id: quench-oil-contamination
+name: Quenching Oil Residue
+slug: quenching-oil-residue
+category: thermal-damage
+subcategory: scale
+datePublished: '2025-12-18T21:35:06.272451Z'
+dateModified: '2025-12-18T21:35:06.272451Z'
+composition:
+- Carbonized Oil
+- PAH
+- Additives
+description: During quenching process, oil contaminates steel surfaces because heat treatment causes carbonization, so deposits
+  form hard layers that differ from rust by their oily residue and adhesion strength. On tool steel, contamination spreads
+  unevenly and resists solvents, while on steel it bonds tightly during cooling, creating removal challenges like surface
+  damage from mechanical methods. Laser cleaning works effectively so pulses vaporize deposits without harming substrate,
+  and process achieves clean results after short exposure.
+relationships:
+  related_materials:
+  - id: steel-laser-cleaning
+    slug: steel
+    title: Steel
+    url: /materials/steel
+    image: /images/materials/steel.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: tool-steel-laser-cleaning
+    slug: tool-steel
+    title: Tool Steel
+    url: /materials/tool-steel
+    image: /images/materials/tool-steel.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: general
+author:
+  id: 1
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.8
+    overlap_percentage: 50
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 100
+      min_ns: 10
+      recommended_ns: 30
+    repetition_rate_khz:
+      max: 100
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 532
+    - 1064
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 850
+      wavelength_355nm: 18500
+      wavelength_532nm: 4200
+    reflectivity:
+      wavelength_1064nm: 0.12
+      wavelength_355nm: 0.03
+      wavelength_532nm: 0.08
+    refractive_index:
+      imaginary_part: 0.022
+      real_part: 1.48
+    transmission_depth: 11.8
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: carbon-monoxide
+      hazard_level: moderate
+      phase: gas
+    - compound: VOCs
+      hazard_level: moderate
+      phase: gas
+    - compound: carbon_ash
+      hazard_level: low
+      phase: solid
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.85
+    secondary_mechanisms:
+    - photochemical
+    - mechanical_spallation
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: compressive
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: moderate
+    fumes_generated:
+    - compound: Acrolein
+      concentration_mg_m3: 2.5
+      exposure_limit_mg_m3: 0.23
+      hazard_class: toxic
+    - compound: Formaldehyde
+      concentration_mg_m3: 1.8
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 15.0
+      exposure_limit_mg_m3: 29.0
+      hazard_class: toxic
+    - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+      concentration_mg_m3: 0.5
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - Thermal loading may cause substrate damage on thin metals
+    - Residual oil can ignite if laser parameters are too aggressive
+    - Surface discoloration possible on some materials
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 1.2
+      pulse_duration_10ns: 0.6
+      wavelength_1064nm: 0.8
+    decomposition_temperature: 400
+    heat_affected_zone_depth: 15
+    melting_point: null
+    specific_heat: 2000
+    thermal_conductivity: 0.15
+    thermal_diffusivity: 0.08
+    vaporization_temperature: 300
+prohibited_materials:
+- Aluminum
+- Plastics
+valid_materials:
+- Steel
+- Tool Steel
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Dark, greasy residues that may appear as black or brown spots, often with a slick or sticky texture on glazed
+        or unglazed surfaces.
+      coverage: Varies from sparse spots to extensive areas, with non-uniform distribution common in industrial settings.
+      pattern: Typically forms spots or patches, sometimes uniform if applied evenly, but often irregular.
+    composite:
+      appearance: Dark, oily residues that may seep into layers, causing discoloration and a greasy texture, varying with
+        composite materials.
+      coverage: Typically patchy and non-uniform, covering small to moderate areas with variation based on material composition.
+      pattern: Forms irregular patches or streaks, often following fiber orientations or surface imperfections.
+    concrete:
+      appearance: Dark, oily stains that penetrate pores, appearing as black or brown patches with a greasy, often persistent
+        residue.
+      coverage: Varies from small, localized areas to extensive sections, often non-uniform due to surface roughness.
+      pattern: Typically forms irregular spots or patches, spreading through cracks and porous regions.
+    fabric:
+      appearance: Dark, oily patches that stain fibers, appearing as brown or black spots with a greasy, often permanent texture.
+      coverage: Generally patchy and uneven, covering small to large areas depending on spill size and fabric type.
+      pattern: Forms blotches, streaks, or irregular patches, following fabric weave or absorption paths.
+    glass:
+      appearance: Transparent to dark oily films or streaks that reduce clarity, appearing as smudges with a greasy sheen.
+      coverage: Can range from light, even films to heavy, streaky coverage, often varying with application and cleaning.
+      pattern: Manifests as streaks, smears, or uniform thin layers, especially on smooth surfaces.
+    metal:
+      appearance: Dark, oily stains with a glossy or matte finish, often appearing as black or brown residues that can feel
+        sticky or greasy.
+      coverage: Varies from localized spots to extensive areas, depending on exposure; often non-uniform with higher concentrations
+        in contact zones.
+      pattern: Typically forms irregular spots, streaks, or patches, especially in crevices or on surfaces exposed to quenching
+        processes.
+    mineral:
+      appearance: Dark, oily residues that may coat surfaces, appearing as black or brown stains with a slick texture on crystalline
+        or rough minerals.
+      coverage: Usually localized and uneven, covering small areas with variation based on mineral porosity and exposure.
+      pattern: Forms spots, streaks, or patches, often concentrated in fissures or on exposed faces.
+    plastic:
+      appearance: Oily, dark stains that can cause discoloration to gray or black, often with a greasy feel and potential
+        for surface dulling.
+      coverage: Ranges from light, patchy areas to full coverage, depending on exposure; often uneven due to material non-porosity.
+      pattern: Appears as spots, streaks, or smears, with possible uniform coating if submerged or sprayed.
+    rubber:
+      appearance: Dark, greasy stains that can cause swelling or softening, appearing as black or brown spots with a slick
+        surface.
+      coverage: Varies from localized spots to widespread areas, often uneven due to rubber's absorbent nature.
+      pattern: Manifests as spots, smears, or uniform layers, especially in flexed or exposed areas.
+    semiconductor:
+      appearance: Thin, oily films that may appear as faint darkening or smudges, potentially interfering with electronic
+        properties and leaving a greasy residue.
+      coverage: Ranges from minimal, even coatings to patchy areas, typically controlled but variable in contamination events.
+      pattern: Manifests as uniform layers or micro-spots, often spread evenly during processing but can be irregular.
+    specialty:
+      appearance: Dark, oily residues tailored to material specifics, such as coatings on advanced alloys or polymers, appearing
+        as greasy stains with variable colors.
+      coverage: Highly variable, from precise, localized application to broad, uneven coverage, influenced by specialty requirements.
+      pattern: Varies widely; can be uniform, spotted, or streaked, depending on application method and material properties.
+    stone:
+      appearance: Dark, oily stains that can appear as black or brown spots, often leaving a shiny or dull residue on porous
+        surfaces.
+      coverage: Generally localized to small areas, but can vary widely; often non-uniform due to surface porosity.
+      pattern: Forms irregular spots or patches, with potential for spreading along cracks or porous regions.
+    wood:
+      appearance: Dark, greasy patches that may penetrate the grain, causing discoloration to brown or black and a slick texture.
+      coverage: Usually patchy and uneven, covering small to moderate areas with variation based on absorption and surface
+        treatment.
+      pattern: Appears as blotchy patches or streaks, following the wood grain or pooling in low areas.
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Thermal Damage
+  href: /contaminants/thermal-damage
+- label: Scale
+  href: /contaminants/thermal-damage/scale
+- label: Quenching Oil Residue
+  href: /contaminants/thermal-damage/scale/quenching-oil-residue

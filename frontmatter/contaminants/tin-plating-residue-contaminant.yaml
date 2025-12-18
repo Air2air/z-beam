@@ -1,0 +1,245 @@
+id: tin-plating-contamination
+name: Tin Plating Residue
+slug: tin-plating-residue
+category: metallic-coating
+subcategory: plating
+datePublished: '2025-12-17T23:27:20.204582Z'
+dateModified: '2025-12-17T23:27:20.204582Z'
+composition:
+- Sn
+- Sn-Pb Alloy
+description: Tin-plating contamination, it arises from degraded coatings on electronic components and food containers, forming
+  thin metallic layers that adhere tightly through oxidation and environmental exposure. This contamination, it distinguishes
+  itself by soft, ductile texture unlike harder oxide scales, and behaves differently on steel where it promotes corrosion,
+  on copper it accelerates tarnish, and on brass it induces uneven patina thus complicating uniform cleaning. Removal challenges
+  stem from its persistence and risk of substrate damage, yet laser cleaning proves effective as precise pulses ablate the
+  layer selectively and restore surface integrity without mechanical stress.
+relationships:
+  related_materials:
+  - id: Steel
+    title: Steel
+    url: /materials/metal/ferrous/Steel
+    image: /images/materials/metal/ferrous/Steel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: Copper
+    title: Copper
+    url: /materials/metal/non-ferrous/Copper
+    image: /images/materials/metal/non-ferrous/Copper.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: brass
+    title: Brass
+    url: /materials/brass
+    image: /images/materials/brass.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  related_compounds: []
+  regulatory_compliance: []
+  ppe_requirements: []
+author:
+  id: 3
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.8
+    overlap_percentage: 50
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 200
+      min_ns: 10
+      recommended_ns: 50
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 532
+    - 1064
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 85000
+      wavelength_355nm: 450000
+      wavelength_532nm: 210000
+    reflectivity:
+      wavelength_1064nm: 0.65
+      wavelength_355nm: 0.12
+      wavelength_532nm: 0.35
+    refractive_index:
+      imaginary_part: 4.2
+      real_part: 2.8
+    transmission_depth: 1.2
+  removal_characteristics:
+    byproducts:
+    - compound: SnO2
+      hazard_level: low
+      phase: solid
+    - compound: Sn
+      hazard_level: moderate
+      phase: gas
+    - compound: SnO
+      hazard_level: moderate
+      phase: gas
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.85
+    secondary_mechanisms:
+    - melting_and_ejection
+    - vaporization
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: compressive
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Tin Oxide (SnO2)
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 2.0
+      hazard_class: irritant
+    - compound: Metal Fume (Tin)
+      concentration_mg_m3: 1-10
+      exposure_limit_mg_m3: 2.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - May generate higher fume concentrations if substrate contains lead or other alloying elements
+    - Avoid laser parameters that cause substrate melting to minimize fume generation
+    toxic_gas_risk: low
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 10
+    visibility_hazard: low
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 0.4
+      pulse_duration_10ns: 0.6
+      wavelength_1064nm: 0.8
+    decomposition_temperature: 600
+    heat_affected_zone_depth: 15
+    melting_point: 232
+    specific_heat: 228
+    thermal_conductivity: 66.8
+    thermal_diffusivity: 40.2
+    vaporization_temperature: 2602
+prohibited_materials:
+- Aluminum
+valid_materials:
+- Steel
+- Copper
+- Brass
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Tin plating residue presents as a dull, grayish coating or spots, often with a matte finish that contrasts
+        with the ceramic's smooth glaze.
+      coverage: Coverage is generally low and inconsistent, with some areas showing dense spots while others remain clean.
+      pattern: Distribution is commonly in random spots or patches, especially near edges or where residue pooled during manufacturing
+        or use.
+    composite:
+      appearance: On composites, it shows as a dull, metallic-gray layer or specks, blending with or standing out against
+        the varied material textures.
+      coverage: Coverage is patchy and limited, often concentrated in areas of residue deposition without widespread uniformity.
+      pattern: It distributes unevenly, forming in isolated spots or along fiber directions, depending on the composite's
+        structure and exposure.
+    concrete:
+      appearance: It appears as a pale gray or whitish powdery coating, with a chalky texture that may adhere to the rough,
+        porous concrete surface.
+      coverage: Coverage is typically sparse and variable, with higher concentrations in low-lying or contaminated spots.
+      pattern: The residue often forms in patches or streaks, influenced by surface moisture and application methods.
+    fabric:
+      appearance: On fabric, it manifests as grayish or silvery stains, often with a stiff, crusty texture that can alter
+        the fabric's feel and color.
+      coverage: Coverage is usually minimal and uneven, confined to specific areas without spreading uniformly across the
+        fabric.
+      pattern: Distribution is random, appearing as blotches or streaks, especially where the residue was rubbed or spilled
+        onto the material.
+    glass:
+      appearance: On glass, it appears as a hazy, translucent film or whitish streaks, sometimes with a slightly gritty feel
+        that reduces clarity and shine.
+      coverage: Coverage is usually light and uneven, with variations from thin films in some areas to thicker accumulations
+        in others.
+      pattern: It tends to form in streaks or smudges, often aligned with application or cleaning directions, and may show
+        iridescence in light.
+    metal:
+      appearance: Tin plating residue appears as a dull, grayish-white or silvery film, often with a powdery or flaky texture
+        that can obscure the underlying metallic shine.
+      coverage: Coverage is usually partial and variable, ranging from small localized spots to larger areas, depending on
+        the plating quality and handling.
+      pattern: It typically forms in irregular patches or streaks, concentrated in areas where plating was uneven or excess
+        material accumulated during processing.
+    mineral:
+      appearance: On minerals, it shows as a dull, metallic-gray film or spots, sometimes with a flaky consistency that contrasts
+        with the natural crystalline structure.
+      coverage: Coverage is generally low and patchy, with minimal uniform spread due to the mineral's inherent properties.
+      pattern: Distribution is irregular, forming in isolated areas or along cleavage planes, depending on mineral type and
+        exposure.
+    plastic:
+      appearance: It appears as a faint gray or silvery film, sometimes with a slightly sticky or powdery texture that can
+        cause discoloration on plastic surfaces.
+      coverage: Coverage is typically sparse and variable, with higher amounts in crevices or where contact occurred, but
+        rarely uniform.
+      pattern: The residue often forms in irregular patches or smears, influenced by surface smoothness and static attraction.
+    rubber:
+      appearance: Tin plating residue appears as a light gray or whitish powdery deposit, which may feel slightly abrasive
+        and can embed into the rubber's flexible surface.
+      coverage: Coverage is generally low and irregular, with variations based on rubber porosity and exposure duration.
+      pattern: It typically forms in scattered spots or smudges, following surface contours and areas of friction or contact.
+    semiconductor:
+      appearance: Tin plating residue appears as a faint grayish haze or discrete particles, often detectable under magnification,
+        potentially interfering with electronic properties.
+      coverage: Coverage is usually very low and non-uniform, critical to control as even minor amounts can affect performance.
+      pattern: It typically forms in localized spots or thin layers, aligned with processing steps and surface defects.
+    specialty:
+      appearance: On specialty materials, it varies but generally appears as a dull gray or silvery deposit, with texture
+        adapting to the surface's unique characteristics.
+      coverage: Coverage is typically limited and variable, tailored to the material's reactivity and exposure conditions.
+      pattern: Distribution depends on the material's properties, often forming in irregular patterns like spots or smears
+        specific to the application.
+    stone:
+      appearance: It shows up as a light gray or silvery discoloration, with a chalky or flaky deposit that can adhere to
+        porous or rough stone surfaces.
+      coverage: Coverage is typically patchy and low, concentrated in specific regions rather than uniform, due to stone's
+        low reactivity.
+      pattern: The residue often forms in blotches or streaks, following surface irregularities or areas of moisture that
+        trapped the contamination.
+    wood:
+      appearance: On wood, it manifests as a whitish or metallic-gray stain, often with a gritty or crusty texture that contrasts
+        with the natural grain and finish.
+      coverage: Coverage is generally sparse and uneven, limited to contact points or contaminated zones, with minimal spread
+        across the wood.
+      pattern: Distribution is irregular, appearing as scattered spots or smears, especially where the residue was transferred
+        or dripped onto the surface.
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb_text: Home / Contaminants / metallic-coating / Tin Plating Residue

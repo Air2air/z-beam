@@ -1,72 +1,54 @@
+id: hydraulic-fluid-contamination
 name: Hydraulic Fluid Contamination
 slug: hydraulic-fluid-contamination
 category: organic-residue
 subcategory: petroleum
-content_type: unified_contamination
-schema_version: 4.0.0
-datePublished: null
-dateModified: null
+datePublished: '2025-12-18T21:35:05.841438Z'
+dateModified: '2025-12-18T21:35:05.841438Z'
+composition:
+- Mineral Oil
+- Additives
+- Zinc Compounds
+description: Hydraulic-fluid contamination, it arises from leaks in heavy machinery, where petroleum-based oils seep gradually
+  under vibration and pressure, forming sticky deposits that harden into tenacious oily films. These contaminants, they distinguish
+  themselves by persistent adhesion that penetrates surfaces, unlike dry dust or watery residues; on steel, layers build slowly
+  and tenaciously, aluminum shows quicker pore-deep spread, while concrete absorbs profoundly, yielding darkened stains. Removal
+  proves challenging, as solvents fail against embedded oils and scraping risks damage, yet laser cleaning excels, its pulses
+  vaporizing films effectively without harming substrates.
+relationships:
+  related_materials:
+  - id: steel-laser-cleaning
+    slug: steel
+    title: Steel
+    url: /materials/steel
+    image: /images/materials/steel.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: aluminum-laser-cleaning
+    slug: aluminum
+    title: Aluminum
+    url: /materials/aluminum
+    image: /images/materials/aluminum.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: concrete-laser-cleaning
+    slug: concrete
+    title: Concrete
+    url: /materials/concrete
+    image: /images/materials/concrete.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: general
 author:
   id: 2
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's
-    Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
-_metadata:
-  voice:
-    author_name: Alessandro Moretti
-    author_country: Italy
-    voice_applied: true
-title: Hydraulic Fluid Contamination Contamination
-contamination_description: Hydraulic-fluid contamination, it arises from leaks in
-  heavy machinery, where petroleum-based oils seep gradually under vibration and pressure,
-  forming sticky deposits that harden into tenacious oily films. These contaminants,
-  they distinguish themselves by persistent adhesion that penetrates surfaces, unlike
-  dry dust or watery residues; on steel, layers build slowly and tenaciously, aluminum
-  shows quicker pore-deep spread, while concrete absorbs profoundly, yielding darkened
-  stains. Removal proves challenging, as solvents fail against embedded oils and scraping
-  risks damage, yet laser cleaning excels, its pulses vaporizing films effectively
-  without harming substrates.
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Organic-Residue
-  href: /contaminants/organic-residue
-- label: Hydraulic Fluid Contamination
-  href: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
-images:
-  hero:
-    url: /images/contaminants/hydraulic-fluid-contamination-hero.jpg
-    alt: Hydraulic Fluid Contamination contamination on surface before laser cleaning
-  micro:
-    url: /images/contaminants/hydraulic-fluid-contamination-micro.jpg
-    alt: Hydraulic Fluid Contamination contamination microscopic detail
 laser_properties:
   laser_parameters:
     beam_profile: flat_top
@@ -110,10 +92,10 @@ laser_properties:
     transmission_depth: 83.3
   removal_characteristics:
     byproducts:
-    - compound: CO
+    - compound: carbon-monoxide
       hazard_level: high
       phase: gas
-    - compound: CO2
+    - compound: carbon-dioxide
       hazard_level: low
       phase: gas
     - compound: H2O
@@ -191,7 +173,102 @@ laser_properties:
     thermal_conductivity: 0.15
     thermal_diffusivity: 0.08
     vaporization_temperature: 450
+prohibited_materials:
+- Plastics
+- Rubber
+- Electronics
 valid_materials:
 - Steel
 - Aluminum
 - Concrete
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Hydraulic fluid on ceramic surfaces appears as dark, wet-looking stains that can bead up or spread, sometimes
+        leaving a glossy residue.
+      coverage: Coverage is usually spotty and uneven, with higher accumulation in textured or unglazed areas.
+      pattern: It typically forms droplets, spots, or irregular patches, often concentrated where fluid lands or is wiped.
+    composite:
+      appearance: Hydraulic fluid on composites appears as dark, greasy stains that can seep into layers, often creating a
+        mottled or blotchy look.
+      coverage: Coverage is often uneven and infiltrative, with variation based on composite porosity and resin type.
+      pattern: It forms irregular patches or streaks, potentially following fiber orientations or defects in the material.
+    concrete:
+      appearance: On concrete, it manifests as dark, oily patches that penetrate the porous surface, often creating a slick,
+        discolored area.
+      coverage: Coverage is often localized and variable, with deeper staining in porous regions and lighter coverage on sealed
+        surfaces.
+      pattern: It forms irregular spots or streaks, typically pooling in low spots or spreading along cracks and joints.
+    fabric:
+      appearance: Hydraulic fluid on fabric appears as dark, greasy stains that soak into fibers, often leaving a wet, shiny
+        patch with possible discoloration.
+      coverage: Coverage is usually patchy and absorbent, with stains varying in size and intensity based on fabric type and
+        fluid amount.
+      pattern: It spreads in blotchy or irregular shapes, following the weave pattern and fluid absorption paths.
+    glass:
+      appearance: On glass, contamination shows as smeared, translucent films or streaks that can distort clarity, often with
+        a greasy, reflective look.
+      coverage: Coverage is often partial and streaky, varying from thin films to thicker accumulations in certain areas.
+      pattern: It appears as streaks or smudges, usually in linear patterns from wiping or dripping, and may form droplets
+        if not spread.
+    metal:
+      appearance: Hydraulic fluid contamination on metal often appears as dark, oily streaks or smears, sometimes with a rainbow-like
+        sheen due to light interference on the surface.
+      coverage: Coverage is usually localized and variable, ranging from small spots to larger areas depending on the leak
+        source and duration.
+      pattern: It typically forms irregular streaks or patches, often concentrated around joints, leaks, or moving parts where
+        fluid escapes.
+    mineral:
+      appearance: Hydraulic fluid on minerals appears as dark, oily coatings that can obscure natural colors and textures,
+        sometimes giving a wet look.
+      coverage: Coverage is generally sparse and uneven, influenced by mineral smoothness and fluid viscosity.
+      pattern: It tends to form droplets or patches, adhering to surface features and potentially filling crevices or crystal
+        faces.
+    plastic:
+      appearance: On plastic, it looks like oily, dark smudges or streaks that may cause slight discoloration or a slick,
+        shiny surface.
+      coverage: Coverage is variable, from small localized spots to broader areas, depending on fluid viscosity and exposure.
+      pattern: Contamination spreads as smears or patches, often following surface contours or accumulating in seams and edges.
+    rubber:
+      appearance: On rubber, contamination shows as dark, oily areas that may cause swelling or a glossy, tacky surface over
+        time.
+      coverage: Coverage can range from localized spots to more extensive areas, varying with rubber composition and fluid
+        exposure.
+      pattern: It typically appears as blotches or uniform coatings, especially on exposed surfaces where fluid contacts and
+        absorbs.
+    semiconductor:
+      appearance: On semiconductors, contamination shows as thin, oily films or spots that can interfere with electrical properties,
+        often appearing as subtle, reflective areas.
+      coverage: Coverage is typically minimal and spotty, as even small amounts can cause significant functional issues.
+      pattern: It appears as small droplets or smears, usually localized to exposed surfaces or contamination points during
+        handling.
+    specialty:
+      appearance: Hydraulic fluid on specialty materials varies widely but generally appears as dark, greasy stains or films
+        that may alter surface properties specific to the material.
+      coverage: Coverage is highly variable, tailored to the material's use, ranging from isolated spots to extensive coatings.
+      pattern: Distribution depends on material characteristics, often forming irregular patches or uniform layers based on
+        application and exposure.
+    stone:
+      appearance: Hydraulic fluid on stone appears as dark, oily spots that may darken the natural color, sometimes leaving
+        a slick, reflective surface.
+      coverage: Coverage is typically sparse and localized, with variation based on stone porosity and fluid exposure time.
+      pattern: It forms isolated spots or irregular patches, often pooling in low-lying areas or following surface cracks
+        and pores.
+    wood:
+      appearance: On wood, it manifests as dark, greasy stains that can penetrate the grain, often making the surface look
+        wet or discolored with a glossy finish.
+      coverage: Coverage is often uneven and patchy, with deeper penetration in porous areas, leading to varied stain intensity.
+      pattern: Contamination spreads in blotchy patches or along the wood grain, following the path of fluid flow or absorption.
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Petroleum
+  href: /contaminants/organic-residue/petroleum
+- label: Hydraulic Fluid Contamination
+  href: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
