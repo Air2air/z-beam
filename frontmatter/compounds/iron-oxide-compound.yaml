@@ -1,37 +1,81 @@
 id: iron-oxide
 name: Iron Oxide Fume
 display_name: Iron Oxide (Fe₂O₃)
+category: metal_fume
+subcategory: metal_oxide
+content_type: compounds
+schema_version: 5.0.0
+datePublished: '2025-12-19T00:54:42.864103Z'
+dateModified: '2025-12-19T01:08:29Z'
 chemical_formula: Fe2O3
 cas_number: 1309-37-1
 molecular_weight: 159.69
-datePublished: '2025-12-19T00:54:42.864103Z'
-dateModified: '2025-12-19T01:00:55.693988Z'
-category: metal_fume
-subcategory: metal_oxide
 hazard_class: irritant
-exposure_limits:
-  osha_pel_ppm: null
-  osha_pel_mg_m3: 10
-  niosh_rel_ppm: null
-  niosh_rel_mg_m3: 5
-  acgih_tlv_ppm: null
-  acgih_tlv_mg_m3: 5
-health_effects_keywords:
-- siderosis
-- respiratory_irritation
-- benign_pneumoconiosis
-- lung_discoloration
 monitoring_required: true
 typical_concentration_range: 2-15 mg/m³
-sources_in_laser_cleaning:
-- rust_removal
-- steel_surface_cleaning
-- iron_oxide_scale_removal
 description: null
 health_effects: null
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
+author:
+  id: 3
+ppe_requirements:
+  respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters for ≤50 mg/m³. PAPR for higher concentrations.
+  skin: Leather or cotton gloves adequate for dust. Welding gloves for metal work.
+  eye: Safety glasses with side shields. Welding goggles/helmet for welding operations.
+  minimum_level: Level D for dust <10 mg/m³, Level C for welding fume
+  special_notes: Siderosis (iron dust pneumoconiosis) from chronic exposure. Welding fume contains mixed metal oxides - more
+    hazardous than pure iron oxide.
+emergency_response:
+  fire_hazard: Non-combustible. May release toxic metal oxide fumes when heated.
+  fire_suppression: Use agent appropriate for surrounding fire. Wear SCBA - toxic fumes possible.
+  spill_procedures: Avoid generating dust. Sweep or vacuum with HEPA filter. Place in sealed containers. Generally non-hazardous
+    waste unless contaminated.
+  exposure_immediate_actions: 'Remove from dusty area. If respiratory irritation: move to fresh air. Wash dust from skin and
+    eyes. Generally low acute toxicity. Seek medical attention if symptoms persist.'
+  environmental_hazards: Generally low environmental hazard. May discolor water. Large spills may affect aquatic pH.
+  special_hazards: 'SIDEROSIS: Benign pneumoconiosis from chronic inhalation. X-ray opacities but no functional impairment.
+    Reversible when exposure stops. Welding fume may contain other toxic metals (chromium, nickel, manganese).'
+environmental_impact:
+  aquatic_toxicity: 'Low toxicity to aquatic life. LC50 (fish, 96h): >100 mg/L. May color water but minimal toxic effects.'
+  biodegradability: Not biodegradable (inorganic). Persists indefinitely.
+  bioaccumulation: Low bioaccumulation. Essential element. Regulated by organisms.
+  soil_mobility: Low mobility. Common soil constituent. No significant environmental concern.
+  atmospheric_fate: Settles as particulate. Does not react in atmosphere. Component of natural dust.
+  ozone_depletion: false
+  global_warming_potential: null
+  reportable_releases:
+    water: Not reportable (not CERCLA listed)
+    air: Not reportable
+detection_monitoring:
+  sensor_types:
+  - Particulate monitors (PM10/PM2.5)
+  - Personal air sampling pumps
+  detection_range: 0.1-100 mg/m³
+  alarm_setpoints:
+    low: 5 mg/m³ (NIOSH REL/ACGIH TLV)
+    high: 10 mg/m³ (OSHA PEL)
+    evacuate: 2500 mg/m³ (NIOSH IDLH)
+  colorimetric_tubes: Not available - laboratory analysis required
+  analytical_methods:
+  - method: NIOSH 7300
+    technique: ICP-AES (Inductively Coupled Plasma)
+    detection_limit: 0.2 µg/sample
+  - method: NIOSH 7380
+    technique: AAS (Atomic Absorption Spectroscopy)
+    detection_limit: 0.5 µg/sample
+  - method: OSHA ID-125G
+    technique: AAS
+    detection_limit: 0.3 µg/sample
+  odor_threshold: Not applicable - odorless
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Metal Oxide
+  href: /compounds//metal_oxide
 relationships:
   produced_by_contaminants:
   - id: rust-oxidation
@@ -90,154 +134,101 @@ relationships:
       specific_compound: Iron Oxide Fume
     url: /compounds/flammable-gas-extremely
     title: Flammable Gas Extremely
-author:
-  id: 3
-ppe_requirements:
-  respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters
-    for ≤50 mg/m³. PAPR for higher concentrations.
-  skin: Leather or cotton gloves adequate for dust. Welding gloves for metal work.
-  eye: Safety glasses with side shields. Welding goggles/helmet for welding operations.
-  minimum_level: Level D for dust <10 mg/m³, Level C for welding fume
-  special_notes: Siderosis (iron dust pneumoconiosis) from chronic exposure. Welding
-    fume contains mixed metal oxides - more hazardous than pure iron oxide.
-physical_properties:
-  boiling_point: 3414°C (6177°F) - decomposes
-  melting_point: 1538-1565°C (2800-2849°F)
-  vapor_pressure: Negligible at room temperature
-  vapor_density: Not applicable (solid)
-  specific_gravity: '5.24'
-  flash_point: Not applicable
-  autoignition_temp: Not applicable
-  explosive_limits: Not applicable
-  appearance: Reddish-brown to black powder
-  odor: Odorless
-emergency_response:
-  fire_hazard: Non-combustible. May release toxic metal oxide fumes when heated.
-  fire_suppression: Use agent appropriate for surrounding fire. Wear SCBA - toxic
-    fumes possible.
-  spill_procedures: Avoid generating dust. Sweep or vacuum with HEPA filter. Place
-    in sealed containers. Generally non-hazardous waste unless contaminated.
-  exposure_immediate_actions: 'Remove from dusty area. If respiratory irritation:
-    move to fresh air. Wash dust from skin and eyes. Generally low acute toxicity.
-    Seek medical attention if symptoms persist.'
-  environmental_hazards: Generally low environmental hazard. May discolor water. Large
-    spills may affect aquatic pH.
-  special_hazards: 'SIDEROSIS: Benign pneumoconiosis from chronic inhalation. X-ray
-    opacities but no functional impairment. Reversible when exposure stops. Welding
-    fume may contain other toxic metals (chromium, nickel, manganese).'
-storage_requirements:
-  temperature_range: Store at room temperature
-  ventilation: General ventilation adequate. Keep containers closed.
-  incompatibilities:
-  - Strong acids
-  - Aluminum (thermite reaction)
-  - Magnesium
-  container_material: Plastic or metal containers with tight lids.
-  segregation: None required. Separate from strong acids and reactive metals.
-  quantity_limits: None specified. Follow facility storage protocols.
-  special_requirements: Keep containers closed when not in use. Store in dry area.
-    Prevent dust accumulation.
-regulatory_classification:
-  un_number: None (not regulated as hazardous for transport)
-  dot_hazard_class: Not classified
-  dot_label: None
-  nfpa_codes:
-    health: 1
-    flammability: 0
-    reactivity: 0
-    special: null
-  epa_hazard_categories:
-  - Nuisance dust
-  sara_title_iii: false
-  cercla_rq: null
-  rcra_code: null
-workplace_exposure:
-  osha_pel:
-    twa_8hr: 10 mg/m³ (fume as Fe)
-    stel_15min: null
-    ceiling: null
-  niosh_rel:
-    twa_8hr: 5 mg/m³ (fume)
-    stel_15min: null
-    ceiling: null
-    idlh: 2500 mg/m³ (fume)
-  acgih_tlv:
-    twa_8hr: 5 mg/m³ (respirable fraction)
-    stel_15min: null
-    ceiling: null
-  biological_exposure_indices: []
-synonyms_identifiers:
-  synonyms:
-  - Ferric oxide
-  - Hematite
-  - Iron(III) oxide
-  - Red iron oxide
-  - Rust
-  common_trade_names:
-  - Rouge
-  - Iron oxide fume
-  other_identifiers:
-    rtecs_number: NO7400000
-    ec_number: 215-168-2
-    pubchem_cid: '518696'
-reactivity:
-  stability: Stable under normal conditions.
-  polymerization: Will not polymerize
-  incompatible_materials:
-  - Strong acids (generates hydrogen)
-  - Aluminum powder (thermite)
-  - Magnesium (thermite)
-  - Organic peroxides
-  hazardous_decomposition:
-  - Iron oxide fume
-  - Iron vapors at very high temperatures
-  conditions_to_avoid:
-  - High heat
-  - Aluminum powder mixtures
-  - Strong acids
-  reactivity_hazard: Generally stable. Thermite reaction with aluminum powder produces
-    extreme heat. Reacts with strong acids.
-environmental_impact:
-  aquatic_toxicity: 'Low toxicity to aquatic life. LC50 (fish, 96h): >100 mg/L. May
-    color water but minimal toxic effects.'
-  biodegradability: Not biodegradable (inorganic). Persists indefinitely.
-  bioaccumulation: Low bioaccumulation. Essential element. Regulated by organisms.
-  soil_mobility: Low mobility. Common soil constituent. No significant environmental
-    concern.
-  atmospheric_fate: Settles as particulate. Does not react in atmosphere. Component
-    of natural dust.
-  ozone_depletion: false
-  global_warming_potential: null
-  reportable_releases:
-    water: Not reportable (not CERCLA listed)
-    air: Not reportable
-detection_monitoring:
-  sensor_types:
-  - Particulate monitors (PM10/PM2.5)
-  - Personal air sampling pumps
-  detection_range: 0.1-100 mg/m³
-  alarm_setpoints:
-    low: 5 mg/m³ (NIOSH REL/ACGIH TLV)
-    high: 10 mg/m³ (OSHA PEL)
-    evacuate: 2500 mg/m³ (NIOSH IDLH)
-  colorimetric_tubes: Not available - laboratory analysis required
-  analytical_methods:
-  - method: NIOSH 7300
-    technique: ICP-AES (Inductively Coupled Plasma)
-    detection_limit: 0.2 µg/sample
-  - method: NIOSH 7380
-    technique: AAS (Atomic Absorption Spectroscopy)
-    detection_limit: 0.5 µg/sample
-  - method: OSHA ID-125G
-    technique: AAS
-    detection_limit: 0.3 µg/sample
-  odor_threshold: Not applicable - odorless
-schema_version: 5.0.0
-content_type: compounds
-breadcrumb:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Metal Oxide
-  href: /compounds//metal_oxide
+  exposure_limits:
+    osha_pel_ppm: null
+    osha_pel_mg_m3: 10
+    niosh_rel_ppm: null
+    niosh_rel_mg_m3: 5
+    acgih_tlv_ppm: null
+    acgih_tlv_mg_m3: 5
+  health_effects_keywords:
+  - siderosis
+  - respiratory_irritation
+  - benign_pneumoconiosis
+  - lung_discoloration
+  physical_properties:
+    boiling_point: 3414°C (6177°F) - decomposes
+    melting_point: 1538-1565°C (2800-2849°F)
+    vapor_pressure: Negligible at room temperature
+    vapor_density: Not applicable (solid)
+    specific_gravity: '5.24'
+    flash_point: Not applicable
+    autoignition_temp: Not applicable
+    explosive_limits: Not applicable
+    appearance: Reddish-brown to black powder
+    odor: Odorless
+  reactivity:
+    stability: Stable under normal conditions.
+    polymerization: Will not polymerize
+    incompatible_materials:
+    - Strong acids (generates hydrogen)
+    - Aluminum powder (thermite)
+    - Magnesium (thermite)
+    - Organic peroxides
+    hazardous_decomposition:
+    - Iron oxide fume
+    - Iron vapors at very high temperatures
+    conditions_to_avoid:
+    - High heat
+    - Aluminum powder mixtures
+    - Strong acids
+    reactivity_hazard: Generally stable. Thermite reaction with aluminum powder produces extreme heat. Reacts with strong
+      acids.
+  regulatory_classification:
+    un_number: None (not regulated as hazardous for transport)
+    dot_hazard_class: Not classified
+    dot_label: None
+    nfpa_codes:
+      health: 1
+      flammability: 0
+      reactivity: 0
+      special: null
+    epa_hazard_categories:
+    - Nuisance dust
+    sara_title_iii: false
+    cercla_rq: null
+    rcra_code: null
+  sources_in_laser_cleaning:
+  - rust_removal
+  - steel_surface_cleaning
+  - iron_oxide_scale_removal
+  storage_requirements:
+    temperature_range: Store at room temperature
+    ventilation: General ventilation adequate. Keep containers closed.
+    incompatibilities:
+    - Strong acids
+    - Aluminum (thermite reaction)
+    - Magnesium
+    container_material: Plastic or metal containers with tight lids.
+    segregation: None required. Separate from strong acids and reactive metals.
+    quantity_limits: None specified. Follow facility storage protocols.
+    special_requirements: Keep containers closed when not in use. Store in dry area. Prevent dust accumulation.
+  synonyms_identifiers:
+    synonyms:
+    - Ferric oxide
+    - Hematite
+    - Iron(III) oxide
+    - Red iron oxide
+    - Rust
+    common_trade_names:
+    - Rouge
+    - Iron oxide fume
+    other_identifiers:
+      rtecs_number: NO7400000
+      ec_number: 215-168-2
+      pubchem_cid: '518696'
+  workplace_exposure:
+    osha_pel:
+      twa_8hr: 10 mg/m³ (fume as Fe)
+      stel_15min: null
+      ceiling: null
+    niosh_rel:
+      twa_8hr: 5 mg/m³ (fume)
+      stel_15min: null
+      ceiling: null
+      idlh: 2500 mg/m³ (fume)
+    acgih_tlv:
+      twa_8hr: 5 mg/m³ (respirable fraction)
+      stel_15min: null
+      ceiling: null
+    biological_exposure_indices: []
