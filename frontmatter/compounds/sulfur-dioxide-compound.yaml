@@ -1,12 +1,11 @@
 id: sulfur-dioxide
 name: Sulfur Dioxide
 display_name: Sulfur Dioxide (SO₂)
-slug: sulfur-dioxide
 chemical_formula: SO2
 cas_number: 7446-09-5
 molecular_weight: 64.06
-datePublished: '2025-12-18T21:35:07.138763Z'
-dateModified: '2025-12-18T21:35:07.138763Z'
+datePublished: '2025-12-19T00:54:42.903084Z'
+dateModified: '2025-12-19T01:00:55.917741Z'
 category: toxic_gas
 subcategory: acid_gas
 hazard_class: toxic
@@ -49,16 +48,52 @@ relationships:
     frequency: occasional
     severity: low
     typical_context: Sulfur additives in some lubricants
+  chemical_properties:
+  - type: chemical_properties
+    id: sulfur-dioxide-physical-data
+    url: /compounds/sulfur-dioxide-physical-data
+    title: Sulfur Dioxide Physical Data
+  health_effects:
+  - type: health_effects
+    id: sulfur-dioxide-toxicology
+    url: /compounds/sulfur-dioxide-toxicology
+    title: Sulfur Dioxide Toxicology
+  environmental_impact:
+  - type: environmental_impact
+    id: sulfur-dioxide-environmental-data
+    url: /compounds/sulfur-dioxide-environmental-data
+    title: Sulfur Dioxide Environmental Data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: sulfur-dioxide-monitoring-methods
+    url: /compounds/sulfur-dioxide-monitoring-methods
+    title: Sulfur Dioxide Monitoring Methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: irritant-gas-high-concentration
+    overrides:
+      specific_compound: Sulfur Dioxide
+      pel_ppm: 5
+    url: /compounds/irritant-gas-high-concentration
+    title: Irritant Gas High Concentration
+  emergency_response:
+  - type: emergency_response
+    id: toxic-gas-extreme
+    overrides:
+      specific_compound: Sulfur Dioxide
+    url: /compounds/toxic-gas-extreme
+    title: Toxic Gas Extreme
 author:
   id: 2
 ppe_requirements:
-  respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations. Air-purifying with acid gas cartridge
-    acceptable for ≤5 ppm with escape provisions.
-  skin: Nitrile gloves for liquid contact (cryogenic hazard). Thermal protection for liquefied SO2.
+  respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations.
+    Air-purifying with acid gas cartridge acceptable for ≤5 ppm with escape provisions.
+  skin: Nitrile gloves for liquid contact (cryogenic hazard). Thermal protection for
+    liquefied SO2.
   eye: Chemical safety goggles, face shield for liquid contact
   minimum_level: Level C for known <5 ppm, Level B for >5 ppm or liquefied SO2
-  special_notes: Extremely irritating to eyes and respiratory tract. Cryogenic liquid causes frostbite. Asthma trigger - asthmatics
-    extremely sensitive.
+  special_notes: Extremely irritating to eyes and respiratory tract. Cryogenic liquid
+    causes frostbite. Asthma trigger - asthmatics extremely sensitive.
 physical_properties:
   boiling_point: -10.0°C (14°F)
   melting_point: -75.5°C (-103.9°F)
@@ -71,19 +106,26 @@ physical_properties:
   appearance: Colorless gas, colorless liquid under pressure
   odor: Pungent, suffocating odor @ 0.3-1 ppm
 emergency_response:
-  fire_hazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition products in fire.
-  fire_suppression: If cylinder involved in fire, evacuate immediately - explosion hazard. Cool cylinders with water spray
-    from maximum distance. Let fire burn out if possible.
-  spill_procedures: 'EVACUATE. Ventilate area. SCBA for >100 ppm. Neutralize with soda ash or lime. Contain with dry sand
-    or earth. For liquid: cryogenic hazard - specialized equipment needed.'
-  exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. If inhaled: administer
-    oxygen. Seek medical attention - risk of bronchospasm and delayed pulmonary edema. For asthmatics: MEDICAL EMERGENCY.'
-  environmental_hazards: Major contributor to acid rain. Toxic to vegetation. Acidifies water bodies. Report releases >1 lb.
-  special_hazards: Severe respiratory and eye irritant. Triggers asthma attacks. Forms sulfurous acid with moisture. Corrosive
-    to tissues. May cause bronchospasm and pulmonary edema. Cryogenic liquid causes frostbite.
+  fire_hazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition
+    products in fire.
+  fire_suppression: If cylinder involved in fire, evacuate immediately - explosion
+    hazard. Cool cylinders with water spray from maximum distance. Let fire burn out
+    if possible.
+  spill_procedures: 'EVACUATE. Ventilate area. SCBA for >100 ppm. Neutralize with
+    soda ash or lime. Contain with dry sand or earth. For liquid: cryogenic hazard
+    - specialized equipment needed.'
+  exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water
+    for 15 minutes. If inhaled: administer oxygen. Seek medical attention - risk of
+    bronchospasm and delayed pulmonary edema. For asthmatics: MEDICAL EMERGENCY.'
+  environmental_hazards: Major contributor to acid rain. Toxic to vegetation. Acidifies
+    water bodies. Report releases >1 lb.
+  special_hazards: Severe respiratory and eye irritant. Triggers asthma attacks. Forms
+    sulfurous acid with moisture. Corrosive to tissues. May cause bronchospasm and
+    pulmonary edema. Cryogenic liquid causes frostbite.
 storage_requirements:
   temperature_range: Store cylinders <52°C. Liquefied SO2 requires cryogenic storage.
-  ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. SO2 gas detection mandatory.'
+  ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency
+    backup. SO2 gas detection mandatory.'
   incompatibilities:
   - Potassium chlorate
   - Alkali metals
@@ -94,8 +136,9 @@ storage_requirements:
   container_material: Steel cylinders. Stainless steel for liquid.
   segregation: Separate from incompatibles. Corrosive gas storage area.
   quantity_limits: Per fire code. Many facilities limit indoor storage.
-  special_requirements: 'Cylinder restraints mandatory. Leak detection system required. Post "CORROSIVE GAS" signs. Emergency
-    procedures posted. For liquid: cryogenic handling equipment.'
+  special_requirements: 'Cylinder restraints mandatory. Leak detection system required.
+    Post "CORROSIVE GAS" signs. Emergency procedures posted. For liquid: cryogenic
+    handling equipment.'
 regulatory_classification:
   un_number: UN1079
   dot_hazard_class: 2.3 (Toxic gas)
@@ -156,14 +199,16 @@ reactivity:
   - Heat
   - Moisture (forms sulfurous acid)
   - Incompatible materials
-  reactivity_hazard: Reacts with water to form sulfurous acid (corrosive). Reacts violently with metal oxides and alkali metals.
+  reactivity_hazard: Reacts with water to form sulfurous acid (corrosive). Reacts
+    violently with metal oxides and alkali metals.
 environmental_impact:
-  aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 100-180 mg/L. Forms acidic solutions.'
+  aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 100-180 mg/L. Forms
+    acidic solutions.'
   biodegradability: Reacts in atmosphere. Oxidizes to sulfuric acid. Not biodegradable.
   bioaccumulation: Does not bioaccumulate.
   soil_mobility: High mobility as gas. Deposits as sulfates. Contributes to soil acidification.
-  atmospheric_fate: 'Oxidizes to sulfur trioxide then sulfuric acid. Major acid rain precursor. Atmospheric residence: hours
-    to days.'
+  atmospheric_fate: 'Oxidizes to sulfur trioxide then sulfuric acid. Major acid rain
+    precursor. Atmospheric residence: hours to days.'
   ozone_depletion: false
   global_warming_potential: null
   reportable_releases:

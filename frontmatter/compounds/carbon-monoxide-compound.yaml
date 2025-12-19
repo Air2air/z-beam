@@ -1,12 +1,11 @@
 id: carbon-monoxide
 name: Carbon Monoxide
 display_name: Carbon Monoxide (CO)
-slug: carbon-monoxide
 chemical_formula: CO
 cas_number: 630-08-0
 molecular_weight: 28.01
-datePublished: '2025-12-18T21:35:06.985016Z'
-dateModified: '2025-12-18T21:35:06.985016Z'
+datePublished: '2025-12-19T00:54:42.677661Z'
+dateModified: '2025-12-19T01:00:55.415501Z'
 category: toxic_gas
 subcategory: asphyxiant
 hazard_class: toxic
@@ -106,18 +105,54 @@ relationships:
     frequency: very_common
     severity: high
     typical_context: Incomplete combustion of carbon materials
+  chemical_properties:
+  - type: chemical_properties
+    id: carbon-monoxide-physical-data
+    url: /compounds/carbon-monoxide-physical-data
+    title: Carbon Monoxide Physical Data
+  health_effects:
+  - type: health_effects
+    id: carbon-monoxide-toxicology
+    url: /compounds/carbon-monoxide-toxicology
+    title: Carbon Monoxide Toxicology
+  environmental_impact:
+  - type: environmental_impact
+    id: carbon-monoxide-environmental-data
+    url: /compounds/carbon-monoxide-environmental-data
+    title: Carbon Monoxide Environmental Data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: carbon-monoxide-monitoring-methods
+    url: /compounds/carbon-monoxide-monitoring-methods
+    title: Carbon Monoxide Monitoring Methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: irritant-gas-low-concentration
+    overrides:
+      specific_compound: Carbon Monoxide
+      pel_ppm: 50
+    url: /compounds/irritant-gas-low-concentration
+    title: Irritant Gas Low Concentration
+  emergency_response:
+  - type: emergency_response
+    id: toxic-gas-extreme
+    overrides:
+      specific_compound: Carbon Monoxide
+    url: /compounds/toxic-gas-extreme
+    title: Toxic Gas Extreme
 author:
   id: 4
 ppe_requirements:
-  respiratory: NIOSH-approved full-face pressure-demand SCBA or supplied-air respirator with escape bottle for IDLH conditions.
-    Continuous flow supplied-air for <1200 ppm.
-  skin: Protective gloves not normally required for gas (required for compressed gas cylinders). Thermal protection if handling
-    cryogenic liquid.
+  respiratory: NIOSH-approved full-face pressure-demand SCBA or supplied-air respirator
+    with escape bottle for IDLH conditions. Continuous flow supplied-air for <1200
+    ppm.
+  skin: Protective gloves not normally required for gas (required for compressed gas
+    cylinders). Thermal protection if handling cryogenic liquid.
   eye: Safety glasses. Face shield if handling compressed gas cylinders.
-  minimum_level: Level B for confined spaces/unknown concentrations, Level C with supplied air for known concentrations <1200
-    ppm
-  special_notes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient atmospheres (<19.5% O2). Detector
-    badges provide no respiratory protection.
+  minimum_level: Level B for confined spaces/unknown concentrations, Level C with
+    supplied air for known concentrations <1200 ppm
+  special_notes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient
+    atmospheres (<19.5% O2). Detector badges provide no respiratory protection.
 physical_properties:
   boiling_point: -191.5°C (-312.7°F)
   melting_point: -205.1°C (-337.2°F)
@@ -130,22 +165,25 @@ physical_properties:
   appearance: Colorless gas
   odor: Odorless - Cannot be detected by smell (DANGEROUS!)
 emergency_response:
-  fire_hazard: Extremely flammable gas. Wide flammability range. Vapors lighter than air but may accumulate in low areas.
-    Cylinders may rupture in fire.
-  fire_suppression: Do not extinguish burning gas unless flow can be stopped. Use water spray to cool cylinders. Use dry chemical
-    or CO2 for surrounding fires.
-  spill_procedures: Evacuate area immediately. Eliminate ignition sources. Ventilate area or move containers to safe area.
-    Stop leak if safe to do so. Monitor with CO detectors.
-  exposure_immediate_actions: Remove to fresh air IMMEDIATELY. Administer 100% oxygen by tight-fitting mask. If breathing
-    stopped, give artificial respiration. Seek immediate medical attention. Consider hyperbaric oxygen therapy for severe
-    exposures.
-  environmental_hazards: Negligible environmental persistence - rapidly disperses and oxidizes to CO2. Primary hazard is asphyxiation,
-    not environmental contamination.
-  special_hazards: Odorless, colorless - cannot detect without monitors. Binds to hemoglobin 200-250x more strongly than oxygen,
-    causing tissue hypoxia. Delayed neurological effects possible.
+  fire_hazard: Extremely flammable gas. Wide flammability range. Vapors lighter than
+    air but may accumulate in low areas. Cylinders may rupture in fire.
+  fire_suppression: Do not extinguish burning gas unless flow can be stopped. Use
+    water spray to cool cylinders. Use dry chemical or CO2 for surrounding fires.
+  spill_procedures: Evacuate area immediately. Eliminate ignition sources. Ventilate
+    area or move containers to safe area. Stop leak if safe to do so. Monitor with
+    CO detectors.
+  exposure_immediate_actions: Remove to fresh air IMMEDIATELY. Administer 100% oxygen
+    by tight-fitting mask. If breathing stopped, give artificial respiration. Seek
+    immediate medical attention. Consider hyperbaric oxygen therapy for severe exposures.
+  environmental_hazards: Negligible environmental persistence - rapidly disperses
+    and oxidizes to CO2. Primary hazard is asphyxiation, not environmental contamination.
+  special_hazards: Odorless, colorless - cannot detect without monitors. Binds to
+    hemoglobin 200-250x more strongly than oxygen, causing tissue hypoxia. Delayed
+    neurological effects possible.
 storage_requirements:
   temperature_range: Store compressed gas cylinders below 52°C (125°F)
-  ventilation: 'Outdoor storage preferred. If indoors: continuous mechanical ventilation, gas detection system with alarms'
+  ventilation: 'Outdoor storage preferred. If indoors: continuous mechanical ventilation,
+    gas detection system with alarms'
   incompatibilities:
   - Strong oxidizers
   - Oxygen
@@ -153,12 +191,15 @@ storage_requirements:
   - Chlorine
   - Fluorine
   - Nitrous oxide
-  container_material: DOT-approved compressed gas cylinders (steel, aluminum). Do not transfer to unauthorized containers.
-  segregation: Separate from oxygen cylinders by 20 feet or 5-foot non-combustible barrier. Store in dedicated gas cylinder
-    storage.
-  quantity_limits: 'Per 29 CFR 1910.253: Maximum 300 cubic feet indoors, unlimited outdoors with proper segregation'
-  special_requirements: Secure cylinders to prevent falling. Store upright. Cap cylinders when not in use. Post "CARBON MONOXIDE
-    - POISON GAS" signs. Implement gas detection systems.
+  container_material: DOT-approved compressed gas cylinders (steel, aluminum). Do
+    not transfer to unauthorized containers.
+  segregation: Separate from oxygen cylinders by 20 feet or 5-foot non-combustible
+    barrier. Store in dedicated gas cylinder storage.
+  quantity_limits: 'Per 29 CFR 1910.253: Maximum 300 cubic feet indoors, unlimited
+    outdoors with proper segregation'
+  special_requirements: Secure cylinders to prevent falling. Store upright. Cap cylinders
+    when not in use. Post "CARBON MONOXIDE - POISON GAS" signs. Implement gas detection
+    systems.
 regulatory_classification:
   un_number: UN1016
   dot_hazard_class: 2.3 (Poisonous gas), 2.1 (Flammable gas)
@@ -227,20 +268,23 @@ reactivity:
   - Oxidizers
   - High temperatures
   - Confined spaces without ventilation
-  reactivity_hazard: Reacts violently with strong oxidizers. May form explosive mixtures with air (12.5-74%). Reacts with
-    heated iron to form toxic iron carbonyl.
+  reactivity_hazard: Reacts violently with strong oxidizers. May form explosive mixtures
+    with air (12.5-74%). Reacts with heated iron to form toxic iron carbonyl.
 environmental_impact:
-  aquatic_toxicity: 'Low direct toxicity to aquatic life. LC50 (fish): >100 mg/L. Rapidly escapes to atmosphere from water.'
+  aquatic_toxicity: 'Low direct toxicity to aquatic life. LC50 (fish): >100 mg/L.
+    Rapidly escapes to atmosphere from water.'
   biodegradability: Not biodegradable in conventional sense. Oxidizes to CO2 in atmosphere.
   bioaccumulation: No bioaccumulation potential. Does not persist in environment.
   soil_mobility: Not applicable - gas escapes to atmosphere immediately.
-  atmospheric_fate: 'Oxidizes to CO2 via hydroxyl radical reaction. Atmospheric lifetime: 1-2 months. Contributes to tropospheric
-    ozone formation.'
+  atmospheric_fate: 'Oxidizes to CO2 via hydroxyl radical reaction. Atmospheric lifetime:
+    1-2 months. Contributes to tropospheric ozone formation.'
   ozone_depletion: false
-  global_warming_potential: Indirect effect via methane oxidation, but negligible GWP itself
+  global_warming_potential: Indirect effect via methane oxidation, but negligible
+    GWP itself
   reportable_releases:
     water: Not reportable (low aquatic persistence)
-    air: State-dependent. Many states require reporting large releases (e.g., >100 lbs/hr in some jurisdictions)
+    air: State-dependent. Many states require reporting large releases (e.g., >100
+      lbs/hr in some jurisdictions)
 detection_monitoring:
   sensor_types:
   - Electrochemical (most common)
@@ -263,8 +307,8 @@ detection_monitoring:
   - method: OSHA ID-209
     technique: GC-TCD (thermal conductivity)
     detection_limit: 2 ppm
-  odor_threshold: NO ODOR - Cannot be detected by smell. MUST use electronic monitors. Odorless nature makes CO extremely
-    dangerous.
+  odor_threshold: NO ODOR - Cannot be detected by smell. MUST use electronic monitors.
+    Odorless nature makes CO extremely dangerous.
 schema_version: 5.0.0
 content_type: compounds
 breadcrumb:

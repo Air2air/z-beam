@@ -1,12 +1,11 @@
 id: carbon-dioxide
 name: Carbon Dioxide
 display_name: Carbon Dioxide (CO₂)
-slug: carbon-dioxide
 chemical_formula: CO2
 cas_number: 124-38-9
 molecular_weight: 44.01
-datePublished: '2025-12-18T21:35:07.164110Z'
-dateModified: '2025-12-18T21:35:07.164110Z'
+datePublished: '2025-12-19T00:54:42.937453Z'
+dateModified: '2025-12-19T01:00:55.340344Z'
 category: asphyxiant
 subcategory: simple_asphyxiant
 hazard_class: asphyxiant
@@ -70,15 +69,53 @@ relationships:
     frequency: very_common
     severity: low
     typical_context: Complete combustion of hydrocarbons
+  chemical_properties:
+  - type: chemical_properties
+    id: carbon-dioxide-physical-data
+    url: /compounds/carbon-dioxide-physical-data
+    title: Carbon Dioxide Physical Data
+  health_effects:
+  - type: health_effects
+    id: carbon-dioxide-toxicology
+    url: /compounds/carbon-dioxide-toxicology
+    title: Carbon Dioxide Toxicology
+  environmental_impact:
+  - type: environmental_impact
+    id: carbon-dioxide-environmental-data
+    url: /compounds/carbon-dioxide-environmental-data
+    title: Carbon Dioxide Environmental Data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: carbon-dioxide-monitoring-methods
+    url: /compounds/carbon-dioxide-monitoring-methods
+    title: Carbon Dioxide Monitoring Methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: irritant-gas-low-concentration
+    overrides:
+      specific_compound: Carbon Dioxide
+      pel_ppm: 5000
+    url: /compounds/irritant-gas-low-concentration
+    title: Irritant Gas Low Concentration
+  emergency_response:
+  - type: emergency_response
+    id: flammable-gas-extremely
+    overrides:
+      specific_compound: Carbon Dioxide
+    url: /compounds/flammable-gas-extremely
+    title: Flammable Gas Extremely
 author:
   id: 1
 ppe_requirements:
-  respiratory: SCBA for >5% (50,000 ppm) or oxygen-deficient atmospheres. Not required for normal ambient levels.
-  skin: Insulated gloves for liquid/solid CO2 (dry ice) - cryogenic hazard. No protection needed for gas at normal levels.
+  respiratory: SCBA for >5% (50,000 ppm) or oxygen-deficient atmospheres. Not required
+    for normal ambient levels.
+  skin: Insulated gloves for liquid/solid CO2 (dry ice) - cryogenic hazard. No protection
+    needed for gas at normal levels.
   eye: Safety glasses for dry ice handling. No protection needed for gas.
-  minimum_level: Level D for normal operations, Level B for confined spaces or high concentrations
-  special_notes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates in low areas. Dry ice causes frostbite.
-    Physiological effects >1% concentration.
+  minimum_level: Level D for normal operations, Level B for confined spaces or high
+    concentrations
+  special_notes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates
+    in low areas. Dry ice causes frostbite. Physiological effects >1% concentration.
 physical_properties:
   boiling_point: -78.5°C (-109.3°F) sublimes at 1 atm
   melting_point: -56.6°C (-69.9°F) @ 5.1 atm
@@ -91,32 +128,39 @@ physical_properties:
   appearance: Colorless gas, white solid (dry ice)
   odor: Odorless
 emergency_response:
-  fire_hazard: Non-flammable. Used as fire suppressant. Cylinders may explode when heated.
-  fire_suppression: Not applicable. CO2 extinguishes fires. If cylinder in fire, cool with water spray from maximum distance
-    or evacuate - explosion hazard.
-  spill_procedures: 'Liquid/dry ice release: Ventilate area immediately. Evacuate low-lying areas - CO2 heavier than air.
-    Monitor oxygen levels. Do not touch dry ice - frostbite.'
-  exposure_immediate_actions: 'Remove to fresh air immediately. If not breathing, give artificial respiration. Administer
-    100% oxygen. Seek medical attention if symptoms persist. For dry ice contact: treat as frostbite - warm affected area
+  fire_hazard: Non-flammable. Used as fire suppressant. Cylinders may explode when
+    heated.
+  fire_suppression: Not applicable. CO2 extinguishes fires. If cylinder in fire, cool
+    with water spray from maximum distance or evacuate - explosion hazard.
+  spill_procedures: 'Liquid/dry ice release: Ventilate area immediately. Evacuate
+    low-lying areas - CO2 heavier than air. Monitor oxygen levels. Do not touch dry
+    ice - frostbite.'
+  exposure_immediate_actions: 'Remove to fresh air immediately. If not breathing,
+    give artificial respiration. Administer 100% oxygen. Seek medical attention if
+    symptoms persist. For dry ice contact: treat as frostbite - warm affected area
     gradually.'
-  environmental_hazards: Greenhouse gas. Contributes to ocean acidification. Generally non-toxic to wildlife at normal atmospheric
-    levels.
-  special_hazards: 'SIMPLE ASPHYXIANT - displaces oxygen. Heavier than air - accumulates in pits, tanks, confined spaces.
-    Physiological effects: >1% increased respiration, >5% headache/dizziness, >10% unconsciousness, >20-30% death. ODORLESS
-    - no warning. Dry ice causes severe frostbite.'
+  environmental_hazards: Greenhouse gas. Contributes to ocean acidification. Generally
+    non-toxic to wildlife at normal atmospheric levels.
+  special_hazards: 'SIMPLE ASPHYXIANT - displaces oxygen. Heavier than air - accumulates
+    in pits, tanks, confined spaces. Physiological effects: >1% increased respiration,
+    >5% headache/dizziness, >10% unconsciousness, >20-30% death. ODORLESS - no warning.
+    Dry ice causes severe frostbite.'
 storage_requirements:
   temperature_range: Store cylinders <52°C. Dry ice requires insulated storage <-78°C.
-  ventilation: Good ventilation essential. Outdoor storage preferred for large quantities. Monitor oxygen levels in storage
-    areas.
+  ventilation: Good ventilation essential. Outdoor storage preferred for large quantities.
+    Monitor oxygen levels in storage areas.
   incompatibilities:
   - Reactive metals (cesium, sodium, potassium)
   - Metal acetylides
   - Bases (reacts forming carbonates)
-  container_material: Steel cylinders for compressed gas. Insulated containers for dry ice.
+  container_material: Steel cylinders for compressed gas. Insulated containers for
+    dry ice.
   segregation: None required. Keep away from reactive metals.
-  quantity_limits: Cylinders per fire code. Dry ice quantities limited by storage capacity.
-  special_requirements: Cylinder restraints mandatory. Oxygen monitoring in storage areas. Post "SIMPLE ASPHYXIANT" signs.
-    Adequate ventilation critical. Never store in confined spaces without ventilation and O2 monitoring.
+  quantity_limits: Cylinders per fire code. Dry ice quantities limited by storage
+    capacity.
+  special_requirements: Cylinder restraints mandatory. Oxygen monitoring in storage
+    areas. Post "SIMPLE ASPHYXIANT" signs. Adequate ventilation critical. Never store
+    in confined spaces without ventilation and O2 monitoring.
 regulatory_classification:
   un_number: UN1013 (compressed gas), UN1845 (solid/dry ice)
   dot_hazard_class: 2.2 (Non-flammable gas)
@@ -173,16 +217,16 @@ reactivity:
   conditions_to_avoid:
   - High heat (cylinder explosion)
   - Reactive metals
-  reactivity_hazard: Generally non-reactive. Reacts with strong bases. May react with reactive metals. Solid CO2 causes embrittlement
-    of some materials.
+  reactivity_hazard: Generally non-reactive. Reacts with strong bases. May react with
+    reactive metals. Solid CO2 causes embrittlement of some materials.
 environmental_impact:
-  aquatic_toxicity: 'Low direct toxicity. LC50 (fish): >100 mg/L. Acidifies water (forms carbonic acid). High levels suffocate
-    aquatic life.'
+  aquatic_toxicity: 'Low direct toxicity. LC50 (fish): >100 mg/L. Acidifies water
+    (forms carbonic acid). High levels suffocate aquatic life.'
   biodegradability: Not applicable (natural component of carbon cycle).
   bioaccumulation: Does not bioaccumulate.
   soil_mobility: High mobility as gas. Absorbed by alkaline soils forming carbonates.
-  atmospheric_fate: 'Major greenhouse gas. Atmospheric residence: 30-95 years. Essential for photosynthesis. Removed by plants
-    and ocean absorption.'
+  atmospheric_fate: 'Major greenhouse gas. Atmospheric residence: 30-95 years. Essential
+    for photosynthesis. Removed by plants and ocean absorption.'
   ozone_depletion: false
   global_warming_potential: 1 (reference gas)
   reportable_releases:
@@ -209,7 +253,8 @@ detection_monitoring:
   - method: Detector tubes
     technique: Colorimetric
     detection_limit: 0.01%
-  odor_threshold: Not applicable - odorless at all concentrations. No warning property. MUST use instruments.
+  odor_threshold: Not applicable - odorless at all concentrations. No warning property.
+    MUST use instruments.
 schema_version: 5.0.0
 content_type: compounds
 breadcrumb:

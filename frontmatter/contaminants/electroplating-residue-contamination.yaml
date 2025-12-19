@@ -1,0 +1,354 @@
+id: electroplating-residue-contamination
+name: Electroplating Solution Residue
+category: metallic-coating
+subcategory: plating
+datePublished: '2025-12-19T00:21:10.696744Z'
+dateModified: '2025-12-19T01:00:58.825453Z'
+description: Electroplating-residue contamination, it arises from chemical deposits
+  in bath solutions during the plating process, and forms thin adherent layers on
+  metal surfaces. This residue, it distinguishes by crystalline structure and chemical
+  inertness from oxide scales or dust particles; on steel it embrittles surface, on
+  brass it corrodes selectively, while on copper it conducts poorly and still persists
+  stubbornly, so strong bonding resists mechanical removal. Laser cleaning ablates
+  residue precisely with pulsed energy, without damaging substrate, and thus restores
+  conductivity already.
+relationships:
+  related_materials:
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/steel-laser-cleaning
+    image: /images/materials/steel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/copper-laser-cleaning
+    image: /images/materials/copper.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/brass-laser-cleaning
+    image: /images/materials/brass.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  composition:
+  - Cyanides
+  - Metal Salts
+  - Brighteners
+  laser_properties:
+    laser_parameters:
+      beam_profile: flat_top
+      fluence_range:
+        max_j_cm2: 1.2
+        min_j_cm2: 0.3
+        recommended_j_cm2: 0.8
+      overlap_percentage: 50
+      polarization: circular
+      pulse_duration_range:
+        max_ns: 100
+        min_ns: 10
+        recommended_ns: 30
+      repetition_rate_khz:
+        max: 100
+        min: 20
+        recommended: 50
+      safety_margin_factor: 0.7
+      scan_speed_mm_s:
+        max: 2000
+        min: 500
+        recommended: 1000
+      spot_size_mm:
+        max: 0.2
+        min: 0.05
+        recommended: 0.1
+      wavelength_preference:
+      - 1064
+      - 532
+    optical_properties:
+      absorption_coefficient:
+        wavelength_1064nm: 850
+        wavelength_355nm: 18500
+        wavelength_532nm: 4200
+      reflectivity:
+        wavelength_1064nm: 0.15
+        wavelength_355nm: 0.02
+        wavelength_532nm: 0.08
+      refractive_index:
+        imaginary_part: 0.12
+        real_part: 1.65
+      transmission_depth: 11.8
+    removal_characteristics:
+      byproducts:
+      - compound: Metal oxides (various)
+        hazard_level: moderate
+        phase: solid
+      - compound: carbon-dioxide
+        hazard_level: low
+        phase: gas
+      - compound: H2O
+        hazard_level: low
+        phase: gas
+      - compound: nitrogen-oxides
+        hazard_level: moderate
+        phase: gas
+      damage_risk_to_substrate: low
+      primary_mechanism: thermal_ablation
+      process_speed:
+        area_coverage_rate_cm2_min: 240
+        typical_scan_speed_mm_s: 800
+      removal_efficiency:
+        diminishing_returns_after: 3
+        optimal_passes: 2
+        single_pass: 0.7
+      secondary_mechanisms:
+      - photochemical
+      - mechanical_spallation
+      surface_quality_after_removal:
+        color_change: 'no'
+        residual_stress: compressive
+        roughness_increase: minimal
+    safety_data:
+      fire_explosion_risk: low
+      fumes_generated:
+      - compound: Nickel compounds (as Ni)
+        concentration_mg_m3: 0.5-5.0
+        exposure_limit_mg_m3: 0.1
+        hazard_class: carcinogenic
+      - compound: Chromium VI compounds
+        concentration_mg_m3: 0.1-2.0
+        exposure_limit_mg_m3: 0.005
+        hazard_class: carcinogenic
+      - compound: Cyanide compounds (as CN)
+        concentration_mg_m3: 0.5-3.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: toxic
+      - compound: Hydrogen cyanide
+        concentration_mg_m3: 0.1-1.0
+        exposure_limit_mg_m3: 11.0
+        hazard_class: toxic
+      - compound: Metal oxides (mixed)
+        concentration_mg_m3: 2.0-10.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+      particulate_generation:
+        respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+      ppe_requirements:
+        eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+      substrate_compatibility_warnings:
+      - Laser cleaning may generate toxic hydrogen cyanide gas from cyanide-based
+        plating residues
+      - Thermal decomposition of chromium-plated surfaces can produce carcinogenic
+        hexavalent chromium
+      - Nickel compounds become airborne and present inhalation cancer risk
+      toxic_gas_risk: high
+      ventilation_requirements:
+        exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 15
+      visibility_hazard: moderate
+    thermal_properties:
+      ablation_threshold:
+        pulse_duration_100ns: 1.2
+        pulse_duration_10ns: 0.6
+        wavelength_1064nm: 0.8
+      decomposition_temperature: 300
+      heat_affected_zone_depth: 15
+      melting_point: null
+      specific_heat: 1200
+      thermal_conductivity: 0.15
+      thermal_diffusivity: 0.12
+      vaporization_temperature: 450
+  prohibited_materials:
+  - Aluminum
+  - Plastics
+  valid_materials:
+  - Steel
+  - Brass
+  - Copper
+  visual_characteristics:
+    appearance_on_categories:
+      ceramic:
+        appearance: It presents as shiny, metallic coatings or dull stains, often
+          in colors like gold or nickel, that may flake or peel on glazed surfaces.
+        coverage: Coverage is usually partial and inconsistent, with higher amounts
+          in porous regions and less on smooth, glazed parts.
+        pattern: Patterns are often spotty or streaky, concentrating in unglazed areas
+          or along cracks where absorption occurs.
+      composite:
+        appearance: It shows as blotchy, metallic stains or films that may highlight
+          fiber or filler patterns, altering the composite's uniform look.
+        coverage: Coverage is variable and patchy, often concentrated in porous or
+          rough zones of the composite.
+        pattern: Distribution is irregular, with patches or streaks that align with
+          material heterogeneity, such as along fiber boundaries.
+      concrete:
+        appearance: Residue appears as glossy, metallic films or powdery deposits
+          that can darken or stain the concrete, often in speckled patterns.
+        coverage: Coverage is usually partial and varied, with dense spots in textured
+          regions and little on smooth surfaces.
+        pattern: It distributes patchily, concentrating in pores, cracks, or rough
+          areas where residue adheres more easily.
+      fabric:
+        appearance: It manifests as stiff, discolored patches with metallic sheens
+          or stains, potentially hardening the fabric and altering its color.
+        coverage: Coverage is typically low and uneven, with isolated patches and
+          minimal overall spread.
+        pattern: Patterns are spotty or streaky, following weave patterns or areas
+          of direct contact with the solution.
+      glass:
+        appearance: Residue appears as iridescent, cloudy, or rainbow-hued films,
+          sometimes with gritty textures that reduce transparency and clarity.
+        coverage: Coverage can range from nearly uniform thin layers to partial streaks,
+          with variation based on application method.
+        pattern: It forms uniform thin films or irregular streaks, often outlining
+          drip marks or edges where solution dried.
+      metal:
+        appearance: Electroplating residue appears as dull, discolored patches or
+          streaks, often with a hazy or cloudy finish that contrasts with the metal's
+          natural luster.
+        coverage: Coverage is usually partial and uneven, ranging from small spots
+          to larger areas, with significant variation across the surface.
+        pattern: It typically forms irregular streaks or patches, following the flow
+          paths of the solution during application or drying.
+      mineral:
+        appearance: It shows as shiny, metallic coatings or dull films that may obscure
+          crystal faces or natural colors, sometimes with a crusty texture.
+        coverage: Coverage is often low and uneven, focusing on exposed or fractured
+          areas with minimal uniform spread.
+        pattern: Patterns are irregular, with spots or streaks following mineral cleavage
+          planes or surface imperfections.
+      plastic:
+        appearance: Residue appears as oily, smeared films or powdery deposits in
+          metallic shades, potentially causing discoloration or a tacky feel on the
+          plastic.
+        coverage: Coverage is typically low and uneven, with spots and streaks that
+          vary widely across the material.
+        pattern: It distributes as random patches or smears, often following surface
+          contours or static charge areas.
+      rubber:
+        appearance: Residue appears as sticky, shiny coatings or dull crusts in metallic
+          colors, which can penetrate and discolor the rubber surface.
+        coverage: Coverage is generally sparse and localized, with high variation
+          due to rubber's elasticity and surface texture.
+        pattern: It forms blotches or streaks, often in creases or textured areas
+          where solution is trapped.
+      semiconductor:
+        appearance: Residue appears as thin, hazy films or speckles in metallic hues,
+          which can interfere with electrical properties and surface smoothness.
+        coverage: Coverage ranges from nearly uniform micro-layers to isolated patches,
+          with precise variation critical for performance.
+        pattern: It forms uniform thin layers or localized spots, often aligned with
+          processing steps or contamination sources.
+      specialty:
+        appearance: Residue varies widely but often appears as irregular metallic
+          stains or films, tailored to the material's unique properties like conductivity
+          or reflectivity.
+        coverage: Coverage is highly variable and specific, designed for functional
+          needs but often uneven in practice.
+        pattern: Distribution is material-dependent, typically patchy or streaky,
+          influenced by surface treatments and environmental factors.
+      stone:
+        appearance: It shows up as glossy or matte films, often in metallic colors,
+          creating a speckled or stained look that may obscure the stone's natural
+          texture.
+        coverage: Coverage is typically low to moderate and uneven, with dense patches
+          in recessed areas and minimal coverage on smooth surfaces.
+        pattern: Distribution is patchy or streaky, following surface irregularities
+          and crevices where residue accumulates.
+      wood:
+        appearance: Residue manifests as shiny, sticky, or crusty deposits, often
+          in metallic hues like silver or copper, and can darken or stain the wood
+          surface.
+        coverage: Coverage is generally sparse and localized, with high variation
+          depending on wood porosity and exposure.
+        pattern: It appears as random spots or streaks, concentrating in grain patterns
+          or low-lying areas where solution pools.
+  regulatory_standards_detail:
+  - id: osha-ppe-requirements
+    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    short_title: OSHA PPE Requirements
+    authority: OSHA
+    authority_full: Occupational Safety and Health Administration
+    agency_type: federal
+    country: United States
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+    image: /images/logo/logo-org-osha.png
+    description: Federal requirements for personal protective equipment in construction
+      and industrial operations
+    scope: Eye protection, respiratory protection, protective clothing
+    applicability:
+    - All workplaces using laser equipment
+    - Operators and nearby personnel
+    - Maintenance personnel
+    compliance_requirements:
+    - Laser safety eyewear rated for wavelength
+    - Protective clothing for skin exposure risk
+    - Respiratory protection for fume/particulate exposure
+    - Employer-provided PPE at no cost to employees
+    - PPE training and fit testing
+    compliance_level: mandatory
+    enforcement: OSHA inspections and citations
+    penalties: Up to $15,625 per serious violation
+    effective_date: 1971-04-28
+    last_amended: 2023-01-23
+    jurisdiction: United States (federal)
+    related_standards:
+    - ansi-z87-1-eye-protection
+    - ansi-z136-1-laser-safety
+  - id: ansi-z136-1-laser-safety
+    title: ANSI Z136.1 - Safe Use of Lasers
+    short_title: ANSI Laser Safety Standard
+    authority: ANSI
+    authority_full: American National Standards Institute
+    agency_type: standards_body
+    country: United States
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+    description: Comprehensive safety standard for laser operation, maintenance, and
+      safety programs
+    scope: Hazard evaluation, control measures, safety procedures, training
+    applicability:
+    - All laser operators and safety officers
+    - Laser safety programs
+    - Facility design and operations
+    compliance_requirements:
+    - Laser safety officer designation
+    - Hazard evaluation and classification
+    - Nominal hazard zone calculation
+    - Standard operating procedures
+    - Laser safety training program
+    - Medical surveillance for high-power operations
+    - Controlled access to laser areas
+    compliance_level: recommended
+    adoption: Widely adopted, referenced by OSHA
+    effective_date: 2022-08-01
+    edition: 2022 edition
+    replaces: ANSI Z136.1-2014
+    jurisdiction: International (US-origin)
+    related_standards:
+    - iec-60825-laser-safety
+    - osha-ppe-requirements
+author:
+  id: 3
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Metallic Coating
+  href: /contaminants/metallic-coating
+- label: Plating
+  href: /contaminants/metallic-coating/plating
+- label: Electroplating Solution Residue
+  href: /contaminants/metallic-coating/plating/electroplating-residue-contamination

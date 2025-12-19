@@ -1,12 +1,11 @@
 id: vocs
 name: Volatile Organic Compounds
 display_name: VOCs
-slug: vocs
 chemical_formula: Various
 cas_number: N/A
 molecular_weight: null
-datePublished: '2025-12-18T21:35:07.175078Z'
-dateModified: '2025-12-18T21:35:07.175078Z'
+datePublished: '2025-12-19T00:54:42.949409Z'
+dateModified: '2025-12-19T01:00:56.025343Z'
 category: irritant
 subcategory: organic_vapor
 hazard_class: irritant
@@ -84,16 +83,54 @@ relationships:
     frequency: common
     severity: moderate
     typical_context: Thermal decomposition products
+  chemical_properties:
+  - type: chemical_properties
+    id: vocs-physical-data
+    url: /compounds/vocs-physical-data
+    title: Vocs Physical Data
+  health_effects:
+  - type: health_effects
+    id: vocs-toxicology
+    url: /compounds/vocs-toxicology
+    title: Vocs Toxicology
+  environmental_impact:
+  - type: environmental_impact
+    id: vocs-environmental-data
+    url: /compounds/vocs-environmental-data
+    title: Vocs Environmental Data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: vocs-monitoring-methods
+    url: /compounds/vocs-monitoring-methods
+    title: Vocs Monitoring Methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: irritant-gas-low-concentration
+    overrides:
+      specific_compound: Volatile Organic Compounds
+      pel_ppm: null
+    url: /compounds/irritant-gas-low-concentration
+    title: Irritant Gas Low Concentration
+  emergency_response:
+  - type: emergency_response
+    id: flammable-gas-extremely
+    overrides:
+      specific_compound: Volatile Organic Compounds
+    url: /compounds/flammable-gas-extremely
+    title: Flammable Gas Extremely
 author:
   id: 2
 ppe_requirements:
-  respiratory: Organic vapor respirator with appropriate cartridge for known VOC concentrations. SCBA for unknown mixtures
-    or high concentrations.
-  skin: Nitrile or butyl rubber gloves depending on specific VOC. Chemical-resistant clothing for liquid contact.
+  respiratory: Organic vapor respirator with appropriate cartridge for known VOC concentrations.
+    SCBA for unknown mixtures or high concentrations.
+  skin: Nitrile or butyl rubber gloves depending on specific VOC. Chemical-resistant
+    clothing for liquid contact.
   eye: Chemical safety goggles, face shield for splash hazard.
-  minimum_level: Level C for known low concentrations, Level B for unknown mixtures or high vapor concentrations
-  special_notes: VOCs vary widely in toxicity. Mixture effects unpredictable. Some VOCs carcinogenic (benzene, formaldehyde).
-    Others neurotoxic (toluene, xylene). Identify specific VOCs when possible.
+  minimum_level: Level C for known low concentrations, Level B for unknown mixtures
+    or high vapor concentrations
+  special_notes: VOCs vary widely in toxicity. Mixture effects unpredictable. Some
+    VOCs carcinogenic (benzene, formaldehyde). Others neurotoxic (toluene, xylene).
+    Identify specific VOCs when possible.
 physical_properties:
   boiling_point: Variable (<260°C by EPA definition)
   melting_point: Variable
@@ -106,29 +143,33 @@ physical_properties:
   appearance: Colorless to colored liquids or gases
   odor: Variable - sweet, pungent, solvent-like, or odorless
 emergency_response:
-  fire_hazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel to ignition sources. Explosive mixtures
-    possible.
-  fire_suppression: Use dry chemical, CO2, foam appropriate for specific VOC. Water spray to cool containers. Prevent runoff
-    contamination.
-  spill_procedures: Eliminate ignition sources. Ventilate area. Identify VOCs if possible. Contain with absorbent. Dispose
-    as hazardous waste. Monitor air quality.
-  exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water. Remove contaminated clothing. Wash skin. Seek
-    medical attention - inform physician of specific VOCs if known. Monitor for delayed effects.'
-  environmental_hazards: Many VOCs toxic to aquatic life. Contribute to ozone formation and smog. Bioaccumulate. Contaminate
-    groundwater.
-  special_hazards: Complex mixtures with unpredictable effects. Some carcinogenic (benzene, formaldehyde, 1,3-butadiene).
-    Others neurotoxic (toluene, xylene, styrene). Respiratory irritants. Contribute to indoor air quality problems. Chronic
-    exposure health effects vary widely.
+  fire_hazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel
+    to ignition sources. Explosive mixtures possible.
+  fire_suppression: Use dry chemical, CO2, foam appropriate for specific VOC. Water
+    spray to cool containers. Prevent runoff contamination.
+  spill_procedures: Eliminate ignition sources. Ventilate area. Identify VOCs if possible.
+    Contain with absorbent. Dispose as hazardous waste. Monitor air quality.
+  exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water. Remove
+    contaminated clothing. Wash skin. Seek medical attention - inform physician of
+    specific VOCs if known. Monitor for delayed effects.'
+  environmental_hazards: Many VOCs toxic to aquatic life. Contribute to ozone formation
+    and smog. Bioaccumulate. Contaminate groundwater.
+  special_hazards: Complex mixtures with unpredictable effects. Some carcinogenic
+    (benzene, formaldehyde, 1,3-butadiene). Others neurotoxic (toluene, xylene, styrene).
+    Respiratory irritants. Contribute to indoor air quality problems. Chronic exposure
+    health effects vary widely.
 storage_requirements:
   temperature_range: Cool storage below 25°C typical. Refrigerate if highly volatile.
   ventilation: Local exhaust ventilation. Outdoor storage preferred for large quantities.
   incompatibilities:
-  - 'Variable - check specific VOC SDS. Generally: oxidizers, strong acids, strong bases'
+  - 'Variable - check specific VOC SDS. Generally: oxidizers, strong acids, strong
+    bases'
   container_material: Depends on specific VOC. Metal or glass typically. Check compatibility.
   segregation: Separate from oxidizers. Flammable storage if applicable.
   quantity_limits: Follow NFPA 30 for flammable/combustible liquids. Minimize quantities.
-  special_requirements: Label with specific VOC contents. Post appropriate hazard signs. Secondary containment for liquids.
-    Gas detection for enclosed spaces. Emergency procedures.
+  special_requirements: Label with specific VOC contents. Post appropriate hazard
+    signs. Secondary containment for liquids. Gas detection for enclosed spaces. Emergency
+    procedures.
 regulatory_classification:
   un_number: Variable by specific VOC
   dot_hazard_class: Variable (commonly Class 3 Flammable)
@@ -139,7 +180,8 @@ regulatory_classification:
     reactivity: 0-2 (Variable)
     special: Variable
   epa_hazard_categories:
-  - Variable - may include carcinogenicity, neurotoxicity, reproductive toxicity, aquatic toxicity
+  - Variable - may include carcinogenicity, neurotoxicity, reproductive toxicity,
+    aquatic toxicity
   sara_title_iii: Many VOCs listed
   cercla_rq: Variable by specific VOC
   rcra_code: Many VOCs have codes (U-series, F-series)
@@ -190,15 +232,16 @@ reactivity:
   - Ignition sources
   - Incompatible materials
   - Oxidizers
-  reactivity_hazard: Variable. Many form explosive mixtures with air. Some react violently with oxidizers. Peroxide formation
-    possible in ethers.
+  reactivity_hazard: Variable. Many form explosive mixtures with air. Some react violently
+    with oxidizers. Peroxide formation possible in ethers.
 environmental_impact:
-  aquatic_toxicity: 'Variable. Many VOCs toxic to aquatic life (LC50: 1-1000 mg/L range).'
+  aquatic_toxicity: 'Variable. Many VOCs toxic to aquatic life (LC50: 1-1000 mg/L
+    range).'
   biodegradability: Variable. Some readily biodegradable, others persistent.
   bioaccumulation: 'Variable. Log Kow range: -1 to 7. Lipophilic VOCs bioaccumulate.'
   soil_mobility: Variable. Many volatile from soil. Some adsorb strongly.
-  atmospheric_fate: 'Photochemical reactions. Form ozone and smog. Atmospheric half-life: hours to months. Major air quality
-    concern.'
+  atmospheric_fate: 'Photochemical reactions. Form ozone and smog. Atmospheric half-life:
+    hours to months. Major air quality concern.'
   ozone_depletion: Some VOCs deplete ozone (CFCs, halons - now banned)
   global_warming_potential: Some VOCs are greenhouse gases
   reportable_releases:
@@ -229,8 +272,8 @@ detection_monitoring:
   - method: EPA Method 8260
     technique: GC-MS (water samples)
     detection_limit: µg/L levels
-  odor_threshold: Variable. Some VOCs odorless (benzene), others pungent at low ppm. Olfactory fatigue common. Do not rely
-    on odor.
+  odor_threshold: Variable. Some VOCs odorless (benzene), others pungent at low ppm.
+    Olfactory fatigue common. Do not rely on odor.
 schema_version: 5.0.0
 content_type: compounds
 breadcrumb:

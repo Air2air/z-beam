@@ -1,104 +1,183 @@
 id: Maple
-slug: maple
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-18T21:35:08.622006Z'
-dateModified: '2025-12-18T21:35:08.622006Z'
+datePublished: '2025-12-19T00:21:14.906332Z'
+dateModified: '2025-12-19T01:01:20.907363Z'
 relationships:
   related_materials: []
   related_contaminants: []
-machine_settings:
-  powerRange:
-    description: Optimal average power for surface cleaning without charring
-    unit: W
-    value: 45
-  wavelength:
-    description: Near-IR wavelength for controlled wood ablation with minimal thermal damage
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Optimal beam diameter for precise cleaning control on wood surface
-    unit: μm
-    value: 80
-  repetitionRate:
-    description: Balanced repetition rate for efficient cleaning with controlled thermal input
-    unit: kHz
-    value: 50
-  energyDensity:
-    description: Fluence threshold for effective contaminant removal without wood damage
-    unit: J/cm²
-    value: 2.8
-  pulseWidth:
-    description: Nanosecond pulse duration for efficient contaminant removal with minimal substrate heating
-    unit: ns
-    value: 12
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Recommended number of passes for complete surface cleaning
-    unit: passes
-    value: 2
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: Charring and carbonization
-    severity: high
-    threshold_temperature: 250-300°C
-    impact: Wood chars at low temperatures leaving black marks and structural damage
-    solutions:
-    - Use pulse mode with 2-5 second cooling between passes
-    - Reduce power by 30-40% compared to metals
-    - Increase scan speed to reduce dwell time
-    - Monitor surface for discoloration; stop if browning occurs
-  - challenge: Slow thermal diffusivity
-    severity: medium
-    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
-    impact: Heat accumulates rapidly causing thermal damage zones
-    solutions:
-    - Increase cooling time between passes
-    - Use lower repetition rates (<20 kHz)
-    - Apply crosshatch patterns to distribute heat
-  surface_characteristics:
-  - challenge: Grain direction sensitivity
-    severity: medium
-    variation: 20-40% absorption variation by grain orientation
-    impact: Laser absorption varies significantly with grain direction
-    solutions:
-    - Scan parallel to grain for consistent results
-    - Use crosshatch pattern (0° and 90°) for uniform cleaning
-    - Test on scrap to determine optimal scan direction
-  - challenge: Porous structure with deep contamination
-    severity: medium
-    porosity_range: 12-65% (softwoods highest)
-    impact: Contaminants penetrate deep into wood structure
-    solutions:
-    - Multiple passes with progressive power increase
-    - Reduce scan speed for deeper penetration (600 mm/s)
-    - Chemical pre-treatment for deep-seated contamination
-  contamination_challenges:
-  - challenge: Varnish and coating removal
-    severity: medium
-    impact: Thick coatings require multiple passes and generate smoke/fumes
-    solutions:
-    - First pass 80W fast (1500 mm/s) for bulk removal
-    - Second pass 60W slow (800 mm/s) for residue
-    - Use fume extraction to prevent redeposition
-    - Limit to 2-3 passes maximum to avoid substrate damage
-settings_description: When laser cleaning Maple, I've found gentle pulses work best. This hardwood's tight grain absorbs energy
-  evenly, unlike looser woods that char fast. It brings back finishes on furniture or instruments without splintering. Tends
-  to heat slowly due to low conductivity compared to denser hardwoods. So, keep passes light. Watch for overexposure at the
-  end—it can dull the natural luster if you push too hard.
+  regulatory_standards:
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+    title: Osha Ppe Requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+    title: Ansi Z136 1 Laser Safety
+  machine_settings:
+    powerRange:
+      description: Optimal average power for surface cleaning without charring
+      unit: W
+      value: 45
+    wavelength:
+      description: Near-IR wavelength for controlled wood ablation with minimal thermal
+        damage
+      unit: nm
+      value: 1064
+    spotSize:
+      description: Optimal beam diameter for precise cleaning control on wood surface
+      unit: μm
+      value: 80
+    repetitionRate:
+      description: Balanced repetition rate for efficient cleaning with controlled
+        thermal input
+      unit: kHz
+      value: 50
+    energyDensity:
+      description: Fluence threshold for effective contaminant removal without wood
+        damage
+      unit: J/cm²
+      value: 2.8
+    pulseWidth:
+      description: Nanosecond pulse duration for efficient contaminant removal with
+        minimal substrate heating
+      unit: ns
+      value: 12
+    scanSpeed:
+      description: Optimal scanning speed for uniform cleaning coverage
+      unit: mm/s
+      value: 500
+    passCount:
+      description: Recommended number of passes for complete surface cleaning
+      unit: passes
+      value: 2
+    overlapRatio:
+      description: Optimal beam overlap for uniform cleaning without excessive thermal
+        buildup
+      unit: '%'
+      value: 50
+  challenges:
+    thermal_management:
+    - challenge: Charring and carbonization
+      severity: high
+      threshold_temperature: 250-300°C
+      impact: Wood chars at low temperatures leaving black marks and structural damage
+      solutions:
+      - Use pulse mode with 2-5 second cooling between passes
+      - Reduce power by 30-40% compared to metals
+      - Increase scan speed to reduce dwell time
+      - Monitor surface for discoloration; stop if browning occurs
+    - challenge: Slow thermal diffusivity
+      severity: medium
+      property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
+      impact: Heat accumulates rapidly causing thermal damage zones
+      solutions:
+      - Increase cooling time between passes
+      - Use lower repetition rates (<20 kHz)
+      - Apply crosshatch patterns to distribute heat
+    surface_characteristics:
+    - challenge: Grain direction sensitivity
+      severity: medium
+      variation: 20-40% absorption variation by grain orientation
+      impact: Laser absorption varies significantly with grain direction
+      solutions:
+      - Scan parallel to grain for consistent results
+      - Use crosshatch pattern (0° and 90°) for uniform cleaning
+      - Test on scrap to determine optimal scan direction
+    - challenge: Porous structure with deep contamination
+      severity: medium
+      porosity_range: 12-65% (softwoods highest)
+      impact: Contaminants penetrate deep into wood structure
+      solutions:
+      - Multiple passes with progressive power increase
+      - Reduce scan speed for deeper penetration (600 mm/s)
+      - Chemical pre-treatment for deep-seated contamination
+    contamination_challenges:
+    - challenge: Varnish and coating removal
+      severity: medium
+      impact: Thick coatings require multiple passes and generate smoke/fumes
+      solutions:
+      - First pass 80W fast (1500 mm/s) for bulk removal
+      - Second pass 60W slow (800 mm/s) for residue
+      - Use fume extraction to prevent redeposition
+      - Limit to 2-3 passes maximum to avoid substrate damage
+  settings_description: When laser cleaning Maple, I've found gentle pulses work best.
+    This hardwood's tight grain absorbs energy evenly, unlike looser woods that char
+    fast. It brings back finishes on furniture or instruments without splintering.
+    Tends to heat slowly due to low conductivity compared to denser hardwoods. So,
+    keep passes light. Watch for overexposure at the end—it can dull the natural luster
+    if you push too hard.
+  regulatory_standards_detail:
+  - id: osha-ppe-requirements
+    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    short_title: OSHA PPE Requirements
+    authority: OSHA
+    authority_full: Occupational Safety and Health Administration
+    agency_type: federal
+    country: United States
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+    image: /images/logo/logo-org-osha.png
+    description: Federal requirements for personal protective equipment in construction
+      and industrial operations
+    scope: Eye protection, respiratory protection, protective clothing
+    applicability:
+    - All workplaces using laser equipment
+    - Operators and nearby personnel
+    - Maintenance personnel
+    compliance_requirements:
+    - Laser safety eyewear rated for wavelength
+    - Protective clothing for skin exposure risk
+    - Respiratory protection for fume/particulate exposure
+    - Employer-provided PPE at no cost to employees
+    - PPE training and fit testing
+    compliance_level: mandatory
+    enforcement: OSHA inspections and citations
+    penalties: Up to $15,625 per serious violation
+    effective_date: 1971-04-28
+    last_amended: 2023-01-23
+    jurisdiction: United States (federal)
+    related_standards:
+    - ansi-z87-1-eye-protection
+    - ansi-z136-1-laser-safety
+  - id: ansi-z136-1-laser-safety
+    title: ANSI Z136.1 - Safe Use of Lasers
+    short_title: ANSI Laser Safety Standard
+    authority: ANSI
+    authority_full: American National Standards Institute
+    agency_type: standards_body
+    country: United States
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+    description: Comprehensive safety standard for laser operation, maintenance, and
+      safety programs
+    scope: Hazard evaluation, control measures, safety procedures, training
+    applicability:
+    - All laser operators and safety officers
+    - Laser safety programs
+    - Facility design and operations
+    compliance_requirements:
+    - Laser safety officer designation
+    - Hazard evaluation and classification
+    - Nominal hazard zone calculation
+    - Standard operating procedures
+    - Laser safety training program
+    - Medical surveillance for high-power operations
+    - Controlled access to laser areas
+    compliance_level: recommended
+    adoption: Widely adopted, referenced by OSHA
+    effective_date: 2022-08-01
+    edition: 2022 edition
+    replaces: ANSI Z136.1-2014
+    jurisdiction: International (US-origin)
+    related_standards:
+    - iec-60825-laser-safety
+    - osha-ppe-requirements
+  seo_description: When laser cleaning Maple, I've found gentle pulses work best.
+  excerpt: When laser cleaning Maple, I've found gentle pulses work best. This hardwood's
+    tight grain absorbs energy evenly, unlike looser woods that char fast. It brings
+    back finishes on furniture or instruments without splintering. Tends to heat slowly
+    due to low conductivity compared to denser hardwoods. So, keep passes light. Watch...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-seo_description: When laser cleaning Maple, I've found gentle pulses work best.
-excerpt: When laser cleaning Maple, I've found gentle pulses work best. This hardwood's tight grain absorbs energy evenly,
-  unlike looser woods that char fast. It brings back finishes on furniture or instruments without splintering. Tends to heat
-  slowly due to low conductivity compared to denser hardwoods. So, keep passes light. Watch...

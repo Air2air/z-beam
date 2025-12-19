@@ -1,118 +1,197 @@
 id: Dysprosium
-slug: dysprosium
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-18T21:35:08.436389Z'
-dateModified: '2025-12-18T21:35:08.436389Z'
+datePublished: '2025-12-19T00:21:14.390232Z'
+dateModified: '2025-12-19T01:01:20.029610Z'
 relationships:
   related_materials: []
   related_contaminants: []
-machine_settings:
-  powerRange:
-    description: Optimal average power for Dysprosium oxide removal without substrate damage
-    unit: W
-    value: 95
-  wavelength:
-    description: Near-IR wavelength optimized for Dysprosium's absorption characteristics
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Beam spot diameter for precise cleaning control
-    unit: μm
-    value: 80
-  repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage
-    unit: kHz
-    value: 50
-  fluenceThreshold:
-    description: Minimum fluence required for effective Dysprosium oxide removal
-    unit: J/cm²
-    value: 2.5
-  pulseWidth:
-    description: Nanosecond pulse duration for efficient oxide layer ablation
-    unit: ns
-    value: 12
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Recommended number of passes for thorough cleaning
-    unit: passes
-    value: 3
-  overlapRatio:
-    description: Optimal beam overlap for complete surface coverage
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: Rapid oxidation and pyrophoricity
-    severity: critical
-    threshold_temperature: Above 150-300°C causes spontaneous ignition in air
-    impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
-    solutions:
-    - Process in inert atmosphere (argon or nitrogen) or high vacuum
-    - Use pulse mode with 10-15 second cooling to prevent sustained heating
-    - Keep surface temperature below 150°C monitored with IR camera
-    - Have fire suppression ready for pyrophoric materials
-    - Immediate passivation after cleaning to prevent further oxidation
-  - challenge: Variable thermal properties across series
-    severity: medium
-    property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
-    impact: Different lanthanides require different cooling strategies
-    solutions:
-    - Light lanthanides (La, Ce, Pr) require more cooling time
-    - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
-    - Adjust parameters by specific element, not just category
-    - Test on small area to determine optimal cooling requirements
-  surface_characteristics:
-  - challenge: Oxide layer formation and removal
-    severity: high
-    impact: Surface oxidizes within seconds to minutes forming opaque layer
-    solutions:
-    - Clean in controlled atmosphere to prevent immediate reoxidation
-    - Multiple passes may be required as oxide reforms between passes
-    - Oxide removal threshold (1-3 J/cm²) lower than metal substrate (2-5 J/cm²)
-    - Chemical passivation immediately after cleaning
-    - Store in inert atmosphere or vacuum after processing
-  - challenge: Magnetic property sensitivity
-    severity: high
-    impact: Heating above Curie temperature permanently alters magnetic properties
-    solutions:
-    - Monitor temperature strictly; Nd magnets lose magnetism above 310-400°C
-    - Use ultrashort pulses (picosecond) for minimal heat-affected zone
-    - Reduce power by 60-70% compared to non-magnetic metals
-    - Test magnetic properties before and after cleaning to verify preservation
-  contamination_challenges:
-  - challenge: High-value material recovery
-    severity: medium
-    impact: Rare-earth elements extremely valuable; contamination removal must preserve material
-    solutions:
-    - First pass 15W very slow (500 mm/s) for assessment
-    - Gradual power increase (15W → 25W → 35W) across multiple passes
-    - Collect all ablated material for potential recovery
-    - Document process for traceability and quality control
-    - Consider chemical pre-treatment to reduce laser exposure
-  - challenge: Strategic material handling requirements
-    severity: medium
-    impact: Export-controlled materials require documentation and secure handling
-    solutions:
-    - Clean in controlled access facility
-    - Document all processing parameters and material quantities
-    - Secure storage of cleaned materials
-    - Follow applicable export control regulations
-    - Chain of custody documentation for high-value materials
-settings_description: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity.
-  This shiny surface bounces most energy away, so start low to build absorption gradually. We've found that keeps the dense
-  material from overheating locally, given its poor heat spreading. Watch out mid-process for uneven spots—adjust scan speed
-  slower there to avoid pitting. Finish with multiple light passes. This brings back the finish without warping its tough
-  structure.
+  regulatory_standards:
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+    title: Osha Ppe Requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+    title: Ansi Z136 1 Laser Safety
+  machine_settings:
+    powerRange:
+      description: Optimal average power for Dysprosium oxide removal without substrate
+        damage
+      unit: W
+      value: 95
+    wavelength:
+      description: Near-IR wavelength optimized for Dysprosium's absorption characteristics
+      unit: nm
+      value: 1064
+    spotSize:
+      description: Beam spot diameter for precise cleaning control
+      unit: μm
+      value: 80
+    repetitionRate:
+      description: Optimal repetition rate for continuous cleaning coverage
+      unit: kHz
+      value: 50
+    fluenceThreshold:
+      description: Minimum fluence required for effective Dysprosium oxide removal
+      unit: J/cm²
+      value: 2.5
+    pulseWidth:
+      description: Nanosecond pulse duration for efficient oxide layer ablation
+      unit: ns
+      value: 12
+    scanSpeed:
+      description: Optimal scanning speed for uniform cleaning
+      unit: mm/s
+      value: 500
+    passCount:
+      description: Recommended number of passes for thorough cleaning
+      unit: passes
+      value: 3
+    overlapRatio:
+      description: Optimal beam overlap for complete surface coverage
+      unit: '%'
+      value: 50
+  challenges:
+    thermal_management:
+    - challenge: Rapid oxidation and pyrophoricity
+      severity: critical
+      threshold_temperature: Above 150-300°C causes spontaneous ignition in air
+      impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine
+        particles pyrophoric
+      solutions:
+      - Process in inert atmosphere (argon or nitrogen) or high vacuum
+      - Use pulse mode with 10-15 second cooling to prevent sustained heating
+      - Keep surface temperature below 150°C monitored with IR camera
+      - Have fire suppression ready for pyrophoric materials
+      - Immediate passivation after cleaning to prevent further oxidation
+    - challenge: Variable thermal properties across series
+      severity: medium
+      property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
+      impact: Different lanthanides require different cooling strategies
+      solutions:
+      - Light lanthanides (La, Ce, Pr) require more cooling time
+      - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
+      - Adjust parameters by specific element, not just category
+      - Test on small area to determine optimal cooling requirements
+    surface_characteristics:
+    - challenge: Oxide layer formation and removal
+      severity: high
+      impact: Surface oxidizes within seconds to minutes forming opaque layer
+      solutions:
+      - Clean in controlled atmosphere to prevent immediate reoxidation
+      - Multiple passes may be required as oxide reforms between passes
+      - Oxide removal threshold (1-3 J/cm²) lower than metal substrate (2-5 J/cm²)
+      - Chemical passivation immediately after cleaning
+      - Store in inert atmosphere or vacuum after processing
+    - challenge: Magnetic property sensitivity
+      severity: high
+      impact: Heating above Curie temperature permanently alters magnetic properties
+      solutions:
+      - Monitor temperature strictly; Nd magnets lose magnetism above 310-400°C
+      - Use ultrashort pulses (picosecond) for minimal heat-affected zone
+      - Reduce power by 60-70% compared to non-magnetic metals
+      - Test magnetic properties before and after cleaning to verify preservation
+    contamination_challenges:
+    - challenge: High-value material recovery
+      severity: medium
+      impact: Rare-earth elements extremely valuable; contamination removal must preserve
+        material
+      solutions:
+      - First pass 15W very slow (500 mm/s) for assessment
+      - Gradual power increase (15W → 25W → 35W) across multiple passes
+      - Collect all ablated material for potential recovery
+      - Document process for traceability and quality control
+      - Consider chemical pre-treatment to reduce laser exposure
+    - challenge: Strategic material handling requirements
+      severity: medium
+      impact: Export-controlled materials require documentation and secure handling
+      solutions:
+      - Clean in controlled access facility
+      - Document all processing parameters and material quantities
+      - Secure storage of cleaned materials
+      - Follow applicable export control regulations
+      - Chain of custody documentation for high-value materials
+  settings_description: When laser cleaning Dysprosium, we typically begin with a
+    gentle power setup to handle its high reflectivity. This shiny surface bounces
+    most energy away, so start low to build absorption gradually. We've found that
+    keeps the dense material from overheating locally, given its poor heat spreading.
+    Watch out mid-process for uneven spots—adjust scan speed slower there to avoid
+    pitting. Finish with multiple light passes. This brings back the finish without
+    warping its tough structure.
+  regulatory_standards_detail:
+  - id: osha-ppe-requirements
+    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    short_title: OSHA PPE Requirements
+    authority: OSHA
+    authority_full: Occupational Safety and Health Administration
+    agency_type: federal
+    country: United States
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+    image: /images/logo/logo-org-osha.png
+    description: Federal requirements for personal protective equipment in construction
+      and industrial operations
+    scope: Eye protection, respiratory protection, protective clothing
+    applicability:
+    - All workplaces using laser equipment
+    - Operators and nearby personnel
+    - Maintenance personnel
+    compliance_requirements:
+    - Laser safety eyewear rated for wavelength
+    - Protective clothing for skin exposure risk
+    - Respiratory protection for fume/particulate exposure
+    - Employer-provided PPE at no cost to employees
+    - PPE training and fit testing
+    compliance_level: mandatory
+    enforcement: OSHA inspections and citations
+    penalties: Up to $15,625 per serious violation
+    effective_date: 1971-04-28
+    last_amended: 2023-01-23
+    jurisdiction: United States (federal)
+    related_standards:
+    - ansi-z87-1-eye-protection
+    - ansi-z136-1-laser-safety
+  - id: ansi-z136-1-laser-safety
+    title: ANSI Z136.1 - Safe Use of Lasers
+    short_title: ANSI Laser Safety Standard
+    authority: ANSI
+    authority_full: American National Standards Institute
+    agency_type: standards_body
+    country: United States
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+    description: Comprehensive safety standard for laser operation, maintenance, and
+      safety programs
+    scope: Hazard evaluation, control measures, safety procedures, training
+    applicability:
+    - All laser operators and safety officers
+    - Laser safety programs
+    - Facility design and operations
+    compliance_requirements:
+    - Laser safety officer designation
+    - Hazard evaluation and classification
+    - Nominal hazard zone calculation
+    - Standard operating procedures
+    - Laser safety training program
+    - Medical surveillance for high-power operations
+    - Controlled access to laser areas
+    compliance_level: recommended
+    adoption: Widely adopted, referenced by OSHA
+    effective_date: 2022-08-01
+    edition: 2022 edition
+    replaces: ANSI Z136.1-2014
+    jurisdiction: International (US-origin)
+    related_standards:
+    - iec-60825-laser-safety
+    - osha-ppe-requirements
+  seo_description: When laser cleaning Dysprosium, we typically begin with a gentle
+    power setup to handle its high reflectivity.
+  excerpt: When laser cleaning Dysprosium, we typically begin with a gentle power
+    setup to handle its high reflectivity. This shiny surface bounces most energy
+    away, so start low to build absorption gradually. We've found that keeps the dense
+    material from overheating locally, given its poor heat spreading. Watch out mid-process
+    for...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-seo_description: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity.
-excerpt: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity. This
-  shiny surface bounces most energy away, so start low to build absorption gradually. We've found that keeps the dense material
-  from overheating locally, given its poor heat spreading. Watch out mid-process for...

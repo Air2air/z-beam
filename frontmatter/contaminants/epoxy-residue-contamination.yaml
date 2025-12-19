@@ -1,0 +1,473 @@
+id: epoxy-residue-contamination
+name: Epoxy Resin Deposits
+category: organic-residue
+subcategory: adhesive
+datePublished: '2025-12-19T00:21:10.733319Z'
+dateModified: '2025-12-19T01:00:58.973930Z'
+description: Epoxy-residue forms when cured two-part adhesive hardens on surfaces
+  after mixing and application, creating tough layer with dense bonds. This contamination
+  shows unique stickiness and resistance to solvents unlike softer paints or oils,
+  so removal needs targeted heat without damaging base. On metals such as steel and
+  aluminum, residue clings tightly during exposure, posing challenges like incomplete
+  stripping because of its durability, yet laser cleaning succeeds by vaporizing it
+  precisely through controlled pulses.
+relationships:
+  related_materials:
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/stainless-steel-laser-cleaning
+    image: /images/materials/stainless-steel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/steel-laser-cleaning
+    image: /images/materials/steel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/aluminum-laser-cleaning
+    image: /images/materials/aluminum.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/concrete-laser-cleaning
+    image: /images/materials/concrete.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: zinc-laser-cleaning
+    title: Zinc
+    url: /materials/zinc-laser-cleaning
+    image: /images/materials/zinc.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/titanium-laser-cleaning
+    image: /images/materials/titanium.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/copper-laser-cleaning
+    image: /images/materials/copper.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: cobalt-laser-cleaning
+    title: Cobalt
+    url: /materials/cobalt-laser-cleaning
+    image: /images/materials/cobalt.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: fiberglass-laser-cleaning
+    title: Fiberglass
+    url: /materials/fiberglass-laser-cleaning
+    image: /images/materials/fiberglass.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/brass-laser-cleaning
+    image: /images/materials/brass.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: carbon-fiber-reinforced-polymer-laser-cleaning
+    title: Carbon Fiber Reinforced Polymer
+    url: /materials/carbon-fiber-reinforced-polymer-laser-cleaning
+    image: /images/materials/carbon-fiber-reinforced-polymer.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: tin-laser-cleaning
+    title: Tin
+    url: /materials/tin-laser-cleaning
+    image: /images/materials/tin.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: lead-laser-cleaning
+    title: Lead
+    url: /materials/lead-laser-cleaning
+    image: /images/materials/lead.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: chromium-laser-cleaning
+    title: Chromium
+    url: /materials/chromium-laser-cleaning
+    image: /images/materials/chromium.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: nickel-laser-cleaning
+    title: Nickel
+    url: /materials/nickel-laser-cleaning
+    image: /images/materials/nickel.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/bronze-laser-cleaning
+    image: /images/materials/bronze.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/cast-iron-laser-cleaning
+    image: /images/materials/cast-iron.jpg
+    frequency: common
+    severity: moderate
+    typical_context: general
+  composition:
+  - Bisphenol A
+  - Epichlorohydrin
+  - Amine Hardener
+  laser_properties:
+    laser_parameters:
+      beam_profile: flat_top
+      fluence_range:
+        max_j_cm2: 1.2
+        min_j_cm2: 0.4
+        recommended_j_cm2: 0.8
+      overlap_percentage: 50
+      polarization: circular
+      pulse_duration_range:
+        max_ns: 100
+        min_ns: 10
+        recommended_ns: 30
+      repetition_rate_khz:
+        max: 100
+        min: 20
+        recommended: 50
+      safety_margin_factor: 0.7
+      scan_speed_mm_s:
+        max: 2000
+        min: 500
+        recommended: 1000
+      spot_size_mm:
+        max: 0.1
+        min: 0.02
+        recommended: 0.05
+      wavelength_preference:
+      - 355
+      - 1064
+    optical_properties:
+      absorption_coefficient:
+        wavelength_1064nm: 120
+        wavelength_355nm: 2800
+        wavelength_532nm: 450
+      reflectivity:
+        wavelength_1064nm: 0.08
+        wavelength_355nm: 0.04
+        wavelength_532nm: 0.05
+      refractive_index:
+        imaginary_part: 0.012
+        real_part: 1.57
+      transmission_depth: 83.3
+    removal_characteristics:
+      byproducts:
+      - compound: carbon-dioxide
+        hazard_level: low
+        phase: gas
+      - compound: H2O
+        hazard_level: low
+        phase: gas
+      - compound: carbon-monoxide
+        hazard_level: moderate
+        phase: gas
+      - compound: Volatile Organic Compounds
+        hazard_level: moderate
+        phase: gas
+      - compound: Carbon char
+        hazard_level: low
+        phase: solid
+      damage_risk_to_substrate: low
+      primary_mechanism: thermal_ablation
+      process_speed:
+        area_coverage_rate_cm2_min: 240
+        typical_scan_speed_mm_s: 800
+      removal_efficiency:
+        diminishing_returns_after: 3
+        optimal_passes: 2
+        single_pass: 0.85
+      secondary_mechanisms:
+      - photochemical
+      - mechanical_spallation
+      surface_quality_after_removal:
+        color_change: 'no'
+        residual_stress: compressive
+        roughness_increase: minimal
+    safety_data:
+      fire_explosion_risk: low
+      fumes_generated:
+      - compound: Benzene
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 0.5
+        hazard_class: carcinogenic
+      - compound: Phenol
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 5.2
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1-15
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Carbon monoxide
+        concentration_mg_m3: 10-100
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Particulate polycyclic aromatic hydrocarbons
+        concentration_mg_m3: 0.5-5
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+      particulate_generation:
+        respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10
+      ppe_requirements:
+        eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+      substrate_compatibility_warnings:
+      - Thermal damage possible to underlying materials
+      - May generate surface residues from incomplete decomposition
+      - Potential for substrate discoloration or etching
+      toxic_gas_risk: moderate
+      ventilation_requirements:
+        exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+      visibility_hazard: moderate
+    thermal_properties:
+      ablation_threshold:
+        pulse_duration_100ns: 3.5
+        pulse_duration_10ns: 2.1
+        wavelength_1064nm: 1.8
+      decomposition_temperature: 380
+      heat_affected_zone_depth: 25
+      melting_point: null
+      specific_heat: 1200
+      thermal_conductivity: 0.2
+      thermal_diffusivity: 0.17
+      vaporization_temperature: 450
+  prohibited_materials:
+  - Thin Plastics
+  - Glass
+  valid_materials:
+  - Concrete
+  - Carbon Fiber Reinforced Polymer
+  - Fiberglass
+  - Aluminum
+  - Steel
+  - Stainless Steel
+  - Cast Iron
+  - Copper
+  - Bronze
+  - Brass
+  - Titanium
+  - Zinc
+  - Nickel
+  - Lead
+  - Tin
+  - Cobalt
+  - Chromium
+  visual_characteristics:
+    appearance_on_categories:
+      ceramic:
+        appearance: Epoxy resin on ceramic shows as shiny, hardened coatings in various
+          colors, sometimes with a smooth or slightly textured feel that contrasts
+          with the ceramic glaze.
+        coverage: Coverage is usually partial, with small to moderate areas affected,
+          varying with application technique and ceramic porosity.
+        pattern: It typically forms in spots, runs, or patches, often pooling in decorative
+          grooves or uneven areas of the ceramic surface.
+      composite:
+        appearance: On composites, epoxy contamination looks like integrated or surface-level
+          glossy coatings, matching or contrasting with the composite matrix in color
+          and texture.
+        coverage: Coverage can be extensive in manufacturing or spotty in repairs,
+          with variations based on composite type and resin application.
+        pattern: It may form uniform layers, streaks, or localized patches, following
+          the composite's fibrous or layered structure.
+      concrete:
+        appearance: Epoxy contamination on concrete looks like glossy, sealed patches
+          or coatings, often in clear or gray tones that fill pores and create a smooth,
+          durable surface.
+        coverage: Coverage can be partial for spills or full in coatings, with variations
+          due to concrete porosity and application method.
+        pattern: It typically appears as uneven patches, streaks, or pooled areas,
+          adhering to rough concrete textures and cracks.
+      fabric:
+        appearance: On fabric, epoxy resin shows as stiff, shiny areas that harden
+          the fibers, appearing in clear or dyed forms with a plastic-like, often
+          brittle finish.
+        coverage: Coverage ranges from small stains to larger impregnated sections,
+          varying with fabric absorbency and resin amount.
+        pattern: It forms in irregular spots, drips, or soaked patches, following
+          the weave pattern and potentially causing discoloration or saturation.
+      glass:
+        appearance: On glass, epoxy deposits are visible as clear or slightly cloudy,
+          glossy layers that may have bubbles or inclusions, adhering tightly to the
+          smooth surface.
+        coverage: Coverage can range from thin, widespread films to thick, isolated
+          patches, depending on how the resin is applied and cured.
+        pattern: They often appear as uniform films, drips, or irregular blobs, spreading
+          evenly or accumulating at edges due to surface tension.
+      metal:
+        appearance: Epoxy deposits on metal appear as glossy, translucent to opaque
+          coatings, often in amber, clear, or white hues with a smooth or slightly
+          textured finish.
+        coverage: Coverage is usually partial, ranging from small spots to large areas,
+          with variations depending on application method and surface conditions.
+        pattern: They typically form in irregular patches or streaks, following surface
+          contours or pooling in low areas due to gravity and adhesion.
+      mineral:
+        appearance: On minerals, epoxy deposits appear as glossy, transparent or opaque
+          films that may enhance or obscure natural colors and crystal structures.
+        coverage: Coverage is usually targeted and partial, such as in crack filling
+          or surface sealing, with amounts varying by mineral type.
+        pattern: They form in localized spots, fills, or coatings, often following
+          mineral fractures or surface features for stabilization or display.
+      plastic:
+        appearance: Deposits on plastic appear as glossy, adherent layers that can
+          be clear or pigmented, sometimes causing slight clouding or a slick texture
+          on the plastic surface.
+        coverage: Coverage varies from isolated spots to larger sections, often non-uniform
+          due to differences in plastic surface energy.
+        pattern: They distribute as irregular patches, streaks, or drips, influenced
+          by plastic smoothness and chemical compatibility with the resin.
+      rubber:
+        appearance: Epoxy deposits on rubber appear as stiff, glossy films that can
+          crack or peel, often in clear or colored forms contrasting with the rubber's
+          flexible surface.
+        coverage: Coverage is usually minimal and patchy, as epoxy does not bond well
+          to rubber, resulting in scattered contamination.
+        pattern: Distribution is typically in blotches or streaks, with poor adhesion
+          leading to flaking or beading on the rubber texture.
+      semiconductor:
+        appearance: Epoxy contamination on semiconductors appears as thin, glossy
+          layers that can be clear or colored, potentially interfering with electronic
+          properties and surface planarity.
+        coverage: Coverage is typically controlled and partial in manufacturing, but
+          can vary from minimal spots to full encapsulation in devices.
+        pattern: It distributes as uniform films, spots, or streaks, often from encapsulation
+          processes or accidental spills on delicate components.
+      specialty:
+        appearance: On specialty materials like advanced alloys or polymers, epoxy
+          deposits show as customized glossy coatings, tailored in color and texture
+          for specific applications or contaminants.
+        coverage: Coverage is highly variable, from precise, minimal applications
+          to extensive coatings, based on the specialty material's use and epoxy function.
+        pattern: Distribution depends on the material's unique properties, forming
+          uniform layers, patterned applications, or irregular patches as required.
+      stone:
+        appearance: Epoxy contamination on stone appears as glossy, often colored
+          or clear films that can fill pores and cracks, creating a reflective or
+          matte finish depending on curing.
+        coverage: Coverage is typically partial, with localized spots or broad patches,
+          and varies based on stone type and resin application.
+        pattern: It tends to form in blotches, streaks, or filled fissures, following
+          natural stone irregularities and surface imperfections.
+      wood:
+        appearance: On wood, epoxy resin deposits look like shiny, hardened layers
+          that can be clear or tinted, enhancing or obscuring the grain with a smooth,
+          glass-like surface.
+        coverage: It varies from thin, spotty coatings to full coverage in art or
+          repair projects, influenced by wood porosity and resin viscosity.
+        pattern: Distribution is often uneven, with pooling in grooves or cracks,
+          and may form drips, runs, or patches based on wood texture and application.
+  regulatory_standards_detail:
+  - id: osha-ppe-requirements
+    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    short_title: OSHA PPE Requirements
+    authority: OSHA
+    authority_full: Occupational Safety and Health Administration
+    agency_type: federal
+    country: United States
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+    image: /images/logo/logo-org-osha.png
+    description: Federal requirements for personal protective equipment in construction
+      and industrial operations
+    scope: Eye protection, respiratory protection, protective clothing
+    applicability:
+    - All workplaces using laser equipment
+    - Operators and nearby personnel
+    - Maintenance personnel
+    compliance_requirements:
+    - Laser safety eyewear rated for wavelength
+    - Protective clothing for skin exposure risk
+    - Respiratory protection for fume/particulate exposure
+    - Employer-provided PPE at no cost to employees
+    - PPE training and fit testing
+    compliance_level: mandatory
+    enforcement: OSHA inspections and citations
+    penalties: Up to $15,625 per serious violation
+    effective_date: 1971-04-28
+    last_amended: 2023-01-23
+    jurisdiction: United States (federal)
+    related_standards:
+    - ansi-z87-1-eye-protection
+    - ansi-z136-1-laser-safety
+  - id: ansi-z136-1-laser-safety
+    title: ANSI Z136.1 - Safe Use of Lasers
+    short_title: ANSI Laser Safety Standard
+    authority: ANSI
+    authority_full: American National Standards Institute
+    agency_type: standards_body
+    country: United States
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+    description: Comprehensive safety standard for laser operation, maintenance, and
+      safety programs
+    scope: Hazard evaluation, control measures, safety procedures, training
+    applicability:
+    - All laser operators and safety officers
+    - Laser safety programs
+    - Facility design and operations
+    compliance_requirements:
+    - Laser safety officer designation
+    - Hazard evaluation and classification
+    - Nominal hazard zone calculation
+    - Standard operating procedures
+    - Laser safety training program
+    - Medical surveillance for high-power operations
+    - Controlled access to laser areas
+    compliance_level: recommended
+    adoption: Widely adopted, referenced by OSHA
+    effective_date: 2022-08-01
+    edition: 2022 edition
+    replaces: ANSI Z136.1-2014
+    jurisdiction: International (US-origin)
+    related_standards:
+    - iec-60825-laser-safety
+    - osha-ppe-requirements
+author:
+  id: 1
+schema_version: 5.0.0
+content_type: contaminants
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Adhesive
+  href: /contaminants/organic-residue/adhesive
+- label: Epoxy Resin Deposits
+  href: /contaminants/organic-residue/adhesive/epoxy-residue-contamination

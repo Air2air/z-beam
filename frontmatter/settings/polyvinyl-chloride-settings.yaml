@@ -1,95 +1,173 @@
 id: Polyvinyl Chloride
-slug: polyvinyl-chloride
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-18T21:35:08.752834Z'
-dateModified: '2025-12-18T21:35:08.752834Z'
+datePublished: '2025-12-19T00:21:15.303496Z'
+dateModified: '2025-12-19T01:01:24.091595Z'
 relationships:
   related_materials: []
   related_contaminants: []
-machine_settings:
-  powerRange:
-    description: Optimal average power for PVC cleaning without thermal damage
-    unit: W
-    value: 100
-  wavelength:
-    description: Near-IR wavelength for optimal PVC absorption and minimal substrate damage
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Beam spot diameter for precise PVC cleaning
-    unit: μm
-    value: 50
-  repetitionRate:
-    description: Optimal repetition rate for efficient PVC removal
-    unit: kHz
-    value: 50
-  energyDensity:
-    description: Fluence threshold for effective PVC ablation
-    unit: J/cm²
-    value: 5
-  pulseWidth:
-    description: Nanosecond pulse duration for controlled PVC ablation
-    unit: ns
-    value: 10
-  scanSpeed:
-    description: Optimal scanning speed for uniform PVC removal
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Recommended number of passes for complete PVC removal
-    unit: passes
-    value: 3
-  overlapRatio:
-    description: Optimal beam overlap for uniform PVC cleaning
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: Low melting/degradation temperatures
-    severity: high
-    threshold_range: 80-300°C depending on polymer type
-    impact: Melting, warping, or chemical degradation at low temperatures
-    solutions:
-    - Use lowest power settings (20-40W)
-    - Fast scan speeds (2000-4000 mm/s)
-    - Pulse mode with extended cooling (5-10 seconds between passes)
-  - challenge: Outgassing and fume generation
-    severity: high
-    impact: Toxic fumes, smoke, and potential fire hazard
-    solutions:
-    - Mandatory fume extraction system
-    - Work in well-ventilated areas
-    - Monitor for smoke/discoloration
-  surface_characteristics:
-  - challenge: Variable absorption by color and additives
-    severity: medium
-    impact: Black plastics absorb 80-90%, white plastics absorb 10-30%
-    solutions:
-    - Adjust power based on plastic color (dark = lower, light = higher)
-    - Test on sample pieces first
-  contamination_challenges:
-  - challenge: Coating and label removal
-    severity: medium
-    impact: Adhesives melt and smear rather than ablate cleanly
-    solutions:
-    - Use UV wavelength (355nm) for better photochemical ablation
-    - Multiple gentle passes instead of single high-power pass
-settings_description: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's
-  a thermoplastic that softens quickly under intense energy, leading to warping or melting if you're not careful. This makes
-  it different from metals, where heat spreads out fast; here, the energy stays localized because it doesn't conduct heat
-  well, so you risk damaging the surface before buildup even clears. Start with reduced power to build up gradually, and keep
-  scan speeds high to limit exposure time on any spot. You'll find it absorbs laser light readily, which helps remove contaminants
-  efficiently without much reflection loss, but always test on a small area first to avoid pitting. For best results, use
-  multiple light passes with good overlap, letting it cool between them—this restores the smooth finish on pipes or panels
-  without compromising its corrosion resistance or flexibility.
+  regulatory_standards:
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+    title: Osha Ppe Requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+    title: Ansi Z136 1 Laser Safety
+  machine_settings:
+    powerRange:
+      description: Optimal average power for PVC cleaning without thermal damage
+      unit: W
+      value: 100
+    wavelength:
+      description: Near-IR wavelength for optimal PVC absorption and minimal substrate
+        damage
+      unit: nm
+      value: 1064
+    spotSize:
+      description: Beam spot diameter for precise PVC cleaning
+      unit: μm
+      value: 50
+    repetitionRate:
+      description: Optimal repetition rate for efficient PVC removal
+      unit: kHz
+      value: 50
+    energyDensity:
+      description: Fluence threshold for effective PVC ablation
+      unit: J/cm²
+      value: 5
+    pulseWidth:
+      description: Nanosecond pulse duration for controlled PVC ablation
+      unit: ns
+      value: 10
+    scanSpeed:
+      description: Optimal scanning speed for uniform PVC removal
+      unit: mm/s
+      value: 500
+    passCount:
+      description: Recommended number of passes for complete PVC removal
+      unit: passes
+      value: 3
+    overlapRatio:
+      description: Optimal beam overlap for uniform PVC cleaning
+      unit: '%'
+      value: 50
+  challenges:
+    thermal_management:
+    - challenge: Low melting/degradation temperatures
+      severity: high
+      threshold_range: 80-300°C depending on polymer type
+      impact: Melting, warping, or chemical degradation at low temperatures
+      solutions:
+      - Use lowest power settings (20-40W)
+      - Fast scan speeds (2000-4000 mm/s)
+      - Pulse mode with extended cooling (5-10 seconds between passes)
+    - challenge: Outgassing and fume generation
+      severity: high
+      impact: Toxic fumes, smoke, and potential fire hazard
+      solutions:
+      - Mandatory fume extraction system
+      - Work in well-ventilated areas
+      - Monitor for smoke/discoloration
+    surface_characteristics:
+    - challenge: Variable absorption by color and additives
+      severity: medium
+      impact: Black plastics absorb 80-90%, white plastics absorb 10-30%
+      solutions:
+      - Adjust power based on plastic color (dark = lower, light = higher)
+      - Test on sample pieces first
+    contamination_challenges:
+    - challenge: Coating and label removal
+      severity: medium
+      impact: Adhesives melt and smear rather than ablate cleanly
+      solutions:
+      - Use UV wavelength (355nm) for better photochemical ablation
+      - Multiple gentle passes instead of single high-power pass
+  settings_description: When laser cleaning polyvinyl chloride, you must watch its
+    low heat tolerance right from the start—it's a thermoplastic that softens quickly
+    under intense energy, leading to warping or melting if you're not careful. This
+    makes it different from metals, where heat spreads out fast; here, the energy
+    stays localized because it doesn't conduct heat well, so you risk damaging the
+    surface before buildup even clears. Start with reduced power to build up gradually,
+    and keep scan speeds high to limit exposure time on any spot. You'll find it absorbs
+    laser light readily, which helps remove contaminants efficiently without much
+    reflection loss, but always test on a small area first to avoid pitting. For best
+    results, use multiple light passes with good overlap, letting it cool between
+    them—this restores the smooth finish on pipes or panels without compromising its
+    corrosion resistance or flexibility.
+  regulatory_standards_detail:
+  - id: osha-ppe-requirements
+    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    short_title: OSHA PPE Requirements
+    authority: OSHA
+    authority_full: Occupational Safety and Health Administration
+    agency_type: federal
+    country: United States
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+    image: /images/logo/logo-org-osha.png
+    description: Federal requirements for personal protective equipment in construction
+      and industrial operations
+    scope: Eye protection, respiratory protection, protective clothing
+    applicability:
+    - All workplaces using laser equipment
+    - Operators and nearby personnel
+    - Maintenance personnel
+    compliance_requirements:
+    - Laser safety eyewear rated for wavelength
+    - Protective clothing for skin exposure risk
+    - Respiratory protection for fume/particulate exposure
+    - Employer-provided PPE at no cost to employees
+    - PPE training and fit testing
+    compliance_level: mandatory
+    enforcement: OSHA inspections and citations
+    penalties: Up to $15,625 per serious violation
+    effective_date: 1971-04-28
+    last_amended: 2023-01-23
+    jurisdiction: United States (federal)
+    related_standards:
+    - ansi-z87-1-eye-protection
+    - ansi-z136-1-laser-safety
+  - id: ansi-z136-1-laser-safety
+    title: ANSI Z136.1 - Safe Use of Lasers
+    short_title: ANSI Laser Safety Standard
+    authority: ANSI
+    authority_full: American National Standards Institute
+    agency_type: standards_body
+    country: United States
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+    description: Comprehensive safety standard for laser operation, maintenance, and
+      safety programs
+    scope: Hazard evaluation, control measures, safety procedures, training
+    applicability:
+    - All laser operators and safety officers
+    - Laser safety programs
+    - Facility design and operations
+    compliance_requirements:
+    - Laser safety officer designation
+    - Hazard evaluation and classification
+    - Nominal hazard zone calculation
+    - Standard operating procedures
+    - Laser safety training program
+    - Medical surveillance for high-power operations
+    - Controlled access to laser areas
+    compliance_level: recommended
+    adoption: Widely adopted, referenced by OSHA
+    effective_date: 2022-08-01
+    edition: 2022 edition
+    replaces: ANSI Z136.1-2014
+    jurisdiction: International (US-origin)
+    related_standards:
+    - iec-60825-laser-safety
+    - osha-ppe-requirements
+  seo_description: When laser cleaning polyvinyl chloride, you must watch its low
+    heat tolerance right from the start—it's a thermoplastic that softens quickly
+    under intense...
+  excerpt: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance
+    right from the start—it's a thermoplastic that softens quickly under intense energy,
+    leading to warping or melting if you're not careful. This makes it different from
+    metals, where heat spreads out fast; here, the energy stays localized because...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-seo_description: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's a
-  thermoplastic that softens quickly under intense...
-excerpt: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's a thermoplastic
-  that softens quickly under intense energy, leading to warping or melting if you're not careful. This makes it different
-  from metals, where heat spreads out fast; here, the energy stays localized because...

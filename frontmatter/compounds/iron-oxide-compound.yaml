@@ -1,12 +1,11 @@
 id: iron-oxide
 name: Iron Oxide Fume
 display_name: Iron Oxide (Fe₂O₃)
-slug: iron-oxide
 chemical_formula: Fe2O3
 cas_number: 1309-37-1
 molecular_weight: 159.69
-datePublished: '2025-12-18T21:35:07.107708Z'
-dateModified: '2025-12-18T21:35:07.107708Z'
+datePublished: '2025-12-19T00:54:42.864103Z'
+dateModified: '2025-12-19T01:00:55.693988Z'
 category: metal_fume
 subcategory: metal_oxide
 hazard_class: irritant
@@ -56,15 +55,51 @@ relationships:
     frequency: very_common
     severity: high
     typical_context: Iron oxide scale from forging operations
+  chemical_properties:
+  - type: chemical_properties
+    id: iron-oxide-physical-data
+    url: /compounds/iron-oxide-physical-data
+    title: Iron Oxide Physical Data
+  health_effects:
+  - type: health_effects
+    id: iron-oxide-toxicology
+    url: /compounds/iron-oxide-toxicology
+    title: Iron Oxide Toxicology
+  environmental_impact:
+  - type: environmental_impact
+    id: iron-oxide-environmental-data
+    url: /compounds/iron-oxide-environmental-data
+    title: Iron Oxide Environmental Data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: iron-oxide-monitoring-methods
+    url: /compounds/iron-oxide-monitoring-methods
+    title: Iron Oxide Monitoring Methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: irritant-gas-low-concentration
+    overrides:
+      specific_compound: Iron Oxide Fume
+      pel_ppm: null
+    url: /compounds/irritant-gas-low-concentration
+    title: Irritant Gas Low Concentration
+  emergency_response:
+  - type: emergency_response
+    id: flammable-gas-extremely
+    overrides:
+      specific_compound: Iron Oxide Fume
+    url: /compounds/flammable-gas-extremely
+    title: Flammable Gas Extremely
 author:
   id: 3
 ppe_requirements:
-  respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters for ≤50 mg/m³. PAPR for higher concentrations.
+  respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters
+    for ≤50 mg/m³. PAPR for higher concentrations.
   skin: Leather or cotton gloves adequate for dust. Welding gloves for metal work.
   eye: Safety glasses with side shields. Welding goggles/helmet for welding operations.
   minimum_level: Level D for dust <10 mg/m³, Level C for welding fume
-  special_notes: Siderosis (iron dust pneumoconiosis) from chronic exposure. Welding fume contains mixed metal oxides - more
-    hazardous than pure iron oxide.
+  special_notes: Siderosis (iron dust pneumoconiosis) from chronic exposure. Welding
+    fume contains mixed metal oxides - more hazardous than pure iron oxide.
 physical_properties:
   boiling_point: 3414°C (6177°F) - decomposes
   melting_point: 1538-1565°C (2800-2849°F)
@@ -78,14 +113,18 @@ physical_properties:
   odor: Odorless
 emergency_response:
   fire_hazard: Non-combustible. May release toxic metal oxide fumes when heated.
-  fire_suppression: Use agent appropriate for surrounding fire. Wear SCBA - toxic fumes possible.
-  spill_procedures: Avoid generating dust. Sweep or vacuum with HEPA filter. Place in sealed containers. Generally non-hazardous
-    waste unless contaminated.
-  exposure_immediate_actions: 'Remove from dusty area. If respiratory irritation: move to fresh air. Wash dust from skin and
-    eyes. Generally low acute toxicity. Seek medical attention if symptoms persist.'
-  environmental_hazards: Generally low environmental hazard. May discolor water. Large spills may affect aquatic pH.
-  special_hazards: 'SIDEROSIS: Benign pneumoconiosis from chronic inhalation. X-ray opacities but no functional impairment.
-    Reversible when exposure stops. Welding fume may contain other toxic metals (chromium, nickel, manganese).'
+  fire_suppression: Use agent appropriate for surrounding fire. Wear SCBA - toxic
+    fumes possible.
+  spill_procedures: Avoid generating dust. Sweep or vacuum with HEPA filter. Place
+    in sealed containers. Generally non-hazardous waste unless contaminated.
+  exposure_immediate_actions: 'Remove from dusty area. If respiratory irritation:
+    move to fresh air. Wash dust from skin and eyes. Generally low acute toxicity.
+    Seek medical attention if symptoms persist.'
+  environmental_hazards: Generally low environmental hazard. May discolor water. Large
+    spills may affect aquatic pH.
+  special_hazards: 'SIDEROSIS: Benign pneumoconiosis from chronic inhalation. X-ray
+    opacities but no functional impairment. Reversible when exposure stops. Welding
+    fume may contain other toxic metals (chromium, nickel, manganese).'
 storage_requirements:
   temperature_range: Store at room temperature
   ventilation: General ventilation adequate. Keep containers closed.
@@ -96,7 +135,8 @@ storage_requirements:
   container_material: Plastic or metal containers with tight lids.
   segregation: None required. Separate from strong acids and reactive metals.
   quantity_limits: None specified. Follow facility storage protocols.
-  special_requirements: Keep containers closed when not in use. Store in dry area. Prevent dust accumulation.
+  special_requirements: Keep containers closed when not in use. Store in dry area.
+    Prevent dust accumulation.
 regulatory_classification:
   un_number: None (not regulated as hazardous for transport)
   dot_hazard_class: Not classified
@@ -155,13 +195,17 @@ reactivity:
   - High heat
   - Aluminum powder mixtures
   - Strong acids
-  reactivity_hazard: Generally stable. Thermite reaction with aluminum powder produces extreme heat. Reacts with strong acids.
+  reactivity_hazard: Generally stable. Thermite reaction with aluminum powder produces
+    extreme heat. Reacts with strong acids.
 environmental_impact:
-  aquatic_toxicity: 'Low toxicity to aquatic life. LC50 (fish, 96h): >100 mg/L. May color water but minimal toxic effects.'
+  aquatic_toxicity: 'Low toxicity to aquatic life. LC50 (fish, 96h): >100 mg/L. May
+    color water but minimal toxic effects.'
   biodegradability: Not biodegradable (inorganic). Persists indefinitely.
   bioaccumulation: Low bioaccumulation. Essential element. Regulated by organisms.
-  soil_mobility: Low mobility. Common soil constituent. No significant environmental concern.
-  atmospheric_fate: Settles as particulate. Does not react in atmosphere. Component of natural dust.
+  soil_mobility: Low mobility. Common soil constituent. No significant environmental
+    concern.
+  atmospheric_fate: Settles as particulate. Does not react in atmosphere. Component
+    of natural dust.
   ozone_depletion: false
   global_warming_potential: null
   reportable_releases:

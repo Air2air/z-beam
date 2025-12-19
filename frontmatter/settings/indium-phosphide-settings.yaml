@@ -1,61 +1,135 @@
 id: Indium Phosphide
-slug: indium-phosphide
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-18T21:35:09.119233Z'
-dateModified: '2025-12-18T21:35:09.119233Z'
+datePublished: '2025-12-19T00:21:16.040491Z'
+dateModified: '2025-12-19T01:01:23.810616Z'
 relationships:
   related_materials: []
   related_contaminants: []
-machine_settings:
-  powerRange:
-    value: 60
-    unit: W
-    description: Controlled power for precision semiconductor cleaning
-  wavelength:
-    value: 1064
-    unit: nm
-    description: Near-IR for minimal lattice damage
-  spotSize:
-    value: 30
-    unit: μm
-    description: Small spot for high-precision cleaning
-  repetitionRate:
-    value: 30
-    unit: kHz
-    description: Moderate frequency for controlled removal
-  energyDensity:
-    value: 1.5
-    unit: J/cm²
-    description: Precision energy for contamination removal
-  pulseWidth:
-    value: 10
-    unit: ns
-    description: Ultra-short pulses for minimal thermal damage
-  scanSpeed:
-    value: 300
-    unit: mm/s
-    description: Careful scanning for uniform treatment
-  passCount:
-    value: 3
-    unit: passes
-    description: Multiple passes for complete cleaning
-  overlapRatio:
-    value: 60
-    unit: '%'
-    description: High overlap for thorough coverage
-challenges:
-- Requires careful power calibration to prevent material damage
-- Monitor surface temperature during processing
-- Verify cleaning effectiveness through inspection
-settings_description: Before laser cleaning, Indium Phosphide surfaces require careful parameter selection After cleaning,
-  Indium Phosphide surfaces show restored appearance with controlled parameters
+  regulatory_standards:
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+    title: Osha Ppe Requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+    title: Ansi Z136 1 Laser Safety
+  machine_settings:
+    powerRange:
+      value: 60
+      unit: W
+      description: Controlled power for precision semiconductor cleaning
+    wavelength:
+      value: 1064
+      unit: nm
+      description: Near-IR for minimal lattice damage
+    spotSize:
+      value: 30
+      unit: μm
+      description: Small spot for high-precision cleaning
+    repetitionRate:
+      value: 30
+      unit: kHz
+      description: Moderate frequency for controlled removal
+    energyDensity:
+      value: 1.5
+      unit: J/cm²
+      description: Precision energy for contamination removal
+    pulseWidth:
+      value: 10
+      unit: ns
+      description: Ultra-short pulses for minimal thermal damage
+    scanSpeed:
+      value: 300
+      unit: mm/s
+      description: Careful scanning for uniform treatment
+    passCount:
+      value: 3
+      unit: passes
+      description: Multiple passes for complete cleaning
+    overlapRatio:
+      value: 60
+      unit: '%'
+      description: High overlap for thorough coverage
+  challenges:
+  - Requires careful power calibration to prevent material damage
+  - Monitor surface temperature during processing
+  - Verify cleaning effectiveness through inspection
+  settings_description: Before laser cleaning, Indium Phosphide surfaces require careful
+    parameter selection After cleaning, Indium Phosphide surfaces show restored appearance
+    with controlled parameters
+  regulatory_standards_detail:
+  - id: osha-ppe-requirements
+    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    short_title: OSHA PPE Requirements
+    authority: OSHA
+    authority_full: Occupational Safety and Health Administration
+    agency_type: federal
+    country: United States
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+    image: /images/logo/logo-org-osha.png
+    description: Federal requirements for personal protective equipment in construction
+      and industrial operations
+    scope: Eye protection, respiratory protection, protective clothing
+    applicability:
+    - All workplaces using laser equipment
+    - Operators and nearby personnel
+    - Maintenance personnel
+    compliance_requirements:
+    - Laser safety eyewear rated for wavelength
+    - Protective clothing for skin exposure risk
+    - Respiratory protection for fume/particulate exposure
+    - Employer-provided PPE at no cost to employees
+    - PPE training and fit testing
+    compliance_level: mandatory
+    enforcement: OSHA inspections and citations
+    penalties: Up to $15,625 per serious violation
+    effective_date: 1971-04-28
+    last_amended: 2023-01-23
+    jurisdiction: United States (federal)
+    related_standards:
+    - ansi-z87-1-eye-protection
+    - ansi-z136-1-laser-safety
+  - id: ansi-z136-1-laser-safety
+    title: ANSI Z136.1 - Safe Use of Lasers
+    short_title: ANSI Laser Safety Standard
+    authority: ANSI
+    authority_full: American National Standards Institute
+    agency_type: standards_body
+    country: United States
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+    description: Comprehensive safety standard for laser operation, maintenance, and
+      safety programs
+    scope: Hazard evaluation, control measures, safety procedures, training
+    applicability:
+    - All laser operators and safety officers
+    - Laser safety programs
+    - Facility design and operations
+    compliance_requirements:
+    - Laser safety officer designation
+    - Hazard evaluation and classification
+    - Nominal hazard zone calculation
+    - Standard operating procedures
+    - Laser safety training program
+    - Medical surveillance for high-power operations
+    - Controlled access to laser areas
+    compliance_level: recommended
+    adoption: Widely adopted, referenced by OSHA
+    effective_date: 2022-08-01
+    edition: 2022 edition
+    replaces: ANSI Z136.1-2014
+    jurisdiction: International (US-origin)
+    related_standards:
+    - iec-60825-laser-safety
+    - osha-ppe-requirements
+  seo_description: Before laser cleaning, Indium Phosphide surfaces require careful
+    parameter selection After cleaning, Indium Phosphide surfaces show restored appearance
+    with...
+  excerpt: Before laser cleaning, Indium Phosphide surfaces require careful parameter
+    selection After cleaning, Indium Phosphide surfaces show restored appearance with
+    controlled parameters
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-seo_description: Before laser cleaning, Indium Phosphide surfaces require careful parameter selection After cleaning, Indium
-  Phosphide surfaces show restored appearance with...
-excerpt: Before laser cleaning, Indium Phosphide surfaces require careful parameter selection After cleaning, Indium Phosphide
-  surfaces show restored appearance with controlled parameters
