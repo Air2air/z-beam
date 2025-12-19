@@ -1,39 +1,86 @@
 id: nitrogen-oxides
 name: Nitrogen Oxides
 display_name: NOₓ
-category: toxic_gas
-subcategory: oxidizing_gas
-content_type: compounds
-schema_version: 5.0.0
-datePublished: '2025-12-19T00:54:42.890809Z'
-dateModified: '2025-12-19T01:18:47Z'
+slug: nitrogen-oxides
 chemical_formula: NOx
 cas_number: Various
 molecular_weight: null
+datePublished: '2025-12-19T01:25:13.397334Z'
+dateModified: '2025-12-19T01:25:13.397334Z'
+category: toxic_gas
+subcategory: oxidizing_gas
 hazard_class: toxic
+exposure_limits:
+  osha_pel_ppm: 25
+  osha_pel_mg_m3: 9
+  niosh_rel_ppm: null
+  niosh_rel_mg_m3: 1.8
+  acgih_tlv_ppm: 3
+  acgih_tlv_mg_m3: 5.6
+health_effects_keywords:
+- respiratory_irritation
+- pulmonary_edema
+- bronchitis
+- delayed_effects
 monitoring_required: true
 typical_concentration_range: 1-10 mg/m³
+sources_in_laser_cleaning:
+- high_energy_laser_interaction
+- nitrogen_compound_oxidation
+- atmospheric_nitrogen_fixation
 description: null
 health_effects: null
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
+relationships:
+  produced_by_contaminants:
+  - id: rust-oxidation
+    title: Rust / Iron Oxide Formation
+    url: /contaminants/oxidation/ferrous/rust-oxidation
+    image: /images/contaminants/oxidation/ferrous/rust-oxidation.jpg
+    frequency: common
+    severity: low
+    typical_context: High-temperature oxidation during laser cleaning
+  - id: annealing-scale
+    title: Heat Treatment Scale
+    url: /contaminants/thermal-damage/scale/annealing-scale
+    image: /images/contaminants/thermal-damage/scale/annealing-scale.jpg
+    frequency: common
+    severity: low
+    typical_context: Formation from atmospheric nitrogen at high temperatures
+  - id: paint-residue
+    title: Paint Residue / Coating Failure
+    url: /contaminants/inorganic-coating/paint/paint-residue
+    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
+    frequency: occasional
+    severity: low
+    typical_context: Nitrogen from some paint formulations
+  chemical_properties:
+  - type: chemical_properties
+    id: nitrogen-oxides-physical-data
+  health_effects:
+  - type: health_effects
+    id: nitrogen-oxides-toxicology
+  environmental_impact:
+  - type: environmental_impact
+    id: nitrogen-oxides-environmental-data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: nitrogen-oxides-monitoring-methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: irritant-gas-low-concentration
+    overrides:
+      specific_compound: Nitrogen Oxides
+      pel_ppm: 25
+  emergency_response:
+  - type: emergency_response
+    id: toxic-gas-extreme
+    overrides:
+      specific_compound: Nitrogen Oxides
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
 ppe_requirements:
   respiratory: SCBA or positive-pressure supplied-air respirator for >1 ppm NO2 or unknown concentrations. Air-purifying with
     acid gas cartridge acceptable for ≤1 ppm NO2 only.
@@ -42,6 +89,17 @@ ppe_requirements:
   minimum_level: Level C for known <1 ppm NO2, Level B for >1 ppm or NO/NO2 mixtures
   special_notes: NO2 is brown gas, NO is colorless. Both highly toxic. Delayed pulmonary edema possible 6-72 hours after exposure.
     STEL critical - short exposures very dangerous.
+physical_properties:
+  boiling_point: 'NO: -151.7°C, NO2: 21.2°C, N2O4: 21.2°C'
+  melting_point: 'NO: -163.6°C, NO2: -11.2°C'
+  vapor_pressure: 'NO: >760 mmHg @ 20°C (gas), NO2: 760 mmHg @ 21°C'
+  vapor_density: 'NO: 1.04 (Air=1), NO2: 1.58 (Air=1)'
+  specific_gravity: 'NO2: 1.45 (liquid @ 21°C)'
+  flash_point: Not applicable (non-flammable)
+  autoignition_temp: Not applicable
+  explosive_limits: Not applicable (supports combustion)
+  appearance: 'NO: colorless gas, NO2: reddish-brown gas, N2O4: colorless liquid/gas'
+  odor: 'NO2: pungent, irritating odor @ 0.1-1 ppm. NO: odorless'
 emergency_response:
   fire_hazard: Non-flammable but supports combustion. Strong oxidizer. Increases fire intensity. May explode when heated.
   fire_suppression: Do not fight fire if gas cylinder involved - extreme explosion risk. Evacuate. Cool cylinders with water
@@ -54,6 +112,97 @@ emergency_response:
   environmental_hazards: Contributes to acid rain, smog, ozone formation. Toxic to vegetation. Report significant releases.
   special_hazards: DELAYED PULMONARY EDEMA - asymptomatic period 6-72 hours then sudden respiratory failure. NO converts to
     NO2 in air (more toxic). Strong oxidizer. Corrosive to respiratory tract. May explode under pressure.
+storage_requirements:
+  temperature_range: Store cylinders <52°C. Keep away from heat.
+  ventilation: 'Outdoor storage strongly preferred. Indoor: mechanical ventilation with emergency backup. NOx gas detection
+    mandatory.'
+  incompatibilities:
+  - Flammable materials
+  - Combustible materials
+  - Reducing agents
+  - Ammonia
+  - Carbon disulfide
+  - Hydrogen sulfide
+  - Petroleum products
+  container_material: Steel cylinders for compressed gas. Stainless steel or glass for liquid.
+  segregation: Separate from flammables and combustibles by 20 feet or firewall. Oxidizer storage area.
+  quantity_limits: 'Per fire code: limit cylinders in buildings. Many facilities store outdoors only.'
+  special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "OXIDIZER" and "POISON GAS" signs.
+    Emergency procedures posted. Monitor cylinder integrity regularly.
+regulatory_classification:
+  un_number: UN1067 (nitrogen dioxide/dinitrogen tetroxide), UN2201 (nitrous oxide)
+  dot_hazard_class: 2.3 (Toxic gas), 5.1 (Oxidizer)
+  dot_label: Poison Gas, Oxidizer
+  nfpa_codes:
+    health: 3
+    flammability: 0
+    reactivity: 0
+    special: OX (Oxidizer)
+  epa_hazard_categories:
+  - Acute toxicity (inhalation)
+  - Oxidizing gas
+  - Corrosive
+  sara_title_iii: true
+  cercla_rq: 10 pounds (4.54 kg) for NO2
+  rcra_code: P078 (nitrogen dioxide)
+workplace_exposure:
+  osha_pel:
+    twa_8hr: null
+    stel_15min: null
+    ceiling: 5 ppm (NO2), 25 ppm (NO)
+  niosh_rel:
+    twa_8hr: null
+    stel_15min: 1 ppm (NO2) - 15 min ceiling
+    ceiling: null
+    idlh: 20 ppm (NO2), 100 ppm (NO)
+  acgih_tlv:
+    twa_8hr: 0.2 ppm (NO2), 25 ppm (NO)
+    stel_15min: 1 ppm (NO2)
+    ceiling: null
+  biological_exposure_indices:
+  - metabolite: Methemoglobin
+    specimen: Blood
+    timing: During or end of shift
+    bei_value: <1.5% of hemoglobin (NO exposure)
+  - metabolite: Nitrate/Nitrite
+    specimen: Urine
+    timing: End of shift
+    bei_value: Establish baseline
+synonyms_identifiers:
+  synonyms:
+  - NOx
+  - Nitrogen dioxide (NO2)
+  - Nitric oxide (NO)
+  - Dinitrogen tetroxide (N2O4)
+  - Nitrogen peroxide
+  common_trade_names: []
+  other_identifiers:
+    rtecs_number: QW9800000 (NO2)
+    ec_number: 233-272-6 (NO2)
+    pubchem_cid: 3032552 (NOx)
+reactivity:
+  stability: NO2/N2O4 equilibrium temperature-dependent. May decompose under heat/pressure.
+  polymerization: Will not polymerize
+  incompatible_materials:
+  - Reducing agents
+  - Flammable materials
+  - Organic materials
+  - Ammonia
+  - Carbon disulfide
+  - Hydrogen sulfide
+  - Petroleum
+  - Alcohols
+  hazardous_decomposition:
+  - Nitrogen
+  - Oxygen
+  - Toxic nitrogen oxides
+  conditions_to_avoid:
+  - Heat
+  - Pressure
+  - Incompatible materials
+  - Moisture (forms corrosive acids)
+  reactivity_hazard: Strong oxidizer. Reacts violently with reducing agents and combustibles. Forms nitric acid with water.
+    May explode under heat/pressure.
 environmental_impact:
   aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): varies by species and form. Forms acidic solutions.'
   biodegradability: Reacts in atmosphere. Converts to nitric acid. Not biodegradable.
@@ -89,6 +238,8 @@ detection_monitoring:
     technique: Ion chromatography
     detection_limit: 0.007 ppm
   odor_threshold: 'NO2: 0.1-1 ppm (provides warning but overlaps toxic range). NO: odorless (NO WARNING).'
+schema_version: 5.0.0
+content_type: compounds
 breadcrumb:
 - label: Home
   href: /
@@ -96,179 +247,3 @@ breadcrumb:
   href: /compounds
 - label: Oxidizing Gas
   href: /compounds//oxidizing_gas
-relationships:
-  produced_by_contaminants:
-  - id: rust-oxidation
-    title: Rust / Iron Oxide Formation
-    url: /contaminants/oxidation/ferrous/rust-oxidation
-    image: /images/contaminants/oxidation/ferrous/rust-oxidation.jpg
-    frequency: common
-    severity: low
-    typical_context: High-temperature oxidation during laser cleaning
-  - id: annealing-scale
-    title: Heat Treatment Scale
-    url: /contaminants/thermal-damage/scale/annealing-scale
-    image: /images/contaminants/thermal-damage/scale/annealing-scale.jpg
-    frequency: common
-    severity: low
-    typical_context: Formation from atmospheric nitrogen at high temperatures
-  - id: paint-residue
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue
-    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
-    frequency: occasional
-    severity: low
-    typical_context: Nitrogen from some paint formulations
-  chemical_properties:
-  - type: chemical_properties
-    id: nitrogen-oxides-physical-data
-    url: /compounds/nitrogen-oxides-physical-data
-    title: Nitrogen Oxides Physical Data
-  health_effects:
-  - type: health_effects
-    id: nitrogen-oxides-toxicology
-    url: /compounds/nitrogen-oxides-toxicology
-    title: Nitrogen Oxides Toxicology
-  environmental_impact:
-  - type: environmental_impact
-    id: nitrogen-oxides-environmental-data
-    url: /compounds/nitrogen-oxides-environmental-data
-    title: Nitrogen Oxides Environmental Data
-  detection_monitoring:
-  - type: detection_monitoring
-    id: nitrogen-oxides-monitoring-methods
-    url: /compounds/nitrogen-oxides-monitoring-methods
-    title: Nitrogen Oxides Monitoring Methods
-  ppe_requirements:
-  - type: ppe_requirements
-    id: irritant-gas-low-concentration
-    overrides:
-      specific_compound: Nitrogen Oxides
-      pel_ppm: 25
-    url: /compounds/irritant-gas-low-concentration
-    title: Irritant Gas Low Concentration
-  emergency_response:
-  - type: emergency_response
-    id: toxic-gas-extreme
-    overrides:
-      specific_compound: Nitrogen Oxides
-    url: /compounds/toxic-gas-extreme
-    title: Toxic Gas Extreme
-  exposure_limits:
-    osha_pel_ppm: 25
-    osha_pel_mg_m3: 9
-    niosh_rel_ppm: null
-    niosh_rel_mg_m3: 1.8
-    acgih_tlv_ppm: 3
-    acgih_tlv_mg_m3: 5.6
-  health_effects_keywords:
-  - respiratory_irritation
-  - pulmonary_edema
-  - bronchitis
-  - delayed_effects
-  physical_properties:
-    boiling_point: 'NO: -151.7°C, NO2: 21.2°C, N2O4: 21.2°C'
-    melting_point: 'NO: -163.6°C, NO2: -11.2°C'
-    vapor_pressure: 'NO: >760 mmHg @ 20°C (gas), NO2: 760 mmHg @ 21°C'
-    vapor_density: 'NO: 1.04 (Air=1), NO2: 1.58 (Air=1)'
-    specific_gravity: 'NO2: 1.45 (liquid @ 21°C)'
-    flash_point: Not applicable (non-flammable)
-    autoignition_temp: Not applicable
-    explosive_limits: Not applicable (supports combustion)
-    appearance: 'NO: colorless gas, NO2: reddish-brown gas, N2O4: colorless liquid/gas'
-    odor: 'NO2: pungent, irritating odor @ 0.1-1 ppm. NO: odorless'
-  reactivity:
-    stability: NO2/N2O4 equilibrium temperature-dependent. May decompose under heat/pressure.
-    polymerization: Will not polymerize
-    incompatible_materials:
-    - Reducing agents
-    - Flammable materials
-    - Organic materials
-    - Ammonia
-    - Carbon disulfide
-    - Hydrogen sulfide
-    - Petroleum
-    - Alcohols
-    hazardous_decomposition:
-    - Nitrogen
-    - Oxygen
-    - Toxic nitrogen oxides
-    conditions_to_avoid:
-    - Heat
-    - Pressure
-    - Incompatible materials
-    - Moisture (forms corrosive acids)
-    reactivity_hazard: Strong oxidizer. Reacts violently with reducing agents and combustibles. Forms nitric acid with water.
-      May explode under heat/pressure.
-  regulatory_classification:
-    un_number: UN1067 (nitrogen dioxide/dinitrogen tetroxide), UN2201 (nitrous oxide)
-    dot_hazard_class: 2.3 (Toxic gas), 5.1 (Oxidizer)
-    dot_label: Poison Gas, Oxidizer
-    nfpa_codes:
-      health: 3
-      flammability: 0
-      reactivity: 0
-      special: OX (Oxidizer)
-    epa_hazard_categories:
-    - Acute toxicity (inhalation)
-    - Oxidizing gas
-    - Corrosive
-    sara_title_iii: true
-    cercla_rq: 10 pounds (4.54 kg) for NO2
-    rcra_code: P078 (nitrogen dioxide)
-  sources_in_laser_cleaning:
-  - high_energy_laser_interaction
-  - nitrogen_compound_oxidation
-  - atmospheric_nitrogen_fixation
-  storage_requirements:
-    temperature_range: Store cylinders <52°C. Keep away from heat.
-    ventilation: 'Outdoor storage strongly preferred. Indoor: mechanical ventilation with emergency backup. NOx gas detection
-      mandatory.'
-    incompatibilities:
-    - Flammable materials
-    - Combustible materials
-    - Reducing agents
-    - Ammonia
-    - Carbon disulfide
-    - Hydrogen sulfide
-    - Petroleum products
-    container_material: Steel cylinders for compressed gas. Stainless steel or glass for liquid.
-    segregation: Separate from flammables and combustibles by 20 feet or firewall. Oxidizer storage area.
-    quantity_limits: 'Per fire code: limit cylinders in buildings. Many facilities store outdoors only.'
-    special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "OXIDIZER" and "POISON GAS"
-      signs. Emergency procedures posted. Monitor cylinder integrity regularly.
-  synonyms_identifiers:
-    synonyms:
-    - NOx
-    - Nitrogen dioxide (NO2)
-    - Nitric oxide (NO)
-    - Dinitrogen tetroxide (N2O4)
-    - Nitrogen peroxide
-    common_trade_names: []
-    other_identifiers:
-      rtecs_number: QW9800000 (NO2)
-      ec_number: 233-272-6 (NO2)
-      pubchem_cid: 3032552 (NOx)
-  workplace_exposure:
-    osha_pel:
-      twa_8hr: null
-      stel_15min: null
-      ceiling: 5 ppm (NO2), 25 ppm (NO)
-    niosh_rel:
-      twa_8hr: null
-      stel_15min: 1 ppm (NO2) - 15 min ceiling
-      ceiling: null
-      idlh: 20 ppm (NO2), 100 ppm (NO)
-    acgih_tlv:
-      twa_8hr: 0.2 ppm (NO2), 25 ppm (NO)
-      stel_15min: 1 ppm (NO2)
-      ceiling: null
-    biological_exposure_indices:
-    - metabolite: Methemoglobin
-      specimen: Blood
-      timing: During or end of shift
-      bei_value: <1.5% of hemoglobin (NO exposure)
-    - metabolite: Nitrate/Nitrite
-      specimen: Urine
-      timing: End of shift
-      bei_value: Establish baseline

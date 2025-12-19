@@ -1,27 +1,14 @@
 id: silicon-carbide-sic-laser-cleaning
 name: Silicon Carbide (SiC)
+slug: silicon-carbide-sic
 category: ceramic
 subcategory: carbide
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:56.674782Z'
-dateModified: '2025-12-19T01:18:54Z'
+datePublished: '2025-12-19T01:24:57.764080Z'
+dateModified: '2025-12-19T01:24:57.764080Z'
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
 title: Silicon Carbide Laser Cleaning
 description: We've discovered Silicon Carbide thrives in harsh environments, thanks to its superior hardness and heat resistance
   that hold structures together where other ceramics would crumble, making it essential for everything from aerospace components
@@ -111,322 +98,234 @@ faq:
   question: What are the regulatory requirements for laser cleaning silicon carbide in automotive or aerospace manufacturing?
   topic_keyword: automotive or aerospace manufacturing
   topic_statement: Demands ISO 11146 compliance
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    electricalResistivity:
+      value: 0.0003
+      unit: Ω·m
+      confidence: 95
+      source: ai_research
+    fractureToughness:
+      value: 4.6
+      unit: MPa√m
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 450.0
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 1600.0
+      unit: °C
+      confidence: 95
+      source: ai_research
+    density:
+      value: 3.21
+      unit: g/cm³
+      confidence: 100
+      source: ai_research
+    hardness:
+      value: 27.5
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 1000000.0
+      unit: Ω·cm²
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 3900.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 450.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 414.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    porosity:
+      value: 0.005
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+      min: 0.0
+      max: 0.05
+    ablationThreshold:
+      value: 3.0
+      unit: J/cm²
+      confidence: 95
+      source: ai_research
+      min: 2.0
+      max: 5.0
+    thermalDestruction:
+      value: 3103.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 671.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.204
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 370.0
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 4.0e-06
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.8
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 0.00012
+      unit: m^2/s
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 25.3
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Applied Optics
+      citation: 'C. Pfaffenroth et al., Applied Optics 54(16), D94-D100 (2015), DOI: 10.1364/AO.54.000D94'
+      context: Polycrystalline 6H-SiC (99.9% purity), room temperature (25°C), 1064 nm wavelength, 8 ns pulse duration, measured
+        in vacuum using single-shot method
+      confidence: 95
+      researched_date: '2025-11-24T12:19:00.169331'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  - IEC 60825 - Safety of Laser Products
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+metadata:
+  last_updated: '2025-10-27T23:48:40.922691Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922698Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants: []
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      electricalResistivity:
-        value: 0.0003
-        unit: Ω·m
-        confidence: 95
-        source: ai_research
-      fractureToughness:
-        value: 4.6
-        unit: MPa√m
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 450.0
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 1600.0
-        unit: °C
-        confidence: 95
-        source: ai_research
-      density:
-        value: 3.21
-        unit: g/cm³
-        confidence: 100
-        source: ai_research
-      hardness:
-        value: 27.5
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 1000000.0
-        unit: Ω·cm²
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 3900.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 450.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 414.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      porosity:
-        value: 0.005
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-        min: 0.0
-        max: 0.05
-      ablationThreshold:
-        value: 3.0
-        unit: J/cm²
-        confidence: 95
-        source: ai_research
-        min: 2.0
-        max: 5.0
-      thermalDestruction:
-        value: 3103.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 671.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.204
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 370.0
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 4.0e-06
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.8
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 0.00012
-        unit: m^2/s
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 25.3
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Applied Optics
-        citation: 'C. Pfaffenroth et al., Applied Optics 54(16), D94-D100 (2015), DOI: 10.1364/AO.54.000D94'
-        context: Polycrystalline 6H-SiC (99.9% purity), room temperature (25°C), 1064 nm wavelength, 8 ns pulse duration,
-          measured in vacuum using single-shot method
-        confidence: 95
-        researched_date: '2025-11-24T12:19:00.169331'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - ANSI Z136.1 - Safe Use of Lasers
-    - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    - IEC 60825 - Safety of Laser Products
-    isBasedOn:
-      name: IEC 60825 - Safety of Laser Products
-      url: https://webstore.iec.ch/publication/3587
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922691Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922698Z'
-    structure_version: '2.0'
-  applications:
-  - Semiconductor Manufacturing
-  - Aerospace
-  - Automotive
-  - Power Electronics
-  - Medical Devices
-  - Research and Development
-  - Renewable Energy
-  - Defense Systems
-  - Industrial Manufacturing
-  - Optics and Photonics
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: cubic crystal structure
-      source: ai_research
-      unit: crystal system
-      value: cubic
-  voice_enhanced: '2025-11-07T04:08:59.018684+00:00'
-  components:
-    settings_description: 'When laser cleaning silicon carbide, watch out for its extreme hardness right from the start. I''ve
-      seen this tough ceramic resist contaminants well, but it can crack if you push too hard with the laser. So, begin with
-      gentler settings to avoid surface damage, like lower power and slower passes that let the heat spread evenly.
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+  - type: regulatory_standards
+    id: ce-machinery-directive
+applications:
+- Semiconductor Manufacturing
+- Aerospace
+- Automotive
+- Power Electronics
+- Medical Devices
+- Research and Development
+- Renewable Energy
+- Defense Systems
+- Industrial Manufacturing
+- Optics and Photonics
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: cubic crystal structure
+    source: ai_research
+    unit: crystal system
+    value: cubic
+voice_enhanced: '2025-11-07T04:08:59.018684+00:00'
+components:
+  settings_description: 'When laser cleaning silicon carbide, watch out for its extreme hardness right from the start. I''ve
+    seen this tough ceramic resist contaminants well, but it can crack if you push too hard with the laser. So, begin with
+    gentler settings to avoid surface damage, like lower power and slower passes that let the heat spread evenly.
 
 
-      This works best because silicon carbide conducts heat so efficiently, pulling energy away quickly without overheating
-      spots. You''ll find it different from softer metals—its low expansion under heat means less warping, so you can clean
-      without distorting precision parts in aerospace or electronics. Tends to absorb laser energy deeply, which clears tough
-      buildup effectively.
+    This works best because silicon carbide conducts heat so efficiently, pulling energy away quickly without overheating
+    spots. You''ll find it different from softer metals—its low expansion under heat means less warping, so you can clean
+    without distorting precision parts in aerospace or electronics. Tends to absorb laser energy deeply, which clears tough
+    buildup effectively.
 
 
-      Just keep passes overlapping a bit to cover everything, and monitor for any subtle discoloration that signals overdoing
-      it. In my experience, this approach keeps the material''s strength intact for high-heat applications.'
-    micro:
-      before: We've found that before laser cleaning, the Silicon Carbide surface at 1000x shows a rough, uneven layer of
-        contaminants clinging tightly to the material. Dark spots and irregular patches cover most of the area, making the
-        texture look pitted and dirty overall. This buildup hides the underlying structure and blocks clear views of the grains.
-      after: After the treatment, the same view reveals a smooth, uniform surface where contaminants have vanished completely.
-        The material now appears clean and reflective, with even grains standing out
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  abbreviations:
-  - SiC
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  - id: ce-machinery-directive
-    title: CE Machinery Directive 2006/42/EC
-    short_title: CE Machinery Directive
-    authority: EU
-    authority_full: European Union
-    agency_type: regulatory_body
-    country: European Union
-    url: /compounds/ce-machinery-directive
-    image: /images/logo/logo-org-eu.png
-    description: European requirements for machinery safety including laser equipment
-    scope: Essential health and safety requirements for machinery
-    applicability:
-    - All machinery sold in EU/EEA markets
-    - Laser cleaning equipment for EU markets
-    - Equipment distributors and importers
-    compliance_requirements:
-    - CE marking affixing
-    - Declaration of Conformity
-    - Technical documentation file
-    - Risk assessment documentation
-    - Harmonized standards compliance (EN 60825, EN 12254)
-    - User manual in local language
-    compliance_level: mandatory
-    enforcement: Market surveillance authorities
-    penalties: Product withdrawal, market bans, fines
-    effective_date: 2006-05-17
-    transition_period: Ended 2009-12-29
-    jurisdiction: European Union + EEA (Norway, Iceland, Liechtenstein)
-    harmonized_standards:
-    - EN 60825-1 (Laser safety)
-    - EN 12254 (Laser processing machinery)
-    - EN ISO 11553 (Safety requirements)
-    related_standards:
-    - iec-60825-laser-safety
-    - iso-11553-laser-processing
-  seo_description: We've discovered Silicon Carbide thrives in harsh environments, thanks to its superior hardness and heat
-    resistance that hold structures together where other...
+    Just keep passes overlapping a bit to cover everything, and monitor for any subtle discoloration that signals overdoing
+    it. In my experience, this approach keeps the material''s strength intact for high-heat applications.'
+  micro:
+    before: We've found that before laser cleaning, the Silicon Carbide surface at 1000x shows a rough, uneven layer of contaminants
+      clinging tightly to the material. Dark spots and irregular patches cover most of the area, making the texture look pitted
+      and dirty overall. This buildup hides the underlying structure and blocks clear views of the grains.
+    after: After the treatment, the same view reveals a smooth, uniform surface where contaminants have vanished completely.
+      The material now appears clean and reflective, with even grains standing out
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+abbreviations:
+- SiC
+seo_description: We've discovered Silicon Carbide thrives in harsh environments, thanks to its superior hardness and heat
+  resistance that hold structures together where other...

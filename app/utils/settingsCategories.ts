@@ -48,13 +48,32 @@ export async function getAllCategories(): Promise<SettingsCategory[]> {
       // Handle normalized structure (data.metadata) or legacy flat structure
       const data = parsed.metadata || parsed;
       
-      if (!data.active || !data.category || !data.subcategory) {
+      // Skip if explicitly marked inactive
+      if (data.active === false) {
         continue;
       }
       
-      const categorySlug = normalizeForUrl(data.category);
-      const subcategorySlug = normalizeForUrl(data.subcategory);
-      const settingsSlug = `${data.slug}-settings`;
+      // Try to get category/subcategory from data, or derive from linked material
+      let categorySlug = data.category ? normalizeForUrl(data.category) : 'metal';
+      let subcategorySlug = data.subcategory ? normalizeForUrl(data.subcategory) : 'non-ferrous';
+      
+      // If no category, try to load from corresponding material file
+      if (!data.category || !data.subcategory) {
+        try {
+          const materialSlug = data.slug || file.replace('-settings.yaml', '');
+          const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${materialSlug}.yaml`);
+          if (fs.existsSync(materialPath)) {
+            const materialContent = fs.readFileSync(materialPath, 'utf8');
+            const materialData = yaml.load(materialContent) as any;
+            categorySlug = materialData.category ? normalizeForUrl(materialData.category) : categorySlug;
+            subcategorySlug = materialData.subcategory ? normalizeForUrl(materialData.subcategory) : subcategorySlug;
+          }
+        } catch (e) {
+          // Keep defaults
+        }
+      }
+      
+      const settingsSlug = data.slug ? `${data.slug}-settings` : file.replace('.yaml', '');
       
       if (!categoryMap.has(categorySlug)) {
         categoryMap.set(categorySlug, new Map());

@@ -80,7 +80,7 @@ Add custom classes in `WorkizWidget.tsx`:
 
 ```tsx
 <iframe
-  className="shadow-lg rounded-lg"
+  className="shadow-lg rounded-md"
   // ... other props
 />
 ```
@@ -122,7 +122,7 @@ The widget is already responsive, but you can adjust the container in `page.tsx`
 - Alternatively, wrap the widget in a light-mode container:
 
 ```tsx
-<div className="bg-white p-4 rounded-lg">
+<div className="bg-white p-4 rounded-md">
   <WorkizWidget ... />
 </div>
 ```

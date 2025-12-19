@@ -11,7 +11,7 @@ export function Pricing({ materialName: _materialName, materialSlug: _materialSl
   return (
     <div className="grid md:grid-cols-2 gap-6 my-12">
         {/* Professional Service Card */}
-        <div className="card-background rounded-lg p-6 shadow-md border card-enhanced-hover transition-all duration-300 ease-out">
+        <div className="card-background rounded-md p-6 shadow-md border card-enhanced-hover transition-all duration-300 ease-out">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="text-lg font-semibold text-gray-700 mb-1">
@@ -34,14 +34,14 @@ export function Pricing({ materialName: _materialName, materialSlug: _materialSl
           
           <a
             href="/contact"
-            className="block w-full text-center bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            className="block w-full text-center bg-blue-600 text-white py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
           >
             Request Professional Service
           </a>
         </div>
         
         {/* Equipment Rental Card */}
-        <div className="card-background rounded-lg p-6 shadow-md border card-enhanced-hover transition-all duration-300 ease-out">
+        <div className="card-background rounded-md p-6 shadow-md border card-enhanced-hover transition-all duration-300 ease-out">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="text-lg font-semibold text-gray-700 mb-1">
@@ -64,7 +64,7 @@ export function Pricing({ materialName: _materialName, materialSlug: _materialSl
           
           <a
             href="/rental"
-            className="block w-full text-center bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
+            className="block w-full text-center bg-green-600 text-white py-3 rounded-md font-medium hover:bg-green-700 transition-colors"
           >
             Rent Equipment
           </a>

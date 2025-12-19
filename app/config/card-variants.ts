@@ -35,7 +35,7 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
-    cardClass: "rounded-lg shadow-md overflow-hidden",
+    cardClass: "rounded-md shadow-md overflow-hidden",
     hoverEffect: "card-enhanced-hover",
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
     
@@ -53,7 +53,7 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
-    cardClass: "rounded-lg shadow-md overflow-hidden",
+    cardClass: "rounded-md shadow-md overflow-hidden",
     hoverEffect: "card-enhanced-hover",
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
     

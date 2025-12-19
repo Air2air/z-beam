@@ -91,7 +91,7 @@ export default function MaterialBrowser({
           placeholder="Search materials..."
           value={searchTerm}
           onChange={(e) => handleSearchChange(e.target.value)}
-          className="w-full pl-10 pr-10 py-3 border rounded-lg bg-tertiary text-muted placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full pl-10 pr-10 py-3 border rounded-md bg-tertiary text-muted placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         {searchTerm && (
           <button
@@ -113,7 +113,7 @@ export default function MaterialBrowser({
           <select
             value={selectedCategory}
             onChange={(e) => handleCategoryChange(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg bg-tertiary text-muted focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border rounded-md bg-tertiary text-muted focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             {categories.map(cat => (
               <option key={cat} value={cat}>
@@ -129,7 +129,7 @@ export default function MaterialBrowser({
           <select
             value={sortBy}
             onChange={(e) => handleSortChange(e.target.value as 'name' | 'category')}
-            className="w-full px-4 py-2 border rounded-lg bg-tertiary text-muted focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border rounded-md bg-tertiary text-muted focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="name">Name (A-Z)</option>
             <option value="category">Category</option>

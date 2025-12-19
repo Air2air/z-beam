@@ -625,7 +625,7 @@ export const COMPONENT_DEFAULTS = {
   },
   card: {
     imageHeight: 128,
-    borderRadius: 'rounded-lg',
+    borderRadius: 'rounded-md',
   },
 } as const;
 

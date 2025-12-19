@@ -55,7 +55,7 @@ export function SafetyWarningsGrid({ safetyData, materialName, warningText }: Sa
         {/* Critical Warnings using color-coded cards */}
         <div className="space-y-4 mb-8">
           {safetyData.critical_warnings.map((warning, i) => (
-            <div key={i} className="bg-red-900/20 border border-red-500 rounded-lg p-4">
+            <div key={i} className="bg-red-900/20 border border-red-500 rounded-md p-4">
               <div className="flex items-start gap-3">
                 <span className="text-3xl">{warning.icon}</span>
                 <div className="flex-1">
@@ -74,7 +74,7 @@ export function SafetyWarningsGrid({ safetyData, materialName, warningText }: Sa
           ))}
           
           {safetyData.high_priority_warnings.map((warning, i) => (
-            <div key={i} className="bg-orange-900/20 border border-orange-500 rounded-lg p-4">
+            <div key={i} className="bg-orange-900/20 border border-orange-500 rounded-md p-4">
               <div className="flex items-start gap-3">
                 <span className="text-3xl">{warning.icon}</span>
                 <div className="flex-1">
@@ -93,7 +93,7 @@ export function SafetyWarningsGrid({ safetyData, materialName, warningText }: Sa
           ))}
           
           {safetyData.moderate_warnings.map((warning, i) => (
-            <div key={i} className="bg-yellow-900/20 border border-yellow-500 rounded-lg p-4">
+            <div key={i} className="bg-yellow-900/20 border border-yellow-500 rounded-md p-4">
               <div className="flex items-start gap-3">
                 <span className="text-3xl">{warning.icon}</span>
                 <div className="flex-1">
@@ -113,7 +113,7 @@ export function SafetyWarningsGrid({ safetyData, materialName, warningText }: Sa
         </div>
         
         {/* Hazardous Fumes Table */}
-        <div className="bg-gray-800 rounded-lg overflow-hidden mb-8">
+        <div className="bg-gray-800 rounded-md overflow-hidden mb-8">
           <div className="px-6 py-4 bg-gray-700 border-b border-gray-600">
             <h3 className="text-lg font-semibold text-white">Hazardous Fumes Generated</h3>
           </div>

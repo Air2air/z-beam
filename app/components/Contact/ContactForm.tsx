@@ -132,7 +132,7 @@ export const ContactForm = memo(function ContactForm() {
           tabIndex={-1}
           role="alert"
           aria-labelledby="error-summary-title"
-          className="p-4 bg-red-900/20 border border-red-800 rounded-lg"
+          className="p-4 bg-red-900/20 border border-red-800 rounded-md"
         >
           <h3 id="error-summary-title" className="text-secondary mb-2">
             Please correct the following errors:
@@ -165,7 +165,7 @@ export const ContactForm = memo(function ContactForm() {
               aria-required="true"
               aria-invalid={errors.name ? 'true' : 'false'}
               aria-describedby={errors.name ? 'name-error' : undefined}
-              className={`w-full px-4 py-2 border rounded-lg bg-secondary placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
+              className={`w-full px-4 py-2 border rounded-md bg-secondary placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
                 errors.name ? 'border-red-400' : 'border-gray-600'
               }`}
               placeholder="Your full name"
@@ -191,7 +191,7 @@ export const ContactForm = memo(function ContactForm() {
               aria-required="true"
               aria-invalid={errors.email ? 'true' : 'false'}
               aria-describedby={errors.email ? 'email-error' : undefined}
-              className={`w-full px-4 py-2 border rounded-lg bg-secondary placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
+              className={`w-full px-4 py-2 border rounded-md bg-secondary placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
                 errors.email ? 'border-red-400' : 'border-gray-600'
               }`}
               placeholder="your@email.com"
@@ -216,7 +216,7 @@ export const ContactForm = memo(function ContactForm() {
             autoComplete="tel"
             value={formData.phone}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-600 bg-secondary placeholder-gray-400 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none"
+            className="w-full px-4 py-2 border border-gray-600 bg-secondary placeholder-gray-400 rounded-md focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none"
             placeholder="(650) 590-5040"
           />
         </div>
@@ -235,7 +235,7 @@ export const ContactForm = memo(function ContactForm() {
             aria-required="true"
             aria-invalid={errors.message ? 'true' : 'false'}
             aria-describedby={errors.message ? 'message-error' : 'message-hint'}
-            className={`w-full px-4 py-2 border rounded-lg bg-secondary placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
+            className={`w-full px-4 py-2 border rounded-md bg-secondary placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
               errors.message ? 'border-red-400' : 'border-gray-600'
             }`}
             placeholder="Please provide details about your inquiry, including any specific requirements or questions you have about our laser cleaning solutions."
@@ -258,7 +258,7 @@ export const ContactForm = memo(function ContactForm() {
             role="alert"
             aria-live="assertive"
             aria-atomic="true"
-            className={`p-4 rounded-lg ${
+            className={`p-4 rounded-md ${
               submitStatus.type === 'success' 
                 ? 'bg-green-900/20 border border-green-800 text-green-300' 
                 : 'bg-red-900/20 border border-red-800 text-red-300'

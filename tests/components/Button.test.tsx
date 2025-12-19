@@ -204,7 +204,7 @@ describe('Button Component', () => {
         'inline-flex',
         'items-center',
         'justify-center',
-        'rounded-lg',
+        'rounded-md',
         'transition-all'
       );
     });    it('should apply focus-visible classes', () => {
@@ -465,7 +465,7 @@ describe('Button Component', () => {
           const button = screen.getByRole('button');
           
           // All should have base button classes
-          expect(button).toHaveClass('font-medium', 'rounded-lg', 'inline-flex');
+          expect(button).toHaveClass('font-medium', 'rounded-md', 'inline-flex');
           
           unmount();
         });

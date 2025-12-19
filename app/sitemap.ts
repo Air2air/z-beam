@@ -105,6 +105,20 @@ export default function sitemap(): SitemapEntry[] {
       priority: 0.9,
       alternates: getAlternates(`${baseUrl}/materials`),
     },
+    {
+      url: `${baseUrl}/contaminants`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+      alternates: getAlternates(`${baseUrl}/contaminants`),
+    },
+    {
+      url: `${baseUrl}/compounds`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+      alternates: getAlternates(`${baseUrl}/compounds`),
+    },
   ];
 
   // Material category and subcategory routes
@@ -302,6 +316,80 @@ export default function sitemap(): SitemapEntry[] {
     console.error('Error generating contaminant routes:', error);
   }
 
+  // Compound routes (parallel to materials/settings/contaminants)
+  const compoundRoutes: SitemapEntry[] = [];
+  const compoundPageRoutes: SitemapEntry[] = [];
+  
+  try {
+    const compoundDir = path.join(process.cwd(), 'frontmatter/compounds');
+    const compoundFiles = fs.readdirSync(compoundDir);
+    const compoundYamlFiles = compoundFiles.filter(f => f.endsWith('.yaml'));
+    
+    // Track categories and subcategories we've seen
+    const compoundCategorySet = new Set<string>();
+    const compoundSubcategorySet = new Set<string>();
+    
+    compoundYamlFiles.forEach((file) => {
+      const filePath = path.join(compoundDir, file);
+      const stats = fs.statSync(filePath);
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      
+      // Simple YAML parsing to extract category and subcategory
+      const categoryMatch = fileContent.match(/^category:\s*(.+)$/m);
+      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+      
+      if (categoryMatch) {
+        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
+        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
+        const slug = file.replace('.yaml', '');
+        
+        // Skip if category is empty
+        if (!category) return;
+        
+        // Add category page if not seen before
+        if (!compoundCategorySet.has(category)) {
+          compoundCategorySet.add(category);
+          const categoryUrl = buildCategoryUrl('compounds', category, true);
+          compoundRoutes.push({
+            url: categoryUrl,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+            alternates: getAlternates(categoryUrl),
+          });
+        }
+        
+        // Add subcategory page if not seen before
+        if (subcategory && !compoundSubcategorySet.has(`${category}/${subcategory}`)) {
+          compoundSubcategorySet.add(`${category}/${subcategory}`);
+          const subcategoryUrl = buildSubcategoryUrl('compounds', category, subcategory, true);
+          compoundRoutes.push({
+            url: subcategoryUrl,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.7,
+            alternates: getAlternates(subcategoryUrl),
+          });
+        }
+        
+        // Add compound item page
+        const itemUrl = buildUrlFromMetadata(
+          { rootPath: 'compounds', category, subcategory, slug },
+          true
+        );
+        compoundPageRoutes.push({
+          url: itemUrl,
+          lastModified: stats.mtime,
+          changeFrequency: 'monthly' as const,
+          priority: 0.6,
+          alternates: getAlternates(itemUrl),
+        });
+      }
+    });
+  } catch (error) {
+    console.error('Error generating compound routes:', error);
+  }
+
   return [
     ...staticRoutes, 
     ...materialRoutes, 
@@ -309,6 +397,8 @@ export default function sitemap(): SitemapEntry[] {
     ...settingsRoutes, 
     ...settingsPageRoutes,
     ...contaminantRoutes,
-    ...contaminantPageRoutes
+    ...contaminantPageRoutes,
+    ...compoundRoutes,
+    ...compoundPageRoutes
   ];
 }

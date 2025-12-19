@@ -42,7 +42,7 @@ export function IndustriesGrid({ industries }: IndustriesGridProps) {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {industries.map((industry, i) => (
-            <div key={i} className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
+            <div key={i} className="bg-gray-800/50 border border-gray-700 rounded-md p-6">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-xl font-semibold text-white">{industry.name}</h3>
                 <Badge 

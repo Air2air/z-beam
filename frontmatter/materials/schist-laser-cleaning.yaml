@@ -1,28 +1,14 @@
 id: schist-laser-cleaning
 name: Schist
+slug: schist
 category: stone
 subcategory: sedimentary
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:56.568968Z'
-dateModified: '2025-12-19T01:18:54Z'
+datePublished: '2025-12-19T01:24:57.679738Z'
+dateModified: '2025-12-19T01:24:57.679738Z'
 author:
   id: 4
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: B.Sc.
-  sex: f
-  jobTitle: Technical Writer
-  expertise:
-  - Technical Documentation
-  - Safety Standards
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - B.Sc. Chemical Engineering, University of Indonesia, 2019
-  - Technical writer specializing in industrial safety
 title: Schist Laser Cleaning
 description: Schist's defining feature is its foliated layers, which distinguish it from more uniform stones and let us restore
   heritage surfaces via laser cleaning, all while keeping the underlying textures intact without any risk of cracking.
@@ -111,316 +97,261 @@ faq:
     surface grime cleanly without spreading fissures.
   question: What physical properties of schist, like its hardness and cleavage, should be considered before selecting a laser
     cleaning method?
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    fractureToughness:
+      value: 1.1
+      unit: MPa√m
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 45.2
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 0.92
+      unit: '1'
+      confidence: 92
+      source: ai_research
+    density:
+      value: 2750.0
+      unit: kg/m³
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 4.0
+      unit: Mohs
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.85
+      unit: dimensionless (normalized resistance index)
+      confidence: 92
+      source: ai_research
+    compressiveStrength:
+      value: 120.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 15.2
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 7.5
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    porosity:
+      value: 1.5
+      unit: '%'
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 1.1
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Studies in Conservation
+      citation: 'Sanz et al., Laser cleaning of encrusted schist artifacts: Damage thresholds and optimization, 2018, DOI:
+        10.1080/00393630.2018.1445821'
+      context: Mica schist (commercial grade from Spanish quarry, ~95% mica-quartz composition), 25°C, 1064 nm Nd:YAG pulsed
+        laser, atmospheric pressure
+      confidence: 92
+      researched_date: '2025-11-24T12:17:31.949938'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.75
+      unit: dimensionless
+      min: 0.6
+      max: 0.9
+      source: ai_research
+    absorptionCoefficient:
+      value: 500000
+      unit: m⁻¹
+      min: 100000
+      max: 1000000
+      source: ai_research
+    laserDamageThreshold:
+      value: 3
+      unit: J/cm²
+      min: 1
+      max: 10
+      source: ai_research
+    thermalShockResistance:
+      value: 1.5
+      unit: MW/m
+      min: 0.5
+      max: 3
+      source: ai_research
+    reflectivity:
+      value: 0.25
+      unit: dimensionless
+      min: 0.1
+      max: 0.4
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1273
+      unit: K
+      min: 1073
+      max: 1473
+      source: ai_research
+    vaporPressure:
+      value: 1
+      unit: Pa
+      min: 0.1
+      max: 10
+      source: ai_research
+    thermalDestruction:
+      value: 1073.0
+      unit: K
+      confidence: 92
+      source: ai_research
+    specificHeat:
+      value: 840.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.18
+      unit: ''
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 2.15
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 9.2e-06
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.72
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 1.0e-06
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 1.45
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: 'Laser cleaning of schist: Ablation thresholds and surface effects'
+      citation: 'Sanz et al., Journal of Cultural Heritage, 2017, DOI: 10.1016/j.culher.2016.11.005'
+      context: Natural micaceous schist (quartz-mica composition, 95% purity equivalent), 25°C, 1064 nm Nd:YAG laser, pulse
+        duration 10 ns, atmospheric pressure
+      confidence: 95
+      researched_date: '2025-11-24T12:17:39.090415'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+metadata:
+  last_updated: '2025-10-27T23:48:40.922643Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922649Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants: []
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      fractureToughness:
-        value: 1.1
-        unit: MPa√m
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 45.2
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 0.92
-        unit: '1'
-        confidence: 92
-        source: ai_research
-      density:
-        value: 2750.0
-        unit: kg/m³
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 4.0
-        unit: Mohs
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.85
-        unit: dimensionless (normalized resistance index)
-        confidence: 92
-        source: ai_research
-      compressiveStrength:
-        value: 120.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 15.2
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 7.5
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      porosity:
-        value: 1.5
-        unit: '%'
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 1.1
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Studies in Conservation
-        citation: 'Sanz et al., Laser cleaning of encrusted schist artifacts: Damage thresholds and optimization, 2018, DOI:
-          10.1080/00393630.2018.1445821'
-        context: Mica schist (commercial grade from Spanish quarry, ~95% mica-quartz composition), 25°C, 1064 nm Nd:YAG pulsed
-          laser, atmospheric pressure
-        confidence: 92
-        researched_date: '2025-11-24T12:17:31.949938'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.75
-        unit: dimensionless
-        min: 0.6
-        max: 0.9
-        source: ai_research
-      absorptionCoefficient:
-        value: 500000
-        unit: m⁻¹
-        min: 100000
-        max: 1000000
-        source: ai_research
-      laserDamageThreshold:
-        value: 3
-        unit: J/cm²
-        min: 1
-        max: 10
-        source: ai_research
-      thermalShockResistance:
-        value: 1.5
-        unit: MW/m
-        min: 0.5
-        max: 3
-        source: ai_research
-      reflectivity:
-        value: 0.25
-        unit: dimensionless
-        min: 0.1
-        max: 0.4
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1273
-        unit: K
-        min: 1073
-        max: 1473
-        source: ai_research
-      vaporPressure:
-        value: 1
-        unit: Pa
-        min: 0.1
-        max: 10
-        source: ai_research
-      thermalDestruction:
-        value: 1073.0
-        unit: K
-        confidence: 92
-        source: ai_research
-      specificHeat:
-        value: 840.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.18
-        unit: ''
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 2.15
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 9.2e-06
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.72
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 1.0e-06
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 1.45
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: 'Laser cleaning of schist: Ablation thresholds and surface effects'
-        citation: 'Sanz et al., Journal of Cultural Heritage, 2017, DOI: 10.1016/j.culher.2016.11.005'
-        context: Natural micaceous schist (quartz-mica composition, 95% purity equivalent), 25°C, 1064 nm Nd:YAG laser, pulse
-          duration 10 ns, atmospheric pressure
-        confidence: 95
-        researched_date: '2025-11-24T12:17:39.090415'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    isBasedOn:
-      name: ANSI Z136.1 - Safe Use of Lasers
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922643Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922649Z'
-    structure_version: '2.0'
-  applications:
-  - Cultural Heritage
-  - Construction and Architecture
-  - Museum Conservation
-  - Geological Research
-  - Landscape Architecture
-  - Monument Preservation
-  - Interior Design
-  - Archaeological Conservation
-  - Stone Fabrication
-  - Geotechnical Engineering
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: crystalline crystal structure
-      source: ai_research
-      unit: crystal system
-      value: crystalline
-  voice_enhanced: '2025-11-07T04:05:45.239008+00:00'
-  components:
-    settings_description: When cleaning schist, watch its layered foliation that sets it apart from denser, more uniform stones
-      like granite. I've seen this structure lead to delamination under uneven heat, so start with gentler passes to avoid
-      cracking along those planes. Unlike smoother limestones, schist's moderate absorption pulls in laser energy well but
-      traps heat due to low conductivity, which tends to build up quickly. This works best when you reduce power early on,
-      allowing multiple light exposures to reveal surface grime without stressing the layers. Adjust overlap to keep things
-      even, restoring the stone's natural sheen steadily.
-    micro:
-      before: The contaminated surface reveals clusters of dark particles scattered across uneven layers. Fine debris clings
-        tightly, obscuring the underlying flaky patterns. Grimy films dull the natural sheen in visible spots.
-      after: Laser treatment exposes smooth, layered structures with clear mineral flecks. Clean planes highlight the rock's
-        inherent alignment and texture. Restored surfaces show vibrant contrasts without residual buildup.
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: Schist's defining feature is its foliated layers, which distinguish it from more uniform stones and let
-    us restore heritage surfaces via laser cleaning, all...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Cultural Heritage
+- Construction and Architecture
+- Museum Conservation
+- Geological Research
+- Landscape Architecture
+- Monument Preservation
+- Interior Design
+- Archaeological Conservation
+- Stone Fabrication
+- Geotechnical Engineering
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: crystalline crystal structure
+    source: ai_research
+    unit: crystal system
+    value: crystalline
+voice_enhanced: '2025-11-07T04:05:45.239008+00:00'
+components:
+  settings_description: When cleaning schist, watch its layered foliation that sets it apart from denser, more uniform stones
+    like granite. I've seen this structure lead to delamination under uneven heat, so start with gentler passes to avoid cracking
+    along those planes. Unlike smoother limestones, schist's moderate absorption pulls in laser energy well but traps heat
+    due to low conductivity, which tends to build up quickly. This works best when you reduce power early on, allowing multiple
+    light exposures to reveal surface grime without stressing the layers. Adjust overlap to keep things even, restoring the
+    stone's natural sheen steadily.
+  micro:
+    before: The contaminated surface reveals clusters of dark particles scattered across uneven layers. Fine debris clings
+      tightly, obscuring the underlying flaky patterns. Grimy films dull the natural sheen in visible spots.
+    after: Laser treatment exposes smooth, layered structures with clear mineral flecks. Clean planes highlight the rock's
+      inherent alignment and texture. Restored surfaces show vibrant contrasts without residual buildup.
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: Schist's defining feature is its foliated layers, which distinguish it from more uniform stones and let us
+  restore heritage surfaces via laser cleaning, all...

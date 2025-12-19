@@ -2,7 +2,7 @@
 // Content type configuration for unified content management
 
 import type { ContentType } from '@/types';
-import { getArticle, getContaminantArticle, getSettingsArticle } from '@/app/utils/contentAPI';
+import { getArticle, getContaminantArticle, getCompoundArticle, getSettingsArticle } from '@/app/utils/contentAPI';
 import { 
   getAllCategories as getAllMaterialCategories,
   getSubcategoryInfo as getMaterialSubcategoryInfo 
@@ -11,6 +11,10 @@ import {
   getAllCategories as getAllContaminantCategories,
   getSubcategoryInfo as getContaminantSubcategoryInfo 
 } from '@/app/utils/contaminantCategories';
+import { 
+  getAllCategories as getAllCompoundCategories,
+  getSubcategoryInfo as getCompoundSubcategoryInfo 
+} from '@/app/utils/compoundCategories';
 import { 
   getAllCategories as getAllSettingsCategories,
   getSubcategoryInfo as getSettingsSubcategoryInfo 
@@ -79,6 +83,21 @@ export const CONTENT_TYPE_CONFIGS: Record<ContentType, ContentTypeConfig> = {
     hasSettings: false,
   },
   
+  compounds: {
+    type: 'compounds',
+    singular: 'Compound',
+    plural: 'Compounds',
+    rootPath: 'compounds',
+    getArticle: getCompoundArticle,
+    getAllCategories: getAllCompoundCategories,
+    getSubcategoryInfo: getCompoundSubcategoryInfo,
+    itemsProperty: 'compounds',
+    actionText: 'Hazardous Compound',
+    purposeText: 'safety information for',
+    schemaType: 'Compound',
+    hasSettings: false,
+  },
+  
   settings: {
     type: 'settings',
     singular: 'Setting',
@@ -110,5 +129,5 @@ export function getContentConfig(contentType: ContentType): ContentTypeConfig {
  * Check if a string is a valid content type
  */
 export function isValidContentType(value: string): value is ContentType {
-  return value === 'materials' || value === 'contaminants' || value === 'settings';
+  return value === 'materials' || value === 'contaminants' || value === 'compounds' || value === 'settings';
 }

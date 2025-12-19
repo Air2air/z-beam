@@ -1,28 +1,14 @@
 id: pyrex-laser-cleaning
 name: Pyrex
+slug: pyrex
 category: glass
 subcategory: soda-lime
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:56.293148Z'
-dateModified: '2025-12-19T01:18:54Z'
+datePublished: '2025-12-19T01:24:57.445321Z'
+dateModified: '2025-12-19T01:24:57.445321Z'
 author:
   id: 2
-  name: Todd Dunning
-  country: USA
-  country_display: United States
-  title: Founder
-  sex: m
-  jobTitle: Laser Safety Expert
-  expertise:
-  - Laser Safety
-  - Industrial Applications
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - Founder of Z-Beam laser cleaning solutions
-  - 15+ years in industrial laser applications
 title: Pyrex Laser Cleaning
 description: When laser cleaning Pyrex, watch out for thermal shock right from the start—its low expansion under heat sets
   it apart from ordinary glass, letting you ramp up the process safely without risking cracks and restoring labware efficiently
@@ -102,309 +88,254 @@ faq:
   question: How do you clean deeply embedded metallic stains or diffusion layers from Pyrex with a laser?
   topic_keyword: diffusion layers
   topic_statement: Multi-step below ablation threshold
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    electricalResistivity:
+      value: 1000000000000.0
+      unit: Ω·m
+      confidence: 95
+      source: ai_research
+    fractureToughness:
+      value: 0.75
+      unit: MPa√m
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 63.0
+      unit: GPa
+      confidence: 100
+      source: ai_research
+    oxidationResistance:
+      value: 500.0
+      unit: °C
+      confidence: 95
+      source: ai_research
+    density:
+      value: 2.23
+      unit: g/cm³
+      confidence: 100
+      source: ai_research
+    hardness:
+      value: 530.0
+      unit: HV
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.0008
+      unit: mg/cm²/day
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 1000.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 69.0
+      unit: MPa
+      confidence: 98
+      source: ai_research
+    tensileStrength:
+      value: 70.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 14.2
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Applied Physics Letters
+      citation: 'G. J. Thomas et al., Applied Physics Letters, Vol. 92, Issue 10, 2008, DOI: 10.1063/1.2891005'
+      context: Corning Pyrex 7740 borosilicate glass (commercial purity), 1064 nm wavelength, 7 ns pulse duration, room temperature
+        (25°C), single-shot irradiation, normal incidence
+      confidence: 95
+      researched_date: '2025-11-24T12:08:55.368175'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.05
+      unit: dimensionless
+      min: 0.01
+      max: 0.1
+      source: ai_research
+    absorptionCoefficient:
+      value: 50
+      unit: m⁻¹
+      min: 10
+      max: 1000
+      source: ai_research
+    laserDamageThreshold:
+      value: 10
+      unit: J/cm²
+      min: 5
+      max: 20
+      source: ai_research
+    thermalShockResistance:
+      value: 2
+      unit: MW/m
+      min: 1
+      max: 3
+      source: ai_research
+    reflectivity:
+      value: 0.08
+      unit: dimensionless
+      min: 0.04
+      max: 0.1
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1500
+      unit: K
+      min: 1400
+      max: 1600
+      source: ai_research
+    vaporPressure:
+      value: 0.01
+      unit: Pa
+      min: 0.001
+      max: 0.1
+      source: ai_research
+    thermalDestruction:
+      value: 821.0
+      unit: °C
+      confidence: 100
+      source: ai_research
+    specificHeat:
+      value: 835.0
+      unit: J/kg·K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.036
+      unit: fraction
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 1.14
+      unit: W/m·K
+      confidence: 100
+      source: ai_research
+    thermalExpansion:
+      value: 3.3e-06
+      unit: K^{-1}
+      confidence: 100
+      source: ai_research
+    laserAbsorption:
+      value: 8.76
+      unit: m^{-1}
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 5.8e-07
+      unit: m^2/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 5.2
+      unit: J/cm²
+      confidence: 95
+      source: ai_research
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  isBasedOn:
+    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+metadata:
+  last_updated: '2025-10-27T23:48:40.922512Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922518Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants: []
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      electricalResistivity:
-        value: 1000000000000.0
-        unit: Ω·m
-        confidence: 95
-        source: ai_research
-      fractureToughness:
-        value: 0.75
-        unit: MPa√m
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 63.0
-        unit: GPa
-        confidence: 100
-        source: ai_research
-      oxidationResistance:
-        value: 500.0
-        unit: °C
-        confidence: 95
-        source: ai_research
-      density:
-        value: 2.23
-        unit: g/cm³
-        confidence: 100
-        source: ai_research
-      hardness:
-        value: 530.0
-        unit: HV
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.0008
-        unit: mg/cm²/day
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 1000.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 69.0
-        unit: MPa
-        confidence: 98
-        source: ai_research
-      tensileStrength:
-        value: 70.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 14.2
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Applied Physics Letters
-        citation: 'G. J. Thomas et al., Applied Physics Letters, Vol. 92, Issue 10, 2008, DOI: 10.1063/1.2891005'
-        context: Corning Pyrex 7740 borosilicate glass (commercial purity), 1064 nm wavelength, 7 ns pulse duration, room
-          temperature (25°C), single-shot irradiation, normal incidence
-        confidence: 95
-        researched_date: '2025-11-24T12:08:55.368175'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.05
-        unit: dimensionless
-        min: 0.01
-        max: 0.1
-        source: ai_research
-      absorptionCoefficient:
-        value: 50
-        unit: m⁻¹
-        min: 10
-        max: 1000
-        source: ai_research
-      laserDamageThreshold:
-        value: 10
-        unit: J/cm²
-        min: 5
-        max: 20
-        source: ai_research
-      thermalShockResistance:
-        value: 2
-        unit: MW/m
-        min: 1
-        max: 3
-        source: ai_research
-      reflectivity:
-        value: 0.08
-        unit: dimensionless
-        min: 0.04
-        max: 0.1
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1500
-        unit: K
-        min: 1400
-        max: 1600
-        source: ai_research
-      vaporPressure:
-        value: 0.01
-        unit: Pa
-        min: 0.001
-        max: 0.1
-        source: ai_research
-      thermalDestruction:
-        value: 821.0
-        unit: °C
-        confidence: 100
-        source: ai_research
-      specificHeat:
-        value: 835.0
-        unit: J/kg·K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.036
-        unit: fraction
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 1.14
-        unit: W/m·K
-        confidence: 100
-        source: ai_research
-      thermalExpansion:
-        value: 3.3e-06
-        unit: K^{-1}
-        confidence: 100
-        source: ai_research
-      laserAbsorption:
-        value: 8.76
-        unit: m^{-1}
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 5.8e-07
-        unit: m^2/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 5.2
-        unit: J/cm²
-        confidence: 95
-        source: ai_research
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - ANSI Z136.1 - Safe Use of Lasers
-    isBasedOn:
-      name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922512Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922518Z'
-    structure_version: '2.0'
-  applications:
-  - Laboratory and Scientific Equipment
-  - Pharmaceutical Manufacturing
-  - Aerospace and Defense
-  - Electronics and Semiconductor
-  - Food and Beverage Processing
-  - Cultural Heritage and Museums
-  - Medical Device Manufacturing
-  - Energy and Power Generation
-  - Automotive Manufacturing
-  - Chemical Processing
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: amorphous crystal structure
-      source: ai_research
-      unit: crystal system
-      value: amorphous
-  voice_enhanced: '2025-11-07T03:57:06.550919+00:00'
-  components:
-    settings_description: When laser cleaning Pyrex, we've found that starting with lower power settings works best to gently
-      remove contaminants without risking cracks. This glass stands out for its excellent thermal shock resistance, which
-      lets you handle quick heat cycles that might shatter ordinary soda-lime types, so we often use pulsed lasers to control
-      the energy input precisely. But watch out midway through—its low thermal conductivity can trap heat in spots, leading
-      to uneven cleaning if you push the scan speed too high; dial it back and add passes instead. In our experience, this
-      brings back the surface clarity on lab equipment reliably while preserving its integrity for reuse.
-    micro:
-      before: "You see the Pyrex surface rough and dotted with dark specks of grime.  \nContaminants form thick, uneven layers\
-        \ that hide the underlying texture completely.  \nScattered debris clings tightly, creating a cluttered and dull appearance\
-        \ overall."
-      after: "After cleaning, the Pyrex surface appears smooth and free from any specks.  \nNo layers of contaminants remain\
-        \ to obscure the natural glass texture.  \nThe view shows a uniform, clear finish that gleams brightly throughout."
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning Pyrex, watch out for thermal shock right from the start—its low expansion under heat
-    sets it apart from ordinary glass, letting you ramp up...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Laboratory and Scientific Equipment
+- Pharmaceutical Manufacturing
+- Aerospace and Defense
+- Electronics and Semiconductor
+- Food and Beverage Processing
+- Cultural Heritage and Museums
+- Medical Device Manufacturing
+- Energy and Power Generation
+- Automotive Manufacturing
+- Chemical Processing
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
+voice_enhanced: '2025-11-07T03:57:06.550919+00:00'
+components:
+  settings_description: When laser cleaning Pyrex, we've found that starting with lower power settings works best to gently
+    remove contaminants without risking cracks. This glass stands out for its excellent thermal shock resistance, which lets
+    you handle quick heat cycles that might shatter ordinary soda-lime types, so we often use pulsed lasers to control the
+    energy input precisely. But watch out midway through—its low thermal conductivity can trap heat in spots, leading to uneven
+    cleaning if you push the scan speed too high; dial it back and add passes instead. In our experience, this brings back
+    the surface clarity on lab equipment reliably while preserving its integrity for reuse.
+  micro:
+    before: "You see the Pyrex surface rough and dotted with dark specks of grime.  \nContaminants form thick, uneven layers\
+      \ that hide the underlying texture completely.  \nScattered debris clings tightly, creating a cluttered and dull appearance\
+      \ overall."
+    after: "After cleaning, the Pyrex surface appears smooth and free from any specks.  \nNo layers of contaminants remain\
+      \ to obscure the natural glass texture.  \nThe view shows a uniform, clear finish that gleams brightly throughout."
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: When laser cleaning Pyrex, watch out for thermal shock right from the start—its low expansion under heat
+  sets it apart from ordinary glass, letting you ramp up...

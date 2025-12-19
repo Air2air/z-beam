@@ -23,7 +23,7 @@ export function QuickFactsCard({ facts }: QuickFactsCardProps) {
   return (
     <SectionContainer variant="dark" className="py-8 mb-8">
       <div className="container-custom px-4">
-        <div className="bg-gray-800/50 border border-blue-500/30 rounded-lg p-6">
+        <div className="bg-gray-800/50 border border-blue-500/30 rounded-md p-6">
           <h2 className="text-xl font-semibold text-blue-400 mb-4 flex items-center gap-2">
             <span>⚡</span> Quick Facts
           </h2>

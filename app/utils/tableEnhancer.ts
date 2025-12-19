@@ -25,7 +25,7 @@ export function enhanceTablesInHTML(htmlContent: string): string {
     
     // Wrap in enhanced containers with Tailwind classes
     return `<div class="my-8 w-full">
-  <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden overflow-x-auto">
+  <div class="bg-white dark:bg-gray-900 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden overflow-x-auto">
     ${processedTable}
   </div>
 </div>`;

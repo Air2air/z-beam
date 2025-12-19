@@ -245,7 +245,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   return (
     <SectionContainer
       bgColor="transparent"
-      className="heatmap bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
+      className="heatmap bg-gradient-to-br from-gray-800 to-gray-700 rounded-md mb-8"
       horizPadding={true}
     >
       <SectionTitle

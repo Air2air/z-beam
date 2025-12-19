@@ -184,7 +184,7 @@ export const CARD_VARIANTS = { ... };
 #### Remove Excessive className Chains
 **Current (Card.tsx):**
 ```tsx
-className="group block relative rounded-lg shadow-md overflow-hidden h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+className="group block relative rounded-md shadow-md overflow-hidden h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
 ```
 
 **Better:**
@@ -192,7 +192,7 @@ className="group block relative rounded-lg shadow-md overflow-hidden h-full min-
 className="card-base card-hover card-focus card-responsive"
 
 // In CSS:
-.card-base { @apply group block relative rounded-lg shadow-md overflow-hidden h-full; }
+.card-base { @apply group block relative rounded-md shadow-md overflow-hidden h-full; }
 .card-responsive { @apply min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]; }
 .card-focus { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500; }
 ```

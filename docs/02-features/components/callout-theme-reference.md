@@ -149,7 +149,7 @@ text-gray-300: #D1D5DB
 2. **Consistency**: Both themes maintain proper contrast ratios for accessibility
 3. **Responsive**: Both adapt to mobile, tablet, and desktop layouts
 4. **Shadow**: Both include `shadow-lg` for subtle depth
-5. **Rounded Corners**: Both use `rounded-lg` for modern appearance
+5. **Rounded Corners**: Both use `rounded-md` for modern appearance
 
 ---
 

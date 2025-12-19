@@ -28,7 +28,7 @@ export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
   return (
     <div className="space-y-3">
       {issues.map((issue, idx) => (
-        <div key={idx} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg overflow-hidden border">
+        <div key={idx} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden border">
           {/* Symptom Header - Prominent Display */}
           <div className="bg-gradient-to-r from-red-900/30 to-transparent px-4 py-3 border-l-4 border-red-500">
             <div className="flex items-start gap-3">
@@ -45,7 +45,7 @@ export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
           {/* Diagnostic Flow */}
           <div className="p-4 space-y-3">
             {/* Possible Causes - With Icons */}
-            <div className="bg-orange-900/10 rounded-lg p-3 border border-orange-900/30">
+            <div className="bg-orange-900/10 rounded-md p-3 border border-orange-900/30">
               <h4 className="text-sm text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -63,7 +63,7 @@ export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
             </div>
             
             {/* Solutions - Action Steps */}
-            <div className="bg-green-900/10 rounded-lg p-3 border border-green-900/30">
+            <div className="bg-green-900/10 rounded-md p-3 border border-green-900/30">
               <h4 className="text-sm text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -84,7 +84,7 @@ export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
             
             {/* Verification & Prevention - Side by Side */}
             <div className="grid md:grid-cols-2 gap-3">
-              <div className="bg-blue-900/10 rounded-lg p-3 border border-blue-900/30">
+              <div className="bg-blue-900/10 rounded-md p-3 border border-blue-900/30">
                 <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -94,7 +94,7 @@ export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
                 <p className="text-xs">{issue.verification}</p>
               </div>
               
-              <div className="bg-purple-900/10 rounded-lg p-3 border border-purple-900/30">
+              <div className="bg-purple-900/10 rounded-md p-3 border border-purple-900/30">
                 <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />

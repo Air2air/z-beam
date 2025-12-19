@@ -146,7 +146,7 @@ const categoryId = `${uniqueId}-category`;
   itemScope
   itemType="https://schema.org/ImageObject"
 >
-  <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+  <div className="relative w-full aspect-video rounded-md overflow-hidden">
     <Image
       src={image.url}
       alt={image.alt || `Visual illustration for ${heading}`}

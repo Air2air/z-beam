@@ -116,7 +116,7 @@ export function WorkizWidget({
 
       {/* Loading fallback */}
       <noscript>
-        <div className="p-8 text-center bg-gray-50 dark:bg-gray-800 rounded-lg">
+        <div className="p-8 text-center bg-gray-50 dark:bg-gray-800 rounded-md">
           <p className="text-gray-700 dark:text-gray-300 mb-4">
             JavaScript is required to view the booking calendar.
           </p>

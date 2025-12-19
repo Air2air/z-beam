@@ -47,6 +47,7 @@
     "postdeploy": "npm run validate:production",
     "build:analyze": "ANALYZE=true npm run build",
     "generate:datasets": "tsx scripts/generate-datasets.ts && node scripts/generate-settings-datasets.js",
+    "datasets:add-disclaimers": "node scripts/datasets/add-legal-disclaimers.js",
     "datasets:check": "tsx scripts/datasets/check-sync.ts",
     "datasets:watch": "tsx scripts/datasets/watch-changes.ts",
     "datasets:quality": "tsx scripts/datasets/quality-report.ts",

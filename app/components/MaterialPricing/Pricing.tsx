@@ -16,7 +16,7 @@ export function Pricing({ materialName, materialSlug: _materialSlug }: PricingPr
       
       <div className="grid md:grid-cols-2 gap-6">
         {/* Professional Service Card */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+        <div className="bg-white rounded-md p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-1">
@@ -57,14 +57,14 @@ export function Pricing({ materialName, materialSlug: _materialSlug }: PricingPr
           
           <a
             href="/contact"
-            className="block w-full text-center bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            className="block w-full text-center bg-blue-600 text-white py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
           >
             Request Professional Service
           </a>
         </div>
         
         {/* Equipment Rental Card */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+        <div className="bg-white rounded-md p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between mb-4">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-1">
@@ -105,7 +105,7 @@ export function Pricing({ materialName, materialSlug: _materialSlug }: PricingPr
           
           <a
             href="/rental"
-            className="block w-full text-center bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-colors"
+            className="block w-full text-center bg-green-600 text-white py-3 rounded-md font-medium hover:bg-green-700 transition-colors"
           >
             Rent Equipment
           </a>

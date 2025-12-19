@@ -1,201 +1,120 @@
 id: Travertine
+slug: travertine
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:21:15.817514Z'
-dateModified: '2025-12-19T01:19:05Z'
+datePublished: '2025-12-19T01:25:16.237711Z'
+dateModified: '2025-12-19T01:25:16.237711Z'
 relationships:
   related_materials: []
   related_contaminants: []
   regulatory_standards:
   - type: regulatory_standards
     id: osha-ppe-requirements
-    title: Osha Ppe Requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-    title: Ansi Z136 1 Laser Safety
-  machine_settings:
-    powerRange:
-      description: Optimal average power for Travertine surface cleaning without thermal damage
-      unit: W
-      value: 100
-    wavelength:
-      description: Near-IR wavelength optimized for Travertine absorption and minimal substrate damage
-      unit: nm
-      value: 1064
-    spotSize:
-      description: Beam spot diameter for balanced cleaning efficiency and resolution
-      unit: μm
-      value: 100
-    repetitionRate:
-      description: Optimal repetition rate for efficient cleaning coverage and process speed
-      unit: kHz
-      value: 50
-    energyDensity:
-      description: Fluence level sufficient for contaminant removal below Travertine damage threshold
-      unit: J/cm²
-      value: 1.5
-    pulseWidth:
-      description: Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration
-      unit: ns
-      value: 10
-    scanSpeed:
-      description: Optimal scanning speed for uniform cleaning without overlapping damage
-      unit: mm/s
-      value: 500
-    passCount:
-      description: Number of cleaning passes for complete contaminant removal
-      unit: passes
-      value: 2
-    overlapRatio:
-      description: Optimal beam overlap for complete coverage without excessive energy deposition
-      unit: '%'
-      value: 30
-  challenges:
-    thermal_management:
-    - challenge: Thermal shock and microcracking
-      severity: critical
-      threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-      impact: Natural stone contains microfissures that propagate under thermal stress
-      solutions:
-      - Use pulse mode with 8-12 second cooling between passes
-      - Reduce power by 40-50% for weathered or damaged stone
-      - Preheat substrate if possible to reduce thermal gradients
-      - Granite more resistant than marble; sandstone most vulnerable
-      - Monitor for surface crazing; stop immediately if cracks appear
-    - challenge: Moisture-induced spalling
-      severity: high
-      threshold_temperature: Steam formation >100°C with trapped moisture
-      impact: Porous stone traps moisture that explosively converts to steam
-      solutions:
-      - Test moisture content before cleaning (>3% requires drying)
-      - Allow 48-72 hours drying after rain before laser cleaning
-      - Reduce power by 50% for damp stone
-      - Use pulse mode with extended cooling (15-20 seconds)
-      - Heritage stone requires especially gentle approach
-    surface_characteristics:
-    - challenge: Weathering and surface degradation
-      severity: high
-      impact: Aged stone has weaker surface layer more susceptible to damage
-      solutions:
-      - Reduce power 40-60% for weathered stone vs fresh stone
-      - Test on inconspicuous area first
-      - Multiple gentle passes (4-6 at 40-60W) preferred
-      - Monitor for powdering or flaking; adjust power immediately
-      - Heritage conservation requires documentation and testing
-    - challenge: Mineral composition heterogeneity
-      severity: medium
-      impact: Mixed minerals have different absorption and damage thresholds
-      solutions:
-      - Use moderate power (60-80W) suitable for both light and dark minerals
-      - Crosshatch scan pattern for uniform coverage
-      - Avoid dwelling on dark minerals (feldspar, mica) which absorb more energy
-      - Quartzite and marble more homogeneous than granite
-    contamination_challenges:
-    - challenge: Biological growth and deep staining
-      severity: medium
-      porosity_range: 0.5-25% (sandstone highly porous)
-      impact: Algae, lichen, and pollution penetrate deep into porous structure
-      solutions:
-      - First pass 80W fast (1200 mm/s) for surface growth
-      - Second pass 60W slow (700 mm/s) for roots and stains
-      - Third pass 40W very slow (400 mm/s) for deep staining
-      - Chemical biocide pre-treatment kills roots and reduces laser exposure
-      - Dense stones (granite, marble) clean in 1-2 passes vs 3-4 for porous stones
-  settings_description: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it
-    soak up heat unevenly, which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone,
-    differs from denser rocks because it traps contaminants deep inside, so you need to go gentle to avoid pulling the surface
-    apart. Tends to heat up slowly due to poor conductivity, meaning prolonged exposure risks surface spalling. Start with
-    lower power settings and slower scan speeds to let the laser gently loosen dirt without stressing the pores. This works
-    best when you overlap passes lightly, pulling grime out layer by layer. I've found multiple light treatments clear buildup
-    effectively while preserving the stone's texture for heritage sites. Just avoid high energy bursts—they'll scorch the
-    calcite base and ruin that classic banded look. Adjust based on soiling thickness, and always test a small area first
-    to keep things safe.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak
-    up heat unevenly, which can lead to micro-cracks if...
-  excerpt: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak up heat
-    unevenly, which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone, differs from
-    denser rocks because it traps contaminants deep inside, so you need to...
+machine_settings:
+  powerRange:
+    description: Optimal average power for Travertine surface cleaning without thermal damage
+    unit: W
+    value: 100
+  wavelength:
+    description: Near-IR wavelength optimized for Travertine absorption and minimal substrate damage
+    unit: nm
+    value: 1064
+  spotSize:
+    description: Beam spot diameter for balanced cleaning efficiency and resolution
+    unit: μm
+    value: 100
+  repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage and process speed
+    unit: kHz
+    value: 50
+  energyDensity:
+    description: Fluence level sufficient for contaminant removal below Travertine damage threshold
+    unit: J/cm²
+    value: 1.5
+  pulseWidth:
+    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration
+    unit: ns
+    value: 10
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning without overlapping damage
+    unit: mm/s
+    value: 500
+  passCount:
+    description: Number of cleaning passes for complete contaminant removal
+    unit: passes
+    value: 2
+  overlapRatio:
+    description: Optimal beam overlap for complete coverage without excessive energy deposition
+    unit: '%'
+    value: 30
+challenges:
+  thermal_management:
+  - challenge: Thermal shock and microcracking
+    severity: critical
+    threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+    impact: Natural stone contains microfissures that propagate under thermal stress
+    solutions:
+    - Use pulse mode with 8-12 second cooling between passes
+    - Reduce power by 40-50% for weathered or damaged stone
+    - Preheat substrate if possible to reduce thermal gradients
+    - Granite more resistant than marble; sandstone most vulnerable
+    - Monitor for surface crazing; stop immediately if cracks appear
+  - challenge: Moisture-induced spalling
+    severity: high
+    threshold_temperature: Steam formation >100°C with trapped moisture
+    impact: Porous stone traps moisture that explosively converts to steam
+    solutions:
+    - Test moisture content before cleaning (>3% requires drying)
+    - Allow 48-72 hours drying after rain before laser cleaning
+    - Reduce power by 50% for damp stone
+    - Use pulse mode with extended cooling (15-20 seconds)
+    - Heritage stone requires especially gentle approach
+  surface_characteristics:
+  - challenge: Weathering and surface degradation
+    severity: high
+    impact: Aged stone has weaker surface layer more susceptible to damage
+    solutions:
+    - Reduce power 40-60% for weathered stone vs fresh stone
+    - Test on inconspicuous area first
+    - Multiple gentle passes (4-6 at 40-60W) preferred
+    - Monitor for powdering or flaking; adjust power immediately
+    - Heritage conservation requires documentation and testing
+  - challenge: Mineral composition heterogeneity
+    severity: medium
+    impact: Mixed minerals have different absorption and damage thresholds
+    solutions:
+    - Use moderate power (60-80W) suitable for both light and dark minerals
+    - Crosshatch scan pattern for uniform coverage
+    - Avoid dwelling on dark minerals (feldspar, mica) which absorb more energy
+    - Quartzite and marble more homogeneous than granite
+  contamination_challenges:
+  - challenge: Biological growth and deep staining
+    severity: medium
+    porosity_range: 0.5-25% (sandstone highly porous)
+    impact: Algae, lichen, and pollution penetrate deep into porous structure
+    solutions:
+    - First pass 80W fast (1200 mm/s) for surface growth
+    - Second pass 60W slow (700 mm/s) for roots and stains
+    - Third pass 40W very slow (400 mm/s) for deep staining
+    - Chemical biocide pre-treatment kills roots and reduces laser exposure
+    - Dense stones (granite, marble) clean in 1-2 passes vs 3-4 for porous stones
+settings_description: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak
+  up heat unevenly, which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone, differs
+  from denser rocks because it traps contaminants deep inside, so you need to go gentle to avoid pulling the surface apart.
+  Tends to heat up slowly due to poor conductivity, meaning prolonged exposure risks surface spalling. Start with lower power
+  settings and slower scan speeds to let the laser gently loosen dirt without stressing the pores. This works best when you
+  overlap passes lightly, pulling grime out layer by layer. I've found multiple light treatments clear buildup effectively
+  while preserving the stone's texture for heritage sites. Just avoid high energy bursts—they'll scorch the calcite base and
+  ruin that classic banded look. Adjust based on soiling thickness, and always test a small area first to keep things safe.
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+seo_description: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak up
+  heat unevenly, which can lead to micro-cracks if...
+excerpt: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak up heat unevenly,
+  which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone, differs from denser rocks
+  because it traps contaminants deep inside, so you need to...

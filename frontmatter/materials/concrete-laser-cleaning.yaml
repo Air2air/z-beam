@@ -1,28 +1,14 @@
 id: concrete-laser-cleaning
 name: Concrete
+slug: concrete
 category: masonry
 subcategory: general
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:54.680164Z'
-dateModified: '2025-12-19T01:18:49Z'
+datePublished: '2025-12-19T01:24:56.213880Z'
+dateModified: '2025-12-19T01:24:56.213880Z'
 author:
   id: 4
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: B.Sc.
-  sex: f
-  jobTitle: Technical Writer
-  expertise:
-  - Technical Documentation
-  - Safety Standards
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - B.Sc. Chemical Engineering, University of Indonesia, 2019
-  - Technical writer specializing in industrial safety
 title: Concrete Laser Cleaning
 description: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and restore
   durability, all while preserving its structural integrity.
@@ -113,519 +99,554 @@ faq:
   question: Is laser cleaning safe for historic concrete structures and monuments?
   topic_keyword: historic concrete structures
   topic_statement: Preserves original material integrity
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    fractureToughness:
+      value: 0.7
+      unit: MPa m^{1/2}
+      confidence: 95
+      source: ai_research
+    density:
+      value: 2400.0
+      unit: kg/m³
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 0.98
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 30.0
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 0.4
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 25.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 3.2
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 4.2
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 300.0
+      unit: Ω·m
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 4.2
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: 'Laser cleaning of concrete surfaces: Damage thresholds and ablation mechanisms'
+      citation: 'Pini, R., et al., Applied Surface Science, 2001, DOI: 10.1016/S0169-4332(01)00485-7'
+      context: Ordinary Portland cement concrete (OPC, aggregate size 5-20 mm), 1064 nm Nd:YAG laser, room temperature (25°C),
+        pulse duration 10 ns, atmospheric pressure
+      confidence: 95
+      researched_date: '2025-11-24T11:55:18.938620'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.75
+      unit: dimensionless
+      min: 0.6
+      max: 0.9
+      source: ai_research
+    absorptionCoefficient:
+      value: 50000
+      unit: m⁻¹
+      min: 10000
+      max: 100000
+      source: ai_research
+    laserDamageThreshold:
+      value: 8
+      unit: J/cm²
+      min: 5
+      max: 15
+      source: ai_research
+    thermalShockResistance:
+      value: 1.5
+      unit: MW/m
+      min: 1
+      max: 2
+      source: ai_research
+    reflectivity:
+      value: 0.25
+      unit: dimensionless
+      min: 0.1
+      max: 0.4
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1000
+      unit: K
+      min: 800
+      max: 1200
+      source: ai_research
+    vaporPressure:
+      value: 10
+      unit: Pa
+      min: 1
+      max: 100
+      source: ai_research
+    thermalDestruction:
+      value: 773.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.35
+      unit: ''
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 1.2e-05
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 1.4
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 880.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.9
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 5.0e-07
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 3.2
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser
+      citation: 'P. Pou et al., Optics and Lasers in Engineering, 2000, DOI: 10.1016/S0143-8166(99)00078-5'
+      context: Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG laser,
+        7 ns pulse duration, atmospheric pressure
+      confidence: 95
+      researched_date: '2025-11-24T11:55:28.526883'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  - ANSI Z136.1 - Safe Use of Lasers
+  isBasedOn:
+    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+metadata:
+  last_updated: '2025-10-27T23:48:40.921845Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.921851Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants:
   - id: algae-growth-contamination
+    slug: algae-growth
     title: Algae and Lichen Growth
-    url: /contaminants/algae-growth-contamination
+    url: /contaminants/algae-growth
     image: /images/contaminants/algae-growth.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: asbestos-coating-contamination
+    slug: asbestos-coating
     title: Asbestos-Containing Material
-    url: /contaminants/asbestos-coating-contamination
+    url: /contaminants/asbestos-coating
     image: /images/contaminants/asbestos-coating.jpg
+    category: inorganic-coating
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: biological-stains-contamination
+    slug: biological-stains
     title: Organic Biofilm Deposits
-    url: /contaminants/biological-stains-contamination
+    url: /contaminants/biological-stains
     image: /images/contaminants/biological-stains.jpg
+    category: biological
+    subcategory: deposit
     frequency: common
     severity: moderate
     typical_context: general
   - id: bitumen-tar-contamination
+    slug: bitumen-tar
     title: Bitumen and Tar Coatings
-    url: /contaminants/bitumen-tar-contamination
+    url: /contaminants/bitumen-tar
     image: /images/contaminants/bitumen-tar.jpg
+    category: organic-residue
+    subcategory: petroleum
     frequency: common
     severity: moderate
     typical_context: general
   - id: carbon-soot-contamination
+    slug: carbon-soot
     title: Carbon Soot Deposits
-    url: /contaminants/carbon-soot-contamination
+    url: /contaminants/carbon-soot
     image: /images/contaminants/carbon-soot.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: chemical-stains-contamination
+    slug: chemical-stains
     title: Chemical Stains / Acid Etching
-    url: /contaminants/chemical-stains-contamination
+    url: /contaminants/chemical-stains
     image: /images/contaminants/chemical-stains.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: concrete-dust-contamination
+    slug: concrete-dust
     title: Concrete Dust Deposits
-    url: /contaminants/concrete-dust-contamination
+    url: /contaminants/concrete-dust
     image: /images/contaminants/concrete-dust.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: efflorescence-contamination
+    slug: efflorescence
     title: Concrete Efflorescence
-    url: /contaminants/efflorescence-contamination
+    url: /contaminants/efflorescence
     image: /images/contaminants/efflorescence.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: epoxy-residue-contamination
+    slug: epoxy-residue
     title: Epoxy Resin Deposits
-    url: /contaminants/epoxy-residue-contamination
+    url: /contaminants/epoxy-residue
     image: /images/contaminants/epoxy-residue.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: fertilizer-residue-contamination
+    slug: fertilizer-residue
     title: Fertilizer Salt Deposits
-    url: /contaminants/fertilizer-residue-contamination
+    url: /contaminants/fertilizer-residue
     image: /images/contaminants/fertilizer-residue.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: fire-damage-contamination
+    slug: fire-damage
     title: Fire and Smoke Damage
-    url: /contaminants/fire-damage-contamination
+    url: /contaminants/fire-damage
     image: /images/contaminants/fire-damage.jpg
+    category: thermal-damage
+    subcategory: fire
     frequency: common
     severity: moderate
     typical_context: general
   - id: graffiti-paint-contamination
+    slug: graffiti-paint
     title: Graffiti and Spray Paint
-    url: /contaminants/graffiti-paint-contamination
+    url: /contaminants/graffiti-paint
     image: /images/contaminants/graffiti-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: graphite-marks-contamination
+    slug: graphite-marks
     title: Graphite Deposit Traces
-    url: /contaminants/graphite-marks-contamination
+    url: /contaminants/graphite-marks
     image: /images/contaminants/graphite-marks.jpg
+    category: organic-residue
+    subcategory: marking
     frequency: common
     severity: moderate
     typical_context: general
   - id: hydraulic-fluid-contamination
+    slug: hydraulic-fluid
     title: Hydraulic Fluid Contamination
-    url: /contaminants/hydraulic-fluid-contamination
+    url: /contaminants/hydraulic-fluid
     image: /images/contaminants/hydraulic-fluid.jpg
+    category: organic-residue
+    subcategory: petroleum
     frequency: common
     severity: moderate
     typical_context: general
   - id: ink-stains-contamination
+    slug: ink-stains
     title: Printing Ink Residue
-    url: /contaminants/ink-stains-contamination
+    url: /contaminants/ink-stains
     image: /images/contaminants/ink-stains.jpg
+    category: organic-residue
+    subcategory: marking
     frequency: common
     severity: moderate
     typical_context: general
   - id: lead-paint-contamination
+    slug: lead-paint
     title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint-contamination
+    url: /contaminants/lead-paint
     image: /images/contaminants/lead-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: mercury-contamination
+    slug: mercury
     title: Mercury Spill Residue
-    url: /contaminants/mercury-contamination
+    url: /contaminants/mercury
     image: /images/contaminants/mercury.jpg
+    category: chemical-residue
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: mineral-stain-contamination
+    slug: mineral-stain
     title: Mineral Staining
-    url: /contaminants/mineral-stain-contamination
+    url: /contaminants/mineral-stain
     image: /images/contaminants/mineral-stain.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: mold-mildew-contamination
+    slug: mold-mildew
     title: Mold and Mildew Growth
-    url: /contaminants/mold-mildew-contamination
+    url: /contaminants/mold-mildew
     image: /images/contaminants/mold-mildew.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: paint-residue-contamination
+    slug: paint-residue
     title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue-contamination
+    url: /contaminants/paint-residue
     image: /images/contaminants/paint-residue.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: pcb-contamination
+    slug: pcb
     title: PCB Oil Contamination
-    url: /contaminants/pcb-contamination
+    url: /contaminants/pcb
     image: /images/contaminants/pcb.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: pesticide-residue-contamination
+    slug: pesticide-residue
     title: Pesticide Chemical Residue
-    url: /contaminants/pesticide-residue-contamination
+    url: /contaminants/pesticide-residue
     image: /images/contaminants/pesticide-residue.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: plastic-residue-contamination
+    slug: plastic-residue
     title: Degraded Polymer Deposits
-    url: /contaminants/plastic-residue-contamination
+    url: /contaminants/plastic-residue
     image: /images/contaminants/plastic-residue.jpg
+    category: organic-residue
+    subcategory: polymer
     frequency: common
     severity: moderate
     typical_context: general
   - id: radioactive-contamination
+    slug: radioactive
     title: Surface Radioactive Contamination
-    url: /contaminants/radioactive-contamination
+    url: /contaminants/radioactive
     image: /images/contaminants/radioactive.jpg
+    category: chemical-residue
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: rubber-residue-contamination
+    slug: rubber-residue
     title: Rubber Compound Residue
-    url: /contaminants/rubber-residue-contamination
+    url: /contaminants/rubber-residue
     image: /images/contaminants/rubber-residue.jpg
+    category: organic-residue
+    subcategory: polymer
     frequency: common
     severity: moderate
     typical_context: general
   - id: salt-residue-contamination
+    slug: salt-residue
     title: Salt and Chloride Deposits
-    url: /contaminants/salt-residue-contamination
+    url: /contaminants/salt-residue
     image: /images/contaminants/salt-residue.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: scale-buildup-contamination
+    slug: scale-buildup
     title: Mineral Scale / Hard Water Deposits
-    url: /contaminants/scale-buildup-contamination
+    url: /contaminants/scale-buildup
     image: /images/contaminants/scale-buildup.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: silicone-buildup-contamination
+    slug: silicone-buildup
     title: Silicone Sealant Buildup
-    url: /contaminants/silicone-buildup-contamination
+    url: /contaminants/silicone-buildup
     image: /images/contaminants/silicone-buildup.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: uranium-oxide-contamination
+    slug: uranium-oxide
     title: Depleted Uranium Oxide
-    url: /contaminants/uranium-oxide-contamination
+    url: /contaminants/uranium-oxide
     image: /images/contaminants/uranium-oxide.jpg
+    category: chemical-residue
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: water-stain-contamination
+    slug: water-stain
     title: Water Staining and Marks
-    url: /contaminants/water-stain-contamination
+    url: /contaminants/water-stain
     image: /images/contaminants/water-stain.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      fractureToughness:
-        value: 0.7
-        unit: MPa m^{1/2}
-        confidence: 95
-        source: ai_research
-      density:
-        value: 2400.0
-        unit: kg/m³
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 0.98
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 30.0
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 0.4
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 25.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 3.2
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 4.2
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 300.0
-        unit: Ω·m
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 4.2
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: 'Laser cleaning of concrete surfaces: Damage thresholds and ablation mechanisms'
-        citation: 'Pini, R., et al., Applied Surface Science, 2001, DOI: 10.1016/S0169-4332(01)00485-7'
-        context: Ordinary Portland cement concrete (OPC, aggregate size 5-20 mm), 1064 nm Nd:YAG laser, room temperature (25°C),
-          pulse duration 10 ns, atmospheric pressure
-        confidence: 95
-        researched_date: '2025-11-24T11:55:18.938620'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.75
-        unit: dimensionless
-        min: 0.6
-        max: 0.9
-        source: ai_research
-      absorptionCoefficient:
-        value: 50000
-        unit: m⁻¹
-        min: 10000
-        max: 100000
-        source: ai_research
-      laserDamageThreshold:
-        value: 8
-        unit: J/cm²
-        min: 5
-        max: 15
-        source: ai_research
-      thermalShockResistance:
-        value: 1.5
-        unit: MW/m
-        min: 1
-        max: 2
-        source: ai_research
-      reflectivity:
-        value: 0.25
-        unit: dimensionless
-        min: 0.1
-        max: 0.4
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1000
-        unit: K
-        min: 800
-        max: 1200
-        source: ai_research
-      vaporPressure:
-        value: 10
-        unit: Pa
-        min: 1
-        max: 100
-        source: ai_research
-      thermalDestruction:
-        value: 773.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.35
-        unit: ''
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 1.2e-05
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 1.4
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 880.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.9
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 5.0e-07
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 3.2
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser
-        citation: 'P. Pou et al., Optics and Lasers in Engineering, 2000, DOI: 10.1016/S0143-8166(99)00078-5'
-        context: Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG
-          laser, 7 ns pulse duration, atmospheric pressure
-        confidence: 95
-        researched_date: '2025-11-24T11:55:28.526883'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    - ANSI Z136.1 - Safe Use of Lasers
-    isBasedOn:
-      name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  metadata:
-    last_updated: '2025-10-27T23:48:40.921845Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.921851Z'
-    structure_version: '2.0'
-  applications:
-  - Civil Infrastructure
-  - Nuclear Decommissioning
-  - Marine Structures
-  - Historical Preservation
-  - Industrial Flooring
-  - Parking Structures
-  - Food Processing
-  - Transportation Infrastructure
-  - Water Treatment Facilities
-  - Power Generation
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: amorphous crystal structure
-      source: ai_research
-      unit: crystal system
-      value: amorphous
-  voice_enhanced: '2025-11-07T03:12:17.476723+00:00'
-  components:
-    settings_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate
-      spalling, a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of
-      laser energy, which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple
-      overlapping scans to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
-    micro:
-      before: The surface shows dark stains and fine particles clinging tightly to the rough texture. Cracks and pits fill
-        with debris that scatters light unevenly across the view. Layers of grime obscure the underlying grains completely.
-      after: Laser treatment removes the stains and exposes smooth, bare areas on the texture. Particles vanish, leaving clear
-        edges around the grains in the view. The surface now reflects light evenly without any hidden debris.
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and
-    restore durability, all while preserving its structural...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Civil Infrastructure
+- Nuclear Decommissioning
+- Marine Structures
+- Historical Preservation
+- Industrial Flooring
+- Parking Structures
+- Food Processing
+- Transportation Infrastructure
+- Water Treatment Facilities
+- Power Generation
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
+voice_enhanced: '2025-11-07T03:12:17.476723+00:00'
+components:
+  settings_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
+    a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy,
+    which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans
+    to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
+  micro:
+    before: The surface shows dark stains and fine particles clinging tightly to the rough texture. Cracks and pits fill with
+      debris that scatters light unevenly across the view. Layers of grime obscure the underlying grains completely.
+    after: Laser treatment removes the stains and exposes smooth, bare areas on the texture. Particles vanish, leaving clear
+      edges around the grains in the view. The surface now reflects light evenly without any hidden debris.
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and restore
+  durability, all while preserving its structural...

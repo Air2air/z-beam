@@ -1,9 +1,14 @@
 id: laser-marking-contamination
 name: Laser Marking Discoloration
+slug: laser-marking-discoloration
 category: organic-residue
 subcategory: marking
-datePublished: '2025-12-19T00:21:11.281714Z'
-dateModified: '2025-12-19T01:18:59Z'
+datePublished: '2025-12-19T01:25:11.526739Z'
+dateModified: '2025-12-19T01:25:11.526739Z'
+composition:
+- Metal Oxides
+- Carbon
+- Nitrides
 description: After laser marking, oxidized surface layer forms on metal surfaces because heat exposure accelerates oxidation
   during engraving. This contamination shows unique localized discoloration and texture that distinguishes it from uniform
   rust buildup in other processes, and behavior varies so on steel and titanium stronger adhesion occurs while on aluminum
@@ -13,310 +18,241 @@ description: After laser marking, oxidized surface layer forms on metal surfaces
 relationships:
   related_materials:
   - id: steel-laser-cleaning
+    slug: steel
     title: Steel
-    url: /materials/steel-laser-cleaning
+    url: /materials/steel
     image: /images/materials/steel.jpg
+    category: metal
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: aluminum-laser-cleaning
+    slug: aluminum
     title: Aluminum
-    url: /materials/aluminum-laser-cleaning
+    url: /materials/aluminum
     image: /images/materials/aluminum.jpg
+    category: metal
+    subcategory: non-ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: titanium-laser-cleaning
+    slug: titanium
     title: Titanium
-    url: /materials/titanium-laser-cleaning
+    url: /materials/titanium
     image: /images/materials/titanium.jpg
+    category: metal
+    subcategory: specialty
     frequency: common
     severity: moderate
     typical_context: general
   - id: brass-laser-cleaning
+    slug: brass
     title: Brass
-    url: /materials/brass-laser-cleaning
+    url: /materials/brass
     image: /images/materials/brass.jpg
+    category: metal
+    subcategory: non-ferrous
     frequency: common
     severity: moderate
     typical_context: general
-  composition:
-  - Metal Oxides
-  - Carbon
-  - Nitrides
-  laser_properties:
-    laser_parameters:
-      beam_profile: gaussian
-      fluence_range:
-        max_j_cm2: 1.2
-        min_j_cm2: 0.3
-        recommended_j_cm2: 0.8
-      overlap_percentage: 50
-      polarization: any
-      pulse_duration_range:
-        max_ns: 100
-        min_ns: 4
-        recommended_ns: 10
-      repetition_rate_khz:
-        max: 200
-        min: 20
-        recommended: 50
-      safety_margin_factor: 0.7
-      scan_speed_mm_s:
-        max: 2000
-        min: 500
-        recommended: 1000
-      spot_size_mm:
-        max: 0.1
-        min: 0.02
-        recommended: 0.05
-      wavelength_preference:
-      - 1064
-      - 532
-    optical_properties:
-      absorption_coefficient:
-        wavelength_1064nm: 8500
-        wavelength_355nm: 45000
-        wavelength_532nm: 22000
-      reflectivity:
-        wavelength_1064nm: 0.35
-        wavelength_355nm: 0.08
-        wavelength_532nm: 0.18
-      refractive_index:
-        imaginary_part: 0.15
-        real_part: 2.1
-      transmission_depth: 11.8
-    removal_characteristics:
-      byproducts:
-      - compound: carbon-dioxide
-        hazard_level: low
-        phase: gas
-      - compound: H2O
-        hazard_level: low
-        phase: gas
-      - compound: carbon_particulates
-        hazard_level: moderate
-        phase: solid
-      damage_risk_to_substrate: low
-      primary_mechanism: thermal_ablation
-      process_speed:
-        area_coverage_rate_cm2_min: 120
-        typical_scan_speed_mm_s: 800
-      removal_efficiency:
-        diminishing_returns_after: 3
-        optimal_passes: 2
-        single_pass: 0.7
-      secondary_mechanisms:
-      - photochemical
-      surface_quality_after_removal:
-        color_change: 'no'
-        residual_stress: compressive
-        roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Metal oxides (various)
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      - compound: Carbon monoxide
-        concentration_mg_m3: 10-100
-        exposure_limit_mg_m3: 29.0
-        hazard_class: toxic
-      - compound: Volatile organic compounds
-        concentration_mg_m3: 2-20
-        exposure_limit_mg_m3: 100.0
-        hazard_class: irritant
-      - compound: Polycyclic aromatic hydrocarbons
-        concentration_mg_m3: 0.1-2.0
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      particulate_generation:
-        respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - May generate toxic fumes when cleaning painted or coated surfaces
-      - Avoid cleaning materials with unknown composition or heavy contamination
-      - Risk of ozone generation in enclosed spaces
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: dual
-        minimum_air_changes_per_hour: 15
-      visibility_hazard: moderate
-    thermal_properties:
-      ablation_threshold:
-        pulse_duration_100ns: 3.5
-        pulse_duration_10ns: 2.1
-        wavelength_1064nm: 1.8
-      decomposition_temperature: 450
-      heat_affected_zone_depth: 15
-      melting_point: null
-      specific_heat: 850
-      thermal_conductivity: 0.8
-      thermal_diffusivity: 0.5
-      vaporization_temperature: 1200
-  prohibited_materials:
-  - Plastics
-  - Ceramics
-  valid_materials:
-  - Steel
-  - Aluminum
-  - Titanium
-  - Brass
-  visual_characteristics:
-    appearance_on_categories:
-      ceramic:
-        appearance: Displays as darkened or discolored marks with a glazed or rough texture, often in shades of brown or black.
-        coverage: Coverage is generally localized and even in quality ceramics, but can be blotchy with impurities.
-        pattern: Tends to form spots or lines that may spread into patches if the glaze is uneven or contaminated.
-      composite:
-        appearance: Manifests as uneven discoloration with mixed textures, such as charring on organic parts and fading on
-          inorganic ones.
-        coverage: Coverage is often inconsistent and patchy, varying with the distribution of different components.
-        pattern: Typically forms irregular patches or spots, reflecting the heterogeneous nature of composite materials.
-      concrete:
-        appearance: Manifests as light or dark discoloration with a rough, porous texture, sometimes showing efflorescence
-          or dust.
-        coverage: Coverage is generally partial and inconsistent, influenced by concrete mix and curing conditions.
-        pattern: Can form spots or uniform areas, but often appears patchy due to surface irregularities and aggregate exposure.
-      fabric:
-        appearance: Shows as scorched or faded marks with a brittle or singed texture, often in brown or black hues.
-        coverage: Coverage is typically sparse and uneven, varying with fabric type and dye interactions.
-        pattern: Often appears as streaks or patches that follow the weave, leading to irregular distributions.
-      glass:
-        appearance: Appears as frosted or cloudy areas with a smooth, etched texture, sometimes showing subtle color shifts
-          like whitening.
-        coverage: Coverage is often consistent and controlled in clean processes, but can vary with surface defects.
-        pattern: Usually forms uniform or patterned designs, but contamination can cause streaks or spots if impurities are
-          present.
-      metal:
-        appearance: Discoloration often appears as a contrasting color change, such as darkening or lightening, with a smooth
-          or slightly textured finish.
-        coverage: Coverage is usually localized to the marked area, with minimal variation if the process is controlled, but
-          can be uneven if contaminated.
-        pattern: Typically forms precise patterns like spots, lines, or patches, depending on the laser settings and material
-          composition.
-      mineral:
-        appearance: Displays as color changes like darkening or iridescence with a crystalline or smooth texture, depending
-          on mineral hardness.
-        coverage: Coverage is typically localized and variable, affected by mineral purity and laser wavelength.
-        pattern: Often forms spots or uniform layers, but can be streaky if the mineral has inclusions or fractures.
-      plastic:
-        appearance: Shows as yellowing, browning, or charring with a melted or pitted texture, depending on the plastic type.
-        coverage: Coverage is variable, ranging from small spots to larger areas, influenced by plastic composition and laser
-          power.
-        pattern: Often appears as streaks or patches that can spread, especially in thermoplastics under high heat.
-      rubber:
-        appearance: Appears as darkened or burnt areas with a rough, cracked texture, sometimes accompanied by smoke residues.
-        coverage: Coverage is generally localized but can spread unevenly, depending on rubber hardness and additives.
-        pattern: Usually forms spots or streaks that may coalesce into larger patches under excessive laser exposure.
-      semiconductor:
-        appearance: Appears as subtle discoloration or oxidation with a smooth, sometimes hazy finish, often in gray or brown
-          shades.
-        coverage: Coverage is generally minimal and controlled, but can vary with surface defects and doping levels.
-        pattern: Usually forms precise, uniform patterns in controlled processes, but contamination can cause spots or streaks.
-      specialty:
-        appearance: Varies widely; may show unique color shifts or textures, such as iridescence on coatings or charring on
-          biomaterials.
-        coverage: Coverage is highly variable and material-dependent, ranging from uniform to sparse based on application
-          and impurities.
-        pattern: Patterns depend on material specifics, often irregular or custom-designed, but can include spots or patches.
-      stone:
-        appearance: Manifests as faded or darkened spots with a matte or crystalline texture, depending on the stone type
-          and impurities.
-        coverage: Coverage is typically sparse and irregular, influenced by stone porosity and laser intensity.
-        pattern: Can form spots or uniform areas, but often appears patchy due to natural variations in mineral composition.
-      wood:
-        appearance: Shows as darkened or charred areas with a rough, burnt texture, sometimes with lighter shades if the wood
-          resin reacts.
-        coverage: Coverage is generally partial and uneven, varying with wood density and moisture content, rarely uniform.
-        pattern: Often appears as streaks or patches that follow the wood grain, leading to irregular distributions.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+laser_properties:
+  laser_parameters:
+    beam_profile: gaussian
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.8
+    overlap_percentage: 50
+    polarization: any
+    pulse_duration_range:
+      max_ns: 100
+      min_ns: 4
+      recommended_ns: 10
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 1064
+    - 532
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 8500
+      wavelength_355nm: 45000
+      wavelength_532nm: 22000
+    reflectivity:
+      wavelength_1064nm: 0.35
+      wavelength_355nm: 0.08
+      wavelength_532nm: 0.18
+    refractive_index:
+      imaginary_part: 0.15
+      real_part: 2.1
+    transmission_depth: 11.8
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: carbon_particulates
+      hazard_level: moderate
+      phase: solid
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 120
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.7
+    secondary_mechanisms:
+    - photochemical
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: compressive
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Metal oxides (various)
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    - compound: Carbon monoxide
+      concentration_mg_m3: 10-100
+      exposure_limit_mg_m3: 29.0
+      hazard_class: toxic
+    - compound: Volatile organic compounds
+      concentration_mg_m3: 2-20
+      exposure_limit_mg_m3: 100.0
+      hazard_class: irritant
+    - compound: Polycyclic aromatic hydrocarbons
+      concentration_mg_m3: 0.1-2.0
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - May generate toxic fumes when cleaning painted or coated surfaces
+    - Avoid cleaning materials with unknown composition or heavy contamination
+    - Risk of ozone generation in enclosed spaces
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: dual
+      minimum_air_changes_per_hour: 15
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 3.5
+      pulse_duration_10ns: 2.1
+      wavelength_1064nm: 1.8
+    decomposition_temperature: 450
+    heat_affected_zone_depth: 15
+    melting_point: null
+    specific_heat: 850
+    thermal_conductivity: 0.8
+    thermal_diffusivity: 0.5
+    vaporization_temperature: 1200
+prohibited_materials:
+- Plastics
+- Ceramics
+valid_materials:
+- Steel
+- Aluminum
+- Titanium
+- Brass
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Displays as darkened or discolored marks with a glazed or rough texture, often in shades of brown or black.
+      coverage: Coverage is generally localized and even in quality ceramics, but can be blotchy with impurities.
+      pattern: Tends to form spots or lines that may spread into patches if the glaze is uneven or contaminated.
+    composite:
+      appearance: Manifests as uneven discoloration with mixed textures, such as charring on organic parts and fading on inorganic
+        ones.
+      coverage: Coverage is often inconsistent and patchy, varying with the distribution of different components.
+      pattern: Typically forms irregular patches or spots, reflecting the heterogeneous nature of composite materials.
+    concrete:
+      appearance: Manifests as light or dark discoloration with a rough, porous texture, sometimes showing efflorescence or
+        dust.
+      coverage: Coverage is generally partial and inconsistent, influenced by concrete mix and curing conditions.
+      pattern: Can form spots or uniform areas, but often appears patchy due to surface irregularities and aggregate exposure.
+    fabric:
+      appearance: Shows as scorched or faded marks with a brittle or singed texture, often in brown or black hues.
+      coverage: Coverage is typically sparse and uneven, varying with fabric type and dye interactions.
+      pattern: Often appears as streaks or patches that follow the weave, leading to irregular distributions.
+    glass:
+      appearance: Appears as frosted or cloudy areas with a smooth, etched texture, sometimes showing subtle color shifts
+        like whitening.
+      coverage: Coverage is often consistent and controlled in clean processes, but can vary with surface defects.
+      pattern: Usually forms uniform or patterned designs, but contamination can cause streaks or spots if impurities are
+        present.
+    metal:
+      appearance: Discoloration often appears as a contrasting color change, such as darkening or lightening, with a smooth
+        or slightly textured finish.
+      coverage: Coverage is usually localized to the marked area, with minimal variation if the process is controlled, but
+        can be uneven if contaminated.
+      pattern: Typically forms precise patterns like spots, lines, or patches, depending on the laser settings and material
+        composition.
+    mineral:
+      appearance: Displays as color changes like darkening or iridescence with a crystalline or smooth texture, depending
+        on mineral hardness.
+      coverage: Coverage is typically localized and variable, affected by mineral purity and laser wavelength.
+      pattern: Often forms spots or uniform layers, but can be streaky if the mineral has inclusions or fractures.
+    plastic:
+      appearance: Shows as yellowing, browning, or charring with a melted or pitted texture, depending on the plastic type.
+      coverage: Coverage is variable, ranging from small spots to larger areas, influenced by plastic composition and laser
+        power.
+      pattern: Often appears as streaks or patches that can spread, especially in thermoplastics under high heat.
+    rubber:
+      appearance: Appears as darkened or burnt areas with a rough, cracked texture, sometimes accompanied by smoke residues.
+      coverage: Coverage is generally localized but can spread unevenly, depending on rubber hardness and additives.
+      pattern: Usually forms spots or streaks that may coalesce into larger patches under excessive laser exposure.
+    semiconductor:
+      appearance: Appears as subtle discoloration or oxidation with a smooth, sometimes hazy finish, often in gray or brown
+        shades.
+      coverage: Coverage is generally minimal and controlled, but can vary with surface defects and doping levels.
+      pattern: Usually forms precise, uniform patterns in controlled processes, but contamination can cause spots or streaks.
+    specialty:
+      appearance: Varies widely; may show unique color shifts or textures, such as iridescence on coatings or charring on
+        biomaterials.
+      coverage: Coverage is highly variable and material-dependent, ranging from uniform to sparse based on application and
+        impurities.
+      pattern: Patterns depend on material specifics, often irregular or custom-designed, but can include spots or patches.
+    stone:
+      appearance: Manifests as faded or darkened spots with a matte or crystalline texture, depending on the stone type and
+        impurities.
+      coverage: Coverage is typically sparse and irregular, influenced by stone porosity and laser intensity.
+      pattern: Can form spots or uniform areas, but often appears patchy due to natural variations in mineral composition.
+    wood:
+      appearance: Shows as darkened or charred areas with a rough, burnt texture, sometimes with lighter shades if the wood
+        resin reacts.
+      coverage: Coverage is generally partial and uneven, varying with wood density and moisture content, rarely uniform.
+      pattern: Often appears as streaks or patches that follow the wood grain, leading to irregular distributions.
 schema_version: 5.0.0
 content_type: contaminants
 breadcrumb:

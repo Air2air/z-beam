@@ -5,7 +5,7 @@ import { Title } from '../Title';
 
 export function ContactInfo() {
   return (
-    <div className="bg-gray-800 p-6 mb-6 rounded-lg shadow-md">
+    <div className="bg-gray-800 p-6 mb-6 rounded-md shadow-md">
       {/* <Title level="section" title="Contact Information" /> */}
       
       <div className="space-y-6">

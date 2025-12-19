@@ -50,7 +50,7 @@ export function RegulatoryStandards({
         {validStandards.map((standard, index) => (
           <li
             key={`${standard.name}-${index}`}
-            className="card-background rounded-lg p-4 hover:shadow-md transition-shadow duration-200"
+            className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200"
           >
             <article className="flex items-start gap-4">
               {/* Logo */}

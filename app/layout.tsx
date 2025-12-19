@@ -36,6 +36,11 @@ const ConditionalCTA = dynamic(() => import("./components/CTA").then(mod => ({ d
   ssr: false,
   loading: () => null,
 });
+
+const CookieConsent = dynamic(() => import("./components/CookieConsent").then(mod => ({ default: mod.CookieConsent })), {
+  ssr: false,
+  loading: () => null,
+});
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { SchemaRegistry } from "./utils/schemas/registry";
@@ -148,6 +153,26 @@ export default async function RootLayout({
       className="dark scroll-smooth"
     >
       <head>
+        {/* Google Consent Mode - MUST load before gtag.js */}
+        <script
+          {...(nonce ? { nonce } : {})}
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              
+              // Default consent to denied (will be updated by CookieConsent)
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+              });
+            `,
+          }}
+        />
+        
         {/* Font is automatically optimized by Next.js through geist/font/sans */}
         {/* No manual preload needed - Next.js handles font loading */}
         
@@ -194,6 +219,7 @@ export default async function RootLayout({
           <ConditionalCTA />
           <Footer />
         </ErrorBoundary>
+        <CookieConsent />
         <WebVitalsReporter />
         <GoogleAnalytics gaId="G-TZF55CB5XC" />
         <SpeedInsights />

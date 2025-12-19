@@ -1,28 +1,14 @@
 id: breccia-laser-cleaning
 name: Breccia
+slug: breccia
 category: stone
 subcategory: sedimentary
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:54.322537Z'
-dateModified: '2025-12-19T01:18:48Z'
+datePublished: '2025-12-19T01:24:55.878498Z'
+dateModified: '2025-12-19T01:24:55.878498Z'
 author:
   id: 3
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Dr.
-  sex: m
-  jobTitle: Senior Researcher
-  expertise:
-  - Laser Physics
-  - Material Science
-  affiliation:
-    name: Italian Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, University of Bologna, 2015
-  - Senior researcher in laser-material interactions
 title: Breccia Laser Cleaning
 description: Breccia sets itself apart from conglomerates and other clastic rocks with its sharp, angular fragments, indicating
   little transport and swift deposition, in contrast to the rounded, worn clasts of its smoother siblings.
@@ -92,318 +78,263 @@ faq:
     options that invite biological growth.
   topic_keyword: heavy foot traffic
   topic_statement: Supports 200 MPa loads
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    fractureToughness:
+      value: 0.85
+      unit: MPa·m^{1/2}
+      confidence: 92
+      source: ai_research
+    density:
+      value: 2710.0
+      unit: kg/m³
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 0.87
+      unit: dimensionless (resistance index)
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 32.5
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 3.5
+      unit: Mohs
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 125.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 3.2
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 11.2
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.85
+      unit: dimensionless (resistance index)
+      confidence: 92
+      source: ai_research
+    porosity:
+      value: 0.15
+      unit: fraction
+      confidence: 92
+      source: ai_research
+    laserDamageThreshold:
+      value: 1.15
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: 'Laser Cleaning of Geological Materials: Damage Thresholds for Sedimentary Rocks Including Breccia'
+      citation: 'Poole, A. B., et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028374'
+      context: Natural breccia stone (angular fragments of limestone and sandstone, 95% purity equivalent, no coatings), 20°C,
+        measured using Q-switched Nd:YAG laser at 1064 nm wavelength, 10 ns pulse duration
+      confidence: 92
+      researched_date: '2025-11-24T11:52:28.276919'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.75
+      unit: dimensionless
+      min: 0.6
+      max: 0.9
+      source: ai_research
+    absorptionCoefficient:
+      value: 5000000
+      unit: m⁻¹
+      min: 1000000
+      max: 10000000
+      source: ai_research
+    laserDamageThreshold:
+      value: 2.5
+      unit: J/cm²
+      min: 1.0
+      max: 5.0
+      source: ai_research
+    thermalShockResistance:
+      value: 1.5
+      unit: MW/m
+      min: 0.8
+      max: 2.5
+      source: ai_research
+    reflectivity:
+      value: 0.25
+      unit: dimensionless
+      min: 0.1
+      max: 0.4
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1073
+      unit: K
+      min: 900
+      max: 1300
+      source: ai_research
+    vaporPressure:
+      value: 10
+      unit: Pa
+      min: 0.1
+      max: 100
+      source: ai_research
+    thermalDestruction:
+      value: 1673.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.22
+      unit: ''
+      confidence: 92
+      source: ai_research
+    thermalExpansion:
+      value: 8.2e-06
+      unit: K^{-1}
+      confidence: 92
+      source: ai_research
+    thermalConductivity:
+      value: 2.3
+      unit: W/m·K
+      confidence: 92
+      source: ai_research
+    specificHeat:
+      value: 880.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 4500.0
+      unit: cm^{-1}
+      confidence: 92
+      source: ai_research
+    thermalDiffusivity:
+      value: 1.05e-06
+      unit: m²/s
+      confidence: 92
+      source: ai_research
+    ablationThreshold:
+      value: 1.45
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser Ablation Thresholds of Natural Stones for Cultural Heritage Conservation
+      citation: 'Pořízka, P. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
+      context: Breccia Paesina (limestone-based breccia, 95% CaCO3 composition), 20°C, measured using 1064 nm Nd:YAG nanosecond
+        pulsed laser, single pulse regime
+      confidence: 95
+      researched_date: '2025-11-24T11:52:33.374892'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+metadata:
+  last_updated: '2025-10-27T23:48:40.921694Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.921700Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants: []
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      fractureToughness:
-        value: 0.85
-        unit: MPa·m^{1/2}
-        confidence: 92
-        source: ai_research
-      density:
-        value: 2710.0
-        unit: kg/m³
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 0.87
-        unit: dimensionless (resistance index)
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 32.5
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 3.5
-        unit: Mohs
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 125.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 3.2
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 11.2
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.85
-        unit: dimensionless (resistance index)
-        confidence: 92
-        source: ai_research
-      porosity:
-        value: 0.15
-        unit: fraction
-        confidence: 92
-        source: ai_research
-      laserDamageThreshold:
-        value: 1.15
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: 'Laser Cleaning of Geological Materials: Damage Thresholds for Sedimentary Rocks Including Breccia'
-        citation: 'Poole, A. B., et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028374'
-        context: Natural breccia stone (angular fragments of limestone and sandstone, 95% purity equivalent, no coatings),
-          20°C, measured using Q-switched Nd:YAG laser at 1064 nm wavelength, 10 ns pulse duration
-        confidence: 92
-        researched_date: '2025-11-24T11:52:28.276919'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.75
-        unit: dimensionless
-        min: 0.6
-        max: 0.9
-        source: ai_research
-      absorptionCoefficient:
-        value: 5000000
-        unit: m⁻¹
-        min: 1000000
-        max: 10000000
-        source: ai_research
-      laserDamageThreshold:
-        value: 2.5
-        unit: J/cm²
-        min: 1.0
-        max: 5.0
-        source: ai_research
-      thermalShockResistance:
-        value: 1.5
-        unit: MW/m
-        min: 0.8
-        max: 2.5
-        source: ai_research
-      reflectivity:
-        value: 0.25
-        unit: dimensionless
-        min: 0.1
-        max: 0.4
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1073
-        unit: K
-        min: 900
-        max: 1300
-        source: ai_research
-      vaporPressure:
-        value: 10
-        unit: Pa
-        min: 0.1
-        max: 100
-        source: ai_research
-      thermalDestruction:
-        value: 1673.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.22
-        unit: ''
-        confidence: 92
-        source: ai_research
-      thermalExpansion:
-        value: 8.2e-06
-        unit: K^{-1}
-        confidence: 92
-        source: ai_research
-      thermalConductivity:
-        value: 2.3
-        unit: W/m·K
-        confidence: 92
-        source: ai_research
-      specificHeat:
-        value: 880.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 4500.0
-        unit: cm^{-1}
-        confidence: 92
-        source: ai_research
-      thermalDiffusivity:
-        value: 1.05e-06
-        unit: m²/s
-        confidence: 92
-        source: ai_research
-      ablationThreshold:
-        value: 1.45
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser Ablation Thresholds of Natural Stones for Cultural Heritage Conservation
-        citation: 'Pořízka, P. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
-        context: Breccia Paesina (limestone-based breccia, 95% CaCO3 composition), 20°C, measured using 1064 nm Nd:YAG nanosecond
-          pulsed laser, single pulse regime
-        confidence: 95
-        researched_date: '2025-11-24T11:52:33.374892'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - ANSI Z136.1 - Safe Use of Lasers
-    - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    isBasedOn:
-      name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  metadata:
-    last_updated: '2025-10-27T23:48:40.921694Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.921700Z'
-    structure_version: '2.0'
-  applications:
-  - Cultural Heritage
-  - Architecture and Construction
-  - Museum Conservation
-  - Monument Preservation
-  - Archaeological Research
-  - Stone Fabrication
-  - Landscape Architecture
-  - Interior Design
-  - Religious Architecture
-  - Educational Collections
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: crystalline crystal structure
-      source: ai_research
-      unit: crystal system
-      value: crystalline
-  voice_enhanced: '2025-11-07T02:44:57.961171+00:00'
-  components:
-    settings_description: When laser cleaning Breccia, you'll want to treat it differently from smoother sedimentary stones
-      like limestone, since its fragmented makeup—think angular pebbles bound in a matrix—makes it more prone to uneven energy
-      uptake. Start with gentler power levels to handle that irregularity without chipping the edges. Make sure you overlap
-      scans by at least half the spot size, as the varying density can trap heat in porous spots and lead to micro-cracks
-      if you're too aggressive. Adjust speeds upward on the matrix areas for even contaminant removal, restoring that natural,
-      rugged finish without compromising the stone's modest strength.
-    micro:
-      before: Looking closely at the contaminated Breccia surface under high magnification, I see a thick layer of dust and
-        grime clinging tightly to the uneven texture. Fine particles scatter across the rough patches, making the whole area
-        look dull and obscured. This buildup hides the stone's natural fragments completely from view.
-      after: After the laser treatment, the same Breccia surface appears fresh and revealed in stunning detail. Smooth grains
-        now stand out clearly, free from any clinging debris or haze. The cleaned texture shines with a
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: Breccia sets itself apart from conglomerates and other clastic rocks with its sharp, angular fragments,
-    indicating little transport and swift deposition, in...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Cultural Heritage
+- Architecture and Construction
+- Museum Conservation
+- Monument Preservation
+- Archaeological Research
+- Stone Fabrication
+- Landscape Architecture
+- Interior Design
+- Religious Architecture
+- Educational Collections
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: crystalline crystal structure
+    source: ai_research
+    unit: crystal system
+    value: crystalline
+voice_enhanced: '2025-11-07T02:44:57.961171+00:00'
+components:
+  settings_description: When laser cleaning Breccia, you'll want to treat it differently from smoother sedimentary stones
+    like limestone, since its fragmented makeup—think angular pebbles bound in a matrix—makes it more prone to uneven energy
+    uptake. Start with gentler power levels to handle that irregularity without chipping the edges. Make sure you overlap
+    scans by at least half the spot size, as the varying density can trap heat in porous spots and lead to micro-cracks if
+    you're too aggressive. Adjust speeds upward on the matrix areas for even contaminant removal, restoring that natural,
+    rugged finish without compromising the stone's modest strength.
+  micro:
+    before: Looking closely at the contaminated Breccia surface under high magnification, I see a thick layer of dust and
+      grime clinging tightly to the uneven texture. Fine particles scatter across the rough patches, making the whole area
+      look dull and obscured. This buildup hides the stone's natural fragments completely from view.
+    after: After the laser treatment, the same Breccia surface appears fresh and revealed in stunning detail. Smooth grains
+      now stand out clearly, free from any clinging debris or haze. The cleaned texture shines with a
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: Breccia sets itself apart from conglomerates and other clastic rocks with its sharp, angular fragments, indicating
+  little transport and swift deposition, in...

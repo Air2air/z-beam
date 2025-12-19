@@ -230,11 +230,11 @@ This **belt-and-suspenders approach** ensures maximum SEO coverage.
 | **Focus Indicators** | Visible 2px blue ring (`focus:ring-2`) |
 | **Focus Offset** | 2px offset for clarity (`focus:ring-offset-2`) |
 | **Focus Outline** | Removed default, custom ring applied |
-| **Rounded Corners** | Subtle rounded focus area (`rounded-sm`) |
+| **Rounded Corners** | Subtle rounded focus area (`rounded-md`) |
 
 **Focus Styles:**
 ```tsx
-className="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm"
+className="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
 ```
 
 **Keyboard Accessibility Checklist:**

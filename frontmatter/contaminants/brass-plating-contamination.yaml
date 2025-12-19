@@ -1,9 +1,13 @@
 id: brass-plating-contamination
 name: Brass Coating Removal
+slug: brass-coating-removal
 category: metallic-coating
 subcategory: plating
-datePublished: '2025-12-19T00:21:10.313287Z'
-dateModified: '2025-12-19T01:18:58Z'
+datePublished: '2025-12-19T01:25:10.836232Z'
+dateModified: '2025-12-19T01:25:10.836232Z'
+composition:
+- Cu-Zn Alloy
+- Brass
 description: Brass-plating contamination forms during alloy deposition for decorative layering on hardware. Impurities embed
   in the process, and create uneven films thus leading to flaky residues. This contamination, it distinguishes from uniform
   oxides through metallic sheen and strong adhesion that resists simple wiping. On zinc alloy, it spreads rapidly and bonds
@@ -13,305 +17,226 @@ description: Brass-plating contamination forms during alloy deposition for decor
 relationships:
   related_materials:
   - id: steel-laser-cleaning
+    slug: steel
     title: Steel
-    url: /materials/steel-laser-cleaning
+    url: /materials/steel
     image: /images/materials/steel.jpg
+    category: metal
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
-  composition:
-  - Cu-Zn Alloy
-  - Brass
-  laser_properties:
-    laser_parameters:
-      beam_profile: gaussian
-      fluence_range:
-        max_j_cm2: 1.4
-        min_j_cm2: 0.8
-        recommended_j_cm2: 1.1
-      overlap_percentage: 50
-      polarization: circular
-      pulse_duration_range:
-        max_ns: 200
-        min_ns: 10
-        recommended_ns: 50
-      repetition_rate_khz:
-        max: 100
-        min: 20
-        recommended: 50
-      safety_margin_factor: 0.7
-      scan_speed_mm_s:
-        max: 2000
-        min: 500
-        recommended: 1000
-      spot_size_mm:
-        max: 0.1
-        min: 0.03
-        recommended: 0.05
-      wavelength_preference:
-      - 532
-      - 1064
-    optical_properties:
-      absorption_coefficient:
-        wavelength_1064nm: 1.2e5
-        wavelength_355nm: 8.5e5
-        wavelength_532nm: 3.8e5
-      reflectivity:
-        wavelength_1064nm: 0.85
-        wavelength_355nm: 0.35
-        wavelength_532nm: 0.55
-      refractive_index:
-        imaginary_part: 4.25
-        real_part: 0.64
-      transmission_depth: 0.12
-    removal_characteristics:
-      byproducts:
-      - compound: ZnO
-        hazard_level: moderate
-        phase: gas/particulate
-      - compound: CuO
-        hazard_level: moderate
-        phase: solid/particulate
-      - compound: Brass vapor
-        hazard_level: moderate
-        phase: gas
-      damage_risk_to_substrate: medium
-      primary_mechanism: thermal_ablation
-      process_speed:
-        area_coverage_rate_cm2_min: 240
-        typical_scan_speed_mm_s: 800
-      removal_efficiency:
-        diminishing_returns_after: 3
-        optimal_passes: 2
-        single_pass: 0.7
-      secondary_mechanisms:
-      - mechanical_spallation
-      - vaporization
-      surface_quality_after_removal:
-        color_change: 'yes'
-        residual_stress: compressive
-        roughness_increase: moderate
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Zinc Oxide
-        concentration_mg_m3: 5.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      - compound: Copper Oxide
-        concentration_mg_m3: 2.0
-        exposure_limit_mg_m3: 0.1
-        hazard_class: irritant
-      - compound: Lead Oxide
-        concentration_mg_m3: 0.05
-        exposure_limit_mg_m3: 0.05
-        hazard_class: toxic
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser parameters must be optimized to minimize substrate damage
-      - Avoid excessive heat buildup that could alter base metal properties
-      - Test on small area first to determine optimal settings
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
-    thermal_properties:
-      ablation_threshold:
-        pulse_duration_100ns: 4.1
-        pulse_duration_10ns: 3.2
-        wavelength_1064nm: 2.8
-      decomposition_temperature: 450
-      heat_affected_zone_depth: 15
-      melting_point: 900
-      specific_heat: 380
-      thermal_conductivity: 120
-      thermal_diffusivity: 35
-      vaporization_temperature: 1100
-  prohibited_materials:
-  - Aluminum
-  - Soft Substrates
-  valid_materials:
-  - Steel
-  - Zinc Alloy
-  visual_characteristics:
-    appearance_on_categories:
-      ceramic:
-        appearance: It appears as dull, discolored areas with green or brown tints, potentially altering the glaze and creating
-          a rough or pitted surface.
-        coverage: Coverage is typically partial and uneven, ranging from small blemishes to larger affected zones.
-        pattern: Distribution is irregular, with spots or smears often found near edges or where brass objects have rested,
-          leading to localized staining.
-      composite:
-        appearance: It appears as mottled discolorations with green or brown hues, potentially disrupting the composite's
-          uniform finish and creating a rough texture.
-        coverage: Coverage is variable and patchy, influenced by the composite's composition and the extent of brass contamination.
-        pattern: Patterns are irregular, with spots or smears distributed across the surface, often exacerbated by material
-          porosity or layer interfaces.
-      concrete:
-        appearance: On concrete, it manifests as greenish or brownish patches that can be powdery or embedded, altering the
-          surface color and creating a rough texture.
-        coverage: Coverage is patchy and uneven, ranging from small discolorations to larger areas, influenced by concrete
-          condition and exposure time.
-        pattern: It forms as irregular spots or streaks, often spreading from contamination sources like drips or spills,
-          following porosity variations.
-      fabric:
-        appearance: It appears as greenish or brownish stains on the fabric, often embedded in fibers and causing discoloration
-          that may feel stiff or gritty.
-        coverage: Coverage is typically sparse and irregular, with stains varying in size and intensity based on fabric type
-          and exposure.
-        pattern: Distribution is spotty or streaky, following contact points or moisture trails where brass residues have
-          transferred and oxidized.
-      glass:
-        appearance: On glass, it shows as hazy, greenish films or spots that can obscure transparency, sometimes with a gritty
-          texture from residual particles.
-        coverage: Coverage is generally light and patchy, with variations depending on exposure duration and cleaning history.
-        pattern: It forms as streaks or patches, often spreading from points of contact or condensation where brass compounds
-          have deposited.
-      metal:
-        appearance: Brass coating removal appears as a dull, patchy surface with discolored areas ranging from greenish to
-          brownish hues, often revealing the underlying metal.
-        coverage: Coverage is usually partial and uneven, varying from small spots to larger areas depending on the removal
-          method and exposure.
-        pattern: It typically forms irregular patches or streaks where the coating has been partially or fully removed, often
-          concentrated at edges or high-wear areas.
-      mineral:
-        appearance: It appears as discolored zones with green or brown tints, potentially altering the mineral's luster and
-          introducing foreign particles or coatings.
-        coverage: Coverage is typically partial and variable, with localized patches depending on mineral hardness and contamination
-          history.
-        pattern: Patterns are irregular, with spots or smears distributed across surfaces, often concentrated in cracks or
-          where brass has adhered.
-      plastic:
-        appearance: On plastic, it manifests as faded or stained regions with greenish discolorations, sometimes causing surface
-          crazing or a chalky residue.
-        coverage: Coverage is usually limited and uneven, with patches varying in size based on material compatibility and
-          exposure.
-        pattern: It forms as blotches or streaks, often concentrated where brass has rubbed or corroded, following stress
-          points or contamination sources.
-      rubber:
-        appearance: On rubber, it shows as darkened or greenish stains that may cause surface hardening or cracking, altering
-          the material's elasticity and color.
-        coverage: Coverage is often localized and uneven, with small to moderate patches depending on usage and environmental
-          conditions.
-        pattern: It typically forms as spots or streaks, concentrated in areas of friction or where brass components have
-          been in prolonged contact.
-      semiconductor:
-        appearance: On semiconductors, it shows as microscopic discoloration or contamination, often appearing as hazy films
-          or spots that can interfere with electronic properties.
-        coverage: Coverage is usually minimal but critical, with variations from sparse particles to thin films affecting
-          device performance.
-        pattern: It forms as fine spots or uniform layers, distributed across wafer surfaces, potentially following deposition
-          or handling processes.
-      specialty:
-        appearance: On specialty materials, it appears as discolored or degraded areas with greenish hues, tailored to the
-          material's unique properties and surface finish.
-        coverage: Coverage varies widely, from localized blemishes to extensive areas, based on material sensitivity and exposure
-          conditions.
-        pattern: Distribution is material-dependent, often irregular with spots or patches, influenced by specific applications
-          and contamination sources.
-      stone:
-        appearance: It appears as greenish or brownish stains on the stone surface, often creating a mottled look that can
-          be powdery or embedded in pores.
-        coverage: Coverage is variable but often limited to surface patches, with uneven distribution based on environmental
-          factors.
-        pattern: Patterns are usually spotty or streaky, following moisture paths or areas where brass residues have settled
-          and oxidized.
-      wood:
-        appearance: On wood, it manifests as discolored spots with a greenish or brownish tint, often altering the natural
-          grain and leaving a rough or stained texture.
-        coverage: Coverage is typically sparse and localized, concentrated in areas of direct contact or contamination.
-        pattern: Distribution is irregular, with spots or patches forming where brass particles have adhered or reacted, commonly
-          near fasteners or joints.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
 author:
   id: 3
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Dr.
-  sex: m
-  jobTitle: Senior Researcher
-  expertise:
-  - Laser Physics
-  - Material Science
-  affiliation:
-    name: Italian Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, University of Bologna, 2015
-  - Senior researcher in laser-material interactions
+laser_properties:
+  laser_parameters:
+    beam_profile: gaussian
+    fluence_range:
+      max_j_cm2: 1.4
+      min_j_cm2: 0.8
+      recommended_j_cm2: 1.1
+    overlap_percentage: 50
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 200
+      min_ns: 10
+      recommended_ns: 50
+    repetition_rate_khz:
+      max: 100
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.1
+      min: 0.03
+      recommended: 0.05
+    wavelength_preference:
+    - 532
+    - 1064
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 1.2e5
+      wavelength_355nm: 8.5e5
+      wavelength_532nm: 3.8e5
+    reflectivity:
+      wavelength_1064nm: 0.85
+      wavelength_355nm: 0.35
+      wavelength_532nm: 0.55
+    refractive_index:
+      imaginary_part: 4.25
+      real_part: 0.64
+    transmission_depth: 0.12
+  removal_characteristics:
+    byproducts:
+    - compound: ZnO
+      hazard_level: moderate
+      phase: gas/particulate
+    - compound: CuO
+      hazard_level: moderate
+      phase: solid/particulate
+    - compound: Brass vapor
+      hazard_level: moderate
+      phase: gas
+    damage_risk_to_substrate: medium
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.7
+    secondary_mechanisms:
+    - mechanical_spallation
+    - vaporization
+    surface_quality_after_removal:
+      color_change: 'yes'
+      residual_stress: compressive
+      roughness_increase: moderate
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Zinc Oxide
+      concentration_mg_m3: 5.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    - compound: Copper Oxide
+      concentration_mg_m3: 2.0
+      exposure_limit_mg_m3: 0.1
+      hazard_class: irritant
+    - compound: Lead Oxide
+      concentration_mg_m3: 0.05
+      exposure_limit_mg_m3: 0.05
+      hazard_class: toxic
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize substrate damage
+    - Avoid excessive heat buildup that could alter base metal properties
+    - Test on small area first to determine optimal settings
+    toxic_gas_risk: low
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 4.1
+      pulse_duration_10ns: 3.2
+      wavelength_1064nm: 2.8
+    decomposition_temperature: 450
+    heat_affected_zone_depth: 15
+    melting_point: 900
+    specific_heat: 380
+    thermal_conductivity: 120
+    thermal_diffusivity: 35
+    vaporization_temperature: 1100
+prohibited_materials:
+- Aluminum
+- Soft Substrates
+valid_materials:
+- Steel
+- Zinc Alloy
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: It appears as dull, discolored areas with green or brown tints, potentially altering the glaze and creating
+        a rough or pitted surface.
+      coverage: Coverage is typically partial and uneven, ranging from small blemishes to larger affected zones.
+      pattern: Distribution is irregular, with spots or smears often found near edges or where brass objects have rested,
+        leading to localized staining.
+    composite:
+      appearance: It appears as mottled discolorations with green or brown hues, potentially disrupting the composite's uniform
+        finish and creating a rough texture.
+      coverage: Coverage is variable and patchy, influenced by the composite's composition and the extent of brass contamination.
+      pattern: Patterns are irregular, with spots or smears distributed across the surface, often exacerbated by material
+        porosity or layer interfaces.
+    concrete:
+      appearance: On concrete, it manifests as greenish or brownish patches that can be powdery or embedded, altering the
+        surface color and creating a rough texture.
+      coverage: Coverage is patchy and uneven, ranging from small discolorations to larger areas, influenced by concrete condition
+        and exposure time.
+      pattern: It forms as irregular spots or streaks, often spreading from contamination sources like drips or spills, following
+        porosity variations.
+    fabric:
+      appearance: It appears as greenish or brownish stains on the fabric, often embedded in fibers and causing discoloration
+        that may feel stiff or gritty.
+      coverage: Coverage is typically sparse and irregular, with stains varying in size and intensity based on fabric type
+        and exposure.
+      pattern: Distribution is spotty or streaky, following contact points or moisture trails where brass residues have transferred
+        and oxidized.
+    glass:
+      appearance: On glass, it shows as hazy, greenish films or spots that can obscure transparency, sometimes with a gritty
+        texture from residual particles.
+      coverage: Coverage is generally light and patchy, with variations depending on exposure duration and cleaning history.
+      pattern: It forms as streaks or patches, often spreading from points of contact or condensation where brass compounds
+        have deposited.
+    metal:
+      appearance: Brass coating removal appears as a dull, patchy surface with discolored areas ranging from greenish to brownish
+        hues, often revealing the underlying metal.
+      coverage: Coverage is usually partial and uneven, varying from small spots to larger areas depending on the removal
+        method and exposure.
+      pattern: It typically forms irregular patches or streaks where the coating has been partially or fully removed, often
+        concentrated at edges or high-wear areas.
+    mineral:
+      appearance: It appears as discolored zones with green or brown tints, potentially altering the mineral's luster and
+        introducing foreign particles or coatings.
+      coverage: Coverage is typically partial and variable, with localized patches depending on mineral hardness and contamination
+        history.
+      pattern: Patterns are irregular, with spots or smears distributed across surfaces, often concentrated in cracks or where
+        brass has adhered.
+    plastic:
+      appearance: On plastic, it manifests as faded or stained regions with greenish discolorations, sometimes causing surface
+        crazing or a chalky residue.
+      coverage: Coverage is usually limited and uneven, with patches varying in size based on material compatibility and exposure.
+      pattern: It forms as blotches or streaks, often concentrated where brass has rubbed or corroded, following stress points
+        or contamination sources.
+    rubber:
+      appearance: On rubber, it shows as darkened or greenish stains that may cause surface hardening or cracking, altering
+        the material's elasticity and color.
+      coverage: Coverage is often localized and uneven, with small to moderate patches depending on usage and environmental
+        conditions.
+      pattern: It typically forms as spots or streaks, concentrated in areas of friction or where brass components have been
+        in prolonged contact.
+    semiconductor:
+      appearance: On semiconductors, it shows as microscopic discoloration or contamination, often appearing as hazy films
+        or spots that can interfere with electronic properties.
+      coverage: Coverage is usually minimal but critical, with variations from sparse particles to thin films affecting device
+        performance.
+      pattern: It forms as fine spots or uniform layers, distributed across wafer surfaces, potentially following deposition
+        or handling processes.
+    specialty:
+      appearance: On specialty materials, it appears as discolored or degraded areas with greenish hues, tailored to the material's
+        unique properties and surface finish.
+      coverage: Coverage varies widely, from localized blemishes to extensive areas, based on material sensitivity and exposure
+        conditions.
+      pattern: Distribution is material-dependent, often irregular with spots or patches, influenced by specific applications
+        and contamination sources.
+    stone:
+      appearance: It appears as greenish or brownish stains on the stone surface, often creating a mottled look that can be
+        powdery or embedded in pores.
+      coverage: Coverage is variable but often limited to surface patches, with uneven distribution based on environmental
+        factors.
+      pattern: Patterns are usually spotty or streaky, following moisture paths or areas where brass residues have settled
+        and oxidized.
+    wood:
+      appearance: On wood, it manifests as discolored spots with a greenish or brownish tint, often altering the natural grain
+        and leaving a rough or stained texture.
+      coverage: Coverage is typically sparse and localized, concentrated in areas of direct contact or contamination.
+      pattern: Distribution is irregular, with spots or patches forming where brass particles have adhered or reacted, commonly
+        near fasteners or joints.
 schema_version: 5.0.0
 content_type: contaminants
 breadcrumb:

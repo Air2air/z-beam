@@ -1,4 +1,5 @@
 // app/components/footer.tsx
+'use client';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import { FooterNavItem, SocialLink } from "@/types";
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
 import { SITE_CONFIG } from "../../utils/constants";
 import { MAIN_NAV_ITEMS } from "../../config/navigation";
+import { openCookieSettings } from "../CookieConsent";
 
 // Use centralized navigation config - convert NavItem[] to FooterNavItem[]
 const footerNav: FooterNavItem[] = MAIN_NAV_ITEMS.map(item => ({
@@ -111,6 +113,15 @@ export default function Footer() {
               )}
             </Link>
           ))}
+          <button
+            onClick={openCookieSettings}
+            className="text-secondary hover:text-primary 
+                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+                       rounded-md px-2 py-1 transition-colors"
+            aria-label="Manage cookie preferences"
+          >
+            Cookie Settings
+          </button>
         </nav>
 
         {/* Social Icons */}

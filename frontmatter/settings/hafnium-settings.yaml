@@ -1,195 +1,115 @@
 id: Hafnium
+slug: hafnium
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:21:14.653138Z'
-dateModified: '2025-12-19T01:19:03Z'
+datePublished: '2025-12-19T01:25:15.597640Z'
+dateModified: '2025-12-19T01:25:15.597640Z'
 relationships:
   related_materials: []
   related_contaminants: []
   regulatory_standards:
   - type: regulatory_standards
     id: osha-ppe-requirements
-    title: Osha Ppe Requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-    title: Ansi Z136 1 Laser Safety
-  machine_settings:
-    powerRange:
-      description: Optimal average power for Hafnium oxide removal without substrate damage
-      unit: W
-      value: 100
-    wavelength:
-      description: Near-IR wavelength optimized for Hafnium's absorption characteristics
-      unit: nm
-      value: 1064
-    spotSize:
-      description: Beam spot diameter for precise cleaning resolution
-      unit: μm
-      value: 50
-    repetitionRate:
-      description: Optimal repetition rate for continuous cleaning coverage
-      unit: kHz
-      value: 50
-    fluenceThreshold:
-      description: Minimum fluence required for effective Hafnium oxide removal
-      unit: J/cm²
-      value: 2.5
-    pulseWidth:
-      description: Nanosecond pulse duration for efficient oxide layer ablation
-      unit: ns
-      value: 10
-    scanSpeed:
-      description: Optimal scanning speed for uniform surface treatment
-      unit: mm/s
-      value: 500
-    passCount:
-      description: Recommended number of passes for complete oxide removal
-      unit: passes
-      value: 3
-    overlapRatio:
-      description: Optimal beam overlap for uniform cleaning coverage
-      unit: '%'
-      value: 50
-  challenges:
-    thermal_management:
-    - challenge: High thermal conductivity and heat spread
-      severity: medium
-      property_value: 4-400 W/(m·K) depending on metal
-      impact: Heat spreads rapidly causing large heat-affected zones
-      solutions:
-      - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-      - Increase scan speed to minimize dwell time
-      - Apply cooling between passes for thick sections
-    - challenge: Melting and heat-affected zone formation
-      severity: high
-      threshold_range: 660°C (Al) to 3422°C (W)
-      impact: Substrate melting or microstructural changes in heat-affected zone
-      solutions:
-      - Stay below 70% of melting temperature
-      - Use pulse mode with adequate cooling time
-      - Monitor for surface discoloration indicating oxidation
-    surface_characteristics:
-    - challenge: High reflectivity
-      severity: high
-      reflectivity_range: 60-95% at 1064nm for polished metals
-      impact: Most laser energy reflected, requiring higher power; safety hazard
-      solutions:
-      - Use shorter wavelengths (355nm UV) for better absorption
-      - Increase power density but monitor for thermal damage
-      - Ensure proper beam containment and safety measures
-      - Surface oxidation/roughness improves absorption
-    - challenge: Surface finish variations
-      severity: medium
-      impact: Polished surfaces reflect more, rough surfaces absorb better
-      solutions:
-      - Adjust power based on surface condition
-      - Test parameters on similar finish samples
-      - Polished surfaces need 20-40% more power
-    contamination_challenges:
-    - challenge: Rust and oxide layer removal
-      severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base metal
-      solutions:
-      - First pass at higher power (100-120W) to remove bulk oxide
-      - Second pass at lower power (60-80W) for final cleaning
-      - Monitor for base metal exposure to avoid over-processing
-    - challenge: Oil and grease removal
-      severity: low
-      impact: Organic contaminants vaporize easily but can redeposit
-      solutions:
-      - Use fume extraction to prevent redeposition
-      - Higher scan speeds (3000-5000 mm/s) for thin films
-      - Chemical pre-cleaning for heavy contamination
-  settings_description: When laser cleaning hafnium, I've seen that its heat resistance works best if you start with controlled
-    pulses to gradually expose the surface without cracking. This process restores the metal's integrity in aerospace or nuclear
-    parts by reducing oxide layers steadily. Tends to absorb energy moderately, so overlap passes evenly to avoid uneven heating.
-    Watch for thermal buildup at the end, as it can warp thin sections if not monitored closely.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning hafnium, I've seen that its heat resistance works best if you start with controlled
-    pulses to gradually expose the surface without cracking.
-  excerpt: When laser cleaning hafnium, I've seen that its heat resistance works best if you start with controlled pulses
-    to gradually expose the surface without cracking. This process restores the metal's integrity in aerospace or nuclear
-    parts by reducing oxide layers steadily. Tends to absorb energy moderately, so overlap passes evenly...
+machine_settings:
+  powerRange:
+    description: Optimal average power for Hafnium oxide removal without substrate damage
+    unit: W
+    value: 100
+  wavelength:
+    description: Near-IR wavelength optimized for Hafnium's absorption characteristics
+    unit: nm
+    value: 1064
+  spotSize:
+    description: Beam spot diameter for precise cleaning resolution
+    unit: μm
+    value: 50
+  repetitionRate:
+    description: Optimal repetition rate for continuous cleaning coverage
+    unit: kHz
+    value: 50
+  fluenceThreshold:
+    description: Minimum fluence required for effective Hafnium oxide removal
+    unit: J/cm²
+    value: 2.5
+  pulseWidth:
+    description: Nanosecond pulse duration for efficient oxide layer ablation
+    unit: ns
+    value: 10
+  scanSpeed:
+    description: Optimal scanning speed for uniform surface treatment
+    unit: mm/s
+    value: 500
+  passCount:
+    description: Recommended number of passes for complete oxide removal
+    unit: passes
+    value: 3
+  overlapRatio:
+    description: Optimal beam overlap for uniform cleaning coverage
+    unit: '%'
+    value: 50
+challenges:
+  thermal_management:
+  - challenge: High thermal conductivity and heat spread
+    severity: medium
+    property_value: 4-400 W/(m·K) depending on metal
+    impact: Heat spreads rapidly causing large heat-affected zones
+    solutions:
+    - Use shorter pulse durations (picosecond/femtosecond) for localized heating
+    - Increase scan speed to minimize dwell time
+    - Apply cooling between passes for thick sections
+  - challenge: Melting and heat-affected zone formation
+    severity: high
+    threshold_range: 660°C (Al) to 3422°C (W)
+    impact: Substrate melting or microstructural changes in heat-affected zone
+    solutions:
+    - Stay below 70% of melting temperature
+    - Use pulse mode with adequate cooling time
+    - Monitor for surface discoloration indicating oxidation
+  surface_characteristics:
+  - challenge: High reflectivity
+    severity: high
+    reflectivity_range: 60-95% at 1064nm for polished metals
+    impact: Most laser energy reflected, requiring higher power; safety hazard
+    solutions:
+    - Use shorter wavelengths (355nm UV) for better absorption
+    - Increase power density but monitor for thermal damage
+    - Ensure proper beam containment and safety measures
+    - Surface oxidation/roughness improves absorption
+  - challenge: Surface finish variations
+    severity: medium
+    impact: Polished surfaces reflect more, rough surfaces absorb better
+    solutions:
+    - Adjust power based on surface condition
+    - Test parameters on similar finish samples
+    - Polished surfaces need 20-40% more power
+  contamination_challenges:
+  - challenge: Rust and oxide layer removal
+    severity: medium
+    impact: Requires multiple passes; rust/oxide has different absorption than base metal
+    solutions:
+    - First pass at higher power (100-120W) to remove bulk oxide
+    - Second pass at lower power (60-80W) for final cleaning
+    - Monitor for base metal exposure to avoid over-processing
+  - challenge: Oil and grease removal
+    severity: low
+    impact: Organic contaminants vaporize easily but can redeposit
+    solutions:
+    - Use fume extraction to prevent redeposition
+    - Higher scan speeds (3000-5000 mm/s) for thin films
+    - Chemical pre-cleaning for heavy contamination
+settings_description: When laser cleaning hafnium, I've seen that its heat resistance works best if you start with controlled
+  pulses to gradually expose the surface without cracking. This process restores the metal's integrity in aerospace or nuclear
+  parts by reducing oxide layers steadily. Tends to absorb energy moderately, so overlap passes evenly to avoid uneven heating.
+  Watch for thermal buildup at the end, as it can warp thin sections if not monitored closely.
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+seo_description: When laser cleaning hafnium, I've seen that its heat resistance works best if you start with controlled pulses
+  to gradually expose the surface without cracking.
+excerpt: When laser cleaning hafnium, I've seen that its heat resistance works best if you start with controlled pulses to
+  gradually expose the surface without cracking. This process restores the metal's integrity in aerospace or nuclear parts
+  by reducing oxide layers steadily. Tends to absorb energy moderately, so overlap passes evenly...

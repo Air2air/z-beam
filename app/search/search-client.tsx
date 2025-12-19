@@ -356,7 +356,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   return (
     <>
       {filteredArticles.length === 0 ? (
-        <div className="p-6 bg-gray-100 rounded-lg">
+        <div className="p-6 bg-gray-100 rounded-md">
           <p className="text-gray-700">No articles found matching your criteria.</p>
         </div>
       ) : (

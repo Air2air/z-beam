@@ -90,13 +90,13 @@ export const LI: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 export const Code: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <code className={`px-1 py-0.5 rounded-lg bg-neutral-100 font-mono text-sm ${className}`}>
+  <code className={`px-1 py-0.5 rounded-md bg-neutral-100 font-mono text-sm ${className}`}>
     {children}
   </code>
 );
 
 export const Pre: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <pre className={`bg-neutral-50 rounded-lg overflow-x-auto border py-2 px-3 text-sm my-6 ${className}`}>
+  <pre className={`bg-neutral-50 rounded-md overflow-x-auto border py-2 px-3 text-sm my-6 ${className}`}>
     {children}
   </pre>
 );

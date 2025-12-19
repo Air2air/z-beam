@@ -1,28 +1,14 @@
 id: silicon-germanium-laser-cleaning
 name: Silicon Germanium
+slug: silicon-germanium
 category: semiconductor
 subcategory: elemental
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:56.706541Z'
-dateModified: '2025-12-19T01:18:54Z'
+datePublished: '2025-12-19T01:24:57.785329Z'
+dateModified: '2025-12-19T01:24:57.785329Z'
 author:
   id: 3
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Dr.
-  sex: m
-  jobTitle: Senior Researcher
-  expertise:
-  - Laser Physics
-  - Material Science
-  affiliation:
-    name: Italian Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, University of Bologna, 2015
-  - Senior researcher in laser-material interactions
 title: Silicon Germanium Laser Cleaning
 description: Hardness of Silicon Germanium, it resists wear during laser cleaning processes. Density stays low, thus aids
   lightweight handling in electronics manufacturing. Suitability comes from semiconductor nature for precise contaminant removal,
@@ -113,360 +99,263 @@ faq:
     the photovoltaic performance?'
   topic_keyword: photovoltaic performance
   topic_statement: Near-IR prevents efficiency loss
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    electricalResistivity:
+      value: 80.0
+      unit: ohm·m
+      confidence: 95
+      source: ai_research
+    fractureToughness:
+      value: 0.92
+      unit: MPa m^{1/2}
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 147000000000.0
+      unit: Pa
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 1.2e-17
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    density:
+      value: 3.23
+      unit: g/cm^3
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 10.2
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.92
+      unit: dimensionless
+      confidence: 92
+      source: ai_research
+    compressiveStrength:
+      value: 8500.0
+      unit: MPa
+      confidence: 92
+      source: ai_research
+    flexuralStrength:
+      value: 280.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 3.2
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 0.75
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Journal of Applied Physics
+      citation: 'B. Liu et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028294'
+      context: Si_{0.7}Ge_{0.3} epitaxial layer (99.9% purity), 25°C, 10 ns pulse duration at 1064 nm wavelength, single-shot
+        damage testing
+      confidence: 95
+      researched_date: '2025-11-24T12:19:07.746685'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.6
+      unit: dimensionless
+      min: 0.4
+      max: 0.8
+      source: ai_research
+    absorptionCoefficient:
+      value: 500000
+      unit: m⁻¹
+      min: 100000
+      max: 1000000
+      source: ai_research
+    laserDamageThreshold:
+      value: 2.0
+      unit: J/cm²
+      min: 0.5
+      max: 5.0
+      source: ai_research
+    thermalShockResistance:
+      value: 1.5
+      unit: MW/m
+      min: 0.5
+      max: 3.0
+      source: ai_research
+    reflectivity:
+      value: 0.4
+      unit: dimensionless
+      min: 0.2
+      max: 0.6
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1400
+      unit: K
+      min: 1200
+      max: 1600
+      source: ai_research
+    vaporPressure:
+      value: 1.0
+      unit: Pa
+      min: 0.01
+      max: 10.0
+      source: ai_research
+    thermalDestruction:
+      value: 1273.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 680.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.35
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 10.2
+      unit: W/(m·K)
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 3.6e-06
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 25000.0
+      unit: m^{-1}
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 2.5e-05
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 0.85
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Journal of Applied Physics
+      citation: 'S. J. Henley et al., Journal of Applied Physics, 91(8), 2002, DOI: 10.1063/1.1459112'
+      context: Polycrystalline Si0.75Ge0.25 (25% Ge content, 99.9% purity), room temperature (25°C), measured with 10 ns Nd:YAG
+        laser at 532 nm wavelength
+      confidence: 95
+      researched_date: '2025-11-24T12:19:15.214379'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  - ANSI Z136.1 - Safe Use of Lasers
+  isBasedOn:
+    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+metadata:
+  last_updated: '2025-10-27T23:48:40.922705Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922711Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants: []
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      electricalResistivity:
-        value: 80.0
-        unit: ohm·m
-        confidence: 95
-        source: ai_research
-      fractureToughness:
-        value: 0.92
-        unit: MPa m^{1/2}
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 147000000000.0
-        unit: Pa
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 1.2e-17
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      density:
-        value: 3.23
-        unit: g/cm^3
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 10.2
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.92
-        unit: dimensionless
-        confidence: 92
-        source: ai_research
-      compressiveStrength:
-        value: 8500.0
-        unit: MPa
-        confidence: 92
-        source: ai_research
-      flexuralStrength:
-        value: 280.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 3.2
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 0.75
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Journal of Applied Physics
-        citation: 'B. Liu et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028294'
-        context: Si_{0.7}Ge_{0.3} epitaxial layer (99.9% purity), 25°C, 10 ns pulse duration at 1064 nm wavelength, single-shot
-          damage testing
-        confidence: 95
-        researched_date: '2025-11-24T12:19:07.746685'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.6
-        unit: dimensionless
-        min: 0.4
-        max: 0.8
-        source: ai_research
-      absorptionCoefficient:
-        value: 500000
-        unit: m⁻¹
-        min: 100000
-        max: 1000000
-        source: ai_research
-      laserDamageThreshold:
-        value: 2.0
-        unit: J/cm²
-        min: 0.5
-        max: 5.0
-        source: ai_research
-      thermalShockResistance:
-        value: 1.5
-        unit: MW/m
-        min: 0.5
-        max: 3.0
-        source: ai_research
-      reflectivity:
-        value: 0.4
-        unit: dimensionless
-        min: 0.2
-        max: 0.6
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1400
-        unit: K
-        min: 1200
-        max: 1600
-        source: ai_research
-      vaporPressure:
-        value: 1.0
-        unit: Pa
-        min: 0.01
-        max: 10.0
-        source: ai_research
-      thermalDestruction:
-        value: 1273.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 680.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.35
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 10.2
-        unit: W/(m·K)
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 3.6e-06
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 25000.0
-        unit: m^{-1}
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 2.5e-05
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 0.85
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Journal of Applied Physics
-        citation: 'S. J. Henley et al., Journal of Applied Physics, 91(8), 2002, DOI: 10.1063/1.1459112'
-        context: Polycrystalline Si0.75Ge0.25 (25% Ge content, 99.9% purity), room temperature (25°C), measured with 10 ns
-          Nd:YAG laser at 532 nm wavelength
-        confidence: 95
-        researched_date: '2025-11-24T12:19:15.214379'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - IEC 60825 - Safety of Laser Products
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    - ANSI Z136.1 - Safe Use of Lasers
-    isBasedOn:
-      name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922705Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922711Z'
-    structure_version: '2.0'
-  applications:
-  - Aerospace
-  - Electronics Manufacturing
-  - Medical Devices
-  - Automotive
-  - Energy Sector
-  - Research Laboratories
-  - Telecommunications
-  - Defense Systems
-  - Marine Electronics
-  - Industrial Manufacturing
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: cubic crystal structure
-      source: ai_research
-      unit: crystal system
-      value: cubic
-  voice_enhanced: '2025-11-07T04:09:54.389513+00:00'
-  components:
-    settings_description: I've found that laser cleaning Silicon Germanium works smoothly when you ease into it with gentle
-      settings, much like handling pure silicon but with extra caution for its alloy quirks. This material tends to absorb
-      energy more readily than silicon alone, thanks to the germanium mix, which helps contaminants lift off without much
-      force. In my experience, it restores surfaces in electronics manufacturing or telecom parts effectively, clearing residues
-      while preserving the semiconductor integrity that sets it apart from tougher metals. The blend gives it a bit more flexibility
-      under heat compared to rigid ceramics, so you can push scan speeds a touch higher once you gauge the response. But watch
-      how it conducts warmth—it's not as efficient as silicon, leading to quicker buildup if you're not careful. To avoid
-      cracks or altered properties, always test on a scrap piece first and keep passes minimal; rushing it can dull that precise
-      edge SiGe offers in high-tech apps.
-    micro:
-      before: You see the Silicon Germanium surface covered in dark, irregular spots that scatter across it unevenly. Contaminants
-        form thick, patchy layers, dulling the material's natural shine completely. At this magnification, the roughness hides
-        any smooth features beneath the grime.
-      after: After laser treatment, the surface appears clear and uniformly smooth without any visible residues. The material's
-        clean texture reflects light evenly now, restoring its original clarity. You notice how the treatment removes all
-        traces of dirt for a pristine
-  contamination:
-    valid:
-    - environmental_dust
-    - chemical_stains
-    prohibited: []
-    conditional: {}
-    _needs_review: true
-    _note: Category "semiconductor" not recognized - conservative defaults applied
-  regulatory_standards_detail:
-  - id: iec-60825-laser-safety
-    title: IEC 60825 - Safety of Laser Products
-    short_title: IEC Laser Product Safety
-    authority: IEC
-    authority_full: International Electrotechnical Commission
-    agency_type: standards_body
-    country: International
-    url: https://webstore.iec.ch/publication/3587
-    image: /images/logo/logo-org-iec.png
-    description: International standard for laser product safety classification and requirements
-    scope: Product design, classification, labeling, user information
-    applicability:
-    - Laser product manufacturers worldwide
-    - Product certification bodies
-    - International trade compliance
-    compliance_requirements:
-    - Laser classification (Class 1-4)
-    - Safety labeling requirements
-    - User information documentation
-    - Engineering controls per class
-    - Emission limits verification
-    compliance_level: recommended
-    adoption: Required for CE marking in EU
-    effective_date: 2014-05-07
-    edition: IEC 60825-1:2014
-    parts:
-    - 'Part 1: Equipment classification and requirements'
-    - 'Part 2: Safety of optical fibre communication systems'
-    - 'Part 4: Laser guards'
-    jurisdiction: International
-    harmonized_with:
-    - EN 60825-1 (Europe)
-    - BS EN 60825-1 (UK)
-    related_standards:
-    - ansi-z136-1-laser-safety
-    - ce-machinery-directive
-  - id: ce-machinery-directive
-    title: CE Machinery Directive 2006/42/EC
-    short_title: CE Machinery Directive
-    authority: EU
-    authority_full: European Union
-    agency_type: regulatory_body
-    country: European Union
-    url: /compounds/ce-machinery-directive
-    image: /images/logo/logo-org-eu.png
-    description: European requirements for machinery safety including laser equipment
-    scope: Essential health and safety requirements for machinery
-    applicability:
-    - All machinery sold in EU/EEA markets
-    - Laser cleaning equipment for EU markets
-    - Equipment distributors and importers
-    compliance_requirements:
-    - CE marking affixing
-    - Declaration of Conformity
-    - Technical documentation file
-    - Risk assessment documentation
-    - Harmonized standards compliance (EN 60825, EN 12254)
-    - User manual in local language
-    compliance_level: mandatory
-    enforcement: Market surveillance authorities
-    penalties: Product withdrawal, market bans, fines
-    effective_date: 2006-05-17
-    transition_period: Ended 2009-12-29
-    jurisdiction: European Union + EEA (Norway, Iceland, Liechtenstein)
-    harmonized_standards:
-    - EN 60825-1 (Laser safety)
-    - EN 12254 (Laser processing machinery)
-    - EN ISO 11553 (Safety requirements)
-    related_standards:
-    - iec-60825-laser-safety
-    - iso-11553-laser-processing
-  - id: rohs-directive
-    title: RoHS Directive 2011/65/EU
-    short_title: RoHS
-    authority: EU
-    authority_full: European Union
-    agency_type: regulatory_body
-    country: European Union
-    url: /compounds/rohs-directive
-    image: /images/logo/logo-org-eu.png
-    description: Restriction of Hazardous Substances in electrical and electronic equipment
-    scope: Heavy metal restrictions in EEE components
-    applicability:
-    - Laser equipment electronics
-    - Control system components
-    - Materials being cleaned (if EEE)
-    compliance_requirements:
-    - Limits for lead, mercury, cadmium, hexavalent chromium, PBB, PBDE
-    - Material declaration documentation
-    - Supply chain verification
-    - CE marking (combined with Machinery Directive)
-    compliance_level: mandatory
-    enforcement: Market surveillance authorities
-    penalties: Product withdrawal, fines
-    effective_date: 2011-07-21
-    recast_of: RoHS 2002/95/EC
-    jurisdiction: European Union
-    restricted_substances:
-    - Lead (Pb) <0.1%
-    - Mercury (Hg) <0.1%
-    - Cadmium (Cd) <0.01%
-    - Hexavalent chromium (Cr VI) <0.1%
-    - PBB, PBDE <0.1%
-    related_standards:
-    - reach-chemical-restrictions
-    - ce-machinery-directive
-  seo_description: Hardness of Silicon Germanium, it resists wear during laser cleaning processes.
+  - type: regulatory_standards
+    id: iec-60825-laser-safety
+  - type: regulatory_standards
+    id: ce-machinery-directive
+  - type: regulatory_standards
+    id: rohs-directive
+applications:
+- Aerospace
+- Electronics Manufacturing
+- Medical Devices
+- Automotive
+- Energy Sector
+- Research Laboratories
+- Telecommunications
+- Defense Systems
+- Marine Electronics
+- Industrial Manufacturing
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: cubic crystal structure
+    source: ai_research
+    unit: crystal system
+    value: cubic
+voice_enhanced: '2025-11-07T04:09:54.389513+00:00'
+components:
+  settings_description: I've found that laser cleaning Silicon Germanium works smoothly when you ease into it with gentle
+    settings, much like handling pure silicon but with extra caution for its alloy quirks. This material tends to absorb energy
+    more readily than silicon alone, thanks to the germanium mix, which helps contaminants lift off without much force. In
+    my experience, it restores surfaces in electronics manufacturing or telecom parts effectively, clearing residues while
+    preserving the semiconductor integrity that sets it apart from tougher metals. The blend gives it a bit more flexibility
+    under heat compared to rigid ceramics, so you can push scan speeds a touch higher once you gauge the response. But watch
+    how it conducts warmth—it's not as efficient as silicon, leading to quicker buildup if you're not careful. To avoid cracks
+    or altered properties, always test on a scrap piece first and keep passes minimal; rushing it can dull that precise edge
+    SiGe offers in high-tech apps.
+  micro:
+    before: You see the Silicon Germanium surface covered in dark, irregular spots that scatter across it unevenly. Contaminants
+      form thick, patchy layers, dulling the material's natural shine completely. At this magnification, the roughness hides
+      any smooth features beneath the grime.
+    after: After laser treatment, the surface appears clear and uniformly smooth without any visible residues. The material's
+      clean texture reflects light evenly now, restoring its original clarity. You notice how the treatment removes all traces
+      of dirt for a pristine
+contamination:
+  valid:
+  - environmental_dust
+  - chemical_stains
+  prohibited: []
+  conditional: {}
+  _needs_review: true
+  _note: Category "semiconductor" not recognized - conservative defaults applied
+seo_description: Hardness of Silicon Germanium, it resists wear during laser cleaning processes.

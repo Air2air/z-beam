@@ -31,8 +31,8 @@ Create a visual transition that makes the white widget less jarring:
 
 ```tsx
 // In app/booking/page.tsx
-<div className="bg-gray-900 p-6 rounded-lg">
-  <div className="bg-white rounded-lg overflow-hidden">
+<div className="bg-gray-900 p-6 rounded-md">
+  <div className="bg-white rounded-md overflow-hidden">
     <WorkizWidget 
       companyId={process.env.NEXT_PUBLIC_WORKIZ_COMPANY_ID}
       height="700px"
@@ -51,7 +51,7 @@ Keep the booking section in light mode even when site is dark:
 ```tsx
 // In app/booking/page.tsx
 <div className="booking-section light-mode-only">
-  <div className="bg-white dark:bg-white rounded-lg p-6">
+  <div className="bg-white dark:bg-white rounded-md p-6">
     <WorkizWidget 
       companyId={process.env.NEXT_PUBLIC_WORKIZ_COMPANY_ID}
       height="700px"
@@ -170,8 +170,8 @@ For now, use **Option 1** (wrap in dark container with visual buffer):
   horizPadding={true}
 >
   {/* Add subtle dark wrapper */}
-  <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-4 rounded-lg">
-    <div className="bg-white rounded-lg shadow-inner overflow-hidden">
+  <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 p-4 rounded-md">
+    <div className="bg-white rounded-md shadow-inner overflow-hidden">
       <WorkizWidget 
         companyId={process.env.NEXT_PUBLIC_WORKIZ_COMPANY_ID}
         height="700px"

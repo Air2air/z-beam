@@ -1,27 +1,14 @@
 id: lead-crystal-laser-cleaning
 name: Lead Crystal
+slug: lead-crystal
 category: glass
 subcategory: soda-lime
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:55.397963Z'
-dateModified: '2025-12-19T01:18:51Z'
+datePublished: '2025-12-19T01:24:56.794380Z'
+dateModified: '2025-12-19T01:24:56.794380Z'
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
 title: Lead Crystal Laser Cleaning
 description: When preserving lead crystal in cultural heritage pieces through laser cleaning, we've found its exceptional
   density and clarity set it apart from ordinary glass by holding shape under targeted heat, so you end up with that signature
@@ -106,306 +93,250 @@ faq:
   question: What are the waste disposal regulations for the debris and filters collected after laser cleaning lead crystal?
   topic_keyword: waste disposal regulations
   topic_statement: Regulated as hazardous lead waste
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    electricalResistivity:
+      value: 3160000000.0
+      unit: Ω·m
+      confidence: 95
+      source: ai_research
+    fractureToughness:
+      value: 0.78
+      unit: MPa m^{1/2}
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 58000000000.0
+      unit: Pa
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 0.98
+      unit: dimensionless (normalized scale 0-1)
+      confidence: 95
+      source: ai_research
+    density:
+      value: 3.08
+      unit: g/cm³
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 4.2
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 1.2
+      unit: ml of 0.01 M HCl / 10 g glass
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 820.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 42.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 41.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 6.8
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser Damage Thresholds of Lead-Containing Glasses
+      citation: 'Wood, R. M., Journal of Applied Physics, 1987, DOI: 10.1063/1.340234'
+      context: Lead crystal (24% PbO composition), 25°C, 1064 nm Nd:YAG laser, 10 ns pulse duration, single-shot fluence measurement
+      confidence: 95
+      researched_date: '2025-11-24T12:00:45.089169'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.05
+      unit: dimensionless
+      min: 0.01
+      max: 0.1
+      source: ai_research
+    absorptionCoefficient:
+      value: 5000
+      unit: m⁻¹
+      min: 1000
+      max: 20000
+      source: ai_research
+    laserDamageThreshold:
+      value: 8
+      unit: J/cm²
+      min: 5
+      max: 15
+      source: ai_research
+    thermalShockResistance:
+      value: 1.2
+      unit: MW/m
+      min: 0.5
+      max: 2.5
+      source: ai_research
+    reflectivity:
+      value: 0.08
+      unit: dimensionless
+      min: 0.05
+      max: 0.12
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1100
+      unit: K
+      min: 900
+      max: 1300
+      source: ai_research
+    vaporPressure:
+      value: 0.01
+      unit: Pa
+      min: 0.001
+      max: 0.1
+      source: ai_research
+    thermalDestruction:
+      value: 873.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 680.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.0459
+      unit: fraction
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 0.9
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 8.9e-06
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 50.0
+      unit: m^{-1}
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 3.33e-07
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 2.1
+      unit: J/cm²
+      confidence: 95
+      source: ai_research
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+metadata:
+  last_updated: '2025-10-27T23:48:40.922145Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922151Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants: []
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      electricalResistivity:
-        value: 3160000000.0
-        unit: Ω·m
-        confidence: 95
-        source: ai_research
-      fractureToughness:
-        value: 0.78
-        unit: MPa m^{1/2}
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 58000000000.0
-        unit: Pa
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 0.98
-        unit: dimensionless (normalized scale 0-1)
-        confidence: 95
-        source: ai_research
-      density:
-        value: 3.08
-        unit: g/cm³
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 4.2
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 1.2
-        unit: ml of 0.01 M HCl / 10 g glass
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 820.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 42.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 41.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 6.8
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser Damage Thresholds of Lead-Containing Glasses
-        citation: 'Wood, R. M., Journal of Applied Physics, 1987, DOI: 10.1063/1.340234'
-        context: Lead crystal (24% PbO composition), 25°C, 1064 nm Nd:YAG laser, 10 ns pulse duration, single-shot fluence
-          measurement
-        confidence: 95
-        researched_date: '2025-11-24T12:00:45.089169'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.05
-        unit: dimensionless
-        min: 0.01
-        max: 0.1
-        source: ai_research
-      absorptionCoefficient:
-        value: 5000
-        unit: m⁻¹
-        min: 1000
-        max: 20000
-        source: ai_research
-      laserDamageThreshold:
-        value: 8
-        unit: J/cm²
-        min: 5
-        max: 15
-        source: ai_research
-      thermalShockResistance:
-        value: 1.2
-        unit: MW/m
-        min: 0.5
-        max: 2.5
-        source: ai_research
-      reflectivity:
-        value: 0.08
-        unit: dimensionless
-        min: 0.05
-        max: 0.12
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1100
-        unit: K
-        min: 900
-        max: 1300
-        source: ai_research
-      vaporPressure:
-        value: 0.01
-        unit: Pa
-        min: 0.001
-        max: 0.1
-        source: ai_research
-      thermalDestruction:
-        value: 873.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 680.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.0459
-        unit: fraction
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 0.9
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 8.9e-06
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 50.0
-        unit: m^{-1}
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 3.33e-07
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 2.1
-        unit: J/cm²
-        confidence: 95
-        source: ai_research
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    isBasedOn:
-      name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922145Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922151Z'
-    structure_version: '2.0'
-  applications:
-  - Cultural Heritage
-  - Aerospace
-  - Medical Devices
-  - Electronics Manufacturing
-  - Automotive
-  - Energy Sector
-  - Marine
-  - Manufacturing
-  - Research Laboratories
-  - Art and Decorative Objects
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: amorphous crystal structure
-      source: ai_research
-      unit: crystal system
-      value: amorphous
-  voice_enhanced: '2025-11-07T03:30:21.590016+00:00'
-  components:
-    settings_description: When laser cleaning Lead Crystal, you'll want to start with its soft, lead-infused structure. This
-      makes it more prone to surface damage than regular glass, so it absorbs heat unevenly and risks cracking under direct
-      exposure. Use gentle, low-energy pulses to lift contaminants without etching the crystal's shine. Keep your scan slow
-      and overlap lightly for even coverage. Always watch for clouding at the end, and pause to cool if it appears.
-    micro:
-      before: We've observed the contaminated surface at 1000x magnification. It looks rough with thick layers of grime and
-        scattered particles. These buildups obscure the underlying texture completely.
-      after: After laser treatment, we've seen a dramatic change in the surface. It now appears smooth and free of any residues.
-        The clean lead crystal shows its natural clarity and even features.
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When preserving lead crystal in cultural heritage pieces through laser cleaning, we've found its exceptional
-    density and clarity set it apart from ordinary...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Cultural Heritage
+- Aerospace
+- Medical Devices
+- Electronics Manufacturing
+- Automotive
+- Energy Sector
+- Marine
+- Manufacturing
+- Research Laboratories
+- Art and Decorative Objects
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
+voice_enhanced: '2025-11-07T03:30:21.590016+00:00'
+components:
+  settings_description: When laser cleaning Lead Crystal, you'll want to start with its soft, lead-infused structure. This
+    makes it more prone to surface damage than regular glass, so it absorbs heat unevenly and risks cracking under direct
+    exposure. Use gentle, low-energy pulses to lift contaminants without etching the crystal's shine. Keep your scan slow
+    and overlap lightly for even coverage. Always watch for clouding at the end, and pause to cool if it appears.
+  micro:
+    before: We've observed the contaminated surface at 1000x magnification. It looks rough with thick layers of grime and
+      scattered particles. These buildups obscure the underlying texture completely.
+    after: After laser treatment, we've seen a dramatic change in the surface. It now appears smooth and free of any residues.
+      The clean lead crystal shows its natural clarity and even features.
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: When preserving lead crystal in cultural heritage pieces through laser cleaning, we've found its exceptional
+  density and clarity set it apart from ordinary...

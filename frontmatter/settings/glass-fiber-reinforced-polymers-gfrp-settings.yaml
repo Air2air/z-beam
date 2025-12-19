@@ -1,201 +1,121 @@
 id: Glass Fiber Reinforced Polymers GFRP
+slug: glass-fiber-reinforced-polymers-gfrp
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:21:14.498381Z'
-dateModified: '2025-12-19T01:19:05Z'
+datePublished: '2025-12-19T01:25:15.564606Z'
+dateModified: '2025-12-19T01:25:15.564606Z'
 relationships:
   related_materials: []
   related_contaminants: []
   regulatory_standards:
   - type: regulatory_standards
     id: osha-ppe-requirements
-    title: Osha Ppe Requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-    title: Ansi Z136 1 Laser Safety
-  machine_settings:
-    powerRange:
-      description: Optimal average power for GFRP surface cleaning without matrix damage
-      unit: W
-      value: 100
-    wavelength:
-      description: Near-IR wavelength for optimal absorption in surface contaminants with minimal GFRP damage
-      unit: nm
-      value: 1064
-    spotSize:
-      description: Beam spot diameter for precise surface cleaning control
-      unit: μm
-      value: 100
-    repetitionRate:
-      description: Optimal repetition rate for efficient cleaning with thermal management
-      unit: kHz
-      value: 50
-    fluenceThreshold:
-      description: Threshold fluence for effective contaminant removal without fiber damage
-      unit: J/cm²
-      value: 2.5
-    energyDensity:
-      description: Optimal energy density for GFRP surface processing
-      unit: J/cm²
-      value: 3.0
-    pulseWidth:
-      description: Nanosecond pulse duration for controlled ablation of surface contaminants
-      unit: ns
-      value: 10
-    scanSpeed:
-      description: Optimal scanning speed for uniform cleaning coverage
-      unit: mm/s
-      value: 500
-    passCount:
-      description: Number of cleaning passes for complete contaminant removal
-      unit: passes
-      value: 2
-    overlapRatio:
-      description: Beam overlap percentage for uniform cleaning coverage
-      unit: '%'
-      value: 50
-    dwellTime:
-      description: Optimal dwell time per spot for effective cleaning
-      unit: ms
-      value: 0.2
-  challenges:
-    thermal_management:
-    - challenge: Matrix degradation and delamination
-      severity: critical
-      threshold_temperature: Polymer matrix 150-350°C, ceramic matrix >1000°C
-      impact: Heat causes matrix decomposition, fiber-matrix debonding, and layer separation
-      solutions:
-      - Use pulse mode with 5-10 second cooling for polymer-matrix composites
-      - Reduce power by 40-50% compared to monolithic materials
-      - Monitor for discoloration, bubbling, or layer lifting
-      - Ceramic and metal-matrix composites tolerate higher power
-    - challenge: Anisotropic thermal properties
-      severity: high
-      property_value: 10-100x variation parallel vs perpendicular to fibers
-      impact: Heat conducts rapidly along fibers but poorly across layers
-      solutions:
-      - Scan parallel to fiber direction for best heat dissipation
-      - Use crosshatch pattern (0° and 90°) to identify fiber orientation
-      - Increase cooling time 2-3x when scanning perpendicular to fibers
-      - Carbon fiber composites require special attention due to electrical conductivity
-    surface_characteristics:
-    - challenge: Fiber exposure and damage
-      severity: high
-      impact: Aggressive cleaning exposes or damages reinforcing fibers
-      solutions:
-      - Use low energy density (0.5-2 J/cm²) to protect matrix
-      - Multiple gentle passes preferred over single aggressive pass
-      - Stop immediately if fibers become visible
-      - Fiber-rich surfaces (woven cloth) more sensitive than particle-filled
-    - challenge: Surface finish variability
-      severity: medium
-      impact: Gel coat, paint, or protective layers alter absorption and damage threshold
-      solutions:
-      - Test on edge or hidden area first
-      - Coated surfaces may require 50-100W initial pass for coating removal
-      - Bare composite requires 30-50% lower power
-      - Adjust parameters when transitioning between coated and uncoated areas
-    contamination_challenges:
-    - challenge: Resin-based contaminant removal
-      severity: medium
-      impact: Adhesives, sealants, and coatings chemically bond to matrix
-      solutions:
-      - First pass 80W fast (1500 mm/s) for bulk removal
-      - Second pass 50W slow (800 mm/s) for residue
-      - Chemical pre-treatment improves results for stubborn adhesives
-      - Monitor for matrix damage; stop if surface texture changes
-  settings_description: We've found that GFRP's embedded glass fibers in a polymer matrix demand careful laser setup right
-    from the start to avoid delamination. Start with lower power levels and slower scan speeds, since the fibers can channel
-    heat unevenly. This composite nature sets it apart from uniform metals—heat builds up in the resin quickly, risking cracks.
-    We typically use multiple light passes with good overlap to gently remove contaminants without stressing the fibers. Watch
-    for surface blistering; it signals overexposure, so dial back energy if you see any bubbling. In our experience, this
-    approach restores the surface cleanly for aerospace parts while preserving strength.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: We've found that GFRP's embedded glass fibers in a polymer matrix demand careful laser setup right from
-    the start to avoid delamination.
-  excerpt: We've found that GFRP's embedded glass fibers in a polymer matrix demand careful laser setup right from the start
-    to avoid delamination. Start with lower power levels and slower scan speeds, since the fibers can channel heat unevenly.
-    This composite nature sets it apart from uniform metals—heat builds up in...
+machine_settings:
+  powerRange:
+    description: Optimal average power for GFRP surface cleaning without matrix damage
+    unit: W
+    value: 100
+  wavelength:
+    description: Near-IR wavelength for optimal absorption in surface contaminants with minimal GFRP damage
+    unit: nm
+    value: 1064
+  spotSize:
+    description: Beam spot diameter for precise surface cleaning control
+    unit: μm
+    value: 100
+  repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 50
+  fluenceThreshold:
+    description: Threshold fluence for effective contaminant removal without fiber damage
+    unit: J/cm²
+    value: 2.5
+  energyDensity:
+    description: Optimal energy density for GFRP surface processing
+    unit: J/cm²
+    value: 3.0
+  pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of surface contaminants
+    unit: ns
+    value: 10
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
+  passCount:
+    description: Number of cleaning passes for complete contaminant removal
+    unit: passes
+    value: 2
+  overlapRatio:
+    description: Beam overlap percentage for uniform cleaning coverage
+    unit: '%'
+    value: 50
+  dwellTime:
+    description: Optimal dwell time per spot for effective cleaning
+    unit: ms
+    value: 0.2
+challenges:
+  thermal_management:
+  - challenge: Matrix degradation and delamination
+    severity: critical
+    threshold_temperature: Polymer matrix 150-350°C, ceramic matrix >1000°C
+    impact: Heat causes matrix decomposition, fiber-matrix debonding, and layer separation
+    solutions:
+    - Use pulse mode with 5-10 second cooling for polymer-matrix composites
+    - Reduce power by 40-50% compared to monolithic materials
+    - Monitor for discoloration, bubbling, or layer lifting
+    - Ceramic and metal-matrix composites tolerate higher power
+  - challenge: Anisotropic thermal properties
+    severity: high
+    property_value: 10-100x variation parallel vs perpendicular to fibers
+    impact: Heat conducts rapidly along fibers but poorly across layers
+    solutions:
+    - Scan parallel to fiber direction for best heat dissipation
+    - Use crosshatch pattern (0° and 90°) to identify fiber orientation
+    - Increase cooling time 2-3x when scanning perpendicular to fibers
+    - Carbon fiber composites require special attention due to electrical conductivity
+  surface_characteristics:
+  - challenge: Fiber exposure and damage
+    severity: high
+    impact: Aggressive cleaning exposes or damages reinforcing fibers
+    solutions:
+    - Use low energy density (0.5-2 J/cm²) to protect matrix
+    - Multiple gentle passes preferred over single aggressive pass
+    - Stop immediately if fibers become visible
+    - Fiber-rich surfaces (woven cloth) more sensitive than particle-filled
+  - challenge: Surface finish variability
+    severity: medium
+    impact: Gel coat, paint, or protective layers alter absorption and damage threshold
+    solutions:
+    - Test on edge or hidden area first
+    - Coated surfaces may require 50-100W initial pass for coating removal
+    - Bare composite requires 30-50% lower power
+    - Adjust parameters when transitioning between coated and uncoated areas
+  contamination_challenges:
+  - challenge: Resin-based contaminant removal
+    severity: medium
+    impact: Adhesives, sealants, and coatings chemically bond to matrix
+    solutions:
+    - First pass 80W fast (1500 mm/s) for bulk removal
+    - Second pass 50W slow (800 mm/s) for residue
+    - Chemical pre-treatment improves results for stubborn adhesives
+    - Monitor for matrix damage; stop if surface texture changes
+settings_description: We've found that GFRP's embedded glass fibers in a polymer matrix demand careful laser setup right from
+  the start to avoid delamination. Start with lower power levels and slower scan speeds, since the fibers can channel heat
+  unevenly. This composite nature sets it apart from uniform metals—heat builds up in the resin quickly, risking cracks. We
+  typically use multiple light passes with good overlap to gently remove contaminants without stressing the fibers. Watch
+  for surface blistering; it signals overexposure, so dial back energy if you see any bubbling. In our experience, this approach
+  restores the surface cleanly for aerospace parts while preserving strength.
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+seo_description: We've found that GFRP's embedded glass fibers in a polymer matrix demand careful laser setup right from the
+  start to avoid delamination.
+excerpt: We've found that GFRP's embedded glass fibers in a polymer matrix demand careful laser setup right from the start
+  to avoid delamination. Start with lower power levels and slower scan speeds, since the fibers can channel heat unevenly.
+  This composite nature sets it apart from uniform metals—heat builds up in...

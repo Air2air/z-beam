@@ -76,7 +76,7 @@ export function ContentCard({
   const variantClasses = {
     default: {
       container: 'card-background',
-      outer: 'p-6 md:p-8 mb-6 rounded-lg',
+      outer: 'p-6 md:p-8 mb-6 rounded-md',
     },
     inline: {
       container: '',
@@ -163,7 +163,7 @@ export function ContentCard({
             <a 
               href={websiteUrl}
               target="_blank"
-              className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden"
+              className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden"
               aria-label={`Visit website (opens in new tab)`}
             >
               <Image
@@ -176,7 +176,7 @@ export function ContentCard({
               />
             </a>
           ) : (
-            <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden">
+            <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden">
               <Image
                 src={image.url}
                 alt={image.alt || `Visual illustration for ${heading}`}
@@ -296,7 +296,7 @@ export function ContentCard({
               <a 
                 href={websiteUrl}
                 target="_blank"
-                className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden"
+                className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden"
                 aria-label={`Visit website (opens in new tab)`}
               >
                 <Image
@@ -309,7 +309,7 @@ export function ContentCard({
                 />
               </a>
             ) : (
-              <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden">
+              <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden">
                 <Image
                   src={image.url}
                   alt={image.alt || `Visual illustration for ${heading}`}

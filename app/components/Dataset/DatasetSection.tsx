@@ -56,7 +56,7 @@ export default function DatasetSection({
         {stats.map((stat, index) => (
           <div 
             key={index} 
-            className="dataset-stat-card bg-primary rounded-lg p-1 h-[60px] flex flex-col items-center justify-center"
+            className="dataset-stat-card bg-primary rounded-md p-1 h-[60px] flex flex-col items-center justify-center"
             style={{ color: 'var(--text-primary)' }}
           >
             <div 

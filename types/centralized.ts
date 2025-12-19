@@ -19,10 +19,10 @@ import { ReactNode } from 'react';
 
 /**
  * Content types for the unified content management system
- * Used across materials, contaminants, and settings pages
+ * Used across materials, contaminants, compounds, and settings pages
  * @see app/config/contentTypes.ts for configuration
  */
-export type ContentType = 'materials' | 'contaminants' | 'settings';
+export type ContentType = 'materials' | 'contaminants' | 'compounds' | 'settings';
 
 /**
  * URL building content types - used for URL pattern generation

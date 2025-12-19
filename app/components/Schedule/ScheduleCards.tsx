@@ -41,7 +41,7 @@ export function ScheduleCards() {
                 
                 {/* Navigation arrow */}
                 <svg 
-                  className="w-4 h-4 text-primary opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-smooth flex-shrink-0" 
+                  className="w-4 h-4 text-primary opacity-80 transition-smooth flex-shrink-0" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ export function ScheduleCards() {
                 
                 {/* Navigation arrow */}
                 <svg 
-                  className="w-4 h-4 text-primary opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-smooth flex-shrink-0" 
+                  className="w-4 h-4 text-primary opacity-80 transition-smooth flex-shrink-0" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"

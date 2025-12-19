@@ -1,27 +1,14 @@
 id: quartzite-laser-cleaning
 name: Quartzite
+slug: quartzite
 category: stone
 subcategory: sedimentary
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:56.338874Z'
-dateModified: '2025-12-19T01:18:54Z'
+datePublished: '2025-12-19T01:24:57.480499Z'
+dateModified: '2025-12-19T01:24:57.480499Z'
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
 title: Quartzite Laser Cleaning
 description: When laser cleaning quartzite, I've seen it hold up remarkably well to intense heat thanks to its tough, low-porosity
   structure, so you can push the process without surface cracking.
@@ -110,422 +97,411 @@ faq:
     like 1064 nm. Optimizing scanning speeds near 500 mm/s helps avoid thermal stress on this resilient substrate.
   question: How does quartzite's extreme hardness (Mohs 7+) and low porosity affect laser cleaning strategy compared to softer,
     more porous stones?
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    fractureToughness:
+      value: 1.35
+      unit: MPa√m
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 86.0
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 1673.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    density:
+      value: 2.65
+      unit: g/cm³
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 7.0
+      unit: Mohs
+      confidence: 100
+      source: ai_research
+    corrosionResistance:
+      value: 0.98
+      unit: dimensionless (resistance index 0-1)
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 250.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 24.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 15.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    porosity:
+      value: 0.8
+      unit: '%'
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 3.8
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser Ablation and Damage Thresholds in Natural Stone Materials
+      citation: 'Palmer, M. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045'
+      context: Natural quartzite (95% SiO2, commercial grade from geological sample), 20°C, 1064 nm Nd:YAG laser, 10 ns pulse
+        duration, measured via optical microscopy post-irradiation
+      confidence: 92
+      researched_date: '2025-11-24T12:09:24.368778'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.2
+      unit: dimensionless
+      min: 0.1
+      max: 0.4
+      source: ai_research
+    absorptionCoefficient:
+      value: 10000
+      unit: m⁻¹
+      min: 1000
+      max: 50000
+      source: ai_research
+    laserDamageThreshold:
+      value: 8.5
+      unit: J/cm²
+      min: 5
+      max: 15
+      source: ai_research
+    thermalShockResistance:
+      value: 1.2
+      unit: MW/m
+      min: 0.8
+      max: 2.0
+      source: ai_research
+    reflectivity:
+      value: 0.25
+      unit: dimensionless
+      min: 0.15
+      max: 0.4
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1700
+      unit: K
+      min: 1400
+      max: 2000
+      source: ai_research
+    vaporPressure:
+      value: 10
+      unit: Pa
+      min: 1
+      max: 100
+      source: ai_research
+    thermalDestruction:
+      value: 1710.0
+      unit: °C
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 741.0
+      unit: J/kg·K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.034
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 6.0
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 1.2e-05
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.12
+      unit: dimensionless
+      confidence: 92
+      source: ai_research
+    thermalDiffusivity:
+      value: 1.31e-06
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 11.3
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Applied Surface Science
+      citation: 'Pérez, S., et al., Laser cleaning of quartzite stone: Ablation thresholds and surface morphology, Applied
+        Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045'
+      context: Natural quartzite (95% SiO2, metamorphic rock from Spanish quarry), 1064 nm Nd:YAG laser, 8 ns pulse duration,
+        room temperature (25°C), atmospheric pressure
+      confidence: 94
+      researched_date: '2025-11-24T12:09:33.340642'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+metadata:
+  last_updated: '2025-10-27T23:48:40.922537Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922542Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants:
   - id: algae-growth-contamination
+    slug: algae-growth
     title: Algae and Lichen Growth
-    url: /contaminants/algae-growth-contamination
+    url: /contaminants/algae-growth
     image: /images/contaminants/algae-growth.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: biological-stains-contamination
+    slug: biological-stains
     title: Organic Biofilm Deposits
-    url: /contaminants/biological-stains-contamination
+    url: /contaminants/biological-stains
     image: /images/contaminants/biological-stains.jpg
+    category: biological
+    subcategory: deposit
     frequency: common
     severity: moderate
     typical_context: general
   - id: bitumen-tar-contamination
+    slug: bitumen-tar
     title: Bitumen and Tar Coatings
-    url: /contaminants/bitumen-tar-contamination
+    url: /contaminants/bitumen-tar
     image: /images/contaminants/bitumen-tar.jpg
+    category: organic-residue
+    subcategory: petroleum
     frequency: common
     severity: moderate
     typical_context: general
   - id: carbon-soot-contamination
+    slug: carbon-soot
     title: Carbon Soot Deposits
-    url: /contaminants/carbon-soot-contamination
+    url: /contaminants/carbon-soot
     image: /images/contaminants/carbon-soot.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: ceramic-glaze-contamination
+    slug: ceramic-glaze
     title: Ceramic Glaze Deposits
-    url: /contaminants/ceramic-glaze-contamination
+    url: /contaminants/ceramic-glaze
     image: /images/contaminants/ceramic-glaze.jpg
+    category: inorganic-coating
+    subcategory: ceramic
     frequency: common
     severity: moderate
     typical_context: general
   - id: concrete-dust-contamination
+    slug: concrete-dust
     title: Concrete Dust Deposits
-    url: /contaminants/concrete-dust-contamination
+    url: /contaminants/concrete-dust
     image: /images/contaminants/concrete-dust.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: efflorescence-contamination
+    slug: efflorescence
     title: Concrete Efflorescence
-    url: /contaminants/efflorescence-contamination
+    url: /contaminants/efflorescence
     image: /images/contaminants/efflorescence.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: fertilizer-residue-contamination
+    slug: fertilizer-residue
     title: Fertilizer Salt Deposits
-    url: /contaminants/fertilizer-residue-contamination
+    url: /contaminants/fertilizer-residue
     image: /images/contaminants/fertilizer-residue.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: fire-damage-contamination
+    slug: fire-damage
     title: Fire and Smoke Damage
-    url: /contaminants/fire-damage-contamination
+    url: /contaminants/fire-damage
     image: /images/contaminants/fire-damage.jpg
+    category: thermal-damage
+    subcategory: fire
     frequency: common
     severity: moderate
     typical_context: general
   - id: graffiti-paint-contamination
+    slug: graffiti-paint
     title: Graffiti and Spray Paint
-    url: /contaminants/graffiti-paint-contamination
+    url: /contaminants/graffiti-paint
     image: /images/contaminants/graffiti-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: mineral-deposits-contamination
+    slug: mineral-deposits
     title: Hard Water Mineral Scale
-    url: /contaminants/mineral-deposits-contamination
+    url: /contaminants/mineral-deposits
     image: /images/contaminants/mineral-deposits.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: mineral-stain-contamination
+    slug: mineral-stain
     title: Mineral Staining
-    url: /contaminants/mineral-stain-contamination
+    url: /contaminants/mineral-stain
     image: /images/contaminants/mineral-stain.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: salt-residue-contamination
+    slug: salt-residue
     title: Salt and Chloride Deposits
-    url: /contaminants/salt-residue-contamination
+    url: /contaminants/salt-residue
     image: /images/contaminants/salt-residue.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: scale-buildup-contamination
+    slug: scale-buildup
     title: Mineral Scale / Hard Water Deposits
-    url: /contaminants/scale-buildup-contamination
+    url: /contaminants/scale-buildup
     image: /images/contaminants/scale-buildup.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: water-stain-contamination
+    slug: water-stain
     title: Water Staining and Marks
-    url: /contaminants/water-stain-contamination
+    url: /contaminants/water-stain
     image: /images/contaminants/water-stain.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      fractureToughness:
-        value: 1.35
-        unit: MPa√m
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 86.0
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 1673.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      density:
-        value: 2.65
-        unit: g/cm³
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 7.0
-        unit: Mohs
-        confidence: 100
-        source: ai_research
-      corrosionResistance:
-        value: 0.98
-        unit: dimensionless (resistance index 0-1)
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 250.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 24.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 15.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      porosity:
-        value: 0.8
-        unit: '%'
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 3.8
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser Ablation and Damage Thresholds in Natural Stone Materials
-        citation: 'Palmer, M. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045'
-        context: Natural quartzite (95% SiO2, commercial grade from geological sample), 20°C, 1064 nm Nd:YAG laser, 10 ns
-          pulse duration, measured via optical microscopy post-irradiation
-        confidence: 92
-        researched_date: '2025-11-24T12:09:24.368778'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.2
-        unit: dimensionless
-        min: 0.1
-        max: 0.4
-        source: ai_research
-      absorptionCoefficient:
-        value: 10000
-        unit: m⁻¹
-        min: 1000
-        max: 50000
-        source: ai_research
-      laserDamageThreshold:
-        value: 8.5
-        unit: J/cm²
-        min: 5
-        max: 15
-        source: ai_research
-      thermalShockResistance:
-        value: 1.2
-        unit: MW/m
-        min: 0.8
-        max: 2.0
-        source: ai_research
-      reflectivity:
-        value: 0.25
-        unit: dimensionless
-        min: 0.15
-        max: 0.4
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1700
-        unit: K
-        min: 1400
-        max: 2000
-        source: ai_research
-      vaporPressure:
-        value: 10
-        unit: Pa
-        min: 1
-        max: 100
-        source: ai_research
-      thermalDestruction:
-        value: 1710.0
-        unit: °C
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 741.0
-        unit: J/kg·K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.034
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 6.0
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 1.2e-05
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.12
-        unit: dimensionless
-        confidence: 92
-        source: ai_research
-      thermalDiffusivity:
-        value: 1.31e-06
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 11.3
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Applied Surface Science
-        citation: 'Pérez, S., et al., Laser cleaning of quartzite stone: Ablation thresholds and surface morphology, Applied
-          Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045'
-        context: Natural quartzite (95% SiO2, metamorphic rock from Spanish quarry), 1064 nm Nd:YAG laser, 8 ns pulse duration,
-          room temperature (25°C), atmospheric pressure
-        confidence: 94
-        researched_date: '2025-11-24T12:09:33.340642'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    isBasedOn:
-      name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922537Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922542Z'
-    structure_version: '2.0'
-  applications:
-  - Aerospace
-  - Architectural Restoration
-  - Semiconductor Manufacturing
-  - Chemical Processing
-  - Marine Engineering
-  - Medical Device Manufacturing
-  - Energy Generation
-  - Automotive Manufacturing
-  - Food Processing
-  - Research Laboratories
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: crystalline crystal structure
-      source: ai_research
-      unit: crystal system
-      value: crystalline
-  voice_enhanced: '2025-11-07T03:58:33.741567+00:00'
-  components:
-    settings_description: When laser cleaning Quartzite, the biggest challenge is its extreme hardness. This tough stone resists
-      contaminants well, but it demands careful energy control to avoid surface cracks. I've seen setups where rushed power
-      ramps cause micro-fractures, so start slow with gentle pulses. Its low porosity helps—dirt doesn't sink deep, making
-      removal straightforward once you dial in. Unlike softer stones, Quartzite holds heat unevenly, so keep passes light
-      and spaced. This works best when you focus on steady scanning without overlap buildup. Tends to shine up nicely after
-      a few rounds. Just watch the edges at the end; overdoing dwell time there can lead to unwanted chipping, so ease off
-      power gradually.
-    micro:
-      before: I've seen quartzite surfaces covered in grime at this magnification. Dark patches and tiny debris stick to every
-        grain. The texture feels rough and cluttered overall.
-      after: This treatment works well by lifting all that buildup away. Grains now gleam smoothly without any spots left.
-        Watch closely to avoid over-treating the edges.
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning quartzite, I've seen it hold up remarkably well to intense heat thanks to its tough,
-    low-porosity structure, so you can push the process...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Aerospace
+- Architectural Restoration
+- Semiconductor Manufacturing
+- Chemical Processing
+- Marine Engineering
+- Medical Device Manufacturing
+- Energy Generation
+- Automotive Manufacturing
+- Food Processing
+- Research Laboratories
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: crystalline crystal structure
+    source: ai_research
+    unit: crystal system
+    value: crystalline
+voice_enhanced: '2025-11-07T03:58:33.741567+00:00'
+components:
+  settings_description: When laser cleaning Quartzite, the biggest challenge is its extreme hardness. This tough stone resists
+    contaminants well, but it demands careful energy control to avoid surface cracks. I've seen setups where rushed power
+    ramps cause micro-fractures, so start slow with gentle pulses. Its low porosity helps—dirt doesn't sink deep, making removal
+    straightforward once you dial in. Unlike softer stones, Quartzite holds heat unevenly, so keep passes light and spaced.
+    This works best when you focus on steady scanning without overlap buildup. Tends to shine up nicely after a few rounds.
+    Just watch the edges at the end; overdoing dwell time there can lead to unwanted chipping, so ease off power gradually.
+  micro:
+    before: I've seen quartzite surfaces covered in grime at this magnification. Dark patches and tiny debris stick to every
+      grain. The texture feels rough and cluttered overall.
+    after: This treatment works well by lifting all that buildup away. Grains now gleam smoothly without any spots left. Watch
+      closely to avoid over-treating the edges.
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: When laser cleaning quartzite, I've seen it hold up remarkably well to intense heat thanks to its tough,
+  low-porosity structure, so you can push the process...

@@ -34,12 +34,15 @@ export function DiagnosticCenter({
 }: DiagnosticCenterProps) {
   const [activeTab, setActiveTab] = useState<'prevention' | 'troubleshooting' | 'reference'>('prevention');
   
+  // Safety check for materialName
+  const safeMaterialName = materialName || 'material';
+  
   return (
     <section className="mb-8">
       <SectionTitle
         title="Diagnostic & Prevention Center"
         icon={getSectionIcon('diagnostic')}
-        description={`Proactive strategies and reactive solutions for ${materialName.toLowerCase()}`}
+        description={`Proactive strategies and reactive solutions for ${safeMaterialName.toLowerCase()}`}
         thumbnail={heroImage}
         thumbnailLink={materialLink}
       />

@@ -66,7 +66,7 @@ const microRef = useRef<HTMLElement>(null);
           >
             <div 
               id={metricId}
-              className={`metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6 transition-all duration-300 ease-out hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 ${
+              className={`metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-md shadow-lg min-w-0 max-w-full ml-6 transition-all duration-300 ease-out hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 ${
                 isFocused ? 'ring-2 ring-blue-500 ring-opacity-50 scale-105' : ''
               }`}
               role="article"
@@ -91,7 +91,7 @@ const microRef = useRef<HTMLElement>(null);
       .map(([key, value]) => (
         <div 
           key={key} 
-          className="bg-gray-800 bg-opacity-90 p-3 rounded-lg backdrop-blur-sm"
+          className="bg-gray-800 bg-opacity-90 p-3 rounded-md backdrop-blur-sm"
         >
           <dt className="text-xs text-gray-400 uppercase mb-1">
             {key.replace(/_/g, ' ')}

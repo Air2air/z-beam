@@ -55,7 +55,7 @@ export function SectionContainer({
   // Variant-specific styles
   const variantClasses = {
     default: 'section-container-default py-4',
-    dark: 'section-container-dark bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg px-4 md:px-5 py-4 md:py-5 mb-8',
+    dark: 'section-container-dark bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-4 md:px-5 py-4 md:py-5 mb-8',
   };
   
   // Title color based on variant - removed for global CSS inheritance
@@ -78,7 +78,7 @@ export function SectionContainer({
           section-container
           ${bgColorClasses[bgColor || 'transparent']}
           ${horizPadding ? 'px-4 md:px-5' : ''}
-          ${radius ? 'rounded-lg' : ''}
+          ${radius ? 'rounded-md' : ''}
           ${bgColor !== 'transparent' ? 'py-4 md:py-5' : 'py-4'}
           ${className}
         `.trim().replace(/\s+/g, ' ')}

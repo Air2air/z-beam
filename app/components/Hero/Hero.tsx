@@ -107,7 +107,7 @@ export function Hero({
   // If no video and no image (or image failed to load), show shortened empty hero
   const hasContent = videoUrl || (imageSource && !imageError);
   const aspectRatioClasses = hasContent 
-    ? "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-lg")
+    ? "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-md")
     : "relative w-full h-16"; // Shortened empty hero
   const backgroundClasses = "absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat overflow-hidden";
   const videoClasses = "absolute top-0 left-0 w-full h-full object-cover z-[1]";
@@ -147,17 +147,17 @@ export function Hero({
                 sizes="(max-width: 768px) 100vw, 1200px"
               />
               {/* Dark overlay - lower z-index */}
-              <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-opacity z-10" />
+              <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity z-10" />
               {/* Play button - higher z-index to appear on top */}
               <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="icon-md bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                <div className="icon-md bg-red-600 rounded-full flex items-center justify-center transition-transform shadow-2xl">
                   <svg className="icon-sm ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
               {/* "Click to play" text */}
-              <div className="absolute bottom-4 left-0 right-0 text-center text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-4 left-0 right-0 text-center text-sm md:text-base font-medium opacity-0 transition-opacity">
                 Click to play video
               </div>
             </div>

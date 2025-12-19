@@ -161,7 +161,7 @@ export function DebugLayout({
       <div className={CONTAINER_STYLES.standard.replace('py-8', 'py-6')}>
         <div className="flex flex-col md:flex-row">
           <div className="hidden md:block w-full md:w-64 flex-shrink-0 mr-6">
-            <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="bg-white rounded-md shadow-sm p-4">
               <h2 className="text-secondary mb-3">Debug Tools</h2>
               
               <nav>
@@ -251,7 +251,7 @@ export function DebugLayout({
             </div>
             
             {/* Content Body */}
-            <div className="bg-white rounded-lg shadow-sm p-4">
+            <div className="bg-white rounded-md shadow-sm p-4">
               {children}
             </div>
           </div>

@@ -57,7 +57,7 @@ export async function ItemPage({
           />
           <SettingsLayout 
             metadata={settings}
-            materialProperties={settings._materialProperties}
+            materialProperties={(settings as any)?.relationships?.material_properties || (settings as any)?.relationships?.materialProperties}
             category={categorySlug}
             subcategory={subcategorySlug}
             slug={itemSlug}
@@ -87,9 +87,18 @@ export async function ItemPage({
       try {
         const baseMaterialSlug = itemSlug.replace(/-laser-cleaning$/, '');
         const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
-        if (settings?.machineSettings) {
-          // Merge machineSettings into article for Dataset schema
-          Object.assign(article, { machineSettings: settings.machineSettings });
+        const settingsRelationships = (settings as any)?.relationships;
+        const machineSettings = settingsRelationships?.machine_settings;
+        
+        if (machineSettings) {
+          // Merge machineSettings into article.metadata for Dataset schema
+          if (!article.metadata) {
+            article.metadata = {};
+          }
+          if (!article.metadata.relationships) {
+            (article.metadata as any).relationships = {};
+          }
+          (article.metadata as any).relationships.machine_settings = machineSettings;
         }
       } catch (_error) {
         // Settings file doesn't exist - continue without machine settings

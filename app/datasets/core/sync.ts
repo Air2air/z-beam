@@ -92,16 +92,25 @@ function getMaterialSlugFromFile(filePath: string): string {
   const basename = path.basename(filePath, path.extname(filePath));
   
   // Remove -settings suffix if present
-  if (basename.endsWith('-settings')) {
-    return basename.replace('-settings', '');
+  let slug = basename;
+  if (slug.endsWith('-settings')) {
+    slug = slug.replace('-settings', '');
   }
   
   // Remove -laser-cleaning suffix if present
-  if (basename.endsWith('-laser-cleaning')) {
-    return basename.replace('-laser-cleaning', '');
+  if (slug.endsWith('-laser-cleaning')) {
+    slug = slug.replace('-laser-cleaning', '');
   }
   
-  return basename;
+  // Convert to lowercase and replace spaces with dashes
+  // Also remove parentheses and clean up multiple dashes
+  slug = slug.toLowerCase()
+    .replace(/[()]/g, '')  // Remove parentheses
+    .replace(/\s+/g, '-')  // Replace spaces with dashes
+    .replace(/-+/g, '-')   // Replace multiple dashes with single dash
+    .replace(/^-|-$/g, ''); // Remove leading/trailing dashes
+  
+  return slug;
 }
 
 /**

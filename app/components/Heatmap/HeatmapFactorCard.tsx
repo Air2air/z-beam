@@ -73,7 +73,7 @@ export const HeatmapFactorCard: React.FC<HeatmapFactorCardProps> = ({ config, an
 
   return (
     <article
-      className={`heatmap-factor-card rounded-lg p-4 transition-colors duration-300 border ${styles.border} mt-3 first:mt-0`}
+      className={`heatmap-factor-card rounded-md p-4 transition-colors duration-300 border ${styles.border} mt-3 first:mt-0`}
       style={{ backgroundColor: styles.bg }}
       aria-label={`${label} factor analysis`}
     >
@@ -88,7 +88,7 @@ export const HeatmapFactorCard: React.FC<HeatmapFactorCardProps> = ({ config, an
 
       {/* Status indicator (if provided) */}
       {status && (
-        <div className={`mb-2 px-3 py-1.5 rounded-lg text-sm font-semibold text-center ${statusColors[status.color]}`}>
+        <div className={`mb-2 px-3 py-1.5 rounded-md text-sm font-semibold text-center ${statusColors[status.color]}`}>
           {status.text}
         </div>
       )}

@@ -119,7 +119,7 @@ describe('Constants', () => {
     test('should have card defaults', () => {
       expect(COMPONENT_DEFAULTS.card).toEqual({
         imageHeight: 128,
-        borderRadius: 'rounded-lg',
+        borderRadius: 'rounded-md',
       });
     });
 

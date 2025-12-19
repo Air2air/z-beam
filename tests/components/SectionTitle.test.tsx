@@ -162,7 +162,7 @@ describe('SectionTitle', () => {
       expect(link).toHaveAttribute('aria-label', 'View Aluminum page');
     });
 
-    it('has hover classes on thumbnail container when linked', () => {
+    it('has thumbnail container when linked', () => {
       const { container } = render(
         <SectionTitle 
           title="Title" 
@@ -172,7 +172,8 @@ describe('SectionTitle', () => {
       );
       const img = container.querySelector('img[src="/test-image.jpg"]');
       const thumbnailContainer = img?.parentElement;
-      expect(thumbnailContainer).toHaveClass('group-hover:scale-105');
+      expect(thumbnailContainer).toBeInTheDocument();
+      expect(thumbnailContainer).toHaveClass('cursor-pointer');
     });
 
     it('marks thumbnail as aria-hidden when not linked', () => {

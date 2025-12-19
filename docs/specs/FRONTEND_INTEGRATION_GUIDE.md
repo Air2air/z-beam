@@ -457,7 +457,7 @@ faq:
 ### Missing: FAQ Content
 
 - **Current**: 0/99 patterns have FAQs
-- **Needed**: Generate 3 FAQs per pattern (297 FAQs total)
+- **Needed**: Generate 3+ FAQs per pattern (minimum 297 FAQs total, more encouraged)
 - **Method**: Similar to materials/settings FAQ generation
 - **Priority**: Medium (pages can launch without FAQs, add later)
 
@@ -561,7 +561,7 @@ faq:
    - Similar to materials/settings FAQ generation
    - Use pattern-specific prompts
 
-2. **Generate 3 FAQs per pattern**
+2. **Generate 3+ FAQs per pattern** (minimum requirement)
    - Question 1: What types of surfaces / When is this contamination found?
    - Question 2: How does laser cleaning remove this contamination?
    - Question 3: What safety precautions are needed?

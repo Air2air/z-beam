@@ -934,7 +934,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
 
                 return (
                   <div
-                    className="parameter-detail-card rounded-lg p-4 animate-fadeIn transition-colors duration-300"
+                    className="parameter-detail-card rounded-md p-4 animate-fadeIn transition-colors duration-300"
                     style={{
                       backgroundColor: hexToRgba(nodeColor, cardOpacity),
                     }}
@@ -986,7 +986,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
                   return (
                     <div
                       key={idx}
-                      className="parameter-detail-card rounded-lg p-4 animate-fadeIn transition-colors duration-300 cursor-pointer"
+                      className="parameter-detail-card rounded-md p-4 animate-fadeIn transition-colors duration-300 cursor-pointer"
                       style={{
                         backgroundColor: hexToRgba(
                           otherNodeColor,
@@ -1008,7 +1008,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
 
             {/* Hovered Relationship Info */}
             {hoveredRelation && (
-              <div className="relationship-tooltip rounded-lg p-4 border border-blue-500/50 animate-fadeIn">
+              <div className="relationship-tooltip rounded-md p-4 border border-blue-500/50 animate-fadeIn">
                 <div className="tooltip-header flex items-center gap-2 mb-2">
                   <span className="tooltip-icon text-lg">
                     {getRelationshipIcon(hoveredRelation.type)}

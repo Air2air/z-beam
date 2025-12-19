@@ -113,7 +113,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
       {imageSource && (
         <figure 
           ref={microRef}
-          className={`seo-micro relative aspect-[16/9] overflow-hidden rounded-lg ${className}`}
+          className={`seo-micro relative aspect-[16/9] overflow-hidden rounded-md ${className}`}
           itemScope 
           itemType={`${SITE_CONFIG.schema.context}/TechArticle`}
         >
@@ -140,7 +140,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
                       .map(([key, value]) => (
                         <div 
                           key={key} 
-                          className="bg-secondary bg-opacity-90 p-3 rounded-lg backdrop-blur-sm"
+                          className="bg-secondary bg-opacity-90 p-3 rounded-md backdrop-blur-sm"
                         >
                           <dt className="text-xs text-tertiary uppercase mb-1">
                             {key.replace(/_/g, ' ')}
@@ -174,7 +174,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
         {(microData.before || microData.after) && (
           <div className="grid-2col-md gap-6">
             {microData.before && (
-              <div className="p-6 md:p-8 card-background rounded-lg">
+              <div className="p-6 md:p-8 card-background rounded-md">
                 <h4>
                   Before Treatment
                 </h4>
@@ -184,7 +184,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
               </div>
             )}
             {microData.after && (
-              <div className="p-6 md:p-8 card-background rounded-lg">
+              <div className="p-6 md:p-8 card-background rounded-md">
                 <h4>
                   After Treatment
                 </h4>

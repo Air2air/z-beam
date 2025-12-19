@@ -1,9 +1,15 @@
 id: gasket-material-contamination
 name: Gasket Material Residue
+slug: gasket-material-residue
 category: organic-residue
 subcategory: adhesive
-datePublished: '2025-12-19T00:21:10.900970Z'
-dateModified: '2025-12-19T01:18:59Z'
+datePublished: '2025-12-19T01:25:11.337551Z'
+dateModified: '2025-12-19T01:25:11.337551Z'
+composition:
+- Cellulose
+- Rubber
+- Silicone
+- Graphite
 description: Gasket remnants build up on surfaces when old seals break down under heat or disassembly stress, softening into
   sticky patches that harden and cling tightly. In practice, these contaminants stretch and tear unevenly with a flexible,
   layered texture and embedded fibers, setting them apart from flaky oxidation while resisting basic scrapes on steel, where
@@ -14,314 +20,239 @@ description: Gasket remnants build up on surfaces when old seals break down unde
 relationships:
   related_materials:
   - id: steel-laser-cleaning
+    slug: steel
     title: Steel
-    url: /materials/steel-laser-cleaning
+    url: /materials/steel
     image: /images/materials/steel.jpg
+    category: metal
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: aluminum-laser-cleaning
+    slug: aluminum
     title: Aluminum
-    url: /materials/aluminum-laser-cleaning
+    url: /materials/aluminum
     image: /images/materials/aluminum.jpg
+    category: metal
+    subcategory: non-ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: cast-iron-laser-cleaning
+    slug: cast-iron
     title: Cast Iron
-    url: /materials/cast-iron-laser-cleaning
+    url: /materials/cast-iron
     image: /images/materials/cast-iron.jpg
+    category: metal
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
-  composition:
-  - Cellulose
-  - Rubber
-  - Silicone
-  - Graphite
-  laser_properties:
-    laser_parameters:
-      beam_profile: flat_top
-      fluence_range:
-        max_j_cm2: 1.2
-        min_j_cm2: 0.4
-        recommended_j_cm2: 0.8
-      overlap_percentage: 50
-      polarization: circular
-      pulse_duration_range:
-        max_ns: 200
-        min_ns: 10
-        recommended_ns: 100
-      repetition_rate_khz:
-        max: 200
-        min: 20
-        recommended: 50
-      safety_margin_factor: 0.6
-      scan_speed_mm_s:
-        max: 2000
-        min: 500
-        recommended: 1000
-      spot_size_mm:
-        max: 0.2
-        min: 0.05
-        recommended: 0.1
-      wavelength_preference:
-      - 1064
-      - 355
-    optical_properties:
-      absorption_coefficient:
-        wavelength_1064nm: 850
-        wavelength_355nm: 18500
-        wavelength_532nm: 4200
-      reflectivity:
-        wavelength_1064nm: 0.15
-        wavelength_355nm: 0.03
-        wavelength_532nm: 0.08
-      refractive_index:
-        imaginary_part: 0.012
-        real_part: 1.55
-      transmission_depth: 11.8
-    removal_characteristics:
-      byproducts:
-      - compound: carbon-dioxide
-        hazard_level: low
-        phase: gas
-      - compound: H2O
-        hazard_level: low
-        phase: gas
-      - compound: carbon_particulates
-        hazard_level: moderate
-        phase: solid
-      - compound: VOCs
-        hazard_level: moderate
-        phase: gas
-      damage_risk_to_substrate: low
-      primary_mechanism: thermal_ablation
-      process_speed:
-        area_coverage_rate_cm2_min: 240
-        typical_scan_speed_mm_s: 800
-      removal_efficiency:
-        diminishing_returns_after: 5
-        optimal_passes: 3
-        single_pass: 0.7
-      secondary_mechanisms:
-      - photochemical
-      - mechanical_spallation
-      surface_quality_after_removal:
-        color_change: 'no'
-        residual_stress: compressive
-        roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 50.0
-        exposure_limit_mg_m3: 29.0
-        hazard_class: toxic
-      - compound: Formaldehyde
-        concentration_mg_m3: 2.5
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Hydrogen Cyanide
-        concentration_mg_m3: 8.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: toxic
-      - compound: Benzene
-        concentration_mg_m3: 3.2
-        exposure_limit_mg_m3: 0.5
-        hazard_class: carcinogenic
-      - compound: Particulate Polycyclic Aromatic Hydrocarbons
-        concentration_mg_m3: 15.0
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-      substrate_compatibility_warnings:
-      - Laser may damage underlying metal surface if power settings are too high
-      - Thermal stress may cause micro-cracking in certain alloys
-      - Potential for surface oxidation if process parameters are not optimized
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
-    thermal_properties:
-      ablation_threshold:
-        pulse_duration_100ns: 2.5
-        pulse_duration_10ns: 1.2
-        wavelength_1064nm: 1.8
-      decomposition_temperature: 380
-      heat_affected_zone_depth: 15
-      melting_point: null
-      specific_heat: 1200
-      thermal_conductivity: 0.25
-      thermal_diffusivity: 0.17
-      vaporization_temperature: 450
-  prohibited_materials:
-  - Plastics
-  valid_materials:
-  - Steel
-  - Aluminum
-  - Cast Iron
-  visual_characteristics:
-    appearance_on_categories:
-      ceramic:
-        appearance: Residue appears as dark, oily marks on ceramic, potentially glossy or matte, that can adhere firmly and
-          discolor the smooth surface.
-        coverage: Coverage is generally limited to contact areas, varying from thin layers to thick accumulations.
-        pattern: It forms patches or rings, often around edges or fittings, with an uneven, spotty distribution.
-      composite:
-        appearance: Residue on composites appears as dark, oily deposits that can seep into fibers or layers, creating blotchy
-          discolorations and a tacky surface.
-        coverage: Coverage varies widely, from sparse spots to extensive areas, depending on composite porosity and application.
-        pattern: Distribution is patchy or streaky, following material seams or gasket outlines, with no uniformity.
-      concrete:
-        appearance: On concrete, residue presents as dark, greasy patches that penetrate the porous surface, creating stained,
-          matte areas with a rough texture.
-        coverage: Coverage is typically minimal and localized, varying with concrete absorption and gasket placement.
-        pattern: Distribution is patchy or blotchy, concentrated in low spots or along seams, with no regular pattern.
-      fabric:
-        appearance: Residue on fabric looks like oily, dark stains that can saturate fibers, appearing as blotches with a
-          greasy texture and potential odor.
-        coverage: Coverage is generally sparse and spotty, limited to where the gasket touched, with intensity differences.
-        pattern: It appears as irregular patches or spots, often following weave patterns or contact areas, without uniformity.
-      glass:
-        appearance: On glass, it shows as translucent or opaque smudges, often gray or brown, that can cloud the surface and
-          reduce clarity with a streaky finish.
-        coverage: Coverage is often partial, ranging from light films to heavier deposits, depending on residue amount and
-          cleaning.
-        pattern: Distribution is usually in streaks or smears, following the outline of the gasket, with no uniform pattern.
-      metal:
-        appearance: Gasket residue on metal appears as a greasy, dark film, often black or brown, with a sticky or smeared
-          texture that can dull the surface finish.
-        coverage: Coverage is usually partial, varying from small localized areas to broader sections, depending on gasket
-          size and installation pressure.
-        pattern: It typically forms irregular streaks or patches, concentrated around bolt holes or edges where gaskets were
-          compressed, with uneven distribution.
-      mineral:
-        appearance: Residue on minerals appears as dark, oily films that can coat crystalline surfaces, causing dullness or
-          discoloration with a slick feel.
-        coverage: Coverage is usually sparse and variable, from light films to concentrated spots, depending on mineral hardness.
-        pattern: It forms streaks or isolated patches, often in crevices or along cleavage planes, with uneven spread.
-      plastic:
-        appearance: On plastic, residue looks like greasy, dark films that may cause hazing or staining, with a slick texture
-          that can attract dust.
-        coverage: Coverage is often partial and variable, from light coatings to dense patches, influenced by plastic type.
-        pattern: It typically appears as streaks or blotches, concentrated where gaskets were seated, with irregular patterns.
-      rubber:
-        appearance: On rubber, residue may blend or appear as darker, greasy areas that can soften the surface, often black
-          or brown with a sticky feel.
-        coverage: Coverage is usually partial, localized to gasket contact zones, with variations in thickness.
-        pattern: It forms smears or patches, typically along edges or compression points, with irregular dispersal.
-      semiconductor:
-        appearance: On semiconductors, residue looks like microscopic, greasy contaminants that can appear as hazy or discolored
-          areas under magnification, potentially affecting conductivity.
-        coverage: Coverage is minimal and highly variable, typically limited to specific zones, posing risks for device failure.
-        pattern: Distribution is often spotty or streaky, localized to processing areas or edges, with no uniformity.
-      specialty:
-        appearance: Residue on specialty materials varies but generally appears as dark, oily deposits that may interact uniquely,
-          causing discoloration or texture changes based on composition.
-        coverage: Coverage depends on material specifics, ranging from isolated spots to broader areas, with high variation.
-        pattern: It forms irregular patterns like patches or streaks, tailored to material properties and gasket contact,
-          without consistency.
-      stone:
-        appearance: Residue on stone presents as dark, greasy spots that may seep into porous surfaces, creating a matte or
-          stained look against the natural texture.
-        coverage: Coverage is typically minimal and localized, varying with stone porosity and gasket contact points.
-        pattern: It appears as isolated patches or smears, often concentrated in crevices or along seams, with irregular dispersal.
-      wood:
-        appearance: On wood, residue looks like oily, dark stains that can penetrate the grain, appearing blotchy and discolored,
-          often with a tacky feel.
-        coverage: Coverage is generally sparse and spotty, limited to where the gasket was applied, with variations in intensity.
-        pattern: It tends to form blotches or patches, following the wood grain or areas of contact, with no uniform spread.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
 author:
   id: 4
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: B.Sc.
-  sex: f
-  jobTitle: Technical Writer
-  expertise:
-  - Technical Documentation
-  - Safety Standards
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - B.Sc. Chemical Engineering, University of Indonesia, 2019
-  - Technical writer specializing in industrial safety
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.4
+      recommended_j_cm2: 0.8
+    overlap_percentage: 50
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 200
+      min_ns: 10
+      recommended_ns: 100
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.6
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.2
+      min: 0.05
+      recommended: 0.1
+    wavelength_preference:
+    - 1064
+    - 355
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 850
+      wavelength_355nm: 18500
+      wavelength_532nm: 4200
+    reflectivity:
+      wavelength_1064nm: 0.15
+      wavelength_355nm: 0.03
+      wavelength_532nm: 0.08
+    refractive_index:
+      imaginary_part: 0.012
+      real_part: 1.55
+    transmission_depth: 11.8
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: carbon_particulates
+      hazard_level: moderate
+      phase: solid
+    - compound: VOCs
+      hazard_level: moderate
+      phase: gas
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 5
+      optimal_passes: 3
+      single_pass: 0.7
+    secondary_mechanisms:
+    - photochemical
+    - mechanical_spallation
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: compressive
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 50.0
+      exposure_limit_mg_m3: 29.0
+      hazard_class: toxic
+    - compound: Formaldehyde
+      concentration_mg_m3: 2.5
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Hydrogen Cyanide
+      concentration_mg_m3: 8.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: toxic
+    - compound: Benzene
+      concentration_mg_m3: 3.2
+      exposure_limit_mg_m3: 0.5
+      hazard_class: carcinogenic
+    - compound: Particulate Polycyclic Aromatic Hydrocarbons
+      concentration_mg_m3: 15.0
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+    substrate_compatibility_warnings:
+    - Laser may damage underlying metal surface if power settings are too high
+    - Thermal stress may cause micro-cracking in certain alloys
+    - Potential for surface oxidation if process parameters are not optimized
+    toxic_gas_risk: moderate
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 2.5
+      pulse_duration_10ns: 1.2
+      wavelength_1064nm: 1.8
+    decomposition_temperature: 380
+    heat_affected_zone_depth: 15
+    melting_point: null
+    specific_heat: 1200
+    thermal_conductivity: 0.25
+    thermal_diffusivity: 0.17
+    vaporization_temperature: 450
+prohibited_materials:
+- Plastics
+valid_materials:
+- Steel
+- Aluminum
+- Cast Iron
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Residue appears as dark, oily marks on ceramic, potentially glossy or matte, that can adhere firmly and
+        discolor the smooth surface.
+      coverage: Coverage is generally limited to contact areas, varying from thin layers to thick accumulations.
+      pattern: It forms patches or rings, often around edges or fittings, with an uneven, spotty distribution.
+    composite:
+      appearance: Residue on composites appears as dark, oily deposits that can seep into fibers or layers, creating blotchy
+        discolorations and a tacky surface.
+      coverage: Coverage varies widely, from sparse spots to extensive areas, depending on composite porosity and application.
+      pattern: Distribution is patchy or streaky, following material seams or gasket outlines, with no uniformity.
+    concrete:
+      appearance: On concrete, residue presents as dark, greasy patches that penetrate the porous surface, creating stained,
+        matte areas with a rough texture.
+      coverage: Coverage is typically minimal and localized, varying with concrete absorption and gasket placement.
+      pattern: Distribution is patchy or blotchy, concentrated in low spots or along seams, with no regular pattern.
+    fabric:
+      appearance: Residue on fabric looks like oily, dark stains that can saturate fibers, appearing as blotches with a greasy
+        texture and potential odor.
+      coverage: Coverage is generally sparse and spotty, limited to where the gasket touched, with intensity differences.
+      pattern: It appears as irregular patches or spots, often following weave patterns or contact areas, without uniformity.
+    glass:
+      appearance: On glass, it shows as translucent or opaque smudges, often gray or brown, that can cloud the surface and
+        reduce clarity with a streaky finish.
+      coverage: Coverage is often partial, ranging from light films to heavier deposits, depending on residue amount and cleaning.
+      pattern: Distribution is usually in streaks or smears, following the outline of the gasket, with no uniform pattern.
+    metal:
+      appearance: Gasket residue on metal appears as a greasy, dark film, often black or brown, with a sticky or smeared texture
+        that can dull the surface finish.
+      coverage: Coverage is usually partial, varying from small localized areas to broader sections, depending on gasket size
+        and installation pressure.
+      pattern: It typically forms irregular streaks or patches, concentrated around bolt holes or edges where gaskets were
+        compressed, with uneven distribution.
+    mineral:
+      appearance: Residue on minerals appears as dark, oily films that can coat crystalline surfaces, causing dullness or
+        discoloration with a slick feel.
+      coverage: Coverage is usually sparse and variable, from light films to concentrated spots, depending on mineral hardness.
+      pattern: It forms streaks or isolated patches, often in crevices or along cleavage planes, with uneven spread.
+    plastic:
+      appearance: On plastic, residue looks like greasy, dark films that may cause hazing or staining, with a slick texture
+        that can attract dust.
+      coverage: Coverage is often partial and variable, from light coatings to dense patches, influenced by plastic type.
+      pattern: It typically appears as streaks or blotches, concentrated where gaskets were seated, with irregular patterns.
+    rubber:
+      appearance: On rubber, residue may blend or appear as darker, greasy areas that can soften the surface, often black
+        or brown with a sticky feel.
+      coverage: Coverage is usually partial, localized to gasket contact zones, with variations in thickness.
+      pattern: It forms smears or patches, typically along edges or compression points, with irregular dispersal.
+    semiconductor:
+      appearance: On semiconductors, residue looks like microscopic, greasy contaminants that can appear as hazy or discolored
+        areas under magnification, potentially affecting conductivity.
+      coverage: Coverage is minimal and highly variable, typically limited to specific zones, posing risks for device failure.
+      pattern: Distribution is often spotty or streaky, localized to processing areas or edges, with no uniformity.
+    specialty:
+      appearance: Residue on specialty materials varies but generally appears as dark, oily deposits that may interact uniquely,
+        causing discoloration or texture changes based on composition.
+      coverage: Coverage depends on material specifics, ranging from isolated spots to broader areas, with high variation.
+      pattern: It forms irregular patterns like patches or streaks, tailored to material properties and gasket contact, without
+        consistency.
+    stone:
+      appearance: Residue on stone presents as dark, greasy spots that may seep into porous surfaces, creating a matte or
+        stained look against the natural texture.
+      coverage: Coverage is typically minimal and localized, varying with stone porosity and gasket contact points.
+      pattern: It appears as isolated patches or smears, often concentrated in crevices or along seams, with irregular dispersal.
+    wood:
+      appearance: On wood, residue looks like oily, dark stains that can penetrate the grain, appearing blotchy and discolored,
+        often with a tacky feel.
+      coverage: Coverage is generally sparse and spotty, limited to where the gasket was applied, with variations in intensity.
+      pattern: It tends to form blotches or patches, following the wood grain or areas of contact, with no uniform spread.
 schema_version: 5.0.0
 content_type: contaminants
 breadcrumb:

@@ -32,10 +32,10 @@ export function Author({
   return (
     <Link
       href={`/search?q=${encodedAuthorName}`}
-      className={`block rounded-lg px-4 py-3 bg-primary hover:bg-primary-hover transition-colors ${className}`}
+      className={`block rounded-md px-4 py-3 bg-primary hover:bg-primary-hover transition-colors ${className}`}
     >
       <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4 flex-1 min-w-0 text-muted group-hover:text-blue-400 transition-colors">
+        <div className="flex items-center gap-4 flex-1 min-w-0 text-muted transition-colors">
           {showAvatar && authorImage && (
             <Image
               src={authorImage}

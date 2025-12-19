@@ -1,28 +1,14 @@
 id: porcelain-laser-cleaning
 name: Porcelain
+slug: porcelain
 category: ceramic
 subcategory: oxide
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:56.224638Z'
-dateModified: '2025-12-19T01:18:53Z'
+datePublished: '2025-12-19T01:24:57.393436Z'
+dateModified: '2025-12-19T01:24:57.393436Z'
 author:
   id: 3
-  name: Alessandro Moretti
-  country: Italy
-  country_display: Italy
-  title: Dr.
-  sex: m
-  jobTitle: Senior Researcher
-  expertise:
-  - Laser Physics
-  - Material Science
-  affiliation:
-    name: Italian Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, University of Bologna, 2015
-  - Senior researcher in laser-material interactions
 title: Porcelain Laser Cleaning
 description: We've found porcelain sets itself apart from standard ceramics with its impressively low porosity and excellent
   corrosion resistance, supporting dependable use in tough settings like medical devices and chemical processing, free from
@@ -110,354 +96,272 @@ faq:
     porcelain artifacts?
   topic_keyword: delicate porcelain artifacts
   topic_statement: Non-contact precision preserves integrity
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    electricalResistivity:
+      value: 10000000000.0
+      unit: Ω·m
+      confidence: 95
+      source: ai_research
+    fractureToughness:
+      value: 0.9
+      unit: MPa√m
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 70.0
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 0.0
+      unit: mg/(cm²·h)
+      confidence: 100
+      source: ai_research
+    density:
+      value: 2.4
+      unit: g/cm³
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 620.0
+      unit: HV
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.96
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 414.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 70.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 55.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    porosity:
+      value: 0.3
+      unit: '%'
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 2.8
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: 'Laser Cleaning of Ceramic Materials: Damage Thresholds for Porcelain Substrates'
+      citation: 'Krebs, H.U. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.03.045'
+      context: Hard-paste porcelain (kaolin-feldspar-quartz composition, 99% purity equivalent), 25°C, 1064 nm Nd:YAG laser,
+        10 ns pulse duration, fluence measured at 1-on-1 damage onset
+      confidence: 95
+      researched_date: '2025-11-24T12:07:56.079797'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.25
+      unit: dimensionless
+      min: 0.1
+      max: 0.5
+      source: ai_research
+    absorptionCoefficient:
+      value: 500000
+      unit: m⁻¹
+      min: 100000
+      max: 1000000
+      source: ai_research
+    laserDamageThreshold:
+      value: 3
+      unit: J/cm²
+      min: 1
+      max: 10
+      source: ai_research
+    thermalShockResistance:
+      value: 1.5
+      unit: MW/m
+      min: 0.5
+      max: 3
+      source: ai_research
+    reflectivity:
+      value: 0.7
+      unit: dimensionless
+      min: 0.5
+      max: 0.9
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1600
+      unit: K
+      min: 1400
+      max: 1800
+      source: ai_research
+    vaporPressure:
+      value: 0.1
+      unit: Pa
+      min: 0.001
+      max: 1
+      source: ai_research
+    thermalDestruction:
+      value: 1573.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 880.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.85
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 1.5
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 5.5e-06
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 25000.0
+      unit: m^{-1}
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 6.9e-07
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 1.8
+      unit: J/cm²
+      confidence: 95
+      source: ai_research
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+metadata:
+  last_updated: '2025-10-27T23:48:40.922474Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922480Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants:
   - id: ceramic-glaze-contamination
+    slug: ceramic-glaze
     title: Ceramic Glaze Deposits
-    url: /contaminants/ceramic-glaze-contamination
+    url: /contaminants/ceramic-glaze
     image: /images/contaminants/ceramic-glaze.jpg
+    category: inorganic-coating
+    subcategory: ceramic
     frequency: common
     severity: moderate
     typical_context: general
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      electricalResistivity:
-        value: 10000000000.0
-        unit: Ω·m
-        confidence: 95
-        source: ai_research
-      fractureToughness:
-        value: 0.9
-        unit: MPa√m
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 70.0
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 0.0
-        unit: mg/(cm²·h)
-        confidence: 100
-        source: ai_research
-      density:
-        value: 2.4
-        unit: g/cm³
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 620.0
-        unit: HV
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.96
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 414.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 70.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 55.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      porosity:
-        value: 0.3
-        unit: '%'
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 2.8
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: 'Laser Cleaning of Ceramic Materials: Damage Thresholds for Porcelain Substrates'
-        citation: 'Krebs, H.U. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.03.045'
-        context: Hard-paste porcelain (kaolin-feldspar-quartz composition, 99% purity equivalent), 25°C, 1064 nm Nd:YAG laser,
-          10 ns pulse duration, fluence measured at 1-on-1 damage onset
-        confidence: 95
-        researched_date: '2025-11-24T12:07:56.079797'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.25
-        unit: dimensionless
-        min: 0.1
-        max: 0.5
-        source: ai_research
-      absorptionCoefficient:
-        value: 500000
-        unit: m⁻¹
-        min: 100000
-        max: 1000000
-        source: ai_research
-      laserDamageThreshold:
-        value: 3
-        unit: J/cm²
-        min: 1
-        max: 10
-        source: ai_research
-      thermalShockResistance:
-        value: 1.5
-        unit: MW/m
-        min: 0.5
-        max: 3
-        source: ai_research
-      reflectivity:
-        value: 0.7
-        unit: dimensionless
-        min: 0.5
-        max: 0.9
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1600
-        unit: K
-        min: 1400
-        max: 1800
-        source: ai_research
-      vaporPressure:
-        value: 0.1
-        unit: Pa
-        min: 0.001
-        max: 1
-        source: ai_research
-      thermalDestruction:
-        value: 1573.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 880.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.85
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 1.5
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 5.5e-06
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 25000.0
-        unit: m^{-1}
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 6.9e-07
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 1.8
-        unit: J/cm²
-        confidence: 95
-        source: ai_research
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - ANSI Z136.1 - Safe Use of Lasers
-    - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    isBasedOn:
-      name: IEC 60825 - Safety of Laser Products
-      url: https://webstore.iec.ch/publication/3587
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922474Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922480Z'
-    structure_version: '2.0'
-  applications:
-  - Cultural Heritage
-  - Medical Devices
-  - Electronics Manufacturing
-  - Aerospace
-  - Energy Sector
-  - Automotive Manufacturing
-  - Food Processing
-  - Chemical Processing
-  - Semiconductor Manufacturing
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: cubic crystal structure
-      source: ai_research
-      unit: crystal system
-      value: cubic
-  voice_enhanced: '2025-11-07T03:54:36.987822+00:00'
-  components:
-    settings_description: When laser cleaning porcelain, I've found that starting with a gentle assessment of the surface
-      works best. This material, unlike denser metals, tends to stay cool on the outside because heat doesn't spread quickly—perfect
-      for delicate pieces like antique vases. So, set your laser to a low power level first, using short pulses to chip away
-      at grime without stressing its brittle nature. Scan slowly in multiple passes, overlapping just enough to catch every
-      spot. This clears contaminants evenly, restoring that smooth finish you see in cultural heritage work. But watch out
-      at the end—push too hard, and cracks can form, so always test on a hidden area first.
-    micro:
-      before: I've seen porcelain's contaminated surface at high magnification, and it looks rough with scattered dirt clumps
-        sticking everywhere. Fine particles and grime layers build up unevenly, dulling the natural smooth base underneath.
-        This buildup clings stubbornly, making the whole area appear mottled and worn.
-      after: After laser treatment, the same porcelain surface turns crisp and clear, with all the dirt gone. The texture
-        evens out nicely, revealing a fresh, glossy finish that shines through. No traces of residue remain
-  contamination:
-    valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: fda-laser-product-performance
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    short_title: FDA Laser Product Standards
-    authority: FDA
-    authority_full: Food and Drug Administration
-    agency_type: federal
-    country: United States
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    image: /images/logo/logo-org-fda.png
-    description: Federal performance standards for all laser products manufactured or imported into the United States
-    scope: Product design, manufacturing, labeling, and reporting
-    applicability:
-    - Laser cleaning equipment manufacturers
-    - Equipment importers
-    - Product distributors
-    compliance_requirements:
-    - Laser safety classification labeling
-    - Protective housing requirements
-    - Aperture safety interlocks
-    - Key-operated control switches
-    - Remote interlock connectors
-    - Laser radiation emission indicators
-    - Beam attenuators
-    compliance_level: mandatory
-    enforcement: FDA may seize non-compliant products
-    penalties: Civil penalties up to $1,000 per violation
-    effective_date: 1976-08-02
-    last_amended: 2020-11-30
-    jurisdiction: United States (federal)
-    related_standards:
-    - iec-60825-laser-safety
-    - ansi-z136-1-laser-safety
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: We've found porcelain sets itself apart from standard ceramics with its impressively low porosity and excellent
-    corrosion resistance, supporting dependable use...
+  - type: regulatory_standards
+    id: fda-laser-product-performance
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Cultural Heritage
+- Medical Devices
+- Electronics Manufacturing
+- Aerospace
+- Energy Sector
+- Automotive Manufacturing
+- Food Processing
+- Chemical Processing
+- Semiconductor Manufacturing
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: cubic crystal structure
+    source: ai_research
+    unit: crystal system
+    value: cubic
+voice_enhanced: '2025-11-07T03:54:36.987822+00:00'
+components:
+  settings_description: When laser cleaning porcelain, I've found that starting with a gentle assessment of the surface works
+    best. This material, unlike denser metals, tends to stay cool on the outside because heat doesn't spread quickly—perfect
+    for delicate pieces like antique vases. So, set your laser to a low power level first, using short pulses to chip away
+    at grime without stressing its brittle nature. Scan slowly in multiple passes, overlapping just enough to catch every
+    spot. This clears contaminants evenly, restoring that smooth finish you see in cultural heritage work. But watch out at
+    the end—push too hard, and cracks can form, so always test on a hidden area first.
+  micro:
+    before: I've seen porcelain's contaminated surface at high magnification, and it looks rough with scattered dirt clumps
+      sticking everywhere. Fine particles and grime layers build up unevenly, dulling the natural smooth base underneath.
+      This buildup clings stubbornly, making the whole area appear mottled and worn.
+    after: After laser treatment, the same porcelain surface turns crisp and clear, with all the dirt gone. The texture evens
+      out nicely, revealing a fresh, glossy finish that shines through. No traces of residue remain
+contamination:
+  valid:
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: We've found porcelain sets itself apart from standard ceramics with its impressively low porosity and excellent
+  corrosion resistance, supporting dependable use...

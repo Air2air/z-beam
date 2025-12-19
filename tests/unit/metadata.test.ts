@@ -173,7 +173,7 @@ describe('Enhanced Metadata Generation', () => {
 
       const result = createMetadata(metadata);
 
-      expect(result.twitter.creator).toBe('@Dr.JohnSmith');
+      expect(result.twitter.creator).toBe('@ZBeamLaser');
     });
   });
 

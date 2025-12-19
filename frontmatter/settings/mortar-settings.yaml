@@ -1,203 +1,122 @@
 id: Mortar
+slug: mortar
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:21:15.052420Z'
-dateModified: '2025-12-19T01:19:03Z'
+datePublished: '2025-12-19T01:25:15.758540Z'
+dateModified: '2025-12-19T01:25:15.758540Z'
 relationships:
   related_materials: []
   related_contaminants: []
   regulatory_standards:
   - type: regulatory_standards
     id: osha-ppe-requirements
-    title: Osha Ppe Requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-    title: Ansi Z136 1 Laser Safety
-  machine_settings:
-    powerRange:
-      description: Optimal average power for mortar cleaning without thermal damage
-      unit: W
-      value: 100
-    wavelength:
-      description: Near-infrared wavelength optimized for mortar absorption and minimal substrate damage
-      unit: nm
-      value: 1064
-    spotSize:
-      description: Beam spot diameter for precise mortar cleaning with adequate energy density
-      unit: mm
-      value: 0.1
-    repetitionRate:
-      description: Optimal repetition rate for efficient mortar removal with good surface quality
-      unit: kHz
-      value: 50
-    energyDensity:
-      description: Fluence threshold for effective mortar ablation without damaging underlying substrate
-      unit: J/cm²
-      value: 12.7
-    pulseWidth:
-      description: Nanosecond pulse duration for effective mortar ablation with controlled thermal effects
-      unit: ns
-      value: 10
-    scanSpeed:
-      description: Optimal scanning speed for uniform mortar removal and processing efficiency
-      unit: mm/s
-      value: 500
-    passCount:
-      description: Recommended number of passes for complete mortar removal with quality control
-      unit: passes
-      value: 3
-    overlapRatio:
-      description: Optimal beam overlap for uniform mortar removal and surface consistency
-      unit: '%'
-      value: 50
-  challenges:
-    thermal_management:
-    - challenge: Moisture-induced spalling and explosive failure
-      severity: critical
-      threshold_temperature: Steam formation >100°C with trapped moisture
-      impact: Trapped moisture converts to steam causing explosive surface spalling
-      solutions:
-      - Test moisture content before cleaning (>5% moisture requires drying)
-      - Use pulse mode with 10-15 second cooling for wet materials
-      - Reduce power by 50-60% for damp masonry
-      - Allow 24-48 hours drying after rain before laser cleaning
-      - Monitor for popping sounds or surface lifting; stop immediately
-    - challenge: Low thermal diffusivity and heat accumulation
-      severity: high
-      property_value: 0.1-1.0 mm²/s (3-10x slower than metals)
-      impact: Heat concentrates in surface layer causing thermal stress
-      solutions:
-      - Increase cooling time between passes (8-12 seconds)
-      - Use low repetition rates (<20 kHz)
-      - Defocused beam reduces peak intensity
-      - Multiple gentle passes preferred over aggressive single pass
-    surface_characteristics:
-    - challenge: High porosity and deep contamination
-      severity: high
-      porosity_range: 10-25% (brick and concrete highly porous)
-      impact: Contaminants penetrate deep into porous structure
-      solutions:
-      - Multiple progressive passes with power increase (50W → 80W → 100W)
-      - Reduce scan speed for deeper penetration (400-600 mm/s)
-      - Chemical pre-treatment for biological growth (algae, lichen)
-      - Expect 3-5 passes for complete cleaning vs 1-2 for dense materials
-    - challenge: Surface heterogeneity and aggregate exposure
-      severity: medium
-      impact: Mixed composition (cement matrix, aggregates, voids) causes variable absorption
-      solutions:
-      - Use moderate power (70-90W) suitable for both matrix and aggregates
-      - Crosshatch scan pattern for uniform coverage
-      - Monitor for differential ablation; adjust power if aggregates become prominent
-      - Aged masonry more challenging than new construction
-    contamination_challenges:
-    - challenge: Paint and coating removal from porous substrate
-      severity: medium
-      impact: Paint penetrates into pores requiring deep cleaning without substrate damage
-      solutions:
-      - First pass 100W fast (1500 mm/s) for surface paint layer
-      - Second pass 70W slow (800 mm/s) for paint in pores
-      - Third pass 50W very slow (500 mm/s) for residual staining
-      - Chemical stripping pre-treatment reduces laser exposure
-      - Heritage masonry requires gentler approach (max 60W)
-  settings_description: 'When laser cleaning mortar, watch out for its brittle nature right from the start—I''ve seen it crack
-    easily under sudden heat, unlike tougher stone in masonry walls. That low toughness means thermal shock hits hard, so
-    you need to ease in gently to avoid spalling the surface. Tends to absorb laser energy well compared to slick metals,
-    which helps clear grime without much residue, but its porosity traps moisture that can steam up and weaken bonds during
-    the process.
+machine_settings:
+  powerRange:
+    description: Optimal average power for mortar cleaning without thermal damage
+    unit: W
+    value: 100
+  wavelength:
+    description: Near-infrared wavelength optimized for mortar absorption and minimal substrate damage
+    unit: nm
+    value: 1064
+  spotSize:
+    description: Beam spot diameter for precise mortar cleaning with adequate energy density
+    unit: mm
+    value: 0.1
+  repetitionRate:
+    description: Optimal repetition rate for efficient mortar removal with good surface quality
+    unit: kHz
+    value: 50
+  energyDensity:
+    description: Fluence threshold for effective mortar ablation without damaging underlying substrate
+    unit: J/cm²
+    value: 12.7
+  pulseWidth:
+    description: Nanosecond pulse duration for effective mortar ablation with controlled thermal effects
+    unit: ns
+    value: 10
+  scanSpeed:
+    description: Optimal scanning speed for uniform mortar removal and processing efficiency
+    unit: mm/s
+    value: 500
+  passCount:
+    description: Recommended number of passes for complete mortar removal with quality control
+    unit: passes
+    value: 3
+  overlapRatio:
+    description: Optimal beam overlap for uniform mortar removal and surface consistency
+    unit: '%'
+    value: 50
+challenges:
+  thermal_management:
+  - challenge: Moisture-induced spalling and explosive failure
+    severity: critical
+    threshold_temperature: Steam formation >100°C with trapped moisture
+    impact: Trapped moisture converts to steam causing explosive surface spalling
+    solutions:
+    - Test moisture content before cleaning (>5% moisture requires drying)
+    - Use pulse mode with 10-15 second cooling for wet materials
+    - Reduce power by 50-60% for damp masonry
+    - Allow 24-48 hours drying after rain before laser cleaning
+    - Monitor for popping sounds or surface lifting; stop immediately
+  - challenge: Low thermal diffusivity and heat accumulation
+    severity: high
+    property_value: 0.1-1.0 mm²/s (3-10x slower than metals)
+    impact: Heat concentrates in surface layer causing thermal stress
+    solutions:
+    - Increase cooling time between passes (8-12 seconds)
+    - Use low repetition rates (<20 kHz)
+    - Defocused beam reduces peak intensity
+    - Multiple gentle passes preferred over aggressive single pass
+  surface_characteristics:
+  - challenge: High porosity and deep contamination
+    severity: high
+    porosity_range: 10-25% (brick and concrete highly porous)
+    impact: Contaminants penetrate deep into porous structure
+    solutions:
+    - Multiple progressive passes with power increase (50W → 80W → 100W)
+    - Reduce scan speed for deeper penetration (400-600 mm/s)
+    - Chemical pre-treatment for biological growth (algae, lichen)
+    - Expect 3-5 passes for complete cleaning vs 1-2 for dense materials
+  - challenge: Surface heterogeneity and aggregate exposure
+    severity: medium
+    impact: Mixed composition (cement matrix, aggregates, voids) causes variable absorption
+    solutions:
+    - Use moderate power (70-90W) suitable for both matrix and aggregates
+    - Crosshatch scan pattern for uniform coverage
+    - Monitor for differential ablation; adjust power if aggregates become prominent
+    - Aged masonry more challenging than new construction
+  contamination_challenges:
+  - challenge: Paint and coating removal from porous substrate
+    severity: medium
+    impact: Paint penetrates into pores requiring deep cleaning without substrate damage
+    solutions:
+    - First pass 100W fast (1500 mm/s) for surface paint layer
+    - Second pass 70W slow (800 mm/s) for paint in pores
+    - Third pass 50W very slow (500 mm/s) for residual staining
+    - Chemical stripping pre-treatment reduces laser exposure
+    - Heritage masonry requires gentler approach (max 60W)
+settings_description: 'When laser cleaning mortar, watch out for its brittle nature right from the start—I''ve seen it crack
+  easily under sudden heat, unlike tougher stone in masonry walls. That low toughness means thermal shock hits hard, so you
+  need to ease in gently to avoid spalling the surface. Tends to absorb laser energy well compared to slick metals, which
+  helps clear grime without much residue, but its porosity traps moisture that can steam up and weaken bonds during the process.
 
 
-    Start with lower power settings to build heat slowly, giving the material time to dissipate without fracturing. This works
-    best when you overlap passes moderately, pulling away layers of dirt or salt buildup from historical facades or bridge
-    joints. I''ve found scanning at a steady speed prevents hot spots that might etch the underlying cement-sand mix. Adjust
-    for damp conditions by drying the area first—mortar holds water longer than dense brick, leading to uneven cleaning if
-    ignored. In my experience on restoration sites, this approach brings back the original texture safely, especially for
-    cultural heritage pieces where precision matters.'
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning mortar, watch out for its brittle nature right from the start—I've seen it crack easily
-    under sudden heat, unlike tougher stone in masonry...
-  excerpt: When laser cleaning mortar, watch out for its brittle nature right from the start—I've seen it crack easily under
-    sudden heat, unlike tougher stone in masonry walls. That low toughness means thermal shock hits hard, so you need to ease
-    in gently to avoid spalling the surface. Tends to absorb...
+  Start with lower power settings to build heat slowly, giving the material time to dissipate without fracturing. This works
+  best when you overlap passes moderately, pulling away layers of dirt or salt buildup from historical facades or bridge joints.
+  I''ve found scanning at a steady speed prevents hot spots that might etch the underlying cement-sand mix. Adjust for damp
+  conditions by drying the area first—mortar holds water longer than dense brick, leading to uneven cleaning if ignored. In
+  my experience on restoration sites, this approach brings back the original texture safely, especially for cultural heritage
+  pieces where precision matters.'
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+seo_description: When laser cleaning mortar, watch out for its brittle nature right from the start—I've seen it crack easily
+  under sudden heat, unlike tougher stone in masonry...
+excerpt: When laser cleaning mortar, watch out for its brittle nature right from the start—I've seen it crack easily under
+  sudden heat, unlike tougher stone in masonry walls. That low toughness means thermal shock hits hard, so you need to ease
+  in gently to avoid spalling the surface. Tends to absorb...

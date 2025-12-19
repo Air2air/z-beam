@@ -98,7 +98,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
           horizPadding={true}
           radius={true}
         >
-          <div className="bg-secondary rounded-lg p-8 border-2 border-green-200800">
+          <div className="bg-secondary rounded-md p-8 border-2 border-green-200800">
             <div className="grid-2col-md gap-8">
               <div>
                 <div className="text-6xl font-bold text-green-600400 mb-4">
@@ -157,7 +157,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
             {data.research.sources.map((source: any, index: number) => (
               <div 
                 key={index}
-                className="bg-secondary rounded-lg border overflow-hidden transition-all hover:shadow-lg"
+                className="bg-secondary rounded-md border overflow-hidden transition-all hover:shadow-lg"
               >
                 <button
                   onClick={() => toggleSource(index)}
@@ -199,7 +199,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                       </div>
                       
                       {source.geological_context && (
-                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200800">
+                        <div className="bg-amber-50 p-4 rounded-md border border-amber-200800">
                           <h4 className="font-semibold text-secondary mb-2 text-secondary">
                             Geological Context
                           </h4>
@@ -227,7 +227,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                       )}
                       
                       {source.citation && (
-                        <div className="bg-blue-900/20 p-4 rounded-lg border border-blue-200800">
+                        <div className="bg-blue-900/20 p-4 rounded-md border border-blue-200800">
                           <h4 className="font-semibold text-secondary mb-2 text-secondary">
                             Citation
                           </h4>
@@ -276,7 +276,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
             {data.research.geological_variations.map((variation: any, index: number) => (
               <div 
                 key={index}
-                className="bg-secondary rounded-lg border overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-secondary rounded-md border overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
@@ -357,7 +357,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
           <div className="space-y-6">
             {/* Summary */}
             {data.laser_implications.summary && (
-              <div className="bg-yellow-900/20 p-6 rounded-lg border border-yellow-200800">
+              <div className="bg-yellow-900/20 p-6 rounded-md border border-yellow-200800">
                 <div className="flex items-start gap-3">
                   <AlertTriangleIcon className="w-6 h-6 text-yellow-600400 flex-shrink-0 mt-1" />
                   <p className="text-primary">
@@ -373,7 +373,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                 {Object.entries(data.laser_implications.parameter_recommendations).map(([param, details]: any) => (
                   <div 
                     key={param}
-                    className="bg-secondary p-6 rounded-lg border"
+                    className="bg-secondary p-6 rounded-md border"
                   >
                     <h3 className="text-lg text-secondary font-semibold mb-3 capitalize text-secondary">
                       {param.replace(/_/g, ' ')}
@@ -421,7 +421,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                   {Object.entries(data.laser_implications.geological_variation_impact).map(([type, impact]: any) => (
                     <div 
                       key={type}
-                      className="bg-secondary p-4 rounded-lg border"
+                      className="bg-secondary p-4 rounded-md border"
                     >
                       <h4 className="font-semibold mb-2 capitalize text-secondary">
                         {type.replace(/_/g, ' ')}
@@ -468,7 +468,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
         >
           <div className="space-y-6">
             {/* Visual Comparison Bar */}
-            <div className="bg-secondary p-6 rounded-lg border">
+            <div className="bg-secondary p-6 rounded-md border">
               <h3 className="text-lg text-secondary font-semibold mb-4 text-secondary">
                 Density Comparison Chart
               </h3>
@@ -530,7 +530,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                   {data.methodology.quality_gates.map((gate: any, index: number) => (
                     <div 
                       key={index}
-                      className={`p-4 rounded-lg border-2 ${
+                      className={`p-4 rounded-md border-2 ${
                         gate.status === 'passed' 
                           ? 'bg-green-900/20 border-green-500' 
                           : 'bg-red-900/20 border-red-500'
@@ -580,7 +580,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
             {data.faq.map((item: any, index: number) => (
               <div 
                 key={index}
-                className="bg-secondary p-6 rounded-lg border"
+                className="bg-secondary p-6 rounded-md border"
               >
                 <h3 className="text-lg text-secondary font-semibold mb-3 text-secondary">
                   {item.question}
@@ -603,7 +603,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
           horizPadding={true}
           radius={true}
         >
-          <div className="bg-secondary p-6 rounded-lg border">
+          <div className="bg-secondary p-6 rounded-md border">
             <p className="text-secondary mb-6">
               {data.dataset.description}
             </p>
@@ -611,7 +611,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               {data.dataset.formats?.map((format: any, index: number) => (
                 <div 
                   key={index}
-                  className="p-4 bg-tertiary rounded-lg border"
+                  className="p-4 bg-tertiary rounded-md border"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-bold text-lg text-blue-600400">
@@ -658,7 +658,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                     <Link
                       key={index}
                       href={item.url}
-                      className="block p-4 bg-secondary rounded-lg border hover:border-blue-500 transition-colors"
+                      className="block p-4 bg-secondary rounded-md border hover:border-blue-500 transition-colors"
                     >
                       <div className="font-semibold text-blue-600400 mb-1">
                         {item.title}
@@ -682,7 +682,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                     <Link
                       key={index}
                       href={item.url}
-                      className="block p-4 bg-secondary rounded-lg border hover:border-blue-500 transition-colors"
+                      className="block p-4 bg-secondary rounded-md border hover:border-blue-500 transition-colors"
                     >
                       <div className="font-semibold text-blue-600400 mb-1">
                         {item.title}

@@ -1,28 +1,14 @@
 id: ash-laser-cleaning
 name: Ash
+slug: ash
 category: wood
 subcategory: hardwood
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:54.098539Z'
-dateModified: '2025-12-19T01:18:47Z'
+datePublished: '2025-12-19T01:24:55.691316Z'
+dateModified: '2025-12-19T01:24:55.691316Z'
 author:
   id: 4
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: B.Sc.
-  sex: f
-  jobTitle: Technical Writer
-  expertise:
-  - Technical Documentation
-  - Safety Standards
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - B.Sc. Chemical Engineering, University of Indonesia, 2019
-  - Technical writer specializing in industrial safety
 title: Ash Laser Cleaning
 description: Ash's real strength is its outstanding shock resistance and thermal stability, which we've seen enables precise
   laser cleaning to revive fine details in heritage woodwork and instruments without surface charring or structural weakening.
@@ -63,369 +49,332 @@ faq:
     monitoring to avoid that, preserving the wood's flexibility for lasting strength.
   topic_keyword: prone to warping
   topic_statement: Low-power pulses prevent micro-cracks
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+- description: EPA Clean Air Act Compliance
+  image: /images/logo/logo-org-generic.png
+  longName: Unknown Organization
+  name: Unknown
+  url: ''
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    fractureToughness:
+      value: 0.36
+      unit: MPa√m
+      confidence: 95
+      source: ai_research
+    density:
+      value: 670.0
+      unit: kg/m³
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 290.0
+      unit: °C
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 12.8
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 5870.0
+      unit: N
+      confidence: 100
+      source: ai_research
+    compressiveStrength:
+      value: 69.0
+      unit: MPa
+      confidence: 98
+      source: ai_research
+    tensileStrength:
+      value: 115.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 96.5
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.75
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    porosity:
+      value: 0.6
+      unit: fraction
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 24.7
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser-induced damage thresholds of selected wood species for cultural heritage conservation
+      citation: 'Kolar, J. et al., Journal of Cultural Heritage, 2012, DOI: 10.1016/j.culher.2011.12.004'
+      context: Ash wood (Fraxinus excelsior, density 0.65 g/cm³, moisture content 10-12%), room temperature (20°C), 1064 nm
+        Nd:YAG laser, 10 ns pulse duration, measured in air at 1 atm
+      confidence: 95
+      researched_date: '2025-11-24T11:50:30.491359'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.85
+      unit: dimensionless
+      min: 0.7
+      max: 0.95
+      source: ai_research
+    absorptionCoefficient:
+      value: 500000
+      unit: m⁻¹
+      min: 100000
+      max: 1000000
+      source: ai_research
+    laserDamageThreshold:
+      value: 10
+      unit: J/cm²
+      min: 5
+      max: 20
+      source: ai_research
+    thermalShockResistance:
+      value: 1.5
+      unit: MW/m
+      min: 0.5
+      max: 3
+      source: ai_research
+    reflectivity:
+      value: 0.1
+      unit: dimensionless
+      min: 0.05
+      max: 0.2
+      source: ai_research
+    thermalDestructionPoint:
+      value: 550
+      unit: K
+      min: 500
+      max: 600
+      source: ai_research
+    vaporPressure:
+      value: 100
+      unit: Pa
+      min: 10
+      max: 1000
+      source: ai_research
+    thermalDestruction:
+      value: 573.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.082
+      unit: dimensionless (fraction)
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 3.2e-05
+      unit: 1/°C
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 0.15
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 1380.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.82
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 1.4e-07
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 1.15
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser Ablation Thresholds for Different Wood Species in Cultural Heritage Conservation
+      citation: 'Sansonetti, L., et al., Journal of Cultural Heritage, 2013, DOI: 10.1016/j.culher.2012.10.005'
+      context: Ash wood (Fraxinus excelsior, density 0.65 g/cm³, natural moisture content <12%), room temperature (20°C),
+        1064 nm Nd:YAG laser, pulse duration 10 ns, measured under vacuum conditions to simulate controlled cleaning environment
+      confidence: 95
+      researched_date: '2025-11-24T11:50:39.074814'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - EPA Clean Air Act Compliance
+  isBasedOn:
+    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+metadata:
+  regulatory_standards:
+  - EPA Clean Air Act Compliance
 relationships:
   related_contaminants:
   - id: adhesive-residue-contamination
+    slug: adhesive-residue
     title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue-contamination
+    url: /contaminants/adhesive-residue
     image: /images/contaminants/adhesive-residue.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: algae-growth-contamination
+    slug: algae-growth
     title: Algae and Lichen Growth
-    url: /contaminants/algae-growth-contamination
+    url: /contaminants/algae-growth
     image: /images/contaminants/algae-growth.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: lead-paint-contamination
+    slug: lead-paint
     title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint-contamination
+    url: /contaminants/lead-paint
     image: /images/contaminants/lead-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: mold-mildew-contamination
+    slug: mold-mildew
     title: Mold and Mildew Growth
-    url: /contaminants/mold-mildew-contamination
+    url: /contaminants/mold-mildew
     image: /images/contaminants/mold-mildew.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: paint-residue-contamination
+    slug: paint-residue
     title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue-contamination
+    url: /contaminants/paint-residue
     image: /images/contaminants/paint-residue.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: wax-buildup-contamination
+    slug: wax-buildup
     title: Wax Coating Buildup
-    url: /contaminants/wax-buildup-contamination
+    url: /contaminants/wax-buildup
     image: /images/contaminants/wax-buildup.jpg
+    category: organic-residue
+    subcategory: wax
     frequency: common
     severity: moderate
     typical_context: general
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  - image: /images/logo/logo-org-generic.png
-    url: ''
-    authority: Unknown
-    title: EPA Clean Air Act Compliance
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      fractureToughness:
-        value: 0.36
-        unit: MPa√m
-        confidence: 95
-        source: ai_research
-      density:
-        value: 670.0
-        unit: kg/m³
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 290.0
-        unit: °C
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 12.8
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 5870.0
-        unit: N
-        confidence: 100
-        source: ai_research
-      compressiveStrength:
-        value: 69.0
-        unit: MPa
-        confidence: 98
-        source: ai_research
-      tensileStrength:
-        value: 115.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 96.5
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.75
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      porosity:
-        value: 0.6
-        unit: fraction
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 24.7
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser-induced damage thresholds of selected wood species for cultural heritage conservation
-        citation: 'Kolar, J. et al., Journal of Cultural Heritage, 2012, DOI: 10.1016/j.culher.2011.12.004'
-        context: Ash wood (Fraxinus excelsior, density 0.65 g/cm³, moisture content 10-12%), room temperature (20°C), 1064
-          nm Nd:YAG laser, 10 ns pulse duration, measured in air at 1 atm
-        confidence: 95
-        researched_date: '2025-11-24T11:50:30.491359'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.85
-        unit: dimensionless
-        min: 0.7
-        max: 0.95
-        source: ai_research
-      absorptionCoefficient:
-        value: 500000
-        unit: m⁻¹
-        min: 100000
-        max: 1000000
-        source: ai_research
-      laserDamageThreshold:
-        value: 10
-        unit: J/cm²
-        min: 5
-        max: 20
-        source: ai_research
-      thermalShockResistance:
-        value: 1.5
-        unit: MW/m
-        min: 0.5
-        max: 3
-        source: ai_research
-      reflectivity:
-        value: 0.1
-        unit: dimensionless
-        min: 0.05
-        max: 0.2
-        source: ai_research
-      thermalDestructionPoint:
-        value: 550
-        unit: K
-        min: 500
-        max: 600
-        source: ai_research
-      vaporPressure:
-        value: 100
-        unit: Pa
-        min: 10
-        max: 1000
-        source: ai_research
-      thermalDestruction:
-        value: 573.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.082
-        unit: dimensionless (fraction)
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 3.2e-05
-        unit: 1/°C
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 0.15
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 1380.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.82
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 1.4e-07
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 1.15
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser Ablation Thresholds for Different Wood Species in Cultural Heritage Conservation
-        citation: 'Sansonetti, L., et al., Journal of Cultural Heritage, 2013, DOI: 10.1016/j.culher.2012.10.005'
-        context: Ash wood (Fraxinus excelsior, density 0.65 g/cm³, natural moisture content <12%), room temperature (20°C),
-          1064 nm Nd:YAG laser, pulse duration 10 ns, measured under vacuum conditions to simulate controlled cleaning environment
-        confidence: 95
-        researched_date: '2025-11-24T11:50:39.074814'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - EPA Clean Air Act Compliance
-    isBasedOn:
-      name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-  metadata:
-    regulatory_standards:
-    - EPA Clean Air Act Compliance
-  applications:
-  - Cultural Heritage Restoration
-  - Aerospace Component Manufacturing
-  - Musical Instrument Restoration
-  - Marine and Boat Building
-  - Furniture Manufacturing and Refinishing
-  - Sports Equipment Manufacturing
-  - Architectural Woodwork
-  - Tool and Handle Manufacturing
-  - Automotive Interior Restoration
-  - Museum Conservation
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: amorphous crystal structure
-      source: ai_research
-      unit: crystal system
-      value: amorphous
-  voice_enhanced: '2025-11-07T02:01:35.969209+00:00'
-  components:
-    subtitle: Ash offers superior fracture toughness at 0.36 MPa√m and a high laser absorption of 0.82 for controlled material
-      processing
-    description: When laser cleaning Ash, you'll want to account for its high porosity at 0.6 fraction, which allows deeper
-      penetration of laser energy but risks uneven ablation. This hardwood's low thermal conductivity of 0.15 W/m·K slows
-      heat spread, reducing the chance of subsurface damage, yet its thermal destruction temperature sits at 573 K, so you
-      must control energy density to avoid charring. Unlike denser woods, Ash's density of 670 kg/m³ and laser absorption
-      of 0.82 make it responsive at 100 W with 1064 nm wavelength. We recommend a 50 μm spot size, 50 kHz repetition rate,
-      and 5.1 J/cm² density over 2 passes at 500 mm/s scan speed with 50% overlap. Watch for splintering due to its flexural
-      strength of 96.5 MPa under rapid heating.
-    settings_description: When laser cleaning Ash, start with controlled power levels to leverage its strong laser absorption,
-      which removes surface contaminants efficiently without deep penetration. This property works well because Ash's open
-      structure allows heat to spread evenly, restoring wood grain in applications like furniture refinishing or heritage
-      pieces. Make sure you adjust scan speeds slower during initial passes, as the material's moderate density can lead to
-      uneven heating if rushed—watch for charring on porous areas. Reduce overlap ratios to avoid overexposure, revealing
-      clean surfaces while preserving the wood's natural flexibility for further handling.
-    micro:
-      before: Under 1000x magnification, the ash wood surface appears covered in thick, uneven layers of dark grime. Fine
-        particles and debris cling tightly to the rough fibers and fill tiny cracks. This contamination obscures the natural
-        texture completely.
-      after: After laser treatment at 1000x magnification, the ash wood surface reveals smooth, exposed fibers without any
-        residue. Clean lines emerge where grime once hid, restoring the material's original evenness. The treatment uncovers
-        a uniform, detailed structure.
-  contamination:
-    valid:
-    - wood_rot
-    - environmental_dust
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: Ash's real strength is its outstanding shock resistance and thermal stability, which we've seen enables
-    precise laser cleaning to revive fine details in...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Cultural Heritage Restoration
+- Aerospace Component Manufacturing
+- Musical Instrument Restoration
+- Marine and Boat Building
+- Furniture Manufacturing and Refinishing
+- Sports Equipment Manufacturing
+- Architectural Woodwork
+- Tool and Handle Manufacturing
+- Automotive Interior Restoration
+- Museum Conservation
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
+voice_enhanced: '2025-11-07T02:01:35.969209+00:00'
+components:
+  subtitle: Ash offers superior fracture toughness at 0.36 MPa√m and a high laser absorption of 0.82 for controlled material
+    processing
+  description: When laser cleaning Ash, you'll want to account for its high porosity at 0.6 fraction, which allows deeper
+    penetration of laser energy but risks uneven ablation. This hardwood's low thermal conductivity of 0.15 W/m·K slows heat
+    spread, reducing the chance of subsurface damage, yet its thermal destruction temperature sits at 573 K, so you must control
+    energy density to avoid charring. Unlike denser woods, Ash's density of 670 kg/m³ and laser absorption of 0.82 make it
+    responsive at 100 W with 1064 nm wavelength. We recommend a 50 μm spot size, 50 kHz repetition rate, and 5.1 J/cm² density
+    over 2 passes at 500 mm/s scan speed with 50% overlap. Watch for splintering due to its flexural strength of 96.5 MPa
+    under rapid heating.
+  settings_description: When laser cleaning Ash, start with controlled power levels to leverage its strong laser absorption,
+    which removes surface contaminants efficiently without deep penetration. This property works well because Ash's open structure
+    allows heat to spread evenly, restoring wood grain in applications like furniture refinishing or heritage pieces. Make
+    sure you adjust scan speeds slower during initial passes, as the material's moderate density can lead to uneven heating
+    if rushed—watch for charring on porous areas. Reduce overlap ratios to avoid overexposure, revealing clean surfaces while
+    preserving the wood's natural flexibility for further handling.
+  micro:
+    before: Under 1000x magnification, the ash wood surface appears covered in thick, uneven layers of dark grime. Fine particles
+      and debris cling tightly to the rough fibers and fill tiny cracks. This contamination obscures the natural texture completely.
+    after: After laser treatment at 1000x magnification, the ash wood surface reveals smooth, exposed fibers without any residue.
+      Clean lines emerge where grime once hid, restoring the material's original evenness. The treatment uncovers a uniform,
+      detailed structure.
+contamination:
+  valid:
+  - wood_rot
+  - environmental_dust
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - uv_chalking
+  conditional: {}
+seo_description: Ash's real strength is its outstanding shock resistance and thermal stability, which we've seen enables precise
+  laser cleaning to revive fine details in...

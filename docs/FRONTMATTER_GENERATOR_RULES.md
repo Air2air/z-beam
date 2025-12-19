@@ -6,6 +6,15 @@
 
 ---
 
+## 📋 **Related Documentation**
+
+- **Legal**: [Dataset Usage Terms](DATASET_USAGE_TERMS.md) - Legal disclaimers and liability limitations
+- **Implementation**: [Legal Disclaimer Implementation](../LEGAL_DISCLAIMER_IMPLEMENTATION.md) - How disclaimers were added
+- **Format Specs**: [Contaminant Dataset Format](../CONTAMINANT_DATASET_FORMAT_SPECIFICATION.md) - Dataset structure with legal requirements
+- **Tests**: `tests/datasets/legal-disclaimers.test.ts` - Automated disclaimer verification
+
+---
+
 ## 🚨 **CRITICAL: Content Type Field Rules**
 
 ### **✅ CORRECT Structure**
@@ -393,6 +402,44 @@ micro:
 
 ---
 
+## 🔒 **Legal Requirements for Dataset Generation**
+
+### **Mandatory Legal Disclaimers**
+
+**Effective**: December 15, 2025 - All dataset files MUST include legal disclaimers.
+
+All generated dataset files (JSON, CSV, TXT) must include:
+
+1. **Disclaimer of Warranty** - "Provided for informational purposes only, without warranties"
+2. **Limitation of Liability** - "Z-Beam assumes no liability for damages"
+3. **Professional Consultation Requirement** - Must reference ANSI Z136, IEC 60825, OSHA
+4. **Use at Own Risk** - Clear statement of user responsibility
+
+### **Implementation**
+
+Legal disclaimers are automatically added by:
+- **Script**: `scripts/datasets/add-legal-disclaimers.js`
+- **NPM Command**: `npm run datasets:add-disclaimers`
+- **Auto-run**: After dataset generation (TODO: integrate into generation scripts)
+
+### **Verification**
+
+Tests verify disclaimer presence:
+- **Test File**: `tests/datasets/legal-disclaimers.test.ts`
+- **Run Tests**: `npm test tests/datasets/legal-disclaimers.test.ts`
+- **Coverage**: 100% of dataset files (1,098 files)
+
+### **Documentation**
+
+Complete legal terms documented in:
+- **User Terms**: `docs/DATASET_USAGE_TERMS.md`
+- **Implementation**: `LEGAL_DISCLAIMER_IMPLEMENTATION.md`
+- **Format Specs**: Updated dataset format specifications
+
+**⚠️ IMPORTANT**: Any new dataset generation code must include these disclaimers or run the disclaimer script after generation.
+
+---
+
 ## ✅ **Success Criteria**
 
 Your generated frontmatter passes if:
@@ -403,6 +450,7 @@ Your generated frontmatter passes if:
 4. ✅ Settings do NOT have `micro` section
 5. ✅ All micro descriptions are 75-100 words and technically accurate
 6. ✅ No placeholder text like "TBD", "pending", or empty strings
+7. ✅ **Generated datasets include legal disclaimers** (if generating datasets)
 
 ---
 

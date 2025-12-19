@@ -1,28 +1,14 @@
 id: steel-laser-cleaning
 name: Steel
+slug: steel
 category: metal
 subcategory: ferrous
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:56.941176Z'
-dateModified: '2025-12-19T01:18:55Z'
+datePublished: '2025-12-19T01:24:57.962502Z'
+dateModified: '2025-12-19T01:24:57.962502Z'
 author:
   id: 2
-  name: Todd Dunning
-  country: USA
-  country_display: United States
-  title: Founder
-  sex: m
-  jobTitle: Laser Safety Expert
-  expertise:
-  - Laser Safety
-  - Industrial Applications
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - Founder of Z-Beam laser cleaning solutions
-  - 15+ years in industrial laser applications
 title: Steel Laser Cleaning
 description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the substrate
   during contaminant removal, which leads to efficient restoration without structural compromise. This durability, it sets
@@ -62,861 +48,979 @@ faq:
     \ almost new. For steel, a power range of 100 W does the job nicely, especially on thinner sheets. It brings back that\
     \ shiny surface fast, and no chemicals needed. Though thicker pieces might take a pass or two, results stay consistent.\
     \ I've seen it fix old tools in minutes—practical and effective."
+regulatory_standards:
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/en/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    density:
+      value: 7.85
+      unit: g/cm³
+      confidence: 98
+      min: 0.53
+      max: 22.6
+    porosity:
+      value: 0.1
+      unit: '%'
+      confidence: 94
+      min: 0.0
+      max: 15.0
+    surfaceRoughness:
+      value: 1.6
+      unit: μm Ra
+      confidence: 89
+      min: 0.4
+      max: 150
+    tensileStrength:
+      value: 400.0
+      unit: MPa
+      confidence: 93
+      min: 3.0
+      max: 3000.0
+    youngsModulus:
+      value: 200.0
+      unit: GPa
+      confidence: 96
+      min: 5
+      max: 600
+    hardness:
+      value: 1.47
+      unit: GPa
+      confidence: 91
+      min: 0.5
+      max: 3500
+    flexuralStrength:
+      value: 350
+      unit: MPa
+      confidence: 87
+      min: 2.5
+      max: 1050.0
+    oxidationResistance:
+      value: 8
+      unit: scale (1-10)
+      confidence: 85
+      min: 200
+      max: 1200
+    corrosionResistance:
+      value: 6
+      unit: scale (1-10)
+      confidence: 90
+      min: 1
+      max: 10
+    compressiveStrength:
+      value: 250.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    fractureToughness:
+      value: 60.0
+      unit: MPa m^{1/2}
+      confidence: 95
+      source: ai_research
+    electricalResistivity:
+      value: 1.7e-07
+      unit: Ω·m
+      confidence: 95
+      source: ai_research
+    boilingPoint:
+      value: 3134.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    electricalConductivity:
+      value: 6700000.0
+      unit: S/m
+      confidence: 95
+      source: ai_research
+    meltingPoint:
+      value: 1723.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    percentage: 60.0
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    thermalConductivity:
+      value: 50.0
+      unit: W/(m·K)
+      confidence: 92
+      min: 7.0
+      max: 430
+    thermalExpansion:
+      value: 12
+      unit: ×10^{-6}/K
+      confidence: 90
+      min: 0.5
+      max: 33
+    thermalDiffusivity:
+      value: 1.4
+      unit: ×10^{-5} m²/s
+      confidence: 88
+      min: 0.06
+      max: 174
+    specificHeat:
+      value: 486.0
+      unit: J/(kg·K)
+      confidence: 94
+      min: 100
+      max: 2000
+    thermalShockResistance:
+      value: 250
+      unit: W/m
+      confidence: 85
+      min: 50
+      max: 400
+    laserReflectivity:
+      value: 0.4
+      unit: dimensionless (at 1064 nm)
+      confidence: 90
+      min: 5
+      max: 99.9
+    absorptionCoefficient:
+      value: 0.6
+      unit: dimensionless (at 1064 nm)
+      confidence: 89
+      min: 100000
+      max: 50000000
+    ablationThreshold:
+      value: 1.5
+      unit: J/cm²
+      confidence: 86
+      min: 2.0
+      max: 8.0
+    laserDamageThreshold:
+      value: 2.0
+      unit: J/cm²
+      confidence: 88
+      min: 0.1
+      max: 20.0
+    percentage: 40.0
+    thermalDestruction:
+      value: 1773.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.35
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    absorptivity:
+      value: 0.35
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    vaporPressure:
+      value: 10.0
+      unit: Pa
+      confidence: 95
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1773.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    reflectivity:
+      value: 0.59
+      unit: ''
+      confidence: 95
+      source: ai_research
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  isBasedOn:
+    name: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+metadata:
+  last_updated: '2025-10-27T23:48:40.922778Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922783Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants:
   - id: adhesive-residue-contamination
+    slug: adhesive-residue
     title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue-contamination
+    url: /contaminants/adhesive-residue
     image: /images/contaminants/adhesive-residue.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: algae-growth-contamination
+    slug: algae-growth
     title: Algae and Lichen Growth
-    url: /contaminants/algae-growth-contamination
+    url: /contaminants/algae-growth
     image: /images/contaminants/algae-growth.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: annealing-scale-contamination
+    slug: annealing-scale
     title: Heat Treatment Scale
-    url: /contaminants/annealing-scale-contamination
+    url: /contaminants/annealing-scale
     image: /images/contaminants/annealing-scale.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: anti-seize-contamination
+    slug: anti-seize
     title: Anti-Seize Compound
-    url: /contaminants/anti-seize-contamination
+    url: /contaminants/anti-seize
     image: /images/contaminants/anti-seize.jpg
+    category: organic-residue
+    subcategory: lubricant
     frequency: common
     severity: moderate
     typical_context: general
   - id: battery-corrosion-contamination
+    slug: battery-corrosion
     title: Battery Leakage Corrosion
-    url: /contaminants/battery-corrosion-contamination
+    url: /contaminants/battery-corrosion
     image: /images/contaminants/battery-corrosion.jpg
+    category: oxidation
+    subcategory: battery
     frequency: common
     severity: moderate
     typical_context: general
   - id: beryllium-oxide-contamination
+    slug: beryllium-oxide
     title: Beryllium Oxide Contamination
-    url: /contaminants/beryllium-oxide-contamination
+    url: /contaminants/beryllium-oxide
     image: /images/contaminants/beryllium-oxide.jpg
+    category: chemical-residue
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: biological-stains-contamination
+    slug: biological-stains
     title: Organic Biofilm Deposits
-    url: /contaminants/biological-stains-contamination
+    url: /contaminants/biological-stains
     image: /images/contaminants/biological-stains.jpg
+    category: biological
+    subcategory: deposit
     frequency: common
     severity: moderate
     typical_context: general
   - id: bitumen-tar-contamination
+    slug: bitumen-tar
     title: Bitumen and Tar Coatings
-    url: /contaminants/bitumen-tar-contamination
+    url: /contaminants/bitumen-tar
     image: /images/contaminants/bitumen-tar.jpg
+    category: organic-residue
+    subcategory: petroleum
     frequency: common
     severity: moderate
     typical_context: general
   - id: brake-dust-contamination
+    slug: brake-dust
     title: Brake Pad Dust Deposits
-    url: /contaminants/brake-dust-contamination
+    url: /contaminants/brake-dust
     image: /images/contaminants/brake-dust.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: brass-plating-contamination
+    slug: brass-plating
     title: Brass Coating Removal
-    url: /contaminants/brass-plating-contamination
+    url: /contaminants/brass-plating
     image: /images/contaminants/brass-plating.jpg
+    category: metallic-coating
+    subcategory: plating
     frequency: common
     severity: moderate
     typical_context: general
   - id: cadmium-plating-contamination
+    slug: cadmium-plating
     title: Cadmium Plating Removal
-    url: /contaminants/cadmium-plating-contamination
+    url: /contaminants/cadmium-plating
     image: /images/contaminants/cadmium-plating.jpg
+    category: metallic-coating
+    subcategory: plating
     frequency: common
     severity: moderate
     typical_context: general
   - id: carbon-buildup-contamination
+    slug: carbon-buildup
     title: Carbon Deposit Buildup
-    url: /contaminants/carbon-buildup-contamination
+    url: /contaminants/carbon-buildup
     image: /images/contaminants/carbon-buildup.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: carbon-soot-contamination
+    slug: carbon-soot
     title: Carbon Soot Deposits
-    url: /contaminants/carbon-soot-contamination
+    url: /contaminants/carbon-soot
     image: /images/contaminants/carbon-soot.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: ceramic-coating-contamination
+    slug: ceramic-coating
     title: Ceramic Heat Barrier Coating
-    url: /contaminants/ceramic-coating-contamination
+    url: /contaminants/ceramic-coating
     image: /images/contaminants/ceramic-coating.jpg
+    category: inorganic-coating
+    subcategory: ceramic
     frequency: common
     severity: moderate
     typical_context: general
   - id: chemical-stains-contamination
+    slug: chemical-stains
     title: Chemical Stains / Acid Etching
-    url: /contaminants/chemical-stains-contamination
+    url: /contaminants/chemical-stains
     image: /images/contaminants/chemical-stains.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: concrete-dust-contamination
+    slug: concrete-dust
     title: Concrete Dust Deposits
-    url: /contaminants/concrete-dust-contamination
+    url: /contaminants/concrete-dust
     image: /images/contaminants/concrete-dust.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: conversion-coating-contamination
+    slug: conversion-coating
     title: Chemical Conversion Coating
-    url: /contaminants/conversion-coating-contamination
+    url: /contaminants/conversion-coating
     image: /images/contaminants/conversion-coating.jpg
+    category: inorganic-coating
+    subcategory: coating
     frequency: common
     severity: moderate
     typical_context: general
   - id: copper-plating-contamination
+    slug: copper-plating
     title: Copper Electroplating
-    url: /contaminants/copper-plating-contamination
+    url: /contaminants/copper-plating
     image: /images/contaminants/copper-plating.jpg
+    category: metallic-coating
+    subcategory: plating
     frequency: common
     severity: moderate
     typical_context: general
   - id: corrosion-inhibitor-contamination
+    slug: corrosion-inhibitor
     title: Corrosion Inhibitor Coating
-    url: /contaminants/corrosion-inhibitor-contamination
+    url: /contaminants/corrosion-inhibitor
     image: /images/contaminants/corrosion-inhibitor.jpg
+    category: inorganic-coating
+    subcategory: coating
     frequency: common
     severity: moderate
     typical_context: general
   - id: cutting-fluid-contamination
+    slug: cutting-fluid
     title: Machining Coolant Residue
-    url: /contaminants/cutting-fluid-contamination
+    url: /contaminants/cutting-fluid
     image: /images/contaminants/cutting-fluid.jpg
+    category: organic-residue
+    subcategory: lubricant
     frequency: common
     severity: moderate
     typical_context: general
   - id: diamond-coating-contamination
+    slug: diamond-coating
     title: Diamond-Like Carbon Removal
-    url: /contaminants/diamond-coating-contamination
+    url: /contaminants/diamond-coating
     image: /images/contaminants/diamond-coating.jpg
+    category: inorganic-coating
+    subcategory: coating
     frequency: common
     severity: moderate
     typical_context: general
   - id: electroplating-residue-contamination
+    slug: electroplating-residue
     title: Electroplating Solution Residue
-    url: /contaminants/electroplating-residue-contamination
+    url: /contaminants/electroplating-residue
     image: /images/contaminants/electroplating-residue.jpg
+    category: metallic-coating
+    subcategory: plating
     frequency: common
     severity: moderate
     typical_context: general
   - id: epoxy-residue-contamination
+    slug: epoxy-residue
     title: Epoxy Resin Deposits
-    url: /contaminants/epoxy-residue-contamination
+    url: /contaminants/epoxy-residue
     image: /images/contaminants/epoxy-residue.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: exhaust-residue-contamination
+    slug: exhaust-residue
     title: Exhaust System Deposits
-    url: /contaminants/exhaust-residue-contamination
+    url: /contaminants/exhaust-residue
     image: /images/contaminants/exhaust-residue.jpg
+    category: thermal-damage
+    subcategory: fire
     frequency: common
     severity: moderate
     typical_context: general
   - id: fertilizer-residue-contamination
+    slug: fertilizer-residue
     title: Fertilizer Salt Deposits
-    url: /contaminants/fertilizer-residue-contamination
+    url: /contaminants/fertilizer-residue
     image: /images/contaminants/fertilizer-residue.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: fire-damage-contamination
+    slug: fire-damage
     title: Fire and Smoke Damage
-    url: /contaminants/fire-damage-contamination
+    url: /contaminants/fire-damage
     image: /images/contaminants/fire-damage.jpg
+    category: thermal-damage
+    subcategory: fire
     frequency: common
     severity: moderate
     typical_context: general
   - id: forging-scale-contamination
+    slug: forging-scale
     title: Forging Mill Scale
-    url: /contaminants/forging-scale-contamination
+    url: /contaminants/forging-scale
     image: /images/contaminants/forging-scale.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: fuel-varnish-contamination
+    slug: fuel-varnish
     title: Fuel System Varnish
-    url: /contaminants/fuel-varnish-contamination
+    url: /contaminants/fuel-varnish
     image: /images/contaminants/fuel-varnish.jpg
+    category: organic-residue
+    subcategory: petroleum
     frequency: common
     severity: moderate
     typical_context: general
   - id: gasket-material-contamination
+    slug: gasket-material
     title: Gasket Material Residue
-    url: /contaminants/gasket-material-contamination
+    url: /contaminants/gasket-material
     image: /images/contaminants/gasket-material.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: graffiti-paint-contamination
+    slug: graffiti-paint
     title: Graffiti and Spray Paint
-    url: /contaminants/graffiti-paint-contamination
+    url: /contaminants/graffiti-paint
     image: /images/contaminants/graffiti-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: graphite-marks-contamination
+    slug: graphite-marks
     title: Graphite Deposit Traces
-    url: /contaminants/graphite-marks-contamination
+    url: /contaminants/graphite-marks
     image: /images/contaminants/graphite-marks.jpg
+    category: organic-residue
+    subcategory: marking
     frequency: common
     severity: moderate
     typical_context: general
   - id: grease-deposits-contamination
+    slug: grease-deposits
     title: Heavy Machinery Grease
-    url: /contaminants/grease-deposits-contamination
+    url: /contaminants/grease-deposits
     image: /images/contaminants/grease-deposits.jpg
+    category: organic-residue
+    subcategory: petroleum
     frequency: common
     severity: moderate
     typical_context: general
   - id: hydraulic-fluid-contamination
+    slug: hydraulic-fluid
     title: Hydraulic Fluid Contamination
-    url: /contaminants/hydraulic-fluid-contamination
+    url: /contaminants/hydraulic-fluid
     image: /images/contaminants/hydraulic-fluid.jpg
+    category: organic-residue
+    subcategory: petroleum
     frequency: common
     severity: moderate
     typical_context: general
   - id: ink-stains-contamination
+    slug: ink-stains
     title: Printing Ink Residue
-    url: /contaminants/ink-stains-contamination
+    url: /contaminants/ink-stains
     image: /images/contaminants/ink-stains.jpg
+    category: organic-residue
+    subcategory: marking
     frequency: common
     severity: moderate
     typical_context: general
   - id: insect-residue-contamination
+    slug: insect-residue
     title: Insect Impact Residue
-    url: /contaminants/insect-residue-contamination
+    url: /contaminants/insect-residue
     image: /images/contaminants/insect-residue.jpg
+    category: biological
+    subcategory: deposit
     frequency: common
     severity: moderate
     typical_context: general
   - id: laser-marking-contamination
+    slug: laser-marking
     title: Laser Marking Discoloration
-    url: /contaminants/laser-marking-contamination
+    url: /contaminants/laser-marking
     image: /images/contaminants/laser-marking.jpg
+    category: organic-residue
+    subcategory: marking
     frequency: common
     severity: moderate
     typical_context: general
   - id: lead-paint-contamination
+    slug: lead-paint
     title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint-contamination
+    url: /contaminants/lead-paint
     image: /images/contaminants/lead-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: lime-scale-contamination
+    slug: lime-scale
     title: Limescale Deposits
-    url: /contaminants/lime-scale-contamination
+    url: /contaminants/lime-scale
     image: /images/contaminants/lime-scale.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: mercury-contamination
+    slug: mercury
     title: Mercury Spill Residue
-    url: /contaminants/mercury-contamination
+    url: /contaminants/mercury
     image: /images/contaminants/mercury.jpg
+    category: chemical-residue
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: metal-polish-contamination
+    slug: metal-polish
     title: Metal Polish Residue
-    url: /contaminants/metal-polish-contamination
+    url: /contaminants/metal-polish
     image: /images/contaminants/metal-polish.jpg
+    category: organic-residue
+    subcategory: wax
     frequency: common
     severity: moderate
     typical_context: general
   - id: mineral-deposits-contamination
+    slug: mineral-deposits
     title: Hard Water Mineral Scale
-    url: /contaminants/mineral-deposits-contamination
+    url: /contaminants/mineral-deposits
     image: /images/contaminants/mineral-deposits.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: nickel-plating-contamination
+    slug: nickel-plating
     title: Electroless Nickel Plating
-    url: /contaminants/nickel-plating-contamination
+    url: /contaminants/nickel-plating
     image: /images/contaminants/nickel-plating.jpg
+    category: metallic-coating
+    subcategory: plating
     frequency: common
     severity: moderate
     typical_context: general
   - id: paint-residue-contamination
+    slug: paint-residue
     title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue-contamination
+    url: /contaminants/paint-residue
     image: /images/contaminants/paint-residue.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: pcb-contamination
+    slug: pcb
     title: PCB Oil Contamination
-    url: /contaminants/pcb-contamination
+    url: /contaminants/pcb
     image: /images/contaminants/pcb.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: pesticide-residue-contamination
+    slug: pesticide-residue
     title: Pesticide Chemical Residue
-    url: /contaminants/pesticide-residue-contamination
+    url: /contaminants/pesticide-residue
     image: /images/contaminants/pesticide-residue.jpg
+    category: chemical-residue
+    subcategory: industrial
     frequency: common
     severity: moderate
     typical_context: general
   - id: pickling-residue-contamination
+    slug: pickling-residue
     title: Acid Pickling Stains
-    url: /contaminants/pickling-residue-contamination
+    url: /contaminants/pickling-residue
     image: /images/contaminants/pickling-residue.jpg
+    category: inorganic-coating
+    subcategory: coating
     frequency: common
     severity: moderate
     typical_context: general
   - id: plasma-spray-contamination
+    slug: plasma-spray
     title: Thermal Spray Coating
-    url: /contaminants/plasma-spray-contamination
+    url: /contaminants/plasma-spray
     image: /images/contaminants/plasma-spray.jpg
+    category: thermal-damage
+    subcategory: coating
     frequency: common
     severity: moderate
     typical_context: general
   - id: plastic-residue-contamination
+    slug: plastic-residue
     title: Degraded Polymer Deposits
-    url: /contaminants/plastic-residue-contamination
+    url: /contaminants/plastic-residue
     image: /images/contaminants/plastic-residue.jpg
+    category: organic-residue
+    subcategory: polymer
     frequency: common
     severity: moderate
     typical_context: general
   - id: pollen-deposit-contamination
+    slug: pollen-deposit
     title: Pollen Accumulation
-    url: /contaminants/pollen-deposit-contamination
+    url: /contaminants/pollen-deposit
     image: /images/contaminants/pollen-deposit.jpg
+    category: biological
+    subcategory: deposit
     frequency: common
     severity: moderate
     typical_context: general
   - id: powder-coating-contamination
+    slug: powder-coating
     title: Powder Coating Buildup
-    url: /contaminants/powder-coating-contamination
+    url: /contaminants/powder-coating
     image: /images/contaminants/powder-coating.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: primer-coating-contamination
+    slug: primer-coating
     title: Paint Primer Layers
-    url: /contaminants/primer-coating-contamination
+    url: /contaminants/primer-coating
     image: /images/contaminants/primer-coating.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: quench-oil-contamination
+    slug: quench-oil
     title: Quenching Oil Residue
-    url: /contaminants/quench-oil-contamination
+    url: /contaminants/quench-oil
     image: /images/contaminants/quench-oil.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: radioactive-contamination
+    slug: radioactive
     title: Surface Radioactive Contamination
-    url: /contaminants/radioactive-contamination
+    url: /contaminants/radioactive
     image: /images/contaminants/radioactive.jpg
+    category: chemical-residue
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: road-grime-contamination
+    slug: road-grime
     title: Automotive Road Grime
-    url: /contaminants/road-grime-contamination
+    url: /contaminants/road-grime
     image: /images/contaminants/road-grime.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: rubber-residue-contamination
+    slug: rubber-residue
     title: Rubber Compound Residue
-    url: /contaminants/rubber-residue-contamination
+    url: /contaminants/rubber-residue
     image: /images/contaminants/rubber-residue.jpg
+    category: organic-residue
+    subcategory: polymer
     frequency: common
     severity: moderate
     typical_context: general
   - id: rust-oxidation-contamination
+    slug: rust-oxidation
     title: Rust / Iron Oxide Formation
-    url: /contaminants/rust-oxidation-contamination
+    url: /contaminants/rust-oxidation
     image: /images/contaminants/rust-oxidation.jpg
+    category: oxidation
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: salt-residue-contamination
+    slug: salt-residue
     title: Salt and Chloride Deposits
-    url: /contaminants/salt-residue-contamination
+    url: /contaminants/salt-residue
     image: /images/contaminants/salt-residue.jpg
+    category: inorganic-coating
+    subcategory: mineral
     frequency: common
     severity: moderate
     typical_context: general
   - id: scale-buildup-contamination
+    slug: scale-buildup
     title: Mineral Scale / Hard Water Deposits
-    url: /contaminants/scale-buildup-contamination
+    url: /contaminants/scale-buildup
     image: /images/contaminants/scale-buildup.jpg
+    category: thermal-damage
+    subcategory: scale
     frequency: common
     severity: moderate
     typical_context: general
   - id: silicone-buildup-contamination
+    slug: silicone-buildup
     title: Silicone Sealant Buildup
-    url: /contaminants/silicone-buildup-contamination
+    url: /contaminants/silicone-buildup
     image: /images/contaminants/silicone-buildup.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: steel-corrosion-contamination
+    slug: steel-corrosion
     title: Steel Surface Corrosion
-    url: /contaminants/steel-corrosion-contamination
+    url: /contaminants/steel-corrosion
     image: /images/contaminants/steel-corrosion.jpg
+    category: oxidation
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: teflon-residue-contamination
+    slug: teflon-residue
     title: PTFE Coating Residue
-    url: /contaminants/teflon-residue-contamination
+    url: /contaminants/teflon-residue
     image: /images/contaminants/teflon-residue.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: thread-locker-contamination
+    slug: thread-locker
     title: Threadlocker Adhesive
-    url: /contaminants/thread-locker-contamination
+    url: /contaminants/thread-locker
     image: /images/contaminants/thread-locker.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: tin-plating-contamination
+    slug: tin-plating
     title: Tin Plating Residue
-    url: /contaminants/tin-plating-contamination
+    url: /contaminants/tin-plating
     image: /images/contaminants/tin-plating.jpg
+    category: metallic-coating
+    subcategory: plating
     frequency: common
     severity: moderate
     typical_context: general
   - id: tree-sap-contamination
+    slug: tree-sap
     title: Tree Sap and Resin
-    url: /contaminants/tree-sap-contamination
+    url: /contaminants/tree-sap
     image: /images/contaminants/tree-sap.jpg
+    category: organic-residue
+    subcategory: natural
     frequency: common
     severity: moderate
     typical_context: general
   - id: undercoating-contamination
+    slug: undercoating
     title: Automotive Undercoating
-    url: /contaminants/undercoating-contamination
+    url: /contaminants/undercoating
     image: /images/contaminants/undercoating.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: uranium-oxide-contamination
+    slug: uranium-oxide
     title: Depleted Uranium Oxide
-    url: /contaminants/uranium-oxide-contamination
+    url: /contaminants/uranium-oxide
     image: /images/contaminants/uranium-oxide.jpg
+    category: chemical-residue
+    subcategory: hazardous
     frequency: common
     severity: moderate
     typical_context: general
   - id: water-stain-contamination
+    slug: water-stain
     title: Water Staining and Marks
-    url: /contaminants/water-stain-contamination
+    url: /contaminants/water-stain
     image: /images/contaminants/water-stain.jpg
+    category: organic-residue
+    subcategory: other
     frequency: common
     severity: moderate
     typical_context: general
   - id: wax-buildup-contamination
+    slug: wax-buildup
     title: Wax Coating Buildup
-    url: /contaminants/wax-buildup-contamination
+    url: /contaminants/wax-buildup
     image: /images/contaminants/wax-buildup.jpg
+    category: organic-residue
+    subcategory: wax
     frequency: common
     severity: moderate
     typical_context: general
   - id: zinc-plating-contamination
+    slug: zinc-plating
     title: Zinc Electroplating
-    url: /contaminants/zinc-plating-contamination
+    url: /contaminants/zinc-plating
     image: /images/contaminants/zinc-plating.jpg
+    category: metallic-coating
+    subcategory: plating
     frequency: common
     severity: moderate
     typical_context: general
   regulatory_standards:
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/en/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      density:
-        value: 7.85
-        unit: g/cm³
-        confidence: 98
-        min: 0.53
-        max: 22.6
-      porosity:
-        value: 0.1
-        unit: '%'
-        confidence: 94
-        min: 0.0
-        max: 15.0
-      surfaceRoughness:
-        value: 1.6
-        unit: μm Ra
-        confidence: 89
-        min: 0.4
-        max: 150
-      tensileStrength:
-        value: 400.0
-        unit: MPa
-        confidence: 93
-        min: 3.0
-        max: 3000.0
-      youngsModulus:
-        value: 200.0
-        unit: GPa
-        confidence: 96
-        min: 5
-        max: 600
-      hardness:
-        value: 1.47
-        unit: GPa
-        confidence: 91
-        min: 0.5
-        max: 3500
-      flexuralStrength:
-        value: 350
-        unit: MPa
-        confidence: 87
-        min: 2.5
-        max: 1050.0
-      oxidationResistance:
-        value: 8
-        unit: scale (1-10)
-        confidence: 85
-        min: 200
-        max: 1200
-      corrosionResistance:
-        value: 6
-        unit: scale (1-10)
-        confidence: 90
-        min: 1
-        max: 10
-      compressiveStrength:
-        value: 250.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      fractureToughness:
-        value: 60.0
-        unit: MPa m^{1/2}
-        confidence: 95
-        source: ai_research
-      electricalResistivity:
-        value: 1.7e-07
-        unit: Ω·m
-        confidence: 95
-        source: ai_research
-      boilingPoint:
-        value: 3134.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      electricalConductivity:
-        value: 6700000.0
-        unit: S/m
-        confidence: 95
-        source: ai_research
-      meltingPoint:
-        value: 1723.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      percentage: 60.0
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      thermalConductivity:
-        value: 50.0
-        unit: W/(m·K)
-        confidence: 92
-        min: 7.0
-        max: 430
-      thermalExpansion:
-        value: 12
-        unit: ×10^{-6}/K
-        confidence: 90
-        min: 0.5
-        max: 33
-      thermalDiffusivity:
-        value: 1.4
-        unit: ×10^{-5} m²/s
-        confidence: 88
-        min: 0.06
-        max: 174
-      specificHeat:
-        value: 486.0
-        unit: J/(kg·K)
-        confidence: 94
-        min: 100
-        max: 2000
-      thermalShockResistance:
-        value: 250
-        unit: W/m
-        confidence: 85
-        min: 50
-        max: 400
-      laserReflectivity:
-        value: 0.4
-        unit: dimensionless (at 1064 nm)
-        confidence: 90
-        min: 5
-        max: 99.9
-      absorptionCoefficient:
-        value: 0.6
-        unit: dimensionless (at 1064 nm)
-        confidence: 89
-        min: 100000
-        max: 50000000
-      ablationThreshold:
-        value: 1.5
-        unit: J/cm²
-        confidence: 86
-        min: 2.0
-        max: 8.0
-      laserDamageThreshold:
-        value: 2.0
-        unit: J/cm²
-        confidence: 88
-        min: 0.1
-        max: 20.0
-      percentage: 40.0
-      thermalDestruction:
-        value: 1773.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.35
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      absorptivity:
-        value: 0.35
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      vaporPressure:
-        value: 10.0
-        unit: Pa
-        confidence: 95
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1773.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      reflectivity:
-        value: 0.59
-        unit: ''
-        confidence: 95
-        source: ai_research
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - ANSI Z136.1 - Safe Use of Lasers
-    isBasedOn:
-      name: ANSI Z136.1 - Safe Use of Lasers
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922778Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922783Z'
-    structure_version: '2.0'
-  applications:
-  - Automotive
-  - Construction
-  - Manufacturing
-  - Oil & Gas
-  - Rail Transport
-  - Shipbuilding
-  voice_enhanced: '2025-11-07T04:15:22.161935+00:00'
-  characteristics:
-    density:
-      source: scientific_literature
-      source_type: ''
-      source_name: C
-      citation: ''
-      context: ''
-      confidence: 90
-      researched_date: '2025-11-07T12:51:49.748913'
-      needs_validation: true
-      value: '7.874'
-    thermal_conductivity:
-      source: ai_research
-      needs_research: true
-      researched_date: '2025-11-07T12:53:29.099045'
-    laser_absorption:
-      source: ai_research
-      needs_research: true
-      researched_date: '2025-11-07T12:57:43.066850'
-  components:
-    micro:
-      before: At 1000x magnification, the steel surface before laser cleaning shows heavy rust buildup and scattered debris.
-        Irregular pits and cracks mar the underlying metal layers. Contaminants cling tightly, creating a rough and uneven
-        texture overall.
-      after: After laser treatment, the same surface reveals a smooth and bare metal finish. The process removes all rust
-        and debris completely. Fresh steel exposes a uniform and reflective appearance without any remnants.
-    subtitle: Steel maintains structural integrity under extreme loads, with its high tensile strength making it the dominant
-      material for construction and heavy machinery
-    description: 'When laser cleaning steel, you must first address its moderate reflectivity of 0.59, which can scatter up
-      to 59% of the laser energy and reduce cleaning efficiency if not managed properly. This property stems from steel''s
-      ferrous composition and polished surfaces often found in applications like automotive or construction parts, so make
-      sure you select a 1064 nm wavelength to optimize absorption at around 0.35 and avoid excessive heat buildup that might
-      warp thin sections. Start with a power range of 100 W and pulse widths of 10 ns to deliver controlled energy density
-      of 5 J/cm², which removes surface contaminants like rust or scale without penetrating the base material''s high tensile
-      strength of 400 MPa.
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+  - type: regulatory_standards
+    id: ce-machinery-directive
+applications:
+- Automotive
+- Construction
+- Manufacturing
+- Oil & Gas
+- Rail Transport
+- Shipbuilding
+voice_enhanced: '2025-11-07T04:15:22.161935+00:00'
+characteristics:
+  density:
+    source: scientific_literature
+    source_type: ''
+    source_name: C
+    citation: ''
+    context: ''
+    confidence: 90
+    researched_date: '2025-11-07T12:51:49.748913'
+    needs_validation: true
+    value: '7.874'
+  thermal_conductivity:
+    source: ai_research
+    needs_research: true
+    researched_date: '2025-11-07T12:53:29.099045'
+  laser_absorption:
+    source: ai_research
+    needs_research: true
+    researched_date: '2025-11-07T12:57:43.066850'
+components:
+  micro:
+    before: At 1000x magnification, the steel surface before laser cleaning shows heavy rust buildup and scattered debris.
+      Irregular pits and cracks mar the underlying metal layers. Contaminants cling tightly, creating a rough and uneven texture
+      overall.
+    after: After laser treatment, the same surface reveals a smooth and bare metal finish. The process removes all rust and
+      debris completely. Fresh steel exposes a uniform and reflective appearance without any remnants.
+  subtitle: Steel maintains structural integrity under extreme loads, with its high tensile strength making it the dominant
+    material for construction and heavy machinery
+  description: 'When laser cleaning steel, you must first address its moderate reflectivity of 0.59, which can scatter up
+    to 59% of the laser energy and reduce cleaning efficiency if not managed properly. This property stems from steel''s ferrous
+    composition and polished surfaces often found in applications like automotive or construction parts, so make sure you
+    select a 1064 nm wavelength to optimize absorption at around 0.35 and avoid excessive heat buildup that might warp thin
+    sections. Start with a power range of 100 W and pulse widths of 10 ns to deliver controlled energy density of 5 J/cm²,
+    which removes surface contaminants like rust or scale without penetrating the base material''s high tensile strength of
+    400 MPa.
 
 
-      You''ll want to adjust scan speeds to 500 mm/s with a 50% overlap ratio over three passes, as steel''s density at 7.85
-      g/cm³ and Young''s modulus of 200 GPa make it thermally stable up to 1773 K, allowing thorough restoration of its 6/10
-      corrosion resistance. Watch for pitting in areas with higher hardness around 1.47 GPa; reduce repetition rates below
-      50 kHz if you notice uneven ablation, since the material''s low porosity of 0.1% minimizes subsurface damage but can
-      trap residues. This approach exposes clean surfaces reliably in manufacturing or shipbuilding contexts, improving adhesion
-      for coatings while preserving the metal''s compressive strength of 250 MPa.'
-    settings_description: When laser cleaning steel, start by selecting a moderate power level to account for its reflective
-      surface, which tends to scatter energy and slow initial progress. This works well when you scan slowly across the area,
-      allowing the laser to gradually remove oxidation without stressing the dense structure beneath. Overlap passes slightly
-      to restore even surfaces. Tends to clean efficiently in industrial settings like automotive parts, but watch for uneven
-      heating that could warp thin sections.
-  contamination:
-    valid:
-    - rust_oxidation
-    - industrial_oil
-    - environmental_dust
-    - scale_buildup
-    - paint_residue
-    - chemical_stains
-    prohibited:
-    - copper_patina
-    - wood_rot
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  - id: ce-machinery-directive
-    title: CE Machinery Directive 2006/42/EC
-    short_title: CE Machinery Directive
-    authority: EU
-    authority_full: European Union
-    agency_type: regulatory_body
-    country: European Union
-    url: /compounds/ce-machinery-directive
-    image: /images/logo/logo-org-eu.png
-    description: European requirements for machinery safety including laser equipment
-    scope: Essential health and safety requirements for machinery
-    applicability:
-    - All machinery sold in EU/EEA markets
-    - Laser cleaning equipment for EU markets
-    - Equipment distributors and importers
-    compliance_requirements:
-    - CE marking affixing
-    - Declaration of Conformity
-    - Technical documentation file
-    - Risk assessment documentation
-    - Harmonized standards compliance (EN 60825, EN 12254)
-    - User manual in local language
-    compliance_level: mandatory
-    enforcement: Market surveillance authorities
-    penalties: Product withdrawal, market bans, fines
-    effective_date: 2006-05-17
-    transition_period: Ended 2009-12-29
-    jurisdiction: European Union + EEA (Norway, Iceland, Liechtenstein)
-    harmonized_standards:
-    - EN 60825-1 (Laser safety)
-    - EN 12254 (Laser processing machinery)
-    - EN ISO 11553 (Safety requirements)
-    related_standards:
-    - iec-60825-laser-safety
-    - iso-11553-laser-processing
-  seo_description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the substrate
-    during contaminant removal, which leads to...
+    You''ll want to adjust scan speeds to 500 mm/s with a 50% overlap ratio over three passes, as steel''s density at 7.85
+    g/cm³ and Young''s modulus of 200 GPa make it thermally stable up to 1773 K, allowing thorough restoration of its 6/10
+    corrosion resistance. Watch for pitting in areas with higher hardness around 1.47 GPa; reduce repetition rates below 50
+    kHz if you notice uneven ablation, since the material''s low porosity of 0.1% minimizes subsurface damage but can trap
+    residues. This approach exposes clean surfaces reliably in manufacturing or shipbuilding contexts, improving adhesion
+    for coatings while preserving the metal''s compressive strength of 250 MPa.'
+  settings_description: When laser cleaning steel, start by selecting a moderate power level to account for its reflective
+    surface, which tends to scatter energy and slow initial progress. This works well when you scan slowly across the area,
+    allowing the laser to gradually remove oxidation without stressing the dense structure beneath. Overlap passes slightly
+    to restore even surfaces. Tends to clean efficiently in industrial settings like automotive parts, but watch for uneven
+    heating that could warp thin sections.
+contamination:
+  valid:
+  - rust_oxidation
+  - industrial_oil
+  - environmental_dust
+  - scale_buildup
+  - paint_residue
+  - chemical_stains
+  prohibited:
+  - copper_patina
+  - wood_rot
+  - uv_chalking
+  conditional: {}
+seo_description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the substrate
+  during contaminant removal, which leads to...

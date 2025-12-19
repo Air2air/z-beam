@@ -1,20 +1,32 @@
 /**
  * @component SafetyDataPanel
  * @purpose Comprehensive safety information display for contaminant laser removal
- * @extends SectionContainer, SectionTitle components
+ * @extends GridSection, CompoundSafetyGrid components
+ * 
+ * Updated to use:
+ * - GridSection: Universal section wrapper
+ * - CompoundSafetyGrid: Enhanced compound display with safety metadata
+ * - Data from produces_compounds (flattened structure)
  */
-'use client';
 
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { GridSection } from '../GridSection';
+import { CompoundSafetyGrid } from '../CompoundSafetyGrid';
+import { EnhancedCompound } from '@/app/utils/gridMappers';
 import { AlertTriangle, Wind, Eye, Shield, Flame } from 'lucide-react';
 
 interface SafetyDataPanelProps {
   safetyData: any;
+  compounds?: EnhancedCompound[];  // Enhanced compound data from produces_compounds field
   className?: string;
 }
 
-export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelProps) {
+export function SafetyDataPanel({ 
+  safetyData, 
+  compounds = [],  // Enhanced compound data from produces_compounds top-level field
+  className = '' 
+}: SafetyDataPanelProps) {
   if (!safetyData) return null;
 
   const getRiskColor = (risk: string) => {
@@ -46,7 +58,7 @@ export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelP
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {/* Fire/Explosion Risk */}
           {safetyData.fire_explosion_risk && (
-            <div className={`rounded-lg border p-4 ${getRiskColor(safetyData.fire_explosion_risk)}`}>
+            <div className={`rounded-md border p-4 ${getRiskColor(safetyData.fire_explosion_risk)}`}>
               <div className="flex items-center gap-3 mb-2">
                 <Flame className="w-6 h-6" />
                 <div>
@@ -59,7 +71,7 @@ export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelP
 
           {/* Toxic Gas Risk */}
           {safetyData.toxic_gas_risk && (
-            <div className={`rounded-lg border p-4 ${getRiskColor(safetyData.toxic_gas_risk)}`}>
+            <div className={`rounded-md border p-4 ${getRiskColor(safetyData.toxic_gas_risk)}`}>
               <div className="flex items-center gap-3 mb-2">
                 <AlertTriangle className="w-6 h-6" />
                 <div>
@@ -72,7 +84,7 @@ export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelP
 
           {/* Visibility Hazard */}
           {safetyData.visibility_hazard && (
-            <div className={`rounded-lg border p-4 ${getRiskColor(safetyData.visibility_hazard)}`}>
+            <div className={`rounded-md border p-4 ${getRiskColor(safetyData.visibility_hazard)}`}>
               <div className="flex items-center gap-3 mb-2">
                 <Eye className="w-6 h-6" />
                 <div>
@@ -86,7 +98,7 @@ export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelP
 
         {/* PPE Requirements */}
         {safetyData.ppe_requirements && (
-          <div className="bg-gray-800/50 rounded-lg p-6 mb-8">
+          <div className="bg-gray-800/50 rounded-md p-6 mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Shield className="w-5 h-5 text-blue-400" />
               <h3 className="text-lg font-semibold text-white">Required Personal Protective Equipment</h3>
@@ -114,63 +126,25 @@ export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelP
           </div>
         )}
 
-        {/* Hazardous Fumes Table */}
-        {safetyData.fumes_generated && safetyData.fumes_generated.length > 0 && (
-          <div className="bg-gray-800 rounded-lg overflow-hidden mb-8">
-            <div className="px-6 py-4 bg-gray-700 border-b border-gray-600">
-              <h3 className="text-lg font-semibold text-white">Hazardous Fumes Generated</h3>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-700">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Compound</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Concentration</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Exposure Limit</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Hazard Class</th>
-                    <th className="px-6 py-3 text-center text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-700">
-                  {safetyData.fumes_generated.map((fume: any, i: number) => {
-                    const exceedsLimit = fume.concentration_mg_m3 > fume.exposure_limit_mg_m3;
-                    return (
-                      <tr key={i} className="hover:bg-gray-700/50">
-                        <td className="px-6 py-4 text-sm font-medium text-white">{fume.compound}</td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{fume.concentration_mg_m3} mg/m³</td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{fume.exposure_limit_mg_m3} mg/m³</td>
-                        <td className="px-6 py-4 text-sm">
-                          <span className={`px-2 py-1 rounded text-xs font-medium ${
-                            fume.hazard_class === 'carcinogenic' ? 'bg-red-900/30 text-red-300' :
-                            fume.hazard_class === 'toxic' ? 'bg-orange-900/30 text-orange-300' :
-                            'bg-yellow-900/30 text-yellow-300'
-                          }`}>
-                            {fume.hazard_class}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-sm text-center">
-                          {exceedsLimit ? (
-                            <span className="px-3 py-1 bg-red-900/30 text-red-300 rounded-full text-xs font-semibold">
-                              ⚠️ Exceeds Limit
-                            </span>
-                          ) : (
-                            <span className="px-3 py-1 bg-green-900/30 text-green-300 rounded-full text-xs font-semibold">
-                              ✓ Within Limit
-                            </span>
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
+        {/* Hazardous Compounds Grid - Enhanced Safety Display */}
+        {compounds && compounds.length > 0 && (
+          <GridSection
+            title="Hazardous Compounds Generated"
+            subtitle="Critical compound safety information with exposure limits and control measures"
+          >
+            <CompoundSafetyGrid
+              compounds={compounds}
+              sortBy="severity"
+              showConcentrations={true}
+              showExceedsWarnings={true}
+              columns={3}
+            />
+          </GridSection>
         )}
 
         {/* Ventilation Requirements */}
         {safetyData.ventilation_requirements && (
-          <div className="bg-gray-800/50 rounded-lg p-6 mb-8">
+          <div className="bg-gray-800/50 rounded-md p-6 mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Wind className="w-5 h-5 text-blue-400" />
               <h3 className="text-lg font-semibold text-white">Ventilation Requirements</h3>
@@ -200,7 +174,7 @@ export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelP
 
         {/* Particulate Generation */}
         {safetyData.particulate_generation && (
-          <div className="bg-gray-800/50 rounded-lg p-6 mb-8">
+          <div className="bg-gray-800/50 rounded-md p-6 mb-8">
             <h3 className="text-lg font-semibold text-white mb-4">Particulate Generation</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {safetyData.particulate_generation.respirable_fraction !== undefined && (
@@ -223,7 +197,7 @@ export function SafetyDataPanel({ safetyData, className = '' }: SafetyDataPanelP
 
         {/* Substrate Compatibility Warnings */}
         {safetyData.substrate_compatibility_warnings && safetyData.substrate_compatibility_warnings.length > 0 && (
-          <div className="bg-yellow-900/20 border border-yellow-500 rounded-lg p-6">
+          <div className="bg-yellow-900/20 border border-yellow-500 rounded-md p-6">
             <div className="flex items-center gap-2 mb-3">
               <AlertTriangle className="w-5 h-5 text-yellow-400" />
               <h3 className="text-lg font-semibold text-yellow-300">Substrate Compatibility Warnings</h3>

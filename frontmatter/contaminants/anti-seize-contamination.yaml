@@ -1,9 +1,15 @@
 id: anti-seize-contamination
 name: Anti-Seize Compound
+slug: anti-seize-compound
 category: organic-residue
 subcategory: lubricant
-datePublished: '2025-12-19T00:21:10.116014Z'
-dateModified: '2025-12-19T01:18:57Z'
+datePublished: '2025-12-19T01:25:10.678375Z'
+dateModified: '2025-12-19T01:25:10.678375Z'
+composition:
+- Copper
+- Graphite
+- Aluminum
+- Grease
 description: During assembly, anti-seize contamination forms as sticky metallic and graphite-based deposits so tenacious adhesion
   builds up over time from heat and friction on surfaces. This contamination exhibits heat-resistant properties and strong
   bonding on steel, stainless steel, and aluminum, which distinguishes it from rust or oils because mechanical removal damages
@@ -12,325 +18,248 @@ description: During assembly, anti-seize contamination forms as sticky metallic 
 relationships:
   related_materials:
   - id: stainless-steel-laser-cleaning
+    slug: stainless-steel
     title: Stainless Steel
-    url: /materials/stainless-steel-laser-cleaning
+    url: /materials/stainless-steel
     image: /images/materials/stainless-steel.jpg
+    category: metal
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: steel-laser-cleaning
+    slug: steel
     title: Steel
-    url: /materials/steel-laser-cleaning
+    url: /materials/steel
     image: /images/materials/steel.jpg
+    category: metal
+    subcategory: ferrous
     frequency: common
     severity: moderate
     typical_context: general
   - id: aluminum-laser-cleaning
+    slug: aluminum
     title: Aluminum
-    url: /materials/aluminum-laser-cleaning
+    url: /materials/aluminum
     image: /images/materials/aluminum.jpg
+    category: metal
+    subcategory: non-ferrous
     frequency: common
     severity: moderate
     typical_context: general
-  composition:
-  - Copper
-  - Graphite
-  - Aluminum
-  - Grease
-  laser_properties:
-    laser_parameters:
-      beam_profile: flat_top
-      fluence_range:
-        max_j_cm2: 1.2
-        min_j_cm2: 0.3
-        recommended_j_cm2: 0.7
-      overlap_percentage: 50
-      polarization: circular
-      pulse_duration_range:
-        max_ns: 100
-        min_ns: 4
-        recommended_ns: 20
-      repetition_rate_khz:
-        max: 200
-        min: 20
-        recommended: 50
-      safety_margin_factor: 0.7
-      scan_speed_mm_s:
-        max: 2000
-        min: 500
-        recommended: 1000
-      spot_size_mm:
-        max: 0.1
-        min: 0.02
-        recommended: 0.05
-      wavelength_preference:
-      - 355
-      - 532
-    optical_properties:
-      absorption_coefficient:
-        wavelength_1064nm: 850
-        wavelength_355nm: 18500
-        wavelength_532nm: 4200
-      reflectivity:
-        wavelength_1064nm: 0.15
-        wavelength_355nm: 0.02
-        wavelength_532nm: 0.08
-      refractive_index:
-        imaginary_part: 0.15
-        real_part: 1.72
-      transmission_depth: 11.8
-    removal_characteristics:
-      byproducts:
-      - compound: carbon-dioxide
-        hazard_level: low
-        phase: gas
-      - compound: H2O
-        hazard_level: low
-        phase: gas
-      - compound: Metal oxides (from metallic fillers)
-        hazard_level: moderate
-        phase: solid
-      - compound: Graphite/soot particles
-        hazard_level: moderate
-        phase: solid
-      - compound: Volatile organic compounds
-        hazard_level: moderate
-        phase: gas
-      damage_risk_to_substrate: low
-      primary_mechanism: thermal_ablation
-      process_speed:
-        area_coverage_rate_cm2_min: 240
-        typical_scan_speed_mm_s: 800
-      removal_efficiency:
-        diminishing_returns_after: 3
-        optimal_passes: 2
-        single_pass: 0.85
-      secondary_mechanisms:
-      - photochemical
-      - mechanical_spallation
-      surface_quality_after_removal:
-        color_change: 'no'
-        residual_stress: none
-        roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Nickel compounds (as Ni)
-        concentration_mg_m3: 0.5-2.0
-        exposure_limit_mg_m3: 0.1
-        hazard_class: carcinogenic
-      - compound: Copper fume
-        concentration_mg_m3: 0.1-0.5
-        exposure_limit_mg_m3: 0.1
-        hazard_class: irritant
-      - compound: Aluminum oxide fume
-        concentration_mg_m3: 1.0-3.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      - compound: Graphite fume
-        concentration_mg_m3: 0.5-1.5
-        exposure_limit_mg_m3: 2.0
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser cleaning may embed metallic particles into substrate surface
-      - Thermal decomposition can create refractory metal oxides
-      - Residual contamination may affect surface properties
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
-    thermal_properties:
-      ablation_threshold:
-        pulse_duration_100ns: 0.4
-        pulse_duration_10ns: 0.6
-        wavelength_1064nm: 0.8
-      decomposition_temperature: 450
-      heat_affected_zone_depth: 15
-      melting_point: null
-      specific_heat: 1200
-      thermal_conductivity: 0.3
-      thermal_diffusivity: 0.25
-      vaporization_temperature: 600
-  prohibited_materials:
-  - Plastics
-  - Electronics
-  valid_materials:
-  - Steel
-  - Stainless Steel
-  - Aluminum
-  visual_characteristics:
-    appearance_on_categories:
-      ceramic:
-        appearance: Shows as dark, greasy stains that stand out against the smooth surface, creating a slick, discolored film
-          with a matte or glossy finish.
-        coverage: Generally low and localized, covering small patches with uneven amounts depending on surface contact.
-        pattern: Typically appears as spots or smudges, concentrated in textured areas or edges, with irregular, patchy distribution.
-      composite:
-        appearance: Appears as greasy, dark stains that can seep into porous layers, creating a mottled, slick surface with
-          altered color and texture.
-        coverage: Ranges from sparse, localized spots to moderate coverage, varying with composite porosity and application
-          method.
-        pattern: Manifests as irregular patches or streaks, following material inconsistencies with a non-uniform, blotchy
-          spread.
-      concrete:
-        appearance: Manifests as dark, oily stains that penetrate the porous surface, creating greasy, discolored patches
-          with a slick texture.
-        coverage: Typically low and localized, covering small to moderate areas unevenly, influenced by surface roughness.
-        pattern: Forms irregular spots or streaks, often pooling in cracks or low areas, with a patchy, non-uniform distribution.
-      fabric:
-        appearance: Appears as dark, greasy stains that soak into fibers, creating oily, discolored patches with a slick,
-          matte finish.
-        coverage: Generally sparse and localized, covering small areas with variation based on fabric absorbency and contamination
-          extent.
-        pattern: Often forms irregular spots or smears, spreading along weave patterns with a non-uniform, blotchy appearance.
-      glass:
-        appearance: Appears as translucent, greasy streaks or films that can cause haziness or rainbowing, reducing clarity
-          with a slick texture.
-        coverage: Light to moderate, often partial coverage with variations from thin films to thicker accumulations in certain
-          spots.
-        pattern: Usually forms streaks or smears from spreading, often in linear patterns with uneven, non-uniform coverage.
-      metal:
-        appearance: Typically appears as a greasy, metallic-gray or copper-colored film with a slick, oily texture that can
-          obscure the metal's natural luster.
-        coverage: Varies from thin, spotty films in small areas to heavy, uniform coatings on large surfaces, depending on
-          application.
-        pattern: Often forms irregular streaks or patches, especially around threaded areas or joints where applied, with
-          uneven distribution.
-      mineral:
-        appearance: Shows as dark, greasy films that coat crystalline surfaces, obscuring natural colors and creating a slick,
-          stained look.
-        coverage: Often sparse and localized, with light to moderate coverage varying by mineral porosity and contamination
-          level.
-        pattern: Usually appears as spots or smears, concentrated in fissures or on exposed faces, with irregular, patchy
-          spread.
-      plastic:
-        appearance: Presents as oily, dark streaks or films that may cause discoloration or a greasy sheen, adhering to the
-          smooth or textured surface.
-        coverage: Variable from light, spotty films to moderate coverage, usually non-uniform and concentrated in applied
-          regions.
-        pattern: Often forms streaks or patches, spreading unevenly with a tendency to pool in low areas or along seams.
-      rubber:
-        appearance: Shows as dark, oily patches that can cause swelling or softening, with a greasy film that darkens the
-          rubber's surface.
-        coverage: Usually limited to small, localized areas with low to moderate coverage, depending on exposure and rubber
-          type.
-        pattern: Typically forms blotches or smears, concentrated in flex points or seams, with irregular, patchy distribution.
-      semiconductor:
-        appearance: Presents as thin, greasy films that can cause hazing or discoloration on smooth surfaces, potentially
-          interfering with optical properties.
-        coverage: Generally light and controlled, ranging from partial to full coverage in small, precise areas with minimal
-          variation.
-        pattern: Typically forms uniform thin layers or micro-spots, distributed evenly or in localized patches depending
-          on application.
-      specialty:
-        appearance: Varies widely; may appear as greasy, discolored films tailored to the material's unique properties, such
-          as slick coatings on advanced surfaces.
-        coverage: Highly variable, from minimal localized spots to extensive coverage, customized to the material's application
-          and contamination context.
-        pattern: Distribution depends on the specialty material, often irregular or designed patterns like spots or uniform
-          layers based on use.
-      stone:
-        appearance: Manifests as dark, oily spots or smears that darken the stone's surface, creating a glossy, stained appearance
-          against the porous texture.
-        coverage: Typically sparse and localized, covering small areas with variation based on surface porosity and application.
-        pattern: Forms irregular spots or smudges, often concentrated in crevices or low points, with a non-uniform, patchy
-          distribution.
-      wood:
-        appearance: Shows as dark, greasy stains that penetrate the grain, giving a wet, discolored look with a slippery feel.
-        coverage: Generally limited to small, localized areas with low to moderate coverage, often concentrated at points
-          of contact.
-        pattern: Usually appears as blotchy patches or streaks following the wood grain, with irregular edges and no uniform
-          spread.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+laser_properties:
+  laser_parameters:
+    beam_profile: flat_top
+    fluence_range:
+      max_j_cm2: 1.2
+      min_j_cm2: 0.3
+      recommended_j_cm2: 0.7
+    overlap_percentage: 50
+    polarization: circular
+    pulse_duration_range:
+      max_ns: 100
+      min_ns: 4
+      recommended_ns: 20
+    repetition_rate_khz:
+      max: 200
+      min: 20
+      recommended: 50
+    safety_margin_factor: 0.7
+    scan_speed_mm_s:
+      max: 2000
+      min: 500
+      recommended: 1000
+    spot_size_mm:
+      max: 0.1
+      min: 0.02
+      recommended: 0.05
+    wavelength_preference:
+    - 355
+    - 532
+  optical_properties:
+    absorption_coefficient:
+      wavelength_1064nm: 850
+      wavelength_355nm: 18500
+      wavelength_532nm: 4200
+    reflectivity:
+      wavelength_1064nm: 0.15
+      wavelength_355nm: 0.02
+      wavelength_532nm: 0.08
+    refractive_index:
+      imaginary_part: 0.15
+      real_part: 1.72
+    transmission_depth: 11.8
+  removal_characteristics:
+    byproducts:
+    - compound: carbon-dioxide
+      hazard_level: low
+      phase: gas
+    - compound: H2O
+      hazard_level: low
+      phase: gas
+    - compound: Metal oxides (from metallic fillers)
+      hazard_level: moderate
+      phase: solid
+    - compound: Graphite/soot particles
+      hazard_level: moderate
+      phase: solid
+    - compound: Volatile organic compounds
+      hazard_level: moderate
+      phase: gas
+    damage_risk_to_substrate: low
+    primary_mechanism: thermal_ablation
+    process_speed:
+      area_coverage_rate_cm2_min: 240
+      typical_scan_speed_mm_s: 800
+    removal_efficiency:
+      diminishing_returns_after: 3
+      optimal_passes: 2
+      single_pass: 0.85
+    secondary_mechanisms:
+    - photochemical
+    - mechanical_spallation
+    surface_quality_after_removal:
+      color_change: 'no'
+      residual_stress: none
+      roughness_increase: minimal
+  safety_data:
+    fire_explosion_risk: low
+    fumes_generated:
+    - compound: Nickel compounds (as Ni)
+      concentration_mg_m3: 0.5-2.0
+      exposure_limit_mg_m3: 0.1
+      hazard_class: carcinogenic
+    - compound: Copper fume
+      concentration_mg_m3: 0.1-0.5
+      exposure_limit_mg_m3: 0.1
+      hazard_class: irritant
+    - compound: Aluminum oxide fume
+      concentration_mg_m3: 1.0-3.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    - compound: Graphite fume
+      concentration_mg_m3: 0.5-1.5
+      exposure_limit_mg_m3: 2.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+    substrate_compatibility_warnings:
+    - Laser cleaning may embed metallic particles into substrate surface
+    - Thermal decomposition can create refractory metal oxides
+    - Residual contamination may affect surface properties
+    toxic_gas_risk: low
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+    visibility_hazard: moderate
+  thermal_properties:
+    ablation_threshold:
+      pulse_duration_100ns: 0.4
+      pulse_duration_10ns: 0.6
+      wavelength_1064nm: 0.8
+    decomposition_temperature: 450
+    heat_affected_zone_depth: 15
+    melting_point: null
+    specific_heat: 1200
+    thermal_conductivity: 0.3
+    thermal_diffusivity: 0.25
+    vaporization_temperature: 600
+prohibited_materials:
+- Plastics
+- Electronics
+valid_materials:
+- Steel
+- Stainless Steel
+- Aluminum
+visual_characteristics:
+  appearance_on_categories:
+    ceramic:
+      appearance: Shows as dark, greasy stains that stand out against the smooth surface, creating a slick, discolored film
+        with a matte or glossy finish.
+      coverage: Generally low and localized, covering small patches with uneven amounts depending on surface contact.
+      pattern: Typically appears as spots or smudges, concentrated in textured areas or edges, with irregular, patchy distribution.
+    composite:
+      appearance: Appears as greasy, dark stains that can seep into porous layers, creating a mottled, slick surface with
+        altered color and texture.
+      coverage: Ranges from sparse, localized spots to moderate coverage, varying with composite porosity and application
+        method.
+      pattern: Manifests as irregular patches or streaks, following material inconsistencies with a non-uniform, blotchy spread.
+    concrete:
+      appearance: Manifests as dark, oily stains that penetrate the porous surface, creating greasy, discolored patches with
+        a slick texture.
+      coverage: Typically low and localized, covering small to moderate areas unevenly, influenced by surface roughness.
+      pattern: Forms irregular spots or streaks, often pooling in cracks or low areas, with a patchy, non-uniform distribution.
+    fabric:
+      appearance: Appears as dark, greasy stains that soak into fibers, creating oily, discolored patches with a slick, matte
+        finish.
+      coverage: Generally sparse and localized, covering small areas with variation based on fabric absorbency and contamination
+        extent.
+      pattern: Often forms irregular spots or smears, spreading along weave patterns with a non-uniform, blotchy appearance.
+    glass:
+      appearance: Appears as translucent, greasy streaks or films that can cause haziness or rainbowing, reducing clarity
+        with a slick texture.
+      coverage: Light to moderate, often partial coverage with variations from thin films to thicker accumulations in certain
+        spots.
+      pattern: Usually forms streaks or smears from spreading, often in linear patterns with uneven, non-uniform coverage.
+    metal:
+      appearance: Typically appears as a greasy, metallic-gray or copper-colored film with a slick, oily texture that can
+        obscure the metal's natural luster.
+      coverage: Varies from thin, spotty films in small areas to heavy, uniform coatings on large surfaces, depending on application.
+      pattern: Often forms irregular streaks or patches, especially around threaded areas or joints where applied, with uneven
+        distribution.
+    mineral:
+      appearance: Shows as dark, greasy films that coat crystalline surfaces, obscuring natural colors and creating a slick,
+        stained look.
+      coverage: Often sparse and localized, with light to moderate coverage varying by mineral porosity and contamination
+        level.
+      pattern: Usually appears as spots or smears, concentrated in fissures or on exposed faces, with irregular, patchy spread.
+    plastic:
+      appearance: Presents as oily, dark streaks or films that may cause discoloration or a greasy sheen, adhering to the
+        smooth or textured surface.
+      coverage: Variable from light, spotty films to moderate coverage, usually non-uniform and concentrated in applied regions.
+      pattern: Often forms streaks or patches, spreading unevenly with a tendency to pool in low areas or along seams.
+    rubber:
+      appearance: Shows as dark, oily patches that can cause swelling or softening, with a greasy film that darkens the rubber's
+        surface.
+      coverage: Usually limited to small, localized areas with low to moderate coverage, depending on exposure and rubber
+        type.
+      pattern: Typically forms blotches or smears, concentrated in flex points or seams, with irregular, patchy distribution.
+    semiconductor:
+      appearance: Presents as thin, greasy films that can cause hazing or discoloration on smooth surfaces, potentially interfering
+        with optical properties.
+      coverage: Generally light and controlled, ranging from partial to full coverage in small, precise areas with minimal
+        variation.
+      pattern: Typically forms uniform thin layers or micro-spots, distributed evenly or in localized patches depending on
+        application.
+    specialty:
+      appearance: Varies widely; may appear as greasy, discolored films tailored to the material's unique properties, such
+        as slick coatings on advanced surfaces.
+      coverage: Highly variable, from minimal localized spots to extensive coverage, customized to the material's application
+        and contamination context.
+      pattern: Distribution depends on the specialty material, often irregular or designed patterns like spots or uniform
+        layers based on use.
+    stone:
+      appearance: Manifests as dark, oily spots or smears that darken the stone's surface, creating a glossy, stained appearance
+        against the porous texture.
+      coverage: Typically sparse and localized, covering small areas with variation based on surface porosity and application.
+      pattern: Forms irregular spots or smudges, often concentrated in crevices or low points, with a non-uniform, patchy
+        distribution.
+    wood:
+      appearance: Shows as dark, greasy stains that penetrate the grain, giving a wet, discolored look with a slippery feel.
+      coverage: Generally limited to small, localized areas with low to moderate coverage, often concentrated at points of
+        contact.
+      pattern: Usually appears as blotchy patches or streaks following the wood grain, with irregular edges and no uniform
+        spread.
 schema_version: 5.0.0
 content_type: contaminants
 breadcrumb:

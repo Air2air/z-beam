@@ -1,28 +1,14 @@
 id: pine-laser-cleaning
 name: Pine
+slug: pine
 category: wood
 subcategory: softwood
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:55.904385Z'
-dateModified: '2025-12-19T01:18:53Z'
+datePublished: '2025-12-19T01:24:57.162744Z'
+dateModified: '2025-12-19T01:24:57.162744Z'
 author:
   id: 2
-  name: Todd Dunning
-  country: USA
-  country_display: United States
-  title: Founder
-  sex: m
-  jobTitle: Laser Safety Expert
-  expertise:
-  - Laser Safety
-  - Industrial Applications
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - Founder of Z-Beam laser cleaning solutions
-  - 15+ years in industrial laser applications
 title: Pine Laser Cleaning
 description: When laser cleaning pine, leverage its strong beam absorption to swiftly vaporize dirt and old finishes, while
   the wood's poor heat conduction confines damage to the surface for safe restoration of furniture or heritage pieces
@@ -106,366 +92,332 @@ faq:
   question: How effective is laser cleaning for removing biological growth (mold, mildew) from pine surfaces?
   topic_keyword: biological growth
   topic_statement: Preserves structural integrity
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    fractureToughness:
+      value: 0.41
+      unit: MPa·m^{1/2}
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 10.3
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 0.68
+      unit: dimensionless (normalized resistance index)
+      confidence: 92
+      source: ai_research
+    density:
+      value: 450.0
+      unit: kg/m³
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 1690.0
+      unit: N
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.35
+      unit: normalized durability index (0-1)
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 38.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 59.3
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 100.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    porosity:
+      value: 0.75
+      unit: ''
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 42000.0
+      unit: J/m²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: 'Laser cleaning of pine wood: Damage thresholds and surface morphology'
+      citation: 'Panzera et al., Journal of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2016.03.005'
+      context: Natural pine wood (Pinus sylvestris, density 450 kg/m³), room temperature (20°C), 1064 nm Nd:YAG laser, pulse
+        duration 10 ns
+      confidence: 95
+      researched_date: '2025-11-24T12:04:18.424230'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.85
+      unit: dimensionless
+      min: 0.7
+      max: 0.95
+      source: ai_research
+    absorptionCoefficient:
+      value: 25000
+      unit: m⁻¹
+      min: 10000
+      max: 50000
+      source: ai_research
+    laserDamageThreshold:
+      value: 2.5
+      unit: J/cm²
+      min: 1
+      max: 10
+      source: ai_research
+    thermalShockResistance:
+      value: 1.2
+      unit: MW/m
+      min: 0.5
+      max: 3
+      source: ai_research
+    reflectivity:
+      value: 0.15
+      unit: dimensionless
+      min: 0.05
+      max: 0.3
+      source: ai_research
+    thermalDestructionPoint:
+      value: 523
+      unit: K
+      min: 473
+      max: 623
+      source: ai_research
+    vaporPressure:
+      value: 5
+      unit: Pa
+      min: 0.1
+      max: 50
+      source: ai_research
+    thermalDestruction:
+      value: 596.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 1300.0
+      unit: J/kg·K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.38
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 0.13
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 3.4e-05
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.93
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 1.82e-07
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 1.45
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Threshold fluences for the laser ablation of wood
+      citation: 'Hossain, M. M., et al., Applied Physics A: Materials Science & Processing, 2009, DOI: 10.1007/s00339-009-5215-5'
+      context: Dry pine wood (Pinus sylvestris, 10% moisture content), room temperature (20°C), measured with 800 nm femtosecond
+        Ti:sapphire laser pulses
+      confidence: 95
+      researched_date: '2025-11-24T12:04:27.092137'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  isBasedOn:
+    name: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+metadata:
+  last_updated: '2025-10-27T23:48:40.922334Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922340Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants:
   - id: adhesive-residue-contamination
+    slug: adhesive-residue
     title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue-contamination
+    url: /contaminants/adhesive-residue
     image: /images/contaminants/adhesive-residue.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: algae-growth-contamination
+    slug: algae-growth
     title: Algae and Lichen Growth
-    url: /contaminants/algae-growth-contamination
+    url: /contaminants/algae-growth
     image: /images/contaminants/algae-growth.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: lead-paint-contamination
+    slug: lead-paint
     title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint-contamination
+    url: /contaminants/lead-paint
     image: /images/contaminants/lead-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: mold-mildew-contamination
+    slug: mold-mildew
     title: Mold and Mildew Growth
-    url: /contaminants/mold-mildew-contamination
+    url: /contaminants/mold-mildew
     image: /images/contaminants/mold-mildew.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: paint-residue-contamination
+    slug: paint-residue
     title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue-contamination
+    url: /contaminants/paint-residue
     image: /images/contaminants/paint-residue.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: wax-buildup-contamination
+    slug: wax-buildup
     title: Wax Coating Buildup
-    url: /contaminants/wax-buildup-contamination
+    url: /contaminants/wax-buildup
     image: /images/contaminants/wax-buildup.jpg
+    category: organic-residue
+    subcategory: wax
     frequency: common
     severity: moderate
     typical_context: general
   - id: wood-rot-contamination
+    slug: wood-rot
     title: Wood Rot / Fungal Biodegradation
-    url: /contaminants/wood-rot-contamination
+    url: /contaminants/wood-rot
     image: /images/contaminants/wood-rot.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      fractureToughness:
-        value: 0.41
-        unit: MPa·m^{1/2}
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 10.3
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 0.68
-        unit: dimensionless (normalized resistance index)
-        confidence: 92
-        source: ai_research
-      density:
-        value: 450.0
-        unit: kg/m³
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 1690.0
-        unit: N
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.35
-        unit: normalized durability index (0-1)
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 38.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 59.3
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 100.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      porosity:
-        value: 0.75
-        unit: ''
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 42000.0
-        unit: J/m²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: 'Laser cleaning of pine wood: Damage thresholds and surface morphology'
-        citation: 'Panzera et al., Journal of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2016.03.005'
-        context: Natural pine wood (Pinus sylvestris, density 450 kg/m³), room temperature (20°C), 1064 nm Nd:YAG laser, pulse
-          duration 10 ns
-        confidence: 95
-        researched_date: '2025-11-24T12:04:18.424230'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.85
-        unit: dimensionless
-        min: 0.7
-        max: 0.95
-        source: ai_research
-      absorptionCoefficient:
-        value: 25000
-        unit: m⁻¹
-        min: 10000
-        max: 50000
-        source: ai_research
-      laserDamageThreshold:
-        value: 2.5
-        unit: J/cm²
-        min: 1
-        max: 10
-        source: ai_research
-      thermalShockResistance:
-        value: 1.2
-        unit: MW/m
-        min: 0.5
-        max: 3
-        source: ai_research
-      reflectivity:
-        value: 0.15
-        unit: dimensionless
-        min: 0.05
-        max: 0.3
-        source: ai_research
-      thermalDestructionPoint:
-        value: 523
-        unit: K
-        min: 473
-        max: 623
-        source: ai_research
-      vaporPressure:
-        value: 5
-        unit: Pa
-        min: 0.1
-        max: 50
-        source: ai_research
-      thermalDestruction:
-        value: 596.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 1300.0
-        unit: J/kg·K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.38
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 0.13
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 3.4e-05
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.93
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 1.82e-07
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 1.45
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Threshold fluences for the laser ablation of wood
-        citation: 'Hossain, M. M., et al., Applied Physics A: Materials Science & Processing, 2009, DOI: 10.1007/s00339-009-5215-5'
-        context: Dry pine wood (Pinus sylvestris, 10% moisture content), room temperature (20°C), measured with 800 nm femtosecond
-          Ti:sapphire laser pulses
-        confidence: 95
-        researched_date: '2025-11-24T12:04:27.092137'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - ANSI Z136.1 - Safe Use of Lasers
-    isBasedOn:
-      name: ANSI Z136.1 - Safe Use of Lasers
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  metadata:
-    last_updated: '2025-10-27T23:48:40.922334Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.922340Z'
-    structure_version: '2.0'
-  applications:
-  - Cultural Heritage Restoration
-  - Marine and Shipbuilding
-  - Furniture Manufacturing
-  - Construction and Timber Framing
-  - Musical Instrument Manufacturing
-  - Food Processing Facilities
-  - Agricultural Equipment
-  - Art and Sculpture Conservation
-  - Packaging and Pallet Manufacturing
-  - Architectural Millwork
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: amorphous crystal structure
-      source: ai_research
-      unit: crystal system
-      value: amorphous
-  voice_enhanced: '2025-11-07T03:44:38.880884+00:00'
-  components:
-    settings_description: When laser cleaning pine, watch out right away for its softness compared to denser hardwoods like
-      oak—I've seen it char easily if you push too hard, so start with gentle passes to avoid scorching the fibers. Unlike
-      those tougher woods that handle higher intensities without flinching, pine's open grain soaks up heat quickly, which
-      means you need shorter dwell times to prevent deep thermal damage. This works best when you adjust the scan speed upward,
-      letting the laser skim the surface and lift grime without embedding into the porous structure. Tends to restore that
-      natural finish nicely in furniture or heritage pieces, but skip multiple overlaps early on, or you'll warp the low-density
-      boards. I've found contrasting it this way keeps the process efficient for marine or construction applications, bringing
-      back clean timber without compromising its flexibility.
-    micro:
-      before: At 1000x magnification, the pine surface before cleaning looks cluttered with dark smudges and uneven buildup.
-        Grime coats the tangled fibers, making everything appear dull and blocked. Fine debris fills the pores, hiding the
-        wood's true pattern beneath.
-      after: After laser treatment, the same view shows crisp fibers standing free from any residue. The surface gleams with
-        even texture, as pores breathe open and clear. Natural lines emerge sharp, restoring the pine's fresh, unaltered form.
-  contamination:
-    valid:
-    - wood_rot
-    - environmental_dust
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning pine, leverage its strong beam absorption to swiftly vaporize dirt and old finishes,
-    while the wood's poor heat conduction confines damage...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Cultural Heritage Restoration
+- Marine and Shipbuilding
+- Furniture Manufacturing
+- Construction and Timber Framing
+- Musical Instrument Manufacturing
+- Food Processing Facilities
+- Agricultural Equipment
+- Art and Sculpture Conservation
+- Packaging and Pallet Manufacturing
+- Architectural Millwork
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
+voice_enhanced: '2025-11-07T03:44:38.880884+00:00'
+components:
+  settings_description: When laser cleaning pine, watch out right away for its softness compared to denser hardwoods like
+    oak—I've seen it char easily if you push too hard, so start with gentle passes to avoid scorching the fibers. Unlike those
+    tougher woods that handle higher intensities without flinching, pine's open grain soaks up heat quickly, which means you
+    need shorter dwell times to prevent deep thermal damage. This works best when you adjust the scan speed upward, letting
+    the laser skim the surface and lift grime without embedding into the porous structure. Tends to restore that natural finish
+    nicely in furniture or heritage pieces, but skip multiple overlaps early on, or you'll warp the low-density boards. I've
+    found contrasting it this way keeps the process efficient for marine or construction applications, bringing back clean
+    timber without compromising its flexibility.
+  micro:
+    before: At 1000x magnification, the pine surface before cleaning looks cluttered with dark smudges and uneven buildup.
+      Grime coats the tangled fibers, making everything appear dull and blocked. Fine debris fills the pores, hiding the wood's
+      true pattern beneath.
+    after: After laser treatment, the same view shows crisp fibers standing free from any residue. The surface gleams with
+      even texture, as pores breathe open and clear. Natural lines emerge sharp, restoring the pine's fresh, unaltered form.
+contamination:
+  valid:
+  - wood_rot
+  - environmental_dust
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - uv_chalking
+  conditional: {}
+seo_description: When laser cleaning pine, leverage its strong beam absorption to swiftly vaporize dirt and old finishes,
+  while the wood's poor heat conduction confines damage...

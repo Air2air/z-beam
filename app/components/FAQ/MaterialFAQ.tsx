@@ -63,7 +63,7 @@ export function MaterialFAQ({
         {faq.map((item, index) => (
           <div key={index} role="listitem">
             <details
-              className="group bg-secondary rounded-lg overflow-hidden transition-all duration-200 hover:shadow-md"
+              className="group bg-secondary rounded-md overflow-hidden transition-all duration-200 hover:shadow-md"
             >
               <summary 
                 className="cursor-pointer px-6 py-4 font-normal flex items-center justify-between bg-primary hover:bg-secondary list-none transition-colors duration-200"

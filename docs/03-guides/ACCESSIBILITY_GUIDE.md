@@ -103,7 +103,7 @@ Z-Beam is committed to providing an accessible website that serves all users, in
 <img 
   src="/images/services/video-production.jpg" 
   alt="Professional video production setup with camera, lighting equipment, and crew member adjusting settings"
-  className="w-full h-48 object-cover rounded-lg"
+  className="w-full h-48 object-cover rounded-md"
 />
 
 // Decorative image

@@ -99,7 +99,7 @@ All contact page styling issues have been resolved with comprehensive CSS class 
 ```bash
 # ContactInfo background check
 grep -n "className.*p-6" app/components/Contact/ContactInfo.tsx
-# Result: Line 8 shows bg-gray-800 p-6 mb-6 rounded-lg shadow-md ✅
+# Result: Line 8 shows bg-gray-800 p-6 mb-6 rounded-md shadow-md ✅
 
 # ContactInfo link colors check
 grep -n "text-blue" app/components/Contact/ContactInfo.tsx

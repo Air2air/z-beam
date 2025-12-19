@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card } from "../Card/Card";
 import { GridItemSSR, CardGridSSRProps, MaterialType, BadgeData, Article, ArticleMetadata } from "@/types";
-import { getArticle, getContaminantArticle, getSettingsArticle, loadComponent } from "../../utils/contentAPI";
+import { getArticle, getContaminantArticle, getCompoundArticle, getSettingsArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { Title } from '../Title';
@@ -78,11 +78,13 @@ export async function CardGridSSR({
           // Use appropriate loader based on mode
           const article = mode === 'contaminants' 
             ? await getContaminantArticle(slug)
+            : mode === 'compounds'
+            ? await getCompoundArticle(slug)
             : mode === 'settings'
             ? await getSettingsArticle(slug)
             : await getArticle(slug);
           
-          // Settings returns flat structure, materials/contaminants have nested metadata
+          // Settings returns flat structure, materials/contaminants/compounds have nested metadata
           const metadata = mode === 'settings' ? article as any : (article?.metadata as any);
           
           const itemName = metadata?.name as string || '';
@@ -103,7 +105,9 @@ export async function CardGridSSR({
 
           // Build URL using centralized utility with appropriate rootPath
           const rootPath = mode === 'contaminants' 
-            ? 'contaminants' 
+            ? 'contaminants'
+            : mode === 'compounds'
+            ? 'compounds'
             : mode === 'settings'
             ? 'settings'
             : undefined;
@@ -289,7 +293,7 @@ export async function CardGridSSR({
                 {hasMore && (
                   <div className="mt-6 text-center">
                     <div className="inline-flex items-center px-4 py-2 text-blue-600400 
-                                    border border-blue-600400 rounded-lg">
+                                    border border-blue-600400 rounded-md">
                       <span>View All {category} Articles ({categoryItems.length})</span>
                       <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />

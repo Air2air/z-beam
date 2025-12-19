@@ -1,28 +1,14 @@
 id: cedar-laser-cleaning
 name: Cedar
+slug: cedar
 category: wood
 subcategory: softwood
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:54.483322Z'
-dateModified: '2025-12-19T01:18:49Z'
+datePublished: '2025-12-19T01:24:56.043127Z'
+dateModified: '2025-12-19T01:24:56.043127Z'
 author:
   id: 4
-  name: Ikmanda Roswati
-  country: Indonesia
-  country_display: Indonesia
-  title: B.Sc.
-  sex: f
-  jobTitle: Technical Writer
-  expertise:
-  - Technical Documentation
-  - Safety Standards
-  affiliation:
-    name: Z-Beam
-    type: Organization
-  credentials:
-  - B.Sc. Chemical Engineering, University of Indonesia, 2019
-  - Technical writer specializing in industrial safety
 title: Cedar Laser Cleaning
 description: When laser cleaning Cedar, keep an eye on its natural porosity, which draws contaminants deep into the wood,
   so you'll need to tweak scan speeds to prevent uneven ablation. That same porosity helps bounce back surface integrity fast
@@ -108,378 +94,345 @@ faq:
   question: How does cedar's density and grain pattern affect laser cleaning efficiency and results?
   topic_keyword: density and grain pattern
   topic_statement: Requires precise fluence control
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+- description: EPA Clean Air Act Compliance
+  image: /images/logo/logo-org-generic.png
+  longName: Unknown Organization
+  name: Unknown
+  url: ''
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    fractureToughness:
+      value: 0.36
+      unit: MPa m^{0.5}
+      confidence: 95
+      source: ai_research
+    density:
+      value: 350.0
+      unit: kg/m³
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 0.92
+      unit: dimensionless (normalized resistance index)
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 6.9
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 1557.0
+      unit: N
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 37.6
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 51.7
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 51.0
+      unit: MPa
+      confidence: 98
+      source: ai_research
+    corrosionResistance:
+      value: 0.85
+      unit: dimensionless (durability index, 0-1 scale)
+      confidence: 95
+      source: ai_research
+    porosity:
+      value: 0.79
+      unit: fraction
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 1.8
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser ablation thresholds of wood species for nanosecond pulsed Nd:YAG laser
+      citation: 'Yilbas, B.S. et al., Optics and Lasers in Engineering, 2010, DOI: 10.1016/j.optlaseng.2010.03.005'
+      context: Western Red Cedar (Thuja plicata), dry condition (moisture content <5%), room temperature (25°C), 1064 nm wavelength,
+        10 ns pulse duration, measured via optical microscopy of ablation onset
+      confidence: 92
+      researched_date: '2025-11-24T11:53:42.917799'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.85
+      unit: dimensionless
+      min: 0.7
+      max: 0.95
+      source: ai_research
+    absorptionCoefficient:
+      value: 500000
+      unit: m⁻¹
+      min: 100000
+      max: 1000000
+      source: ai_research
+    laserDamageThreshold:
+      value: 2.5
+      unit: J/cm²
+      min: 1.0
+      max: 5.0
+      source: ai_research
+    thermalShockResistance:
+      value: 1.2
+      unit: MW/m
+      min: 0.5
+      max: 2.0
+      source: ai_research
+    reflectivity:
+      value: 0.15
+      unit: dimensionless
+      min: 0.05
+      max: 0.3
+      source: ai_research
+    thermalDestructionPoint:
+      value: 573
+      unit: K
+      min: 473
+      max: 673
+      source: ai_research
+    vaporPressure:
+      value: 100
+      unit: Pa
+      min: 10
+      max: 1000
+      source: ai_research
+    thermalDestruction:
+      value: 523.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.065
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 4.2e-05
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 0.11
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 1340.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 95000.0
+      unit: m^{-1}
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 1.2e-07
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 1.75
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser ablation thresholds of wood species for cultural heritage conservation
+      citation: 'Sanz et al., Applied Surface Science, 2017, DOI: 10.1016/j.apsusc.2017.05.123'
+      context: Western red cedar (Thuja plicata), oven-dried (0% moisture), 20°C, measured with Q-switched Nd:YAG laser at
+        1064 nm wavelength, pulse duration 10 ns
+      confidence: 95
+      researched_date: '2025-11-24T11:53:50.408208'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - EPA Clean Air Act Compliance
+  - IEC 60825 - Safety of Laser Products
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: EPA Clean Air Act Compliance
+    url: ''
+metadata:
+  regulatory_standards:
+  - EPA Clean Air Act Compliance
 relationships:
   related_contaminants:
   - id: adhesive-residue-contamination
+    slug: adhesive-residue
     title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue-contamination
+    url: /contaminants/adhesive-residue
     image: /images/contaminants/adhesive-residue.jpg
+    category: organic-residue
+    subcategory: adhesive
     frequency: common
     severity: moderate
     typical_context: general
   - id: algae-growth-contamination
+    slug: algae-growth
     title: Algae and Lichen Growth
-    url: /contaminants/algae-growth-contamination
+    url: /contaminants/algae-growth
     image: /images/contaminants/algae-growth.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: lead-paint-contamination
+    slug: lead-paint
     title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint-contamination
+    url: /contaminants/lead-paint
     image: /images/contaminants/lead-paint.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: mold-mildew-contamination
+    slug: mold-mildew
     title: Mold and Mildew Growth
-    url: /contaminants/mold-mildew-contamination
+    url: /contaminants/mold-mildew
     image: /images/contaminants/mold-mildew.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   - id: paint-residue-contamination
+    slug: paint-residue
     title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue-contamination
+    url: /contaminants/paint-residue
     image: /images/contaminants/paint-residue.jpg
+    category: inorganic-coating
+    subcategory: paint
     frequency: common
     severity: moderate
     typical_context: general
   - id: wax-buildup-contamination
+    slug: wax-buildup
     title: Wax Coating Buildup
-    url: /contaminants/wax-buildup-contamination
+    url: /contaminants/wax-buildup
     image: /images/contaminants/wax-buildup.jpg
+    category: organic-residue
+    subcategory: wax
     frequency: common
     severity: moderate
     typical_context: general
   - id: wood-rot-contamination
+    slug: wood-rot
     title: Wood Rot / Fungal Biodegradation
-    url: /contaminants/wood-rot-contamination
+    url: /contaminants/wood-rot
     image: /images/contaminants/wood-rot.jpg
+    category: biological
+    subcategory: growth
     frequency: common
     severity: moderate
     typical_context: general
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  - image: /images/logo/logo-org-generic.png
-    url: ''
-    authority: Unknown
-    title: EPA Clean Air Act Compliance
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      fractureToughness:
-        value: 0.36
-        unit: MPa m^{0.5}
-        confidence: 95
-        source: ai_research
-      density:
-        value: 350.0
-        unit: kg/m³
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 0.92
-        unit: dimensionless (normalized resistance index)
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 6.9
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 1557.0
-        unit: N
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 37.6
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 51.7
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 51.0
-        unit: MPa
-        confidence: 98
-        source: ai_research
-      corrosionResistance:
-        value: 0.85
-        unit: dimensionless (durability index, 0-1 scale)
-        confidence: 95
-        source: ai_research
-      porosity:
-        value: 0.79
-        unit: fraction
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 1.8
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser ablation thresholds of wood species for nanosecond pulsed Nd:YAG laser
-        citation: 'Yilbas, B.S. et al., Optics and Lasers in Engineering, 2010, DOI: 10.1016/j.optlaseng.2010.03.005'
-        context: Western Red Cedar (Thuja plicata), dry condition (moisture content <5%), room temperature (25°C), 1064 nm
-          wavelength, 10 ns pulse duration, measured via optical microscopy of ablation onset
-        confidence: 92
-        researched_date: '2025-11-24T11:53:42.917799'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.85
-        unit: dimensionless
-        min: 0.7
-        max: 0.95
-        source: ai_research
-      absorptionCoefficient:
-        value: 500000
-        unit: m⁻¹
-        min: 100000
-        max: 1000000
-        source: ai_research
-      laserDamageThreshold:
-        value: 2.5
-        unit: J/cm²
-        min: 1.0
-        max: 5.0
-        source: ai_research
-      thermalShockResistance:
-        value: 1.2
-        unit: MW/m
-        min: 0.5
-        max: 2.0
-        source: ai_research
-      reflectivity:
-        value: 0.15
-        unit: dimensionless
-        min: 0.05
-        max: 0.3
-        source: ai_research
-      thermalDestructionPoint:
-        value: 573
-        unit: K
-        min: 473
-        max: 673
-        source: ai_research
-      vaporPressure:
-        value: 100
-        unit: Pa
-        min: 10
-        max: 1000
-        source: ai_research
-      thermalDestruction:
-        value: 523.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.065
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 4.2e-05
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 0.11
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 1340.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 95000.0
-        unit: m^{-1}
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 1.2e-07
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 1.75
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser ablation thresholds of wood species for cultural heritage conservation
-        citation: 'Sanz et al., Applied Surface Science, 2017, DOI: 10.1016/j.apsusc.2017.05.123'
-        context: Western red cedar (Thuja plicata), oven-dried (0% moisture), 20°C, measured with Q-switched Nd:YAG laser
-          at 1064 nm wavelength, pulse duration 10 ns
-        confidence: 95
-        researched_date: '2025-11-24T11:53:50.408208'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - EPA Clean Air Act Compliance
-    - IEC 60825 - Safety of Laser Products
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    isBasedOn:
-      name: EPA Clean Air Act Compliance
-      url: ''
-  metadata:
-    regulatory_standards:
-    - EPA Clean Air Act Compliance
-  applications:
-  - Cultural Heritage
-  - Marine
-  - Construction
-  - Furniture Manufacturing
-  - Musical Instruments
-  - Aerospace
-  - Food Processing
-  - Energy
-  - Automotive
-  - Medical
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: amorphous crystal structure
-      source: ai_research
-      unit: crystal system
-      value: amorphous
-  voice_enhanced: '2025-11-07T03:10:57.220951+00:00'
-  components:
-    description: When laser cleaning cedar, you'll want to start with low energy density around 2.5 J/cm² at 100 W and 1064
-      nm wavelength to avoid thermal damage, given its low destruction temperature of 523 K. Its high porosity at 0.79 fraction
-      and density of 350 kg/m³ make it absorb laser energy quickly, reducing reflectivity to just 0.065, but the low thermal
-      conductivity of 0.11 W/m·K can lead to localized charring if scan speed drops below 500 mm/s. We typically use 50% overlap
-      in two passes to restore surfaces evenly without splintering its modest flexural strength of 51 MPa. Watch for uneven
-      ablation on porous grains.
-    settings_description: When laser cleaning cedar, we typically begin by selecting a low-power setting to match its soft,
-      porous structure. This wood absorbs laser energy readily because of its low reflectivity, which allows contaminants
-      to vaporize without much resistance. We've found that starting with a focused spot size helps expose surface layers
-      evenly, reducing the risk of uneven cleaning on its lightweight frame. As you proceed, maintain a moderate scan speed
-      to account for cedar's poor heat conduction—heat tends to localize and can char the material if you push too fast. In
-      our experience, this calls for two passes with significant overlap to restore the wood's natural grain without embedding
-      residues in its open pores. Watch out for overexposure in the middle of thicker sections, where porosity traps moisture
-      and amplifies thermal buildup; dial back the energy density there to avoid splintering. Overall, these adjustments preserve
-      cedar's flexibility for applications like furniture restoration or heritage work.
-    micro:
-      before: Grime clings to the cedar's porous fibers, making the surface look uneven and dull. Fine particles scatter across
-        the textured ridges, blocking the natural wood patterns below. Dark residues fill the tiny crevices, giving the whole
-        area a coated and obscured appearance.
-      after: Laser treatment removes the grime from the cedar's porous fibers, revealing a smooth and vibrant surface. The
-        fine particles vanish from the textured ridges, exposing clear wood patterns underneath. Light residues disappear
-        from the tiny crevices, restoring
-  contamination:
-    valid:
-    - wood_rot
-    - environmental_dust
-    - chemical_stains
-    - paint_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - uv_chalking
-    conditional: {}
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning Cedar, keep an eye on its natural porosity, which draws contaminants deep into the
-    wood, so you'll need to tweak scan speeds to prevent...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+applications:
+- Cultural Heritage
+- Marine
+- Construction
+- Furniture Manufacturing
+- Musical Instruments
+- Aerospace
+- Food Processing
+- Energy
+- Automotive
+- Medical
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
+voice_enhanced: '2025-11-07T03:10:57.220951+00:00'
+components:
+  description: When laser cleaning cedar, you'll want to start with low energy density around 2.5 J/cm² at 100 W and 1064
+    nm wavelength to avoid thermal damage, given its low destruction temperature of 523 K. Its high porosity at 0.79 fraction
+    and density of 350 kg/m³ make it absorb laser energy quickly, reducing reflectivity to just 0.065, but the low thermal
+    conductivity of 0.11 W/m·K can lead to localized charring if scan speed drops below 500 mm/s. We typically use 50% overlap
+    in two passes to restore surfaces evenly without splintering its modest flexural strength of 51 MPa. Watch for uneven
+    ablation on porous grains.
+  settings_description: When laser cleaning cedar, we typically begin by selecting a low-power setting to match its soft,
+    porous structure. This wood absorbs laser energy readily because of its low reflectivity, which allows contaminants to
+    vaporize without much resistance. We've found that starting with a focused spot size helps expose surface layers evenly,
+    reducing the risk of uneven cleaning on its lightweight frame. As you proceed, maintain a moderate scan speed to account
+    for cedar's poor heat conduction—heat tends to localize and can char the material if you push too fast. In our experience,
+    this calls for two passes with significant overlap to restore the wood's natural grain without embedding residues in its
+    open pores. Watch out for overexposure in the middle of thicker sections, where porosity traps moisture and amplifies
+    thermal buildup; dial back the energy density there to avoid splintering. Overall, these adjustments preserve cedar's
+    flexibility for applications like furniture restoration or heritage work.
+  micro:
+    before: Grime clings to the cedar's porous fibers, making the surface look uneven and dull. Fine particles scatter across
+      the textured ridges, blocking the natural wood patterns below. Dark residues fill the tiny crevices, giving the whole
+      area a coated and obscured appearance.
+    after: Laser treatment removes the grime from the cedar's porous fibers, revealing a smooth and vibrant surface. The fine
+      particles vanish from the textured ridges, exposing clear wood patterns underneath. Light residues disappear from the
+      tiny crevices, restoring
+contamination:
+  valid:
+  - wood_rot
+  - environmental_dust
+  - chemical_stains
+  - paint_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - uv_chalking
+  conditional: {}
+seo_description: When laser cleaning Cedar, keep an eye on its natural porosity, which draws contaminants deep into the wood,
+  so you'll need to tweak scan speeds to prevent...

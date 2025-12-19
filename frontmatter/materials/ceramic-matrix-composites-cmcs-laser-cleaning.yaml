@@ -1,27 +1,14 @@
 id: ceramic-matrix-composites-cmcs-laser-cleaning
 name: Ceramic Matrix Composites CMCs
+slug: ceramic-matrix-composites-cmcs
 category: composite
 subcategory: fiber-reinforced
 content_type: materials
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:20:54.533465Z'
-dateModified: '2025-12-19T01:18:49Z'
+datePublished: '2025-12-19T01:24:56.086526Z'
+dateModified: '2025-12-19T01:24:56.086526Z'
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
 title: CMCs Laser Cleaning
 description: When working with Ceramic Matrix Composites in high-heat environments, prioritize their superior toughness that
   resists cracking under thermal stress, allowing them to surpass brittle traditional ceramics by preserving structural integrity
@@ -111,359 +98,271 @@ faq:
     alterations by mapping effusivity changes in potential heat-affected zones, all without contact.
   question: After laser cleaning, what non-destructive testing (NDE) methods are most reliable for verifying surface integrity
     and the absence of heat-affected zones on CMCs?
+regulatory_standards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+properties:
+  material_characteristics:
+    label: Material Characteristics
+    percentage: 60.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
+      integrity
+    electricalResistivity:
+      value: 0.02
+      unit: ohm-m
+      confidence: 95
+      source: ai_research
+    fractureToughness:
+      value: 25.0
+      unit: MPa√m
+      confidence: 95
+      source: ai_research
+    density:
+      value: 2.6
+      unit: g/cm³
+      confidence: 95
+      source: ai_research
+    oxidationResistance:
+      value: 1400.0
+      unit: °C
+      confidence: 95
+      source: ai_research
+    youngsModulus:
+      value: 240.0
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    hardness:
+      value: 20.5
+      unit: GPa
+      confidence: 95
+      source: ai_research
+    compressiveStrength:
+      value: 420.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    tensileStrength:
+      value: 310.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    flexuralStrength:
+      value: 350.0
+      unit: MPa
+      confidence: 95
+      source: ai_research
+    corrosionResistance:
+      value: 0.005
+      unit: mm/year
+      confidence: 95
+      source: ai_research
+    laserDamageThreshold:
+      value: 3.2
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Laser Damage Thresholds of Silicon Carbide-Based Ceramic Matrix Composites
+      citation: 'Mei, H. et al., Journal of the European Ceramic Society, 2019, DOI: 10.1016/j.jeurceramsoc.2019.05.012'
+      context: SiC/SiC CMC with 2D woven Hi-Nicalon fibers, 40 vol% fiber content, as-sintered condition, 1064 nm Nd:YAG laser,
+        room temperature, 10 ns pulse duration
+      confidence: 95
+      researched_date: '2025-11-24T11:54:16.764004'
+      needs_validation: true
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    percentage: 40.0
+    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    absorptivity:
+      value: 0.4
+      unit: dimensionless
+      min: 0.2
+      max: 0.8
+      source: ai_research
+    absorptionCoefficient:
+      value: 1000000
+      unit: m⁻¹
+      min: 100000
+      max: 10000000
+      source: ai_research
+    laserDamageThreshold:
+      value: 2
+      unit: J/cm²
+      min: 0.5
+      max: 10
+      source: ai_research
+    thermalShockResistance:
+      value: 1.5
+      unit: MW/m
+      min: 0.5
+      max: 4
+      source: ai_research
+    reflectivity:
+      value: 0.6
+      unit: dimensionless
+      min: 0.1
+      max: 0.9
+      source: ai_research
+    thermalDestructionPoint:
+      value: 1700
+      unit: K
+      min: 1400
+      max: 2000
+      source: ai_research
+    vaporPressure:
+      value: 10
+      unit: Pa
+      min: 0.1
+      max: 1000
+      source: ai_research
+    thermalDestruction:
+      value: 1473.0
+      unit: K
+      confidence: 95
+      source: ai_research
+    laserReflectivity:
+      value: 0.36
+      unit: ''
+      confidence: 95
+      source: ai_research
+    thermalExpansion:
+      value: 4.1e-06
+      unit: K^{-1}
+      confidence: 95
+      source: ai_research
+    thermalConductivity:
+      value: 2.8
+      unit: W/m·K
+      confidence: 95
+      source: ai_research
+    specificHeat:
+      value: 780.0
+      unit: J/(kg·K)
+      confidence: 95
+      source: ai_research
+    laserAbsorption:
+      value: 0.85
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+    thermalDiffusivity:
+      value: 5.2e-06
+      unit: m²/s
+      confidence: 95
+      source: ai_research
+    ablationThreshold:
+      value: 3.2
+      unit: J/cm²
+      source: scientific_literature
+      source_type: journal_article
+      source_name: Journal of the European Ceramic Society
+      citation: 'Zhang, L. et al., Laser ablation behavior of SiC/SiC ceramic matrix composites, Journal of the European Ceramic
+        Society, 2018, DOI: 10.1016/j.jeurceramsoc.2018.05.012'
+      context: SiC fiber-reinforced SiC matrix CMC (2D woven, 40 vol% fibers), 1064 nm Nd:YAG laser, 10 ns pulse duration,
+        room temperature, atmospheric pressure
+      confidence: 95
+      researched_date: '2025-11-24T11:54:20.810074'
+      needs_validation: true
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+metadata:
+  last_updated: '2025-10-27T23:48:40.921793Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.921799Z'
+  structure_version: '2.0'
 relationships:
   related_contaminants: []
   regulatory_standards:
-  - image: /images/logo/logo-org-fda.png
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    authority: FDA
-    title: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - image: /images/logo/logo-org-ansi.png
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    authority: ANSI
-    title: ANSI Z136.1 - Safe Use of Lasers
-  - image: /images/logo/logo-org-iec.png
-    url: https://webstore.iec.ch/publication/3587
-    authority: IEC
-    title: IEC 60825 - Safety of Laser Products
-  - image: /images/logo/logo-org-osha.png
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    authority: OSHA
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  properties:
-    material_characteristics:
-      label: Material Characteristics
-      percentage: 60.0
-      description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-        integrity
-      electricalResistivity:
-        value: 0.02
-        unit: ohm-m
-        confidence: 95
-        source: ai_research
-      fractureToughness:
-        value: 25.0
-        unit: MPa√m
-        confidence: 95
-        source: ai_research
-      density:
-        value: 2.6
-        unit: g/cm³
-        confidence: 95
-        source: ai_research
-      oxidationResistance:
-        value: 1400.0
-        unit: °C
-        confidence: 95
-        source: ai_research
-      youngsModulus:
-        value: 240.0
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      hardness:
-        value: 20.5
-        unit: GPa
-        confidence: 95
-        source: ai_research
-      compressiveStrength:
-        value: 420.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      tensileStrength:
-        value: 310.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      flexuralStrength:
-        value: 350.0
-        unit: MPa
-        confidence: 95
-        source: ai_research
-      corrosionResistance:
-        value: 0.005
-        unit: mm/year
-        confidence: 95
-        source: ai_research
-      laserDamageThreshold:
-        value: 3.2
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Laser Damage Thresholds of Silicon Carbide-Based Ceramic Matrix Composites
-        citation: 'Mei, H. et al., Journal of the European Ceramic Society, 2019, DOI: 10.1016/j.jeurceramsoc.2019.05.012'
-        context: SiC/SiC CMC with 2D woven Hi-Nicalon fibers, 40 vol% fiber content, as-sintered condition, 1064 nm Nd:YAG
-          laser, room temperature, 10 ns pulse duration
-        confidence: 95
-        researched_date: '2025-11-24T11:54:16.764004'
-        needs_validation: true
-    laser_material_interaction:
-      label: Laser-Material Interaction
-      percentage: 40.0
-      description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      absorptivity:
-        value: 0.4
-        unit: dimensionless
-        min: 0.2
-        max: 0.8
-        source: ai_research
-      absorptionCoefficient:
-        value: 1000000
-        unit: m⁻¹
-        min: 100000
-        max: 10000000
-        source: ai_research
-      laserDamageThreshold:
-        value: 2
-        unit: J/cm²
-        min: 0.5
-        max: 10
-        source: ai_research
-      thermalShockResistance:
-        value: 1.5
-        unit: MW/m
-        min: 0.5
-        max: 4
-        source: ai_research
-      reflectivity:
-        value: 0.6
-        unit: dimensionless
-        min: 0.1
-        max: 0.9
-        source: ai_research
-      thermalDestructionPoint:
-        value: 1700
-        unit: K
-        min: 1400
-        max: 2000
-        source: ai_research
-      vaporPressure:
-        value: 10
-        unit: Pa
-        min: 0.1
-        max: 1000
-        source: ai_research
-      thermalDestruction:
-        value: 1473.0
-        unit: K
-        confidence: 95
-        source: ai_research
-      laserReflectivity:
-        value: 0.36
-        unit: ''
-        confidence: 95
-        source: ai_research
-      thermalExpansion:
-        value: 4.1e-06
-        unit: K^{-1}
-        confidence: 95
-        source: ai_research
-      thermalConductivity:
-        value: 2.8
-        unit: W/m·K
-        confidence: 95
-        source: ai_research
-      specificHeat:
-        value: 780.0
-        unit: J/(kg·K)
-        confidence: 95
-        source: ai_research
-      laserAbsorption:
-        value: 0.85
-        unit: dimensionless
-        confidence: 95
-        source: ai_research
-      thermalDiffusivity:
-        value: 5.2e-06
-        unit: m²/s
-        confidence: 95
-        source: ai_research
-      ablationThreshold:
-        value: 3.2
-        unit: J/cm²
-        source: scientific_literature
-        source_type: journal_article
-        source_name: Journal of the European Ceramic Society
-        citation: 'Zhang, L. et al., Laser ablation behavior of SiC/SiC ceramic matrix composites, Journal of the European
-          Ceramic Society, 2018, DOI: 10.1016/j.jeurceramsoc.2018.05.012'
-        context: SiC fiber-reinforced SiC matrix CMC (2D woven, 40 vol% fibers), 1064 nm Nd:YAG laser, 10 ns pulse duration,
-          room temperature, atmospheric pressure
-        confidence: 95
-        researched_date: '2025-11-24T11:54:20.810074'
-        needs_validation: true
-  eeat:
-    reviewedBy: Z-Beam Quality Assurance Team
-    citations:
-    - IEC 60825 - Safety of Laser Products
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    isBasedOn:
-      name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-  metadata:
-    last_updated: '2025-10-27T23:48:40.921793Z'
-    normalization_applied: true
-    normalization_date: '2025-10-27T23:48:40.921799Z'
-    structure_version: '2.0'
-  applications:
-  - Aerospace
-  - Automotive
-  - Energy
-  - Medical
-  - Electronics
-  - Marine
-  - Manufacturing
-  - Cultural Heritage
-  - Defense
-  - Research & Development
-  characteristics:
-    crystallineStructure:
-      allowedValues:
-      - FCC
-      - BCC
-      - HCP
-      - amorphous
-      - cubic
-      - hexagonal
-      - tetragonal
-      - orthorhombic
-      - monoclinic
-      - triclinic
-      description: mixed crystal structure
-      source: ai_research
-      unit: crystal system
-      value: mixed
-  voice_enhanced: '2025-11-07T02:50:47.043172+00:00'
-  components:
-    settings_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any
-      embedded fibers, as these can trap contaminants and lead to uneven removal if not handled carefully from the outset.
-      This early check helps prevent thermal stress that might crack the brittle matrix, so we recommend a gentle initial
-      scan to test response. We've found that starting with reduced power settings clears surface buildup effectively without
-      overwhelming the material's inherent heat resistance, which keeps things stable up to high temperatures in applications
-      like aerospace parts. As you proceed, overlap your passes moderately to account for the composite's layered structure—unlike
-      pure metals, this fiber reinforcement demands a slower scan speed to avoid delamination. In our experience, this approach
-      leverages the material's durability and low expansion under heat, ensuring clean results for automotive or energy components
-      while dodging common pitfalls like subsurface damage from over-aggressive pulses. Finally, inspect between passes to
-      confirm no oxidation creeps in, adjusting as needed for optimal preservation.
-    micro:
-      before: I've seen contaminated CMC surfaces under magnification show a rough, dusty layer everywhere. Particles cling
-        tightly to the fibers, making the whole thing look uneven and clogged. This buildup hides the material's true texture
-        completely.
-      after: After laser treatment, the same surface appears smooth and open. Fibers stand out clearly now, free from any
-        clinging debris. The clean look reveals a uniform, fresh structure overall.
-  contamination:
-    valid:
-    - uv_chalking
-    - environmental_dust
-    - chemical_stains
-    - adhesive_residue
-    prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    conditional:
-      industrial_oil:
-        context: machinery_parts_only
-        note: Only if composite is part of machinery
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  - id: reach-chemical-restrictions
-    title: REACH Regulation (EC) No 1907/2006
-    short_title: REACH
-    authority: ECHA
-    authority_full: European Chemicals Agency
-    agency_type: regulatory_body
-    country: European Union
-    url: /compounds/reach-chemical-restrictions
-    image: /images/logo/logo-org-echa.png
-    description: Registration, Evaluation, Authorization and Restriction of Chemicals in EU
-    scope: Chemical substance restrictions, authorizations, safety data
-    applicability:
-    - Materials containing restricted substances
-    - Coatings with heavy metals (lead, cadmium, chromium VI)
-    - Paint removal operations
-    - Chemical exposure during laser cleaning
-    compliance_requirements:
-    - Safety data sheets for chemical products
-    - Substance registration (if importing >1 tonne/year)
-    - Restriction compliance for Annex XVII substances
-    - Authorization for SVHC substances
-    - Exposure scenario development
-    compliance_level: mandatory
-    enforcement: National REACH authorities
-    penalties: Varies by member state, significant fines possible
-    effective_date: 2007-06-01
-    jurisdiction: European Union
-    restricted_substances:
-    - Lead compounds in coatings
-    - Cadmium in pigments
-    - Chromium VI compounds
-    - Asbestos-containing materials
-    related_standards:
-    - rohs-directive
-    - ce-machinery-directive
-  seo_description: When working with Ceramic Matrix Composites in high-heat environments, prioritize their superior toughness
-    that resists cracking under thermal stress, allowing...
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+  - type: regulatory_standards
+    id: reach-chemical-restrictions
+applications:
+- Aerospace
+- Automotive
+- Energy
+- Medical
+- Electronics
+- Marine
+- Manufacturing
+- Cultural Heritage
+- Defense
+- Research & Development
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: mixed crystal structure
+    source: ai_research
+    unit: crystal system
+    value: mixed
+voice_enhanced: '2025-11-07T02:50:47.043172+00:00'
+components:
+  settings_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded
+    fibers, as these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early
+    check helps prevent thermal stress that might crack the brittle matrix, so we recommend a gentle initial scan to test
+    response. We've found that starting with reduced power settings clears surface buildup effectively without overwhelming
+    the material's inherent heat resistance, which keeps things stable up to high temperatures in applications like aerospace
+    parts. As you proceed, overlap your passes moderately to account for the composite's layered structure—unlike pure metals,
+    this fiber reinforcement demands a slower scan speed to avoid delamination. In our experience, this approach leverages
+    the material's durability and low expansion under heat, ensuring clean results for automotive or energy components while
+    dodging common pitfalls like subsurface damage from over-aggressive pulses. Finally, inspect between passes to confirm
+    no oxidation creeps in, adjusting as needed for optimal preservation.
+  micro:
+    before: I've seen contaminated CMC surfaces under magnification show a rough, dusty layer everywhere. Particles cling
+      tightly to the fibers, making the whole thing look uneven and clogged. This buildup hides the material's true texture
+      completely.
+    after: After laser treatment, the same surface appears smooth and open. Fibers stand out clearly now, free from any clinging
+      debris. The clean look reveals a uniform, fresh structure overall.
+contamination:
+  valid:
+  - uv_chalking
+  - environmental_dust
+  - chemical_stains
+  - adhesive_residue
+  prohibited:
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  conditional:
+    industrial_oil:
+      context: machinery_parts_only
+      note: Only if composite is part of machinery
+seo_description: When working with Ceramic Matrix Composites in high-heat environments, prioritize their superior toughness
+  that resists cracking under thermal stress, allowing...

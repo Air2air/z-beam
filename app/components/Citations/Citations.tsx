@@ -76,7 +76,7 @@ export function Citations({ research_library, materialName, heroImage, materialL
               <div
                 key={citationId}
                 id={`citation-${citationId}`}
-                className="bg-secondary rounded-lg border hover:border-gray-600 transition-colors overflow-hidden scroll-mt-20"
+                className="bg-secondary rounded-md border hover:border-gray-600 transition-colors overflow-hidden scroll-mt-20"
               >
                 {/* Citation Header (Always Visible) */}
                 <button
@@ -85,7 +85,7 @@ export function Citations({ research_library, materialName, heroImage, materialL
                   aria-expanded={isExpanded}
                   aria-controls={`citation-${citationId}-details`}
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-900/30 border border-blue-500/50 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-900/30 border border-blue-500/50 rounded-md flex items-center justify-center">
                     <span className="text-blue-400 font-bold text-lg">{citation.year}</span>
                   </div>
                   

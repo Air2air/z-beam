@@ -67,7 +67,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('block', 'rounded-lg', 'px-4', 'py-3');
+      expect(link).toHaveClass('block', 'rounded-md', 'px-4', 'py-3');
       
       // Check image classes
       const image = screen.getByAltText('Test Author');
@@ -85,7 +85,7 @@ describe('Author Component', () => {
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/search?q=Test%20Author');
       // Link wraps entire author component as block element
-      expect(link).toHaveClass('block', 'rounded-lg');
+      expect(link).toHaveClass('block', 'rounded-md');
     });
   });
 
@@ -244,7 +244,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('block', 'rounded-lg');
+      expect(link).toHaveClass('block', 'rounded-md');
       
       // Check that the image is inside the link
       const image = screen.getByAltText('Test Author');
@@ -257,7 +257,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: mockAuthor }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('block', 'rounded-lg');
+      expect(link).toHaveClass('block', 'rounded-md');
       
       // Check for image
       const image = screen.getByAltText('Test Author');

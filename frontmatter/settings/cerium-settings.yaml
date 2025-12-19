@@ -1,214 +1,134 @@
 id: Cerium
+slug: cerium
 content_type: settings
 schema_version: 5.0.0
-datePublished: '2025-12-19T00:21:14.309709Z'
-dateModified: '2025-12-19T01:19:02Z'
+datePublished: '2025-12-19T01:25:15.418670Z'
+dateModified: '2025-12-19T01:25:15.418670Z'
 relationships:
   related_materials: []
   related_contaminants: []
   regulatory_standards:
   - type: regulatory_standards
     id: osha-ppe-requirements
-    title: Osha Ppe Requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-    title: Ansi Z136 1 Laser Safety
-  machine_settings:
-    powerRange:
-      description: Optimal average power for Cerium oxide removal without substrate damage
-      unit: W
-      value: 100
-    wavelength:
-      description: Near-IR wavelength for optimal Cerium absorption and thermal processing
-      unit: nm
-      value: 1064
-    spotSize:
-      description: Beam spot diameter for precise cleaning control on Cerium surfaces
-      unit: μm
-      value: 50
-    repetitionRate:
-      description: Optimal repetition rate for efficient cleaning with thermal management
-      unit: kHz
-      value: 50
-    fluenceThreshold:
-      description: Fluence threshold for effective Cerium cleaning
-      unit: J/cm²
-      value: 5.1
-    energyDensity:
-      description: Fluence threshold for effective Cerium oxide removal
-      unit: J/cm²
-      value: 5.1
-    pulseWidth:
-      description: Nanosecond pulse duration for controlled ablation of Cerium oxides
-      unit: ns
-      value: 10
-    scanSpeed:
-      description: Optimal scanning speed for uniform cleaning coverage
-      unit: mm/s
-      value: 500
-    passCount:
-      description: Recommended number of passes for complete contaminant removal
-      unit: passes
-      value: 3
-    overlapRatio:
-      description: Optimal pulse overlap for uniform cleaning without excessive heating
-      unit: '%'
-      value: 50
-  challenges:
-    thermal_management:
-    - challenge: Rapid oxidation and pyrophoricity
-      severity: critical
-      threshold_temperature: Above 150-300°C causes spontaneous ignition in air
-      impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
-      solutions:
-      - Process in inert atmosphere (argon or nitrogen) or high vacuum
-      - Use pulse mode with 10-15 second cooling to prevent sustained heating
-      - Keep surface temperature below 150°C monitored with IR camera
-      - Have fire suppression ready for pyrophoric materials
-      - Immediate passivation after cleaning to prevent further oxidation
-    - challenge: Variable thermal properties across series
-      severity: medium
-      property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
-      impact: Different lanthanides require different cooling strategies
-      solutions:
-      - Light lanthanides (La, Ce, Pr) require more cooling time
-      - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
-      - Adjust parameters by specific element, not just category
-      - Test on small area to determine optimal cooling requirements
-    surface_characteristics:
-    - challenge: Oxide layer formation and removal
-      severity: high
-      impact: Surface oxidizes within seconds to minutes forming opaque layer
-      solutions:
-      - Clean in controlled atmosphere to prevent immediate reoxidation
-      - Multiple passes may be required as oxide reforms between passes
-      - Oxide removal threshold (1-3 J/cm²) lower than metal substrate (2-5 J/cm²)
-      - Chemical passivation immediately after cleaning
-      - Store in inert atmosphere or vacuum after processing
-    - challenge: Magnetic property sensitivity
-      severity: high
-      impact: Heating above Curie temperature permanently alters magnetic properties
-      solutions:
-      - Monitor temperature strictly; Nd magnets lose magnetism above 310-400°C
-      - Use ultrashort pulses (picosecond) for minimal heat-affected zone
-      - Reduce power by 60-70% compared to non-magnetic metals
-      - Test magnetic properties before and after cleaning to verify preservation
-    contamination_challenges:
-    - challenge: High-value material recovery
-      severity: medium
-      impact: Rare-earth elements extremely valuable; contamination removal must preserve material
-      solutions:
-      - First pass 15W very slow (500 mm/s) for assessment
-      - Gradual power increase (15W → 25W → 35W) across multiple passes
-      - Collect all ablated material for potential recovery
-      - Document process for traceability and quality control
-      - Consider chemical pre-treatment to reduce laser exposure
-    - challenge: Strategic material handling requirements
-      severity: medium
-      impact: Export-controlled materials require documentation and secure handling
-      solutions:
-      - Clean in controlled access facility
-      - Document all processing parameters and material quantities
-      - Secure storage of cleaned materials
-      - Follow applicable export control regulations
-      - Chain of custody documentation for high-value materials
-  settings_description: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property
-    scatters much of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make
-    sure you start with lower power settings to compensate, allowing the process to gradually expose and restore the underlying
-    metal without excessive scattering that could prolong treatment times. Cerium's low thermal conductivity further complicates
-    this, as localized heat buildup risks damaging the soft structure, so you must control pulse durations carefully to prevent
-    warping or uneven ablation. What sets cerium apart from common metals is its reactive nature as a rare-earth element,
-    which forms a tenacious oxide layer that clings tightly and demands multiple passes for complete removal, while its moderate
-    density aids in precise handling during setup. This combination improves outcomes in applications like optical component
-    cleaning or aerospace parts, where restoring surface integrity matters most. Adjust scan speeds to overlap coverage adequately,
-    ensuring the laser removes residues without compromising the material's ductility. Finally, watch out for overexposure,
-    as cerium's sensitivity to oxidation post-cleaning can lead to rapid recontamination if not sealed promptly.
-  regulatory_standards_detail:
-  - id: osha-ppe-requirements
-    title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    short_title: OSHA PPE Requirements
-    authority: OSHA
-    authority_full: Occupational Safety and Health Administration
-    agency_type: federal
-    country: United States
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-    image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction and industrial operations
-    scope: Eye protection, respiratory protection, protective clothing
-    applicability:
-    - All workplaces using laser equipment
-    - Operators and nearby personnel
-    - Maintenance personnel
-    compliance_requirements:
-    - Laser safety eyewear rated for wavelength
-    - Protective clothing for skin exposure risk
-    - Respiratory protection for fume/particulate exposure
-    - Employer-provided PPE at no cost to employees
-    - PPE training and fit testing
-    compliance_level: mandatory
-    enforcement: OSHA inspections and citations
-    penalties: Up to $15,625 per serious violation
-    effective_date: 1971-04-28
-    last_amended: 2023-01-23
-    jurisdiction: United States (federal)
-    related_standards:
-    - ansi-z87-1-eye-protection
-    - ansi-z136-1-laser-safety
-  - id: ansi-z136-1-laser-safety
-    title: ANSI Z136.1 - Safe Use of Lasers
-    short_title: ANSI Laser Safety Standard
-    authority: ANSI
-    authority_full: American National Standards Institute
-    agency_type: standards_body
-    country: United States
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-    scope: Hazard evaluation, control measures, safety procedures, training
-    applicability:
-    - All laser operators and safety officers
-    - Laser safety programs
-    - Facility design and operations
-    compliance_requirements:
-    - Laser safety officer designation
-    - Hazard evaluation and classification
-    - Nominal hazard zone calculation
-    - Standard operating procedures
-    - Laser safety training program
-    - Medical surveillance for high-power operations
-    - Controlled access to laser areas
-    compliance_level: recommended
-    adoption: Widely adopted, referenced by OSHA
-    effective_date: 2022-08-01
-    edition: 2022 edition
-    replaces: ANSI Z136.1-2014
-    jurisdiction: International (US-origin)
-    related_standards:
-    - iec-60825-laser-safety
-    - osha-ppe-requirements
-  seo_description: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters
-    much of the laser energy away from the surface and...
-  excerpt: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters much
-    of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make sure you start
-    with lower power settings to compensate, allowing the process to gradually expose and restore...
+machine_settings:
+  powerRange:
+    description: Optimal average power for Cerium oxide removal without substrate damage
+    unit: W
+    value: 100
+  wavelength:
+    description: Near-IR wavelength for optimal Cerium absorption and thermal processing
+    unit: nm
+    value: 1064
+  spotSize:
+    description: Beam spot diameter for precise cleaning control on Cerium surfaces
+    unit: μm
+    value: 50
+  repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 50
+  fluenceThreshold:
+    description: Fluence threshold for effective Cerium cleaning
+    unit: J/cm²
+    value: 5.1
+  energyDensity:
+    description: Fluence threshold for effective Cerium oxide removal
+    unit: J/cm²
+    value: 5.1
+  pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of Cerium oxides
+    unit: ns
+    value: 10
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
+  passCount:
+    description: Recommended number of passes for complete contaminant removal
+    unit: passes
+    value: 3
+  overlapRatio:
+    description: Optimal pulse overlap for uniform cleaning without excessive heating
+    unit: '%'
+    value: 50
+challenges:
+  thermal_management:
+  - challenge: Rapid oxidation and pyrophoricity
+    severity: critical
+    threshold_temperature: Above 150-300°C causes spontaneous ignition in air
+    impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
+    solutions:
+    - Process in inert atmosphere (argon or nitrogen) or high vacuum
+    - Use pulse mode with 10-15 second cooling to prevent sustained heating
+    - Keep surface temperature below 150°C monitored with IR camera
+    - Have fire suppression ready for pyrophoric materials
+    - Immediate passivation after cleaning to prevent further oxidation
+  - challenge: Variable thermal properties across series
+    severity: medium
+    property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
+    impact: Different lanthanides require different cooling strategies
+    solutions:
+    - Light lanthanides (La, Ce, Pr) require more cooling time
+    - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
+    - Adjust parameters by specific element, not just category
+    - Test on small area to determine optimal cooling requirements
+  surface_characteristics:
+  - challenge: Oxide layer formation and removal
+    severity: high
+    impact: Surface oxidizes within seconds to minutes forming opaque layer
+    solutions:
+    - Clean in controlled atmosphere to prevent immediate reoxidation
+    - Multiple passes may be required as oxide reforms between passes
+    - Oxide removal threshold (1-3 J/cm²) lower than metal substrate (2-5 J/cm²)
+    - Chemical passivation immediately after cleaning
+    - Store in inert atmosphere or vacuum after processing
+  - challenge: Magnetic property sensitivity
+    severity: high
+    impact: Heating above Curie temperature permanently alters magnetic properties
+    solutions:
+    - Monitor temperature strictly; Nd magnets lose magnetism above 310-400°C
+    - Use ultrashort pulses (picosecond) for minimal heat-affected zone
+    - Reduce power by 60-70% compared to non-magnetic metals
+    - Test magnetic properties before and after cleaning to verify preservation
+  contamination_challenges:
+  - challenge: High-value material recovery
+    severity: medium
+    impact: Rare-earth elements extremely valuable; contamination removal must preserve material
+    solutions:
+    - First pass 15W very slow (500 mm/s) for assessment
+    - Gradual power increase (15W → 25W → 35W) across multiple passes
+    - Collect all ablated material for potential recovery
+    - Document process for traceability and quality control
+    - Consider chemical pre-treatment to reduce laser exposure
+  - challenge: Strategic material handling requirements
+    severity: medium
+    impact: Export-controlled materials require documentation and secure handling
+    solutions:
+    - Clean in controlled access facility
+    - Document all processing parameters and material quantities
+    - Secure storage of cleaned materials
+    - Follow applicable export control regulations
+    - Chain of custody documentation for high-value materials
+settings_description: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property
+  scatters much of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make sure
+  you start with lower power settings to compensate, allowing the process to gradually expose and restore the underlying metal
+  without excessive scattering that could prolong treatment times. Cerium's low thermal conductivity further complicates this,
+  as localized heat buildup risks damaging the soft structure, so you must control pulse durations carefully to prevent warping
+  or uneven ablation. What sets cerium apart from common metals is its reactive nature as a rare-earth element, which forms
+  a tenacious oxide layer that clings tightly and demands multiple passes for complete removal, while its moderate density
+  aids in precise handling during setup. This combination improves outcomes in applications like optical component cleaning
+  or aerospace parts, where restoring surface integrity matters most. Adjust scan speeds to overlap coverage adequately, ensuring
+  the laser removes residues without compromising the material's ductility. Finally, watch out for overexposure, as cerium's
+  sensitivity to oxidation post-cleaning can lead to rapid recontamination if not sealed promptly.
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+seo_description: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters
+  much of the laser energy away from the surface and...
+excerpt: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters much
+  of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make sure you start with
+  lower power settings to compensate, allowing the process to gradually expose and restore...

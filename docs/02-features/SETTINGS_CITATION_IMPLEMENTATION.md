@@ -241,7 +241,7 @@ export function MaterialSafetyHeatmap({
       <HeatmapGrid {...props} />
       
       {/* NEW: Citation-Enhanced Legend */}
-      <div className="mt-6 bg-gray-800 rounded-lg p-4">
+      <div className="mt-6 bg-gray-800 rounded-md p-4">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
           <span>Legend</span>
           <InfoIcon tooltip="Color zones based on experimental and theoretical validation" />
@@ -426,7 +426,7 @@ export function ThermalAccumulation({
       </div>
       
       {/* NEW: Model Validation Notice */}
-      <div className="mt-6 bg-yellow-900/20 border border-yellow-600 rounded-lg p-4">
+      <div className="mt-6 bg-yellow-900/20 border border-yellow-600 rounded-md p-4">
         <div className="flex items-start gap-3">
           <span className="text-2xl">⚠️</span>
           <div className="flex-1">
@@ -691,7 +691,7 @@ export function TroubleshootingTab({ issues, researchLibrary }) {
 // Issue Card with Citation Support
 function IssueCard({ issue, researchLibrary }) {
   return (
-    <div className="issue-card bg-gray-800 rounded-lg p-4">
+    <div className="issue-card bg-gray-800 rounded-md p-4">
       {/* Symptom */}
       <h4 className="text-lg font-semibold text-white mb-3">
         🔍 {issue.symptom}
@@ -900,7 +900,7 @@ function CitationCard({ citationId, citation, isReferenced }: {
     <div 
       id={`citation-${citationId}`}
       className={`
-        citation-card bg-gray-800 rounded-lg p-6 border-l-4
+        citation-card bg-gray-800 rounded-md p-6 border-l-4
         ${isReferenced ? 'border-blue-500' : 'border-gray-700'}
         scroll-mt-20
       `}

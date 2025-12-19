@@ -124,8 +124,8 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
       
       if (!parsed) return {};
       
-      // Handle normalized structure (parsed.metadata) or legacy flat structure
-      let data = parsed.metadata || parsed;
+      // Use flat structure directly - no metadata wrapper
+      let data = parsed;
       
       // Apply all normalizations
       
@@ -929,7 +929,13 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
     
     // Always provide title and author components with frontmatter data
     components.title = { config: frontmatterData, content: '' };
-    components.author = { config: frontmatterData, content: '' };
+    components.author = { 
+      config: {
+        author: frontmatterData.author,
+        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+      }, 
+      content: '' 
+    };
     
     return {
       metadata,
@@ -982,7 +988,13 @@ export const getContaminantArticle = cache(async (slug: string): Promise<{ metad
       
       // Always provide title and author components with frontmatter data
       components.title = { config: frontmatterData, content: '' };
-      components.author = { config: frontmatterData, content: '' };
+      components.author = { 
+        config: {
+          author: frontmatterData.author,
+          authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+        }, 
+        content: '' 
+      };
       
       return {
         metadata,
@@ -993,6 +1005,69 @@ export const getContaminantArticle = cache(async (slug: string): Promise<{ metad
       return null;
     }
   }, null, 'getContaminantArticle', slug);
+});
+
+/**
+ * Load compound article data from frontmatter/compounds directory
+ */
+export const getCompoundArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+  return safeContentOperation(async () => {
+    // Load from compounds frontmatter directory using same robust approach as getArticle
+    const frontmatterDir = path.join(process.cwd(), 'frontmatter', 'compounds');
+    const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
+    
+    if (!existsSync(frontmatterPath)) {
+      return null;
+    }
+    
+    validateFilePath(frontmatterPath, [frontmatterDir]);
+    
+    const fileContents = readFileSync(frontmatterPath, 'utf-8');
+    
+    try {
+      const yaml = await import('js-yaml');
+      const parsed = yaml.load(fileContents) as any;
+      
+      if (!parsed) return null;
+      
+      // Handle normalized structure (parsed.metadata) or legacy flat structure
+      let frontmatterData = parsed.metadata || parsed;
+      
+      // Apply all normalizations (same as getArticle)
+      frontmatterData = normalizeAllTextFields(frontmatterData);
+      frontmatterData = normalizeCategoryFields(frontmatterData);
+      frontmatterData = normalizeFreshnessTimestamps(frontmatterData);
+      frontmatterData = normalizeNumericValues(frontmatterData);
+      
+      // Use frontmatter data as the primary metadata source
+      const metadata = {
+        ...frontmatterData,
+        slug,
+        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+      };
+
+      // Compounds may have minimal components - just provide essentials
+      const components: Record<string, ComponentData> = {};
+      
+      // Always provide title and author components with frontmatter data
+      components.title = { config: frontmatterData, content: '' };
+      components.author = { 
+        config: {
+          author: frontmatterData.author,
+          authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+        }, 
+        content: '' 
+      };
+      
+      return {
+        metadata,
+        components
+      };
+    } catch (error) {
+      console.error(`Failed to parse compound YAML for ${slug}:`, error);
+      return null;
+    }
+  }, null, 'getCompoundArticle', slug);
 });
 
 /**
@@ -1055,6 +1130,11 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
         
         // Apply numeric normalization to settings data (machineSettings, etc.)
         data = normalizeNumericValues(data);
+        
+        // Preserve domain_linkages from settings file
+        if (data.domain_linkages) {
+          console.log(`[Settings] Loaded domain_linkages for ${slug}`);
+        }
         
         // If materialRef is present, load referenced material properties
         if (data?.materialRef) {
@@ -1163,6 +1243,9 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       
       // Expert answers for E-E-A-T
       expertAnswers: metadata.expertAnswers,
+      
+      // Cross-domain relationships
+      domain_linkages: metadata.domain_linkages,
       
       // Legacy support
       machineSettings: metadata.machineSettings,

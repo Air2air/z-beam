@@ -37,9 +37,9 @@ export default function ConfirmSchedulingPage() {
           {/* Information Cards */}
           <div className="space-y-6 mb-12">
             {/* Confirmation Email */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            <div className="rounded-md border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-start gap-4">
-                <div className="rounded-lg bg-blue-100 p-3 dark:bg-blue-900/30">
+                <div className="rounded-md bg-blue-100 p-3 dark:bg-blue-900/30">
                   <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div className="flex-1">
@@ -55,9 +55,9 @@ export default function ConfirmSchedulingPage() {
             </div>
 
             {/* What's Next */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            <div className="rounded-md border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-start gap-4">
-                <div className="rounded-lg bg-purple-100 p-3 dark:bg-purple-900/30">
+                <div className="rounded-md bg-purple-100 p-3 dark:bg-purple-900/30">
                   <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div className="flex-1">
@@ -83,9 +83,9 @@ export default function ConfirmSchedulingPage() {
             </div>
 
             {/* Contact Information */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+            <div className="rounded-md border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-start gap-4">
-                <div className="rounded-lg bg-orange-100 p-3 dark:bg-orange-900/30">
+                <div className="rounded-md bg-orange-100 p-3 dark:bg-orange-900/30">
                   <Phone className="h-6 w-6 text-orange-600 dark:text-orange-400" />
                 </div>
                 <div className="flex-1">
@@ -118,13 +118,13 @@ export default function ConfirmSchedulingPage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
+              className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
             >
               Return to Home
             </Link>
             <Link
               href="/materials"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+              className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
             >
               Explore Materials
             </Link>

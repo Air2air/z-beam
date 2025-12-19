@@ -101,7 +101,7 @@ export default async function SafetyPage() {
               but it requires proper training, equipment, and protocols to ensure safe operation. This guide outlines 
               the essential safety considerations for laser cleaning operations.
             </p>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md p-6">
               <div className="flex items-start gap-3">
                 <ShieldIcon className="text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0 mt-1" />
                 <div>
@@ -128,7 +128,7 @@ export default async function SafetyPage() {
             horizPadding={true}
           >
             <div className="grid-2col-md gap-6">
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-5">
                 <div className="flex items-start gap-3 mb-3">
                   <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Laser Radiation</h4>
@@ -139,7 +139,7 @@ export default async function SafetyPage() {
                 </p>
               </div>
 
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-5">
                 <div className="flex items-start gap-3 mb-3">
                   <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Toxic Fumes</h4>
@@ -150,7 +150,7 @@ export default async function SafetyPage() {
                 </p>
               </div>
 
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-5">
                 <div className="flex items-start gap-3 mb-3">
                   <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Fire Risk</h4>
@@ -161,7 +161,7 @@ export default async function SafetyPage() {
                 </p>
               </div>
 
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
+              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-5">
                 <div className="flex items-start gap-3 mb-3">
                   <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Electrical Hazards</h4>
@@ -378,7 +378,7 @@ export default async function SafetyPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-6">
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md p-4 mt-6">
               <p className="text-sm text-blue-900 dark:text-blue-100">
                 <strong>Note:</strong> Z-Beam provides comprehensive operator training as part of our service packages. 
                 Contact us to discuss training requirements for your team.
@@ -407,14 +407,14 @@ export default async function SafetyPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                   href="tel:+16505905040"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors font-semibold"
                 >
                   <PhoneIcon />
                   Call (650) 590-5040
                 </a>
                 <a 
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-8 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-semibold"
+                  className="inline-flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-8 py-3 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-semibold"
                 >
                   Send a Message
                 </a>

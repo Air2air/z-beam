@@ -59,7 +59,7 @@ export default function CategoryGrid({ categoryStats, materials: _materials }: C
             className={`${colors.bg} ${colors.border} border rounded-xl p-6 hover:shadow-lg transition-all duration-200 hover:scale-105 group`}
           >
             <div className="flex flex-col items-center text-center space-y-3">
-              <div className={`${colors.text} p-3 rounded-lg bg-black/20 group-hover:scale-110 transition-transform`}>
+              <div className={`${colors.text} p-3 rounded-md bg-black/20 transition-transform`}>
                 <Icon className="w-8 h-8" />
               </div>
               <div>

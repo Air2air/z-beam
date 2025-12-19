@@ -218,7 +218,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
   return (
     <SectionContainer
       bgColor="transparent"
-      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
+      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-md mb-8"
       horizPadding={true}
     >
       <SectionTitle
@@ -245,7 +245,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
         />
 
         {/* Heat Profile - Full Width */}
-        <div className="bg-tertiary rounded-lg p-6 border">
+        <div className="bg-tertiary rounded-md p-6 border">
           <div className="mb-4 flex items-center justify-between">
             <h4 className="text-sm text-secondary font-semibold">📈 Heat Profile</h4>
             <div className="flex gap-2 text-xs">
@@ -646,7 +646,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Laser Settings */}
-          <div className="bg-tertiary rounded-lg p-4 border">
+          <div className="bg-tertiary rounded-md p-4 border">
             <h4 className="text-sm text-secondary font-semibold mb-3">🔧 Laser Settings</h4>
             <div className="space-y-3">
               {/* Power */}
@@ -666,7 +666,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -689,7 +689,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -712,7 +712,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -735,7 +735,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -758,7 +758,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -780,7 +780,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
 
           {/* Current Temperature Display */}
           <div
-            className={`bg-gradient-to-br from-gray-900 to-gray-950 rounded-lg p-6 border-2 transition-all duration-300 ${
+            className={`bg-gradient-to-br from-gray-900 to-gray-950 rounded-md p-6 border-2 transition-all duration-300 ${
               currentTemp > damageTemp ? 'animate-pulse shadow-2xl shadow-red-500/50' : 
               currentTemp > maxSafeTemp ? 'shadow-xl shadow-yellow-500/30' : 
               'shadow-lg shadow-blue-500/20'
@@ -817,12 +817,12 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
           </div>
 
           {/* Controls */}
-          <div className="bg-tertiary rounded-lg p-4 border space-y-3">
+          <div className="bg-tertiary rounded-md p-4 border space-y-3">
             <h4 className="text-sm text-secondary font-semibold mb-2">▶️ Simulation Controls</h4>
             <div className="flex gap-2">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className={`flex-1 px-4 py-3 rounded-lg font-semibold text-sm transition-colors ${
+                className={`flex-1 px-4 py-3 rounded-md font-semibold text-sm transition-colors ${
                   isPlaying
                     ? 'bg-orange-600 hover:bg-orange-500'
                     : 'bg-green-600 hover:bg-green-500'
@@ -832,7 +832,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
               </button>
               <button
                 onClick={handleReset}
-                className="px-4 py-3 bg-primary hover:bg-tertiary rounded-lg text-sm font-semibold transition-colors"
+                className="px-4 py-3 bg-primary hover:bg-tertiary rounded-md text-sm font-semibold transition-colors"
               >
                 🔄 Reset
               </button>
@@ -848,7 +848,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                 step={0.5}
                 value={speed}
                 onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
+                className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                   [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                   [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
               />
@@ -857,7 +857,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
 
           {/* Warnings */}
           {currentTemp > maxSafeTemp && (
-            <div className={`rounded-lg p-4 border ${
+            <div className={`rounded-md p-4 border ${
               currentTemp > damageTemp
                 ? 'bg-red-900/20 border-red-500/50'
                 : 'bg-orange-900/20 border-orange-500/50'

@@ -34,19 +34,19 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 md:p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-md p-4 md:p-6">
               <div className="text-3xl md:text-4xl font-bold mb-1">{totalMaterials}</div>
               <div className="text-sm md:text-base text-blue-100">Materials</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 md:p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-md p-4 md:p-6">
               <div className="text-3xl md:text-4xl font-bold mb-1">{categoryCount}</div>
               <div className="text-sm md:text-base text-blue-100">Categories</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 md:p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-md p-4 md:p-6">
               <div className="text-3xl md:text-4xl font-bold mb-1">3</div>
               <div className="text-sm md:text-base text-blue-100">Formats</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 md:p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-md p-4 md:p-6">
               <div className="text-3xl md:text-4xl font-bold mb-1">100%</div>
               <div className="text-sm md:text-base text-blue-100">Free</div>
             </div>
@@ -56,14 +56,14 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#materials"
-              className="inline-flex items-center space-x-2 bg-white text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg transition-colors shadow-lg"
+              className="inline-flex items-center space-x-2 bg-white text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-md transition-colors shadow-lg"
             >
               <LayersIcon className="w-5 h-5" />
               <span>Browse Materials</span>
             </a>
             <a
               href="#bulk-downloads"
-              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white font-semibold px-6 py-3 rounded-md transition-colors"
             >
               <DownloadIcon className="w-5 h-5" />
               <span>Bulk Download</span>

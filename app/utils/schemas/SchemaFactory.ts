@@ -1597,8 +1597,7 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
  */
 function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
-  if (!frontmatter.materialProperties && !frontmatter.machineSettings) return null;
-
+  
   // DATASET QUALITY POLICY: Dataset schema requires EITHER machineSettings OR materialProperties
   // Material pages: use machineSettings (loaded from settings files) and/or materialProperties
   // Settings pages: use machineSettings primarily
@@ -1606,7 +1605,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   const hasMaterialProperties = !!frontmatter.materialProperties;
   
   if (!hasMachineSettings && !hasMaterialProperties) {
-    console.warn(`📊 Dataset schema excluded: No machineSettings or materialProperties available`);
+    console.warn(`📊 Dataset schema excluded for ${context.slug}: No machineSettings or materialProperties available`);
     return null;
   }
   

@@ -69,7 +69,7 @@ function ExpertCard({ expert, dateAnswered, upvoteCount }: {
   });
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50900/20900/20 rounded-lg border border-blue-200800">
+    <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50900/20900/20 rounded-md border border-blue-200800">
       {/* Expert photo */}
       {expert.image && (
         <div className="flex-shrink-0">
@@ -172,7 +172,7 @@ function ExpertAnswerCard({
   return (
     <div role="listitem" id={`qa-${index}`}>
       <details
-        className="group bg-secondary rounded-lg border-2 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-blue-300:border-blue-600"
+        className="group bg-secondary rounded-md border-2 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-blue-300:border-blue-600"
         open={answer.acceptedAnswer && index === 0} // Auto-open first accepted answer
       >
         <summary 
@@ -258,7 +258,7 @@ function ExpertAnswerCard({
             
             {/* Solutions list */}
             {answer.solutions && answer.solutions.length > 0 && (
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50900/20900/20 rounded-lg p-4 border border-green-200800">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50900/20900/20 rounded-md p-4 border border-green-200800">
                 <h4 className="font-semibold text-secondary mb-3 flex items-center gap-2">
                   <span>✓</span>
                   Recommended Solutions:
@@ -353,7 +353,7 @@ export function ExpertAnswers({
       </div>
       
       {/* Trust signals footer */}
-      <div className="mt-6 p-4 bg-secondary rounded-lg text-sm text-muted text-center">
+      <div className="mt-6 p-4 bg-secondary rounded-md text-sm text-muted text-center">
         <p>
           All answers provided by verified laser cleaning experts with industry credentials.
           {' '}

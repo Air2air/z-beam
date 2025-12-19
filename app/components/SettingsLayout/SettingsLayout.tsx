@@ -10,6 +10,16 @@ import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
 import MaterialDatasetCardWrapper from '@/app/components/Dataset/MaterialDatasetCardWrapper';
 import { MachineSettings } from '@/app/components/MachineSettings/MachineSettings';
 import { ScheduleCards } from '@/app/components/Schedule/ScheduleCards';
+import { GridSection } from '@/app/components/GridSection/GridSection';
+import { LinkageGridGroup } from '@/app/components/LinkageGridGroup/LinkageGridGroup';
+import { getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
+import { DataGrid } from '@/app/components/DataGrid/DataGrid';
+import { 
+  contaminantLinkageToGridItem, 
+  materialLinkageToGridItem, 
+  settingsLinkageToGridItem 
+} from '@/app/utils/gridMappers';
+import { sortByFrequency, sortBySeverity } from '@/app/utils/gridSorters';
 import { SettingsMetadata, LayoutProps } from '@/types/centralized';
 
 interface SettingsLayoutProps extends LayoutProps {
@@ -36,14 +46,17 @@ function prepareSettingsData(
   settings: SettingsMetadata,
   materialProperties?: any
 ) {
+  // Access relationships structure
+  const relationships = (settings as any)?.relationships || {};
+  
   // Extract parameters from hybrid or legacy format
   const parametersRaw = settings.components?.parameter_relationships?.parameters 
-    || settings.machineSettings?.essential_parameters;
+    || relationships?.machine_settings?.essential_parameters;
   
-  console.log('SettingsLayout machineSettings:', JSON.stringify(settings.machineSettings, null, 2));
+  console.log('SettingsLayout machine_settings:', JSON.stringify(relationships?.machine_settings, null, 2));
   
   // Use materialRef-loaded properties or passed properties
-  const materialProps = settings._materialProperties || materialProperties;
+  const materialProps = (settings as any)?._materialProperties || materialProperties;
   
   // Extract component-specific configs
   const safetyHeatmapConfig = settings.components?.safety_heatmap;
@@ -592,6 +605,60 @@ export function SettingsLayout({
         materialName={settings.name}
         heroImage={heroImage}
         materialLink={materialLink}
+      />
+
+      {/* Related Content - Grouped linkages */}
+      <LinkageGridGroup
+        title="Related Content"
+        description="Explore compatible materials, contaminants, and alternative settings"
+        grids={[
+          {
+            data: (metadata as any)?.effective_against || [],
+            type: 'contaminants' as const,
+            ...getEnrichmentMetadata(
+              metadata,
+              'contaminant_linkage',
+              'Effective Against',
+              'Contaminants these settings are optimized to remove'
+            ),
+            sortBy: 'severity' as const,
+            variant: 'domain-linkage' as const,
+          },
+          {
+            data: (metadata as any)?.related_materials || [],
+            type: 'materials' as const,
+            ...getEnrichmentMetadata(
+              metadata,
+              'material_linkage',
+              'Compatible Materials',
+              'Materials that work well with these settings'
+            ),
+            sortBy: 'frequency' as const,
+          },
+          {
+            data: (metadata as any)?.related_contaminants || [],
+            type: 'contaminants' as const,
+            ...getEnrichmentMetadata(
+              metadata,
+              'compound_linkage',
+              'Related Contaminants',
+              'Other contaminants these settings can address'
+            ),
+            sortBy: 'severity' as const,
+            variant: 'domain-linkage' as const,
+          },
+          {
+            data: (metadata as any)?.related_settings || [],
+            type: 'settings' as const,
+            ...getEnrichmentMetadata(
+              metadata,
+              'settings_linkage',
+              'Related Settings',
+              'Alternative settings configurations'
+            ),
+            sortBy: 'frequency' as const,
+          },
+        ]}
       />
 
       {/* Schedule Cards */}

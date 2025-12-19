@@ -79,7 +79,7 @@ import { MarkdownRenderer } from '@/components/Base/MarkdownRenderer';
 <MarkdownRenderer content={markdownString} convertMarkdown={true} />
 
 // ✅ Use Tailwind for styling (inline utilities)
-<div className="absolute top-2 right-2 z-[100] bg-brand-orange text-white rounded-lg">
+<div className="absolute top-2 right-2 z-[100] bg-brand-orange text-white rounded-md">
 
 // ✅ Use brand colors from Tailwind config
 <div className="bg-brand-orange text-brand-orange border-brand-orange">

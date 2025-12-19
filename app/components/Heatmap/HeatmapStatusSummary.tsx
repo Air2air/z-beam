@@ -72,7 +72,7 @@ export const HeatmapStatusSummary: React.FC<HeatmapStatusSummaryProps> = ({
 
   return (
     <article
-      className={`heatmap-status-summary mb-4 p-4 rounded-lg border-2 transition-colors duration-300 ${bgClass}`}
+      className={`heatmap-status-summary mb-4 p-4 rounded-md border-2 transition-colors duration-300 ${bgClass}`}
       aria-label={`${scoreType === 'safety' ? 'Safety' : 'Effectiveness'} status summary`}
     >
       {/* Power × Pulse and Score */}

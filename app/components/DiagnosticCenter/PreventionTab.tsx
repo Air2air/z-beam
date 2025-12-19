@@ -30,7 +30,7 @@ export function PreventionTab({ challenges }: PreventionTabProps) {
   return (
     <div className="grid md:grid-cols-2 gap-4">
       {Object.entries(challenges).map(([category, challengeList]: [string, Challenge[]]) => (
-        <div key={category} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg border overflow-hidden">
+        <div key={category} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-md border overflow-hidden">
           {/* Category Header with Icon */}
           <div className="bg-tertiary px-4 py-2 border-b">
             <h3 className="text-lg text-secondary font-semibold flex items-center gap-2">
@@ -62,7 +62,7 @@ export function PreventionTab({ challenges }: PreventionTabProps) {
                   }`} />
                   
                   {/* Challenge Title */}
-                  <h4 className="font-semibold text-sm text-secondary flex-1 group-hover:text-secondary transition-colors">
+                  <h4 className="font-semibold text-sm text-secondary flex-1 transition-colors">
                     {challenge.challenge}
                   </h4>
                   

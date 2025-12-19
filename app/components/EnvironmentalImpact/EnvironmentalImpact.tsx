@@ -36,7 +36,7 @@ export function EnvironmentalImpact({
       />
       
       {/* Environmental commitment footer */}
-      <div className="mt-6 p-4 bg-green-900/20 rounded-lg border border-green-200800">
+      <div className="mt-6 p-4 bg-green-900/20 rounded-md border border-green-200800">
         <div className="flex items-start gap-3">
           <span className="text-2xl" role="img" aria-label="Leaf">🌱</span>
           <div className="flex-1">

@@ -40,6 +40,51 @@ export type {
 } from '../app/utils/schemas/generators/types';
 
 // ============================================================================
+// DOMAIN LINKAGES TYPES (LEGACY - Use frontmatter-relationships instead)
+// ============================================================================
+// Types for the domain_linkages system - bidirectional cross-domain relationships
+export type {
+  BaseDomainLinkage,
+  MaterialLinkage,
+  ContaminantLinkage,
+  CompoundLinkage,
+  SettingsLinkage,
+  RegulatoryLinkage,
+  PPELinkage,
+  DomainLinkage,
+  DomainLinkages,
+  DomainLinkageSectionProps,
+  DomainType,
+} from './domain-linkages';
+
+// ============================================================================
+// FRONTMATTER RELATIONSHIPS TYPES (NEW UNIFIED SCHEMA)
+// ============================================================================
+// New unified schema - all relationship data under 'relationships' parent key
+export type {
+  RelationshipEntry,
+  LaserProperties,
+  MachineSettings,
+  MachineSetting,
+  MaterialProperties,
+  PPERequirements,
+  CompositionEntry,
+  VisualCharacteristics,
+  ChemicalProperties,
+  Reactivity,
+  EnvironmentalImpact,
+  RegulatoryClassification,
+  ExposureLimits,
+  WorkplaceExposure,
+  EmergencyResponse,
+  StorageRequirements,
+  Application,
+  Characteristics,
+  FrontmatterRelationships,
+  FrontmatterData,
+} from './frontmatter-relationships';
+
+// ============================================================================
 // YAML COMPONENT TYPES - Intentionally Separate
 // ============================================================================
 // YAML component types are NOT re-exported here to avoid naming conflicts

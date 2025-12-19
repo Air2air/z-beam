@@ -220,7 +220,7 @@ export function CardGrid({
                     placeholder="Search articles..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-4 py-2 pr-10 border rounded-lg 
+                    className="w-full px-4 py-2 pr-10 border rounded-md 
                                bg-secondary
                                focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
                     aria-label="Search articles"

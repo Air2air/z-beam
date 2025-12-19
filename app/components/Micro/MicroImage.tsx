@@ -26,7 +26,7 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
 
   if (!imageSource) {
     return (
-      <div className="flex items-center justify-center bg-tertiary h-[450px] rounded-lg">
+      <div className="flex items-center justify-center bg-tertiary h-[450px] rounded-md">
         <Image
           src="/images/logo/logo-zbeam.png"
           alt={`${SITE_CONFIG.shortName} logo`}
@@ -48,7 +48,7 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
       {/* Loading indicator */}
       {imageLoading && !imageError && (
         <div 
-          className="absolute inset-0 flex items-center justify-center bg-tertiary z-10 rounded-lg"
+          className="absolute inset-0 flex items-center justify-center bg-tertiary z-10 rounded-md"
           role="status"
         >
           <div className="rounded-full h-8 w-8 border-b-2 border-white animate-spin" />
@@ -59,7 +59,7 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
       {/* Error state */}
       {imageError && (
         <div 
-          className="absolute inset-0 flex items-center justify-center bg-primary z-10 rounded-lg"
+          className="absolute inset-0 flex items-center justify-center bg-primary z-10 rounded-md"
           role="alert"
         >
           <span className="text-primary text-sm">Image failed to load</span>
@@ -72,7 +72,7 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
         alt={optimizedAlt}
         width={800}
         height={450}
-        className="w-full h-auto rounded-lg"
+        className="w-full h-auto rounded-md"
         priority={false}
         quality={85}
         itemProp="contentUrl"

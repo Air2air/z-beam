@@ -122,7 +122,7 @@ import { H1, P, A } from '@/components/Typography';
 ### **Tailwind-First Styling Pattern** ⭐ NEW
 ```tsx
 // ✅ Use inline Tailwind utilities
-<div className="absolute top-2 right-2 z-[100] bg-brand-orange text-white rounded-lg">
+<div className="absolute top-2 right-2 z-[100] bg-brand-orange text-white rounded-md">
 
 // ✅ Use brand colors from tailwind.config.js
 <div className="bg-brand-orange text-brand-orange">

@@ -51,7 +51,7 @@ export class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div className="error-boundary-fallback p-6 bg-red-950 border border-red-200800 rounded-lg">
+        <div className="error-boundary-fallback p-6 bg-red-950 border border-red-200800 rounded-md">
           <Title level="section" title="Something went wrong" className="text-lg text-red-800200 mb-2" />
           <p className="text-red-600300 mb-4">
             {this.props.componentName 

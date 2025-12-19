@@ -150,9 +150,9 @@ export function DatasetCard({
       {/* Hover State Enhancement */}
       <div 
         className="
-          absolute inset-0 rounded-lg
+          absolute inset-0 rounded-md
           border-2 border-transparent
-          group-hover:border-blue-500
+          border-blue-500
           transition-all duration-200
           pointer-events-none
           z-30

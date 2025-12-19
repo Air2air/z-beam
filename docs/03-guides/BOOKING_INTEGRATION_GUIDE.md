@@ -135,7 +135,7 @@ export function BookingModal() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+        className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700"
       >
         Book Consultation
       </button>
@@ -144,7 +144,7 @@ export function BookingModal() {
         <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
         
         <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="mx-auto max-w-4xl w-full bg-white rounded-lg shadow-xl">
+          <Dialog.Panel className="mx-auto max-w-4xl w-full bg-white rounded-md shadow-xl">
             <Dialog.Title className="text-2xl font-bold p-6 border-b">
               Book Your Consultation
             </Dialog.Title>
@@ -392,7 +392,7 @@ import { FiCalendar } from 'react-icons/fi';
 
 export function BookingCTA() {
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg p-8 text-center">
+    <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-md p-8 text-center">
       <FiCalendar className="w-12 h-12 mx-auto mb-4" />
       <h3 className="text-2xl font-bold mb-2">
         Ready to Get Started?
@@ -402,7 +402,7 @@ export function BookingCTA() {
       </p>
       <Link
         href="/booking"
-        className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+        className="inline-block bg-white text-blue-600 px-8 py-3 rounded-md font-semibold hover:bg-blue-50 transition-colors"
       >
         Schedule Consultation
       </Link>

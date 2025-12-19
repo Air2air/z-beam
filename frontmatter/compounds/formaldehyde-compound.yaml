@@ -1,39 +1,94 @@
 id: formaldehyde
 name: Formaldehyde
 display_name: Formaldehyde (CH₂O)
-category: carcinogen
-subcategory: aldehyde
-content_type: compounds
-schema_version: 5.0.0
-datePublished: '2025-12-19T00:54:42.738553Z'
-dateModified: '2025-12-19T01:18:47Z'
+slug: formaldehyde
 chemical_formula: CH2O
 cas_number: 50-00-0
 molecular_weight: 30.03
+datePublished: '2025-12-19T01:25:13.220433Z'
+dateModified: '2025-12-19T01:25:13.220433Z'
+category: carcinogen
+subcategory: aldehyde
 hazard_class: carcinogenic
+exposure_limits:
+  osha_pel_ppm: 0.75
+  osha_pel_mg_m3: 0.92
+  niosh_rel_ppm: 0.016
+  niosh_rel_mg_m3: 0.02
+  acgih_tlv_ppm: null
+  acgih_tlv_mg_m3: 0.3
+health_effects_keywords:
+- respiratory_irritation
+- eye_irritation
+- skin_sensitization
+- nasopharyngeal_cancer
+- leukemia
 monitoring_required: true
 typical_concentration_range: 1-10 mg/m³
+sources_in_laser_cleaning:
+- polymer_decomposition
+- organic_coating_pyrolysis
+- adhesive_breakdown
 description: null
 health_effects: null
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
+relationships:
+  produced_by_contaminants:
+  - id: adhesive-residue
+    title: Adhesive Residue / Tape Marks
+    url: /contaminants/organic-residue/adhesive/adhesive-residue
+    image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
+    frequency: common
+    severity: moderate
+    typical_context: Thermal breakdown of formaldehyde-based adhesives
+  - id: wood-rot
+    title: Wood Rot / Fungal Biodegradation
+    url: /contaminants/biological/growth/wood-rot
+    image: /images/contaminants/biological/growth/wood-rot.jpg
+    frequency: common
+    severity: moderate
+    typical_context: Decomposition of wood compounds
+  - id: paint-residue
+    title: Paint Residue / Coating Failure
+    url: /contaminants/inorganic-coating/paint/paint-residue
+    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
+    frequency: occasional
+    severity: moderate
+    typical_context: Breakdown of melamine or urea-formaldehyde resins
+  - id: epoxy-residue
+    title: Epoxy Resin Deposits
+    url: /contaminants/organic-residue/adhesive/epoxy-residue
+    image: /images/contaminants/organic-residue/adhesive/epoxy-residue.jpg
+    frequency: occasional
+    severity: low
+    typical_context: Thermal degradation of certain epoxy formulations
+  chemical_properties:
+  - type: chemical_properties
+    id: formaldehyde-physical-data
+  health_effects:
+  - type: health_effects
+    id: formaldehyde-toxicology
+  environmental_impact:
+  - type: environmental_impact
+    id: formaldehyde-environmental-data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: formaldehyde-monitoring-methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: particulate-carcinogen
+    overrides:
+      specific_compound: Formaldehyde
+      pel_ppm: 0.75
+  emergency_response:
+  - type: emergency_response
+    id: flammable-gas-extremely
+    overrides:
+      specific_compound: Formaldehyde
 author:
   id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
 ppe_requirements:
   respiratory: Full-face NIOSH-approved respirator with organic vapor and formaldehyde cartridges for concentrations <0.75
     ppm. SCBA required for >0.75 ppm or unknown concentrations.
@@ -42,6 +97,17 @@ ppe_requirements:
   minimum_level: Level C for <0.75 ppm with engineering controls, Level B for unknown concentrations or emergency response
   special_notes: IARC Group 1 known human carcinogen (nasopharyngeal cancer, leukemia). Strong sensitizer. Dermal exposure
     significant. Formaldehyde-specific cartridges required (standard organic vapor inadequate).
+physical_properties:
+  boiling_point: -19°C (-2°F) for pure gas
+  melting_point: -92°C (-134°F)
+  vapor_pressure: 1 atm @ -19°C
+  vapor_density: 1.03 (Air=1)
+  specific_gravity: 0.815 @ -20°C (liquid)
+  flash_point: 85°C (185°F) for 37% solution (formalin)
+  autoignition_temp: 430°C (806°F)
+  explosive_limits: 'LEL: 7%, UEL: 73%'
+  appearance: Colorless gas or clear solution (formalin)
+  odor: Pungent, irritating odor @ 0.05-1 ppm (provides warning)
 emergency_response:
   fire_hazard: Solutions >30% flammable. Pure gas flammable with wide explosive range (7-73%). Vapors heavier than air.
   fire_suppression: Use water spray, dry chemical, CO2, or foam. Water spray to cool containers and dilute vapors. Approach
@@ -55,6 +121,99 @@ emergency_response:
   special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1) - nasopharyngeal cancer and leukemia established. Severe respiratory
     irritant. Strong sensitizer causing occupational asthma. Lachrymator (causes tearing). Polymerizes on standing, especially
     with impurities.
+storage_requirements:
+  temperature_range: Store below 25°C (77°F). Refrigeration recommended for solutions to prevent polymerization.
+  ventilation: Local exhaust ventilation mandatory. Fume hood for small quantities. Outdoor storage for large quantities.
+  incompatibilities:
+  - Strong oxidizers
+  - Strong acids
+  - Strong bases
+  - Phenols
+  - Aniline
+  - Perchloric acid
+  - Nitromethane
+  container_material: Stainless steel, glass, or polyethylene. NOT copper or copper alloys (catalyzes oxidation).
+  segregation: Separate from oxidizers, acids, and bases. Flammable storage if concentration >30%.
+  quantity_limits: Minimize quantities. OSHA requires <100 gallons or 1,000 lbs inside buildings.
+  special_requirements: Stabilized with methanol (10-15%) to prevent polymerization. Label as carcinogen with appropriate
+    warnings. Post carcinogen work area signs. Secondary containment required. Emergency eyewash and shower within 25 feet.
+regulatory_classification:
+  un_number: UN1198 (solution, flammable), UN2209 (solution, ≥25%)
+  dot_hazard_class: 3 (Flammable liquid) or 8 (Corrosive)
+  dot_label: Flammable Liquid, Corrosive (depending on concentration)
+  nfpa_codes:
+    health: 3
+    flammability: 2
+    reactivity: 0
+    special: null
+  epa_hazard_categories:
+  - Carcinogenicity
+  - Acute toxicity
+  - Respiratory sensitization
+  - Skin sensitization
+  - Aquatic toxicity
+  sara_title_iii: true
+  cercla_rq: 100 pounds (45.4 kg)
+  rcra_code: U122
+workplace_exposure:
+  osha_pel:
+    twa_8hr: 0.75 ppm
+    stel_15min: 2 ppm
+    ceiling: null
+  niosh_rel:
+    twa_8hr: null
+    stel_15min: null
+    ceiling: 0.016 ppm (0.02 mg/m³) - 15 minute ceiling
+    idlh: 20 ppm
+  acgih_tlv:
+    twa_8hr: null
+    stel_15min: null
+    ceiling: 0.3 ppm (A2 suspected human carcinogen designation)
+  biological_exposure_indices:
+  - metabolite: Formic acid
+    specimen: Urine
+    timing: End of shift
+    bei_value: 80 mg/g creatinine
+synonyms_identifiers:
+  synonyms:
+  - Methanal
+  - Methylene oxide
+  - Oxymethylene
+  - Formalin (37% solution)
+  - Formol
+  common_trade_names:
+  - Formalin
+  - Formalith
+  - Formaldehyde solutions
+  other_identifiers:
+    rtecs_number: LP8925000
+    ec_number: 200-001-8
+    pubchem_cid: '712'
+reactivity:
+  stability: Pure formaldehyde unstable. Solutions polymerize on standing, especially without stabilizer (methanol).
+  polymerization: Polymerizes to paraformaldehyde, especially with impurities, acids, bases, or on cooling. Exothermic reaction.
+  incompatible_materials:
+  - Strong oxidizers
+  - Strong acids
+  - Strong bases
+  - Phenols
+  - Aniline
+  - Nitrogen dioxide
+  - Performic acid
+  - Perchloric acid
+  hazardous_decomposition:
+  - Carbon monoxide
+  - Carbon dioxide
+  - Formic acid
+  conditions_to_avoid:
+  - Heat
+  - Light
+  - Contamination
+  - Acids
+  - Bases
+  - Cold temperatures (polymerization)
+  reactivity_hazard: Reacts violently with strong oxidizers. Reacts with phenols forming heat-sensitive explosive compounds.
+    Reacts with nitrogen dioxide forming explosive nitro compounds.
 environmental_impact:
   aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 7-45 mg/L depending on species.'
   biodegradability: Readily biodegradable (>70% in 28 days). Oxidizes to formic acid then carbon dioxide.
@@ -91,6 +250,8 @@ detection_monitoring:
     technique: HPLC (DNPH cartridge)
     detection_limit: 0.001 ppm
   odor_threshold: 0.05-1 ppm - provides early warning but olfactory fatigue occurs. Do not rely on odor alone.
+schema_version: 5.0.0
+content_type: compounds
 breadcrumb:
 - label: Home
   href: /
@@ -98,189 +259,3 @@ breadcrumb:
   href: /compounds
 - label: Aldehyde
   href: /compounds//aldehyde
-relationships:
-  produced_by_contaminants:
-  - id: adhesive-residue
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/organic-residue/adhesive/adhesive-residue
-    image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Thermal breakdown of formaldehyde-based adhesives
-  - id: wood-rot
-    title: Wood Rot / Fungal Biodegradation
-    url: /contaminants/biological/growth/wood-rot
-    image: /images/contaminants/biological/growth/wood-rot.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Decomposition of wood compounds
-  - id: paint-residue
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue
-    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
-    frequency: occasional
-    severity: moderate
-    typical_context: Breakdown of melamine or urea-formaldehyde resins
-  - id: epoxy-residue
-    title: Epoxy Resin Deposits
-    url: /contaminants/organic-residue/adhesive/epoxy-residue
-    image: /images/contaminants/organic-residue/adhesive/epoxy-residue.jpg
-    frequency: occasional
-    severity: low
-    typical_context: Thermal degradation of certain epoxy formulations
-  chemical_properties:
-  - type: chemical_properties
-    id: formaldehyde-physical-data
-    url: /compounds/formaldehyde-physical-data
-    title: Formaldehyde Physical Data
-  health_effects:
-  - type: health_effects
-    id: formaldehyde-toxicology
-    url: /compounds/formaldehyde-toxicology
-    title: Formaldehyde Toxicology
-  environmental_impact:
-  - type: environmental_impact
-    id: formaldehyde-environmental-data
-    url: /compounds/formaldehyde-environmental-data
-    title: Formaldehyde Environmental Data
-  detection_monitoring:
-  - type: detection_monitoring
-    id: formaldehyde-monitoring-methods
-    url: /compounds/formaldehyde-monitoring-methods
-    title: Formaldehyde Monitoring Methods
-  ppe_requirements:
-  - type: ppe_requirements
-    id: particulate-carcinogen
-    overrides:
-      specific_compound: Formaldehyde
-      pel_ppm: 0.75
-    url: /compounds/particulate-carcinogen
-    title: Particulate Carcinogen
-  emergency_response:
-  - type: emergency_response
-    id: flammable-gas-extremely
-    overrides:
-      specific_compound: Formaldehyde
-    url: /compounds/flammable-gas-extremely
-    title: Flammable Gas Extremely
-  exposure_limits:
-    osha_pel_ppm: 0.75
-    osha_pel_mg_m3: 0.92
-    niosh_rel_ppm: 0.016
-    niosh_rel_mg_m3: 0.02
-    acgih_tlv_ppm: null
-    acgih_tlv_mg_m3: 0.3
-  health_effects_keywords:
-  - respiratory_irritation
-  - eye_irritation
-  - skin_sensitization
-  - nasopharyngeal_cancer
-  - leukemia
-  physical_properties:
-    boiling_point: -19°C (-2°F) for pure gas
-    melting_point: -92°C (-134°F)
-    vapor_pressure: 1 atm @ -19°C
-    vapor_density: 1.03 (Air=1)
-    specific_gravity: 0.815 @ -20°C (liquid)
-    flash_point: 85°C (185°F) for 37% solution (formalin)
-    autoignition_temp: 430°C (806°F)
-    explosive_limits: 'LEL: 7%, UEL: 73%'
-    appearance: Colorless gas or clear solution (formalin)
-    odor: Pungent, irritating odor @ 0.05-1 ppm (provides warning)
-  reactivity:
-    stability: Pure formaldehyde unstable. Solutions polymerize on standing, especially without stabilizer (methanol).
-    polymerization: Polymerizes to paraformaldehyde, especially with impurities, acids, bases, or on cooling. Exothermic reaction.
-    incompatible_materials:
-    - Strong oxidizers
-    - Strong acids
-    - Strong bases
-    - Phenols
-    - Aniline
-    - Nitrogen dioxide
-    - Performic acid
-    - Perchloric acid
-    hazardous_decomposition:
-    - Carbon monoxide
-    - Carbon dioxide
-    - Formic acid
-    conditions_to_avoid:
-    - Heat
-    - Light
-    - Contamination
-    - Acids
-    - Bases
-    - Cold temperatures (polymerization)
-    reactivity_hazard: Reacts violently with strong oxidizers. Reacts with phenols forming heat-sensitive explosive compounds.
-      Reacts with nitrogen dioxide forming explosive nitro compounds.
-  regulatory_classification:
-    un_number: UN1198 (solution, flammable), UN2209 (solution, ≥25%)
-    dot_hazard_class: 3 (Flammable liquid) or 8 (Corrosive)
-    dot_label: Flammable Liquid, Corrosive (depending on concentration)
-    nfpa_codes:
-      health: 3
-      flammability: 2
-      reactivity: 0
-      special: null
-    epa_hazard_categories:
-    - Carcinogenicity
-    - Acute toxicity
-    - Respiratory sensitization
-    - Skin sensitization
-    - Aquatic toxicity
-    sara_title_iii: true
-    cercla_rq: 100 pounds (45.4 kg)
-    rcra_code: U122
-  sources_in_laser_cleaning:
-  - polymer_decomposition
-  - organic_coating_pyrolysis
-  - adhesive_breakdown
-  storage_requirements:
-    temperature_range: Store below 25°C (77°F). Refrigeration recommended for solutions to prevent polymerization.
-    ventilation: Local exhaust ventilation mandatory. Fume hood for small quantities. Outdoor storage for large quantities.
-    incompatibilities:
-    - Strong oxidizers
-    - Strong acids
-    - Strong bases
-    - Phenols
-    - Aniline
-    - Perchloric acid
-    - Nitromethane
-    container_material: Stainless steel, glass, or polyethylene. NOT copper or copper alloys (catalyzes oxidation).
-    segregation: Separate from oxidizers, acids, and bases. Flammable storage if concentration >30%.
-    quantity_limits: Minimize quantities. OSHA requires <100 gallons or 1,000 lbs inside buildings.
-    special_requirements: Stabilized with methanol (10-15%) to prevent polymerization. Label as carcinogen with appropriate
-      warnings. Post carcinogen work area signs. Secondary containment required. Emergency eyewash and shower within 25 feet.
-  synonyms_identifiers:
-    synonyms:
-    - Methanal
-    - Methylene oxide
-    - Oxymethylene
-    - Formalin (37% solution)
-    - Formol
-    common_trade_names:
-    - Formalin
-    - Formalith
-    - Formaldehyde solutions
-    other_identifiers:
-      rtecs_number: LP8925000
-      ec_number: 200-001-8
-      pubchem_cid: '712'
-  workplace_exposure:
-    osha_pel:
-      twa_8hr: 0.75 ppm
-      stel_15min: 2 ppm
-      ceiling: null
-    niosh_rel:
-      twa_8hr: null
-      stel_15min: null
-      ceiling: 0.016 ppm (0.02 mg/m³) - 15 minute ceiling
-      idlh: 20 ppm
-    acgih_tlv:
-      twa_8hr: null
-      stel_15min: null
-      ceiling: 0.3 ppm (A2 suspected human carcinogen designation)
-    biological_exposure_indices:
-    - metabolite: Formic acid
-      specimen: Urine
-      timing: End of shift
-      bei_value: 80 mg/g creatinine

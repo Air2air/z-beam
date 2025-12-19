@@ -97,7 +97,7 @@ export const HeatStatusCard: React.FC<HeatStatusData> = ({
 
   return (
     <article
-      className="relative bg-primary p-3 rounded-lg transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg"
+      className="relative bg-primary p-3 rounded-md transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg"
       style={{ backgroundColor: styles.bgSolid, transition: 'background-color 150ms ease-out' }}
       aria-label={`Heat status: ${getStatusLabel()}`}
       role="region"
@@ -119,9 +119,9 @@ export const HeatStatusCard: React.FC<HeatStatusData> = ({
         </div>
         
         <div className="w-full" role="meter" aria-valuenow={safetyScore} aria-valuemin={0} aria-valuemax={100} aria-label="Safety meter">
-          <div className="w-full h-3 bg-secondary rounded-lg overflow-hidden">
+          <div className="w-full h-3 bg-secondary rounded-md overflow-hidden">
             <div 
-              className={`h-full bg-gradient-to-r ${styles.gradient} rounded-lg transition-all duration-150`}
+              className={`h-full bg-gradient-to-r ${styles.gradient} rounded-md transition-all duration-150`}
               style={{ width: `${Math.max(5, safetyScore)}%` }}
             />
           </div>
@@ -145,7 +145,7 @@ export const HeatFactorCard: React.FC<HeatFactorData> = ({
 
   return (
     <article
-      className="relative bg-primary p-3 rounded-lg transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
+      className="relative bg-primary p-3 rounded-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
       aria-label={`${label} analysis factor`}
       role="region"
     >
@@ -166,9 +166,9 @@ export const HeatFactorCard: React.FC<HeatFactorData> = ({
         </div>
         
         <div className="w-full" role="meter" aria-valuenow={score} aria-valuemin={0} aria-valuemax={100} aria-label={`${label} meter`}>
-          <div className="w-full h-3 bg-secondary rounded-lg overflow-hidden">
+          <div className="w-full h-3 bg-secondary rounded-md overflow-hidden">
             <div 
-              className={`h-full bg-gradient-to-r ${styles.gradient} rounded-lg transition-all duration-500`}
+              className={`h-full bg-gradient-to-r ${styles.gradient} rounded-md transition-all duration-500`}
               style={{ width: `${scorePercentage}%` }}
             />
           </div>
