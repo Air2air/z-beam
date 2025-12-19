@@ -2,7 +2,7 @@ id: Fiber Reinforced Polyurethane FRPU
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:14.425732Z'
-dateModified: '2025-12-19T01:01:23.566899Z'
+dateModified: '2025-12-19T01:19:05Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,13 +15,11 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for FRPU cleaning without thermal damage
-        to fiber reinforcement
+      description: Optimal average power for FRPU cleaning without thermal damage to fiber reinforcement
       unit: W
       value: 100
     wavelength:
-      description: Near-IR wavelength optimized for polyurethane absorption while
-        minimizing fiber damage
+      description: Near-IR wavelength optimized for polyurethane absorption while minimizing fiber damage
       unit: nm
       value: 1064
     spotSize:
@@ -29,23 +27,19 @@ relationships:
       unit: μm
       value: 100
     repetitionRate:
-      description: High repetition rate for efficient cleaning with minimal thermal
-        accumulation
+      description: High repetition rate for efficient cleaning with minimal thermal accumulation
       unit: kHz
       value: 50
     energyDensity:
-      description: Fluence threshold for effective polyurethane removal while preserving
-        fibers
+      description: Fluence threshold for effective polyurethane removal while preserving fibers
       unit: J/cm²
       value: 2.5
     pulseWidth:
-      description: Nanosecond pulse duration for controlled ablation of polyurethane
-        matrix
+      description: Nanosecond pulse duration for controlled ablation of polyurethane matrix
       unit: ns
       value: 10
     scanSpeed:
-      description: Optimal scanning speed for efficient coverage without excessive
-        dwell time
+      description: Optimal scanning speed for efficient coverage without excessive dwell time
       unit: mm/s
       value: 500
     passCount:
@@ -53,8 +47,7 @@ relationships:
       unit: passes
       value: 3
     overlapRatio:
-      description: Optimal beam overlap for uniform cleaning without excessive thermal
-        input
+      description: Optimal beam overlap for uniform cleaning without excessive thermal input
       unit: '%'
       value: 50
   challenges:
@@ -62,8 +55,7 @@ relationships:
     - challenge: Matrix degradation and delamination
       severity: critical
       threshold_temperature: Polymer matrix 150-350°C, ceramic matrix >1000°C
-      impact: Heat causes matrix decomposition, fiber-matrix debonding, and layer
-        separation
+      impact: Heat causes matrix decomposition, fiber-matrix debonding, and layer separation
       solutions:
       - Use pulse mode with 5-10 second cooling for polymer-matrix composites
       - Reduce power by 40-50% compared to monolithic materials
@@ -104,13 +96,11 @@ relationships:
       - Second pass 50W slow (800 mm/s) for residue
       - Chemical pre-treatment improves results for stubborn adhesives
       - Monitor for matrix damage; stop if surface texture changes
-  settings_description: When laser cleaning Fiber Reinforced Polyurethane, we typically
-    begin with a gentle power setup to match its flexible yet tough composite structure.
-    This material absorbs laser energy well, so it clears contaminants quickly without
-    deep penetration. But watch out mid-process—its low heat spread can cause localized
-    overheating, leading to fiber-matrix separation. We've found multiple light passes
-    at steady speeds fix that, restoring the surface evenly for aerospace or automotive
-    parts.
+  settings_description: When laser cleaning Fiber Reinforced Polyurethane, we typically begin with a gentle power setup to
+    match its flexible yet tough composite structure. This material absorbs laser energy well, so it clears contaminants quickly
+    without deep penetration. But watch out mid-process—its low heat spread can cause localized overheating, leading to fiber-matrix
+    separation. We've found multiple light passes at steady speeds fix that, restoring the surface evenly for aerospace or
+    automotive parts.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -121,8 +111,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -152,8 +141,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -176,15 +164,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning Fiber Reinforced Polyurethane, we typically
-    begin with a gentle power setup to match its flexible yet tough composite structure.
-  excerpt: When laser cleaning Fiber Reinforced Polyurethane, we typically begin with
-    a gentle power setup to match its flexible yet tough composite structure. This
-    material absorbs laser energy well, so it clears contaminants quickly without
-    deep penetration. But watch out mid-process—its low heat spread can cause localized
-    overheating, leading to fiber-matrix...
+  seo_description: When laser cleaning Fiber Reinforced Polyurethane, we typically begin with a gentle power setup to match
+    its flexible yet tough composite structure.
+  excerpt: When laser cleaning Fiber Reinforced Polyurethane, we typically begin with a gentle power setup to match its flexible
+    yet tough composite structure. This material absorbs laser energy well, so it clears contaminants quickly without deep
+    penetration. But watch out mid-process—its low heat spread can cause localized overheating, leading to fiber-matrix...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

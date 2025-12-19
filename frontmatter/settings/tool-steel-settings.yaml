@@ -2,7 +2,7 @@ id: Tool Steel
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.801663Z'
-dateModified: '2025-12-19T01:01:24.649955Z'
+dateModified: '2025-12-19T01:19:06Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,48 +15,39 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Tool Steel oxide removal without substrate
-        damage
+      description: Optimal average power for Tool Steel oxide removal without substrate damage
       unit: W
       value: 100
     wavelength:
-      description: Near-IR wavelength with good absorption in Tool Steel oxides and
-        contaminants
+      description: Near-IR wavelength with good absorption in Tool Steel oxides and contaminants
       unit: nm
       value: 1064
     spotSize:
-      description: Beam spot diameter for effective cleaning resolution and energy
-        density control
+      description: Beam spot diameter for effective cleaning resolution and energy density control
       unit: μm
       value: 50
     repetitionRate:
-      description: Optimal repetition rate for continuous cleaning coverage with controlled
-        thermal input
+      description: Optimal repetition rate for continuous cleaning coverage with controlled thermal input
       unit: kHz
       value: 50
     energyDensity:
-      description: Fluence threshold for effective contaminant removal without damaging
-        Tool Steel substrate
+      description: Fluence threshold for effective contaminant removal without damaging Tool Steel substrate
       unit: J/cm²
       value: 5.1
     pulseWidth:
-      description: Nanosecond pulse duration for efficient contaminant ablation with
-        minimal thermal diffusion
+      description: Nanosecond pulse duration for efficient contaminant ablation with minimal thermal diffusion
       unit: ns
       value: 10
     scanSpeed:
-      description: Optimal scanning speed for efficient area coverage while maintaining
-        cleaning effectiveness
+      description: Optimal scanning speed for efficient area coverage while maintaining cleaning effectiveness
       unit: mm/s
       value: 500
     passCount:
-      description: Recommended number of passes for complete contaminant removal from
-        Tool Steel surfaces
+      description: Recommended number of passes for complete contaminant removal from Tool Steel surfaces
       unit: passes
       value: 2
     overlapRatio:
-      description: Optimal pulse overlap for uniform cleaning coverage without excessive
-        thermal buildup
+      description: Optimal pulse overlap for uniform cleaning coverage without excessive thermal buildup
       unit: '%'
       value: 50
   challenges:
@@ -97,8 +88,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -110,12 +100,10 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: When laser cleaning Tool Steel, watch its toughness first—it
-    resists buildup removal more than softer alloys like mild steel. I've seen overheating
-    cause surface cracks if you rush. Start slow with the laser on low power. This
-    clears rust gently without warping. Tool Steel's heat resistance shines here,
-    unlike brittle metals. Scan in even passes. Overlap spots by half. Finish with
-    a quick check for smoothness. It restores tools perfectly.
+  settings_description: When laser cleaning Tool Steel, watch its toughness first—it resists buildup removal more than softer
+    alloys like mild steel. I've seen overheating cause surface cracks if you rush. Start slow with the laser on low power.
+    This clears rust gently without warping. Tool Steel's heat resistance shines here, unlike brittle metals. Scan in even
+    passes. Overlap spots by half. Finish with a quick check for smoothness. It restores tools perfectly.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -126,8 +114,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -157,8 +144,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -181,14 +167,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning Tool Steel, watch its toughness first—it resists
-    buildup removal more than softer alloys like mild steel.
-  excerpt: When laser cleaning Tool Steel, watch its toughness first—it resists buildup
-    removal more than softer alloys like mild steel. I've seen overheating cause surface
-    cracks if you rush. Start slow with the laser on low power. This clears rust gently
-    without warping. Tool Steel's heat resistance shines here, unlike brittle...
+  seo_description: When laser cleaning Tool Steel, watch its toughness first—it resists buildup removal more than softer alloys
+    like mild steel.
+  excerpt: When laser cleaning Tool Steel, watch its toughness first—it resists buildup removal more than softer alloys like
+    mild steel. I've seen overheating cause surface cracks if you rush. Start slow with the laser on low power. This clears
+    rust gently without warping. Tool Steel's heat resistance shines here, unlike brittle...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

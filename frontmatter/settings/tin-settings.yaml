@@ -2,7 +2,7 @@ id: Tin
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.762357Z'
-dateModified: '2025-12-19T01:01:22.765854Z'
+dateModified: '2025-12-19T01:19:05Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -19,8 +19,7 @@ relationships:
       unit: W
       value: 45
     wavelength:
-      description: Near-IR wavelength for efficient Tin oxide absorption with minimal
-        substrate heating
+      description: Near-IR wavelength for efficient Tin oxide absorption with minimal substrate heating
       unit: nm
       value: 1064
     spotSize:
@@ -28,8 +27,7 @@ relationships:
       unit: μm
       value: 80
     repetitionRate:
-      description: Optimal repetition rate for efficient Tin cleaning with thermal
-        management
+      description: Optimal repetition rate for efficient Tin cleaning with thermal management
       unit: kHz
       value: 50
     fluenceThreshold:
@@ -90,8 +88,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -103,15 +100,12 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: When laser cleaning Tin, make sure you start with the lowest
-    possible power settings right away, because its low melting point means the surface
-    can soften or deform quickly if heat builds up. You'll need to adjust by using
-    short pulses and slower scan speeds to control the energy input, so the contaminants
-    lift off without damaging the soft base material. This approach works well for
-    Tin's high reflectivity too, which scatters the beam and slows absorption—keep
-    passes minimal and overlap low to avoid uneven spots. Watch out for overexposure
-    on thin layers, as it might lead to pitting; instead, test on a small area first
-    and build up gradually for clean results in electronics or heritage work.
+  settings_description: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because
+    its low melting point means the surface can soften or deform quickly if heat builds up. You'll need to adjust by using
+    short pulses and slower scan speeds to control the energy input, so the contaminants lift off without damaging the soft
+    base material. This approach works well for Tin's high reflectivity too, which scatters the beam and slows absorption—keep
+    passes minimal and overlap low to avoid uneven spots. Watch out for overexposure on thin layers, as it might lead to pitting;
+    instead, test on a small area first and build up gradually for clean results in electronics or heritage work.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -122,8 +116,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -153,8 +146,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -177,15 +169,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning Tin, make sure you start with the lowest possible
-    power settings right away, because its low melting point means the surface can
-    soften or...
-  excerpt: When laser cleaning Tin, make sure you start with the lowest possible power
-    settings right away, because its low melting point means the surface can soften
-    or deform quickly if heat builds up. You'll need to adjust by using short pulses
+  seo_description: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because
+    its low melting point means the surface can soften or...
+  excerpt: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because its low
+    melting point means the surface can soften or deform quickly if heat builds up. You'll need to adjust by using short pulses
     and slower scan speeds to control the energy input,...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

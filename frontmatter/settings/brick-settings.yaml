@@ -2,7 +2,7 @@ id: Brick
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:14.224835Z'
-dateModified: '2025-12-19T01:01:19.548743Z'
+dateModified: '2025-12-19T01:19:02Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,48 +15,39 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for brick surface cleaning without thermal
-        damage
+      description: Optimal average power for brick surface cleaning without thermal damage
       unit: W
       value: 100
     wavelength:
-      description: Near-infrared wavelength for optimal brick absorption and minimal
-        substrate damage
+      description: Near-infrared wavelength for optimal brick absorption and minimal substrate damage
       unit: nm
       value: 1064
     spotSize:
-      description: Beam spot diameter for effective cleaning resolution on brick surface
-        texture
+      description: Beam spot diameter for effective cleaning resolution on brick surface texture
       unit: μm
       value: 100
     repetitionRate:
-      description: Optimal repetition rate for efficient cleaning coverage and thermal
-        management
+      description: Optimal repetition rate for efficient cleaning coverage and thermal management
       unit: kHz
       value: 50
     energyDensity:
-      description: Fluence threshold for effective contaminant removal while preserving
-        brick substrate
+      description: Fluence threshold for effective contaminant removal while preserving brick substrate
       unit: J/cm²
       value: 12
     pulseWidth:
-      description: Nanosecond pulse duration for effective contaminant removal with
-        controlled thermal penetration
+      description: Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration
       unit: ns
       value: 10
     scanSpeed:
-      description: Optimal scanning speed for uniform cleaning coverage and process
-        efficiency
+      description: Optimal scanning speed for uniform cleaning coverage and process efficiency
       unit: mm/s
       value: 500
     passCount:
-      description: Recommended number of passes for complete contaminant removal from
-        porous brick surface
+      description: Recommended number of passes for complete contaminant removal from porous brick surface
       unit: passes
       value: 3
     overlapRatio:
-      description: Optimal beam overlap percentage for uniform cleaning without excessive
-        thermal accumulation
+      description: Optimal beam overlap percentage for uniform cleaning without excessive thermal accumulation
       unit: '%'
       value: 50
   challenges:
@@ -92,8 +83,7 @@ relationships:
       - Expect 3-5 passes for complete cleaning vs 1-2 for dense materials
     - challenge: Surface heterogeneity and aggregate exposure
       severity: medium
-      impact: Mixed composition (cement matrix, aggregates, voids) causes variable
-        absorption
+      impact: Mixed composition (cement matrix, aggregates, voids) causes variable absorption
       solutions:
       - Use moderate power (70-90W) suitable for both matrix and aggregates
       - Crosshatch scan pattern for uniform coverage
@@ -102,26 +92,21 @@ relationships:
     contamination_challenges:
     - challenge: Paint and coating removal from porous substrate
       severity: medium
-      impact: Paint penetrates into pores requiring deep cleaning without substrate
-        damage
+      impact: Paint penetrates into pores requiring deep cleaning without substrate damage
       solutions:
       - First pass 100W fast (1500 mm/s) for surface paint layer
       - Second pass 70W slow (800 mm/s) for paint in pores
       - Third pass 50W very slow (500 mm/s) for residual staining
       - Chemical stripping pre-treatment reduces laser exposure
       - Heritage masonry requires gentler approach (max 60W)
-  settings_description: When laser cleaning brick, start by preparing the surface
-    to account for its porous structure, which can trap contaminants deeply and require
-    multiple passes for thorough removal. You must begin with lower power settings
-    to match its moderate thermal conductivity, ensuring heat stays localized without
-    spreading to cause uneven expansion or micro-cracks in the brittle matrix. As
-    you adjust the scan speed, keep it steady to leverage the material's high heat
-    resistance, which allows effective restoration of historical facades or industrial
-    surfaces without compromising structural integrity. Make sure you overlap passes
-    generously, since brick's density helps absorb laser energy well, revealing clean
-    layers progressively. In applications like cultural heritage restoration, this
-    approach exposes original textures safely. Finally, watch for potential spalling
-    on aged bricks—reduce energy density if surface flaking appears to avoid deeper
+  settings_description: When laser cleaning brick, start by preparing the surface to account for its porous structure, which
+    can trap contaminants deeply and require multiple passes for thorough removal. You must begin with lower power settings
+    to match its moderate thermal conductivity, ensuring heat stays localized without spreading to cause uneven expansion
+    or micro-cracks in the brittle matrix. As you adjust the scan speed, keep it steady to leverage the material's high heat
+    resistance, which allows effective restoration of historical facades or industrial surfaces without compromising structural
+    integrity. Make sure you overlap passes generously, since brick's density helps absorb laser energy well, revealing clean
+    layers progressively. In applications like cultural heritage restoration, this approach exposes original textures safely.
+    Finally, watch for potential spalling on aged bricks—reduce energy density if surface flaking appears to avoid deeper
     damage.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
@@ -133,8 +118,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -164,8 +148,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -188,16 +171,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning brick, start by preparing the surface to account
-    for its porous structure, which can trap contaminants deeply and require multiple
-    passes...
-  excerpt: When laser cleaning brick, start by preparing the surface to account for
-    its porous structure, which can trap contaminants deeply and require multiple
-    passes for thorough removal. You must begin with lower power settings to match
-    its moderate thermal conductivity, ensuring heat stays localized without spreading
-    to cause uneven expansion...
+  seo_description: When laser cleaning brick, start by preparing the surface to account for its porous structure, which can
+    trap contaminants deeply and require multiple passes...
+  excerpt: When laser cleaning brick, start by preparing the surface to account for its porous structure, which can trap contaminants
+    deeply and require multiple passes for thorough removal. You must begin with lower power settings to match its moderate
+    thermal conductivity, ensuring heat stays localized without spreading to cause uneven expansion...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

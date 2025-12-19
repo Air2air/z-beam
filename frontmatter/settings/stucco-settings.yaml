@@ -2,7 +2,7 @@ id: Stucco
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.653021Z'
-dateModified: '2025-12-19T01:01:22.564368Z'
+dateModified: '2025-12-19T01:19:04Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,13 +15,11 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Stucco surface cleaning without substrate
-        damage
+      description: Optimal average power for Stucco surface cleaning without substrate damage
       unit: W
       value: 100
     wavelength:
-      description: Near-infrared wavelength optimized for Stucco absorption and minimal
-        substrate interaction
+      description: Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction
       unit: nm
       value: 1064
     spotSize:
@@ -29,8 +27,7 @@ relationships:
       unit: mm
       value: 0.2
     repetitionRate:
-      description: Optimal repetition rate for efficient cleaning coverage and process
-        speed
+      description: Optimal repetition rate for efficient cleaning coverage and process speed
       unit: kHz
       value: 50
     energyDensity:
@@ -38,8 +35,7 @@ relationships:
       unit: J/cm²
       value: 3.2
     pulseWidth:
-      description: Nanosecond pulse duration for effective contaminant removal with
-        controlled thermal effects
+      description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
       unit: ns
       value: 10
     scanSpeed:
@@ -87,8 +83,7 @@ relationships:
       - Expect 3-5 passes for complete cleaning vs 1-2 for dense materials
     - challenge: Surface heterogeneity and aggregate exposure
       severity: medium
-      impact: Mixed composition (cement matrix, aggregates, voids) causes variable
-        absorption
+      impact: Mixed composition (cement matrix, aggregates, voids) causes variable absorption
       solutions:
       - Use moderate power (70-90W) suitable for both matrix and aggregates
       - Crosshatch scan pattern for uniform coverage
@@ -97,22 +92,19 @@ relationships:
     contamination_challenges:
     - challenge: Paint and coating removal from porous substrate
       severity: medium
-      impact: Paint penetrates into pores requiring deep cleaning without substrate
-        damage
+      impact: Paint penetrates into pores requiring deep cleaning without substrate damage
       solutions:
       - First pass 100W fast (1500 mm/s) for surface paint layer
       - Second pass 70W slow (800 mm/s) for paint in pores
       - Third pass 50W very slow (500 mm/s) for residual staining
       - Chemical stripping pre-treatment reduces laser exposure
       - Heritage masonry requires gentler approach (max 60W)
-  settings_description: In our experience, the key with Stucco lies in its porous,
-    cement-based structure that absorbs contaminants deeply while resisting heat buildup
-    effectively during laser cleaning. We've found this makes it different from smoother
-    masonry, so we typically start with controlled, low-intensity passes to gently
-    lift surface grime without cracking the fragile matrix—watch out for overexposure
-    here, as it can dry out and weaken the bonds mid-process. To handle this, we adjust
-    by overlapping scans lightly and adding a damp post-treatment to restore evenness,
-    ensuring clean results for heritage restorations.
+  settings_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants
+    deeply while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother
+    masonry, so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the
+    fragile matrix—watch out for overexposure here, as it can dry out and weaken the bonds mid-process. To handle this, we
+    adjust by overlapping scans lightly and adding a damp post-treatment to restore evenness, ensuring clean results for heritage
+    restorations.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -123,8 +115,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -154,8 +145,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -178,15 +168,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: In our experience, the key with Stucco lies in its porous, cement-based
-    structure that absorbs contaminants deeply while resisting heat buildup effectively...
-  excerpt: In our experience, the key with Stucco lies in its porous, cement-based
-    structure that absorbs contaminants deeply while resisting heat buildup effectively
-    during laser cleaning. We've found this makes it different from smoother masonry,
-    so we typically start with controlled, low-intensity passes to gently lift surface
-    grime without cracking the...
+  seo_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants
+    deeply while resisting heat buildup effectively...
+  excerpt: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants deeply
+    while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother masonry,
+    so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

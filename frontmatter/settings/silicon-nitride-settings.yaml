@@ -2,7 +2,7 @@ id: Silicon Nitride
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.549885Z'
-dateModified: '2025-12-19T01:01:24.291046Z'
+dateModified: '2025-12-19T01:19:06Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,8 +15,7 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Silicon Nitride surface cleaning without
-        thermal damage
+      description: Optimal average power for Silicon Nitride surface cleaning without thermal damage
       unit: W
       value: 100
     wavelength:
@@ -32,8 +31,7 @@ relationships:
       unit: kHz
       value: 50
     energyDensity:
-      description: Fluence threshold for effective contaminant removal without substrate
-        damage
+      description: Fluence threshold for effective contaminant removal without substrate damage
       unit: J/cm²
       value: 5.1
     pulseWidth:
@@ -61,8 +59,7 @@ relationships:
     - challenge: Thermal shock and cracking
       severity: critical
       threshold_temperature: ΔT > 200-300°C rapid cooling
-      impact: Ceramics crack catastrophically from rapid temperature changes due to
-        low thermal expansion
+      impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
       solutions:
       - Use pulse mode with 3-5 second cooling between passes
       - Gradual power ramping (start 50W, increase 10W per pass)
@@ -88,8 +85,7 @@ relationships:
     - challenge: Porosity variation
       severity: medium
       porosity_range: 0-30% (dense vs porous ceramics)
-      impact: Porous ceramics trap contaminants deep in structure and scatter laser
-        energy
+      impact: Porous ceramics trap contaminants deep in structure and scatter laser energy
       solutions:
       - Dense ceramics (0-5% porosity) clean easily at 100-150W
       - Porous ceramics require multiple progressive passes
@@ -98,19 +94,16 @@ relationships:
     contamination_challenges:
     - challenge: Coating and residue removal
       severity: medium
-      impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate
-        damage
+      impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate damage
       solutions:
       - First pass 120W fast (2000 mm/s) for bulk coating removal
       - Second pass 80W slow (1000 mm/s) for residue
       - Monitor for substrate exposure; adjust power accordingly
       - PVD coatings may require chemical assist for complete removal
-  settings_description: When laser cleaning Silicon Nitride, watch its brittleness
-    first—it cracks easily under sudden heat. I've seen that happen when folks push
-    too hard right away. This works best if you start with gentle pulses to warm the
-    surface slowly, building up over a few passes. That way, you remove contaminants
-    without risking fractures, keeping the material's tough, heat-resistant nature
-    intact. Just avoid high speeds early on.
+  settings_description: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat.
+    I've seen that happen when folks push too hard right away. This works best if you start with gentle pulses to warm the
+    surface slowly, building up over a few passes. That way, you remove contaminants without risking fractures, keeping the
+    material's tough, heat-resistant nature intact. Just avoid high speeds early on.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -121,8 +114,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -152,8 +144,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -176,14 +167,28 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning Silicon Nitride, watch its brittleness first—it
-    cracks easily under sudden heat.
-  excerpt: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks
-    easily under sudden heat. I've seen that happen when folks push too hard right
-    away. This works best if you start with gentle pulses to warm the surface slowly,
+  seo_description: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat.
+  excerpt: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat. I've seen
+    that happen when folks push too hard right away. This works best if you start with gentle pulses to warm the surface slowly,
     building up over a few passes. That way, you remove contaminants...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

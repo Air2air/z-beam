@@ -2,7 +2,7 @@ id: Concrete
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:14.353468Z'
-dateModified: '2025-12-19T01:01:19.897318Z'
+dateModified: '2025-12-19T01:19:03Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,38 +15,31 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for concrete surface cleaning and contaminant
-        removal
+      description: Optimal average power for concrete surface cleaning and contaminant removal
       unit: W
       value: 100
     wavelength:
-      description: Near-infrared wavelength optimized for concrete absorption and
-        minimal substrate damage
+      description: Near-infrared wavelength optimized for concrete absorption and minimal substrate damage
       unit: nm
       value: 1064
     spotSize:
-      description: Beam spot diameter for effective cleaning coverage and energy density
-        control
+      description: Beam spot diameter for effective cleaning coverage and energy density control
       unit: mm
       value: 0.8
     repetitionRate:
-      description: Optimal repetition rate for continuous cleaning coverage without
-        thermal buildup
+      description: Optimal repetition rate for continuous cleaning coverage without thermal buildup
       unit: kHz
       value: 50
     energyDensity:
-      description: Fluence threshold for effective contaminant removal while preserving
-        concrete integrity
+      description: Fluence threshold for effective contaminant removal while preserving concrete integrity
       unit: J/cm²
       value: 2.5
     pulseWidth:
-      description: Pulse duration balancing efficient contaminant removal with concrete
-        substrate preservation
+      description: Pulse duration balancing efficient contaminant removal with concrete substrate preservation
       unit: ns
       value: 12
     scanSpeed:
-      description: Optimal scanning speed for uniform cleaning with sufficient energy
-        deposition
+      description: Optimal scanning speed for uniform cleaning with sufficient energy deposition
       unit: mm/s
       value: 500
     passCount:
@@ -90,8 +83,7 @@ relationships:
       - Expect 3-5 passes for complete cleaning vs 1-2 for dense materials
     - challenge: Surface heterogeneity and aggregate exposure
       severity: medium
-      impact: Mixed composition (cement matrix, aggregates, voids) causes variable
-        absorption
+      impact: Mixed composition (cement matrix, aggregates, voids) causes variable absorption
       solutions:
       - Use moderate power (70-90W) suitable for both matrix and aggregates
       - Crosshatch scan pattern for uniform coverage
@@ -100,20 +92,17 @@ relationships:
     contamination_challenges:
     - challenge: Paint and coating removal from porous substrate
       severity: medium
-      impact: Paint penetrates into pores requiring deep cleaning without substrate
-        damage
+      impact: Paint penetrates into pores requiring deep cleaning without substrate damage
       solutions:
       - First pass 100W fast (1500 mm/s) for surface paint layer
       - Second pass 70W slow (800 mm/s) for paint in pores
       - Third pass 50W very slow (500 mm/s) for residual staining
       - Chemical stripping pre-treatment reduces laser exposure
       - Heritage masonry requires gentler approach (max 60W)
-  settings_description: We've found that concrete demands initial low-power passes
-    in laser cleaning to avoid aggregate spalling, a risk not as prevalent in denser
-    stones like granite. Its inherent porosity allows effective absorption of laser
-    energy, which reveals embedded contaminants without excessive heat buildup. We
-    typically follow with multiple overlapping scans to restore surface uniformity
-    in infrastructure settings, reducing the chance of uneven ablation.
+  settings_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
+    a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy,
+    which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans
+    to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -124,8 +113,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -155,8 +143,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -179,16 +166,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: We've found that concrete demands initial low-power passes in laser
-    cleaning to avoid aggregate spalling, a risk not as prevalent in denser stones
-    like granite.
-  excerpt: We've found that concrete demands initial low-power passes in laser cleaning
-    to avoid aggregate spalling, a risk not as prevalent in denser stones like granite.
-    Its inherent porosity allows effective absorption of laser energy, which reveals
-    embedded contaminants without excessive heat buildup. We typically follow with
-    multiple overlapping scans to...
+  seo_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
+    a risk not as prevalent in denser stones like granite.
+  excerpt: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling, a risk
+    not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy, which
+    reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans to...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

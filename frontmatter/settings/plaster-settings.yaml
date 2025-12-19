@@ -2,7 +2,7 @@ id: Plaster
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.211932Z'
-dateModified: '2025-12-19T01:01:21.410153Z'
+dateModified: '2025-12-19T01:19:04Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,13 +15,11 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for plaster surface cleaning without thermal
-        damage
+      description: Optimal average power for plaster surface cleaning without thermal damage
       unit: W
       value: 100
     wavelength:
-      description: Near-infrared wavelength optimized for plaster absorption and minimal
-        substrate damage
+      description: Near-infrared wavelength optimized for plaster absorption and minimal substrate damage
       unit: nm
       value: 1064
     spotSize:
@@ -29,23 +27,19 @@ relationships:
       unit: μm
       value: 100
     repetitionRate:
-      description: Optimal repetition rate for efficient cleaning coverage and thermal
-        management
+      description: Optimal repetition rate for efficient cleaning coverage and thermal management
       unit: kHz
       value: 50
     energyDensity:
-      description: Fluence level sufficient for contaminant removal while preserving
-        plaster substrate
+      description: Fluence level sufficient for contaminant removal while preserving plaster substrate
       unit: J/cm²
       value: 2.5
     pulseWidth:
-      description: Nanosecond pulse duration for effective contaminant removal with
-        controlled thermal penetration
+      description: Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration
       unit: ns
       value: 10
     scanSpeed:
-      description: Optimal scanning speed for uniform cleaning without excessive dwell
-        time
+      description: Optimal scanning speed for uniform cleaning without excessive dwell time
       unit: mm/s
       value: 500
     passCount:
@@ -89,8 +83,7 @@ relationships:
       - Expect 3-5 passes for complete cleaning vs 1-2 for dense materials
     - challenge: Surface heterogeneity and aggregate exposure
       severity: medium
-      impact: Mixed composition (cement matrix, aggregates, voids) causes variable
-        absorption
+      impact: Mixed composition (cement matrix, aggregates, voids) causes variable absorption
       solutions:
       - Use moderate power (70-90W) suitable for both matrix and aggregates
       - Crosshatch scan pattern for uniform coverage
@@ -99,23 +92,19 @@ relationships:
     contamination_challenges:
     - challenge: Paint and coating removal from porous substrate
       severity: medium
-      impact: Paint penetrates into pores requiring deep cleaning without substrate
-        damage
+      impact: Paint penetrates into pores requiring deep cleaning without substrate damage
       solutions:
       - First pass 100W fast (1500 mm/s) for surface paint layer
       - Second pass 70W slow (800 mm/s) for paint in pores
       - Third pass 50W very slow (500 mm/s) for residual staining
       - Chemical stripping pre-treatment reduces laser exposure
       - Heritage masonry requires gentler approach (max 60W)
-  settings_description: When we laser clean plaster, the biggest challenge is its
-    fragile nature. It crumbles easily under too much heat. So we start low on power.
-    This keeps the surface intact while removing dirt. We've found plaster's porous
-    structure absorbs contaminants deeply. That means multiple gentle passes work
-    best. Watch out for cracking in the middle of the process. It happens if you speed
-    up too fast. Adjust the scan slowly. Plaster differs from stone because it's softer
-    overall. So use wider spots to spread energy evenly. This avoids hot spots. In
-    our experience, it cleans up nicely for heritage sites. Just stay patient and
-    monitor closely.
+  settings_description: When we laser clean plaster, the biggest challenge is its fragile nature. It crumbles easily under
+    too much heat. So we start low on power. This keeps the surface intact while removing dirt. We've found plaster's porous
+    structure absorbs contaminants deeply. That means multiple gentle passes work best. Watch out for cracking in the middle
+    of the process. It happens if you speed up too fast. Adjust the scan slowly. Plaster differs from stone because it's softer
+    overall. So use wider spots to spread energy evenly. This avoids hot spots. In our experience, it cleans up nicely for
+    heritage sites. Just stay patient and monitor closely.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -126,8 +115,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -157,8 +145,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -181,14 +168,28 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When we laser clean plaster, the biggest challenge is its fragile
-    nature.
-  excerpt: When we laser clean plaster, the biggest challenge is its fragile nature.
-    It crumbles easily under too much heat. So we start low on power. This keeps the
-    surface intact while removing dirt. We've found plaster's porous structure absorbs
+  seo_description: When we laser clean plaster, the biggest challenge is its fragile nature.
+  excerpt: When we laser clean plaster, the biggest challenge is its fragile nature. It crumbles easily under too much heat.
+    So we start low on power. This keeps the surface intact while removing dirt. We've found plaster's porous structure absorbs
     contaminants deeply. That means multiple gentle passes work best. Watch out...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

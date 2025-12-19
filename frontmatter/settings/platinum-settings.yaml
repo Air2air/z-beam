@@ -2,7 +2,7 @@ id: Platinum
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.222144Z'
-dateModified: '2025-12-19T01:01:21.448461Z'
+dateModified: '2025-12-19T01:19:04Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,13 +15,11 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Platinum surface cleaning without thermal
-        damage
+      description: Optimal average power for Platinum surface cleaning without thermal damage
       unit: W
       value: 100
     wavelength:
-      description: Near-IR wavelength optimized for Platinum's moderate reflectivity
-        and thermal processing
+      description: Near-IR wavelength optimized for Platinum's moderate reflectivity and thermal processing
       unit: nm
       value: 1064
     spotSize:
@@ -29,13 +27,11 @@ relationships:
       unit: μm
       value: 50
     repetitionRate:
-      description: Optimal repetition rate for efficient cleaning coverage with controlled
-        thermal input
+      description: Optimal repetition rate for efficient cleaning coverage with controlled thermal input
       unit: kHz
       value: 50
     pulseWidth:
-      description: Nanosecond pulse duration for effective contaminant removal while
-        minimizing Platinum substrate heating
+      description: Nanosecond pulse duration for effective contaminant removal while minimizing Platinum substrate heating
       unit: ns
       value: 10
     scanSpeed:
@@ -43,18 +39,15 @@ relationships:
       unit: mm/s
       value: 500
     passCount:
-      description: Recommended number of passes for thorough cleaning of Platinum
-        surfaces
+      description: Recommended number of passes for thorough cleaning of Platinum surfaces
       unit: passes
       value: 3
     overlapRatio:
-      description: Optimal beam overlap for uniform cleaning without excessive thermal
-        accumulation
+      description: Optimal beam overlap for uniform cleaning without excessive thermal accumulation
       unit: '%'
       value: 50
     fluence:
-      description: Energy density threshold for effective contaminant removal without
-        Platinum damage
+      description: Energy density threshold for effective contaminant removal without Platinum damage
       unit: J/cm²
       value: 5
   challenges:
@@ -95,8 +88,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -108,12 +100,10 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: When laser cleaning platinum, watch its high reflectivity
-    first. It bounces back most laser energy. This scatters the beam and slows contaminant
-    removal. I've seen jobs drag on without adjustments. Start low on power to build
-    heat gradually. Tends to work best with multiple passes. Overlap scans tightly
-    for even coverage. Avoid high fluence early—it risks uneven heating. Platinum's
-    heat resistance helps here. It stays stable under steady pulses. This restores
+  settings_description: When laser cleaning platinum, watch its high reflectivity first. It bounces back most laser energy.
+    This scatters the beam and slows contaminant removal. I've seen jobs drag on without adjustments. Start low on power to
+    build heat gradually. Tends to work best with multiple passes. Overlap scans tightly for even coverage. Avoid high fluence
+    early—it risks uneven heating. Platinum's heat resistance helps here. It stays stable under steady pulses. This restores
     surfaces cleanly without warping. Just keep scans slow to control buildup.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
@@ -125,8 +115,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -156,8 +145,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -181,12 +169,27 @@ relationships:
     - iec-60825-laser-safety
     - osha-ppe-requirements
   seo_description: When laser cleaning platinum, watch its high reflectivity first.
-  excerpt: When laser cleaning platinum, watch its high reflectivity first. It bounces
-    back most laser energy. This scatters the beam and slows contaminant removal.
-    I've seen jobs drag on without adjustments. Start low on power to build heat gradually.
+  excerpt: When laser cleaning platinum, watch its high reflectivity first. It bounces back most laser energy. This scatters
+    the beam and slows contaminant removal. I've seen jobs drag on without adjustments. Start low on power to build heat gradually.
     Tends to work best with multiple passes. Overlap scans tightly for even...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

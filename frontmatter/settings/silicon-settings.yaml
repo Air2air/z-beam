@@ -2,7 +2,7 @@ id: Silicon
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.518576Z'
-dateModified: '2025-12-19T01:01:22.330454Z'
+dateModified: '2025-12-19T01:19:04Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,13 +15,11 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Silicon surface cleaning without substrate
-        damage
+      description: Optimal average power for Silicon surface cleaning without substrate damage
       unit: W
       value: 25
     wavelength:
-      description: Near-IR wavelength with good Silicon absorption for contaminant
-        removal
+      description: Near-IR wavelength with good Silicon absorption for contaminant removal
       unit: nm
       value: 1064
     spotSize:
@@ -29,18 +27,15 @@ relationships:
       unit: μm
       value: 50
     repetitionRate:
-      description: Optimal repetition rate for efficient cleaning coverage and process
-        control
+      description: Optimal repetition rate for efficient cleaning coverage and process control
       unit: kHz
       value: 50
     fluenceThreshold:
-      description: Fluence threshold for effective contaminant removal without Silicon
-        damage
+      description: Fluence threshold for effective contaminant removal without Silicon damage
       unit: J/cm²
       value: 2.5
     pulseWidth:
-      description: Nanosecond pulse duration for effective contaminant ablation with
-        minimal thermal diffusion
+      description: Nanosecond pulse duration for effective contaminant ablation with minimal thermal diffusion
       unit: ns
       value: 100
     scanSpeed:
@@ -52,8 +47,7 @@ relationships:
       unit: passes
       value: 2
     overlapRatio:
-      description: Optimal beam overlap for uniform cleaning without excessive thermal
-        buildup
+      description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
       unit: '%'
       value: 50
   challenges:
@@ -61,11 +55,9 @@ relationships:
     - challenge: Crystal lattice damage and doping redistribution
       severity: critical
       threshold_temperature: Above 400-600°C causes dopant migration
-      impact: Heat causes permanent alteration of electronic properties and device
-        failure
+      impact: Heat causes permanent alteration of electronic properties and device failure
       solutions:
-      - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected
-        zone
+      - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
       - Reduce power by 60-70% compared to structural materials
       - Monitor temperature with IR camera; stop if >150°C surface temperature
       - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
@@ -106,16 +98,13 @@ relationships:
       - UV laser (355nm) more effective for organic materials
       - Oxygen-rich environment aids in organic ablation
       - Post-cleaning oxygen plasma for complete residue removal
-  settings_description: When laser cleaning silicon, start with low power settings
-    to leverage its strong thermal conductivity. This property lets heat spread quickly,
-    unlike brittle ceramics that trap it locally. You must keep pulse durations short
-    to avoid microcracks, since silicon's stiffness makes it prone to fracturing under
-    sudden stress. We've found that moderate scan speeds work best, revealing contaminants
-    without altering the surface. Adjust overlap ratios carefully to ensure even coverage,
-    as silicon's moderate reflectivity absorbs energy steadily compared to shiny metals.
-    This approach restores semiconductor wafers effectively for electronics use. Make
-    sure you monitor for thermal buildup at the end, or you risk subsurface damage
-    that compromises device performance.
+  settings_description: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity.
+    This property lets heat spread quickly, unlike brittle ceramics that trap it locally. You must keep pulse durations short
+    to avoid microcracks, since silicon's stiffness makes it prone to fracturing under sudden stress. We've found that moderate
+    scan speeds work best, revealing contaminants without altering the surface. Adjust overlap ratios carefully to ensure
+    even coverage, as silicon's moderate reflectivity absorbs energy steadily compared to shiny metals. This approach restores
+    semiconductor wafers effectively for electronics use. Make sure you monitor for thermal buildup at the end, or you risk
+    subsurface damage that compromises device performance.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -126,8 +115,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -157,8 +145,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -181,15 +168,28 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning silicon, start with low power settings to leverage
-    its strong thermal conductivity.
-  excerpt: When laser cleaning silicon, start with low power settings to leverage
-    its strong thermal conductivity. This property lets heat spread quickly, unlike
-    brittle ceramics that trap it locally. You must keep pulse durations short to
-    avoid microcracks, since silicon's stiffness makes it prone to fracturing under
-    sudden stress. We've found...
+  seo_description: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity.
+  excerpt: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity. This property
+    lets heat spread quickly, unlike brittle ceramics that trap it locally. You must keep pulse durations short to avoid microcracks,
+    since silicon's stiffness makes it prone to fracturing under sudden stress. We've found...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

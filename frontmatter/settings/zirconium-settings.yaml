@@ -2,7 +2,7 @@ id: Zirconium
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.936445Z'
-dateModified: '2025-12-19T01:01:23.150887Z'
+dateModified: '2025-12-19T01:19:05Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,48 +15,39 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Zirconium oxide removal without substrate
-        damage
+      description: Optimal average power for Zirconium oxide removal without substrate damage
       unit: W
       value: 100
     wavelength:
-      description: Near-IR wavelength optimized for Zirconium's moderate absorption
-        and thermal processing
+      description: Near-IR wavelength optimized for Zirconium's moderate absorption and thermal processing
       unit: nm
       value: 1064
     spotSize:
-      description: Optimal beam diameter for balancing cleaning efficiency and processing
-        speed
+      description: Optimal beam diameter for balancing cleaning efficiency and processing speed
       unit: μm
       value: 50
     repetitionRate:
-      description: High repetition rate for efficient surface coverage while maintaining
-        thermal control
+      description: High repetition rate for efficient surface coverage while maintaining thermal control
       unit: kHz
       value: 100
     energyDensity:
-      description: Fluence optimized for Zirconium oxide ablation threshold while
-        preserving base material
+      description: Fluence optimized for Zirconium oxide ablation threshold while preserving base material
       unit: J/cm²
       value: 5.1
     pulseWidth:
-      description: Nanosecond pulse duration for efficient oxide layer ablation with
-        minimal heat affected zone
+      description: Nanosecond pulse duration for efficient oxide layer ablation with minimal heat affected zone
       unit: ns
       value: 10
     scanSpeed:
-      description: Scanning speed providing effective oxide removal with controlled
-        thermal input
+      description: Scanning speed providing effective oxide removal with controlled thermal input
       unit: mm/s
       value: 500
     passCount:
-      description: Number of cleaning passes for thorough oxide removal with minimal
-        substrate impact
+      description: Number of cleaning passes for thorough oxide removal with minimal substrate impact
       unit: passes
       value: 2
     overlapRatio:
-      description: Beam overlap percentage ensuring complete surface coverage without
-        excessive thermal buildup
+      description: Beam overlap percentage ensuring complete surface coverage without excessive thermal buildup
       unit: '%'
       value: 50
     dwellTime:
@@ -101,8 +92,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -114,18 +104,14 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: In our experience, laser cleaning zirconium works best when
-    we dial in conservative power levels right from the start. This metal's high reflectivity
-    bounces back a lot of the laser energy, so we keep pulses short and scan speeds
-    moderate to ensure contaminants lift off without scorching the surface underneath.
-    We've found this approach restores that smooth, corrosion-resistant finish so
-    crucial for nuclear or chemical applications, where even minor pitting could spell
-    trouble. But watch out midway through—zirconium picks up oxygen fast if things
-    heat up unevenly, leading to brittle spots that weaken its toughness. To sidestep
-    that, we overlap passes just enough for even coverage, avoiding overexposure that
-    might embrittle the material. Overall, treat it gentler than more absorbent alloys;
-    adjust dwell times down if you see any whitening, and you'll get clean results
-    that hold up in demanding environments.
+  settings_description: In our experience, laser cleaning zirconium works best when we dial in conservative power levels right
+    from the start. This metal's high reflectivity bounces back a lot of the laser energy, so we keep pulses short and scan
+    speeds moderate to ensure contaminants lift off without scorching the surface underneath. We've found this approach restores
+    that smooth, corrosion-resistant finish so crucial for nuclear or chemical applications, where even minor pitting could
+    spell trouble. But watch out midway through—zirconium picks up oxygen fast if things heat up unevenly, leading to brittle
+    spots that weaken its toughness. To sidestep that, we overlap passes just enough for even coverage, avoiding overexposure
+    that might embrittle the material. Overall, treat it gentler than more absorbent alloys; adjust dwell times down if you
+    see any whitening, and you'll get clean results that hold up in demanding environments.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -136,8 +122,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -167,8 +152,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -191,14 +175,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: In our experience, laser cleaning zirconium works best when we
-    dial in conservative power levels right from the start.
-  excerpt: In our experience, laser cleaning zirconium works best when we dial in
-    conservative power levels right from the start. This metal's high reflectivity
-    bounces back a lot of the laser energy, so we keep pulses short and scan speeds
+  seo_description: In our experience, laser cleaning zirconium works best when we dial in conservative power levels right
+    from the start.
+  excerpt: In our experience, laser cleaning zirconium works best when we dial in conservative power levels right from the
+    start. This metal's high reflectivity bounces back a lot of the laser energy, so we keep pulses short and scan speeds
     moderate to ensure contaminants lift off without scorching the surface underneath....
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

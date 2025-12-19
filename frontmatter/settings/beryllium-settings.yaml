@@ -2,7 +2,7 @@ id: Beryllium
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:14.159192Z'
-dateModified: '2025-12-19T01:01:19.361774Z'
+dateModified: '2025-12-19T01:19:02Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -27,13 +27,11 @@ relationships:
       unit: μm
       value: 50
     repetitionRate:
-      description: High repetition rate for efficient cleaning with minimal thermal
-        damage
+      description: High repetition rate for efficient cleaning with minimal thermal damage
       unit: kHz
       value: 100
     fluenceThreshold:
-      description: Fluence threshold for Beryllium oxide removal without substrate
-        damage
+      description: Fluence threshold for Beryllium oxide removal without substrate damage
       unit: J/cm²
       value: 2.5
     pulseWidth:
@@ -90,8 +88,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -103,21 +100,16 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: When laser cleaning Beryllium, you must first contrast it
-    with more common metals like aluminum, because Beryllium's exceptional reflectivity
-    sends most laser energy bouncing away, demanding a completely different setup
-    to ensure effective contaminant removal without wasting power. This high reflectivity,
-    unlike the better absorption in denser alloys, means you should start with adjusted
-    pulse durations and slower scan speeds so the surface has time to absorb just
-    enough heat for cleaning, while its lightweight nature allows rapid cooling that
-    prevents warping if you control the overlap carefully. Beryllium's superior thermal
-    conductivity spreads heat quickly across the material, which helps avoid localized
-    damage but requires you to monitor passes closely to prevent overexposure. You
-    also need to watch its brittleness compared to tougher steels, as sudden temperature
-    shifts can lead to micro-cracks during the process. In the end, always end sessions
-    with a cool-down period and inspect for any subsurface stress, since overlooking
-    this can compromise the material's integrity in high-stakes applications like
-    aerospace components.
+  settings_description: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because
+    Beryllium's exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to
+    ensure effective contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser
+    alloys, means you should start with adjusted pulse durations and slower scan speeds so the surface has time to absorb
+    just enough heat for cleaning, while its lightweight nature allows rapid cooling that prevents warping if you control
+    the overlap carefully. Beryllium's superior thermal conductivity spreads heat quickly across the material, which helps
+    avoid localized damage but requires you to monitor passes closely to prevent overexposure. You also need to watch its
+    brittleness compared to tougher steels, as sudden temperature shifts can lead to micro-cracks during the process. In the
+    end, always end sessions with a cool-down period and inspect for any subsurface stress, since overlooking this can compromise
+    the material's integrity in high-stakes applications like aerospace components.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -128,8 +120,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -159,8 +150,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -183,16 +173,30 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning Beryllium, you must first contrast it with
-    more common metals like aluminum, because Beryllium's exceptional reflectivity
-    sends most laser...
-  excerpt: When laser cleaning Beryllium, you must first contrast it with more common
-    metals like aluminum, because Beryllium's exceptional reflectivity sends most
-    laser energy bouncing away, demanding a completely different setup to ensure effective
-    contaminant removal without wasting power. This high reflectivity, unlike the
-    better absorption in denser alloys, means you...
+  seo_description: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because
+    Beryllium's exceptional reflectivity sends most laser...
+  excerpt: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because Beryllium's
+    exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure effective
+    contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser alloys, means
+    you...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

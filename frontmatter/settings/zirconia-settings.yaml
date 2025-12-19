@@ -2,7 +2,7 @@ id: Zirconia
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.924717Z'
-dateModified: '2025-12-19T01:01:23.110070Z'
+dateModified: '2025-12-19T01:19:05Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,13 +15,11 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Zirconia surface cleaning without thermal
-        damage
+      description: Optimal average power for Zirconia surface cleaning without thermal damage
       unit: W
       value: 100
     wavelength:
-      description: Near-IR wavelength with good absorption in Zirconia for efficient
-        cleaning
+      description: Near-IR wavelength with good absorption in Zirconia for efficient cleaning
       unit: nm
       value: 1064
     spotSize:
@@ -29,8 +27,7 @@ relationships:
       unit: μm
       value: 50
     repetitionRate:
-      description: High repetition rate for efficient cleaning coverage while maintaining
-        thermal control
+      description: High repetition rate for efficient cleaning coverage while maintaining thermal control
       unit: kHz
       value: 100
     energyDensity:
@@ -38,8 +35,7 @@ relationships:
       unit: J/cm²
       value: 5
     pulseWidth:
-      description: Nanosecond pulse duration for effective contaminant removal with
-        minimal substrate damage
+      description: Nanosecond pulse duration for effective contaminant removal with minimal substrate damage
       unit: ns
       value: 10
     scanSpeed:
@@ -47,13 +43,11 @@ relationships:
       unit: mm/s
       value: 500
     passCount:
-      description: Recommended number of cleaning passes for complete contaminant
-        removal
+      description: Recommended number of cleaning passes for complete contaminant removal
       unit: passes
       value: 3
     overlapRatio:
-      description: Optimal beam overlap percentage for uniform cleaning without excessive
-        heat accumulation
+      description: Optimal beam overlap percentage for uniform cleaning without excessive heat accumulation
       unit: '%'
       value: 50
   challenges:
@@ -61,8 +55,7 @@ relationships:
     - challenge: Thermal shock and cracking
       severity: critical
       threshold_temperature: ΔT > 200-300°C rapid cooling
-      impact: Ceramics crack catastrophically from rapid temperature changes due to
-        low thermal expansion
+      impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
       solutions:
       - Use pulse mode with 3-5 second cooling between passes
       - Gradual power ramping (start 50W, increase 10W per pass)
@@ -88,8 +81,7 @@ relationships:
     - challenge: Porosity variation
       severity: medium
       porosity_range: 0-30% (dense vs porous ceramics)
-      impact: Porous ceramics trap contaminants deep in structure and scatter laser
-        energy
+      impact: Porous ceramics trap contaminants deep in structure and scatter laser energy
       solutions:
       - Dense ceramics (0-5% porosity) clean easily at 100-150W
       - Porous ceramics require multiple progressive passes
@@ -98,21 +90,18 @@ relationships:
     contamination_challenges:
     - challenge: Coating and residue removal
       severity: medium
-      impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate
-        damage
+      impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate damage
       solutions:
       - First pass 120W fast (2000 mm/s) for bulk coating removal
       - Second pass 80W slow (1000 mm/s) for residue
       - Monitor for substrate exposure; adjust power accordingly
       - PVD coatings may require chemical assist for complete removal
-  settings_description: The key with Zirconia is its strong laser absorption. We've
-    found this makes cleaning efficient without much reflection loss. It removes contaminants
-    quickly while preserving the surface. Unlike metals, its low thermal conductivity
-    traps heat locally. We typically start with moderate power to prevent buildup.
-    This approach reduces cracking risks in such a hard ceramic. Zirconia stands out
-    for high toughness under stress. Adjust scan speeds higher for even exposure.
-    In our experience, multiple light passes restore it fully. Watch for thermal gradients
-    at the end, though, and cool between runs to avoid micro-fractures.
+  settings_description: The key with Zirconia is its strong laser absorption. We've found this makes cleaning efficient without
+    much reflection loss. It removes contaminants quickly while preserving the surface. Unlike metals, its low thermal conductivity
+    traps heat locally. We typically start with moderate power to prevent buildup. This approach reduces cracking risks in
+    such a hard ceramic. Zirconia stands out for high toughness under stress. Adjust scan speeds higher for even exposure.
+    In our experience, multiple light passes restore it fully. Watch for thermal gradients at the end, though, and cool between
+    runs to avoid micro-fractures.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -123,8 +112,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -154,8 +142,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -179,13 +166,27 @@ relationships:
     - iec-60825-laser-safety
     - osha-ppe-requirements
   seo_description: The key with Zirconia is its strong laser absorption.
-  excerpt: The key with Zirconia is its strong laser absorption. We've found this
-    makes cleaning efficient without much reflection loss. It removes contaminants
-    quickly while preserving the surface. Unlike metals, its low thermal conductivity
-    traps heat locally. We typically start with moderate power to prevent buildup.
-    This approach reduces cracking risks...
+  excerpt: The key with Zirconia is its strong laser absorption. We've found this makes cleaning efficient without much reflection
+    loss. It removes contaminants quickly while preserving the surface. Unlike metals, its low thermal conductivity traps
+    heat locally. We typically start with moderate power to prevent buildup. This approach reduces cracking risks...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

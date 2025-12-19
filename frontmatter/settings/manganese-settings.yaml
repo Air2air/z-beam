@@ -2,7 +2,7 @@ id: Manganese
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:14.888174Z'
-dateModified: '2025-12-19T01:01:20.870788Z'
+dateModified: '2025-12-19T01:19:03Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,8 +15,7 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Manganese oxide removal without substrate
-        damage
+      description: Optimal average power for Manganese oxide removal without substrate damage
       unit: W
       value: 100
     wavelength:
@@ -89,8 +88,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -102,20 +100,15 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: When laser cleaning manganese, the main challenge lies in
-    its low thermal conductivity, which causes heat to build up quickly in targeted
-    areas. This buildup can lead to uneven ablation if not managed, potentially damaging
-    the underlying structure before contaminants fully remove. I've seen this happen
-    when initial passes use too much power, so start with reduced settings to allow
-    controlled energy delivery that exposes clean surfaces without excess stress.
-    Its moderate reflectivity helps by absorbing enough laser energy for effective
-    cleaning, unlike highly reflective metals that scatter light and demand higher
-    fluences. This property lets you restore manganese components in aerospace or
-    marine applications reliably, as long as you adjust for its brittleness by incorporating
-    overlap in scans to avoid micro-cracks. Tends to work best with shorter pulses
-    that minimize thermal diffusion. Watch out for prolonged exposure at the end,
-    which might compromise its corrosion resistance—always verify surface integrity
-    after the final pass.
+  settings_description: When laser cleaning manganese, the main challenge lies in its low thermal conductivity, which causes
+    heat to build up quickly in targeted areas. This buildup can lead to uneven ablation if not managed, potentially damaging
+    the underlying structure before contaminants fully remove. I've seen this happen when initial passes use too much power,
+    so start with reduced settings to allow controlled energy delivery that exposes clean surfaces without excess stress.
+    Its moderate reflectivity helps by absorbing enough laser energy for effective cleaning, unlike highly reflective metals
+    that scatter light and demand higher fluences. This property lets you restore manganese components in aerospace or marine
+    applications reliably, as long as you adjust for its brittleness by incorporating overlap in scans to avoid micro-cracks.
+    Tends to work best with shorter pulses that minimize thermal diffusion. Watch out for prolonged exposure at the end, which
+    might compromise its corrosion resistance—always verify surface integrity after the final pass.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -126,8 +119,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -157,8 +149,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -181,15 +172,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning manganese, the main challenge lies in its low
-    thermal conductivity, which causes heat to build up quickly in targeted areas.
-  excerpt: When laser cleaning manganese, the main challenge lies in its low thermal
-    conductivity, which causes heat to build up quickly in targeted areas. This buildup
-    can lead to uneven ablation if not managed, potentially damaging the underlying
-    structure before contaminants fully remove. I've seen this happen when initial
-    passes use...
+  seo_description: When laser cleaning manganese, the main challenge lies in its low thermal conductivity, which causes heat
+    to build up quickly in targeted areas.
+  excerpt: When laser cleaning manganese, the main challenge lies in its low thermal conductivity, which causes heat to build
+    up quickly in targeted areas. This buildup can lead to uneven ablation if not managed, potentially damaging the underlying
+    structure before contaminants fully remove. I've seen this happen when initial passes use...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

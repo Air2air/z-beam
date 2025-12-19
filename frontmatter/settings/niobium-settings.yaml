@@ -2,7 +2,7 @@ id: Niobium
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.120476Z'
-dateModified: '2025-12-19T01:01:21.138690Z'
+dateModified: '2025-12-19T01:19:03Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,23 +15,19 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Niobium oxide removal without substrate
-        damage
+      description: Optimal average power for Niobium oxide removal without substrate damage
       unit: W
       value: 100
     wavelength:
-      description: Near-IR wavelength optimized for Niobium's absorption characteristics
-        and oxide layer removal
+      description: Near-IR wavelength optimized for Niobium's absorption characteristics and oxide layer removal
       unit: nm
       value: 1064
     spotSize:
-      description: Beam spot diameter for precise oxide removal with adequate cleaning
-        efficiency
+      description: Beam spot diameter for precise oxide removal with adequate cleaning efficiency
       unit: μm
       value: 50
     repetitionRate:
-      description: Optimal repetition rate for continuous cleaning coverage with thermal
-        management
+      description: Optimal repetition rate for continuous cleaning coverage with thermal management
       unit: kHz
       value: 50
     fluenceThreshold:
@@ -39,8 +35,7 @@ relationships:
       unit: J/cm²
       value: 2.5
     pulseWidth:
-      description: Nanosecond pulse duration for efficient oxide ablation with minimal
-        thermal penetration
+      description: Nanosecond pulse duration for efficient oxide ablation with minimal thermal penetration
       unit: ns
       value: 10
     scanSpeed:
@@ -52,8 +47,7 @@ relationships:
       unit: passes
       value: 3
     overlapRatio:
-      description: Optimal beam overlap for uniform cleaning without excessive heat
-        accumulation
+      description: Optimal beam overlap for uniform cleaning without excessive heat accumulation
       unit: '%'
       value: 50
   challenges:
@@ -94,8 +88,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -107,22 +100,17 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: When laser cleaning niobium, you must first watch its high
-    reflectivity, which scatters more laser energy than you'd see with iron-based
-    metals, so start with lower power settings to prevent wasted shots and uneven
-    cleaning. Make sure you adjust the fluence just above its ablation threshold right
-    away, avoiding the pitfall of underpowering that leaves stubborn contaminants
-    behind while risking surface pitting if you overshoot. Begin your setup by selecting
-    a near-infrared wavelength that niobium absorbs better than shorter ones, unlike
-    aluminum's picky response. You'll then dial in a moderate pulse width to handle
-    its dense structure without building excess heat, contrasting with lighter non-ferrous
-    metals that cool faster. Scan at a steady speed, overlapping passes by half to
-    clear oxides thoroughly, since niobium's corrosion resistance means buildup clings
-    tighter than on copper. This approach brings back its smooth finish for aerospace
-    or medical uses, minimizing thermal shock that could crack it under rapid heating.
-    Keep passes to a few, and always test on a scrap piece first—niobium forgives
-    minor errors better than brittle alloys but demands precision to avoid dulling
-    its natural luster.
+  settings_description: When laser cleaning niobium, you must first watch its high reflectivity, which scatters more laser
+    energy than you'd see with iron-based metals, so start with lower power settings to prevent wasted shots and uneven cleaning.
+    Make sure you adjust the fluence just above its ablation threshold right away, avoiding the pitfall of underpowering that
+    leaves stubborn contaminants behind while risking surface pitting if you overshoot. Begin your setup by selecting a near-infrared
+    wavelength that niobium absorbs better than shorter ones, unlike aluminum's picky response. You'll then dial in a moderate
+    pulse width to handle its dense structure without building excess heat, contrasting with lighter non-ferrous metals that
+    cool faster. Scan at a steady speed, overlapping passes by half to clear oxides thoroughly, since niobium's corrosion
+    resistance means buildup clings tighter than on copper. This approach brings back its smooth finish for aerospace or medical
+    uses, minimizing thermal shock that could crack it under rapid heating. Keep passes to a few, and always test on a scrap
+    piece first—niobium forgives minor errors better than brittle alloys but demands precision to avoid dulling its natural
+    luster.
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -133,8 +121,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -164,8 +151,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -188,16 +174,29 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning niobium, you must first watch its high reflectivity,
-    which scatters more laser energy than you'd see with iron-based metals, so start
-    with...
-  excerpt: When laser cleaning niobium, you must first watch its high reflectivity,
-    which scatters more laser energy than you'd see with iron-based metals, so start
-    with lower power settings to prevent wasted shots and uneven cleaning. Make sure
-    you adjust the fluence just above its ablation threshold right away, avoiding
-    the...
+  seo_description: When laser cleaning niobium, you must first watch its high reflectivity, which scatters more laser energy
+    than you'd see with iron-based metals, so start with...
+  excerpt: When laser cleaning niobium, you must first watch its high reflectivity, which scatters more laser energy than
+    you'd see with iron-based metals, so start with lower power settings to prevent wasted shots and uneven cleaning. Make
+    sure you adjust the fluence just above its ablation threshold right away, avoiding the...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020

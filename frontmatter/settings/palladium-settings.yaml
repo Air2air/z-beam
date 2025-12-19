@@ -2,7 +2,7 @@ id: Palladium
 content_type: settings
 schema_version: 5.0.0
 datePublished: '2025-12-19T00:21:15.169204Z'
-dateModified: '2025-12-19T01:01:21.330894Z'
+dateModified: '2025-12-19T01:19:04Z'
 relationships:
   related_materials: []
   related_contaminants: []
@@ -15,13 +15,11 @@ relationships:
     title: Ansi Z136 1 Laser Safety
   machine_settings:
     powerRange:
-      description: Optimal average power for Palladium oxide removal without substrate
-        damage
+      description: Optimal average power for Palladium oxide removal without substrate damage
       unit: W
       value: 90
     wavelength:
-      description: Near-IR wavelength for efficient absorption by Palladium oxides
-        and contaminants
+      description: Near-IR wavelength for efficient absorption by Palladium oxides and contaminants
       unit: nm
       value: 1064
     spotSize:
@@ -49,8 +47,7 @@ relationships:
       unit: passes
       value: 3
     overlapRatio:
-      description: Optimal beam overlap for uniform cleaning without excessive heat
-        accumulation
+      description: Optimal beam overlap for uniform cleaning without excessive heat accumulation
       unit: '%'
       value: 50
     dwellTime:
@@ -95,8 +92,7 @@ relationships:
     contamination_challenges:
     - challenge: Rust and oxide layer removal
       severity: medium
-      impact: Requires multiple passes; rust/oxide has different absorption than base
-        metal
+      impact: Requires multiple passes; rust/oxide has different absorption than base metal
       solutions:
       - First pass at higher power (100-120W) to remove bulk oxide
       - Second pass at lower power (60-80W) for final cleaning
@@ -108,27 +104,23 @@ relationships:
       - Use fume extraction to prevent redeposition
       - Higher scan speeds (3000-5000 mm/s) for thin films
       - Chemical pre-cleaning for heavy contamination
-  settings_description: 'When laser cleaning Palladium, you''ll want to begin with
-    a careful setup to handle its high reflectivity. Start by selecting a lower power
-    level right from the outset. This metal reflects a lot of the laser energy, so
-    you must dial it back to ensure the beam gets absorbed enough for effective cleaning
-    without wasting shots.
+  settings_description: 'When laser cleaning Palladium, you''ll want to begin with a careful setup to handle its high reflectivity.
+    Start by selecting a lower power level right from the outset. This metal reflects a lot of the laser energy, so you must
+    dial it back to ensure the beam gets absorbed enough for effective cleaning without wasting shots.
 
 
-    Move on to your scan speed next. Keep it moderate to allow the heat to spread
-    evenly across the dense surface. Palladium''s strong thermal conductivity helps
-    here—it pulls heat away quickly, which prevents hot spots and protects the underlying
+    Move on to your scan speed next. Keep it moderate to allow the heat to spread evenly across the dense surface. Palladium''s
+    strong thermal conductivity helps here—it pulls heat away quickly, which prevents hot spots and protects the underlying
     structure during the process.
 
 
-    Watch out midway through: don''t push the fluence too high, or you risk uneven
-    ablation on this corrosion-resistant material. Its noble nature means contaminants
-    cling stubbornly, so make multiple passes with good overlap to lift them without
-    scratching the finish.
+    Watch out midway through: don''t push the fluence too high, or you risk uneven ablation on this corrosion-resistant material.
+    Its noble nature means contaminants cling stubbornly, so make multiple passes with good overlap to lift them without scratching
+    the finish.
 
 
-    Finish by checking the dwell time—short bursts work best. This approach cleans
-    jewelry or aerospace parts cleanly every time, leaving no residue behind.'
+    Finish by checking the dwell time—short bursts work best. This approach cleans jewelry or aerospace parts cleanly every
+    time, leaving no residue behind.'
   regulatory_standards_detail:
   - id: osha-ppe-requirements
     title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
@@ -139,8 +131,7 @@ relationships:
     country: United States
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
     image: /images/logo/logo-org-osha.png
-    description: Federal requirements for personal protective equipment in construction
-      and industrial operations
+    description: Federal requirements for personal protective equipment in construction and industrial operations
     scope: Eye protection, respiratory protection, protective clothing
     applicability:
     - All workplaces using laser equipment
@@ -170,8 +161,7 @@ relationships:
     country: United States
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
     image: /images/logo/logo-org-ansi.png
-    description: Comprehensive safety standard for laser operation, maintenance, and
-      safety programs
+    description: Comprehensive safety standard for laser operation, maintenance, and safety programs
     scope: Hazard evaluation, control measures, safety procedures, training
     applicability:
     - All laser operators and safety officers
@@ -194,14 +184,28 @@ relationships:
     related_standards:
     - iec-60825-laser-safety
     - osha-ppe-requirements
-  seo_description: When laser cleaning Palladium, you'll want to begin with a careful
-    setup to handle its high reflectivity.
-  excerpt: When laser cleaning Palladium, you'll want to begin with a careful setup
-    to handle its high reflectivity. Start by selecting a lower power level right
-    from the outset. This metal reflects a lot of the laser energy, so you must dial
+  seo_description: When laser cleaning Palladium, you'll want to begin with a careful setup to handle its high reflectivity.
+  excerpt: When laser cleaning Palladium, you'll want to begin with a careful setup to handle its high reflectivity. Start
+    by selecting a lower power level right from the outset. This metal reflects a lot of the laser energy, so you must dial
     it back to ensure the beam gets absorbed enough...
 breadcrumb:
 - label: Home
   href: /
 - label: Settings
   href: /settings
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  country_display: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
