@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Fix Domain Linkages URLs
+ * Fix Domain Relationships URLs
  * 
  * Corrects domain_linkages URLs to match actual file slugs:
  * - Adds -contamination suffix to contaminant URLs

@@ -268,6 +268,15 @@ export class SchemaFactory {
         return !!(fm?.materialProperties || fm?.machineSettings);
       }
     });
+    this.register('ChemicalSubstance', generateChemicalSubstanceSchema, {
+      priority: 17,
+      condition: (data, context) => {
+        // Only for compound pages with chemical formula
+        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        const isCompoundPage = context.slug.startsWith('compounds/');
+        return isCompoundPage && !!(fm?.chemical_formula || (fm as any)?.chemicalFormula);
+      }
+    });
     this.register('Certification', generateCertificationSchema, {
       priority: 15,
       condition: (data) => hasRegulatoryStandards(data)
@@ -484,7 +493,7 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
   const { pageUrl, baseUrl, currentDate } = context;
   
   const title = frontmatter.title || data.title || '';
-  const description = frontmatter.description || frontmatter.material_description || frontmatter.settings_description || data.description || '';
+  const description = frontmatter.description || data.description || '';
   
   if (!title) return null;
 
@@ -568,7 +577,7 @@ function generateTechArticleSchema(data: any, context: SchemaContext): SchemaOrg
   const { pageUrl, baseUrl, currentDate } = context;
   
   const title = frontmatter.title || data.title || '';
-  const description = frontmatter.description || frontmatter.settings_description || data.description || '';
+  const description = frontmatter.description || data.description || '';
   const materialName = frontmatter.name || '';
   
   if (!title) return null;
@@ -713,6 +722,70 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
     const materialCategory = meta.category || 'Material';
     const authorData = (meta as any).author || data.author;
     
+    // Extract safety data from frontmatter/metadata
+    const safetyData = (meta as any).safety_data || (meta as any).safetyData || (data.frontmatter as any)?.safety_data;
+    
+    // Build safety properties array for Schema.org additionalProperty
+    const safetyProperties: any[] = [];
+    if (safetyData) {
+      // Fire/Explosion Risk
+      if (safetyData.fire_explosion_risk) {
+        safetyProperties.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'fire_explosion_risk',
+          'name': 'Fire/Explosion Risk',
+          'value': safetyData.fire_explosion_risk
+        });
+      }
+      
+      // Toxic Gas Risk
+      if (safetyData.toxic_gas_risk) {
+        safetyProperties.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'toxic_gas_risk',
+          'name': 'Toxic Gas Risk',
+          'value': safetyData.toxic_gas_risk
+        });
+      }
+      
+      // Visibility Hazard
+      if (safetyData.visibility_hazard) {
+        safetyProperties.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'visibility_hazard',
+          'name': 'Visibility Hazard',
+          'value': safetyData.visibility_hazard
+        });
+      }
+    }
+    
+    // Build safetyConsideration text from PPE requirements
+    let safetyConsideration: string | undefined;
+    if (safetyData?.ppe_requirements) {
+      const ppeItems: string[] = [];
+      if (safetyData.ppe_requirements.respiratory) {
+        ppeItems.push(`Respiratory: ${safetyData.ppe_requirements.respiratory}`);
+      }
+      if (safetyData.ppe_requirements.eye_protection) {
+        ppeItems.push(`Eye Protection: ${safetyData.ppe_requirements.eye_protection}`);
+      }
+      if (safetyData.ppe_requirements.protective_clothing) {
+        ppeItems.push(`Protective Clothing: ${safetyData.ppe_requirements.protective_clothing}`);
+      }
+      if (safetyData.ppe_requirements.gloves) {
+        ppeItems.push(`Gloves: ${safetyData.ppe_requirements.gloves}`);
+      }
+      
+      // Add ventilation requirements to safety consideration
+      if (safetyData.ventilation_requirements?.minimum_air_changes_per_hour) {
+        ppeItems.push(`Ventilation: Minimum ${safetyData.ventilation_requirements.minimum_air_changes_per_hour} ACH required`);
+      }
+      
+      if (ppeItems.length > 0) {
+        safetyConsideration = ppeItems.join('. ') + '.';
+      }
+    }
+    
     // Professional cleaning service for this material
     products.push({
       '@type': 'Product',
@@ -783,7 +856,10 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         }
       ],
       'serviceType': 'Industrial Laser Cleaning',
-      'image': mainImage  // Always include image - getMainImage() now guarantees a value
+      'image': mainImage,  // Always include image - getMainImage() now guarantees a value
+      // Safety data exposure for SEO
+      ...(safetyProperties.length > 0 && { 'additionalProperty': safetyProperties }),
+      ...(safetyConsideration && { 'safetyConsideration': safetyConsideration })
     });
     
     // Equipment rental service for this material
@@ -844,7 +920,10 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         }
       ],
       'serviceType': 'Equipment Rental',
-      'image': mainImage  // Always include image - getMainImage() now guarantees a value
+      'image': mainImage,  // Always include image - getMainImage() now guarantees a value
+      // Safety data exposure for SEO (same as professional service)
+      ...(safetyProperties.length > 0 && { 'additionalProperty': safetyProperties }),
+      ...(safetyConsideration && { 'safetyConsideration': safetyConsideration })
     });
   }
 
@@ -1407,7 +1486,7 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
   // Enhanced material-specific video title and description
   const materialName = frontmatter.name || frontmatter.subject || data.title || 'this material';
   const videoTitle = `${materialName} Laser Cleaning - Professional Demonstration`;
-  const materialDesc = frontmatter.material_description || frontmatter.settings_description || frontmatter.description;
+  const materialDesc = frontmatter.description;
   const videoDescription = materialDesc
     ? `See how laser cleaning effectively processes ${materialName}. ${materialDesc}`
     : `Professional demonstration of laser cleaning process for ${materialName}. Watch how our advanced laser technology safely and effectively removes contaminants without damaging the material surface.`;
@@ -1819,6 +1898,172 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     },
     'url': `${baseUrl}/datasets/materials/${datasetName}`
   };
+}
+
+/**
+ * ChemicalSubstance Schema - For compound pages with chemistry and hazard data
+ * Schema.org reference: https://schema.org/ChemicalSubstance
+ */
+function generateChemicalSubstanceSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
+  const { pageUrl, baseUrl } = context;
+  
+  // Extract metadata from various possible locations
+  const metadata = (data.metadata || data.frontmatter || {}) as Record<string, unknown>;
+  const compoundData = metadata as any;
+  
+  // Only generate for compound pages with chemical formula
+  if (!compoundData.chemical_formula && !compoundData.chemicalFormula) {
+    return null;
+  }
+  
+  const name = (compoundData.title || compoundData.name || data.title) as string;
+  const description = (compoundData.description || data.description || '') as string;
+  const chemicalFormula = compoundData.chemical_formula || compoundData.chemicalFormula;
+  
+  // Build base schema
+  const schema: any = {
+    '@type': 'ChemicalSubstance',
+    '@id': `${pageUrl}#compound`,
+    'name': name,
+    'description': description,
+    'url': pageUrl,
+    'chemicalComposition': chemicalFormula,
+    'inLanguage': 'en-US',
+    
+    // Provider/source organization
+    'provider': {
+      '@type': 'Organization',
+      'name': SITE_CONFIG.name,
+      'url': baseUrl
+    }
+  };
+  
+  // Add CAS number if available
+  if (compoundData.cas_number || compoundData.casNumber) {
+    schema.identifier = {
+      '@type': 'PropertyValue',
+      'propertyID': 'CAS Registry Number',
+      'value': compoundData.cas_number || compoundData.casNumber
+    };
+  }
+  
+  // Add molecular weight if available
+  if (compoundData.molecular_weight || compoundData.molecularWeight) {
+    schema.molecularWeight = {
+      '@type': 'QuantitativeValue',
+      'value': compoundData.molecular_weight || compoundData.molecularWeight,
+      'unitText': 'g/mol'
+    };
+  }
+  
+  // Add chemical role/function
+  if (compoundData.role || compoundData.function) {
+    schema.chemicalRole = compoundData.role || compoundData.function;
+  } else {
+    // Default role for laser cleaning context
+    schema.chemicalRole = 'contaminant requiring laser ablation removal';
+  }
+  
+  // Extract safety/hazard data
+  const safetyData = compoundData.safety_data || compoundData.safetyData;
+  if (safetyData) {
+    const hazards: string[] = [];
+    
+    // Fire/explosion hazard
+    if (safetyData.fire_explosion_risk) {
+      const severity = safetyData.fire_explosion_risk;
+      if (severity === 'high' || severity === 'severe' || severity === 'critical') {
+        hazards.push(`Fire/explosion risk: ${severity}`);
+      }
+    }
+    
+    // Toxic gas generation
+    if (safetyData.toxic_gas_risk) {
+      const severity = safetyData.toxic_gas_risk;
+      if (severity === 'high' || severity === 'severe' || severity === 'critical') {
+        hazards.push(`Toxic gas generation: ${severity}`);
+      }
+    }
+    
+    // Visibility hazard
+    if (safetyData.visibility_hazard) {
+      const severity = safetyData.visibility_hazard;
+      if (severity === 'high' || severity === 'severe' || severity === 'critical') {
+        hazards.push(`Visibility impairment: ${severity}`);
+      }
+    }
+    
+    // Add safetyConsideration field if hazards exist
+    if (hazards.length > 0) {
+      schema.safetyConsideration = hazards.join('. ') + '.';
+    }
+    
+    // Add health aspects from toxicity data
+    if (compoundData.toxicity || safetyData.inhalation_hazard || safetyData.skin_contact_risk) {
+      const healthAspects: string[] = [];
+      
+      if (compoundData.toxicity) {
+        healthAspects.push(`Toxicity: ${compoundData.toxicity}`);
+      }
+      if (safetyData.inhalation_hazard) {
+        healthAspects.push(`Inhalation hazard: ${safetyData.inhalation_hazard}`);
+      }
+      if (safetyData.skin_contact_risk) {
+        healthAspects.push(`Skin contact risk: ${safetyData.skin_contact_risk}`);
+      }
+      
+      if (healthAspects.length > 0) {
+        schema.healthAspect = healthAspects.join('. ') + '.';
+      }
+    }
+  }
+  
+  // Add hazard level as PropertyValue
+  if (compoundData.hazard_level || compoundData.hazardLevel) {
+    const hazardLevel = compoundData.hazard_level || compoundData.hazardLevel;
+    
+    if (!schema.additionalProperty) {
+      schema.additionalProperty = [];
+    }
+    
+    schema.additionalProperty.push({
+      '@type': 'PropertyValue',
+      'propertyID': 'hazard_level',
+      'name': 'Hazard Level',
+      'value': hazardLevel
+    });
+  }
+  
+  // Add environmental impact
+  if (compoundData.environmental_impact || compoundData.environmentalImpact) {
+    const envImpact = compoundData.environmental_impact || compoundData.environmentalImpact;
+    
+    if (!schema.additionalProperty) {
+      schema.additionalProperty = [];
+    }
+    
+    schema.additionalProperty.push({
+      '@type': 'PropertyValue',
+      'propertyID': 'environmental_impact',
+      'name': 'Environmental Impact',
+      'value': envImpact
+    });
+  }
+  
+  // Link to related laser cleaning application
+  schema.potentialUse = `Laser ablation removal from contaminated surfaces. Professional safety protocols required.`;
+  
+  // Add main image if available
+  const heroImage = compoundData.images?.hero || compoundData.image;
+  if (heroImage) {
+    schema.image = {
+      '@type': 'ImageObject',
+      'url': heroImage.url ? `${baseUrl}${heroImage.url}` : `${baseUrl}${heroImage}`,
+      'caption': heroImage.alt || `${name} compound structure`
+    };
+  }
+  
+  return schema;
 }
 
 /**

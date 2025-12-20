@@ -1,8 +1,8 @@
 id: grease-deposits-contamination
 name: Heavy Machinery Grease
 category: organic-residue
-datePublished: '2025-12-20T04:14:39.684668Z'
-dateModified: '2025-12-20T04:14:39.684668Z'
+datePublished: '2025-12-20T22:18:39.288699Z'
+dateModified: '2025-12-20T22:18:39.288699Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/grease-deposits-contamination
@@ -153,13 +153,13 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
-      - compound: Carbonaceous particles
+      - compound: carbon-ash
         hazard_level: moderate
         phase: solid
-      - compound: Volatile organic compounds
+      - compound: vocs
         hazard_level: moderate
         phase: gas
       damage_risk_to_substrate: low
@@ -178,52 +178,6 @@ relationships:
         color_change: 'no'
         residual_stress: none
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: moderate
-      fumes_generated:
-      - compound: Acrolein
-        concentration_mg_m3: 2.5
-        exposure_limit_mg_m3: 0.23
-        hazard_class: toxic
-      - compound: Formaldehyde
-        concentration_mg_m3: 1.8
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Benzene
-        concentration_mg_m3: 0.9
-        exposure_limit_mg_m3: 0.32
-        hazard_class: carcinogenic
-      - compound: Toluene
-        concentration_mg_m3: 3.2
-        exposure_limit_mg_m3: 75
-        hazard_class: toxic
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 1.1
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 15
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-      substrate_compatibility_warnings:
-      - Laser may cause surface damage or discoloration on certain metals
-      - Potential for substrate heating and thermal stress
-      - Reflective surfaces may create beam hazards
-      toxic_gas_risk: high
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 2.5
@@ -245,38 +199,82 @@ relationships:
   - Plastics
   - Wood
   - Nylon
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cast-iron-laser-cleaning
-          title: Cast Iron
-          url: /materials/metal/ferrous/cast-iron-laser-cleaning
-          image: /images/material/cast-iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: iron-laser-cleaning
-          title: Iron
-          url: /materials/metal/ferrous/iron-laser-cleaning
-          image: /images/material/iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: moderate
+      description: Combustible materials present, risk elevated in confined spaces or high-power settings
+      mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+    fumes_generated:
+    - compound: Acrolein
+      concentration_mg_m3: 2.5
+      exposure_limit_mg_m3: 0.23
+      hazard_class: toxic
+    - compound: Formaldehyde
+      concentration_mg_m3: 1.8
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Benzene
+      concentration_mg_m3: 0.9
+      exposure_limit_mg_m3: 0.32
+      hazard_class: carcinogenic
+    - compound: Toluene
+      concentration_mg_m3: 3.2
+      exposure_limit_mg_m3: 75
+      hazard_class: toxic
+    - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+      concentration_mg_m3: 1.1
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 15
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may cause surface damage or discoloration on certain metals
+    - Potential for substrate heating and thermal stress
+    - Reflective surfaces may create beam hazards
+    toxic_gas_risk:
+      severity: high
+      primary_hazards:
+      - compound: Acrolein
+        concentration_mg_m3: 2.5
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1.8
+        hazard_class: carcinogenic
+      - compound: Benzene
+        concentration_mg_m3: 0.9
+        hazard_class: carcinogenic
+      - compound: Toluene
+        concentration_mg_m3: 3.2
+        hazard_class: toxic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 1.1
+        hazard_class: carcinogenic
+      description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Benzene - requires enhanced protection'
+      mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING: Formaldehyde,
+        Benzene - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+      rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Mineral Oil
 - Lithium Soap
@@ -310,6 +308,7 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: petroleum
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

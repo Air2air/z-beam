@@ -196,7 +196,7 @@ const sections = [
         },
       ],
     },
-    condition: hasAnyLinkages(metadata),
+    condition: hasAnyRelationships(metadata),
   },
 ];
 ```

@@ -1,8 +1,8 @@
 id: rubber-residue-contamination
 name: Rubber Compound Residue
 category: organic-residue
-datePublished: '2025-12-20T04:14:41.090509Z'
-dateModified: '2025-12-20T04:14:41.090509Z'
+datePublished: '2025-12-20T22:18:40.206327Z'
+dateModified: '2025-12-20T22:18:40.206327Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/polymer/rubber-residue-contamination
@@ -168,13 +168,13 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
-      - compound: Carbon black
+      - compound: carbon-particulates
         hazard_level: moderate
         phase: solid
-      - compound: Various hydrocarbons
+      - compound: organic-residues
         hazard_level: moderate
         phase: gas
       damage_risk_to_substrate: low
@@ -193,52 +193,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 50-200
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Hydrogen Cyanide
-        concentration_mg_m3: 5-30
-        exposure_limit_mg_m3: 5
-        hazard_class: toxic
-      - compound: Benzene
-        concentration_mg_m3: 10-50
-        exposure_limit_mg_m3: 0.5
-        hazard_class: carcinogenic
-      - compound: Styrene
-        concentration_mg_m3: 20-100
-        exposure_limit_mg_m3: 85
-        hazard_class: irritant
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 2-15
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Sulfur Dioxide
-        concentration_mg_m3: 5-25
-        exposure_limit_mg_m3: 5
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser may cause surface damage or discoloration on underlying material
-      - Thermal effects may alter material properties near cleaning area
-      - Potential for embedded particulate if substrate is porous
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 15
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 2.5
@@ -271,123 +225,79 @@ relationships:
   prohibited_materials:
   - Plastics
   - Glass
-  produces_compounds:
-  - id: pahs-compound
-    url: /compounds/carcinogen/aromatic-hydrocarbon/pahs-compound
-    image: /images/compounds/pahs.jpg
-    frequency: common
-    severity: high
-    typical_context: Pyrolysis produces PAHs
-    exposure_risk: high
-  - id: carbon-monoxide-compound
-    url: /compounds/toxic-gas/asphyxiant/carbon-monoxide-compound
-    image: /images/compounds/carbon-monoxide.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Pyrolysis of rubber polymers
-    exposure_risk: high
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: stainless-steel-laser-cleaning
-          title: Stainless Steel
-          url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-          image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: zinc-laser-cleaning
-          title: Zinc
-          url: /materials/metal/alloy/zinc-laser-cleaning
-          image: /images/material/zinc-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: titanium-laser-cleaning
-          title: Titanium
-          url: /materials/metal/specialty/titanium-laser-cleaning
-          image: /images/material/titanium-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: copper-laser-cleaning
-          title: Copper
-          url: /materials/metal/non-ferrous/copper-laser-cleaning
-          image: /images/material/copper-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cobalt-laser-cleaning
-          title: Cobalt
-          url: /materials/metal/specialty/cobalt-laser-cleaning
-          image: /images/material/cobalt-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: tin-laser-cleaning
-          title: Tin
-          url: /materials/metal/alloy/tin-laser-cleaning
-          image: /images/material/tin-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: lead-laser-cleaning
-          title: Lead
-          url: /materials/metal/non-ferrous/lead-laser-cleaning
-          image: /images/material/lead-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: chromium-laser-cleaning
-          title: Chromium
-          url: /materials/metal/specialty/chromium-laser-cleaning
-          image: /images/material/chromium-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: nickel-laser-cleaning
-          title: Nickel
-          url: /materials/metal/specialty/nickel-laser-cleaning
-          image: /images/material/nickel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: bronze-laser-cleaning
-          title: Bronze
-          url: /materials/metal/non-ferrous/bronze-laser-cleaning
-          image: /images/material/bronze-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cast-iron-laser-cleaning
-          title: Cast Iron
-          url: /materials/metal/ferrous/cast-iron-laser-cleaning
-          image: /images/material/cast-iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      masonry:
-        title: Masonry Materials
-        description: Materials in the masonry category
-        items:
-        - id: concrete-laser-cleaning
-          title: Concrete
-          url: /materials/masonry/general/concrete-laser-cleaning
-          image: /images/material/concrete-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 50-200
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Hydrogen Cyanide
+      concentration_mg_m3: 5-30
+      exposure_limit_mg_m3: 5
+      hazard_class: toxic
+    - compound: Benzene
+      concentration_mg_m3: 10-50
+      exposure_limit_mg_m3: 0.5
+      hazard_class: carcinogenic
+    - compound: Styrene
+      concentration_mg_m3: 20-100
+      exposure_limit_mg_m3: 85
+      hazard_class: irritant
+    - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+      concentration_mg_m3: 2-15
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    - compound: Sulfur Dioxide
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 5
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may cause surface damage or discoloration on underlying material
+    - Thermal effects may alter material properties near cleaning area
+    - Potential for embedded particulate if substrate is porous
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 50-200
+        hazard_class: toxic
+      - compound: Hydrogen Cyanide
+        concentration_mg_m3: 5-30
+        hazard_class: toxic
+      - compound: Benzene
+        concentration_mg_m3: 10-50
+        hazard_class: carcinogenic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 2-15
+        hazard_class: carcinogenic
+      description: 'Multiple toxic compounds detected: Carbon Monoxide, Hydrogen Cyanide, Benzene - requires enhanced protection'
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Benzene, Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 15
+      rationale: Standard industrial ventilation (15 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - C₅H₈
 - Sulfur
@@ -421,6 +331,7 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: polymer
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

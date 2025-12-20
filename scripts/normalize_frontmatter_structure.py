@@ -37,10 +37,9 @@ class FrontmatterNormalizer:
         # AUTHOR
         "author",
         # CONTENT (human-readable)
-        "contamination_description",  # contaminants
-        "material_description",  # materials
-        "compound_description",  # compounds
-        "settings_description",  # settings
+        # Note: All content types (materials, settings, etc.) use universal 'description' field
+        "contamination_description",  # contaminants only
+        "compound_description",  # compounds only
         "micro",
         # TECHNICAL DATA
         "laser_properties",

@@ -67,12 +67,10 @@ export async function CategoryPage({
               <h3 className="text-xl font-semibold mb-4">{subcategory.label}</h3>
               <CardGridSSR
                 slugs={items.map((item: any) => item.slug)}
+                contentType={config.type}
                 columns={3}
-                mode={config.type}
                 showBadgeSymbols={config.type === 'materials'}
                 loadBadgeSymbolData={config.type === 'materials'}
-                category={categorySlug}
-                subcategory={subcategory.slug}
               />
             </div>
           );

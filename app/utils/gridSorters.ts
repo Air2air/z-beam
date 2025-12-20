@@ -14,7 +14,7 @@
  * @see DataGrid component for usage
  */
 
-import { EnhancedCompound, DomainLinkage } from './gridMappers';
+import { EnhancedCompound, Relationship } from './gridMappers';
 
 /**
  * Severity hierarchy (most severe first)
@@ -70,8 +70,10 @@ export function sortBySeverity<T extends { severity: string; title: string }>(
     return severityA - severityB;
   }
   
-  // Secondary sort: alphabetical by title
-  return a.title.localeCompare(b.title);
+  // Secondary sort: alphabetical by title (with null check)
+  const titleA = a.title || '';
+  const titleB = b.title || '';
+  return titleA.localeCompare(titleB);
 }
 
 /**
@@ -105,8 +107,10 @@ export function sortByFrequency<T extends { frequency: string; severity?: string
     }
   }
   
-  // Tertiary sort: alphabetical
-  return a.title.localeCompare(b.title);
+  // Tertiary sort: alphabetical (with null checks)
+  const titleA = a.title || '';
+  const titleB = b.title || '';
+  return titleA.localeCompare(titleB);
 }
 
 /**

@@ -82,7 +82,7 @@ const CATEGORY_CONFIG = {
 - ✅ Default expanded categories: thermal, mechanical, optical_laser
 - ✅ Category filtering support
 - ✅ Full accessibility (ARIA labels, keyboard navigation)
-- ✅ Responsive grid layout (2-5 columns)
+- ✅ Responsive grid layout (2-4 columns, max 4)
 
 #### 3. Property Title Abbreviations
 Expanded `TITLE_MAPPING` for clean display:
@@ -368,7 +368,7 @@ type CategoryId =
 ```
 
 ### Default Settings
-- **Default Layout**: `auto` (2-5 columns responsive)
+- **Default Layout**: `auto` (2-4 columns responsive, max 4)
 - **Default Expanded**: `['thermal', 'mechanical', 'optical_laser']`
 - **Default Sorting**: By percentage (descending)
 - **Grid Gap**: `gap-2` (8px)
@@ -381,7 +381,7 @@ type CategoryId =
 - [ ] Verify icons and colors display
 - [ ] Test percentage badges
 - [ ] Test property cards within categories
-- [ ] Verify responsive grid layout (2-5 columns)
+- [ ] Verify responsive grid layout (2-4 columns, max 4)
 - [ ] Test category filtering
 - [ ] Test default expanded categories
 - [ ] Verify accessibility (screen reader, keyboard nav)
@@ -404,6 +404,6 @@ The frontend is now ready to handle categorized material properties! The impleme
 - 🔽 Collapsible sections for progressive disclosure
 - 🎯 Category filtering capabilities
 - ♿ Full accessibility support
-- 📱 Responsive design (2-5 columns)
+- 📱 Responsive design (2-4 columns, max 4)
 
 **Next Step**: Create a sample categorized YAML file and test the rendering to verify everything works correctly!

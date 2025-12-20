@@ -1,8 +1,8 @@
 id: salt-residue-contamination
 name: Salt and Chloride Deposits
 category: inorganic-coating
-datePublished: '2025-12-20T04:14:41.198391Z'
-dateModified: '2025-12-20T04:14:41.198391Z'
+datePublished: '2025-12-20T22:18:40.252968Z'
+dateModified: '2025-12-20T22:18:40.252968Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/mineral/salt-residue-contamination
@@ -151,39 +151,6 @@ relationships:
         color_change: 'no'
         residual_stress: none
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: none
-      fumes_generated:
-      - compound: Sodium Oxide
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 2
-        hazard_class: irritant
-      - compound: Chlorine Gas
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 0.5
-        hazard_class: corrosive
-      - compound: Hydrogen Chloride
-        concentration_mg_m3: 2-20
-        exposure_limit_mg_m3: 2
-        hazard_class: corrosive
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser interaction may produce corrosive byproducts that damage equipment
-      - Moisture in air can form corrosive hydrochloric acid on surfaces
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 10
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 1.2
@@ -224,172 +191,53 @@ relationships:
   - Soapstone
   prohibited_materials:
   - Electronics
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: stainless-steel-laser-cleaning
-          title: Stainless Steel
-          url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-          image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: zinc-laser-cleaning
-          title: Zinc
-          url: /materials/metal/alloy/zinc-laser-cleaning
-          image: /images/material/zinc-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: titanium-laser-cleaning
-          title: Titanium
-          url: /materials/metal/specialty/titanium-laser-cleaning
-          image: /images/material/titanium-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: copper-laser-cleaning
-          title: Copper
-          url: /materials/metal/non-ferrous/copper-laser-cleaning
-          image: /images/material/copper-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cobalt-laser-cleaning
-          title: Cobalt
-          url: /materials/metal/specialty/cobalt-laser-cleaning
-          image: /images/material/cobalt-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: tin-laser-cleaning
-          title: Tin
-          url: /materials/metal/alloy/tin-laser-cleaning
-          image: /images/material/tin-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: lead-laser-cleaning
-          title: Lead
-          url: /materials/metal/non-ferrous/lead-laser-cleaning
-          image: /images/material/lead-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: chromium-laser-cleaning
-          title: Chromium
-          url: /materials/metal/specialty/chromium-laser-cleaning
-          image: /images/material/chromium-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: nickel-laser-cleaning
-          title: Nickel
-          url: /materials/metal/specialty/nickel-laser-cleaning
-          image: /images/material/nickel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: bronze-laser-cleaning
-          title: Bronze
-          url: /materials/metal/non-ferrous/bronze-laser-cleaning
-          image: /images/material/bronze-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cast-iron-laser-cleaning
-          title: Cast Iron
-          url: /materials/metal/ferrous/cast-iron-laser-cleaning
-          image: /images/material/cast-iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      stone:
-        title: Stone Materials
-        description: Natural and processed stone materials affected by this contamination
-        items:
-        - id: quartzite-laser-cleaning
-          title: Quartzite
-          url: /materials/stone/sedimentary/quartzite-laser-cleaning
-          image: /images/material/quartzite-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: granite-laser-cleaning
-          title: Granite
-          url: /materials/stone/igneous/granite-laser-cleaning
-          image: /images/material/granite-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: travertine-laser-cleaning
-          title: Travertine
-          url: /materials/stone/natural/travertine-laser-cleaning
-          image: /images/material/travertine-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: bluestone-laser-cleaning
-          title: Bluestone
-          url: /materials/stone/sedimentary/bluestone-laser-cleaning
-          image: /images/material/bluestone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: limestone-laser-cleaning
-          title: Limestone
-          url: /materials/stone/sedimentary/limestone-laser-cleaning
-          image: /images/material/limestone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: soapstone-laser-cleaning
-          title: Soapstone
-          url: /materials/stone/sedimentary/soapstone-laser-cleaning
-          image: /images/material/soapstone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: basalt-laser-cleaning
-          title: Basalt
-          url: /materials/stone/igneous/basalt-laser-cleaning
-          image: /images/material/basalt-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: sandstone-laser-cleaning
-          title: Sandstone
-          url: /materials/stone/sedimentary/sandstone-laser-cleaning
-          image: /images/material/sandstone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: marble-laser-cleaning
-          title: Marble
-          url: /materials/stone/metamorphic/marble-laser-cleaning
-          image: /images/material/marble-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: slate-laser-cleaning
-          title: Slate
-          url: /materials/stone/metamorphic/slate-laser-cleaning
-          image: /images/material/slate-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      masonry:
-        title: Masonry Materials
-        description: Materials in the masonry category
-        items:
-        - id: concrete-laser-cleaning
-          title: Concrete
-          url: /materials/masonry/general/concrete-laser-cleaning
-          image: /images/material/concrete-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: none
+      description: No significant fire or explosion risk identified
+      mitigation: Standard workplace fire safety protocols
+    fumes_generated:
+    - compound: Sodium Oxide
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 2
+      hazard_class: irritant
+    - compound: Chlorine Gas
+      concentration_mg_m3: 1-10
+      exposure_limit_mg_m3: 0.5
+      hazard_class: corrosive
+    - compound: Hydrogen Chloride
+      concentration_mg_m3: 2-20
+      exposure_limit_mg_m3: 2
+      hazard_class: corrosive
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser interaction may produce corrosive byproducts that damage equipment
+    - Moisture in air can form corrosive hydrochloric acid on surfaces
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards: []
+      description: Irritant gas generation requiring respiratory protection
+      mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 10
+      rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - NaCl
 - MgCl₂
@@ -423,6 +271,7 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: mineral
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

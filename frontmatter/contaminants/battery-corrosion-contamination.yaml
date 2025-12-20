@@ -1,8 +1,8 @@
 id: battery-corrosion-contamination
 name: Battery Leakage Corrosion
 category: oxidation
-datePublished: '2025-12-20T04:14:38.099280Z'
-dateModified: '2025-12-20T04:14:38.099280Z'
+datePublished: '2025-12-20T22:18:38.170099Z'
+dateModified: '2025-12-20T22:18:38.170099Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/battery/battery-corrosion-contamination
@@ -137,7 +137,7 @@ relationships:
       - compound: MnO2
         hazard_level: low
         phase: solid
-      - compound: ZnO
+      - compound: zinc-oxide
         hazard_level: low
         phase: solid
       damage_risk_to_substrate: medium
@@ -156,44 +156,6 @@ relationships:
         color_change: 'yes'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Potassium hydroxide aerosol
-        concentration_mg_m3: 5-25
-        exposure_limit_mg_m3: 2
-        hazard_class: corrosive
-      - compound: Manganese oxides
-        concentration_mg_m3: 3-15
-        exposure_limit_mg_m3: 5
-        hazard_class: toxic
-      - compound: Zinc oxide fume
-        concentration_mg_m3: 2-10
-        exposure_limit_mg_m3: 5
-        hazard_class: toxic
-      - compound: Carbon particles
-        concentration_mg_m3: 10-50
-        exposure_limit_mg_m3: 3.5
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-      substrate_compatibility_warnings:
-      - Laser may reactivate corrosive compounds on metal surfaces
-      - Thermal decomposition may create secondary contamination
-      - Moisture in corrosion products may cause steam explosions
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 0.9
@@ -213,32 +175,64 @@ relationships:
   prohibited_materials:
   - Aluminum
   - Electronics
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: copper-laser-cleaning
-          title: Copper
-          url: /materials/metal/non-ferrous/copper-laser-cleaning
-          image: /images/material/copper-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Potassium hydroxide aerosol
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 2
+      hazard_class: corrosive
+    - compound: Manganese oxides
+      concentration_mg_m3: 3-15
+      exposure_limit_mg_m3: 5
+      hazard_class: toxic
+    - compound: Zinc oxide fume
+      concentration_mg_m3: 2-10
+      exposure_limit_mg_m3: 5
+      hazard_class: toxic
+    - compound: Carbon particles
+      concentration_mg_m3: 10-50
+      exposure_limit_mg_m3: 3.5
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may reactivate corrosive compounds on metal surfaces
+    - Thermal decomposition may create secondary contamination
+    - Moisture in corrosion products may cause steam explosions
+    toxic_gas_risk:
+      severity: low
+      primary_hazards:
+      - compound: Manganese oxides
+        concentration_mg_m3: 3-15
+        hazard_class: toxic
+      - compound: Zinc oxide fume
+        concentration_mg_m3: 2-10
+        hazard_class: toxic
+      description: Manganese oxides and Zinc oxide fume generation - multiple toxic compounds
+      mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - KOH
 - K₂CO₃
@@ -274,6 +268,7 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: battery
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

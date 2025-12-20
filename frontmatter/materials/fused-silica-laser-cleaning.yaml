@@ -2,8 +2,8 @@ id: fused-silica-laser-cleaning
 name: Fused Silica
 title: Fused Silica Laser Cleaning
 category: glass
-datePublished: '2025-12-20T04:16:05.179941Z'
-dateModified: '2025-12-20T04:16:05.179941Z'
+datePublished: '2025-12-20T22:22:32.944093Z'
+dateModified: '2025-12-20T22:22:32.944093Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/glass/soda-lime/fused-silica-laser-cleaning
@@ -126,114 +126,108 @@ relationships:
         title: Organic Residues
         description: Adhesives, lubricants, oils, and other carbon-based deposits
         items:
-        - id: adhesive-residue-contamination
-          title: Adhesive Residue / Tape Marks
-          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-          image: /images/contaminants/adhesive-residue.jpg
+        - id: environmental-dust-contamination
+          title: Environmental Dust Layer
+          url: /contaminants/organic-residue/other/environmental-dust-contamination
+          image: /images/contaminants/environmental-dust.jpg
+          frequency: very_common
+          severity: low
+          typical_context: Outdoor installations, exposed surfaces
+        - id: undercoating-contamination
+          title: Automotive Undercoating
+          url: /contaminants/organic-residue/other/undercoating-contamination
+          image: /images/contaminants/undercoating.jpg
           frequency: common
-          severity: moderate
-        - id: plastic-residue-contamination
-          title: Degraded Polymer Deposits
-          url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-          image: /images/contaminants/plastic-residue.jpg
-          frequency: common
-          severity: moderate
-        - id: silicone-buildup-contamination
-          title: Silicone Sealant Buildup
-          url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
-          image: /images/contaminants/silicone-buildup.jpg
-          frequency: common
-          severity: moderate
-        - id: soap-scum-contamination
-          title: Soap Scum Buildup
-          url: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
-          image: /images/contaminants/soap-scum.jpg
-          frequency: common
-          severity: moderate
-        - id: tree-sap-contamination
-          title: Tree Sap and Resin
-          url: /contaminants/organic-residue/natural/tree-sap-contamination
-          image: /images/contaminants/tree-sap.jpg
-          frequency: common
-          severity: moderate
-        - id: water-stain-contamination
-          title: Water Staining and Marks
-          url: /contaminants/organic-residue/other/water-stain-contamination
-          image: /images/contaminants/water-stain.jpg
-          frequency: common
-          severity: moderate
-      biological_growth:
-        title: Biological Growth
-        description: Algae, lichen, biofilms, and other organic growth
+          severity: high
+          typical_context: General industrial and commercial applications
+      coatings_treatments:
+        title: Coatings & Surface Treatments
+        description: Applied coatings, anodizing, plating, and surface treatment layers
         items:
-        - id: biological-stains-contamination
-          title: Organic Biofilm Deposits
-          url: /contaminants/biological/deposit/biological-stains-contamination
-          image: /images/contaminants/biological-stains.jpg
+        - id: asbestos-coating-contamination
+          title: Asbestos-Containing Material
+          url: /contaminants/inorganic-coating/hazardous/asbestos-coating-contamination
+          image: /images/contaminants/asbestos-coating.jpg
           frequency: common
-          severity: moderate
-        - id: blood-residue-contamination
-          title: Biological Blood Residue
-          url: /contaminants/biological/deposit/blood-residue-contamination
-          image: /images/contaminants/blood-residue.jpg
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: brake-dust-contamination
+          title: Brake Pad Dust Deposits
+          url: /contaminants/inorganic-coating/mineral/brake-dust-contamination
+          image: /images/contaminants/brake-dust.jpg
+          frequency: very_common
+          severity: low
+          typical_context: General industrial and commercial applications
+        - id: ceramic-coating-contamination
+          title: Ceramic Heat Barrier Coating
+          url: /contaminants/inorganic-coating/ceramic/ceramic-coating-contamination
+          image: /images/contaminants/ceramic-coating.jpg
           frequency: common
-          severity: moderate
-        - id: insect-residue-contamination
-          title: Insect Impact Residue
-          url: /contaminants/biological/deposit/insect-residue-contamination
-          image: /images/contaminants/insect-residue.jpg
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: concrete-dust-contamination
+          title: Concrete Dust Deposits
+          url: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
+          image: /images/contaminants/concrete-dust.jpg
+          frequency: very_common
+          severity: low
+          typical_context: General industrial and commercial applications
+        - id: conversion-coating-contamination
+          title: Chemical Conversion Coating
+          url: /contaminants/inorganic-coating/coating/conversion-coating-contamination
+          image: /images/contaminants/conversion-coating.jpg
           frequency: common
-          severity: moderate
-        - id: pollen-deposit-contamination
-          title: Pollen Accumulation
-          url: /contaminants/biological/deposit/pollen-deposit-contamination
-          image: /images/contaminants/pollen-deposit.jpg
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: diamond-coating-contamination
+          title: Diamond-Like Carbon Removal
+          url: /contaminants/inorganic-coating/coating/diamond-coating-contamination
+          image: /images/contaminants/diamond-coating.jpg
           frequency: common
-          severity: moderate
-      thermal_damage:
-        title: Thermal Damage
-        description: Heat-induced scale, oxidation, and thermal degradation products
-        items:
-        - id: lime-scale-contamination
-          title: Limescale Deposits
-          url: /contaminants/thermal-damage/scale/lime-scale-contamination
-          image: /images/contaminants/lime-scale.jpg
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: graffiti-paint-contamination
+          title: Graffiti and Spray Paint
+          url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+          image: /images/contaminants/graffiti-paint.jpg
+          frequency: very_common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: lead-paint-contamination
+          title: Lead-Based Paint Removal
+          url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+          image: /images/contaminants/lead-paint.jpg
+          frequency: very_common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: paint-residue-contamination
+          title: Paint Residue / Coating Failure
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminants/paint-residue.jpg
+          frequency: very_common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: powder-coating-contamination
+          title: Powder Coating Buildup
+          url: /contaminants/inorganic-coating/paint/powder-coating-contamination
+          image: /images/contaminants/powder-coating.jpg
           frequency: common
-          severity: moderate
-        - id: mineral-deposits-contamination
-          title: Hard Water Mineral Scale
-          url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
-          image: /images/contaminants/mineral-deposits.jpg
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: primer-coating-contamination
+          title: Paint Primer Layers
+          url: /contaminants/inorganic-coating/paint/primer-coating-contamination
+          image: /images/contaminants/primer-coating.jpg
           frequency: common
-          severity: moderate
-        - id: scale-buildup-contamination
-          title: Mineral Scale / Hard Water Deposits
-          url: /contaminants/thermal-damage/scale/scale-buildup-contamination
-          image: /images/contaminants/scale-buildup.jpg
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: pvd-coating-contamination
+          title: PVD Coating Defects
+          url: /contaminants/inorganic-coating/coating/pvd-coating-contamination
+          image: /images/contaminants/pvd-coating.jpg
           frequency: common
-          severity: moderate
-      chemical_residue:
-        title: Chemical Residues
-        description: Chemical stains, etching, and industrial chemical deposits
-        items:
-        - id: medical-disinfectant-contamination
-          title: Medical Disinfectant Residue
-          url: /contaminants/chemical-residue/industrial/medical-disinfectant-contamination
-          image: /images/contaminants/medical-disinfectant.jpg
-          frequency: common
-          severity: moderate
-        - id: pesticide-residue-contamination
-          title: Pesticide Chemical Residue
-          url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
-          image: /images/contaminants/pesticide-residue.jpg
-          frequency: common
-          severity: moderate
-        - id: pharmaceutical-residue-contamination
-          title: Pharmaceutical Drug Residue
-          url: /contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination
-          image: /images/contaminants/pharmaceutical-residue.jpg
-          frequency: common
-          severity: moderate
+          severity: high
+          typical_context: General industrial and commercial applications
   regulatory:
     title: Regulatory Standards
     description: Safety, environmental, and industry standards applicable to laser cleaning this material

@@ -148,17 +148,18 @@ const customJestConfig = {
     }
   ],
   collectCoverage: true,
-  // Adjusted thresholds to account for TypeScript tests that can't run without Babel
-  // Deployment tests (48/48) and core functionality tests still pass
+  // Coverage thresholds set to current baseline to prevent regression
+  // Updated: December 20, 2025 (based on actual coverage metrics)
+  // Target: 70%+ coverage (industry standard) - working toward this incrementally
   coverageThreshold: {
     global: {
-      statements: 20,
-      branches: 20,
-      functions: 20,
-      lines: 20
+      statements: 27,  // Current: 29.38% - set floor at 27%
+      branches: 20,    // Current: 22.91% - set floor at 20%
+      functions: 23,   // Current: 25.52% - set floor at 23%
+      lines: 27        // Current: 29.61% - set floor at 27%
     }
   },
-  // Don't fail on coverage threshold errors - we prioritize working deployments
+  // Enforce thresholds - fail CI if coverage drops below baseline
   coverageReporters: ['text', 'lcov', 'html'],
   verbose: true,
   // Optimize for faster test execution - use 75% of cores in CI, 50% locally

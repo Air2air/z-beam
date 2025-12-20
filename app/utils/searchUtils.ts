@@ -185,9 +185,7 @@ export function getChemicalProperties(item: {
         item.frontmatter.chemicalFormula || 
         item.frontmatter.formula) {
       return {
-        symbol: item.frontmatter.chemicalSymbol,
-        formula: item.frontmatter.chemicalFormula || item.frontmatter.formula,
-        materialType: toMaterialType(item.frontmatter.materialType || item.frontmatter.category)
+        chemical_formula: item.frontmatter.chemicalFormula || item.frontmatter.formula
       };
     }
     
@@ -197,17 +195,13 @@ export function getChemicalProperties(item: {
       
       if (subject === "alumina") {
         return {
-          symbol: "Al",
-          formula: "Al₂O₃",
-          materialType: toMaterialType(item.frontmatter.category || "ceramic")
+          chemical_formula: "Al₂O₃"
         };
       }
       
       if (subject === "silicon nitride") {
         return {
-          symbol: "Si",
-          formula: "Si₃N₄",
-          materialType: toMaterialType(item.frontmatter.category || "ceramic")
+          chemical_formula: "Si₃N₄"
         };
       }
     }

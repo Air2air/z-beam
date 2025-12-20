@@ -14,12 +14,13 @@ export function Thumbnail({
   objectFit = "cover",
   width,
   height,
-  frontmatter
+  frontmatter,
+  imageUrl: explicitImageUrl
 }: ThumbnailProps) {
   const [imageError, setImageError] = useState(false);
   
-  // Get image URL directly without state/useEffect delay
-  const imageUrl = frontmatter?.images?.hero?.url || "";
+  // Use explicit imageUrl prop first (fixes serialization issue), then fallback to frontmatter
+  const imageUrl = explicitImageUrl || frontmatter?.images?.hero?.url || "";
 
   // Map objectFit to Tailwind class
   const objectFitClass = {

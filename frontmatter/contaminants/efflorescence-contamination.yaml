@@ -1,8 +1,8 @@
 id: efflorescence-contamination
 name: Concrete Efflorescence
 category: inorganic-coating
-datePublished: '2025-12-20T04:14:39.049541Z'
-dateModified: '2025-12-20T04:14:39.049541Z'
+datePublished: '2025-12-20T22:18:38.888056Z'
+dateModified: '2025-12-20T22:18:38.888056Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/mineral/efflorescence-contamination
@@ -161,16 +161,16 @@ relationships:
       transmission_depth: 83
     removal_characteristics:
       byproducts:
-      - compound: CaCO₃
+      - compound: calcium-oxide
         hazard_level: low
         phase: solid
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H₂O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
-      - compound: CaO
+      - compound: calcium-oxide
         hazard_level: moderate
         phase: solid
       damage_risk_to_substrate: medium
@@ -189,40 +189,6 @@ relationships:
         color_change: 'yes'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Crystalline Silica (as respirable dust)
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 0.025
-        hazard_class: carcinogenic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 900-1800
-        exposure_limit_mg_m3: 9000
-        hazard_class: toxic
-      - compound: Calcium Oxide dust
-        concentration_mg_m3: 2-20
-        exposure_limit_mg_m3: 2
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.3
-        size_range_um:
-        - 0.1
-        - 100
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-      substrate_compatibility_warnings:
-      - Laser cleaning may alter concrete surface chemistry and increase porosity
-      - Thermal stress may cause micro-cracking in concrete substrate
-      - Efflorescence salts may vaporize and redeposit on adjacent surfaces
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 10
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 1.2
@@ -251,90 +217,61 @@ relationships:
   prohibited_materials:
   - Metal
   - Glass
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      stone:
-        title: Stone Materials
-        description: Natural and processed stone materials affected by this contamination
-        items:
-        - id: quartzite-laser-cleaning
-          title: Quartzite
-          url: /materials/stone/sedimentary/quartzite-laser-cleaning
-          image: /images/material/quartzite-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: granite-laser-cleaning
-          title: Granite
-          url: /materials/stone/igneous/granite-laser-cleaning
-          image: /images/material/granite-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: travertine-laser-cleaning
-          title: Travertine
-          url: /materials/stone/natural/travertine-laser-cleaning
-          image: /images/material/travertine-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: bluestone-laser-cleaning
-          title: Bluestone
-          url: /materials/stone/sedimentary/bluestone-laser-cleaning
-          image: /images/material/bluestone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: limestone-laser-cleaning
-          title: Limestone
-          url: /materials/stone/sedimentary/limestone-laser-cleaning
-          image: /images/material/limestone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: soapstone-laser-cleaning
-          title: Soapstone
-          url: /materials/stone/sedimentary/soapstone-laser-cleaning
-          image: /images/material/soapstone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: basalt-laser-cleaning
-          title: Basalt
-          url: /materials/stone/igneous/basalt-laser-cleaning
-          image: /images/material/basalt-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: sandstone-laser-cleaning
-          title: Sandstone
-          url: /materials/stone/sedimentary/sandstone-laser-cleaning
-          image: /images/material/sandstone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: marble-laser-cleaning
-          title: Marble
-          url: /materials/stone/metamorphic/marble-laser-cleaning
-          image: /images/material/marble-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: slate-laser-cleaning
-          title: Slate
-          url: /materials/stone/metamorphic/slate-laser-cleaning
-          image: /images/material/slate-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      masonry:
-        title: Masonry Materials
-        description: Materials in the masonry category
-        items:
-        - id: concrete-laser-cleaning
-          title: Concrete
-          url: /materials/masonry/general/concrete-laser-cleaning
-          image: /images/material/concrete-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brick-laser-cleaning
-          title: Brick
-          url: /materials/masonry/general/brick-laser-cleaning
-          image: /images/material/brick-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Crystalline Silica (as respirable dust)
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 0.025
+      hazard_class: carcinogenic
+    - compound: Carbon Dioxide
+      concentration_mg_m3: 900-1800
+      exposure_limit_mg_m3: 9000
+      hazard_class: toxic
+    - compound: Calcium Oxide dust
+      concentration_mg_m3: 2-20
+      exposure_limit_mg_m3: 2
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.3
+      size_range_um:
+      - 0.1
+      - 100
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may alter concrete surface chemistry and increase porosity
+    - Thermal stress may cause micro-cracking in concrete substrate
+    - Efflorescence salts may vaporize and redeposit on adjacent surfaces
+    toxic_gas_risk:
+      severity: low
+      primary_hazards:
+      - compound: Crystalline Silica (as respirable dust)
+        concentration_mg_m3: 5-50
+        hazard_class: carcinogenic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 900-1800
+        hazard_class: toxic
+      description: Crystalline Silica (as respirable dust) and Carbon Dioxide generation - multiple toxic compounds
+      mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Crystalline Silica (as respirable
+        dust) - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 10
+      rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.30 (30% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - CaCO₃
 - CaSO₄
@@ -368,6 +305,7 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: mineral
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

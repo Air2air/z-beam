@@ -37,10 +37,10 @@ const safeContentOperation = async (op: () => Promise<any>, fallback: any, name:
 
 /**
  * Check if a YAML file has all required fields for article page generation
- * Required fields: name, title, material_description, category, images, author
+ * Required fields: name, title, description, category, images, author
  */
 function isYamlComplete(data: any): boolean {
-  const requiredFields = ['name', 'title', 'material_description', 'category', 'images', 'author'];
+  const requiredFields = ['name', 'title', 'description', 'category', 'images', 'author'];
   
   for (const field of requiredFields) {
     const value = field.split('.').reduce((obj, key) => obj?.[key], data);
@@ -891,183 +891,107 @@ export const getArticleBySlug = loadSingleArticle;
 
 /**
  * Backward compatibility for getArticle function from contentIntegrator
+ * Now uses the consolidated getArticleByContentType
  */
 export const getArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
-  return safeContentOperation(async () => {
-    // SIMPLIFIED: Load frontmatter data directly - bypass all legacy complexity
-    const frontmatterData = await loadFrontmatterDataInline(slug);
-    
-    if (!frontmatterData || Object.keys(frontmatterData).length === 0) {
-      return null;
-    }
-    
-    // Use frontmatter data as the primary metadata source
-    const metadata = {
-      ...frontmatterData,
-      slug,
-      // Ensure we have the author info accessible in both formats for compatibility
-      authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
-    };
-
-    // Load all the standard article components that Layout expects
-    const components: Record<string, ComponentData> = {};
-    
-    // Load standard components that Layout looks for
-    const componentTypes = ['text', 'micro', 'table', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
-    
-    for (const type of componentTypes) {
-      try {
-        const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'micro' });
-        if (componentData && (componentData.content || componentData.config)) {
-          components[type] = componentData;
-        }
-      } catch (_error) {
-        // Component doesn't exist, skip it
-        console.log(`Component ${type} not found for ${slug}, skipping`);
-      }
-    }
-    
-    // Always provide title and author components with frontmatter data
-    components.title = { config: frontmatterData, content: '' };
-    components.author = { 
-      config: {
-        author: frontmatterData.author,
-        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
-      }, 
-      content: '' 
-    };
-    
-    return {
-      metadata,
-      components
-    };
-  }, null, 'getArticle', slug);
+  return getArticleByContentType('materials', slug);
 });
 
 /**
- * Load contaminant article data from frontmatter/contaminants directory
+ * Generic article loader for all content types
+ * @param contentType - Type of content: 'materials', 'contaminants', 'compounds', 'settings'
+ * @param slug - Article slug
+ * @returns Article with metadata and components, or null if not found
+ */
+const getArticleByContentType = cache(async (
+  contentType: 'materials' | 'contaminants' | 'compounds' | 'settings',
+  slug: string
+): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+  return safeContentOperation(async () => {
+    const frontmatterDir = path.join(process.cwd(), 'frontmatter', contentType);
+    const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
+    
+    if (!existsSync(frontmatterPath)) {
+      return null;
+    }
+    
+    validateFilePath(frontmatterPath, [frontmatterDir]);
+    
+    const fileContents = readFileSync(frontmatterPath, 'utf-8');
+    
+    try {
+      const yaml = await import('js-yaml');
+      const parsed = yaml.load(fileContents) as any;
+      
+      if (!parsed) return null;
+      
+      // Handle normalized structure (parsed.metadata) or legacy flat structure
+      let frontmatterData = parsed.metadata || parsed;
+      
+      // Apply all normalizations
+      frontmatterData = normalizeAllTextFields(frontmatterData);
+      frontmatterData = normalizeCategoryFields(frontmatterData);
+      frontmatterData = normalizeFreshnessTimestamps(frontmatterData);
+      frontmatterData = normalizeNumericValues(frontmatterData);
+      
+      // Use frontmatter data as the primary metadata source
+      const metadata = {
+        ...frontmatterData,
+        slug,
+        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+      };
+
+      const components: Record<string, ComponentData> = {};
+      
+      // Materials get full component loading, others get minimal components
+      if (contentType === 'materials') {
+        const componentTypes = ['text', 'micro', 'table', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
+        
+        for (const type of componentTypes) {
+          try {
+            const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'micro' });
+            if (componentData && (componentData.content || componentData.config)) {
+              components[type] = componentData;
+            }
+          } catch (_error) {
+            // Component doesn't exist, skip it
+          }
+        }
+      }
+      
+      // Always provide title and author components with frontmatter data
+      components.title = { config: frontmatterData, content: '' };
+      components.author = { 
+        config: {
+          author: frontmatterData.author,
+          authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+        }, 
+        content: '' 
+      };
+      
+      return {
+        metadata,
+        components
+      };
+    } catch (error) {
+      console.error(`Failed to parse ${contentType} YAML for ${slug}:`, error);
+      return null;
+    }
+  }, null, `getArticleByContentType:${contentType}`, slug);
+});
+
+/**
+ * Load contaminant article - wrapper for backward compatibility
  */
 export const getContaminantArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
-  return safeContentOperation(async () => {
-    // Load from contaminants frontmatter directory using same robust approach as getArticle
-    const frontmatterDir = path.join(process.cwd(), 'frontmatter', 'contaminants');
-    const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
-    
-    if (!existsSync(frontmatterPath)) {
-      return null;
-    }
-    
-    validateFilePath(frontmatterPath, [frontmatterDir]);
-    
-    const fileContents = readFileSync(frontmatterPath, 'utf-8');
-    
-    try {
-      const yaml = await import('js-yaml');
-      const parsed = yaml.load(fileContents) as any;
-      
-      if (!parsed) return null;
-      
-      // Handle normalized structure (parsed.metadata) or legacy flat structure
-      let frontmatterData = parsed.metadata || parsed;
-      
-      // Apply all normalizations (same as getArticle)
-      frontmatterData = normalizeAllTextFields(frontmatterData);
-      frontmatterData = normalizeCategoryFields(frontmatterData);
-      frontmatterData = normalizeFreshnessTimestamps(frontmatterData);
-      frontmatterData = normalizeNumericValues(frontmatterData);
-      
-      // Use frontmatter data as the primary metadata source
-      const metadata = {
-        ...frontmatterData,
-        slug,
-        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
-      };
-
-      // Contaminants may have minimal components - just provide essentials
-      const components: Record<string, ComponentData> = {};
-      
-      // Always provide title and author components with frontmatter data
-      components.title = { config: frontmatterData, content: '' };
-      components.author = { 
-        config: {
-          author: frontmatterData.author,
-          authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
-        }, 
-        content: '' 
-      };
-      
-      return {
-        metadata,
-        components
-      };
-    } catch (error) {
-      console.error(`Failed to parse contaminant YAML for ${slug}:`, error);
-      return null;
-    }
-  }, null, 'getContaminantArticle', slug);
+  return getArticleByContentType('contaminants', slug);
 });
 
 /**
- * Load compound article data from frontmatter/compounds directory
+ * Load compound article - wrapper for backward compatibility
  */
 export const getCompoundArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
-  return safeContentOperation(async () => {
-    // Load from compounds frontmatter directory using same robust approach as getArticle
-    const frontmatterDir = path.join(process.cwd(), 'frontmatter', 'compounds');
-    const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
-    
-    if (!existsSync(frontmatterPath)) {
-      return null;
-    }
-    
-    validateFilePath(frontmatterPath, [frontmatterDir]);
-    
-    const fileContents = readFileSync(frontmatterPath, 'utf-8');
-    
-    try {
-      const yaml = await import('js-yaml');
-      const parsed = yaml.load(fileContents) as any;
-      
-      if (!parsed) return null;
-      
-      // Handle normalized structure (parsed.metadata) or legacy flat structure
-      let frontmatterData = parsed.metadata || parsed;
-      
-      // Apply all normalizations (same as getArticle)
-      frontmatterData = normalizeAllTextFields(frontmatterData);
-      frontmatterData = normalizeCategoryFields(frontmatterData);
-      frontmatterData = normalizeFreshnessTimestamps(frontmatterData);
-      frontmatterData = normalizeNumericValues(frontmatterData);
-      
-      // Use frontmatter data as the primary metadata source
-      const metadata = {
-        ...frontmatterData,
-        slug,
-        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
-      };
-
-      // Compounds may have minimal components - just provide essentials
-      const components: Record<string, ComponentData> = {};
-      
-      // Always provide title and author components with frontmatter data
-      components.title = { config: frontmatterData, content: '' };
-      components.author = { 
-        config: {
-          author: frontmatterData.author,
-          authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
-        }, 
-        content: '' 
-      };
-      
-      return {
-        metadata,
-        components
-      };
-    } catch (error) {
-      console.error(`Failed to parse compound YAML for ${slug}:`, error);
-      return null;
-    }
-  }, null, 'getCompoundArticle', slug);
+  return getArticleByContentType('compounds', slug);
 });
 
 /**
@@ -1220,7 +1144,6 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       title: metadata.title,
       subtitle: metadata.subtitle,
       description: metadata.description,
-      settings_description: metadata.settings_description,
       slug,
       author: metadata.author,
       datePublished: metadata.datePublished,

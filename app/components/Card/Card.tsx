@@ -24,6 +24,8 @@ export function MaterialCard({
   badge, // Re-enabled for BadgeSymbol support
   className = "",
   variant = "default",
+  imageUrl: explicitImageUrl,
+  imageAlt: explicitImageAlt
 }: CardProps) {
   // Select configuration based on variant with fallback to default
   const config = getCardVariant(variant);
@@ -31,61 +33,20 @@ export function MaterialCard({
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
   
-  // Get data from frontmatter only
+  // Safety check: href is required for Link component
+  if (!href) {
+    console.error('Card component received undefined href for:', frontmatter?.title || 'unknown');
+    return null;
+  }
+  
+  // Use explicit props first (for serialization), then fallback to frontmatter
   const title = frontmatter?.title || '';
   const subject = frontmatter?.subject || ''; // Use subject instead of name
-  const imageAlt = frontmatter?.images?.hero?.alt || '';
+  const imageUrl = explicitImageUrl || frontmatter?.images?.hero?.url || '';
+  const imageAlt = explicitImageAlt || frontmatter?.images?.hero?.alt || '';
   
   // Create absolute URL for SEO Infrastructure structured data (relative href won't work)
   const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href || ''}`;
-  
-  // Get severity from frontmatter metadata for color-coding
-  const severity = (frontmatter as any)?.severity;
-  const isDomainLinkage = variant === 'domain-linkage';
-  
-  // Apply severity-based styling for domain linkage cards (matching risk card style)
-  const domainLinkageStyles = isDomainLinkage && severity
-    ? severity === 'low'
-      ? {
-          text: 'text-green-400',
-          bg: 'bg-green-900/20',
-          border: 'border-green-500',
-        }
-      : severity === 'moderate'
-      ? {
-          text: 'text-yellow-400',
-          bg: 'bg-yellow-900/20',
-          border: 'border-yellow-500',
-        }
-      : severity === 'high' || severity === 'severe'
-      ? {
-          text: 'text-red-400',
-          bg: 'bg-red-900/20',
-          border: 'border-red-500',
-        }
-      : {
-          text: 'text-gray-400',
-          bg: 'bg-gray-900/20',
-          border: 'border-gray-500',
-        }
-    : isDomainLinkage
-    ? {
-        text: 'text-gray-400',
-        bg: 'bg-gray-900/20',
-        border: 'border-gray-500',
-      }
-    : null;
-  
-  // Apply standard severity-based border for non-domain-linkage cards
-  const severityClasses = !isDomainLinkage && severity 
-    ? severity === 'low' 
-      ? 'border-2 border-green-500/50 hover:border-green-500 hover:shadow-green-500/30' 
-      : severity === 'moderate' 
-      ? 'border-2 border-yellow-500/50 hover:border-yellow-500 hover:shadow-yellow-500/30' 
-      : severity === 'high' || severity === 'severe'
-      ? 'border-2 border-red-500/50 hover:border-red-500 hover:shadow-red-500/30'
-      : ''
-    : '';
   
   // Check if this is a featured card by examining the className
   return (
@@ -93,13 +54,12 @@ export function MaterialCard({
       href={href}
       className={`
         group card-base ${config.cardHeight} ${className} ${config.hoverEffect} transition-smooth
-        card-focus ${severityClasses}
-        ${isDomainLinkage && domainLinkageStyles ? `rounded-md border p-4 ${domainLinkageStyles.text} ${domainLinkageStyles.bg} ${domainLinkageStyles.border}` : ''}
+        card-focus
       `}
       aria-label={`View details for ${subject || title}`}
     >
       <article 
-        className={isDomainLinkage ? "" : "absolute-inset"}
+        className="absolute-inset"
         role="article"
         itemScope
         itemType="https://schema.org/Article"
@@ -136,39 +96,12 @@ export function MaterialCard({
           />
         )}
         
-        {isDomainLinkage ? (
-          /* Domain Linkage Card - Risk card style with icon and severity display */
-          <div className="flex items-center gap-3 mb-2">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="lucide lucide-alert-triangle w-6 h-6" 
-              aria-hidden="true"
-            >
-              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-              <line x1="12" y1="9" x2="12" y2="13" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
-            </svg>
-            <div>
-              <div className="text-sm text-gray-400">{subject || title}</div>
-              {severity && (
-                <div className="text-xl font-semibold capitalize">{severity}</div>
-              )}
-            </div>
-          </div>
-        ) : (
-          /* Standard Material Card - Image with overlay */
-          <div className={`relative w-full h-full bg-secondary`}>
+        {/* Standard Material Card - Image with overlay */}
+        <div className={`relative w-full h-full bg-secondary`}>
             <Thumbnail
               alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
               frontmatter={frontmatter}
+              imageUrl={imageUrl}
               objectFit="cover"
               priority={false}
             />
@@ -224,7 +157,6 @@ export function MaterialCard({
               </div>
             </header>
           </div>
-        )}
       </article>
     </Link>
   );

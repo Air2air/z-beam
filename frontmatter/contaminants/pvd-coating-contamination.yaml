@@ -1,8 +1,8 @@
 id: pvd-coating-contamination
 name: PVD Coating Defects
 category: inorganic-coating
-datePublished: '2025-12-20T04:14:40.928527Z'
-dateModified: '2025-12-20T04:14:40.928527Z'
+datePublished: '2025-12-20T22:18:40.082416Z'
+dateModified: '2025-12-20T22:18:40.082416Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/pvd-coating-contamination
@@ -129,13 +129,13 @@ relationships:
       transmission_depth: 1.2
     removal_characteristics:
       byproducts:
-      - compound: Metal oxides/nitrides
+      - compound: metal-oxides-mixed
         hazard_level: moderate
         phase: solid
-      - compound: Metal vapor
+      - compound: metal-vapors-mixed
         hazard_level: moderate
         phase: gas
-      - compound: Nanoparticulate
+      - compound: nanoparticulates
         hazard_level: high
         phase: solid
       damage_risk_to_substrate: medium
@@ -154,40 +154,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Metal oxides (titanium, aluminum, chromium)
-        concentration_mg_m3: 5-25
-        exposure_limit_mg_m3: 5.0
-        hazard_class: toxic
-      - compound: Submicron metal particles
-        concentration_mg_m3: 10-50
-        exposure_limit_mg_m3: 1.0
-        hazard_class: toxic
-      - compound: Nitrogen oxides
-        concentration_mg_m3: 2-10
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser parameters must be optimized to minimize substrate damage
-      - Reflective surfaces may create beam hazards
-      - Thermal stress may alter base material properties
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 4.1
@@ -206,20 +172,1175 @@ relationships:
   - HSS
   prohibited_materials:
   - Plastics
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Metal oxides (titanium, aluminum, chromium)
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 5.0
+      hazard_class: toxic
+    - compound: Submicron metal particles
+      concentration_mg_m3: 10-50
+      exposure_limit_mg_m3: 1.0
+      hazard_class: toxic
+    - compound: Nitrogen oxides
+      concentration_mg_m3: 2-10
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize substrate damage
+    - Reflective surfaces may create beam hazards
+    - Thermal stress may alter base material properties
+    toxic_gas_risk:
+      severity: low
+      primary_hazards:
+      - compound: Metal oxides (titanium, aluminum, chromium)
+        concentration_mg_m3: 5-25
+        hazard_class: toxic
+      - compound: Submicron metal particles
+        concentration_mg_m3: 10-50
+        hazard_class: toxic
+      description: Metal oxides (titanium, aluminum, chromium) and Submicron metal particles generation - multiple toxic compounds
+      mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
   materials:
     title: Affected Materials
     description: Materials where this contaminant commonly occurs and requires laser cleaning removal
     groups:
+      stone:
+        title: Stone Materials
+        description: Natural and processed stone materials affected by this contamination
+        items:
+        - id: alabaster-laser-cleaning
+          title: Alabaster
+          url: /materials/stone/sedimentary/alabaster-laser-cleaning
+          image: /images/material/alabaster-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: basalt-laser-cleaning
+          title: Basalt
+          url: /materials/stone/igneous/basalt-laser-cleaning
+          image: /images/material/basalt-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: bluestone-laser-cleaning
+          title: Bluestone
+          url: /materials/stone/sedimentary/bluestone-laser-cleaning
+          image: /images/material/bluestone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: breccia-laser-cleaning
+          title: Breccia
+          url: /materials/stone/sedimentary/breccia-laser-cleaning
+          image: /images/material/breccia-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: calcite-laser-cleaning
+          title: Calcite
+          url: /materials/stone/sedimentary/calcite-laser-cleaning
+          image: /images/material/calcite-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: granite-laser-cleaning
+          title: Granite
+          url: /materials/stone/igneous/granite-laser-cleaning
+          image: /images/material/granite-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: limestone-laser-cleaning
+          title: Limestone
+          url: /materials/stone/sedimentary/limestone-laser-cleaning
+          image: /images/material/limestone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: marble-laser-cleaning
+          title: Marble
+          url: /materials/stone/metamorphic/marble-laser-cleaning
+          image: /images/material/marble-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: onyx-laser-cleaning
+          title: Onyx
+          url: /materials/stone/sedimentary/onyx-laser-cleaning
+          image: /images/material/onyx-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: porphyry-laser-cleaning
+          title: Porphyry
+          url: /materials/stone/sedimentary/porphyry-laser-cleaning
+          image: /images/material/porphyry-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: quartzite-laser-cleaning
+          title: Quartzite
+          url: /materials/stone/sedimentary/quartzite-laser-cleaning
+          image: /images/material/quartzite-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: sandstone-laser-cleaning
+          title: Sandstone
+          url: /materials/stone/sedimentary/sandstone-laser-cleaning
+          image: /images/material/sandstone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: schist-laser-cleaning
+          title: Schist
+          url: /materials/stone/sedimentary/schist-laser-cleaning
+          image: /images/material/schist-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: serpentine-laser-cleaning
+          title: Serpentine
+          url: /materials/stone/sedimentary/serpentine-laser-cleaning
+          image: /images/material/serpentine-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: shale-laser-cleaning
+          title: Shale
+          url: /materials/stone/sedimentary/shale-laser-cleaning
+          image: /images/material/shale-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: slate-laser-cleaning
+          title: Slate
+          url: /materials/stone/metamorphic/slate-laser-cleaning
+          image: /images/material/slate-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: soapstone-laser-cleaning
+          title: Soapstone
+          url: /materials/stone/sedimentary/soapstone-laser-cleaning
+          image: /images/material/soapstone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: travertine-laser-cleaning
+          title: Travertine
+          url: /materials/stone/natural/travertine-laser-cleaning
+          image: /images/material/travertine-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: dolomite-laser-cleaning
+          title: Dolomite
+          url: /materials/stone/sedimentary/dolomite-laser-cleaning
+          image: /images/material/dolomite-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: gneiss-laser-cleaning
+          title: Gneiss
+          url: /materials/stone/metamorphic/gneiss-laser-cleaning
+          image: /images/material/gneiss-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      ceramics:
+        title: Ceramic Materials
+        description: Ceramic and glass materials affected by this contamination
+        items:
+        - id: alumina-laser-cleaning
+          title: Alumina
+          url: /materials/ceramic/oxide/alumina-laser-cleaning
+          image: /images/material/alumina-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: porcelain-laser-cleaning
+          title: Porcelain
+          url: /materials/ceramic/oxide/porcelain-laser-cleaning
+          image: /images/material/porcelain-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: silicon-carbide-sic-laser-cleaning
+          title: Silicon Carbide (SiC)
+          url: /materials/ceramic/carbide/silicon-carbide-sic-laser-cleaning
+          image: /images/material/silicon-carbide-sic-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: silicon-nitride-laser-cleaning
+          title: Silicon Nitride
+          url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
+          image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: stoneware-laser-cleaning
+          title: Stoneware
+          url: /materials/ceramic/oxide/stoneware-laser-cleaning
+          image: /images/material/stoneware-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: titanium-carbide-laser-cleaning
+          title: Titanium Carbide
+          url: /materials/ceramic/carbide/titanium-carbide-laser-cleaning
+          image: /images/material/titanium-carbide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: tungsten-carbide-laser-cleaning
+          title: Tungsten Carbide
+          url: /materials/ceramic/carbide/tungsten-carbide-laser-cleaning
+          image: /images/material/tungsten-carbide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: zirconia-laser-cleaning
+          title: Zirconia
+          url: /materials/ceramic/oxide/zirconia-laser-cleaning
+          image: /images/material/zirconia-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: aluminum-nitride-laser-cleaning
+          title: Aluminum Nitride
+          url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+          image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: boron-carbide-laser-cleaning
+          title: Boron Carbide
+          url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
+          image: /images/material/boron-carbide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: boron-nitride-laser-cleaning
+          title: Boron Nitride
+          url: /materials/ceramic/technical/boron-nitride-laser-cleaning
+          image: /images/material/boron-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: titanium-nitride-laser-cleaning
+          title: Titanium Nitride
+          url: /materials/ceramic/coating/titanium-nitride-laser-cleaning
+          image: /images/material/titanium-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: yttria-stabilized-zirconia-laser-cleaning
+          title: Yttria-Stabilized Zirconia
+          url: /materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning
+          image: /images/material/yttria-stabilized-zirconia-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
       metals:
         title: Metal Substrates
         description: Ferrous and non-ferrous metals affected by this contamination
         items:
+        - id: aluminum-laser-cleaning
+          title: Aluminum
+          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+          image: /images/material/aluminum-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: beryllium-laser-cleaning
+          title: Beryllium
+          url: /materials/metal/specialty/beryllium-laser-cleaning
+          image: /images/material/beryllium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: brass-laser-cleaning
+          title: Brass
+          url: /materials/metal/non-ferrous/brass-laser-cleaning
+          image: /images/material/brass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: bronze-laser-cleaning
+          title: Bronze
+          url: /materials/metal/non-ferrous/bronze-laser-cleaning
+          image: /images/material/bronze-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: cast-iron-laser-cleaning
+          title: Cast Iron
+          url: /materials/metal/ferrous/cast-iron-laser-cleaning
+          image: /images/material/cast-iron-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: chromium-laser-cleaning
+          title: Chromium
+          url: /materials/metal/specialty/chromium-laser-cleaning
+          image: /images/material/chromium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: cobalt-laser-cleaning
+          title: Cobalt
+          url: /materials/metal/specialty/cobalt-laser-cleaning
+          image: /images/material/cobalt-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: copper-laser-cleaning
+          title: Copper
+          url: /materials/metal/non-ferrous/copper-laser-cleaning
+          image: /images/material/copper-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: gallium-laser-cleaning
+          title: Gallium
+          url: /materials/metal/specialty/gallium-laser-cleaning
+          image: /images/material/gallium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: gold-laser-cleaning
+          title: Gold
+          url: /materials/metal/non-ferrous/gold-laser-cleaning
+          image: /images/material/gold-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: hafnium-laser-cleaning
+          title: Hafnium
+          url: /materials/metal/non-ferrous/hafnium-laser-cleaning
+          image: /images/material/hafnium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: hastelloy-laser-cleaning
+          title: Hastelloy
+          url: /materials/metal/specialty/hastelloy-laser-cleaning
+          image: /images/material/hastelloy-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: inconel-laser-cleaning
+          title: Inconel
+          url: /materials/metal/specialty/inconel-laser-cleaning
+          image: /images/material/inconel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: indium-laser-cleaning
+          title: Indium
+          url: /materials/metal/specialty/indium-laser-cleaning
+          image: /images/material/indium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: iridium-laser-cleaning
+          title: Iridium
+          url: /materials/metal/non-ferrous/iridium-laser-cleaning
+          image: /images/material/iridium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: iron-laser-cleaning
+          title: Iron
+          url: /materials/metal/ferrous/iron-laser-cleaning
+          image: /images/material/iron-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: lead-laser-cleaning
+          title: Lead
+          url: /materials/metal/non-ferrous/lead-laser-cleaning
+          image: /images/material/lead-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: magnesium-laser-cleaning
+          title: Magnesium
+          url: /materials/metal/specialty/magnesium-laser-cleaning
+          image: /images/material/magnesium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: manganese-laser-cleaning
+          title: Manganese
+          url: /materials/metal/non-ferrous/manganese-laser-cleaning
+          image: /images/material/manganese-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: molybdenum-laser-cleaning
+          title: Molybdenum
+          url: /materials/metal/non-ferrous/molybdenum-laser-cleaning
+          image: /images/material/molybdenum-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: nickel-laser-cleaning
+          title: Nickel
+          url: /materials/metal/specialty/nickel-laser-cleaning
+          image: /images/material/nickel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: niobium-laser-cleaning
+          title: Niobium
+          url: /materials/metal/non-ferrous/niobium-laser-cleaning
+          image: /images/material/niobium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: palladium-laser-cleaning
+          title: Palladium
+          url: /materials/metal/non-ferrous/palladium-laser-cleaning
+          image: /images/material/palladium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: platinum-laser-cleaning
+          title: Platinum
+          url: /materials/metal/non-ferrous/platinum-laser-cleaning
+          image: /images/material/platinum-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: rhenium-laser-cleaning
+          title: Rhenium
+          url: /materials/metal/non-ferrous/rhenium-laser-cleaning
+          image: /images/material/rhenium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: rhodium-laser-cleaning
+          title: Rhodium
+          url: /materials/metal/non-ferrous/rhodium-laser-cleaning
+          image: /images/material/rhodium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: ruthenium-laser-cleaning
+          title: Ruthenium
+          url: /materials/metal/non-ferrous/ruthenium-laser-cleaning
+          image: /images/material/ruthenium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: silver-laser-cleaning
+          title: Silver
+          url: /materials/metal/non-ferrous/silver-laser-cleaning
+          image: /images/material/silver-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: stainless-steel-laser-cleaning
+          title: Stainless Steel
+          url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+          image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: steel-laser-cleaning
+          title: Steel
+          url: /materials/metal/ferrous/steel-laser-cleaning
+          image: /images/material/steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: tantalum-laser-cleaning
+          title: Tantalum
+          url: /materials/metal/alloy/tantalum-laser-cleaning
+          image: /images/material/tantalum-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: tin-laser-cleaning
+          title: Tin
+          url: /materials/metal/alloy/tin-laser-cleaning
+          image: /images/material/tin-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: titanium-laser-cleaning
+          title: Titanium
+          url: /materials/metal/specialty/titanium-laser-cleaning
+          image: /images/material/titanium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
         - id: tool-steel-laser-cleaning
           title: Tool Steel
           url: /materials/metal/alloy/tool-steel-laser-cleaning
           image: /images/material/tool-steel-laser-cleaning-hero.jpg
           frequency: common
-          severity: moderate
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: tungsten-laser-cleaning
+          title: Tungsten
+          url: /materials/metal/alloy/tungsten-laser-cleaning
+          image: /images/material/tungsten-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: vanadium-laser-cleaning
+          title: Vanadium
+          url: /materials/metal/alloy/vanadium-laser-cleaning
+          image: /images/material/vanadium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: zinc-laser-cleaning
+          title: Zinc
+          url: /materials/metal/alloy/zinc-laser-cleaning
+          image: /images/material/zinc-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: zirconium-laser-cleaning
+          title: Zirconium
+          url: /materials/metal/alloy/zirconium-laser-cleaning
+          image: /images/material/zirconium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: titanium-alloy-ti-6al-4v-laser-cleaning
+          title: Titanium Alloy (Ti-6Al-4V)
+          url: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
+          image: /images/material/titanium-alloy-ti-6al-4v-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: stainless-steel-316-laser-cleaning
+          title: Stainless Steel 316
+          url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+          image: /images/material/stainless-steel-316-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: stainless-steel-304-laser-cleaning
+          title: Stainless Steel 304
+          url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
+          image: /images/material/stainless-steel-304-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: aluminum-bronze-laser-cleaning
+          title: Aluminum Bronze
+          url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+          image: /images/material/aluminum-bronze-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      woods:
+        title: Wood Products
+        description: Hardwood and softwood materials affected by this contamination
+        items:
+        - id: ash-laser-cleaning
+          title: Ash
+          url: /materials/wood/hardwood/ash-laser-cleaning
+          image: /images/material/ash-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: bamboo-laser-cleaning
+          title: Bamboo
+          url: /materials/wood/hardwood/bamboo-laser-cleaning
+          image: /images/material/bamboo-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: beech-laser-cleaning
+          title: Beech
+          url: /materials/wood/hardwood/beech-laser-cleaning
+          image: /images/material/beech-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: birch-laser-cleaning
+          title: Birch
+          url: /materials/wood/hardwood/birch-laser-cleaning
+          image: /images/material/birch-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: cedar-laser-cleaning
+          title: Cedar
+          url: /materials/wood/softwood/cedar-laser-cleaning
+          image: /images/material/cedar-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: cherry-laser-cleaning
+          title: Cherry
+          url: /materials/wood/hardwood/cherry-laser-cleaning
+          image: /images/material/cherry-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: fir-laser-cleaning
+          title: Fir
+          url: /materials/wood/softwood/fir-laser-cleaning
+          image: /images/material/fir-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: hickory-laser-cleaning
+          title: Hickory
+          url: /materials/wood/hardwood/hickory-laser-cleaning
+          image: /images/material/hickory-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: mdf-laser-cleaning
+          title: MDF
+          url: /materials/wood/hardwood/mdf-laser-cleaning
+          image: /images/material/mdf-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: mahogany-laser-cleaning
+          title: Mahogany
+          url: /materials/wood/hardwood/mahogany-laser-cleaning
+          image: /images/material/mahogany-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: maple-laser-cleaning
+          title: Maple
+          url: /materials/wood/hardwood/maple-laser-cleaning
+          image: /images/material/maple-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: oak-laser-cleaning
+          title: Oak
+          url: /materials/wood/hardwood/oak-laser-cleaning
+          image: /images/material/oak-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: pine-laser-cleaning
+          title: Pine
+          url: /materials/wood/softwood/pine-laser-cleaning
+          image: /images/material/pine-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: plywood-laser-cleaning
+          title: Plywood
+          url: /materials/wood/hardwood/plywood-laser-cleaning
+          image: /images/material/plywood-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: poplar-laser-cleaning
+          title: Poplar
+          url: /materials/wood/hardwood/poplar-laser-cleaning
+          image: /images/material/poplar-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: redwood-laser-cleaning
+          title: Redwood
+          url: /materials/wood/hardwood/redwood-laser-cleaning
+          image: /images/material/redwood-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: rosewood-laser-cleaning
+          title: Rosewood
+          url: /materials/wood/hardwood/rosewood-laser-cleaning
+          image: /images/material/rosewood-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: teak-laser-cleaning
+          title: Teak
+          url: /materials/wood/hardwood/teak-laser-cleaning
+          image: /images/material/teak-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: walnut-laser-cleaning
+          title: Walnut
+          url: /materials/wood/hardwood/walnut-laser-cleaning
+          image: /images/material/walnut-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: willow-laser-cleaning
+          title: Willow
+          url: /materials/wood/hardwood/willow-laser-cleaning
+          image: /images/material/willow-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: ebony-laser-cleaning
+          title: Ebony
+          url: /materials/wood/hardwood/ebony-laser-cleaning
+          image: /images/material/ebony-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      glass:
+        title: Glass Materials
+        description: Materials in the glass category
+        items:
+        - id: borosilicate-glass-laser-cleaning
+          title: Borosilicate Glass
+          url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+          image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: crown-glass-laser-cleaning
+          title: Crown Glass
+          url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+          image: /images/material/crown-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: float-glass-laser-cleaning
+          title: Float Glass
+          url: /materials/glass/soda-lime/float-glass-laser-cleaning
+          image: /images/material/float-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: fused-silica-laser-cleaning
+          title: Fused Silica
+          url: /materials/glass/soda-lime/fused-silica-laser-cleaning
+          image: /images/material/fused-silica-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: gorilla-glass-laser-cleaning
+          title: Gorilla Glass
+          url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+          image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: lead-crystal-laser-cleaning
+          title: Lead Crystal
+          url: /materials/glass/soda-lime/lead-crystal-laser-cleaning
+          image: /images/material/lead-crystal-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: pyrex-laser-cleaning
+          title: Pyrex
+          url: /materials/glass/soda-lime/pyrex-laser-cleaning
+          image: /images/material/pyrex-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: quartz-glass-laser-cleaning
+          title: Quartz Glass
+          url: /materials/glass/soda-lime/quartz-glass-laser-cleaning
+          image: /images/material/quartz-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: sapphire-glass-laser-cleaning
+          title: Sapphire Glass
+          url: /materials/glass/soda-lime/sapphire-glass-laser-cleaning
+          image: /images/material/sapphire-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: soda-lime-glass-laser-cleaning
+          title: Soda-Lime Glass
+          url: /materials/glass/specialty-glass/soda-lime-glass-laser-cleaning
+          image: /images/material/soda-lime-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: tempered-glass-laser-cleaning
+          title: Tempered Glass
+          url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+          image: /images/material/tempered-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: aluminosilicate-glass-laser-cleaning
+          title: Aluminosilicate Glass
+          url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+          image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      masonry:
+        title: Masonry Materials
+        description: Materials in the masonry category
+        items:
+        - id: brick-laser-cleaning
+          title: Brick
+          url: /materials/masonry/general/brick-laser-cleaning
+          image: /images/material/brick-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: cement-laser-cleaning
+          title: Cement
+          url: /materials/masonry/general/cement-laser-cleaning
+          image: /images/material/cement-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: concrete-laser-cleaning
+          title: Concrete
+          url: /materials/masonry/general/concrete-laser-cleaning
+          image: /images/material/concrete-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: mortar-laser-cleaning
+          title: Mortar
+          url: /materials/masonry/general/mortar-laser-cleaning
+          image: /images/material/mortar-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: plaster-laser-cleaning
+          title: Plaster
+          url: /materials/masonry/general/plaster-laser-cleaning
+          image: /images/material/plaster-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: stucco-laser-cleaning
+          title: Stucco
+          url: /materials/masonry/concrete/stucco-laser-cleaning
+          image: /images/material/stucco-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: terracotta-laser-cleaning
+          title: Terracotta
+          url: /materials/masonry/concrete/terracotta-laser-cleaning
+          image: /images/material/terracotta-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      composites:
+        title: Composite Materials
+        description: Engineered composite materials affected by this contamination
+        items:
+        - id: carbon-fiber-reinforced-polymer-laser-cleaning
+          title: Carbon Fiber Reinforced Polymer
+          url: /materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning
+          image: /images/material/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: ceramic-matrix-composites-cmcs-laser-cleaning
+          title: Ceramic Matrix Composites CMCs
+          url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+          image: /images/material/ceramic-matrix-composites-cmcs-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: epoxy-resin-composites-laser-cleaning
+          title: Epoxy Resin Composites
+          url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+          image: /images/material/epoxy-resin-composites-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: fiber-reinforced-polyurethane-frpu-laser-cleaning
+          title: Fiber Reinforced Polyurethane FRPU
+          url: /materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning
+          image: /images/material/fiber-reinforced-polyurethane-frpu-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: fiberglass-laser-cleaning
+          title: Fiberglass
+          url: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
+          image: /images/material/fiberglass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: glass-fiber-reinforced-polymers-gfrp-laser-cleaning
+          title: Glass Fiber Reinforced Polymers GFRP
+          url: /materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning
+          image: /images/material/glass-fiber-reinforced-polymers-gfrp-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: kevlar-reinforced-polymer-laser-cleaning
+          title: Kevlar-Reinforced Polymer
+          url: /materials/composite/fiber-reinforced/kevlar-reinforced-polymer-laser-cleaning
+          image: /images/material/kevlar-reinforced-polymer-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: metal-matrix-composites-mmcs-laser-cleaning
+          title: Metal Matrix Composites MMCs
+          url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
+          image: /images/material/metal-matrix-composites-mmcs-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: phenolic-resin-composites-laser-cleaning
+          title: Phenolic Resin Composites
+          url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
+          image: /images/material/phenolic-resin-composites-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: polyester-resin-composites-laser-cleaning
+          title: Polyester Resin Composites
+          url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
+          image: /images/material/polyester-resin-composites-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: rubber-laser-cleaning
+          title: Rubber
+          url: /materials/composite/fiber-reinforced/rubber-laser-cleaning
+          image: /images/material/rubber-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: thermoplastic-elastomer-laser-cleaning
+          title: Thermoplastic Elastomer
+          url: /materials/composite/structural/thermoplastic-elastomer-laser-cleaning
+          image: /images/material/thermoplastic-elastomer-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: urethane-composites-laser-cleaning
+          title: Urethane Composites
+          url: /materials/composite/structural/urethane-composites-laser-cleaning
+          image: /images/material/urethane-composites-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      rare-earth:
+        title: Rare-Earth Materials
+        description: Materials in the rare-earth category
+        items:
+        - id: cerium-laser-cleaning
+          title: Cerium
+          url: /materials/rare-earth/lanthanide/cerium-laser-cleaning
+          image: /images/material/cerium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: dysprosium-laser-cleaning
+          title: Dysprosium
+          url: /materials/rare-earth/lanthanide/dysprosium-laser-cleaning
+          image: /images/material/dysprosium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: europium-laser-cleaning
+          title: Europium
+          url: /materials/rare-earth/lanthanide/europium-laser-cleaning
+          image: /images/material/europium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: lanthanum-laser-cleaning
+          title: Lanthanum
+          url: /materials/rare-earth/lanthanide/lanthanum-laser-cleaning
+          image: /images/material/lanthanum-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: neodymium-laser-cleaning
+          title: Neodymium
+          url: /materials/rare-earth/lanthanide/neodymium-laser-cleaning
+          image: /images/material/neodymium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: praseodymium-laser-cleaning
+          title: Praseodymium
+          url: /materials/rare-earth/lanthanide/praseodymium-laser-cleaning
+          image: /images/material/praseodymium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: terbium-laser-cleaning
+          title: Terbium
+          url: /materials/rare-earth/lanthanide/terbium-laser-cleaning
+          image: /images/material/terbium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: yttrium-laser-cleaning
+          title: Yttrium
+          url: /materials/rare-earth/scandium-group/yttrium-laser-cleaning
+          image: /images/material/yttrium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      semiconductor:
+        title: Semiconductor Materials
+        description: Materials in the semiconductor category
+        items:
+        - id: gallium-arsenide-laser-cleaning
+          title: Gallium Arsenide
+          url: /materials/semiconductor/elemental/gallium-arsenide-laser-cleaning
+          image: /images/material/gallium-arsenide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: silicon-laser-cleaning
+          title: Silicon
+          url: /materials/semiconductor/elemental/silicon-laser-cleaning
+          image: /images/material/silicon-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: silicon-germanium-laser-cleaning
+          title: Silicon Germanium
+          url: /materials/semiconductor/elemental/silicon-germanium-laser-cleaning
+          image: /images/material/silicon-germanium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: germanium-laser-cleaning
+          title: Germanium
+          url: /materials/semiconductor/elemental/germanium-laser-cleaning
+          image: /images/material/germanium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: indium-phosphide-laser-cleaning
+          title: Indium Phosphide
+          url: /materials/semiconductor/compound/indium-phosphide-laser-cleaning
+          image: /images/material/indium-phosphide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: gallium-nitride-laser-cleaning
+          title: Gallium Nitride
+          url: /materials/semiconductor/compound/gallium-nitride-laser-cleaning
+          image: /images/material/gallium-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+      plastics:
+        title: Plastic Materials
+        description: Thermoplastic and composite materials affected by this contamination
+        items:
+        - id: polycarbonate-laser-cleaning
+          title: Polycarbonate
+          url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
+          image: /images/material/polycarbonate-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: polyethylene-laser-cleaning
+          title: Polyethylene
+          url: /materials/plastic/thermoplastic/polyethylene-laser-cleaning
+          image: /images/material/polyethylene-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: polypropylene-laser-cleaning
+          title: Polypropylene
+          url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
+          image: /images/material/polypropylene-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: polystyrene-laser-cleaning
+          title: Polystyrene
+          url: /materials/plastic/thermoplastic/polystyrene-laser-cleaning
+          image: /images/material/polystyrene-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: polytetrafluoroethylene-ptfe-laser-cleaning
+          title: Polytetrafluoroethylene (PTFE)
+          url: /materials/plastic/thermoplastic/polytetrafluoroethylene-ptfe-laser-cleaning
+          image: /images/material/polytetrafluoroethylene-ptfe-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: polyvinyl-chloride-laser-cleaning
+          title: Polyvinyl Chloride
+          url: /materials/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning
+          image: /images/material/polyvinyl-chloride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: acrylic-pmma-laser-cleaning
+          title: Acrylic (PMMA)
+          url: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
+          image: /images/material/acrylic-pmma-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: nylon-laser-cleaning
+          title: Nylon
+          url: /materials/plastic/thermoplastic/nylon-laser-cleaning
+          image: /images/material/nylon-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: peek-laser-cleaning
+          title: PEEK
+          url: /materials/plastic/thermoplastic/peek-laser-cleaning
+          image: /images/material/peek-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: pet-laser-cleaning
+          title: PET
+          url: /materials/plastic/thermoplastic/pet-laser-cleaning
+          image: /images/material/pet-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
+        - id: polyimide-laser-cleaning
+          title: Polyimide
+          url: /materials/plastic/thermoplastic/polyimide-laser-cleaning
+          image: /images/material/polyimide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: high
+          typical_context: General industrial and commercial applications
 composition:
 - TiN
 - CrN
@@ -254,6 +1375,7 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: coating
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

@@ -56,7 +56,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
     
     const title = frontmatter.title || metadata.title || 'Material Guide';
     const description = frontmatter.description || metadata.description || '';
-    const material_description = frontmatter.material_description || frontmatter.subtitle || '';
+    const subtitle = frontmatter.subtitle || '';
     const materialName = frontmatter.name || title.replace(/\s*Laser Cleaning$/i, '');
     const category = frontmatter.category || metadata.category || 'material';
     const subcategory = frontmatter.subcategory || '';
@@ -77,7 +77,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
         context,
         title,
         description,
-        subtitle: material_description,
+        subtitle,
         publishDate,
         modifiedDate,
         author,
@@ -160,7 +160,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
 
 // 1. Technical Article Schema (E-E-A-T: Experience & Expertise)
 function createTechnicalArticleSchema(data: any) {
-  const { title, description, subtitle: material_description, pageUrl, publishDate, modifiedDate, author, images, micro, applications, faq } = data;
+  const { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, micro, applications, faq } = data;
   const baseUrl = SITE_CONFIG.url;
   
   // Process FAQ questions if available
@@ -183,7 +183,7 @@ function createTechnicalArticleSchema(data: any) {
     '@type': 'Article',
     '@id': `${pageUrl}#article`,
     headline: title,
-    description: description || material_description,
+    description: description || subtitle,
     articleBody: articleBodyText,
     
     // E-E-A-T: Author Expertise

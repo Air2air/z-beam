@@ -79,6 +79,43 @@ MarkdownRenderer.tsx (app/components/Base/)
 └── AI Note: Automatically maps markdown elements to Typography components
 ```
 
+### **Safety & Risk Display Components** ⭐ NEW - December 2025
+```
+RiskCard.tsx (app/components/RiskCard/) ⭐ SAFETY DISPLAY
+├── Uses: getRiskColor utility, lucide-react icons
+├── Types: RiskCardProps { icon, label, severity, className }
+├── Purpose: Display risk assessment with color-coded severity
+├── Schema: SAFETY_RISK_SEVERITY_SCHEMA.md compliant
+├── Severity Levels: critical | high | moderate | medium | low | none
+└── AI Note: Automatically color-codes based on severity level
+
+InfoCard.tsx (app/components/InfoCard/) ⭐ SAFETY DISPLAY
+├── Uses: lucide-react icons
+├── Types: InfoCardProps { icon, title, data[], className }
+├── Purpose: Display structured safety information (PPE, ventilation, particulates)
+├── Schema: SAFETY_RISK_SEVERITY_SCHEMA.md compliant
+└── AI Note: Generic card for label/value pairs, consistent styling with RiskCard
+
+SafetyDataPanel.tsx (app/components/SafetyDataPanel/) ⭐ UNIFIED GRID
+├── Uses: RiskCard, InfoCard, GridSection, CompoundSafetyGrid
+├── Types: SafetyDataPanelProps { safetyData, compounds?, className }
+├── Purpose: Comprehensive safety display for materials with unified grid
+├── Layout: 3-column responsive grid (3→2→1 cols)
+├── Schema: All fields mapped to SAFETY_RISK_SEVERITY_SCHEMA.md
+└── AI Note: Displays risk cards + info cards in single unified grid
+
+SafetyOverview.tsx (app/components/Contaminants/) ⭐ UNIFIED GRID
+├── Uses: RiskCard, InfoCard, SectionContainer
+├── Types: SafetyOverviewProps { safetyData }
+├── Purpose: Safety display for contaminants (identical to SafetyDataPanel)
+├── Layout: 3-column responsive grid (3→2→1 cols)
+├── Schema: SAFETY_RISK_SEVERITY_SCHEMA.md v1.2 compliant
+├── Risk Format: Handles both simple strings and nested objects automatically
+│   ├── Simple: fire_explosion_risk: "moderate"
+│   └── Nested: fire_explosion_risk: { severity: "moderate", description: "..." }
+└── AI Note: Type-checks risk fields and extracts severity string as needed
+```
+
 ---
 
 ## 🔄 **Common Usage Patterns**
@@ -117,6 +154,37 @@ import { H1, P, A } from '@/components/Typography';
 
 // ❌ Don't use raw HTML in content components
 <h1>Title</h1>  // Use Typography.H1 instead
+```
+
+### **Safety Display Pattern** ⭐ NEW - December 2025
+```tsx
+// ✅ Unified safety grid with risk cards + info cards
+import { RiskCard } from '@/components/RiskCard/RiskCard';
+import { InfoCard } from '@/components/InfoCard/InfoCard';
+import { getGridClasses } from '@/app/utils/gridConfig';
+
+<div className={getGridClasses({ columns: 3, gap: 'md' })}>
+  {/* Risk Assessment Cards */}
+  <RiskCard
+    icon={Flame}
+    label="Fire/Explosion Risk"
+    severity={safetyData.fire_explosion_risk}  // critical|high|moderate|medium|low|none
+  />
+  
+  {/* Safety Information Cards */}
+  <InfoCard
+    icon={Shield}
+    title="PPE Requirements"
+    data={[
+      { label: 'Respiratory Protection', value: 'P100 Respirator' },
+      { label: 'Eye Protection', value: 'Safety Goggles' },
+      { label: 'Skin Protection', value: 'Leather Gloves' }
+    ]}
+  />
+</div>
+
+// Schema reference: docs/specs/SAFETY_RISK_SEVERITY_SCHEMA.md
+// Components auto-handle color coding, responsive layout, and formatting
 ```
 
 ### **Tailwind-First Styling Pattern** ⭐ NEW
@@ -253,10 +321,14 @@ With these patterns:
 
 ---
 
-**Last Updated:** October 10, 2025  
-**Status:** ✅ Core patterns documented + Typography system + Tailwind migration complete  
+**Last Updated:** December 20, 2025  
+**Status:** ✅ Core patterns documented + Typography system + Tailwind migration + Safety display components  
 **Recent Changes:**
-- Added Typography component system documentation
+- Added dual format support for safety risk fields (simple strings + nested objects)
+- Updated SafetyOverview to handle both contaminant and material risk formats
+- Schema v1.2 with type checking patterns documented
+- Safety & Risk Display components (RiskCard, InfoCard, SafetyDataPanel, SafetyOverview)
+- Typography component system documentation
 - Added MarkdownRenderer pattern (replaces dangerouslySetInnerHTML)
 - Added Tailwind-first styling guidelines
 - Documented CSS file usage policy

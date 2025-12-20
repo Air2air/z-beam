@@ -27,7 +27,7 @@ The categorized properties system organizes material properties into scientific 
 - **Color-Coded Cards**: Each category has a distinct color with 25% opacity
 - **Always-Visible**: All categories displayed without accordion/collapse functionality
 - **Dual Naming Support**: Supports both new category IDs and legacy naming conventions
-- **Flexible Layout**: Responsive grid adapts from 2 to 5 columns based on viewport
+- **Flexible Layout**: Responsive grid adapts from 2 to 4 columns based on viewport (max 4)
 - **Type-Safe**: Full TypeScript support with comprehensive interfaces
 
 ### What Changed (December 2024)
@@ -204,7 +204,7 @@ interface MetricsGridProps {
 - **Dual Mode**: Supports both categorized (materialProperties) and flat (machineSettings) rendering
 - **Automatic Sorting**: Categories sorted by percentage (descending)
 - **Category Filtering**: Optionally display only specific categories
-- **Responsive Grid**: 2-5 columns depending on viewport width
+- **Responsive Grid**: 2-4 columns depending on viewport width (max 4)
 - **Type-Safe**: Full TypeScript interfaces for all data structures
 
 ### Data Flow

@@ -5,7 +5,7 @@
  * 
  * This component provides maximum reusability by accepting:
  * - Generic data of type T
- * - A mapper function to transform T → GridItemSSR
+ * - A mapper function to transform T → GridItem
  * - An optional sorter function for custom ordering
  * - Configuration props (columns, variant, etc.)
  * 
@@ -23,30 +23,21 @@
  *   data={compounds}
  *   mapper={compoundToGridItem}
  *   sorter={sortBySeverity}
- *   variant="domain-linkage"
+ *   variant="relationship"
  *   columns={3}
  * />
  * ```
  */
 
 import React from 'react';
-import { CardGridSSR } from '../CardGrid/CardGridSSR';
-import { GridItemSSR } from '@/types';
+import { CardGrid } from '../CardGrid';
+import type { GridItem, DataGridProps } from '@/types';
 
-interface DataGridProps<T> {
-  data: T[];
-  mapper: (item: T) => GridItemSSR;
-  sorter?: (a: T, b: T) => number;
-  columns?: 2 | 3 | 4;
-  variant?: 'default' | 'domain-linkage';
-  className?: string;
-  showBadgeSymbols?: boolean;
-  mode?: 'simple' | 'category-grouped';
-  filterBy?: 'all' | 'category' | 'subcategory';
-}
+// Re-export for convenience
+export type { DataGridProps };
 
 export function DataGrid<T>({
-  data,
+  items,
   mapper,
   sorter,
   columns = 3,
@@ -56,24 +47,25 @@ export function DataGrid<T>({
   mode = 'simple',
   filterBy = 'all',
 }: DataGridProps<T>) {
+  // Sort if sorter provided
+  const sortedData = React.useMemo(() => {
+    if (!items || items.length === 0 || !sorter) return items;
+    return [...items].sort(sorter);
+  }, [items, sorter]);
+
+  // Transform to GridItem
+  const gridItems = React.useMemo(() => {
+    if (!sortedData || sortedData.length === 0) return [];
+    return sortedData.map(item => mapper!(item));
+  }, [sortedData, mapper]);
+
   // Early return if no data
-  if (!data || data.length === 0) {
+  if (!items || items.length === 0) {
     return null;
   }
 
-  // Sort if sorter provided
-  const sortedData = React.useMemo(() => {
-    if (!sorter) return data;
-    return [...data].sort(sorter);
-  }, [data, sorter]);
-
-  // Transform to GridItemSSR
-  const gridItems = React.useMemo(() => {
-    return sortedData.map(mapper);
-  }, [sortedData, mapper]);
-
   return (
-    <CardGridSSR
+    <CardGrid
       items={gridItems}
       columns={columns}
       variant={variant}

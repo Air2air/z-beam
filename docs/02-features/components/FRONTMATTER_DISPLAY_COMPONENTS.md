@@ -85,7 +85,7 @@ interface ApplicationsListProps {
 ```
 
 **Features**:
-- Responsive grid layout (2-5 columns based on screen size)
+- Responsive grid layout (2-4 columns based on screen size, max 4)
 - Industry-specific emoji icons (✈️ Aerospace, 🚗 Automotive, etc.)
 - Hover effects with scale and shadow transitions
 - Shows application count below grid

@@ -13,7 +13,7 @@ export function ScheduleCards() {
       {/* Schedule Service Card */}
       <Link
         href="/schedule"
-        className="group card-base h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem] card-enhanced-hover transition-smooth card-focus"
+        className="group card-base h-full min-h-[6rem] md:min-h-[8rem] lg:min-h-[10rem] card-enhanced-hover transition-smooth card-focus"
         aria-label="Schedule a service or consultation"
       >
         <article className="absolute-inset" role="article">
@@ -65,7 +65,7 @@ export function ScheduleCards() {
       {/* Contact Us Card */}
       <Link
         href="/contact"
-        className="group card-base h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem] card-enhanced-hover transition-smooth card-focus"
+        className="group card-base h-full min-h-[6rem] md:min-h-[8rem] lg:min-h-[10rem] card-enhanced-hover transition-smooth card-focus"
         aria-label="Contact us"
       >
         <article className="absolute-inset" role="article">

@@ -1,8 +1,8 @@
-# Domain Linkages Component
+# Domain Relationships Component
 
-⚠️ **DEPRECATED** - Use LinkageSection component instead  
+⚠️ **DEPRECATED** - Use Relationship component instead  
 **Migration Date**: December 17, 2025  
-**Replaced By**: LinkageSection<T> with flattened structure (v5.0.0)  
+**Replaced By**: Relationship<T> with flattened structure (v5.0.0)  
 **See**: `MAXIMUM_REUSABILITY_ACHIEVED.md` and `LINKAGE_SECTION_INTEGRATION_COMPLETE.md`
 
 ---
@@ -11,10 +11,10 @@
 
 This component is **no longer used in production layouts**. All layouts (ContaminantsLayout, MaterialsLayout, SettingsLayout) have been migrated to use:
 
-- **LinkageSection<T>**: Universal pattern component (Dec 17, 2025) ⭐ **RECOMMENDED**
+- **Relationship<T>**: Universal pattern component (Dec 17, 2025) ⭐ **RECOMMENDED**
   - Consolidates GridSection + DataGrid + conditional rendering
   - 50% code reduction vs. manual pattern
-  - See: `app/components/LinkageSection/README.md`
+  - See: `app/components/Relationship/README.md`
 
 **Previous Pattern** (still valid, but verbose):
 - **GridSection**: Universal section wrapper
@@ -34,13 +34,13 @@ Server-side component for displaying bidirectional cross-domain relationships us
 
 ## Overview
 
-The Domain Linkages system displays related entities across materials, contaminants, compounds, settings, and regulatory/PPE requirements. It **reuses existing CardGridSSR components** rather than creating duplicate grid systems.
+The Domain Relationships system displays related entities across materials, contaminants, compounds, settings, and regulatory/PPE requirements. It **reuses existing CardGridSSR components** rather than creating duplicate grid systems.
 
 ## Architecture
 
 ```
-DomainLinkagesContainer (Wrapper - displays all sections)
-├── DomainLinkageSection (Individual section)
+RelationshipsContainer (Wrapper - displays all sections)
+├── RelationshipSection (Individual section)
 │   ├── linkagesToGridItems() - Transform data
 │   └── CardGridSSR (Existing grid component)
 │       └── Card[] (Existing card components)
@@ -48,7 +48,7 @@ DomainLinkagesContainer (Wrapper - displays all sections)
 
 ## Components
 
-### DomainLinkageSection
+### RelationshipSection
 
 Lightweight wrapper that transforms domain_linkages data to CardGridSSR format.
 
@@ -60,14 +60,14 @@ Lightweight wrapper that transforms domain_linkages data to CardGridSSR format.
 
 **Example:**
 ```tsx
-<DomainLinkageSection 
+<RelationshipSection 
   title="Compatible Materials"
   items={frontmatter.domain_linkages.related_materials}
   domain="materials"
 />
 ```
 
-### DomainLinkagesContainer
+### RelationshipsContainer
 
 Convenience component that renders all non-empty linkage sections from frontmatter.
 
@@ -77,14 +77,14 @@ Convenience component that renders all non-empty linkage sections from frontmatt
 
 **Example:**
 ```tsx
-<DomainLinkagesContainer linkages={frontmatter.domain_linkages} />
+<RelationshipsContainer linkages={frontmatter.domain_linkages} />
 ```
 
 ## Usage in Page Components
 
 ### Material Pages
 ```tsx
-import { DomainLinkagesContainer } from '@/app/components/DomainLinkages';
+import { RelationshipsContainer } from '@/app/components/Relationships';
 
 export default async function MaterialPage({ params }: { params: { slug: string } }) {
   const frontmatter = await getMaterialFrontmatter(params.slug);
@@ -93,7 +93,7 @@ export default async function MaterialPage({ params }: { params: { slug: string 
     <div>
       {/* ... existing content ... */}
       
-      <DomainLinkagesContainer linkages={frontmatter.domain_linkages} />
+      <RelationshipsContainer linkages={frontmatter.domain_linkages} />
     </div>
   );
 }
@@ -101,7 +101,7 @@ export default async function MaterialPage({ params }: { params: { slug: string 
 
 ### Contaminant Pages
 ```tsx
-import { DomainLinkagesContainer } from '@/app/components/DomainLinkages';
+import { RelationshipsContainer } from '@/app/components/Relationships';
 
 export default async function ContaminantPage({ params }: { params: { slug: string } }) {
   const frontmatter = await getContaminantFrontmatter(params.slug);
@@ -110,7 +110,7 @@ export default async function ContaminantPage({ params }: { params: { slug: stri
     <div>
       {/* ... existing content ... */}
       
-      <DomainLinkagesContainer linkages={frontmatter.domain_linkages} />
+      <RelationshipsContainer linkages={frontmatter.domain_linkages} />
     </div>
   );
 }
@@ -120,11 +120,11 @@ export default async function ContaminantPage({ params }: { params: { slug: stri
 For more control, render sections individually:
 
 ```tsx
-import { DomainLinkageSection } from '@/app/components/DomainLinkages';
+import { RelationshipSection } from '@/app/components/Relationships';
 
 <div>
   {frontmatter.domain_linkages?.related_materials && (
-    <DomainLinkageSection
+    <RelationshipSection
       title="Materials Compatible with This Contaminant"
       items={frontmatter.domain_linkages.related_materials}
       domain="materials"
@@ -132,7 +132,7 @@ import { DomainLinkageSection } from '@/app/components/DomainLinkages';
   )}
   
   {frontmatter.domain_linkages?.related_compounds && (
-    <DomainLinkageSection
+    <RelationshipSection
       title="Hazardous Compounds Generated"
       items={frontmatter.domain_linkages.related_compounds}
       domain="compounds"
@@ -216,8 +216,8 @@ domain_linkages:
 
 ## Total New Code
 
-- `DomainLinkageSection.tsx`: ~180 lines
-- `domainLinkageMapper.ts`: ~170 lines
+- `RelationshipSection.tsx`: ~180 lines
+- `relationshipMapper.ts`: ~170 lines
 - `domain-linkages.ts`: ~100 lines
 - **Total**: ~450 lines vs ~1200 lines for duplicate grid system
 
@@ -230,12 +230,12 @@ const items2 = linkages.slice(0, 10);  // Simple grid
 const items3 = linkages.slice(0, 20);  // Filtered grid
 const items4 = linkages;               // Category-grouped
 
-<DomainLinkageSection title="Test" items={items1} domain="materials" />
+<RelationshipSection title="Test" items={items1} domain="materials" />
 ```
 
 ## See Also
 
 - `types/domain-linkages.ts` - Type definitions
-- `app/utils/domainLinkageMapper.ts` - Data transformation
+- `app/utils/relationshipMapper.ts` - Data transformation
 - `app/components/CardGrid/CardGridSSR.tsx` - Underlying grid component
 - `docs/DOMAIN_LINKAGES_STRUCTURE.md` - Complete specification

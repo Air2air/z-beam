@@ -218,15 +218,12 @@ async function updateFrontmatterFile(file, updates) {
     if (line.startsWith('dateModified:')) {
       dateModifiedLine = i;
     }
-    if (line.startsWith('material_description:')) {
-      materialDescriptionLine = i;
-    }
     if (line.startsWith('description:')) {
       descriptionLine = i;
     }
     
-    // Find next top-level key after material_description
-    if (materialDescriptionLine >= 0 && nextTopLevelAfterMaterialDescription === -1 && isTopLevel && i > materialDescriptionLine) {
+    // Find next top-level key after description
+    if (descriptionLine >= 0 && nextTopLevelAfterMaterialDescription === -1 && isTopLevel && i > descriptionLine) {
       nextTopLevelAfterMaterialDescription = i;
     }
     
@@ -243,7 +240,7 @@ async function updateFrontmatterFile(file, updates) {
     if (datePublishedLine >= 0) {
       updatedLines[datePublishedLine] = publishedLine;
     } else {
-      // Insert before next top-level key after material_description/description
+      // Insert before next top-level key after description
       let insertBefore = -1;
       if (nextTopLevelAfterMaterialDescription >= 0) {
         insertBefore = nextTopLevelAfterMaterialDescription;

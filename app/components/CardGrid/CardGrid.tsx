@@ -20,6 +20,7 @@ import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { Title } from '../Title';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 
 // Unified item interface that handles all data sources - now imported from @/types
 
@@ -194,16 +195,8 @@ export function CardGrid({
 
   // Render based on mode
   if (mode === 'category-grouped') {
-    return (
-      <div className={`article-grid article-grid--category-grouped mb-10 ${className}`}>
-        {/* Header */}
-        {displayTitle && (
-          <div className="mb-8">
-            <SectionTitle title={displayTitle} />
-            <div className="w-16 h-1 bg-blue-400 rounded"></div>
-          </div>
-        )}
-
+    const groupedContent = (
+      <>
         {/* Search and Filter Controls */}
         {(showSearch || showCategoryFilter) && (
           <div className="mb-8 space-y-4">
@@ -370,6 +363,7 @@ export function CardGrid({
                           description: item.description || '',
                           images: {
                             hero: {
+                              url: item.imageUrl,
                               alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
                             }
                           },
@@ -413,6 +407,7 @@ export function CardGrid({
                       description: item.description || '',
                       images: {
                         hero: {
+                          url: item.imageUrl,
                           alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
                         }
                       },
@@ -442,21 +437,23 @@ export function CardGrid({
             )}
           </div>
         )}
-      </div>
+      </>
+    );
+
+    // Always wrap in SectionContainer
+    return (
+      <SectionContainer 
+        title={displayTitle}
+        className={`article-grid article-grid--category-grouped ${className}`}
+      >
+        {groupedContent}
+      </SectionContainer>
     );
   }
 
   // Simple grid mode (default)
-  return (
-    <div className={`article-grid article-grid--simple mb-10 ${className}`}>
-      {/* Header */}
-      {displayTitle && (
-        <div className="mb-8">
-          <Title level="section" title={title || heading || "Articles"} />
-          <div className="w-16 h-1 bg-blue-400 rounded"></div>
-        </div>
-      )}
-
+  const content = (
+    <>
       {/* Simple Grid */}
       <div className={getGridClasses({ columns, gap })}>
         {filteredItems.map((item, index) => (
@@ -469,6 +466,7 @@ export function CardGrid({
               description: item.description || '',
               images: {
                 hero: {
+                  url: item.imageUrl,
                   alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
                 }
               },
@@ -481,6 +479,16 @@ export function CardGrid({
           />
         ))}
       </div>
-    </div>
+    </>
+  );
+
+  // Always wrap in SectionContainer
+  return (
+    <SectionContainer 
+      title={title || heading}
+      className={`article-grid article-grid--simple ${className}`}
+    >
+      {content}
+    </SectionContainer>
   );
 }

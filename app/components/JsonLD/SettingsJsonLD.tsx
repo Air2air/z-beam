@@ -125,7 +125,7 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
     // Core metadata
     metadata: {
       title: settings.title,
-      description: settings.settings_description || settings.description,
+      description: settings.description,
       name: settings.name,
       slug: settings.slug, // Include slug for ImageObject generation
       category: settings.category || category,
@@ -157,7 +157,7 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
     // Frontmatter alias for SchemaFactory compatibility
     frontmatter: {
       title: settings.title,
-      description: settings.settings_description || settings.description,
+      description: settings.description,
       name: settings.name,
       slug: settings.slug, // Include slug for ImageObject generation
       category: settings.category || category,

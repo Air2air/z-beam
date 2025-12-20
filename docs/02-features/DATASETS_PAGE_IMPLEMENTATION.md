@@ -77,7 +77,7 @@ Created a comprehensive `/datasets` landing page for the Z-Beam Materials Databa
 └─────────────────────────────────────┘
 
 ┌─────────────────────────────────────┐
-│  Category Grid (5 columns)          │
+│  Category Grid (4 columns max)      │
 │  - Metal, Wood, Stone, etc.         │
 │  - Visual cards with counts         │
 └─────────────────────────────────────┘

@@ -28,7 +28,7 @@ interface GridSectionProps {
   description?: string;  // Optional descriptive text below title
   children: React.ReactNode;
   className?: string;
-  variant?: 'default' | 'dark' | 'light';
+  variant?: 'default' | 'dark';
   alignment?: 'left' | 'center' | 'right';
 }
 
@@ -41,9 +41,8 @@ export function GridSection({
   alignment = 'left',
 }: GridSectionProps) {
   return (
-    <div className="mb-16">
-      <SectionContainer variant={variant}>
-        <div className="container-custom px-4">
+    <SectionContainer variant={variant}>
+      <div className="container-custom px-4">
           <SectionTitle
             title={title}
             subtitle={description}  // SectionTitle still uses 'subtitle' prop internally
@@ -53,6 +52,5 @@ export function GridSection({
           {children}
         </div>
       </SectionContainer>
-    </div>
   );
 }

@@ -236,7 +236,7 @@ describe('Material Pages Build Validation', () => {
               continue;
             }
             
-            const required = ['title', 'name', 'category', 'subcategory', 'material_description'];
+            const required = ['title', 'name', 'category', 'subcategory', 'description'];
             required.forEach(field => {
               if (!article.metadata[field]) {
                 errors.push(`${material.slug}: missing ${field}`);
@@ -263,12 +263,18 @@ describe('Material Pages Build Validation', () => {
       expect(content).not.toContain("'content', 'frontmatter'");
     });
 
-    test('materialCategories.ts uses correct frontmatter path', () => {
-      const materialCategoriesPath = path.join(process.cwd(), 'app', 'utils', 'materialCategories.ts');
-      const content = fs.readFileSync(materialCategoriesPath, 'utf8');
+    test('category utilities use correct frontmatter path', () => {
+      // Check the generic utilities file (now holds the implementation)
+      const genericCategoriesPath = path.join(process.cwd(), 'app', 'utils', 'categories', 'generic.ts');
+      const content = fs.readFileSync(genericCategoriesPath, 'utf8');
       
-      // Should reference frontmatter/materials
-      expect(content).toContain('frontmatter/materials');
+      // Should reference frontmatter directory dynamically
+      expect(content).toContain('frontmatter');
+      
+      // Material wrapper should import from generic
+      const materialCategoriesPath = path.join(process.cwd(), 'app', 'utils', 'materialCategories.ts');
+      const materialContent = fs.readFileSync(materialCategoriesPath, 'utf8');
+      expect(materialContent).toContain('getAllCategoriesGeneric');
     });
   });
 });

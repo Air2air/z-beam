@@ -21,7 +21,7 @@ export interface CardVariantConfig {
   transitionClass: string;
 }
 
-export type CardVariant = 'default' | 'featured';
+export type CardVariant = 'default' | 'featured' | 'relationship' | 'category';
 
 export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
   default: {
@@ -58,6 +58,38 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects
+    transitionClass: "transition-all duration-300 ease-out",
+  },
+  relationship: {
+    // Layout - same as default for relationship cards
+    padding: "px-3 py-3 md:px-4 md:py-2.5",
+    imageHeight: "h-[6.75rem] md:h-[7.5rem]",
+    cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
+    
+    // Typography
+    titleClass: "card-title text-lg truncate text-primary font-medium",
+    descriptionClass: "text-primary text-xs line-clamp-2",
+    
+    // Appearance - subtle differences for relationship context
+    cardClass: "rounded-md shadow-md overflow-hidden",
+    hoverEffect: "card-enhanced-hover",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
+    transitionClass: "transition-all duration-300 ease-out",
+  },
+  category: {
+    // Layout - same as default for category cards
+    padding: "px-3 py-3 md:px-4 md:py-2.5",
+    imageHeight: "h-[6.75rem] md:h-[7.5rem]",
+    cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
+    
+    // Typography
+    titleClass: "card-title text-lg truncate text-primary font-medium",
+    descriptionClass: "text-primary text-xs line-clamp-2",
+    
+    // Appearance
+    cardClass: "rounded-md shadow-md overflow-hidden",
+    hoverEffect: "card-enhanced-hover",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
     transitionClass: "transition-all duration-300 ease-out",
   }
 } as const;

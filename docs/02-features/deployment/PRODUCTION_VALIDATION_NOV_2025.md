@@ -517,8 +517,8 @@ License:
 **Metadata Tracking:**
 ```yaml
 # Note: subtitle_metadata field has been deprecated
-# Material descriptions now use material_description field
-# Settings descriptions now use settings_description field
+# Material and settings descriptions use universal description field
+# Settings descriptions now use universal description field
 # Voice enhancement metadata tracked separately
 ```
 

@@ -342,8 +342,7 @@ describe('Pre-Deployment Error Prevention', () => {
 
     test('documentation exists for deployment system', () => {
       const docs = [
-        'DEPLOYMENT.md',
-        'docs/deployment/VALIDATION_GUIDE.md'
+        'docs/02-features/deployment/VALIDATION_GUIDE.md'
       ];
       
       docs.forEach(doc => {

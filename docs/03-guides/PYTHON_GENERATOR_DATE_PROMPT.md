@@ -35,7 +35,7 @@ name: Aluminum
 category: metal
 subcategory: non-ferrous
 title: Aluminum Laser Cleaning
-material_description: Precision Laser Cleaning...
+description: Precision Laser Cleaning...
 datePublished: '2025-10-30T15:30:08-07:00'
 dateModified: '2025-11-12T16:21:27-08:00'
 ```
@@ -120,7 +120,7 @@ author:
 category: metal
 subcategory: non-ferrous
 title: Copper Laser Cleaning
-material_description: Advanced Laser Cleaning for Copper Surfaces
+description: Advanced Laser Cleaning for Copper Surfaces
 datePublished: '2025-10-30T15:30:08-07:00'
 dateModified: '2025-11-12T16:21:27-08:00'
 ```

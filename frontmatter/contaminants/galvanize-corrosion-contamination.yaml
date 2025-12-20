@@ -1,8 +1,8 @@
 id: galvanize-corrosion-contamination
 name: White Rust on Galvanized Steel
 category: oxidation
-datePublished: '2025-12-20T04:14:39.470688Z'
-dateModified: '2025-12-20T04:14:39.470688Z'
+datePublished: '2025-12-20T22:18:39.139239Z'
+dateModified: '2025-12-20T22:18:39.139239Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/ferrous/galvanize-corrosion-contamination
@@ -132,10 +132,10 @@ relationships:
       transmission_depth: 5.4
     removal_characteristics:
       byproducts:
-      - compound: ZnO
+      - compound: zinc-oxide
         hazard_level: moderate
         phase: solid
-      - compound: Zn vapor
+      - compound: zinc-oxide
         hazard_level: moderate
         phase: gas
       - compound: carbon-dioxide
@@ -157,35 +157,6 @@ relationships:
         color_change: 'yes'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Zinc Oxide (ZnO)
-        concentration_mg_m3: 5-25
-        exposure_limit_mg_m3: 5
-        hazard_class: irritant
-      - compound: Iron Oxide (Fe2O3)
-        concentration_mg_m3: 2-10
-        exposure_limit_mg_m3: 5
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser cleaning may damage underlying zinc coating if parameters are not properly controlled
-      - White rust removal may create surface etching if laser energy is too high
-      toxic_gas_risk: none
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 10
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 2.5
@@ -205,6 +176,49 @@ relationships:
   - Aluminum
   - Stainless Steel
   - Copper
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Zinc Oxide (ZnO)
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 5
+      hazard_class: irritant
+    - compound: Iron Oxide (Fe2O3)
+      concentration_mg_m3: 2-10
+      exposure_limit_mg_m3: 5
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may damage underlying zinc coating if parameters are not properly controlled
+    - White rust removal may create surface etching if laser energy is too high
+    toxic_gas_risk:
+      severity: none
+      primary_hazards: []
+      description: No significant toxic gas generation
+      mitigation: Standard respiratory protection for particulate control
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 10
+      rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - ZnO
 - Zn(OH)₂
@@ -239,6 +253,7 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: ferrous
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

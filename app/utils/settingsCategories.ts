@@ -1,148 +1,85 @@
 // app/utils/settingsCategories.ts
-// Settings category utilities - matches material/contaminant patterns
-
-import fs from 'fs';
-import path from 'path';
-import yaml from 'js-yaml';
-import { normalizeForUrl } from './urlBuilder';
-
-interface SettingsItem {
-  name: string;
-  slug: string;
-}
-
-interface SettingsSubcategory {
-  slug: string;
-  label: string;
-  settings: SettingsItem[];
-}
-
-interface SettingsCategory {
-  slug: string;
-  label: string;
-  subcategories: SettingsSubcategory[];
-  settings: SettingsItem[];
-}
-
 /**
- * Get all settings organized by category/subcategory
- * Mirrors the structure used by materials and contaminants
+ * Settings category and subcategory utilities
+ * Thin wrapper around generic category utilities
  */
-export async function getAllCategories(): Promise<SettingsCategory[]> {
-  const settingsDir = path.join(process.cwd(), 'frontmatter', 'settings');
-  
-  if (!fs.existsSync(settingsDir)) {
-    return [];
-  }
-  
-  const files = fs.readdirSync(settingsDir).filter(f => f.endsWith('.yaml'));
-  
-  // Group settings by category and subcategory
-  const categoryMap = new Map<string, Map<string, SettingsItem[]>>();
-  
-  for (const file of files) {
-    try {
-      const content = fs.readFileSync(path.join(settingsDir, file), 'utf8');
-      const parsed = yaml.load(content) as any;
-      
-      // Handle normalized structure (data.metadata) or legacy flat structure
-      const data = parsed.metadata || parsed;
-      
-      // Skip if explicitly marked inactive
-      if (data.active === false) {
-        continue;
-      }
-      
-      // Try to get category/subcategory from data, or derive from linked material
-      let categorySlug = data.category ? normalizeForUrl(data.category) : 'metal';
-      let subcategorySlug = data.subcategory ? normalizeForUrl(data.subcategory) : 'non-ferrous';
-      
-      // If no category, try to load from corresponding material file
-      if (!data.category || !data.subcategory) {
-        try {
-          const materialSlug = data.slug || file.replace('-settings.yaml', '');
-          const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${materialSlug}.yaml`);
-          if (fs.existsSync(materialPath)) {
-            const materialContent = fs.readFileSync(materialPath, 'utf8');
-            const materialData = yaml.load(materialContent) as any;
-            categorySlug = materialData.category ? normalizeForUrl(materialData.category) : categorySlug;
-            subcategorySlug = materialData.subcategory ? normalizeForUrl(materialData.subcategory) : subcategorySlug;
-          }
-        } catch (e) {
-          // Keep defaults
-        }
-      }
-      
-      const settingsSlug = data.slug ? `${data.slug}-settings` : file.replace('.yaml', '');
-      
-      if (!categoryMap.has(categorySlug)) {
-        categoryMap.set(categorySlug, new Map());
-      }
-      
-      const subcategoryMap = categoryMap.get(categorySlug)!;
-      if (!subcategoryMap.has(subcategorySlug)) {
-        subcategoryMap.set(subcategorySlug, []);
-      }
-      
-      subcategoryMap.get(subcategorySlug)!.push({
-        name: data.name || data.slug,
-        slug: settingsSlug
-      });
-    } catch (error) {
-      console.error(`Error reading settings file ${file}:`, error);
-    }
-  }
-  
-  // Convert map to array structure
-  const categories: SettingsCategory[] = [];
-  
-  for (const [categorySlug, subcategoryMap] of categoryMap) {
-    const subcategories: SettingsSubcategory[] = [];
-    let allSettings: SettingsItem[] = [];
-    
-    for (const [subcategorySlug, settings] of subcategoryMap) {
-      subcategories.push({
-        slug: subcategorySlug,
-        label: formatLabel(subcategorySlug),
-        settings: settings.sort((a, b) => a.name.localeCompare(b.name))
-      });
-      allSettings = allSettings.concat(settings);
-    }
-    
-    categories.push({
-      slug: categorySlug,
-      label: formatLabel(categorySlug),
-      subcategories: subcategories.sort((a, b) => a.label.localeCompare(b.label)),
-      settings: allSettings.sort((a, b) => a.name.localeCompare(b.name))
-    });
-  }
-  
-  return categories.sort((a, b) => a.label.localeCompare(b.label));
+
+import { 
+  getAllCategoriesGeneric, 
+  getSubcategoryInfoGeneric, 
+  getItemInfoGeneric,
+  type GenericItemInfo 
+} from './categories/generic';
+
+// Type aliases for backward compatibility
+export type SettingInfo = GenericItemInfo;
+
+export interface CategoryInfo {
+  slug: string;
+  label: string;
+  subcategories: SubcategoryInfo[];
+  settings: SettingInfo[];
+}
+
+export interface SubcategoryInfo {
+  slug: string;
+  label: string;
+  settings: SettingInfo[];
 }
 
 /**
- * Get subcategory info for a specific category/subcategory pair
+ * Get all unique categories from settings frontmatter files
+ */
+export async function getAllCategories(): Promise<CategoryInfo[]> {
+  const result = await getAllCategoriesGeneric<SettingInfo>('settings');
+  return result.map(cat => ({
+    ...cat,
+    settings: cat.items,
+    subcategories: cat.subcategories.map(sub => ({
+      ...sub,
+      settings: sub.items
+    }))
+  }));
+}
+
+/**
+ * Get information for a specific subcategory
  */
 export async function getSubcategoryInfo(
-  categorySlug: string,
-  subcategorySlug: string
-): Promise<SettingsSubcategory | null> {
-  const categories = await getAllCategories();
-  const category = categories.find(cat => cat.slug === categorySlug);
-  
-  if (!category) {
-    return null;
-  }
-  
-  return category.subcategories.find(sub => sub.slug === subcategorySlug) || null;
+  category: string,
+  subcategory: string
+): Promise<SubcategoryInfo | null> {
+  const result = await getSubcategoryInfoGeneric<SettingInfo>('settings', category, subcategory);
+  if (!result) return null;
+  return {
+    ...result,
+    settings: result.items
+  };
 }
 
 /**
- * Format slug into display label
+ * Get information for a specific setting
  */
-function formatLabel(slug: string): string {
-  return slug
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+export async function getSettingInfo(
+  category: string,
+  subcategory: string,
+  slug: string
+): Promise<SettingInfo | null> {
+  return getItemInfoGeneric<SettingInfo>('settings', category, subcategory, slug);
+}
+
+/**
+ * Get all setting slugs across all categories
+ */
+export async function getAllSettingSlugs(): Promise<string[]> {
+  const categories = await getAllCategories();
+  const slugs: string[] = [];
+  
+  categories.forEach(category => {
+    category.settings.forEach(setting => {
+      slugs.push(setting.slug);
+    });
+  });
+  
+  return slugs;
 }

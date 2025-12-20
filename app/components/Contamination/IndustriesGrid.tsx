@@ -6,6 +6,7 @@
 'use client';
 
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { getGridClasses } from '@/app/utils/gridConfig';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { Badge } from '../Badge/Badge';
 
@@ -40,7 +41,7 @@ export function IndustriesGrid({ industries }: IndustriesGridProps) {
           className="mb-8"
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className={getGridClasses({ columns: 1, gap: 'md' })}>
           {industries.map((industry, i) => (
             <div key={i} className="bg-gray-800/50 border border-gray-700 rounded-md p-6">
               <div className="flex items-start justify-between mb-4">

@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { getGridClasses } from '@/app/utils/gridConfig';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import { HeatAnalysisCards } from './HeatAnalysisCards';
@@ -644,7 +645,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
             <line x1={50} y1={30} x2={50} y2={350} stroke="#9CA3AF" strokeWidth={2} />
           </svg>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className={getGridClasses({ columns: 3, gap: 'md' })}>
           {/* Laser Settings */}
           <div className="bg-tertiary rounded-md p-4 border">
             <h4 className="text-sm text-secondary font-semibold mb-3">🔧 Laser Settings</h4>

@@ -499,7 +499,7 @@ export const generateMockArticle = (overrides = {}) => ({
 
 export const generateMockComponentData = (type, overrides = {}) => {
   const baseComponents = {
-    hero: { type: 'hero', data: { title: 'Hero Title', material_description: 'Hero Description' } },
+    hero: { type: 'hero', data: { title: 'Hero Title', description: 'Hero Description' } },
     content: { type: 'content', data: { body: 'Content body' } },
     author: { type: 'author', data: { name: 'Author Name' } }
   };

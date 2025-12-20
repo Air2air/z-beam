@@ -2,7 +2,7 @@
 import React from 'react';
 import { GridSection } from '@/app/components/GridSection/GridSection';
 import { DataGrid } from '@/app/components/DataGrid/DataGrid';
-import type { GridItemSSR } from '@/types/centralized';
+import type { GridItem } from '@/types';
 
 /**
  * Universal component for rendering linkage sections with consistent pattern
@@ -19,8 +19,8 @@ interface LinkageSectionProps<T> {
   /** Section description (optional) */
   description?: string;
   
-  /** Mapper function to transform data to GridItemSSR format */
-  mapper: (item: T) => GridItemSSR;
+  /** Mapper function to transform data to GridItem format */
+  mapper: (item: T) => GridItem;
   
   /** Optional sorter function */
   sorter?: (a: T, b: T) => number;
@@ -29,7 +29,7 @@ interface LinkageSectionProps<T> {
   columns?: number;
   
   /** Grid variant (default: 'default') */
-  variant?: 'default' | 'domain-linkage';
+  variant?: 'default' | 'relationship';
 }
 
 /**
@@ -65,11 +65,11 @@ export function LinkageSection<T>({
 
   return (
     <GridSection title={title} description={description}>
-      <DataGrid
-        data={data}
+      <DataGrid<T>
+        items={data}
         mapper={mapper}
         sorter={sorter}
-        columns={columns}
+        columns={columns as 2 | 3 | 4}
         variant={variant}
       />
     </GridSection>

@@ -161,7 +161,7 @@ materialProperties:
 3. **Collapsible** - Click headers to toggle
 4. **Filterable** - Use categoryFilter prop
 5. **Accessible** - Full ARIA support
-6. **Responsive** - 2-5 columns based on screen size
+6. **Responsive** - 2-4 columns based on screen size (max 4)
 
 ## 🎯 Testing
 

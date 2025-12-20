@@ -1,8 +1,8 @@
 id: thermal-paste-contamination
 name: Thermal Compound Deposits
 category: organic-residue
-datePublished: '2025-12-20T04:14:41.651353Z'
-dateModified: '2025-12-20T04:14:41.651353Z'
+datePublished: '2025-12-20T22:18:40.430305Z'
+dateModified: '2025-12-20T22:18:40.430305Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/thermal-paste-contamination
@@ -142,13 +142,13 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
-      - compound: amorphous_carbon
+      - compound: carbon-particulates
         hazard_level: low
         phase: solid
-      - compound: silicon_dioxide_nanoparticles
+      - compound: nanoparticulates
         hazard_level: moderate
         phase: solid
       damage_risk_to_substrate: low
@@ -167,48 +167,6 @@ relationships:
         color_change: 'no'
         residual_stress: none
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 100-500
-        exposure_limit_mg_m3: 9000
-        hazard_class: irritant
-      - compound: Formaldehyde
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Acetaldehyde
-        concentration_mg_m3: 1-15
-        exposure_limit_mg_m3: 45
-        hazard_class: carcinogenic
-      - compound: Particulate Polycyclic Aromatic Hydrocarbons
-        concentration_mg_m3: 2-20
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      particulate_generation:
-        respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Thermal damage possible to underlying materials - conduct test patch first
-      - May leave residue on certain substrates requiring secondary cleaning
-      - Avoid use on heat-sensitive materials near electronics
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 0.4
@@ -228,26 +186,75 @@ relationships:
   prohibited_materials:
   - Plastics
   - PCB
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: copper-laser-cleaning
-          title: Copper
-          url: /materials/metal/non-ferrous/copper-laser-cleaning
-          image: /images/material/copper-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Carbon Dioxide
+      concentration_mg_m3: 100-500
+      exposure_limit_mg_m3: 9000
+      hazard_class: irritant
+    - compound: Formaldehyde
+      concentration_mg_m3: 1-10
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Acetaldehyde
+      concentration_mg_m3: 1-15
+      exposure_limit_mg_m3: 45
+      hazard_class: carcinogenic
+    - compound: Particulate Polycyclic Aromatic Hydrocarbons
+      concentration_mg_m3: 2-20
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal damage possible to underlying materials - conduct test patch first
+    - May leave residue on certain substrates requiring secondary cleaning
+    - Avoid use on heat-sensitive materials near electronics
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 5-50
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1-10
+        hazard_class: carcinogenic
+      - compound: Acetaldehyde
+        concentration_mg_m3: 1-15
+        hazard_class: carcinogenic
+      - compound: Particulate Polycyclic Aromatic Hydrocarbons
+        concentration_mg_m3: 2-20
+        hazard_class: carcinogenic
+      description: 'Multiple toxic compounds detected: Carbon Monoxide, Formaldehyde, Acetaldehyde - requires enhanced protection'
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - ZnO
 - Ag
@@ -282,6 +289,7 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: other
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

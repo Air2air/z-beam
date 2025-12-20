@@ -4,6 +4,8 @@
 **Status:** ✅ Complete  
 **Test Results:** 22/22 passing
 
+**Updated:** December 19, 2025 - Category utilities consolidated into generic implementation. See `docs/08-development/CATEGORY_CONSOLIDATION.md` for details.
+
 ## Major Simplification
 
 The material properties category system has been **simplified from 14+ categories to just 3 standardized categories** that are used across all frontmatter files.

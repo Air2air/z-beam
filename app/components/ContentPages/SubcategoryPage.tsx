@@ -63,11 +63,9 @@ export async function SubcategoryPage({
         <CardGridSSR
           slugs={items.map((item: any) => item.slug)}
           columns={3}
-          mode={config.type}
+          contentType={config.type}
           showBadgeSymbols={config.type === 'materials'}
           loadBadgeSymbolData={config.type === 'materials'}
-          category={categorySlug}
-          subcategory={subcategorySlug}
         />
       </Layout>
     </>

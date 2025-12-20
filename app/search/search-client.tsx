@@ -365,7 +365,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
             slug: article.slug || 'unknown',
             title: article.name || article.title || 'Untitled Article',
             description: article.description || article.excerpt || '',
-            href: `/${article.slug}`,
+            href: (article.metadata as any)?.full_path || (article as any).full_path || `/${article.slug}`,
             imageUrl: article.image,
             imageAlt: article.imageAlt || article.name || article.title || '',
             badge: (article as any).badgeSymbolData || {

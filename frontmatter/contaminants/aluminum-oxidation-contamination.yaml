@@ -1,8 +1,8 @@
 id: aluminum-oxidation-contamination
 name: Aluminum Oxidation
 category: oxidation
-datePublished: '2025-12-20T04:14:37.878696Z'
-dateModified: '2025-12-20T04:14:37.878696Z'
+datePublished: '2025-12-20T22:18:38.013587Z'
+dateModified: '2025-12-20T22:18:38.013587Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/non-ferrous/aluminum-oxidation-contamination
@@ -164,7 +164,7 @@ relationships:
       - compound: aluminum-oxide
         hazard_level: moderate
         phase: solid
-      - compound: Al vapor
+      - compound: aluminum-oxide
         hazard_level: low
         phase: gas
       - compound: O₂
@@ -186,36 +186,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Aluminum Oxide Fume
-        concentration_mg_m3: 5.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      - compound: Aluminum Metal Fume
-        concentration_mg_m3: 2.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser parameters must be controlled to prevent base metal damage
-      - Thermal stress may cause micro-cracking in thin aluminum substrates
-      - Reflective surfaces require appropriate laser wavelength selection
-      toxic_gas_risk: none
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 10
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 4.5
@@ -252,20 +222,50 @@ relationships:
   required_elements:
   - aluminum
   - Al
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Aluminum Oxide Fume
+      concentration_mg_m3: 5.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    - compound: Aluminum Metal Fume
+      concentration_mg_m3: 2.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be controlled to prevent base metal damage
+    - Thermal stress may cause micro-cracking in thin aluminum substrates
+    - Reflective surfaces require appropriate laser wavelength selection
+    toxic_gas_risk:
+      severity: none
+      primary_hazards: []
+      description: No significant toxic gas generation
+      mitigation: Standard respiratory protection for particulate control
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 10
+      rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 author:
   id: 3
   name: Ikmanda Roswati
@@ -298,6 +298,7 @@ author:
   formatting_file: indonesia_formatting.yaml
 title: Aluminum Oxidation Laser Cleaning
 subcategory: non-ferrous
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

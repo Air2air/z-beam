@@ -3,42 +3,12 @@
 // Second cache bust attempt - Dec 15, 2025
 // Vercel cache invalidation test
 
-import { getContentConfig } from '@/app/config/contentTypes';
-import { generateItemMetadata } from '@/app/utils/contentPages/helpers';
-import { generateItemStaticParams } from '@/app/utils/categories';
-import { ItemPage } from '@/app/components/ContentPages/ItemPage';
+import { createItemPage } from '@/app/utils/pages/createContentPage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const config = getContentConfig('contaminants');
+const { generateStaticParams, generateMetadata, default: ContaminantItemPage } = createItemPage('contaminants');
 
-export async function generateStaticParams() {
-  return await generateItemStaticParams(config);
-}
-
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ category: string; subcategory: string; slug: string }> 
-}) {
-  const { category, subcategory, slug } = await params;
-  return await generateItemMetadata(config, category, subcategory, slug);
-}
-
-export default async function ContaminantItemPage({ 
-  params 
-}: { 
-  params: Promise<{ category: string; subcategory: string; slug: string }> 
-}) {
-  const { category, subcategory, slug } = await params;
-  
-  return (
-    <ItemPage 
-      config={config}
-      categorySlug={category}
-      subcategorySlug={subcategory}
-      itemSlug={slug}
-    />
-  );
-}
+export { generateStaticParams, generateMetadata };
+export default ContaminantItemPage;

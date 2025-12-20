@@ -77,20 +77,15 @@ export function WorkizWidget({
     };
   }, [companyId]);
 
-  // Construct URL with optional theme parameter
-  const widgetUrl = new URL(`https://app.workiz.com/booking/${companyId || 'YOUR_COMPANY_ID'}`);
-  
-  // Try adding theme parameter (may or may not be supported by Workiz)
-  if (theme !== 'light') {
-    widgetUrl.searchParams.set('theme', theme);
-  }
+  // Workiz booking portal URL with authentication token
+  const widgetUrl = 'https://online-booking.workiz.com/?ac=a92273bb2e08e9ada5fbf60a0243f8a863a000f6bdd5c583c0f98ae74aef35fb';
 
   return (
     <div className={`workiz-widget-container ${className}`}>
       {/* Method 1: Direct iframe embed (most common) */}
       <iframe
         ref={iframeRef}
-        src={widgetUrl.toString()}
+        src={widgetUrl}
         width="100%"
         height={height}
         frameBorder="0"
@@ -121,7 +116,7 @@ export function WorkizWidget({
             JavaScript is required to view the booking calendar.
           </p>
           <a 
-            href={`https://app.workiz.com/booking/${companyId || 'YOUR_COMPANY_ID'}`}
+            href="https://online-booking.workiz.com/?ac=a92273bb2e08e9ada5fbf60a0243f8a863a000f6bdd5c583c0f98ae74aef35fb"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"

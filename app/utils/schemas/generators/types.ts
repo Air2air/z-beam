@@ -162,7 +162,7 @@ export interface FrontmatterBase {
 
 export interface MaterialFrontmatter extends FrontmatterBase {
   materialType?: string;
-  material_description?: string;
+  description?: string;
   materialProperties?: MaterialProperties;
   machineSettings?: Record<string, unknown>;
   applications?: string[];

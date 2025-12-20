@@ -6,6 +6,7 @@
 'use client';
 
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { getGridClasses } from '@/app/utils/gridConfig';
 
 interface QuickFact {
   removal_efficiency: string;
@@ -58,7 +59,7 @@ export function QuickFactsCard({ facts }: QuickFactsCardProps) {
           {/* Applications */}
           <div>
             <h3 className="text-sm font-semibold text-gray-300 mb-2">Typical Applications:</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <ul className={getGridClasses({ columns: 2, gap: 'md' })}>
               {facts.typical_applications.map((app, i) => (
                 <li key={i} className="text-gray-300 text-sm flex items-start gap-2">
                   <span className="text-blue-400 mt-0.5">•</span>

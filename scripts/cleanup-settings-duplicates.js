@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Cleanup duplicate settings_description entries in settings files
+ * Cleanup duplicate description entries in settings files
+ * Settings now use universal 'description' field instead of 'settings_description'
  */
 
 const fs = require('fs');
@@ -27,7 +28,7 @@ settingsFiles.forEach(filePath => {
     const line = lines[i];
     const trimmed = line.trim();
     
-    if (trimmed.startsWith('settings_description:')) {
+    if (trimmed.startsWith('description:')) {
       settingsDescriptionCount++;
       if (settingsDescriptionCount === 1) {
         // Keep the first one
@@ -49,4 +50,4 @@ settingsFiles.forEach(filePath => {
   }
 });
 
-console.log(`\n✅ Cleaned up ${duplicatesRemoved} duplicate settings_description entries in ${filesFixed} files`);
+console.log(`\n✅ Cleaned up ${duplicatesRemoved} duplicate description entries in ${filesFixed} files`);

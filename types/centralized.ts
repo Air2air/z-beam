@@ -25,6 +25,11 @@ import { ReactNode } from 'react';
 export type ContentType = 'materials' | 'contaminants' | 'compounds' | 'settings';
 
 /**
+ * Content types for component usage (includes compounds)
+ */
+export type ComponentContentType = 'materials' | 'contaminants' | 'compounds' | 'settings';
+
+/**
  * URL building content types - used for URL pattern generation
  * Separate from ContentType to avoid confusion
  * @see app/utils/urlBuilder.ts
@@ -166,8 +171,8 @@ export interface ArticleMetadata {
   id?: string;
   title: string;
   description?: string;
-  material_description?: string;  // Added for materials
-  settings_description?: string;  // Added for settings
+  contamination_description?: string;  // Added for contaminants
+  // Note: All content types (materials, settings, etc.) use the 'description' field
   slug: string;
   category?: string;
   tags?: string[];
@@ -1001,6 +1006,10 @@ export interface BaseImageProps {
 /**
  * Card item interface for grid displays
  */
+/**
+ * @deprecated Use GridItem instead - CardItem merged into GridItem for consistency
+ * @see GridItem
+ */
 export interface CardItem {
   slug: string;
   title?: string;
@@ -1012,7 +1021,7 @@ export interface CardItem {
   badge?: BadgeData;
   tags?: string[];
   category?: string;
-  metadata?: Record<string, unknown>;
+  metadata?: ArticleMetadata | Record<string, unknown>;
   article?: Article | null;
 }
 
@@ -1021,18 +1030,22 @@ export interface CardItem {
  */
 export interface CardGridProps {
   // Data sources - flexible input types
-  items?: CardItem[];
+  items?: GridItem[];
   slugs?: string[];
   searchResults?: SearchResultItem[];
   
   // Display configuration
   title?: string;
+  description?: string;
   heading?: string;
   columns?: GridColumns;
   gap?: GridGap;
   
   // Layout modes
   mode?: 'simple' | 'category-grouped' | 'search-results';
+  
+  // Card variant
+  variant?: 'default' | 'featured' | 'relationship' | 'category';
   
   // Category grouping options (for mode: 'category-grouped')
   showSearch?: boolean;
@@ -1115,6 +1128,7 @@ export interface ThumbnailProps {
   width?: number;
   height?: number;
   frontmatter?: ArticleMetadata;
+  imageUrl?: string; // Explicit URL for server-to-client serialization
 }
 
 /**
@@ -1794,30 +1808,47 @@ export interface SitemapEntry {
 /**
  * Grid item interface for SSR components
  */
-export interface GridItemSSR {
+/**
+ * Unified grid item interface for all card/grid displays
+ * Consolidates former GridItemSSR and CardItem into single source of truth
+ * @usage Use for DataGrid, CardGrid, HomePageGrid, and all grid-based components
+ */
+export interface GridItem {
   slug: string;
   title?: string;
   name?: string;
   description?: string;
   category?: string;
+  subcategory?: string;
   articleType?: string;
   metadata?: ArticleMetadata | Record<string, unknown>;
+  frontmatter?: Record<string, unknown>;
   badge?: BadgeData;
   imageUrl?: string;
   imageAlt?: string;
   href?: string;
+  url?: string;
   tags?: string[];
   excerpt?: string;
   article?: Article | null;
 }
 
 /**
+ * @deprecated Use GridItem instead - maintaining for backward compatibility
+ * @see GridItem
+ */
+export type GridItemSSR = GridItem;
+
+/**
  * CardGrid SSR-specific props interface
  */
 export interface CardGridSSRProps {
   // Data sources (use one)
-  items?: GridItemSSR[];
+  items?: GridItem[];
   slugs?: string[];
+  
+  // Content type (for slug loading)
+  contentType?: ContentType; // 'materials', 'contaminants', 'compounds', 'settings'
   
   // Display configuration
   title?: string;
@@ -1827,10 +1858,16 @@ export interface CardGridSSRProps {
   
   // Layout modes
   mode?: 'simple' | 'category-grouped';
+  groupByCategory?: boolean; // Alias for mode: 'category-grouped'
   
   // Category grouping options (for mode: 'category-grouped')
   maxItemsPerCategory?: number;
   categoryOrder?: string[];
+  
+  // Card display options
+  cardMinWidth?: string;
+  cardMaxWidth?: string;
+  gapSize?: string;
   
   // Filtering
   filterBy?: string;
@@ -2372,7 +2409,9 @@ export interface CardProps {
   href: string;
   badge?: BadgeData | null;
   className?: string;
-  variant?: "default" | "featured";
+  variant?: "default" | "featured" | "relationship" | "category";
+  imageUrl?: string; // Explicit URL for server-to-client serialization
+  imageAlt?: string; // Explicit alt text
 }
 
 /**
@@ -2521,7 +2560,7 @@ export interface MaterialInfo {
   name: string;
   slug: string;
   category: string;
-  subcategory: string;
+  subcategory?: string;
 }
 
 /**
@@ -2873,7 +2912,6 @@ export interface SettingsMetadata {
   title: string;
   subtitle?: string;
   description: string;
-  settings_description?: string;
   slug?: string;
   content_type?: string;
   schema_version?: string;
@@ -3813,4 +3851,259 @@ export interface FAQSettingsProps {
 export interface MarkdownRendererProps {
   content: string;
   className?: string;
+}
+
+// ===============================
+// GRID MAPPER TYPES
+// ===============================
+
+/**
+ * Enhanced compound interface (from produces_compounds top-level field)
+ */
+export interface EnhancedCompound {
+  id: string;
+  title: string;
+  url: string;
+  image: string;
+  category: string;
+  subcategory: string;
+  frequency: 'very_common' | 'common' | 'occasional' | 'rare';
+  severity: 'severe' | 'high' | 'moderate' | 'low';
+  typical_context: string;
+  exposure_risk: 'high' | 'moderate' | 'low';
+  concentration_range: string;
+  hazard_class: 'carcinogenic' | 'toxic' | 'irritant' | 'corrosive' | 'asphyxiant' | 'flammable';
+  exposure_limits: {
+    osha_pel_mg_m3: number | null;
+    niosh_rel_mg_m3: number | null;
+    acgih_tlv_mg_m3: number | null;
+    idlh_mg_m3: number | null;
+  };
+  exceeds_limits: boolean;
+  monitoring_required: boolean;
+  control_measures: {
+    ventilation_required: boolean;
+    ppe_level: 'none' | 'basic' | 'enhanced' | 'full';
+    filtration_type: string | null;
+  };
+}
+
+/**
+ * Domain linkage interface (from related_* top-level fields)
+ */
+export interface Relationship {
+  id: string;
+  title: string;
+  url: string;
+  image: string;
+  category: string;
+  subcategory: string;
+  frequency: 'very_common' | 'common' | 'occasional' | 'rare';
+  severity: 'severe' | 'high' | 'moderate' | 'low';
+  typical_context: string;
+}
+
+/**
+ * Simple related material type from frontmatter
+ */
+export interface RelatedMaterial {
+  title: string;
+  url: string;
+  material_type?: string;
+  micro?: string;
+}
+
+/**
+ * Simple related contaminant type from frontmatter
+ */
+export interface RelatedContaminant {
+  title: string;
+  url: string;
+  contaminant_category?: string;
+  micro?: string;
+}
+
+/**
+ * Simple related setting type from frontmatter
+ */
+export interface RelatedSetting {
+  title: string;
+  url: string;
+  setting_category?: string;
+  micro?: string;
+}
+
+// ===============================
+// LAYOUT COMPONENT PROPS
+// ===============================
+
+/**
+ * Section configuration for content layouts
+ */
+export interface SectionConfig {
+  component: React.ComponentType<any>;
+  condition?: boolean | (() => boolean);
+  props?: Record<string, any>;
+}
+
+/**
+ * Base content layout props
+ */
+export interface BaseContentLayoutProps extends LayoutProps {
+  slug?: string;
+  category?: string;
+  subcategory?: string;
+  contentType: 'materials' | 'contaminants' | 'compounds' | 'settings';
+  sections?: SectionConfig[];
+  showMicro?: boolean;
+  enrichedMetadata?: any;
+}
+
+/**
+ * Contaminants layout specific props
+ */
+export interface ContaminantsLayoutProps extends LayoutProps {
+  slug: string;
+  category?: string;
+  subcategory?: string;
+}
+
+/**
+ * Compounds layout specific props
+ */
+export interface CompoundsLayoutProps extends LayoutProps {
+  slug: string;
+  category?: string;
+  subcategory?: string;
+}
+
+/**
+ * Settings layout specific props
+ */
+export interface SettingsLayoutProps extends LayoutProps {
+  materialProperties?: any;
+  category: string;
+  subcategory: string;
+  slug: string;
+}
+
+/**
+ * Item page props (generic content page)
+ */
+export interface ItemPageProps {
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+// ===============================
+// GRID COMPONENT PROPS
+// ===============================
+
+/**
+ * Data grid props (generic grid component)
+ */
+export interface DataGridProps<T> {
+  items: T[];
+  columns?: 2 | 3 | 4;
+  variant?: 'default' | 'relationship';
+  showBadgeSymbols?: boolean;
+  mode?: 'simple' | 'category-grouped';
+  filterBy?: 'category' | 'subcategory' | 'all';
+  className?: string;
+  mapper?: (item: T) => GridItem;
+  sorter?: (a: T, b: T) => number;
+}
+
+/**
+ * Hazardous compounds grid props
+ */
+export interface HazardousCompoundsGridProps {
+  compounds: EnhancedCompound[];
+  title?: string;
+  columns?: 2 | 3 | 4;
+  showConcentrations?: boolean;
+  showExceedsWarnings?: boolean;
+  filterBySeverity?: 'severe' | 'high' | 'moderate' | 'low';
+  sortBy?: 'severity' | 'frequency' | 'alphabetical';
+  className?: string;
+}
+
+/**
+ * Compound safety grid sort strategies
+ */
+export type SortStrategy = 
+  | 'severity-desc'
+  | 'severity-asc'
+  | 'exposure-desc'
+  | 'exposure-asc'
+  | 'alphabetical-asc'
+  | 'alphabetical-desc';
+
+/**
+ * Compound safety grid props
+ */
+export interface CompoundSafetyGridProps {
+  compounds: EnhancedCompound[];
+  title?: string;
+  columns?: number;
+  mode?: 'default' | 'compact' | 'detailed';
+  sortStrategy?: SortStrategy;
+  filterBySeverity?: 'severe' | 'high' | 'moderate' | 'low';
+  showControls?: boolean;
+  className?: string;
+}
+
+// ===============================
+// CATEGORY INFO TYPES (CONSOLIDATED)
+// ===============================
+
+/**
+ * Category information (materials, contaminants, compounds, settings)
+ */
+export interface CategoryInfo {
+  slug: string;
+  name: string;
+  title: string;
+  description: string;
+  subcategories?: SubcategoryInfo[];
+}
+
+/**
+ * Subcategory information
+ */
+export interface SubcategoryInfo {
+  slug: string;
+  name: string;
+  title: string;
+  description?: string;
+}
+
+/**
+ * Material information
+ */
+export interface MaterialInfo {
+  slug: string;
+  name: string;
+  category: string;
+  subcategory?: string;
+}
+
+/**
+ * Contaminant information
+ */
+export interface ContaminantInfo {
+  slug: string;
+  name: string;
+  category: string;
+  subcategory?: string;
+}
+
+/**
+ * Compound information
+ */
+export interface CompoundInfo {
+  slug: string;
+  name: string;
+  category: string;
+  subcategory?: string;
 }

@@ -10,7 +10,9 @@ import { LaserMaterialInteraction } from '../LaserMaterialInteraction/LaserMater
 import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialCharacteristics';
 import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetCardWrapper from '../Dataset/MaterialDatasetCardWrapper';
-import { LinkageGridGroup } from '../LinkageGridGroup';
+import { CardGrid } from '../CardGrid';
+import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
+import { sortByFrequency } from '@/app/utils/gridSorters';
 import { getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
 import type { LayoutProps } from '@/types';
 import type { SectionConfig } from '../BaseContentLayout';
@@ -69,7 +71,7 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       condition: metadata?.faq && Array.isArray(metadata.faq) && metadata.faq.length > 0,
       props: {
         materialName,
-        faq: metadata.faq,
+        faq: metadata?.faq || [],
         heroImage,
         thumbnailLink,
       }
@@ -83,55 +85,27 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         maxItems: 6,
       }
     },
-    {
-      component: LinkageGridGroup,
-      condition: () => {
-        const hasContaminants = (metadata as any)?.removes_contaminants?.length > 0;
-        const hasMaterials = (metadata as any)?.related_materials?.length > 0;
-        const hasSettings = (metadata as any)?.related_settings?.length > 0;
-        return hasContaminants || hasMaterials || hasSettings;
-      },
+    // Contaminant groups (from relationships.contaminants.groups)
+    ...(relationships?.contaminants?.groups ? Object.values(relationships.contaminants.groups) : []).flatMap((group: any) => ({
+      component: CardGrid,
+      condition: group?.items?.length > 0,
       props: {
-        title: 'Related Content',
-        description: 'Explore related materials, contaminants, and machine settings',
-        grids: [
-          {
-            data: (metadata as any)?.removes_contaminants || [],
-            type: 'contaminants' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'contaminant_linkage',
-              'Removable Contaminants',
-              'Contaminants that can be effectively removed from this material'
-            ),
-            sortBy: 'severity' as const,
-            variant: 'domain-linkage' as const,
-          },
-          {
-            data: (metadata as any)?.related_materials || [],
-            type: 'materials' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'material_linkage',
-              'Related Materials',
-              'Materials with similar properties or applications'
-            ),
-            sortBy: 'frequency' as const,
-          },
-          {
-            data: (metadata as any)?.related_settings || [],
-            type: 'settings' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'settings_linkage',
-              'Recommended Settings',
-              'Machine settings optimized for this material'
-            ),
-            sortBy: 'frequency' as const,
-          },
-        ],
+        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem),
+        title: group.title,
+        description: group.description,
+        variant: 'relationship' as const,
       }
-    },
+    })),
+    // Material groups (from relationships.materials.groups)
+    ...(relationships?.materials?.groups ? Object.values(relationships.materials.groups) : []).flatMap((group: any) => ({
+      component: CardGrid,
+      condition: group?.items?.length > 0,
+      props: {
+        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem),
+        title: group.title,
+        description: group.description,
+      }
+    })),
     {
       component: MaterialDatasetCardWrapper,
       props: {

@@ -4,6 +4,7 @@
 import { useState, useRef, memo } from 'react';
 import { ContactFormData, FormErrors } from '@/types';
 import { Button } from '../Button';
+import { getGridClasses } from '@/app/utils/gridConfig';
 
 export const ContactForm = memo(function ContactForm() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -150,7 +151,7 @@ export const ContactForm = memo(function ContactForm() {
       )}
       
       {/* Name and Email Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className={getGridClasses({ columns: 1, gap: 'md' })}>
           <div>
             <label htmlFor="name" className="block text-sm mb-2">
               Full Name <span aria-label="required">*</span>

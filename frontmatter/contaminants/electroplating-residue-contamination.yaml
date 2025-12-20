@@ -1,8 +1,8 @@
 id: electroplating-residue-contamination
 name: Electroplating Solution Residue
 category: metallic-coating
-datePublished: '2025-12-20T04:14:39.090677Z'
-dateModified: '2025-12-20T04:14:39.090677Z'
+datePublished: '2025-12-20T22:18:38.905947Z'
+dateModified: '2025-12-20T22:18:38.905947Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/electroplating-residue-contamination
@@ -148,13 +148,13 @@ relationships:
       transmission_depth: 11.8
     removal_characteristics:
       byproducts:
-      - compound: Metal oxides (various)
+      - compound: metal-oxides-mixed
         hazard_level: moderate
         phase: solid
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
       - compound: nitrogen-oxides
@@ -176,48 +176,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Nickel compounds (as Ni)
-        concentration_mg_m3: 0.5-5.0
-        exposure_limit_mg_m3: 0.1
-        hazard_class: carcinogenic
-      - compound: Chromium VI compounds
-        concentration_mg_m3: 0.1-2.0
-        exposure_limit_mg_m3: 0.005
-        hazard_class: carcinogenic
-      - compound: Cyanide compounds (as CN)
-        concentration_mg_m3: 0.5-3.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: toxic
-      - compound: Hydrogen cyanide
-        concentration_mg_m3: 0.1-1.0
-        exposure_limit_mg_m3: 11.0
-        hazard_class: toxic
-      - compound: Metal oxides (mixed)
-        concentration_mg_m3: 2.0-10.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-      substrate_compatibility_warnings:
-      - Laser cleaning may generate toxic hydrogen cyanide gas from cyanide-based plating residues
-      - Thermal decomposition of chromium-plated surfaces can produce carcinogenic hexavalent chromium
-      - Nickel compounds become airborne and present inhalation cancer risk
-      toxic_gas_risk: high
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 15
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 1.2
@@ -237,32 +195,76 @@ relationships:
   prohibited_materials:
   - Aluminum
   - Plastics
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: copper-laser-cleaning
-          title: Copper
-          url: /materials/metal/non-ferrous/copper-laser-cleaning
-          image: /images/material/copper-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Nickel compounds (as Ni)
+      concentration_mg_m3: 0.5-5.0
+      exposure_limit_mg_m3: 0.1
+      hazard_class: carcinogenic
+    - compound: Chromium VI compounds
+      concentration_mg_m3: 0.1-2.0
+      exposure_limit_mg_m3: 0.005
+      hazard_class: carcinogenic
+    - compound: Cyanide compounds (as CN)
+      concentration_mg_m3: 0.5-3.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: toxic
+    - compound: Hydrogen cyanide
+      concentration_mg_m3: 0.1-1.0
+      exposure_limit_mg_m3: 11.0
+      hazard_class: toxic
+    - compound: Metal oxides (mixed)
+      concentration_mg_m3: 2.0-10.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may generate toxic hydrogen cyanide gas from cyanide-based plating residues
+    - Thermal decomposition of chromium-plated surfaces can produce carcinogenic hexavalent chromium
+    - Nickel compounds become airborne and present inhalation cancer risk
+    toxic_gas_risk:
+      severity: high
+      primary_hazards:
+      - compound: Nickel compounds (as Ni)
+        concentration_mg_m3: 0.5-5.0
+        hazard_class: carcinogenic
+      - compound: Chromium VI compounds
+        concentration_mg_m3: 0.1-2.0
+        hazard_class: carcinogenic
+      - compound: Cyanide compounds (as CN)
+        concentration_mg_m3: 0.5-3.0
+        hazard_class: toxic
+      - compound: Hydrogen cyanide
+        concentration_mg_m3: 0.1-1.0
+        hazard_class: toxic
+      description: 'Multiple toxic compounds detected: Nickel compounds (as Ni), Chromium VI compounds, Cyanide compounds
+        (as CN) - requires enhanced protection'
+      mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING: Nickel
+        compounds (as Ni), Chromium VI compounds - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 15
+      rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with carbon
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Cyanides
 - Metal Salts
@@ -298,6 +300,7 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: plating
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

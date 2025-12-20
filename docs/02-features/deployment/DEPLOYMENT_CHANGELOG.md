@@ -25,7 +25,7 @@
 - **IMPROVED**: Grid columns increased by 1 at all breakpoints
   - Mobile: 2 → 3 columns
   - Small: 3 → 4 columns  
-  - Medium: 4 → 5 columns
+  - Medium: 4 columns (maximum)
   - Large: 5 → 6 columns
   - More efficient use of horizontal space
   - More cards visible per row

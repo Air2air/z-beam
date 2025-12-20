@@ -1,8 +1,8 @@
 id: algae-growth-contamination
 name: Algae and Lichen Growth
 category: biological
-datePublished: '2025-12-20T04:14:37.821409Z'
-dateModified: '2025-12-20T04:14:37.821409Z'
+datePublished: '2025-12-20T22:18:37.995173Z'
+dateModified: '2025-12-20T22:18:37.995173Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/biological/growth/algae-growth-contamination
@@ -127,13 +127,13 @@ relationships:
       transmission_depth: 45
     removal_characteristics:
       byproducts:
-      - compound: H₂O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: carbon_ash
+      - compound: carbon-ash
         hazard_level: moderate
         phase: solid
       - compound: nitrogen-oxides
@@ -155,48 +155,6 @@ relationships:
         color_change: 'no'
         residual_stress: none
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 100-500
-        exposure_limit_mg_m3: 9000
-        hazard_class: toxic
-      - compound: Formaldehyde
-        concentration_mg_m3: 0.5-5
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Acetaldehyde
-        concentration_mg_m3: 0.1-2
-        exposure_limit_mg_m3: 25
-        hazard_class: carcinogenic
-      - compound: Nitrogen Oxides (as NO2)
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 0.2
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Thermal effects may damage heat-sensitive substrates
-      - Moisture content in biological growth can cause steam generation
-      - Potential for substrate discoloration or surface modification
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 10
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 0.4
@@ -249,254 +207,75 @@ relationships:
   - Chromium
   - Redwood
   prohibited_materials: []
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      woods:
-        title: Wood Products
-        description: Hardwood and softwood materials affected by this contamination
-        items:
-        - id: mahogany-laser-cleaning
-          title: Mahogany
-          url: /materials/wood/hardwood/mahogany-laser-cleaning
-          image: /images/material/mahogany-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: redwood-laser-cleaning
-          title: Redwood
-          url: /materials/wood/hardwood/redwood-laser-cleaning
-          image: /images/material/redwood-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: bamboo-laser-cleaning
-          title: Bamboo
-          url: /materials/wood/hardwood/bamboo-laser-cleaning
-          image: /images/material/bamboo-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: fir-laser-cleaning
-          title: Fir
-          url: /materials/wood/softwood/fir-laser-cleaning
-          image: /images/material/fir-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: birch-laser-cleaning
-          title: Birch
-          url: /materials/wood/hardwood/birch-laser-cleaning
-          image: /images/material/birch-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: maple-laser-cleaning
-          title: Maple
-          url: /materials/wood/hardwood/maple-laser-cleaning
-          image: /images/material/maple-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: walnut-laser-cleaning
-          title: Walnut
-          url: /materials/wood/hardwood/walnut-laser-cleaning
-          image: /images/material/walnut-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: teak-laser-cleaning
-          title: Teak
-          url: /materials/wood/hardwood/teak-laser-cleaning
-          image: /images/material/teak-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: pine-laser-cleaning
-          title: Pine
-          url: /materials/wood/softwood/pine-laser-cleaning
-          image: /images/material/pine-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: oak-laser-cleaning
-          title: Oak
-          url: /materials/wood/hardwood/oak-laser-cleaning
-          image: /images/material/oak-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cherry-laser-cleaning
-          title: Cherry
-          url: /materials/wood/hardwood/cherry-laser-cleaning
-          image: /images/material/cherry-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: ash-laser-cleaning
-          title: Ash
-          url: /materials/wood/hardwood/ash-laser-cleaning
-          image: /images/material/ash-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cedar-laser-cleaning
-          title: Cedar
-          url: /materials/wood/softwood/cedar-laser-cleaning
-          image: /images/material/cedar-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: stainless-steel-laser-cleaning
-          title: Stainless Steel
-          url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-          image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: zinc-laser-cleaning
-          title: Zinc
-          url: /materials/metal/alloy/zinc-laser-cleaning
-          image: /images/material/zinc-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: titanium-laser-cleaning
-          title: Titanium
-          url: /materials/metal/specialty/titanium-laser-cleaning
-          image: /images/material/titanium-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: copper-laser-cleaning
-          title: Copper
-          url: /materials/metal/non-ferrous/copper-laser-cleaning
-          image: /images/material/copper-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cobalt-laser-cleaning
-          title: Cobalt
-          url: /materials/metal/specialty/cobalt-laser-cleaning
-          image: /images/material/cobalt-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: tin-laser-cleaning
-          title: Tin
-          url: /materials/metal/alloy/tin-laser-cleaning
-          image: /images/material/tin-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: lead-laser-cleaning
-          title: Lead
-          url: /materials/metal/non-ferrous/lead-laser-cleaning
-          image: /images/material/lead-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: chromium-laser-cleaning
-          title: Chromium
-          url: /materials/metal/specialty/chromium-laser-cleaning
-          image: /images/material/chromium-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: nickel-laser-cleaning
-          title: Nickel
-          url: /materials/metal/specialty/nickel-laser-cleaning
-          image: /images/material/nickel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: bronze-laser-cleaning
-          title: Bronze
-          url: /materials/metal/non-ferrous/bronze-laser-cleaning
-          image: /images/material/bronze-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cast-iron-laser-cleaning
-          title: Cast Iron
-          url: /materials/metal/ferrous/cast-iron-laser-cleaning
-          image: /images/material/cast-iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      stone:
-        title: Stone Materials
-        description: Natural and processed stone materials affected by this contamination
-        items:
-        - id: quartzite-laser-cleaning
-          title: Quartzite
-          url: /materials/stone/sedimentary/quartzite-laser-cleaning
-          image: /images/material/quartzite-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: granite-laser-cleaning
-          title: Granite
-          url: /materials/stone/igneous/granite-laser-cleaning
-          image: /images/material/granite-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: travertine-laser-cleaning
-          title: Travertine
-          url: /materials/stone/natural/travertine-laser-cleaning
-          image: /images/material/travertine-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: bluestone-laser-cleaning
-          title: Bluestone
-          url: /materials/stone/sedimentary/bluestone-laser-cleaning
-          image: /images/material/bluestone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: limestone-laser-cleaning
-          title: Limestone
-          url: /materials/stone/sedimentary/limestone-laser-cleaning
-          image: /images/material/limestone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: soapstone-laser-cleaning
-          title: Soapstone
-          url: /materials/stone/sedimentary/soapstone-laser-cleaning
-          image: /images/material/soapstone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: basalt-laser-cleaning
-          title: Basalt
-          url: /materials/stone/igneous/basalt-laser-cleaning
-          image: /images/material/basalt-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: sandstone-laser-cleaning
-          title: Sandstone
-          url: /materials/stone/sedimentary/sandstone-laser-cleaning
-          image: /images/material/sandstone-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: marble-laser-cleaning
-          title: Marble
-          url: /materials/stone/metamorphic/marble-laser-cleaning
-          image: /images/material/marble-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: slate-laser-cleaning
-          title: Slate
-          url: /materials/stone/metamorphic/slate-laser-cleaning
-          image: /images/material/slate-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      masonry:
-        title: Masonry Materials
-        description: Materials in the masonry category
-        items:
-        - id: concrete-laser-cleaning
-          title: Concrete
-          url: /materials/masonry/general/concrete-laser-cleaning
-          image: /images/material/concrete-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Carbon Dioxide
+      concentration_mg_m3: 100-500
+      exposure_limit_mg_m3: 9000
+      hazard_class: toxic
+    - compound: Formaldehyde
+      concentration_mg_m3: 0.5-5
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    - compound: Acetaldehyde
+      concentration_mg_m3: 0.1-2
+      exposure_limit_mg_m3: 25
+      hazard_class: carcinogenic
+    - compound: Nitrogen Oxides (as NO2)
+      concentration_mg_m3: 1-10
+      exposure_limit_mg_m3: 0.2
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal effects may damage heat-sensitive substrates
+    - Moisture content in biological growth can cause steam generation
+    - Potential for substrate discoloration or surface modification
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 5-50
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 100-500
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 0.5-5
+        hazard_class: carcinogenic
+      - compound: Acetaldehyde
+        concentration_mg_m3: 0.1-2
+        hazard_class: carcinogenic
+      description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced protection'
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 10
+      rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Chlorophyll
 - Polysaccharides
@@ -531,6 +310,7 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: growth
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

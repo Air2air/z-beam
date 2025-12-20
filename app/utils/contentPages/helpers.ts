@@ -100,17 +100,21 @@ export async function generateItemMetadata(
     if (articleCategory !== categorySlug || articleSubcategory !== subcategorySlug) {
       // Wrong URL structure - will redirect in page component
       return {
-        title: articleMeta.title || SITE_CONFIG.shortName,
+        title: articleMeta.title || articleMeta.name || SITE_CONFIG.shortName,
         description: articleMeta.description || ''
       };
     }
     
     const canonicalUrl = `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`;
     
-    const baseMetadata = createMetadata({
+    // Ensure title field exists for metadata generation (settings use 'name' field)
+    const metadataWithTitle = {
       ...articleMeta,
+      title: articleMeta.title || articleMeta.name,
       canonical: canonicalUrl
-    } as any);
+    };
+    
+    const baseMetadata = createMetadata(metadataWithTitle as any);
     
     return {
       ...baseMetadata,

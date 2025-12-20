@@ -1,18 +1,20 @@
 // app/components/CardGrid/index.ts
-// Consolidated article grid system - all variants use the same core components
+// Consolidated article grid system
 
-// Core components - use these for all article grid needs
+// Use client version for all imports - it's now the single source of truth with imageUrl fixes
 export { CardGrid } from './CardGrid';
-export { CardGridSSR } from './CardGridSSR';
+export { CardGrid as CardGridSSR } from './CardGrid.server';
 
-// Backward compatibility exports - all point to core components
+// Backward compatibility exports - all point to client CardGrid (now fixed with imageUrl support)
 export { CardGrid as UnifiedCardGrid } from './CardGrid';
-export { CardGridSSR as UnifiedCardGridSSR } from './CardGridSSR';
+export { CardGrid as UnifiedCardGridSSR } from './CardGrid';
 export { CardGrid as CategoryGroupedGrid } from './CardGrid';
-export { CardGridSSR as CategoryGroupedGridSSR } from './CardGridSSR';
+export { CardGrid as CategoryGroupedGridSSR } from './CardGrid';
 export { CardGrid as SearchResultsGrid } from './CardGrid';
 export { CardGrid as List } from './CardGrid';
-export { CardGridSSR as ListSSR } from './CardGridSSR';
+export { CardGrid as ListSSR } from './CardGrid';
 
 // Legacy component exports - deprecated, use CardGrid instead
 export { CardGrid as ListSimplified } from './CardGrid';
+
+

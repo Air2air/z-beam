@@ -169,7 +169,9 @@ export default async function MaterialsPage() {
     if (firstMaterial?.slug) {
       try {
         const article = await getArticle(firstMaterial.slug);
-        imageUrl = article?.metadata?.images?.hero?.url || imageUrl;
+        if (article?.metadata && 'images' in article.metadata) {
+          imageUrl = (article.metadata as any).images?.hero?.url || imageUrl;
+        }
       } catch (error) {
         // Use fallback if material can't be loaded
         console.warn(`Could not load image for ${firstMaterial.slug}`);

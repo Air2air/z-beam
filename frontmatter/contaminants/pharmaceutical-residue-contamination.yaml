@@ -1,8 +1,8 @@
 id: pharmaceutical-residue-contamination
 name: Pharmaceutical Drug Residue
 category: chemical-residue
-datePublished: '2025-12-20T04:14:40.594653Z'
-dateModified: '2025-12-20T04:14:40.594653Z'
+datePublished: '2025-12-20T22:18:39.834226Z'
+dateModified: '2025-12-20T22:18:39.834226Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination
@@ -167,13 +167,13 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
       - compound: nitrogen-oxides
         hazard_level: moderate
         phase: gas
-      - compound: carbonized_residue
+      - compound: carbon-ash
         hazard_level: moderate
         phase: solid
       damage_risk_to_substrate: low
@@ -192,44 +192,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Pyrolytic Carbon Particles
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 3
-        hazard_class: toxic
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 10-100
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 0.1-2
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Volatile Organic Compounds (VOCs)
-        concentration_mg_m3: 5-30
-        exposure_limit_mg_m3: 50
-        hazard_class: toxic
-      particulate_generation:
-        respirable_fraction: 0.8
-        size_range_um:
-        - 0.01
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser parameters must be optimized to prevent substrate damage and excessive pyrolysis
-      - Residue composition may vary significantly between pharmaceutical products
-      - Potential for secondary contamination of surrounding surfaces
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 1.2
@@ -253,66 +215,72 @@ relationships:
   - Gorilla Glass
   - Tempered Glass
   prohibited_materials: []
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: stainless-steel-laser-cleaning
-          title: Stainless Steel
-          url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-          image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      glass:
-        title: Glass Materials
-        description: Materials in the glass category
-        items:
-        - id: crown-glass-laser-cleaning
-          title: Crown Glass
-          url: /materials/glass/soda-lime/crown-glass-laser-cleaning
-          image: /images/material/crown-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminosilicate-glass-laser-cleaning
-          title: Aluminosilicate Glass
-          url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
-          image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: tempered-glass-laser-cleaning
-          title: Tempered Glass
-          url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
-          image: /images/material/tempered-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: fused-silica-laser-cleaning
-          title: Fused Silica
-          url: /materials/glass/soda-lime/fused-silica-laser-cleaning
-          image: /images/material/fused-silica-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: borosilicate-glass-laser-cleaning
-          title: Borosilicate Glass
-          url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
-          image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: float-glass-laser-cleaning
-          title: Float Glass
-          url: /materials/glass/soda-lime/float-glass-laser-cleaning
-          image: /images/material/float-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: gorilla-glass-laser-cleaning
-          title: Gorilla Glass
-          url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
-          image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Pyrolytic Carbon Particles
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 3
+      hazard_class: toxic
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 10-100
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+      concentration_mg_m3: 0.1-2
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    - compound: Volatile Organic Compounds (VOCs)
+      concentration_mg_m3: 5-30
+      exposure_limit_mg_m3: 50
+      hazard_class: toxic
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.01
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to prevent substrate damage and excessive pyrolysis
+    - Residue composition may vary significantly between pharmaceutical products
+    - Potential for secondary contamination of surrounding surfaces
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Pyrolytic Carbon Particles
+        concentration_mg_m3: 5-50
+        hazard_class: toxic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 10-100
+        hazard_class: toxic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 0.1-2
+        hazard_class: carcinogenic
+      - compound: Volatile Organic Compounds (VOCs)
+        concentration_mg_m3: 5-30
+        hazard_class: toxic
+      description: 'Multiple toxic compounds detected: Pyrolytic Carbon Particles, Carbon Monoxide, Polycyclic Aromatic Hydrocarbons
+        (PAHs) - requires enhanced protection'
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - APIs
 - Excipients
@@ -348,6 +316,7 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: industrial
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

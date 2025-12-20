@@ -1,7 +1,7 @@
 /**
  * @component HazardousCompoundsGrid
  * @purpose Extended grid for displaying domain linkage compounds with enhanced safety data
- * @extends CardGridSSR - Adds safety indicators, severity ordering, and enhanced metadata
+ * @extends CardGrid - Adds safety indicators, severity ordering, and enhanced metadata
  * 
  * ✅ USE ON: Contamination pages only
  *    - Displays produces_compounds from contaminant frontmatter
@@ -13,8 +13,8 @@
  */
 'use client';
 
-import { CardGridSSR } from '../CardGrid/CardGridSSR';
-import { GridItemSSR } from '@/types';
+import { CardGrid } from '../CardGrid';
+import { GridItem } from '@/types';
 
 interface EnhancedCompound {
   id: string;
@@ -90,13 +90,13 @@ export function HazardousCompoundsGrid({
     }
   });
 
-  // Transform compounds to GridItemSSR format
-  const gridItems: GridItemSSR[] = sortedCompounds.map((compound) => {
+  // Transform compounds to GridItem format
+  const gridItems: GridItem[] = sortedCompounds.map((compound) => {
     // Build subject with optional safety indicators
-    let subject = compound.title;
+    const subject = compound.title;
     
     // Add concentration badge if available and enabled
-    const concentrationBadge = showConcentrations && compound.concentration_range
+    const concentrationBadge = showConcentrations && compound.concentration_range?.min_mg_m3 && compound.concentration_range?.max_mg_m3
       ? `${compound.concentration_range.min_mg_m3}-${compound.concentration_range.max_mg_m3} mg/m³`
       : undefined;
     
@@ -105,7 +105,10 @@ export function HazardousCompoundsGrid({
       ? '⚠️ Exceeds Exposure Limit'
       : undefined;
 
+    const slug = compound.url.split('/').pop() || '';
+
     return {
+      slug,
       href: compound.url,
       frontmatter: {
         title: compound.title,
@@ -119,7 +122,7 @@ export function HazardousCompoundsGrid({
         // Pass through safety metadata for Card component
         severity: compound.severity,
         exposure_risk: compound.exposure_risk,
-        concentration_range: compound.concentration_range,
+        concentration_range: compound.concentration_range || {},
         exceeds_limits: compound.exceeds_limits,
         monitoring_required: compound.monitoring_required,
         ppe_level: compound.control_measures?.ppe_level,
@@ -133,9 +136,9 @@ export function HazardousCompoundsGrid({
         concentration_badge: concentrationBadge,
         exceeds_warning: exceedsWarning,
         // Additional metadata for potential tooltips/hover states
-        ...compound.concentration_range,
-        ...compound.exposure_limits,
-        ...compound.control_measures,
+        ...(compound.concentration_range || {}),
+        ...(compound.exposure_limits || {}),
+        ...(compound.control_measures || {}),
       },
     };
   });
@@ -153,9 +156,9 @@ export function HazardousCompoundsGrid({
         )}
       </div>
 
-      <CardGridSSR
+      <CardGrid
         items={gridItems}
-        variant="domain-linkage"
+        variant="relationship"
         columns={columns}
       />
     </div>

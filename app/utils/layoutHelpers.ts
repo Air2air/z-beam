@@ -197,7 +197,9 @@ export function generateDefaultIssues(settings: any) {
 }
 
 /**
- * Get risk color styling for contaminants
+ * Get risk color styling based on severity level
+ * Supports schema-defined severity levels: critical, high, moderate, medium, low, none
+ * @see docs/specs/SAFETY_RISK_SEVERITY_SCHEMA.md
  */
 export function getRiskColor(risk: string) {
   switch (risk?.toLowerCase()) {
@@ -209,6 +211,8 @@ export function getRiskColor(risk: string) {
       return 'text-yellow-400 bg-yellow-900/20 border-yellow-500';
     case 'low':
       return 'text-green-400 bg-green-900/20 border-green-500';
+    case 'none':
+      return 'text-gray-400 bg-gray-800/50 border-gray-600';
     default:
       return 'text-gray-400 bg-gray-800/50 border-gray-600';
   }

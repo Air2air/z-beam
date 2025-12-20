@@ -17,7 +17,7 @@ import * as path from 'path';
 // Mock data for testing
 const mockMaterialData = {
   title: 'Aluminum Laser Cleaning',
-  material_description: 'Industrial aluminum laser cleaning with precise power settings',
+  description: 'Industrial aluminum laser cleaning with precise power settings',
   micro: 'Aluminum surface cleaning',
   category: 'metal',
   subcategory: 'non-ferrous',
@@ -74,25 +74,25 @@ describe('Google Merchant Feed Generation', () => {
   });
 
   describe('Description Extraction', () => {
-    it('should prioritize material_description field', () => {
+    it('should prioritize description field', () => {
       const data = {
-        material_description: 'Primary description',
+        description: 'Primary description',
         micro: 'Secondary micro',
         title: 'Fallback title'
       };
       
-      const description = data.material_description || data.micro || `Professional laser cleaning service for ${data.title}`;
+      const description = data.description || data.micro || `Professional laser cleaning service for ${data.title}`;
       
       expect(description).toBe('Primary description');
     });
 
-    it('should fallback to micro if material_description missing', () => {
+    it('should fallback to micro if description missing', () => {
       const data = {
         micro: 'Secondary micro',
         title: 'Aluminum Laser Cleaning'
       };
       
-      const description = (data as any).material_description || data.micro || `Professional laser cleaning service for ${data.title}`;
+      const description = (data as any).description || data.micro || `Professional laser cleaning service for ${data.title}`;
       
       expect(description).toBe('Secondary micro');
     });
@@ -102,7 +102,7 @@ describe('Google Merchant Feed Generation', () => {
         title: 'Aluminum Laser Cleaning'
       };
       
-      const description = (data as any).material_description || (data as any).micro || `Professional laser cleaning service for ${data.title}`;
+      const description = (data as any).description || (data as any).micro || `Professional laser cleaning service for ${data.title}`;
       
       expect(description).toBe('Professional laser cleaning service for Aluminum Laser Cleaning');
     });

@@ -11,7 +11,7 @@ import MaterialDatasetCardWrapper from '@/app/components/Dataset/MaterialDataset
 import { MachineSettings } from '@/app/components/MachineSettings/MachineSettings';
 import { ScheduleCards } from '@/app/components/Schedule/ScheduleCards';
 import { GridSection } from '@/app/components/GridSection/GridSection';
-import { LinkageGridGroup } from '@/app/components/LinkageGridGroup/LinkageGridGroup';
+import { CardGrid } from '@/app/components/CardGrid';
 import { getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
 import { DataGrid } from '@/app/components/DataGrid/DataGrid';
 import { 
@@ -20,14 +20,10 @@ import {
   settingsLinkageToGridItem 
 } from '@/app/utils/gridMappers';
 import { sortByFrequency, sortBySeverity } from '@/app/utils/gridSorters';
-import { SettingsMetadata, LayoutProps } from '@/types/centralized';
+import { SettingsMetadata, LayoutProps, SettingsLayoutProps } from '@/types/centralized';
 
-interface SettingsLayoutProps extends LayoutProps {
-  materialProperties?: any;
-  category: string;
-  subcategory: string;
-  slug: string;
-}
+// Re-export for convenience
+export type { SettingsLayoutProps };
 
 /**
  * Infer criticality level from parameter key
@@ -129,7 +125,8 @@ function prepareSettingsData(
     thermalConfig,
     diagnosticConfig,
     paramData,
-    findParam
+    findParam,
+    relationships // Add relationships to returned object
   };
 }
 
@@ -190,7 +187,8 @@ export function SettingsLayout({
     thermalConfig,
     diagnosticConfig,
     paramData,
-    findParam
+    findParam,
+    relationships // Destructure relationships from prepareSettingsData
   } = prepareSettingsData(settings, materialProperties);
 
   // Extract heatmap configuration (check hybrid format first, then legacy, then simple machineSettings)
@@ -292,7 +290,7 @@ export function SettingsLayout({
     <Layout 
       metadata={enrichedMetadata}
       slug={slug}
-      title={settings.title}
+      title={settings.title || settings.name}
       components={{ _settings: { content: '' } }} // Enable author section with dummy component
     >
       {/* Settings-specific visualizations below */}
@@ -607,67 +605,36 @@ export function SettingsLayout({
         materialLink={materialLink}
       />
 
-      {/* Related Content - Grouped linkages */}
-      <LinkageGridGroup
-        title="Related Content"
-        description="Explore compatible materials, contaminants, and alternative settings"
-        grids={[
-          {
-            data: (metadata as any)?.effective_against || [],
-            type: 'contaminants' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'contaminant_linkage',
-              'Effective Against',
-              'Contaminants these settings are optimized to remove'
-            ),
-            sortBy: 'severity' as const,
-            variant: 'domain-linkage' as const,
-          },
-          {
-            data: (metadata as any)?.related_materials || [],
-            type: 'materials' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'material_linkage',
-              'Compatible Materials',
-              'Materials that work well with these settings'
-            ),
-            sortBy: 'frequency' as const,
-          },
-          {
-            data: (metadata as any)?.related_contaminants || [],
-            type: 'contaminants' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'compound_linkage',
-              'Related Contaminants',
-              'Other contaminants these settings can address'
-            ),
-            sortBy: 'severity' as const,
-            variant: 'domain-linkage' as const,
-          },
-          {
-            data: (metadata as any)?.related_settings || [],
-            type: 'settings' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'settings_linkage',
-              'Related Settings',
-              'Alternative settings configurations'
-            ),
-            sortBy: 'frequency' as const,
-          },
-        ]}
-      />
+      {/* Material groups (from relationships.materials.groups) */}
+      {(relationships?.materials?.groups ? Object.values(relationships.materials.groups) : []).map((group: any, index: number) => (
+        group?.items?.length > 0 && (
+          <CardGrid
+            key={`materials-group-${index}`}
+            items={(group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem)}
+            title={group.title}
+            description={group.description}
+          />
+        )
+      ))}
 
-      {/* Schedule Cards */}
-      <div className="mb-16">
-        <ScheduleCards />
-      </div>
+      {/* Contaminant groups (from relationships.contaminants.groups) */}
+      {(relationships?.contaminants?.groups ? Object.values(relationships.contaminants.groups) : []).map((group: any, index: number) => (
+        group?.items?.length > 0 && (
+          <CardGrid
+            key={`contaminants-group-${index}`}
+            items={(group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem)}
+            title={group.title}
+            description={group.description}
+            variant="relationship"
+          />
+        )
+      ))}
 
       {/* Custom content slot */}
       {children}
+
+      {/* Schedule Cards - always at bottom */}
+      <ScheduleCards />
     </Layout>
   );
 }

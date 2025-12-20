@@ -1,8 +1,8 @@
 id: copper-plating-contamination
 name: Copper Electroplating
 category: metallic-coating
-datePublished: '2025-12-20T04:14:38.901554Z'
-dateModified: '2025-12-20T04:14:38.901554Z'
+datePublished: '2025-12-20T22:18:38.755927Z'
+dateModified: '2025-12-20T22:18:38.755927Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/copper-plating-contamination
@@ -141,13 +141,13 @@ relationships:
       transmission_depth: 0.083
     removal_characteristics:
       byproducts:
-      - compound: CuO
+      - compound: copper-oxide
         hazard_level: moderate
         phase: solid
-      - compound: Cu
+      - compound: copper-oxide
         hazard_level: moderate
         phase: gas
-      - compound: Cu₂O
+      - compound: copper-oxide
         hazard_level: moderate
         phase: solid
       damage_risk_to_substrate: medium
@@ -166,36 +166,6 @@ relationships:
         color_change: 'yes'
         residual_stress: compressive
         roughness_increase: moderate
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Copper fume
-        concentration_mg_m3: 0.5
-        exposure_limit_mg_m3: 0.1
-        hazard_class: toxic
-      - compound: Copper oxide nanoparticles
-        concentration_mg_m3: 0.3
-        exposure_limit_mg_m3: 0.1
-        hazard_class: toxic
-      particulate_generation:
-        respirable_fraction: 0.9
-        size_range_um:
-        - 0.01
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser cleaning may release residual plating bath chemicals trapped in coating
-      - Potential for hydrogen embrittlement if substrate was high-strength steel
-      - Copper oxides may form and create different surface properties
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 3.5
@@ -215,26 +185,56 @@ relationships:
   prohibited_materials:
   - Aluminum
   - Zinc
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Copper fume
+      concentration_mg_m3: 0.5
+      exposure_limit_mg_m3: 0.1
+      hazard_class: toxic
+    - compound: Copper oxide nanoparticles
+      concentration_mg_m3: 0.3
+      exposure_limit_mg_m3: 0.1
+      hazard_class: toxic
+    particulate_generation:
+      respirable_fraction: 0.9
+      size_range_um:
+      - 0.01
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may release residual plating bath chemicals trapped in coating
+    - Potential for hydrogen embrittlement if substrate was high-strength steel
+    - Copper oxides may form and create different surface properties
+    toxic_gas_risk:
+      severity: low
+      primary_hazards:
+      - compound: Copper fume
+        concentration_mg_m3: 0.5
+        hazard_class: toxic
+      - compound: Copper oxide nanoparticles
+        concentration_mg_m3: 0.3
+        hazard_class: toxic
+      description: Copper fume and Copper oxide nanoparticles generation - multiple toxic compounds
+      mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.90 (90% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Cu
 - Cu Compounds
@@ -268,6 +268,7 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: plating
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

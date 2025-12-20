@@ -68,7 +68,8 @@ subcategory: specialty5. **pulseWidth** - Pulse duration (ns)
 
 title: Titanium Laser Cleaning6. **scanSpeed** - Scanning velocity (mm/s)
 
-material_description: Laser cleaning parameters and specifications for Titanium7. **fluence** - Energy density (J/cm²)
+description: Laser cleaning parameters and specifications for Titanium
+7. **fluence** - Energy density (J/cm²)
 
 8. **overlapRatio** - Beam overlap percentage (%)
 

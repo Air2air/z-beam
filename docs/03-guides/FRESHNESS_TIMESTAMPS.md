@@ -58,11 +58,11 @@ git commit -m "feat: add freshness timestamps to all frontmatter files"
 ```yaml
 # Before
 title: Aluminum Laser Cleaning
-material_description: Precision surface preparation...
+description: Precision surface preparation...
 
 # After
 title: Aluminum Laser Cleaning
-material_description: Precision surface preparation...
+description: Precision surface preparation...
 datePublished: '2025-10-25T13:53:55.449239Z'  # ← NEW (from micro.generated)
 dateModified: '2025-11-15T14:22:33.891234Z'   # ← NEW (current time)
 ```

@@ -60,12 +60,16 @@ Restructured material page URLs from flat structure to hierarchical SEO-optimize
 
 ### Utilities Created
 
-**`/app/utils/materialCategories.ts`**
+**`/app/utils/materialCategories.ts`** (thin wrapper around generic utilities)
 - `getAllCategories()` - Extract all categories from YAML files
 - `getMaterialsByCategory(category)` - Get materials for category
 - `getMaterialsBySubcategory(category, subcategory)` - Get subcategory materials
 - `getCategoryInfo(category)` - Get category metadata
 - `getSubcategoryInfo(category, subcategory)` - Get subcategory metadata
+
+**`/app/utils/categories/generic.ts`** (consolidated implementation)
+- Generic category extraction logic used by all content types (materials, contaminants, compounds, settings)
+- See `docs/08-development/CATEGORY_CONSOLIDATION.md` for details
 
 ### Breadcrumb Integration
 

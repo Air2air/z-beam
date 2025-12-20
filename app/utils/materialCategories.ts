@@ -1,13 +1,18 @@
 // app/utils/materialCategories.ts
 /**
  * Material category and subcategory utilities
- * Extracts category structure from material YAML frontmatter files
+ * Thin wrapper around generic category utilities
  */
 
-import fs from 'fs/promises';
-import path from 'path';
-import yaml from 'js-yaml';
-import { normalizeForUrl } from './urlBuilder';
+import { 
+  getAllCategoriesGeneric, 
+  getSubcategoryInfoGeneric, 
+  getItemInfoGeneric,
+  type GenericItemInfo 
+} from './categories/generic';
+
+// Type aliases for backward compatibility
+export type MaterialInfo = GenericItemInfo;
 
 export interface CategoryInfo {
   slug: string;
@@ -22,92 +27,20 @@ export interface SubcategoryInfo {
   materials: MaterialInfo[];
 }
 
-export interface MaterialInfo {
-  slug: string;
-  name: string;
-  title: string;
-  category: string;
-  subcategory?: string;
-}
-
 /**
  * Get all unique categories from material frontmatter files
  */
 export async function getAllCategories(): Promise<CategoryInfo[]> {
-  const frontmatterDir = path.join(process.cwd(), 'frontmatter/materials');
-  const files = await fs.readdir(frontmatterDir);
-  const yamlFiles = files.filter(f => f.endsWith('.yaml') || f.endsWith('.yml'));
-  
-  const categoryMap = new Map<string, CategoryInfo>();
-  
-  for (const file of yamlFiles) {
-    const filePath = path.join(frontmatterDir, file);
-    const content = await fs.readFile(filePath, 'utf8');
-    const parsed = yaml.load(content) as any;
-    
-    // Handle normalized structure (parsed.metadata) or legacy flat structure
-    const data = parsed.metadata || parsed;
-    
-    if (!data.category) continue;
-    
-    const categorySlug = normalizeForUrl(data.category);
-    const categoryLabel = capitalizeWords(data.category);
-    const subcategorySlug = data.subcategory ? normalizeForUrl(data.subcategory) : undefined;
-    const subcategoryLabel = data.subcategory ? capitalizeWords(data.subcategory) : undefined;
-    const materialSlug = file.replace(/\.(yaml|yml)$/, '');
-    
-    const materialInfo: MaterialInfo = {
-      slug: materialSlug,
-      name: data.name || materialSlug,
-      title: data.title || materialSlug,
-      category: categorySlug,
-      subcategory: subcategorySlug
-    };
-    
-    // Get or create category
-    if (!categoryMap.has(categorySlug)) {
-      categoryMap.set(categorySlug, {
-        slug: categorySlug,
-        label: categoryLabel,
-        subcategories: [],
-        materials: []
-      });
-    }
-    
-    const category = categoryMap.get(categorySlug)!;
-    
-    // Add to category materials
-    category.materials.push(materialInfo);
-    
-    // Handle subcategory if present
-    if (subcategorySlug && subcategoryLabel) {
-      let subcategory = category.subcategories.find(s => s.slug === subcategorySlug);
-      
-      if (!subcategory) {
-        subcategory = {
-          slug: subcategorySlug,
-          label: subcategoryLabel,
-          materials: []
-        };
-        category.subcategories.push(subcategory);
-      }
-      
-      subcategory.materials.push(materialInfo);
-    }
-  }
-  
-  // Sort categories and subcategories alphabetically
-  const categories = Array.from(categoryMap.values());
-  categories.sort((a, b) => a.label.localeCompare(b.label));
-  categories.forEach(cat => {
-    cat.subcategories.sort((a, b) => a.label.localeCompare(b.label));
-    cat.materials.sort((a, b) => a.name.localeCompare(b.name));
-    cat.subcategories.forEach(sub => {
-      sub.materials.sort((a, b) => a.name.localeCompare(b.name));
-    });
-  });
-  
-  return categories;
+  const result = await getAllCategoriesGeneric<MaterialInfo>('materials');
+  // Map generic structure to material-specific structure
+  return result.map(cat => ({
+    ...cat,
+    materials: cat.items,
+    subcategories: cat.subcategories.map(sub => ({
+      ...sub,
+      materials: sub.items
+    }))
+  }));
 }
 
 /**
@@ -147,16 +80,10 @@ export async function getSubcategoryInfo(
   categorySlug: string,
   subcategorySlug: string
 ): Promise<SubcategoryInfo | null> {
-  const category = await getCategoryInfo(categorySlug);
-  return category?.subcategories.find(s => s.slug === subcategorySlug) || null;
-}
-
-/**
- * Capitalize words helper
- */
-function capitalizeWords(str: string): string {
-  return str
-    .split(/[\s-]+/)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
+  const result = await getSubcategoryInfoGeneric<MaterialInfo>('materials', categorySlug, subcategorySlug);
+  if (!result) return null;
+  return {
+    ...result,
+    materials: result.items
+  };
 }

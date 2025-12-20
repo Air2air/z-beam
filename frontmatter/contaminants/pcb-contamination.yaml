@@ -1,8 +1,8 @@
 id: pcb-contamination
 name: PCB Oil Contamination
 category: chemical-residue
-datePublished: '2025-12-20T04:14:40.502759Z'
-dateModified: '2025-12-20T04:14:40.502759Z'
+datePublished: '2025-12-20T22:18:39.799165Z'
+dateModified: '2025-12-20T22:18:39.799165Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/pcb-contamination
@@ -168,16 +168,16 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
       - compound: carbon-monoxide
         hazard_level: moderate
         phase: gas
-      - compound: VOCs
+      - compound: vocs
         hazard_level: moderate
         phase: gas
-      - compound: carbon_particulates
+      - compound: carbon-particulates
         hazard_level: moderate
         phase: solid
       damage_risk_to_substrate: low
@@ -196,44 +196,6 @@ relationships:
         color_change: 'no'
         residual_stress: none
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 2.5
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Aldehydes (formaldehyde)
-        concentration_mg_m3: 1.8
-        exposure_limit_mg_m3: 0.3
-        hazard_class: carcinogenic
-      - compound: Carbon monoxide
-        concentration_mg_m3: 15.0
-        exposure_limit_mg_m3: 29.0
-        hazard_class: toxic
-      - compound: Particulate organics
-        concentration_mg_m3: 8.5
-        exposure_limit_mg_m3: 3.0
-        hazard_class: toxic
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-      substrate_compatibility_warnings:
-      - Laser parameters must be optimized to minimize substrate damage and excessive fume generation
-      - Incomplete combustion may increase PAH formation - ensure proper ventilation
-      - Oil residues may create reflective surfaces requiring laser safety considerations
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 1.2
@@ -252,30 +214,72 @@ relationships:
   - Transformer Housings
   prohibited_materials:
   - Food Areas
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      masonry:
-        title: Masonry Materials
-        description: Materials in the masonry category
-        items:
-        - id: concrete-laser-cleaning
-          title: Concrete
-          url: /materials/masonry/general/concrete-laser-cleaning
-          image: /images/material/concrete-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+      concentration_mg_m3: 2.5
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    - compound: Aldehydes (formaldehyde)
+      concentration_mg_m3: 1.8
+      exposure_limit_mg_m3: 0.3
+      hazard_class: carcinogenic
+    - compound: Carbon monoxide
+      concentration_mg_m3: 15.0
+      exposure_limit_mg_m3: 29.0
+      hazard_class: toxic
+    - compound: Particulate organics
+      concentration_mg_m3: 8.5
+      exposure_limit_mg_m3: 3.0
+      hazard_class: toxic
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize substrate damage and excessive fume generation
+    - Incomplete combustion may increase PAH formation - ensure proper ventilation
+    - Oil residues may create reflective surfaces requiring laser safety considerations
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 2.5
+        hazard_class: carcinogenic
+      - compound: Aldehydes (formaldehyde)
+        concentration_mg_m3: 1.8
+        hazard_class: carcinogenic
+      - compound: Carbon monoxide
+        concentration_mg_m3: 15.0
+        hazard_class: toxic
+      - compound: Particulate organics
+        concentration_mg_m3: 8.5
+        hazard_class: toxic
+      description: 'Multiple toxic compounds detected: Polycyclic Aromatic Hydrocarbons (PAHs), Aldehydes (formaldehyde),
+        Carbon monoxide - requires enhanced protection'
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Polycyclic Aromatic Hydrocarbons (PAHs), Aldehydes (formaldehyde) - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - C₁₂H₁₀₋ₓClₓ
 - Chlorinated Compounds
@@ -308,6 +312,7 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: industrial
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

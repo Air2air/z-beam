@@ -26,7 +26,6 @@ export type {
   BreadcrumbListObject,
   ListItemObject,
   MaterialPropertyValue,
-  MaterialProperties,
   FrontmatterBase,
   MaterialFrontmatter,
   ArticleFrontmatter,
@@ -43,19 +42,21 @@ export type {
 // DOMAIN LINKAGES TYPES (LEGACY - Use frontmatter-relationships instead)
 // ============================================================================
 // Types for the domain_linkages system - bidirectional cross-domain relationships
-export type {
-  BaseDomainLinkage,
-  MaterialLinkage,
-  ContaminantLinkage,
-  CompoundLinkage,
-  SettingsLinkage,
-  RegulatoryLinkage,
-  PPELinkage,
-  DomainLinkage,
-  DomainLinkages,
-  DomainLinkageSectionProps,
-  DomainType,
-} from './domain-linkages';
+// Note: domain-linkages.ts exists but may not export these types
+// Commenting out to fix TS2306 error
+// export type {
+//   BaseRelationship,
+//   MaterialLinkage,
+//   ContaminantLinkage,
+//   CompoundLinkage,
+//   SettingsLinkage,
+//   RegulatoryLinkage,
+//   PPELinkage,
+//   Relationship,
+//   Relationships,
+//   RelationshipSectionProps,
+//   DomainType,
+// } from './domain-linkages';
 
 // ============================================================================
 // FRONTMATTER RELATIONSHIPS TYPES (NEW UNIFIED SCHEMA)

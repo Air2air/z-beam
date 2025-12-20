@@ -3,6 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { getGridClasses } from '@/app/utils/gridConfig';
 import { 
   PackageIcon, 
   FileIcon, 
@@ -47,7 +48,7 @@ export default function CategoryGrid({ categoryStats, materials: _materials }: C
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <div className={getGridClasses({ columns: 3, gap: 'md' })}>
       {categories.map(([category, count]) => {
         const Icon = categoryIcons[category] || PackageIcon;
         const colors = categoryColors[category] || categoryColors.metal;

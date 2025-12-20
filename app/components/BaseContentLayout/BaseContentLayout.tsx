@@ -5,27 +5,14 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Layout } from '../Layout/Layout';
-import type { LayoutProps } from '@/types';
+import type { LayoutProps, SectionConfig, BaseContentLayoutProps } from '@/types';
 
 const Micro = dynamic(() => import('../Micro/Micro').then(mod => ({ default: mod.Micro })), {
   ssr: true
 });
 
-export interface SectionConfig {
-  component: React.ComponentType<any>;
-  condition?: boolean | (() => boolean);
-  props?: Record<string, any>;
-}
-
-export interface BaseContentLayoutProps extends LayoutProps {
-  slug?: string;
-  category?: string;
-  subcategory?: string;
-  contentType: 'materials' | 'contaminants' | 'settings';
-  sections?: SectionConfig[];
-  showMicro?: boolean;
-  enrichedMetadata?: any;
-}
+// Re-export types for convenience
+export type { SectionConfig, BaseContentLayoutProps };
 
 /**
  * BaseContentLayout - Unified layout component
@@ -46,16 +33,18 @@ export function BaseContentLayout({
   sections = [],
   showMicro = true,
   enrichedMetadata,
+  title,
   ...layoutProps
 }: BaseContentLayoutProps) {
   const effectiveMetadata = enrichedMetadata || metadata;
-  const itemName = (metadata?.title as string) || metadata?.name || slug;
+  const itemName = title || (metadata?.title as string) || metadata?.name || slug;
   
   return (
     <Layout 
       {...layoutProps}
       metadata={effectiveMetadata}
       slug={slug}
+      title={itemName}
     >
       {/* Page-specific content passed from route page */}
       {children}
@@ -70,20 +59,16 @@ export function BaseContentLayout({
         if (!shouldRender) return null;
         
         return (
-          <div key={index} className="mb-16">
-            <Component {...props} />
-          </div>
+          <Component key={index} {...props} />
         );
       })}
       
       {/* Micro - Common across all content types */}
       {showMicro && metadata?.images?.micro?.url && (
-        <div className="mb-16">
-          <Micro 
-            frontmatter={metadata}
-            config={{}}
-          />
-        </div>
+        <Micro 
+          frontmatter={metadata as any}
+          config={{}}
+        />
       )}
     </Layout>
   );

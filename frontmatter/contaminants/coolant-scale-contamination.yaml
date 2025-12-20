@@ -1,8 +1,8 @@
 id: coolant-scale-contamination
 name: Engine Coolant Scale
 category: thermal-damage
-datePublished: '2025-12-20T04:14:38.810163Z'
-dateModified: '2025-12-20T04:14:38.810163Z'
+datePublished: '2025-12-20T22:18:38.709016Z'
+dateModified: '2025-12-20T22:18:38.709016Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/scale/coolant-scale-contamination
@@ -149,13 +149,13 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
-      - compound: CaO/MgO
+      - compound: calcium-oxide
         hazard_level: low
         phase: solid
-      - compound: organic residues
+      - compound: organic-residues
         hazard_level: moderate
         phase: solid
       damage_risk_to_substrate: low
@@ -174,48 +174,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Ethylene Glycol
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 127
-        hazard_class: irritant
-      - compound: Glycolic Acid
-        concentration_mg_m3: 2-20
-        exposure_limit_mg_m3: 8
-        hazard_class: irritant
-      - compound: Oxalic Acid
-        concentration_mg_m3: 1-15
-        exposure_limit_mg_m3: 1
-        hazard_class: toxic
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 10-100
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Formaldehyde
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser may etch or discolor underlying metal surfaces
-      - Thermal stress may cause micro-cracking in thin substrates
-      - Residual glycol compounds may require post-cleaning solvent wipe
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 2.5
@@ -235,32 +193,72 @@ relationships:
   prohibited_materials:
   - Plastics
   - Rubber
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cast-iron-laser-cleaning
-          title: Cast Iron
-          url: /materials/metal/ferrous/cast-iron-laser-cleaning
-          image: /images/material/cast-iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Ethylene Glycol
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 127
+      hazard_class: irritant
+    - compound: Glycolic Acid
+      concentration_mg_m3: 2-20
+      exposure_limit_mg_m3: 8
+      hazard_class: irritant
+    - compound: Oxalic Acid
+      concentration_mg_m3: 1-15
+      exposure_limit_mg_m3: 1
+      hazard_class: toxic
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 10-100
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Formaldehyde
+      concentration_mg_m3: 1-10
+      exposure_limit_mg_m3: 0.37
+      hazard_class: carcinogenic
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may etch or discolor underlying metal surfaces
+    - Thermal stress may cause micro-cracking in thin substrates
+    - Residual glycol compounds may require post-cleaning solvent wipe
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Oxalic Acid
+        concentration_mg_m3: 1-15
+        hazard_class: toxic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 10-100
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1-10
+        hazard_class: carcinogenic
+      description: 'Multiple toxic compounds detected: Oxalic Acid, Carbon Monoxide, Formaldehyde - requires enhanced protection'
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - SiO₂
 - CaCO₃
@@ -294,6 +292,7 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: scale
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

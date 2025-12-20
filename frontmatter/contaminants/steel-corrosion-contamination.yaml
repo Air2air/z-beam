@@ -1,8 +1,8 @@
 id: steel-corrosion-contamination
 name: Steel Surface Corrosion
 category: oxidation
-datePublished: '2025-12-20T04:14:41.538377Z'
-dateModified: '2025-12-20T04:14:41.538377Z'
+datePublished: '2025-12-20T22:18:40.374170Z'
+dateModified: '2025-12-20T22:18:40.374170Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/ferrous/steel-corrosion-contamination
@@ -147,10 +147,10 @@ relationships:
       transmission_depth: 1.2
     removal_characteristics:
       byproducts:
-      - compound: Fe2O3 nanoparticles
+      - compound: iron-oxide
         hazard_level: moderate
         phase: solid
-      - compound: Fe3O4
+      - compound: iron-oxide
         hazard_level: low
         phase: solid
       - compound: carbon-dioxide
@@ -172,44 +172,6 @@ relationships:
         color_change: 'yes'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Iron Oxide (FeO/Fe2O3/Fe3O4)
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      - compound: Manganese Oxide
-        concentration_mg_m3: 0.1-5.0
-        exposure_limit_mg_m3: 0.2
-        hazard_class: toxic
-      - compound: Chromium Oxide
-        concentration_mg_m3: 0.01-1.0
-        exposure_limit_mg_m3: 0.5
-        hazard_class: toxic
-      - compound: Nickel Oxide
-        concentration_mg_m3: 0.01-0.5
-        exposure_limit_mg_m3: 0.1
-        hazard_class: carcinogenic
-      particulate_generation:
-        respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - High-power lasers can create surface micro-cracking in certain steel alloys
-      - Potential for hydrogen embrittlement in high-strength steels
-      - May alter surface metallurgy and corrosion resistance properties
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 4.5
@@ -229,20 +191,68 @@ relationships:
   - Stainless Steel
   - Aluminum
   - Copper
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Iron Oxide (FeO/Fe2O3/Fe3O4)
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    - compound: Manganese Oxide
+      concentration_mg_m3: 0.1-5.0
+      exposure_limit_mg_m3: 0.2
+      hazard_class: toxic
+    - compound: Chromium Oxide
+      concentration_mg_m3: 0.01-1.0
+      exposure_limit_mg_m3: 0.5
+      hazard_class: toxic
+    - compound: Nickel Oxide
+      concentration_mg_m3: 0.01-0.5
+      exposure_limit_mg_m3: 0.1
+      hazard_class: carcinogenic
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - High-power lasers can create surface micro-cracking in certain steel alloys
+    - Potential for hydrogen embrittlement in high-strength steels
+    - May alter surface metallurgy and corrosion resistance properties
+    toxic_gas_risk:
+      severity: low
+      primary_hazards:
+      - compound: Manganese Oxide
+        concentration_mg_m3: 0.1-5.0
+        hazard_class: toxic
+      - compound: Chromium Oxide
+        concentration_mg_m3: 0.01-1.0
+        hazard_class: toxic
+      - compound: Nickel Oxide
+        concentration_mg_m3: 0.01-0.5
+        hazard_class: carcinogenic
+      description: 'Multiple toxic compounds detected: Manganese Oxide, Chromium Oxide, Nickel Oxide - requires enhanced protection'
+      mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Nickel Oxide - known carcinogen(s),
+        minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Fe₃O₄
 - FeO
@@ -278,6 +288,7 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: ferrous
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

@@ -489,17 +489,18 @@ export const ANIMATION_CONFIG = {
 /**
  * GRID CONFIGURATION
  * Responsive grid layouts and spacing
- */
-/**
- * GRID CONFIGURATION
- * Responsive grid layouts and spacing
  * Unified grid system - single source of truth for all grid layouts
+ * 
+ * Progressive column increase starting at 2 (MAX 4 COLUMNS):
+ * - XS (mobile): 2 columns
+ * - SM (640px+): 3 columns  
+ * - MD (768px+): 4 columns (maximum)
  */
 export const GRID_CONFIGS = {
   1: "grid-cols-1",
-  2: "grid-cols-1 sm:grid-cols-2",
-  3: "grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5",
-  4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+  2: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
+  3: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
+  4: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
 } as const;
 
 export const GRID_GAPS = {

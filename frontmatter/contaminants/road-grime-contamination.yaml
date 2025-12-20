@@ -1,8 +1,8 @@
 id: road-grime-contamination
 name: Automotive Road Grime
 category: organic-residue
-datePublished: '2025-12-20T04:14:41.049992Z'
-dateModified: '2025-12-20T04:14:41.049992Z'
+datePublished: '2025-12-20T22:18:40.187802Z'
+dateModified: '2025-12-20T22:18:40.187802Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/road-grime-contamination
@@ -166,13 +166,13 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
-      - compound: Carbonaceous particles
+      - compound: carbon-ash
         hazard_level: moderate
         phase: solid
-      - compound: SiO2
+      - compound: silicon-dioxide
         hazard_level: low
         phase: solid
       damage_risk_to_substrate: low
@@ -191,48 +191,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 900-5000
-        exposure_limit_mg_m3: 9000
-        hazard_class: toxic
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 0.1-2.0
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Volatile Organic Compounds
-        concentration_mg_m3: 10-100
-        exposure_limit_mg_m3: 100
-        hazard_class: toxic
-      - compound: Metal Oxides
-        concentration_mg_m3: 2-20
-        exposure_limit_mg_m3: 5
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Laser parameters must be carefully controlled to prevent substrate damage to underlying automotive surfaces
-      - Thermal buildup may damage paint, clear coat, or plastic components
-      - Reflective surfaces may create beam deflection hazards
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 0.9
@@ -250,26 +208,76 @@ relationships:
   - Aluminum
   prohibited_materials:
   - Electronics
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminum-laser-cleaning
-          title: Aluminum
-          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-          image: /images/material/aluminum-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Carbon Monoxide
+      concentration_mg_m3: 5-50
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Carbon Dioxide
+      concentration_mg_m3: 900-5000
+      exposure_limit_mg_m3: 9000
+      hazard_class: toxic
+    - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+      concentration_mg_m3: 0.1-2.0
+      exposure_limit_mg_m3: 0.2
+      hazard_class: carcinogenic
+    - compound: Volatile Organic Compounds
+      concentration_mg_m3: 10-100
+      exposure_limit_mg_m3: 100
+      hazard_class: toxic
+    - compound: Metal Oxides
+      concentration_mg_m3: 2-20
+      exposure_limit_mg_m3: 5
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be carefully controlled to prevent substrate damage to underlying automotive surfaces
+    - Thermal buildup may damage paint, clear coat, or plastic components
+    - Reflective surfaces may create beam deflection hazards
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 5-50
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 900-5000
+        hazard_class: toxic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 0.1-2.0
+        hazard_class: carcinogenic
+      - compound: Volatile Organic Compounds
+        concentration_mg_m3: 10-100
+        hazard_class: toxic
+      description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Polycyclic Aromatic Hydrocarbons (PAHs)
+        - requires enhanced protection'
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Soil
 - Oil
@@ -304,6 +312,7 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: other
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

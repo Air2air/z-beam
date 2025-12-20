@@ -149,7 +149,7 @@ export default async function ContactPage() {
         }
         slug="contact"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-8">
           <div>
             <ContactForm />
           </div>

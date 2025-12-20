@@ -81,8 +81,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const materialName = 'name' in metadata ? (metadata as any).name : undefined;
   const canonical = 'canonical' in metadata ? (metadata as any).canonical : undefined;
   const meta_description = 'meta_description' in metadata ? (metadata as any).meta_description : undefined;
-  const material_description = 'material_description' in metadata ? (metadata as any).material_description : undefined;
-  const settings_description = 'settings_description' in metadata ? (metadata as any).settings_description : undefined;
+  const subtitle = 'subtitle' in metadata ? (metadata as any).subtitle : undefined;
   const contamination_description = 'contamination_description' in metadata ? (metadata as any).contamination_description : undefined;
   
   // Determine Open Graph type dynamically
@@ -142,7 +141,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
       machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
       materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
-      materialDescription: material_description
+      materialDescription: subtitle
     });
     
     seoDescription = formatMaterialDescription({
@@ -152,7 +151,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
       machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
       materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
-      materialDescription: material_description
+      materialDescription: subtitle
     });
   }
   
@@ -164,7 +163,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       category: extractSafeValue(category),
       subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
       machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
-      settingsDescription: settings_description
+      settingsDescription: (metadata as any).description
     });
     
     seoDescription = formatSettingsDescription({
@@ -173,7 +172,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       category: extractSafeValue(category),
       subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
       machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
-      settingsDescription: settings_description
+      settingsDescription: (metadata as any).description
     });
   }
   
@@ -229,7 +228,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   let fullDescription = enhancedDescription;
   
   if (contentType !== 'unified_material' && contentType !== 'unified_settings') {
-    const contextDescription = meta_description || material_description || settings_description;
+    const contextDescription = meta_description || subtitle;
     fullDescription = contextDescription && typeof contextDescription === 'string'
       ? extractSafeValue(contextDescription)
       : enhancedDescription;

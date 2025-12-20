@@ -20,8 +20,8 @@ export const CONTAMINANT_CATEGORY_METADATA: Record<string, CategoryMetadata> = {
   metallic_coating: {
     title: `Metallic Coating Removal | ${SITE_CONFIG.shortName}`,
     subtitle: "Metallic coatings demand controlled energy delivery for selective layer removal without substrate damage—essential for plating removal, coating stripping, and surface preparation in aerospace and automotive industries.",
-    description: "Precision laser removal of electroplating, anodizing, and metallic coatings. Aerospace, automotive, and industrial applications.",
-    keywords: ["plating removal", "coating stripping", "electroplating removal", "anodizing removal", "metallic coating"],
+    description: "Precision laser removal of electroplating, anodizing, and metallic coatings with appropriate safety measures. Toxic metal coatings (lead, chromium, cadmium) require specialized extraction and severe-hazard protocols. Industrial-grade ventilation and PPE standards enforced.",
+    keywords: ["plating removal", "coating stripping", "electroplating removal", "anodizing removal", "metallic coating", "toxic metal safety"],
     ogImage: "/images/contamination/metallic-coating-hero.jpg",
     schema: {
       "@type": "Product",
@@ -46,8 +46,8 @@ export const CONTAMINANT_CATEGORY_METADATA: Record<string, CategoryMetadata> = {
   organic_residue: {
     title: `Organic Residue Removal | ${SITE_CONFIG.shortName}`,
     subtitle: "Organic residues demand temperature-controlled ablation preventing combustion and substrate damage—essential for oil, grease, adhesive, and polymer removal in manufacturing and maintenance operations.",
-    description: "Comprehensive laser removal of oils, greases, adhesives, and organic contaminants. Manufacturing, automotive, and industrial cleaning applications.",
-    keywords: ["oil removal", "grease cleaning", "adhesive removal", "organic contamination", "polymer residue"],
+    description: "Comprehensive laser removal of oils, greases, adhesives, and organic contaminants with fire prevention protocols. Moderate fire/explosion risk materials require enhanced ventilation (6-10 ACH) and combustion monitoring. Temperature-controlled processing ensures substrate integrity.",
+    keywords: ["oil removal", "grease cleaning", "adhesive removal", "organic contamination", "polymer residue", "fire prevention"],
     ogImage: "/images/contamination/organic-residue-hero.jpg",
     schema: {
       "@type": "Product",
@@ -59,8 +59,8 @@ export const CONTAMINANT_CATEGORY_METADATA: Record<string, CategoryMetadata> = {
   chemical_residue: {
     title: `Chemical Residue Removal | ${SITE_CONFIG.shortName}`,
     subtitle: "Chemical residues require controlled ablation with fume extraction protocols—critical for hazardous material removal, pharmaceutical cleaning, and semiconductor processing applications.",
-    description: "Safe laser removal of chemical residues, pharmaceutical contaminants, and hazardous materials. Pharmaceutical, semiconductor, and industrial applications.",
-    keywords: ["chemical residue removal", "pharmaceutical cleaning", "hazardous material removal", "semiconductor cleaning"],
+    description: "Safe laser removal of chemical residues, pharmaceutical contaminants, and hazardous materials with comprehensive safety protocols. High-hazard materials require enhanced ventilation (12+ ACH), HEPA filtration, and full respiratory protection. Professional safety assessment included.",
+    keywords: ["chemical residue removal", "pharmaceutical cleaning", "hazardous material removal", "semiconductor cleaning", "safety protocols", "HEPA filtration"],
     ogImage: "/images/contamination/chemical-residue-hero.jpg",
     schema: {
       "@type": "Product",
@@ -72,8 +72,8 @@ export const CONTAMINANT_CATEGORY_METADATA: Record<string, CategoryMetadata> = {
   thermal_damage: {
     title: `Thermal Damage & Scale Removal | ${SITE_CONFIG.shortName}`,
     subtitle: "Thermal damage requires selective ablation targeting heat-affected zones and scale formation—essential for forge scale removal, annealing marks, and heat treatment residue in metalworking applications.",
-    description: "Precision laser removal of forge scale, heat treatment residue, and thermal coatings. Metalworking, manufacturing, and industrial applications.",
-    keywords: ["forge scale removal", "heat treatment cleaning", "annealing scale", "thermal coating removal"],
+    description: "Precision laser removal of forge scale, heat treatment residue, and thermal coatings with standard safety protocols. Low-to-moderate hazard applications. Standard ventilation (4-8 ACH) and basic PPE sufficient for most thermal scale removal operations.",
+    keywords: ["forge scale removal", "heat treatment cleaning", "annealing scale", "thermal coating removal", "standard safety"],
     ogImage: "/images/contamination/thermal-damage-hero.jpg",
     schema: {
       "@type": "Product",

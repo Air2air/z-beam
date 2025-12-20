@@ -1,8 +1,8 @@
 id: soap-scum-contamination
 name: Soap Scum Buildup
 category: organic-residue
-datePublished: '2025-12-20T04:14:41.454835Z'
-dateModified: '2025-12-20T04:14:41.454835Z'
+datePublished: '2025-12-20T22:18:40.340578Z'
+dateModified: '2025-12-20T22:18:40.340578Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
@@ -139,13 +139,13 @@ relationships:
       - compound: carbon-dioxide
         hazard_level: low
         phase: gas
-      - compound: H2O
+      - compound: water-vapor
         hazard_level: low
         phase: gas
-      - compound: carbon_particulates
+      - compound: carbon-particulates
         hazard_level: moderate
         phase: solid
-      - compound: organic_vapors
+      - compound: organic-residues
         hazard_level: moderate
         phase: gas
       damage_risk_to_substrate: low
@@ -164,44 +164,6 @@ relationships:
         color_change: 'no'
         residual_stress: none
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Acetaldehyde
-        concentration_mg_m3: 5-25
-        exposure_limit_mg_m3: 25
-        hazard_class: irritant
-      - compound: Formaldehyde
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 0.3
-        hazard_class: carcinogenic
-      - compound: Carbon monoxide
-        concentration_mg_m3: 10-50
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Volatile Organic Compounds (VOCs)
-        concentration_mg_m3: 15-60
-        exposure_limit_mg_m3: 100
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - May damage acrylic/plastic surfaces due to localized heating
-      - Can cause discoloration or etching on certain metals
-      - Avoid use on surfaces with underlying coatings or paints
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 2.5
@@ -234,106 +196,65 @@ relationships:
   prohibited_materials:
   - Electronics
   - Porous Stone
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      glass:
-        title: Glass Materials
-        description: Materials in the glass category
-        items:
-        - id: crown-glass-laser-cleaning
-          title: Crown Glass
-          url: /materials/glass/soda-lime/crown-glass-laser-cleaning
-          image: /images/material/crown-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminosilicate-glass-laser-cleaning
-          title: Aluminosilicate Glass
-          url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
-          image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: tempered-glass-laser-cleaning
-          title: Tempered Glass
-          url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
-          image: /images/material/tempered-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: fused-silica-laser-cleaning
-          title: Fused Silica
-          url: /materials/glass/soda-lime/fused-silica-laser-cleaning
-          image: /images/material/fused-silica-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: borosilicate-glass-laser-cleaning
-          title: Borosilicate Glass
-          url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
-          image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: float-glass-laser-cleaning
-          title: Float Glass
-          url: /materials/glass/soda-lime/float-glass-laser-cleaning
-          image: /images/material/float-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: gorilla-glass-laser-cleaning
-          title: Gorilla Glass
-          url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
-          image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      ceramics:
-        title: Ceramic Materials
-        description: Ceramic and glass materials affected by this contamination
-        items:
-        - id: boron-carbide-laser-cleaning
-          title: Boron Carbide
-          url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
-          image: /images/material/boron-carbide-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: boron-nitride-laser-cleaning
-          title: Boron Nitride
-          url: /materials/ceramic/technical/boron-nitride-laser-cleaning
-          image: /images/material/boron-nitride-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: silicon-nitride-laser-cleaning
-          title: Silicon Nitride
-          url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
-          image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: zirconia-laser-cleaning
-          title: Zirconia
-          url: /materials/ceramic/oxide/zirconia-laser-cleaning
-          image: /images/material/zirconia-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: aluminum-nitride-laser-cleaning
-          title: Aluminum Nitride
-          url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-          image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: alumina-laser-cleaning
-          title: Alumina
-          url: /materials/ceramic/oxide/alumina-laser-cleaning
-          image: /images/material/alumina-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-      composites:
-        title: Composite Materials
-        description: Engineered composite materials affected by this contamination
-        items:
-        - id: fiberglass-laser-cleaning
-          title: Fiberglass
-          url: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
-          image: /images/material/fiberglass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Acetaldehyde
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 25
+      hazard_class: irritant
+    - compound: Formaldehyde
+      concentration_mg_m3: 1-10
+      exposure_limit_mg_m3: 0.3
+      hazard_class: carcinogenic
+    - compound: Carbon monoxide
+      concentration_mg_m3: 10-50
+      exposure_limit_mg_m3: 29
+      hazard_class: toxic
+    - compound: Volatile Organic Compounds (VOCs)
+      concentration_mg_m3: 15-60
+      exposure_limit_mg_m3: 100
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May damage acrylic/plastic surfaces due to localized heating
+    - Can cause discoloration or etching on certain metals
+    - Avoid use on surfaces with underlying coatings or paints
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Formaldehyde
+        concentration_mg_m3: 1-10
+        hazard_class: carcinogenic
+      - compound: Carbon monoxide
+        concentration_mg_m3: 10-50
+        hazard_class: toxic
+      description: Formaldehyde and Carbon monoxide generation - multiple toxic compounds
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: carbon
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Calcium Stearate
 - Mg Stearate
@@ -368,6 +289,7 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: cleaning-agent
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

@@ -9,7 +9,7 @@
  * - Concentration badges
  * - Exceeds limits warnings
  * - PPE level indicators
- * - Domain-linkage card variant
+ * - Relationship card variant
  * - Monitoring requirements
  * 
  * Data Source: produces_compounds (flattened structure)
@@ -138,13 +138,13 @@ export function CompoundSafetyGrid({
   }
 
   return (
-    <DataGrid
-      data={filteredCompounds}
+    <DataGrid<EnhancedCompound>
+      items={filteredCompounds}
       mapper={compoundToGridItem}
       sorter={sorter}
-      columns={columns}
-      variant="domain-linkage"  // Use colored borders for safety context
-      mode={mode}
+      columns={columns as 2 | 3 | 4}
+      variant="relationship"  // Use colored borders for safety context
+      mode="simple"
       className={className}
     />
   );

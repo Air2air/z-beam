@@ -1,8 +1,8 @@
 id: chrome-pitting-contamination
 name: Chromium Oxide Pitting
 category: oxidation
-datePublished: '2025-12-20T04:14:38.697122Z'
-dateModified: '2025-12-20T04:14:38.697122Z'
+datePublished: '2025-12-20T22:18:38.536966Z'
+dateModified: '2025-12-20T22:18:38.536966Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/non-ferrous/chrome-pitting-contamination
@@ -127,13 +127,13 @@ relationships:
       transmission_depth: 1.2
     removal_characteristics:
       byproducts:
-      - compound: CrO2
+      - compound: chromium-vi
         hazard_level: moderate
         phase: gas
-      - compound: CrO3
+      - compound: chromium-vi
         hazard_level: high
         phase: gas
-      - compound: Cr2O3 nanoparticles
+      - compound: chromium-vi
         hazard_level: moderate
         phase: solid
       damage_risk_to_substrate: medium
@@ -152,40 +152,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Chromium(III) Oxide
-        concentration_mg_m3: 5.0
-        exposure_limit_mg_m3: 0.5
-        hazard_class: toxic
-      - compound: Chromium(VI) Oxide
-        concentration_mg_m3: 0.8
-        exposure_limit_mg_m3: 0.005
-        hazard_class: carcinogenic
-      - compound: Iron Oxide
-        concentration_mg_m3: 15.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-      substrate_compatibility_warnings:
-      - Laser parameters must be optimized to minimize chromium(VI) formation
-      - Avoid overheating substrate to reduce toxic fume generation
-      - Containment required for chromium(VI) regulated material
-      toxic_gas_risk: moderate
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 4.1
@@ -204,20 +170,61 @@ relationships:
   prohibited_materials:
   - Aluminum
   - Copper
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: stainless-steel-laser-cleaning
-          title: Stainless Steel
-          url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-          image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Chromium(III) Oxide
+      concentration_mg_m3: 5.0
+      exposure_limit_mg_m3: 0.5
+      hazard_class: toxic
+    - compound: Chromium(VI) Oxide
+      concentration_mg_m3: 0.8
+      exposure_limit_mg_m3: 0.005
+      hazard_class: carcinogenic
+    - compound: Iron Oxide
+      concentration_mg_m3: 15.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: PAPR
+      skin_protection: full_suit
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize chromium(VI) formation
+    - Avoid overheating substrate to reduce toxic fume generation
+    - Containment required for chromium(VI) regulated material
+    toxic_gas_risk:
+      severity: moderate
+      primary_hazards:
+      - compound: Chromium(III) Oxide
+        concentration_mg_m3: 5.0
+        hazard_class: toxic
+      - compound: Chromium(VI) Oxide
+        concentration_mg_m3: 0.8
+        hazard_class: carcinogenic
+      description: Chromium(III) Oxide and Chromium(VI) Oxide generation - multiple toxic compounds
+      mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+        Chromium(VI) Oxide - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 12
+      rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Cr₂O₃
 - CrO₃
@@ -251,6 +258,7 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: non-ferrous
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

@@ -6,7 +6,7 @@ import { Layout } from '@/app/components/Layout/Layout';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { SITE_CONFIG } from '@/app/config';
 import { ContentTypeConfig } from '@/app/config/contentTypes';
-import { GridItemSSR } from '@/types';
+import { GridItem } from '@/types';
 
 interface ListingPageProps {
   config: ContentTypeConfig;
@@ -14,7 +14,7 @@ interface ListingPageProps {
   pageTitle: string;
   pageDescription: string;
   schemas: any; // JSON-LD schemas
-  categoryCards?: GridItemSSR[]; // Optional: pre-formatted cards for category view
+  categoryCards?: GridItem[]; // Optional: pre-formatted cards for category view
   displayMode?: 'categories' | 'full-list'; // Show just categories or full item list
 }
 
@@ -71,7 +71,7 @@ export function ListingPage({
                       <CardGridSSR
                         slugs={items.map((item: any) => item.slug)}
                         columns={3}
-                        mode={config.type}
+                        contentType={config.type}
                         showBadgeSymbols={config.type === 'materials'}
                         loadBadgeSymbolData={config.type === 'materials'}
                       />

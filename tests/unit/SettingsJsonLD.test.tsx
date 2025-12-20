@@ -17,7 +17,7 @@ describe('SettingsJsonLD Component - Merged Schema Generation', () => {
     subcategory: 'hardwood',
     title: 'Oak Laser Cleaning Settings',
     description: 'Optimal laser settings for oak processing',
-    settings_description: 'Optimal laser settings for oak processing',
+    description: 'Optimal laser settings for oak processing',
     datePublished: '2025-11-20T00:00:00Z',
     dateModified: '2025-11-24T00:00:00Z',
     author: {

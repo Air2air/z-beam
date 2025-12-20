@@ -35,8 +35,8 @@ jest.mock('../../app/components/Layout/Layout', () => ({
   Layout: ({ children }: any) => children,
 }));
 
-jest.mock('../../app/components/CardGrid/CardGridSSR', () => ({
-  CardGridSSR: () => null,
+jest.mock('../../app/components/CardGrid/CardGrid.server', () => ({
+  CardGrid: () => null,
 }));
 
 jest.mock('../../app/data/featuredSections', () => ({

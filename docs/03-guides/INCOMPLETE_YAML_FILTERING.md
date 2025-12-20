@@ -29,7 +29,7 @@ All YAML files must have these fields to generate article pages:
 ```yaml
 name: "Material Name"              # Display name
 title: "Full SEO Title"            # Page title
-material_description: "..."        # Main content description
+description: "..."        # Main content description
 category: "CategoryName"           # Material category
 ```
 
@@ -74,7 +74,7 @@ Function: `getAllArticleSlugs()`
 ```typescript
 function isYamlComplete(data: any): boolean {
   // Check all required top-level fields
-  const requiredFields = ['name', 'title', 'material_description', 'category', 'images', 'author'];
+  const requiredFields = ['name', 'title', 'description', 'category', 'images', 'author'];
   
   // Check nested author fields
   if (!data.author?.name || !data.author?.expertise || !data.author?.country) {
@@ -138,7 +138,7 @@ author: {}    # ❌ Missing
 # After (complete)
 name: "Aluminum Bronze"
 title: "Aluminum Bronze Laser Cleaning | Z-Beam"
-material_description: "Comprehensive guide to laser cleaning aluminum bronze..."
+description: "Comprehensive guide to laser cleaning aluminum bronze..."
 category: "Metal"
 images:
   hero:
@@ -238,7 +238,7 @@ Result: Should get 404 (page not generated)
 ```yaml
 name: "Test Incomplete"
 title: "Test"
-material_description: "Test"
+description: "Test"
 category: "Metal"
 images:
   hero:
@@ -269,8 +269,8 @@ rm -rf .next
 npm run dev
 ```
 
-### 2. materialCategories.ts Not Updated
-Even if YAML is complete, the material won't appear unless also added to `app/utils/materialCategories.ts`.
+### 2. Category Extraction
+Categories are now extracted dynamically from YAML frontmatter using `app/utils/categories/generic.ts`. Materials with complete YAML files will automatically appear in their respective categories without manual updates to category files.
 
 ### 3. Empty Strings Count as Missing
 ```yaml
@@ -293,7 +293,7 @@ The file `testmaterial-laser-cleaning.yaml` is intentionally incomplete for test
 
 **Option A: Complete immediately (recommended)**
 - Populate all required fields
-- Run Python generator for material_description if needed
+- Run Python generator for description if needed
 - Add images
 - Assign author
 

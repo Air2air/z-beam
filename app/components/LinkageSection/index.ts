@@ -1,1 +1,0 @@
-export { LinkageSection } from './LinkageSection';

@@ -7,17 +7,15 @@ import { RegulatoryStandards } from '../RegulatoryStandards';
 import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { GridSection } from '../GridSection';
 import { CompoundSafetyGrid } from '../CompoundSafetyGrid';
-import { LinkageGridGroup } from '../LinkageGridGroup';
+import { CardGrid } from '../CardGrid';
+import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
+import { sortByFrequency } from '@/app/utils/gridSorters';
 import { SafetyOverview } from '../Contaminants';
 import { convertCitationsToStandards, getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
-import type { LayoutProps } from '@/types';
-import type { SectionConfig } from '../BaseContentLayout';
+import type { LayoutProps, ContaminantsLayoutProps, SectionConfig } from '@/types';
 
-interface ContaminantsLayoutProps extends LayoutProps {
-  slug?: string;
-  category?: string;
-  subcategory?: string;
-}
+// Re-export for convenience
+export type { ContaminantsLayoutProps };
 
 export function ContaminantsLayout(props: ContaminantsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
@@ -68,55 +66,27 @@ export function ContaminantsLayout(props: ContaminantsLayoutProps) {
         thumbnailLink,
       }
     },
-    {
-      component: LinkageGridGroup,
-      condition: () => {
-        const hasMaterials = relationships?.related_materials?.length > 0;
-        const hasContaminants = relationships?.related_contaminants?.length > 0;
-        const hasSettings = relationships?.related_settings?.length > 0;
-        return hasMaterials || hasContaminants || hasSettings;
-      },
+    // Material groups (from relationships.materials.groups)
+    ...(relationships?.materials?.groups ? Object.values(relationships.materials.groups) : []).flatMap((group: any) => ({
+      component: CardGrid,
+      condition: group?.items?.length > 0,
       props: {
-        title: 'Related Content',
-        description: 'Explore compatible materials, related contaminants, and removal settings',
-        grids: [
-          {
-            data: (metadata as any)?.related_materials || [],
-            type: 'materials' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'material_linkage',
-              'Compatible Materials',
-              'Materials frequently contaminated by this substance'
-            ),
-            sortBy: 'frequency' as const,
-          },
-          {
-            data: (metadata as any)?.related_contaminants || [],
-            type: 'contaminants' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'compound_linkage',
-              'Related Contaminants',
-              'Contaminants that often appear together with this substance'
-            ),
-            sortBy: 'severity' as const,
-            variant: 'domain-linkage' as const,
-          },
-          {
-            data: (metadata as any)?.related_settings || [],
-            type: 'settings' as const,
-            ...getEnrichmentMetadata(
-              metadata,
-              'settings_linkage',
-              'Recommended Settings',
-              'Machine settings optimized for removing this contaminant'
-            ),
-            sortBy: 'frequency' as const,
-          },
-        ],
+        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem),
+        title: group.title,
+        description: group.description,
       }
-    },
+    })),
+    // Contaminant groups (from relationships.contaminants.groups)
+    ...(relationships?.contaminants?.groups ? Object.values(relationships.contaminants.groups) : []).flatMap((group: any) => ({
+      component: CardGrid,
+      condition: group?.items?.length > 0,
+      props: {
+        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem),
+        title: group.title,
+        description: group.description,
+        variant: 'relationship' as const,
+      }
+    })),
     {
       component: ScheduleCards,
       props: {}
@@ -131,6 +101,7 @@ export function ContaminantsLayout(props: ContaminantsLayoutProps) {
       slug={slug}
       category={category}
       subcategory={subcategory}
+      title={contaminantName}
     >
       {children}
     </BaseContentLayout>

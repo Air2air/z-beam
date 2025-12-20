@@ -1,8 +1,8 @@
 id: rust-oxidation-contamination
 name: Rust / Iron Oxide Formation
 category: oxidation
-datePublished: '2025-12-20T04:14:41.141188Z'
-dateModified: '2025-12-20T04:14:41.141188Z'
+datePublished: '2025-12-20T22:18:40.226181Z'
+dateModified: '2025-12-20T22:18:40.226181Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/ferrous/rust-oxidation-contamination
@@ -297,36 +297,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Iron Oxide Fume
-        concentration_mg_m3: 5.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-      - compound: Ozone
-        concentration_mg_m3: 0.1
-        exposure_limit_mg_m3: 0.1
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - Avoid laser cleaning on painted surfaces containing lead or chromates
-      - Ensure substrate is free of oils, solvents, or other contaminants that may produce toxic fumes
-      - Check for galvanized coatings that may produce zinc oxide fume
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 10
-      visibility_hazard: moderate
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 2.5
@@ -355,40 +325,50 @@ relationships:
   - Ceramics
   - Wood
   - Glass
-  produces_compounds:
-  - id: nitrogen-oxides-compound
-    url: /compounds/toxic-gas/oxidizing-gas/nitrogen-oxides-compound
-    image: /images/compounds/nitrogen-oxides.jpg
-    frequency: common
-    severity: low
-    typical_context: High-temperature iron oxide reactions with nitrogen
-    exposure_risk: low
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: cast-iron-laser-cleaning
-          title: Cast Iron
-          url: /materials/metal/ferrous/cast-iron-laser-cleaning
-          image: /images/material/cast-iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: iron-laser-cleaning
-          title: Iron
-          url: /materials/metal/ferrous/iron-laser-cleaning
-          image: /images/material/iron-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Iron Oxide Fume
+      concentration_mg_m3: 5.0
+      exposure_limit_mg_m3: 5.0
+      hazard_class: irritant
+    - compound: Ozone
+      concentration_mg_m3: 0.1
+      exposure_limit_mg_m3: 0.1
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.8
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Avoid laser cleaning on painted surfaces containing lead or chromates
+    - Ensure substrate is free of oils, solvents, or other contaminants that may produce toxic fumes
+    - Check for galvanized coatings that may produce zinc oxide fume
+    toxic_gas_risk:
+      severity: low
+      primary_hazards: []
+      description: Minimal gas generation, nuisance particulates only
+      mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 10
+      rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      severity: moderate
+      description: Moderate visibility reduction (40-60%), significant particulate haze
+      source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+      mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Fe₂O₃
 research_timestamp: '2025-11-26T01:57:36.567081Z'
@@ -422,6 +402,7 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: ferrous
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

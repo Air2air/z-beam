@@ -4,6 +4,7 @@
 import { notFound, redirect } from 'next/navigation';
 import { MaterialsLayout } from '@/app/components/MaterialsLayout/MaterialsLayout';
 import { ContaminantsLayout } from '@/app/components/ContaminantsLayout/ContaminantsLayout';
+import { CompoundsLayout } from '@/app/components/CompoundsLayout/CompoundsLayout';
 import { SettingsLayout } from '@/app/components/SettingsLayout/SettingsLayout';
 import { MaterialJsonLD } from '@/app/components/JsonLD/JsonLD';
 import { ContentTypeConfig } from '@/app/config/contentTypes';
@@ -87,15 +88,14 @@ export async function ItemPage({
       try {
         const baseMaterialSlug = itemSlug.replace(/-laser-cleaning$/, '');
         const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
-        const settingsRelationships = (settings as any)?.relationships;
-        const machineSettings = settingsRelationships?.machine_settings;
+        const machineSettings = (settings as any)?.machine_settings;
         
         if (machineSettings) {
           // Merge machineSettings into article.metadata for Dataset schema
           if (!article.metadata) {
             article.metadata = {};
           }
-          if (!article.metadata.relationships) {
+          if (!(article.metadata as any).relationships) {
             (article.metadata as any).relationships = {};
           }
           (article.metadata as any).relationships.machine_settings = machineSettings;
@@ -113,6 +113,14 @@ export async function ItemPage({
         />
         {config.type === 'contaminants' ? (
           <ContaminantsLayout 
+            components={components as any} 
+            metadata={metadata as unknown as ArticleMetadata} 
+            slug={itemSlug}
+            category={categorySlug}
+            subcategory={subcategorySlug}
+          />
+        ) : config.type === 'compounds' ? (
+          <CompoundsLayout 
             components={components as any} 
             metadata={metadata as unknown as ArticleMetadata} 
             slug={itemSlug}

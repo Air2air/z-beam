@@ -1,42 +1,12 @@
 // app/settings/[category]/[subcategory]/[slug]/page.tsx
 // Dynamic settings item pages - uses unified content system
 
-import { getContentConfig } from '@/app/config/contentTypes';
-import { generateItemMetadata } from '@/app/utils/contentPages/helpers';
-import { generateItemStaticParams } from '@/app/utils/categories';
-import { ItemPage } from '@/app/components/ContentPages/ItemPage';
+import { createItemPage } from '@/app/utils/pages/createContentPage';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const config = getContentConfig('settings');
+const { generateStaticParams, generateMetadata, default: SettingsItemPage } = createItemPage('settings');
 
-export async function generateStaticParams() {
-  return await generateItemStaticParams(config);
-}
-
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ category: string; subcategory: string; slug: string }> 
-}) {
-  const { category, subcategory, slug } = await params;
-  return await generateItemMetadata(config, category, subcategory, slug);
-}
-
-export default async function SettingsItemPage({ 
-  params 
-}: { 
-  params: Promise<{ category: string; subcategory: string; slug: string }> 
-}) {
-  const { category, subcategory, slug } = await params;
-  
-  return (
-    <ItemPage 
-      config={config}
-      categorySlug={category}
-      subcategorySlug={subcategory}
-      itemSlug={slug}
-    />
-  );
-}
+export { generateStaticParams, generateMetadata };
+export default SettingsItemPage;

@@ -21,7 +21,7 @@ import type { ArticleMetadata } from '@/types';
 const mockFrontmatterData = {
   title: 'Aluminum Laser Cleaning',
   name: 'Aluminum',
-  material_description: 'Industrial aluminum surface cleaning with precise laser parameters for optimal oxide removal',
+  description: 'Industrial aluminum surface cleaning with precise laser parameters for optimal oxide removal',
   micro: 'High-conductivity non-ferrous metal requiring precise thermal management',
   category: 'metal',
   subcategory: 'non-ferrous',
@@ -83,7 +83,7 @@ describe('SEO Pipeline E2E Integration', () => {
     // Phase 1: Metadata Generation
     const metadataInput: ArticleMetadata = {
       title: mockFrontmatterData.title,
-      description: mockFrontmatterData.material_description,
+      description: mockFrontmatterData.description,
       slug: mockFrontmatterData.slug,
       datePublished: mockFrontmatterData.datePublished,
       dateModified: mockFrontmatterData.dateModified,
@@ -91,7 +91,6 @@ describe('SEO Pipeline E2E Integration', () => {
       category: mockFrontmatterData.category,
       images: mockFrontmatterData.images,
       name: mockFrontmatterData.name,
-      material_description: mockFrontmatterData.material_description,
       canonical: `https://www.z-beam.com/materials/${mockFrontmatterData.category}/${mockFrontmatterData.subcategory}/${mockFrontmatterData.slug}`
     };
 
@@ -111,7 +110,7 @@ describe('SEO Pipeline E2E Integration', () => {
       materialName: mockFrontmatterData.name,
       category: mockFrontmatterData.category,
       subcategory: mockFrontmatterData.subcategory,
-      materialDescription: mockFrontmatterData.material_description,
+      materialDescription: mockFrontmatterData.description,
       machineSettings: mockFrontmatterData.machineSettings
     });
 
@@ -120,7 +119,7 @@ describe('SEO Pipeline E2E Integration', () => {
       materialName: mockFrontmatterData.name,
       category: mockFrontmatterData.category,
       subcategory: mockFrontmatterData.subcategory,
-      materialDescription: mockFrontmatterData.material_description,
+      materialDescription: mockFrontmatterData.description,
       machineSettings: mockFrontmatterData.machineSettings
     });
   });
@@ -288,7 +287,7 @@ describe('SEO Pipeline E2E Integration', () => {
 
     it('should format description with material properties', () => {
       expect(formattedDescription).toBeTruthy();
-      // Description may use "aluminum" (lowercase) or full material_description
+      // Description may use "aluminum" (lowercase) from description field
       expect(formattedDescription.toLowerCase()).toContain('aluminum');
       expect(formattedDescription.length).toBeGreaterThan(50);
     });
@@ -411,16 +410,16 @@ describe('SEO Pipeline E2E Integration', () => {
     });
 
     it('should provide description fallback chain for feed', () => {
-      // Feed uses: material_description → micro → title
-      expect(mockFrontmatterData.material_description).toBeTruthy();
+      // Feed uses: description → micro → title
+      expect(mockFrontmatterData.description).toBeTruthy();
       expect(mockFrontmatterData.micro).toBeTruthy();
       expect(mockFrontmatterData.title).toBeTruthy();
       
       // Verify description priority
-      const feedDescription = mockFrontmatterData.material_description || 
+      const feedDescription = mockFrontmatterData.description || 
                               mockFrontmatterData.micro || 
                               mockFrontmatterData.title;
-      expect(feedDescription).toBe(mockFrontmatterData.material_description);
+      expect(feedDescription).toBe(mockFrontmatterData.description);
     });
 
     it('should generate SKU format matching feed requirements', () => {

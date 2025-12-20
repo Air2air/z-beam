@@ -99,16 +99,13 @@ All breakpoints increased by **+1 column** for better density:
 GRID_LAYOUTS = {
   mobile: 'grid-cols-2',    // 2 columns
   sm: 'grid-cols-3',        // 3 columns
-  md: 'grid-cols-4',        // 4 columns
-  lg: 'grid-cols-5',        // 5 columns
+  md: 'grid-cols-4',        // 4 columns (maximum)
 }
 
 // NEW Grid Layout
 GRID_LAYOUTS = {
   mobile: 'grid-cols-3',    // 3 columns (+1)
-  sm: 'grid-cols-4',        // 4 columns (+1)
-  md: 'grid-cols-5',        // 5 columns (+1)
-  lg: 'grid-cols-6',        // 6 columns (+1)
+  sm: 'grid-cols-4',        // 4 columns (maximum)
 }
 ```
 

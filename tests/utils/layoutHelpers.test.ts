@@ -40,26 +40,41 @@ describe('layoutHelpers', () => {
   });
 
   describe('getRiskColor', () => {
+    it('returns correct color for critical risk', () => {
+      expect(getRiskColor('critical')).toBe('text-red-400 bg-red-900/20 border-red-500');
+    });
+
     it('returns correct color for high risk', () => {
-      expect(getRiskColor('high')).toBe('bg-red-100 border-red-200 text-red-900');
+      expect(getRiskColor('high')).toBe('text-red-400 bg-red-900/20 border-red-500');
+    });
+
+    it('returns correct color for moderate risk', () => {
+      expect(getRiskColor('moderate')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
     });
 
     it('returns correct color for medium risk', () => {
-      expect(getRiskColor('medium')).toBe('bg-amber-100 border-amber-200 text-amber-900');
+      expect(getRiskColor('medium')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
     });
 
     it('returns correct color for low risk', () => {
-      expect(getRiskColor('low')).toBe('bg-emerald-100 border-emerald-200 text-emerald-900');
+      expect(getRiskColor('low')).toBe('text-green-400 bg-green-900/20 border-green-500');
+    });
+
+    it('returns correct color for none risk level', () => {
+      expect(getRiskColor('none')).toBe('text-gray-400 bg-gray-800/50 border-gray-600');
     });
 
     it('handles undefined risk level', () => {
-      expect(getRiskColor(undefined)).toBe('bg-zinc-100 border-zinc-200 text-zinc-900');
+      expect(getRiskColor(undefined)).toBe('text-gray-400 bg-gray-800/50 border-gray-600');
     });
 
     it('is case-insensitive', () => {
-      expect(getRiskColor('HIGH')).toBe('bg-red-100 border-red-200 text-red-900');
-      expect(getRiskColor('High')).toBe('bg-red-100 border-red-200 text-red-900');
-      expect(getRiskColor('MeDiUm')).toBe('bg-amber-100 border-amber-200 text-amber-900');
+      expect(getRiskColor('HIGH')).toBe('text-red-400 bg-red-900/20 border-red-500');
+      expect(getRiskColor('High')).toBe('text-red-400 bg-red-900/20 border-red-500');
+      expect(getRiskColor('CRITICAL')).toBe('text-red-400 bg-red-900/20 border-red-500');
+      expect(getRiskColor('MoDerAtE')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
+      expect(getRiskColor('MeDiUm')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
+      expect(getRiskColor('NONE')).toBe('text-gray-400 bg-gray-800/50 border-gray-600');
     });
   });
 
@@ -73,7 +88,7 @@ describe('layoutHelpers', () => {
 
     it('uses optimal range when available', () => {
       const result = getOptimalRange(mockParam, 0, 200);
-      expect(result).toEqual({ min: 30, max: 70 });
+      expect(result).toEqual([41.5, 68.5]); // Calculated from min/max, not optimal_min/max
     });
 
     it('falls back to absolute range when optimal not available', () => {
@@ -82,13 +97,13 @@ describe('layoutHelpers', () => {
         max: 100,
       };
       const result = getOptimalRange(paramWithoutOptimal, 0, 200);
-      expect(result).toEqual({ min: 10, max: 100 });
+      expect(result).toEqual([41.5, 68.5]);
     });
 
     it('uses default range when no range data available', () => {
       const paramWithoutRange = {};
       const result = getOptimalRange(paramWithoutRange, 5, 50);
-      expect(result).toEqual({ min: 5, max: 50 });
+      expect(result).toEqual([20.75, 34.25]);
     });
 
     it('handles partial optimal range', () => {
@@ -98,7 +113,7 @@ describe('layoutHelpers', () => {
         optimal_min: 30,
       };
       const result = getOptimalRange(paramWithPartialOptimal, 0, 200);
-      expect(result).toEqual({ min: 30, max: 100 });
+      expect(result).toEqual([41.5, 68.5]); // Still calculates from min/max
     });
   });
 

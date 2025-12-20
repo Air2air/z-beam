@@ -57,7 +57,7 @@ import materialSchema from './schemas/material-schema.json';
 // Replace variables
 const populatedSchema = JSON.stringify(materialSchema)
   .replace(/{{MATERIAL_NAME}}/g, 'Steel')
-  .replace(/{{MATERIAL_DESCRIPTION}}/g, 'Technical overview of Steel laser cleaning')
+  .replace(/{{DESCRIPTION}}/g, 'Technical overview of Steel laser cleaning')
   .replace(/{{SLUG}}/g, 'steel-laser-cleaning')
   .replace(/{{MATERIAL_CATEGORY}}/g, 'metal')
   .replace(/{{AUTHOR_NAME}}/g, 'Z-Beam Technical Team')

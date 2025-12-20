@@ -1,8 +1,8 @@
 id: tin-plating-contamination
 name: Tin Plating Residue
 category: metallic-coating
-datePublished: '2025-12-20T04:14:41.725576Z'
-dateModified: '2025-12-20T04:14:41.725576Z'
+datePublished: '2025-12-20T22:18:40.466942Z'
+dateModified: '2025-12-20T22:18:40.466942Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/tin-plating-contamination
@@ -155,13 +155,13 @@ relationships:
       transmission_depth: 1.2
     removal_characteristics:
       byproducts:
-      - compound: SnO2
+      - compound: tin-oxide
         hazard_level: low
         phase: solid
-      - compound: Sn
+      - compound: tin-oxide
         hazard_level: moderate
         phase: gas
-      - compound: SnO
+      - compound: tin-oxide
         hazard_level: moderate
         phase: gas
       damage_risk_to_substrate: low
@@ -180,35 +180,6 @@ relationships:
         color_change: 'no'
         residual_stress: compressive
         roughness_increase: minimal
-    safety_data:
-      fire_explosion_risk: low
-      fumes_generated:
-      - compound: Tin Oxide (SnO2)
-        concentration_mg_m3: 5-25
-        exposure_limit_mg_m3: 2.0
-        hazard_class: irritant
-      - compound: Metal Fume (Tin)
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 2.0
-        hazard_class: irritant
-      particulate_generation:
-        respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-      ppe_requirements:
-        eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-      substrate_compatibility_warnings:
-      - May generate higher fume concentrations if substrate contains lead or other alloying elements
-      - Avoid laser parameters that cause substrate melting to minimize fume generation
-      toxic_gas_risk: low
-      ventilation_requirements:
-        exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 10
-      visibility_hazard: low
     thermal_properties:
       ablation_threshold:
         pulse_duration_100ns: 0.4
@@ -227,32 +198,49 @@ relationships:
   - Brass
   prohibited_materials:
   - Aluminum
-  materials:
-    title: Affected Materials
-    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-    groups:
-      metals:
-        title: Metal Substrates
-        description: Ferrous and non-ferrous metals affected by this contamination
-        items:
-        - id: steel-laser-cleaning
-          title: Steel
-          url: /materials/metal/ferrous/steel-laser-cleaning
-          image: /images/material/steel-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: copper-laser-cleaning
-          title: Copper
-          url: /materials/metal/non-ferrous/copper-laser-cleaning
-          image: /images/material/copper-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
-        - id: brass-laser-cleaning
-          title: Brass
-          url: /materials/metal/non-ferrous/brass-laser-cleaning
-          image: /images/material/brass-laser-cleaning-hero.jpg
-          frequency: common
-          severity: moderate
+  safety_data: &id001
+    fire_explosion_risk:
+      severity: low
+      description: Minimal fire risk with standard precautions and adequate ventilation
+      mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+    - compound: Tin Oxide (SnO2)
+      concentration_mg_m3: 5-25
+      exposure_limit_mg_m3: 2.0
+      hazard_class: irritant
+    - compound: Metal Fume (Tin)
+      concentration_mg_m3: 1-10
+      exposure_limit_mg_m3: 2.0
+      hazard_class: irritant
+    particulate_generation:
+      respirable_fraction: 0.7
+      size_range_um:
+      - 0.1
+      - 10.0
+    ppe_requirements:
+      eye_protection: goggles
+      respiratory: half_mask
+      skin_protection: gloves
+      rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May generate higher fume concentrations if substrate contains lead or other alloying elements
+    - Avoid laser parameters that cause substrate melting to minimize fume generation
+    toxic_gas_risk:
+      severity: low
+      primary_hazards: []
+      description: Minimal gas generation, nuisance particulates only
+      mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      exhaust_velocity_m_s: 0.5
+      filtration_type: HEPA
+      minimum_air_changes_per_hour: 10
+      rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      severity: low
+      description: Light haze (20-40% reduction), minimal impact on sight lines
+      source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+      mitigation: Standard visibility precautions, adequate lighting
+      related_field: particulate_generation.respirable_fraction
 composition:
 - Sn
 - Sn-Pb Alloy
@@ -287,6 +275,7 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: plating
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

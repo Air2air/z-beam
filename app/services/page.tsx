@@ -69,9 +69,7 @@ export default async function ServicesPage() {
         )}
         
         {/* Schedule Cards */}
-        <div className="mb-16">
-          <ScheduleCards />
-        </div>
+        <ScheduleCards />
       </Layout>
     </>
   );
