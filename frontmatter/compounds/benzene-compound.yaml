@@ -1,23 +1,31 @@
-id: benzene
+id: benzene-compound
 name: Benzene
 display_name: Benzene (C₆H₆)
-chemical_formula: C6H6
-cas_number: 71-43-2
-molecular_weight: 78.11
-datePublished: '2025-12-19T02:53:38.368023Z'
-dateModified: '2025-12-19T02:53:38.368023Z'
+category: carcinogen
+hazard_class: carcinogenic
+datePublished: '2025-12-20T04:16:41.808349Z'
+dateModified: '2025-12-20T04:16:41.808349Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/carcinogen/aromatic-hydrocarbon/benzene-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Carcinogen
+  href: /compounds/carcinogen
 - label: Aromatic Hydrocarbon
-  href: /compounds//aromatic_hydrocarbon
-category: carcinogen
-subcategory: aromatic_hydrocarbon
-hazard_class: carcinogenic
+  href: /compounds/carcinogen/aromatic_hydrocarbon
+- label: Benzene
+  href: /compounds/carcinogen/aromatic-hydrocarbon/benzene-compound
+chemical_formula: C6H6
+cas_number: 71-43-2
+molecular_weight: 78.11
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: 1
   osha_pel_mg_m3: 3.2
@@ -37,42 +45,37 @@ sources_in_laser_cleaning:
 - aromatic_polymer_decomposition
 - solvent_residue_vaporization
 - plastic_pyrolysis
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: paint-residue
+  - id: paint-residue-contamination
     title: Paint Residue / Coating Failure
     url: /contaminants/inorganic-coating/paint/paint-residue
     image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
     frequency: common
     severity: high
     typical_context: Thermal breakdown of aromatic paint solvents
-  - id: rubber-residue
+  - id: rubber-residue-contamination
     title: Rubber Compound Residue
     url: /contaminants/organic-residue/polymer/rubber-residue
     image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
     frequency: common
     severity: high
     typical_context: Pyrolysis of styrene-butadiene rubber
-  - id: plastic-residue
+  - id: plastic-residue-contamination
     title: Degraded Polymer Deposits
     url: /contaminants/organic-residue/polymer/plastic-residue
     image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
     frequency: common
     severity: high
     typical_context: Thermal decomposition of polystyrene and aromatic polymers
-  - id: industrial-oil
+  - id: industrial-oil-contamination
     title: Industrial Oil / Grease Buildup
     url: /contaminants/organic-residue/petroleum/industrial-oil
     image: /images/contaminants/organic-residue/petroleum/industrial-oil.jpg
     frequency: occasional
     severity: moderate
     typical_context: Thermal breakdown of aromatic hydrocarbons
-  - id: cutting-fluid
+  - id: cutting-fluid-contamination
     title: Machining Coolant Residue
     url: /contaminants/organic-residue/lubricant/cutting-fluid
     image: /images/contaminants/organic-residue/lubricant/cutting-fluid.jpg
@@ -82,9 +85,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: benzene-physical-data
-  health_effects:
-  - type: health_effects
-    id: benzene-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: benzene-environmental-data
@@ -98,10 +99,30 @@ relationships:
       specific_compound: Benzene
       pel_ppm: 1
   emergency_response:
-  - type: emergency_response
-    id: flammable-gas-extremely
-    overrides:
-      specific_compound: Benzene
+    fire_hazard: Highly flammable liquid. Vapors heavier than air, may travel to ignition source. Forms explosive mixtures
+      with air.
+    fire_suppression: Dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers and disperse vapors. Do not
+      use direct water stream.
+    spill_procedures: Evacuate area, eliminate ignition sources, ventilate confined spaces, contain with absorbent (sand,
+      vermiculite), prevent entry to waterways, collect in sealed containers
+    exposure_immediate_actions: Remove to fresh air immediately. Remove contaminated clothing. Wash skin with soap and water
+      for 15+ minutes. Flush eyes for 15+ minutes. Seek immediate medical attention - benzene poisoning can be delayed.
+    environmental_hazards: Toxic to aquatic life. Floats on water. Volatile - evaporates rapidly. Report spills >10 lbs to
+      CERCLA.
+    special_hazards: Carcinogen - causes leukemia. May cause bone marrow depression with chronic exposure. Decomposes producing
+      toxic carbon monoxide and carbon dioxide.
+  physical_properties:
+    boiling_point: 80.1°C (176°F)
+    melting_point: 5.5°C (42°F)
+    vapor_pressure: 95 mmHg @ 25°C
+    vapor_density: 2.77 (Air=1)
+    specific_gravity: 0.8765 @ 20°C
+    flash_point: -11°C (12°F) closed cup
+    autoignition_temp: 498°C (928°F)
+    explosive_limits: 'LEL: 1.2%, UEL: 7.8%'
+    appearance: Clear, colorless to pale yellow liquid
+    odor: 'Sweet, aromatic odor; Odor threshold: 1.5-4.7 ppm (variable, not reliable)'
+subcategory: aromatic_hydrocarbon
 author:
   id: 2
   name: Alessandro Moretti
@@ -139,29 +160,6 @@ ppe_requirements:
   minimum_level: Level B for spill response, Level C for operations <50 ppm
   special_notes: Benzene is absorbed through skin - full body protection required. Change contaminated clothing immediately,
     do not reuse without decontamination.
-physical_properties:
-  boiling_point: 80.1°C (176°F)
-  melting_point: 5.5°C (42°F)
-  vapor_pressure: 95 mmHg @ 25°C
-  vapor_density: 2.77 (Air=1)
-  specific_gravity: 0.8765 @ 20°C
-  flash_point: -11°C (12°F) closed cup
-  autoignition_temp: 498°C (928°F)
-  explosive_limits: 'LEL: 1.2%, UEL: 7.8%'
-  appearance: Clear, colorless to pale yellow liquid
-  odor: 'Sweet, aromatic odor; Odor threshold: 1.5-4.7 ppm (variable, not reliable)'
-emergency_response:
-  fire_hazard: Highly flammable liquid. Vapors heavier than air, may travel to ignition source. Forms explosive mixtures with
-    air.
-  fire_suppression: Dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers and disperse vapors. Do not
-    use direct water stream.
-  spill_procedures: Evacuate area, eliminate ignition sources, ventilate confined spaces, contain with absorbent (sand, vermiculite),
-    prevent entry to waterways, collect in sealed containers
-  exposure_immediate_actions: Remove to fresh air immediately. Remove contaminated clothing. Wash skin with soap and water
-    for 15+ minutes. Flush eyes for 15+ minutes. Seek immediate medical attention - benzene poisoning can be delayed.
-  environmental_hazards: Toxic to aquatic life. Floats on water. Volatile - evaporates rapidly. Report spills >10 lbs to CERCLA.
-  special_hazards: Carcinogen - causes leukemia. May cause bone marrow depression with chronic exposure. Decomposes producing
-    toxic carbon monoxide and carbon dioxide.
 storage_requirements:
   temperature_range: Store below 25°C (77°F) in cool area
   ventilation: Local exhaust ventilation required, explosion-proof equipment, minimum 100 ft/min face velocity
@@ -299,3 +297,73 @@ detection_monitoring:
     detection_limit: 0.01 ppm
   odor_threshold: NOT reliable indicator. Odor threshold (1.5-4.7 ppm) is above safe exposure levels and varies greatly. Do
     not rely on odor - use monitoring equipment.
+ppe_requirements_detail:
+  id: particulate-carcinogen
+  hazard_type: particulate
+  hazard_level: carcinogen
+  minimum_protection_level: Level C
+  respiratory:
+    primary:
+      equipment: HEPA-filtered respirator (P100)
+      standard: NIOSH 42 CFR 84
+      condition: For particles <10 μm
+      filter_efficiency: 99.97% @ 0.3 μm
+      fit_test_required: true
+      cartridge_change: Per manufacturer or breathing resistance increase
+  skin:
+    gloves:
+      material: Nitrile gloves, disposable
+      standard: ANSI/ISEA 101
+      condition: Prevent skin contact with particulates
+      disposal: Contained disposal - hazardous waste
+    body:
+      equipment: Disposable Tyvek coveralls
+      standard: ANSI/ISEA 101
+      condition: Full body coverage, sealed at wrists/ankles
+      hood: Integrated hood covering head and neck
+      disposal: Hazardous waste, do not reuse
+    footwear:
+      equipment: Disposable boot covers
+      material: Tyvek or polyethylene
+      condition: Prevent particulate tracking
+  eye:
+    equipment: Safety goggles with side shields
+    standard: ANSI Z87.1
+    condition: Impact and particle protection
+    cleaning: Disposable or decontaminate between uses
+  special_requirements:
+  - Wet methods preferred to suppress dust
+  - HEPA vacuum only - never dry sweep
+  - Designated decontamination area
+  - Disposable PPE changed in decon area
+  - Shower facilities available
+  - No eating, drinking, smoking in work area
+  - Medical surveillance program required
+  decontamination:
+  - Remove PPE in designated decon area
+  - Vacuum suit before removal (HEPA only)
+  - Remove from inside out to minimize contact
+  - Place in labeled hazardous waste bag
+  - Wash hands and face thoroughly
+  - Shower at end of shift
+  training_required:
+  - Carcinogen hazard awareness
+  - HEPA respirator fit testing
+  - Proper PPE donning and doffing
+  - Decontamination procedures
+  - Medical surveillance requirements
+  medical_surveillance:
+    required: true
+    frequency: Annual minimum
+    requirements:
+    - Baseline and periodic medical exams
+    - Respiratory function testing
+    - Cancer screening per OSHA guidelines
+    - Exposure records maintenance
+  waste_handling:
+  - All PPE as hazardous waste
+  - Sealed, labeled containers
+  - Manifest tracking required
+  - EPA hazardous waste codes applicable
+  specific_compound: Benzene
+  pel_ppm: 1

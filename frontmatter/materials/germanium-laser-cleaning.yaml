@@ -1,11 +1,12 @@
 id: germanium-laser-cleaning
 name: Germanium
+title: Germanium Laser Cleaning
 category: semiconductor
-subcategory: elemental
-datePublished: '2025-12-19T02:53:24.255866Z'
-dateModified: '2025-12-19T02:53:24.255866Z'
+datePublished: '2025-12-20T04:16:08.626450Z'
+dateModified: '2025-12-20T04:16:08.626450Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/semiconductor/elemental/germanium-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,30 @@ breadcrumb:
   href: /materials/semiconductor/elemental
 - label: Germanium
   href: /materials/semiconductor/elemental/germanium-laser-cleaning
+description: Infrared transparency of Germanium, it excels in laser cleaning applications and thus delivers efficient contaminant
+  removal with minimal surface alteration.
+micro:
+  before: Germanium laser cleaning requires careful parameter selection to optimize contamination removal while preserving
+    substrate integrity.
+  after: ''
+faq:
+- question: How do I avoid damaging Germanium during laser cleaning?
+  answer: When laser cleaning Germanium, start by using a low-power pulse to gently remove surface contaminants without overheating
+    the material. I've seen that its good thermal conductivity helps spread heat evenly, so you maintain a clean finish easily.
+    But watch out midway—too much energy can cause cracks due to its brittleness, so adjust settings gradually and test on
+    a small area first. This approach keeps the semiconductor intact for reliable use.
+- question: What's the best laser setup for cleaning Germanium optics?
+  answer: You'll want to begin with a short wavelength laser since Germanium absorbs light well in that range, pulling off
+    dirt without deep penetration. In my experience, keeping the beam focused on the smooth, non-porous surface prevents any
+    residue buildup during the process. Just be careful not to overexpose it, as the material's moderate corrosion resistance
+    means prolonged sessions could dull the edges over time. End by cooling it slowly to avoid thermal stress.
+images:
+  hero:
+    alt: Germanium surface during precision laser cleaning process removing contamination layer
+    url: /images/material/germanium-laser-cleaning-hero.jpg
+  micro:
+    alt: Germanium surface at 500x magnification showing laser cleaning results
+    url: /images/material/germanium-laser-cleaning-micro.jpg
 author:
   id: 3
   name: Ikmanda Roswati
@@ -47,42 +72,22 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-title: Germanium Laser Cleaning
-description: Infrared transparency of Germanium, it excels in laser cleaning applications and thus delivers efficient contaminant
-  removal with minimal surface alteration.
-images:
-  hero:
-    alt: Germanium surface during precision laser cleaning process removing contamination layer
-    url: /images/material/germanium-laser-cleaning-hero.jpg
-  micro:
-    alt: Germanium surface at 500x magnification showing laser cleaning results
-    url: /images/material/germanium-laser-cleaning-micro.jpg
-micro:
-  before: Germanium laser cleaning requires careful parameter selection to optimize contamination removal while preserving
-    substrate integrity.
-  after: ''
-faq:
-- question: How do I avoid damaging Germanium during laser cleaning?
-  answer: When laser cleaning Germanium, start by using a low-power pulse to gently remove surface contaminants without overheating
-    the material. I've seen that its good thermal conductivity helps spread heat evenly, so you maintain a clean finish easily.
-    But watch out midway—too much energy can cause cracks due to its brittleness, so adjust settings gradually and test on
-    a small area first. This approach keeps the semiconductor intact for reliable use.
-- question: What's the best laser setup for cleaning Germanium optics?
-  answer: You'll want to begin with a short wavelength laser since Germanium absorbs light well in that range, pulling off
-    dirt without deep penetration. In my experience, keeping the beam focused on the smooth, non-porous surface prevents any
-    residue buildup during the process. Just be careful not to overexpose it, as the material's moderate corrosion resistance
-    means prolonged sessions could dull the edges over time. End by cooling it slowly to avoid thermal stress.
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+relationships:
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: iec-60825-laser-safety
+        - type: regulatory_standards
+          id: ce-machinery-directive
+        - type: regulatory_standards
+          id: rohs-directive
+subcategory: elemental
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -231,15 +236,6 @@ properties:
       confidence: 98
       researched_date: '2025-11-24T12:39:29.175448'
       needs_validation: true
-relationships:
-  related_contaminants: []
-  regulatory_standards:
-  - type: regulatory_standards
-    id: iec-60825-laser-safety
-  - type: regulatory_standards
-    id: ce-machinery-directive
-  - type: regulatory_standards
-    id: rohs-directive
 settings_description: I've found that laser cleaning Germanium works best with gentle, short pulses to gently lift contaminants
   without stressing its brittle structure. This approach preserves the smooth, non-porous surface that makes it ideal for
   optical uses, as the material absorbs energy moderately and conducts heat poorly, so overheating stays localized. Tends

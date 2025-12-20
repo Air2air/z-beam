@@ -1,16 +1,21 @@
-id: Gallium Nitride
-datePublished: '2025-12-19T02:53:40.951326Z'
-dateModified: '2025-12-19T02:53:40.951326Z'
+id: gallium-nitride-settings
+name: Gallium Nitride
+datePublished: '2025-12-20T04:17:12.564709Z'
+dateModified: '2025-12-20T04:17:12.564709Z'
 content_type: settings
 schema_version: 5.0.0
-relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
+full_path: /settings/semiconductor/compound/gallium-nitride-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Semiconductor
+  href: /settings/semiconductor
+- label: Compound
+  href: /settings/semiconductor/compound
+- label: Gallium Nitride
+  href: /settings/semiconductor/compound/gallium-nitride-settings
 author:
   id: 3
   name: Ikmanda Roswati
@@ -41,6 +46,14 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
+relationships:
+  related_materials: []
+  related_contaminants: []
+  regulatory_standards:
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
     value: 60
@@ -84,11 +97,73 @@ challenges:
 - Verify cleaning effectiveness through inspection
 settings_description: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection After cleaning,
   Gallium Nitride surfaces show restored appearance with controlled parameters
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
+category: semiconductor
+subcategory: compound
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
 seo_description: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection After cleaning, Gallium
   Nitride surfaces show restored appearance with...
 excerpt: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection After cleaning, Gallium Nitride

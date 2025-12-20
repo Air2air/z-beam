@@ -1,11 +1,12 @@
 id: polyimide-laser-cleaning
 name: Polyimide
+title: Polyimide Laser Cleaning
 category: plastic
-subcategory: thermoplastic
-datePublished: '2025-12-19T02:53:24.592053Z'
-dateModified: '2025-12-19T02:53:24.592053Z'
+datePublished: '2025-12-20T04:16:08.919798Z'
+dateModified: '2025-12-20T04:16:08.919798Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/plastic/thermoplastic/polyimide-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,31 @@ breadcrumb:
   href: /materials/plastic/thermoplastic
 - label: Polyimide
   href: /materials/plastic/thermoplastic/polyimide-laser-cleaning
+description: When laser cleaning polyimide, consider its exceptional heat resistance, which maintains stability under intense
+  thermal stress to prevent warping or breakdown—problems that affect lesser plastics—and lets you achieve a clean surface
+  without compromising structural integrity.
+micro:
+  before: Polyimide laser cleaning requires careful parameter selection to optimize contamination removal while preserving
+    substrate integrity.
+  after: ''
+faq:
+- question: How can I prevent Polyimide from charring during laser cleaning?
+  answer: You must start with a lower power setting right away to avoid overheating, since Polyimide holds heat poorly and
+    can char easily compared to metals like aluminum that dissipate it faster. Make sure you use short pulses to control the
+    energy input, which helps the material absorb the laser without building up damaging temperatures. This approach keeps
+    the surface clean while preserving Polyimide's tough, flexible structure for ongoing use.
+- question: What's the best way to remove contaminants from Polyimide without scratching it?
+  answer: When laser cleaning Polyimide, you'll want to scan the surface slowly at first to lift dirt gently, unlike with
+    harder plastics that need aggressive blasts and risk micro-scratches. Keep the beam focused tightly so it targets only
+    the top layer where contaminants hide, preventing deeper penetration that could weaken the material's inherent strength.
+    You should test on a small area to fine-tune, ensuring a smooth finish that matches Polyimide's naturally low surface
+images:
+  hero:
+    alt: Polyimide surface during precision laser cleaning process removing contamination layer
+    url: /images/material/polyimide-laser-cleaning-hero.jpg
+  micro:
+    alt: Polyimide surface at 500x magnification showing laser cleaning results
+    url: /images/material/polyimide-laser-cleaning-micro.jpg
 author:
   id: 3
   name: Ikmanda Roswati
@@ -47,43 +73,20 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-title: Polyimide Laser Cleaning
-description: When laser cleaning polyimide, consider its exceptional heat resistance, which maintains stability under intense
-  thermal stress to prevent warping or breakdown—problems that affect lesser plastics—and lets you achieve a clean surface
-  without compromising structural integrity.
-images:
-  hero:
-    alt: Polyimide surface during precision laser cleaning process removing contamination layer
-    url: /images/material/polyimide-laser-cleaning-hero.jpg
-  micro:
-    alt: Polyimide surface at 500x magnification showing laser cleaning results
-    url: /images/material/polyimide-laser-cleaning-micro.jpg
-micro:
-  before: Polyimide laser cleaning requires careful parameter selection to optimize contamination removal while preserving
-    substrate integrity.
-  after: ''
-faq:
-- question: How can I prevent Polyimide from charring during laser cleaning?
-  answer: You must start with a lower power setting right away to avoid overheating, since Polyimide holds heat poorly and
-    can char easily compared to metals like aluminum that dissipate it faster. Make sure you use short pulses to control the
-    energy input, which helps the material absorb the laser without building up damaging temperatures. This approach keeps
-    the surface clean while preserving Polyimide's tough, flexible structure for ongoing use.
-- question: What's the best way to remove contaminants from Polyimide without scratching it?
-  answer: When laser cleaning Polyimide, you'll want to scan the surface slowly at first to lift dirt gently, unlike with
-    harder plastics that need aggressive blasts and risk micro-scratches. Keep the beam focused tightly so it targets only
-    the top layer where contaminants hide, preventing deeper penetration that could weaken the material's inherent strength.
-    You should test on a small area to fine-tune, ensuring a smooth finish that matches Polyimide's naturally low surface
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+relationships:
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+subcategory: thermoplastic
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -237,13 +240,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T19:45:02.718968'
       needs_validation: true
-relationships:
-  related_contaminants: []
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
 settings_description: When laser cleaning Polyimide, you'll want to begin with a low pulse energy to gently remove contaminants
   without risking thermal damage. This material's high heat resistance works in your favor, allowing steady progress on stubborn
   residues like oils or particles, but you must monitor the surface closely since it absorbs laser energy moderately well

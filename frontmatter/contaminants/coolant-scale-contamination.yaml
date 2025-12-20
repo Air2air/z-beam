@@ -1,11 +1,11 @@
 id: coolant-scale-contamination
 name: Engine Coolant Scale
 category: thermal-damage
-subcategory: scale
-datePublished: '2025-12-19T02:53:36.719879Z'
-dateModified: '2025-12-19T02:53:36.719879Z'
+datePublished: '2025-12-20T04:14:38.810163Z'
+dateModified: '2025-12-20T04:14:38.810163Z'
 content_type: contaminants
 schema_version: 5.0.0
+full_path: /contaminants/thermal-damage/scale/coolant-scale-contamination
 breadcrumb:
 - label: Home
   href: /
@@ -17,10 +17,6 @@ breadcrumb:
   href: /contaminants/thermal-damage/scale
 - label: Engine Coolant Scale
   href: /contaminants/thermal-damage/scale/coolant-scale-contamination
-composition:
-- SiO₂
-- CaCO₃
-- Phosphates
 description: Coolant-scale contamination arises from silicate and phosphate deposits in engine cooling systems, where coolants
   degrade during operation and so minerals precipitate onto surfaces. This scale exhibits layered hardness and poor adhesion
   compared to rust or oil residues, because it forms crystalline structures that bond tightly yet crack unevenly under stress.
@@ -28,34 +24,247 @@ description: Coolant-scale contamination arises from silicate and phosphate depo
   more readily but leaves residues; removal challenges include avoiding substrate erosion during mechanical methods, yet laser
   cleaning succeeds by vaporizing layers precisely through thermal expansion, so surfaces restore uniformity without harm.
 relationships:
-  related_materials:
-  - id: aluminum-laser-cleaning
-    title: Aluminum
-    url: /materials/aluminum
-    image: /images/materials/aluminum.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: brass-laser-cleaning
-    title: Brass
-    url: /materials/brass
-    image: /images/materials/brass.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: cast-iron-laser-cleaning
-    title: Cast Iron
-    url: /materials/cast-iron
-    image: /images/materials/cast-iron.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: general
+  regulatory_standards:
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+  visual_characteristics:
+    appearance_on_categories:
+      ceramic:
+        appearance: Engine coolant scale on ceramic surfaces looks like white, chalky deposits that can adhere firmly and
+          cause slight surface roughness.
+        coverage: Coverage is generally localized and uneven, with amounts varying based on exposure duration and cleaning.
+        pattern: It tends to form in spots or patches, often accumulating in crevices or where coolant has dried.
+      composite:
+        appearance: Engine coolant scale on composites shows as white or grayish deposits that can embed in the matrix, leading
+          to a rough or stained appearance.
+        coverage: Coverage is variable and often partial, depending on the composite's porosity and the extent of contamination.
+        pattern: It forms in irregular patches or lines, following the material's texture or coolant exposure points.
+      concrete:
+        appearance: On concrete, it appears as white, efflorescent deposits that are powdery or crystalline, often leading
+          to surface pitting.
+        coverage: Coverage is often extensive and variable, ranging from small spots to large sections depending on porosity
+          and exposure.
+        pattern: It typically forms in patches or streaks, concentrating in areas where coolant has pooled or penetrated.
+      fabric:
+        appearance: Engine coolant scale on fabric manifests as stiff, white or discolored patches that feel crusty and may
+          weaken the fibers.
+        coverage: Coverage is usually localized and uneven, limited to the contaminated areas unless the fabric is saturated.
+        pattern: It forms in irregular spots or stains, often spreading outward from the point of contact with coolant.
+      glass:
+        appearance: On glass, it manifests as hazy, white films or streaks that can obscure transparency and feel slightly
+          abrasive.
+        coverage: Coverage is often light to moderate, forming thin layers that may cover large areas if spread by wiping
+          or rain.
+        pattern: It usually appears as streaks or smears, spreading in the direction of coolant flow or splashing.
+      metal:
+        appearance: Engine coolant scale appears as white, chalky deposits or rust-colored stains on metal surfaces, often
+          with a rough, crusty texture.
+        coverage: Coverage is usually partial and localized, varying from small spots to larger areas depending on the leak
+          severity.
+        pattern: It typically forms in irregular patches or streaks, concentrating in areas where coolant has leaked or pooled.
+      mineral:
+        appearance: Engine coolant scale on minerals shows as white, crusty coatings that can alter the natural luster and
+          feel gritty.
+        coverage: Coverage is generally partial and spotty, varying with the mineral's surface properties and contamination
+          level.
+        pattern: Distribution is in irregular patches or layers, often adhering to surfaces where coolant has evaporated.
+      plastic:
+        appearance: On plastic, it appears as whitish, flaky, or sticky residues that may cause discoloration or a dull finish.
+        coverage: Coverage is typically light and patchy, but can become more uniform if the plastic is porous or untreated.
+        pattern: Distribution is often in random spots or smears, spreading where coolant has contacted and evaporated.
+      rubber:
+        appearance: On rubber, it appears as whitish, powdery coatings or sticky films that may cause swelling or degradation
+          over time.
+        coverage: Coverage can range from light, spotty areas to more extensive coatings if the rubber absorbs the coolant.
+        pattern: It typically distributes in blotches or uniform layers, especially on surfaces exposed to coolant spills.
+      semiconductor:
+        appearance: On semiconductors, it appears as microscopic, white or translucent residues that can cause electrical
+          failures and surface hazing.
+        coverage: Coverage is typically minimal and localized, but even small amounts can lead to significant performance
+          issues.
+        pattern: It forms in fine, uneven spots or films, often concentrated around edges or contamination points.
+      specialty:
+        appearance: Engine coolant scale on specialty materials varies but often appears as white, adherent deposits that
+          may corrode or degrade unique surfaces.
+        coverage: Coverage is highly variable, ranging from isolated spots to widespread areas, influenced by material composition
+          and exposure.
+        pattern: Distribution depends on the material, but it generally forms in patches or streaks where coolant is present.
+      stone:
+        appearance: Engine coolant scale on stone appears as white or off-white powdery or crusty residues that can etch or
+          stain the surface.
+        coverage: Coverage is typically patchy and variable, ranging from small areas to more extensive sections if not cleaned
+          promptly.
+        pattern: It forms in irregular patches or concentrated spots, often following the path of coolant runoff or pooling.
+      wood:
+        appearance: On wood, it shows as whitish or grayish crystalline deposits that can feel gritty and may cause discoloration
+          or surface damage.
+        coverage: Coverage is generally sparse and uneven, limited to exposed areas in contact with the coolant.
+        pattern: Distribution is often in random spots or streaks where coolant has splashed or seeped into the wood grain.
+  laser_properties:
+    laser_parameters:
+      beam_profile: flat_top
+      fluence_range:
+        max_j_cm2: 1.5
+        min_j_cm2: 0.8
+        recommended_j_cm2: 1.1
+      overlap_percentage: 50
+      polarization: circular
+      pulse_duration_range:
+        max_ns: 200
+        min_ns: 50
+        recommended_ns: 100
+      repetition_rate_khz:
+        max: 100
+        min: 20
+        recommended: 50
+      safety_margin_factor: 0.75
+      scan_speed_mm_s:
+        max: 2000
+        min: 500
+        recommended: 1000
+      spot_size_mm:
+        max: 0.1
+        min: 0.03
+        recommended: 0.05
+      wavelength_preference:
+      - 1064
+      - 532
+    optical_properties:
+      absorption_coefficient:
+        wavelength_1064nm: 1200
+        wavelength_355nm: 28000
+        wavelength_532nm: 4500
+      reflectivity:
+        wavelength_1064nm: 0.15
+        wavelength_355nm: 0.03
+        wavelength_532nm: 0.08
+      refractive_index:
+        imaginary_part: 0.12
+        real_part: 1.55
+      transmission_depth: 83.3
+    removal_characteristics:
+      byproducts:
+      - compound: carbon-dioxide
+        hazard_level: low
+        phase: gas
+      - compound: H2O
+        hazard_level: low
+        phase: gas
+      - compound: CaO/MgO
+        hazard_level: low
+        phase: solid
+      - compound: organic residues
+        hazard_level: moderate
+        phase: solid
+      damage_risk_to_substrate: low
+      primary_mechanism: thermal_ablation
+      process_speed:
+        area_coverage_rate_cm2_min: 240
+        typical_scan_speed_mm_s: 800
+      removal_efficiency:
+        diminishing_returns_after: 4
+        optimal_passes: 3
+        single_pass: 0.7
+      secondary_mechanisms:
+      - photochemical
+      - mechanical_spallation
+      surface_quality_after_removal:
+        color_change: 'no'
+        residual_stress: compressive
+        roughness_increase: minimal
+    safety_data:
+      fire_explosion_risk: low
+      fumes_generated:
+      - compound: Ethylene Glycol
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 127
+        hazard_class: irritant
+      - compound: Glycolic Acid
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 8
+        hazard_class: irritant
+      - compound: Oxalic Acid
+        concentration_mg_m3: 1-15
+        exposure_limit_mg_m3: 1
+        hazard_class: toxic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 10-100
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1-10
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      particulate_generation:
+        respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+      ppe_requirements:
+        eye_protection: goggles
+        respiratory: half_mask
+        skin_protection: gloves
+      substrate_compatibility_warnings:
+      - Laser may etch or discolor underlying metal surfaces
+      - Thermal stress may cause micro-cracking in thin substrates
+      - Residual glycol compounds may require post-cleaning solvent wipe
+      toxic_gas_risk: moderate
+      ventilation_requirements:
+        exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+      visibility_hazard: moderate
+    thermal_properties:
+      ablation_threshold:
+        pulse_duration_100ns: 2.5
+        pulse_duration_10ns: 1.2
+        wavelength_1064nm: 1.8
+      decomposition_temperature: 350
+      heat_affected_zone_depth: 15
+      melting_point: null
+      specific_heat: 1200
+      thermal_conductivity: 0.8
+      thermal_diffusivity: 0.67
+      vaporization_temperature: 1200
+  valid_materials:
+  - Aluminum
+  - Cast Iron
+  - Brass
+  prohibited_materials:
+  - Plastics
+  - Rubber
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      metals:
+        title: Metal Substrates
+        description: Ferrous and non-ferrous metals affected by this contamination
+        items:
+        - id: aluminum-laser-cleaning
+          title: Aluminum
+          url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+          image: /images/material/aluminum-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+        - id: brass-laser-cleaning
+          title: Brass
+          url: /materials/metal/non-ferrous/brass-laser-cleaning
+          image: /images/material/brass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+        - id: cast-iron-laser-cleaning
+          title: Cast Iron
+          url: /materials/metal/ferrous/cast-iron-laser-cleaning
+          image: /images/material/cast-iron-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+composition:
+- SiO₂
+- CaCO₃
+- Phosphates
 author:
   id: 1
   name: Yi-Chun Lin
@@ -84,207 +293,69 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-laser_properties:
-  laser_parameters:
-    beam_profile: flat_top
-    fluence_range:
-      max_j_cm2: 1.5
-      min_j_cm2: 0.8
-      recommended_j_cm2: 1.1
-    overlap_percentage: 50
-    polarization: circular
-    pulse_duration_range:
-      max_ns: 200
-      min_ns: 50
-      recommended_ns: 100
-    repetition_rate_khz:
-      max: 100
-      min: 20
-      recommended: 50
-    safety_margin_factor: 0.75
-    scan_speed_mm_s:
-      max: 2000
-      min: 500
-      recommended: 1000
-    spot_size_mm:
-      max: 0.1
-      min: 0.03
-      recommended: 0.05
-    wavelength_preference:
-    - 1064
-    - 532
-  optical_properties:
-    absorption_coefficient:
-      wavelength_1064nm: 1200
-      wavelength_355nm: 28000
-      wavelength_532nm: 4500
-    reflectivity:
-      wavelength_1064nm: 0.15
-      wavelength_355nm: 0.03
-      wavelength_532nm: 0.08
-    refractive_index:
-      imaginary_part: 0.12
-      real_part: 1.55
-    transmission_depth: 83.3
-  removal_characteristics:
-    byproducts:
-    - compound: carbon-dioxide
-      hazard_level: low
-      phase: gas
-    - compound: H2O
-      hazard_level: low
-      phase: gas
-    - compound: CaO/MgO
-      hazard_level: low
-      phase: solid
-    - compound: organic residues
-      hazard_level: moderate
-      phase: solid
-    damage_risk_to_substrate: low
-    primary_mechanism: thermal_ablation
-    process_speed:
-      area_coverage_rate_cm2_min: 240
-      typical_scan_speed_mm_s: 800
-    removal_efficiency:
-      diminishing_returns_after: 4
-      optimal_passes: 3
-      single_pass: 0.7
-    secondary_mechanisms:
-    - photochemical
-    - mechanical_spallation
-    surface_quality_after_removal:
-      color_change: 'no'
-      residual_stress: compressive
-      roughness_increase: minimal
-  safety_data:
-    fire_explosion_risk: low
-    fumes_generated:
-    - compound: Ethylene Glycol
-      concentration_mg_m3: 5-50
-      exposure_limit_mg_m3: 127
-      hazard_class: irritant
-    - compound: Glycolic Acid
-      concentration_mg_m3: 2-20
-      exposure_limit_mg_m3: 8
-      hazard_class: irritant
-    - compound: Oxalic Acid
-      concentration_mg_m3: 1-15
-      exposure_limit_mg_m3: 1
-      hazard_class: toxic
-    - compound: Carbon Monoxide
-      concentration_mg_m3: 10-100
-      exposure_limit_mg_m3: 29
-      hazard_class: toxic
-    - compound: Formaldehyde
-      concentration_mg_m3: 1-10
-      exposure_limit_mg_m3: 0.37
-      hazard_class: carcinogenic
-    particulate_generation:
-      respirable_fraction: 0.7
-      size_range_um:
-      - 0.1
-      - 10
-    ppe_requirements:
-      eye_protection: goggles
-      respiratory: half_mask
-      skin_protection: gloves
-    substrate_compatibility_warnings:
-    - Laser may etch or discolor underlying metal surfaces
-    - Thermal stress may cause micro-cracking in thin substrates
-    - Residual glycol compounds may require post-cleaning solvent wipe
-    toxic_gas_risk: moderate
-    ventilation_requirements:
-      exhaust_velocity_m_s: 0.5
-      filtration_type: carbon
-      minimum_air_changes_per_hour: 12
-    visibility_hazard: moderate
-  thermal_properties:
-    ablation_threshold:
-      pulse_duration_100ns: 2.5
-      pulse_duration_10ns: 1.2
-      wavelength_1064nm: 1.8
-    decomposition_temperature: 350
-    heat_affected_zone_depth: 15
-    melting_point: null
-    specific_heat: 1200
-    thermal_conductivity: 0.8
-    thermal_diffusivity: 0.67
-    vaporization_temperature: 1200
-prohibited_materials:
-- Plastics
-- Rubber
-valid_materials:
-- Aluminum
-- Cast Iron
-- Brass
-visual_characteristics:
-  appearance_on_categories:
-    ceramic:
-      appearance: Engine coolant scale on ceramic surfaces looks like white, chalky deposits that can adhere firmly and cause
-        slight surface roughness.
-      coverage: Coverage is generally localized and uneven, with amounts varying based on exposure duration and cleaning.
-      pattern: It tends to form in spots or patches, often accumulating in crevices or where coolant has dried.
-    composite:
-      appearance: Engine coolant scale on composites shows as white or grayish deposits that can embed in the matrix, leading
-        to a rough or stained appearance.
-      coverage: Coverage is variable and often partial, depending on the composite's porosity and the extent of contamination.
-      pattern: It forms in irregular patches or lines, following the material's texture or coolant exposure points.
-    concrete:
-      appearance: On concrete, it appears as white, efflorescent deposits that are powdery or crystalline, often leading to
-        surface pitting.
-      coverage: Coverage is often extensive and variable, ranging from small spots to large sections depending on porosity
-        and exposure.
-      pattern: It typically forms in patches or streaks, concentrating in areas where coolant has pooled or penetrated.
-    fabric:
-      appearance: Engine coolant scale on fabric manifests as stiff, white or discolored patches that feel crusty and may
-        weaken the fibers.
-      coverage: Coverage is usually localized and uneven, limited to the contaminated areas unless the fabric is saturated.
-      pattern: It forms in irregular spots or stains, often spreading outward from the point of contact with coolant.
-    glass:
-      appearance: On glass, it manifests as hazy, white films or streaks that can obscure transparency and feel slightly abrasive.
-      coverage: Coverage is often light to moderate, forming thin layers that may cover large areas if spread by wiping or
-        rain.
-      pattern: It usually appears as streaks or smears, spreading in the direction of coolant flow or splashing.
-    metal:
-      appearance: Engine coolant scale appears as white, chalky deposits or rust-colored stains on metal surfaces, often with
-        a rough, crusty texture.
-      coverage: Coverage is usually partial and localized, varying from small spots to larger areas depending on the leak
-        severity.
-      pattern: It typically forms in irregular patches or streaks, concentrating in areas where coolant has leaked or pooled.
-    mineral:
-      appearance: Engine coolant scale on minerals shows as white, crusty coatings that can alter the natural luster and feel
-        gritty.
-      coverage: Coverage is generally partial and spotty, varying with the mineral's surface properties and contamination
-        level.
-      pattern: Distribution is in irregular patches or layers, often adhering to surfaces where coolant has evaporated.
-    plastic:
-      appearance: On plastic, it appears as whitish, flaky, or sticky residues that may cause discoloration or a dull finish.
-      coverage: Coverage is typically light and patchy, but can become more uniform if the plastic is porous or untreated.
-      pattern: Distribution is often in random spots or smears, spreading where coolant has contacted and evaporated.
-    rubber:
-      appearance: On rubber, it appears as whitish, powdery coatings or sticky films that may cause swelling or degradation
-        over time.
-      coverage: Coverage can range from light, spotty areas to more extensive coatings if the rubber absorbs the coolant.
-      pattern: It typically distributes in blotches or uniform layers, especially on surfaces exposed to coolant spills.
-    semiconductor:
-      appearance: On semiconductors, it appears as microscopic, white or translucent residues that can cause electrical failures
-        and surface hazing.
-      coverage: Coverage is typically minimal and localized, but even small amounts can lead to significant performance issues.
-      pattern: It forms in fine, uneven spots or films, often concentrated around edges or contamination points.
-    specialty:
-      appearance: Engine coolant scale on specialty materials varies but often appears as white, adherent deposits that may
-        corrode or degrade unique surfaces.
-      coverage: Coverage is highly variable, ranging from isolated spots to widespread areas, influenced by material composition
-        and exposure.
-      pattern: Distribution depends on the material, but it generally forms in patches or streaks where coolant is present.
-    stone:
-      appearance: Engine coolant scale on stone appears as white or off-white powdery or crusty residues that can etch or
-        stain the surface.
-      coverage: Coverage is typically patchy and variable, ranging from small areas to more extensive sections if not cleaned
-        promptly.
-      pattern: It forms in irregular patches or concentrated spots, often following the path of coolant runoff or pooling.
-    wood:
-      appearance: On wood, it shows as whitish or grayish crystalline deposits that can feel gritty and may cause discoloration
-        or surface damage.
-      coverage: Coverage is generally sparse and uneven, limited to exposed areas in contact with the coolant.
-      pattern: Distribution is often in random spots or streaks where coolant has splashed or seeped into the wood grain.
+subcategory: scale
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety

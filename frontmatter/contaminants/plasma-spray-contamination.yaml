@@ -1,11 +1,11 @@
 id: plasma-spray-contamination
 name: Thermal Spray Coating
 category: thermal-damage
-subcategory: coating
-datePublished: '2025-12-19T02:53:37.431843Z'
-dateModified: '2025-12-19T02:53:37.431843Z'
+datePublished: '2025-12-20T04:14:40.678557Z'
+dateModified: '2025-12-20T04:14:40.678557Z'
 content_type: contaminants
 schema_version: 5.0.0
+full_path: /contaminants/thermal-damage/coating/plasma-spray-contamination
 breadcrumb:
 - label: Home
   href: /
@@ -17,11 +17,6 @@ breadcrumb:
   href: /contaminants/thermal-damage/coating
 - label: Thermal Spray Coating
   href: /contaminants/thermal-damage/coating/plasma-spray-contamination
-composition:
-- Al₂O₃
-- ZrO₂
-- MCrAlY
-- WC-Co
 description: Plasma-spray contamination, it arises from the deposition of molten ceramic or metallic particles onto surfaces
   during thermal spraying processes, which are employed for repairing components such as turbine blades. This contamination
   manifests as a tenacious, porous layer that distinguishes itself from oxide scales or dust residues through its uneven thickness
@@ -30,25 +25,227 @@ description: Plasma-spray contamination, it arises from the deposition of molten
   yet laser cleaning proves effective, as the process selectively ablates the layer through precise thermal vaporization,
   that demonstrates superior control over mechanical methods.
 relationships:
-  related_materials:
-  - id: steel-laser-cleaning
-    title: Steel
-    url: /materials/steel
-    image: /images/materials/steel.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: titanium-laser-cleaning
-    title: Titanium
-    url: /materials/titanium
-    image: /images/materials/titanium.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: general
+  regulatory_standards:
+  - type: regulatory_standards
+    id: osha-ppe-requirements
+  - type: regulatory_standards
+    id: ansi-z136-1-laser-safety
+  visual_characteristics:
+    appearance_on_categories:
+      ceramic:
+        appearance: The coating appears as a rough, matte finish in colors like gray or black, sometimes with a speckled look
+          from embedded particles.
+        coverage: Coverage is generally high and even, designed for full surface protection, though edges may have slight
+          variations.
+        pattern: Distribution is often uniform or slightly mottled, but can show streaks or patches if application is uneven.
+      composite:
+        appearance: On composites, it appears as a rough, heterogeneous layer in mixed colors, blending with the substrate
+          but showing texture variations.
+        coverage: Coverage varies widely, from partial to full, with inconsistencies at joints or curved areas.
+        pattern: Distribution is patchy or streaked, influenced by the composite's fiber orientation and surface properties.
+      concrete:
+        appearance: It looks like a coarse, gritty coating in gray or earth tones, blending with the surface but adding a
+          rough, sometimes glossy sheen.
+        coverage: Coverage is typically high and uniform for protection, but can vary on rough or uneven surfaces.
+        pattern: Patterns are mottled or streaked, influenced by concrete's porosity and application technique.
+      fabric:
+        appearance: On fabric, it appears as a stiff, crusty deposit in dull hues, embedding into fibers and altering the
+          texture to a rough feel.
+        coverage: Coverage is partial and variable, often limited to surface contact points with gaps in between.
+        pattern: Distribution is blotchy or streaky, following the weave pattern and leading to uneven spots.
+      glass:
+        appearance: On glass, it manifests as a hazy, opaque layer with a rough texture, often in white, gray, or translucent
+          colors that obscure transparency.
+        coverage: Coverage is typically low and non-uniform, as the smooth surface resists coating, leading to gaps and variations.
+        pattern: It forms streaky or blotchy patterns, with poor adhesion causing peeling or beading in spots.
+      metal:
+        appearance: Thermal spray coating on metal appears as a rough, matte to semi-gloss layer, often in metallic gray,
+          black, or colored hues depending on the coating material.
+        coverage: Coverage is usually high and consistent, aiming for full surface protection, but variations can occur at
+          edges or complex geometries.
+        pattern: It typically forms a uniform or slightly streaked pattern, with occasional spatter spots or uneven patches
+          due to application inconsistencies.
+      mineral:
+        appearance: On minerals, it appears as a rough, adherent layer in colors matching or contrasting the substrate, such
+          as metallic or dark shades.
+        coverage: Coverage ranges from partial to full, with variations due to natural irregularities in the mineral surface.
+        pattern: Distribution is often uniform or patchy, depending on the mineral's crystal structure and surface smoothness.
+      plastic:
+        appearance: It looks like a brittle, flaky layer in dull colors such as gray or beige, often cracking or peeling due
+          to thermal expansion mismatches.
+        coverage: Coverage is low and uneven, with frequent gaps and poor adhesion causing partial coverage.
+        pattern: Patterns are irregular with spots and patches, as the coating may not bond well, leading to delamination.
+      rubber:
+        appearance: It manifests as a cracked, peeling film in colors like black or gray, often looking brittle and mismatched
+          with the flexible rubber surface.
+        coverage: Coverage is generally low and non-uniform, with the coating failing to cover the entire surface evenly.
+        pattern: Patterns are irregular with flaking spots and streaks, due to poor adhesion and elasticity differences.
+      semiconductor:
+        appearance: It manifests as a thin, often discolored film in shades like gray or brown, with a smooth to slightly
+          rough texture that may interfere with electronic properties.
+        coverage: Coverage is usually controlled and even for functional layers, but contamination leads to partial, undesirable
+          coverage.
+        pattern: Patterns are typically uniform or speckled, but can show defects like streaks or spots from contamination.
+      specialty:
+        appearance: On specialty materials, it appears variable—rough or smooth in diverse colors—tailored to the substrate
+          but often looking out of place.
+        coverage: Coverage is highly variable, designed for specific needs but prone to inconsistencies if not optimized.
+        pattern: Distribution depends on the material; it can be uniform, patchy, or streaked, based on application and adhesion.
+      stone:
+        appearance: It appears as a gritty, uneven film in shades like gray or tan, sometimes glossy if sealed, but often
+          rough and discolored.
+        coverage: Coverage varies from partial to full, but tends to be inconsistent, with thinner areas on rough surfaces.
+        pattern: Patterns are irregular with patches and streaks, influenced by the stone's porosity and surface irregularities.
+      wood:
+        appearance: On wood, it looks like a coarse, flaky overlay with colors ranging from dull gray to brown, often contrasting
+          with the natural grain and texture.
+        coverage: Coverage is generally low and uneven, with gaps exposing the wood surface due to poor adhesion and material
+          incompatibility.
+        pattern: Distribution is patchy or streaky, as the coating may not adhere well, leading to flaking and irregular spots.
+  laser_properties:
+    laser_parameters:
+      beam_profile: flat_top
+      fluence_range:
+        max_j_cm2: 3.0
+        min_j_cm2: 1.5
+        recommended_j_cm2: 2.0
+      overlap_percentage: 50
+      polarization: circular
+      pulse_duration_range:
+        max_ns: 200
+        min_ns: 10
+        recommended_ns: 50
+      repetition_rate_khz:
+        max: 200
+        min: 20
+        recommended: 50
+      safety_margin_factor: 0.7
+      scan_speed_mm_s:
+        max: 2000
+        min: 500
+        recommended: 1000
+      spot_size_mm:
+        max: 0.1
+        min: 0.03
+        recommended: 0.05
+      wavelength_preference:
+      - 1064
+      - 532
+    optical_properties:
+      absorption_coefficient:
+        wavelength_1064nm: 8500
+        wavelength_532nm: 48000
+      reflectivity:
+        wavelength_1064nm: 0.35
+        wavelength_355nm: 0.08
+        wavelength_532nm: 0.18
+      refractive_index:
+        imaginary_part: 0.15
+        real_part: 2.4
+      transmission_depth: 11.8
+    removal_characteristics:
+      byproducts:
+      - compound: Metal oxides (varies by coating)
+        hazard_level: moderate
+        phase: solid
+      - compound: Metal vapor/particulates
+        hazard_level: high
+        phase: gas/plasma
+      - compound: CO/CO2 (from binder decomposition)
+        hazard_level: moderate
+        phase: gas
+      damage_risk_to_substrate: medium
+      primary_mechanism: thermal_ablation
+      process_speed:
+        area_coverage_rate_cm2_min: 240
+        typical_scan_speed_mm_s: 800
+      removal_efficiency:
+        diminishing_returns_after: 6
+        optimal_passes: 4
+        single_pass: 0.3
+      secondary_mechanisms:
+      - mechanical_spallation
+      - thermal_stress_fracturing
+      surface_quality_after_removal:
+        color_change: 'yes'
+        residual_stress: compressive
+        roughness_increase: moderate
+    safety_data:
+      fire_explosion_risk: low
+      fumes_generated:
+      - compound: Metal oxides (various)
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+      - compound: Carbon monoxide
+        concentration_mg_m3: 10-100
+        exposure_limit_mg_m3: 29.0
+        hazard_class: toxic
+      - compound: Volatile organic compounds
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 100.0
+        hazard_class: irritant
+      particulate_generation:
+        respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+      ppe_requirements:
+        eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+      substrate_compatibility_warnings:
+      - May generate toxic fumes if coating contains heavy metals
+      - Potential for substrate material to vaporize and create additional hazards
+      - Watch for reflective surfaces causing laser beam deflection
+      toxic_gas_risk: moderate
+      ventilation_requirements:
+        exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 10
+      visibility_hazard: moderate
+    thermal_properties:
+      ablation_threshold:
+        pulse_duration_100ns: 4.5
+        pulse_duration_10ns: 3.2
+        wavelength_1064nm: 2.8
+      decomposition_temperature: 1800
+      heat_affected_zone_depth: 45
+      melting_point: 1500
+      specific_heat: 650
+      thermal_conductivity: 8.5
+      thermal_diffusivity: 1.6
+      vaporization_temperature: 2800
+  valid_materials:
+  - Steel
+  - Titanium
+  - Turbine Blades
+  prohibited_materials: []
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      metals:
+        title: Metal Substrates
+        description: Ferrous and non-ferrous metals affected by this contamination
+        items:
+        - id: steel-laser-cleaning
+          title: Steel
+          url: /materials/metal/ferrous/steel-laser-cleaning
+          image: /images/material/steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+        - id: titanium-laser-cleaning
+          title: Titanium
+          url: /materials/metal/specialty/titanium-laser-cleaning
+          image: /images/material/titanium-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+composition:
+- Al₂O₃
+- ZrO₂
+- MCrAlY
+- WC-Co
 author:
   id: 2
   name: Alessandro Moretti
@@ -78,193 +275,69 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-laser_properties:
-  laser_parameters:
-    beam_profile: flat_top
-    fluence_range:
-      max_j_cm2: 3.0
-      min_j_cm2: 1.5
-      recommended_j_cm2: 2.0
-    overlap_percentage: 50
-    polarization: circular
-    pulse_duration_range:
-      max_ns: 200
-      min_ns: 10
-      recommended_ns: 50
-    repetition_rate_khz:
-      max: 200
-      min: 20
-      recommended: 50
-    safety_margin_factor: 0.7
-    scan_speed_mm_s:
-      max: 2000
-      min: 500
-      recommended: 1000
-    spot_size_mm:
-      max: 0.1
-      min: 0.03
-      recommended: 0.05
-    wavelength_preference:
-    - 1064
-    - 532
-  optical_properties:
-    absorption_coefficient:
-      wavelength_1064nm: 8500
-      wavelength_532nm: 48000
-    reflectivity:
-      wavelength_1064nm: 0.35
-      wavelength_355nm: 0.08
-      wavelength_532nm: 0.18
-    refractive_index:
-      imaginary_part: 0.15
-      real_part: 2.4
-    transmission_depth: 11.8
-  removal_characteristics:
-    byproducts:
-    - compound: Metal oxides (varies by coating)
-      hazard_level: moderate
-      phase: solid
-    - compound: Metal vapor/particulates
-      hazard_level: high
-      phase: gas/plasma
-    - compound: CO/CO2 (from binder decomposition)
-      hazard_level: moderate
-      phase: gas
-    damage_risk_to_substrate: medium
-    primary_mechanism: thermal_ablation
-    process_speed:
-      area_coverage_rate_cm2_min: 240
-      typical_scan_speed_mm_s: 800
-    removal_efficiency:
-      diminishing_returns_after: 6
-      optimal_passes: 4
-      single_pass: 0.3
-    secondary_mechanisms:
-    - mechanical_spallation
-    - thermal_stress_fracturing
-    surface_quality_after_removal:
-      color_change: 'yes'
-      residual_stress: compressive
-      roughness_increase: moderate
-  safety_data:
-    fire_explosion_risk: low
-    fumes_generated:
-    - compound: Metal oxides (various)
-      concentration_mg_m3: 5-50
-      exposure_limit_mg_m3: 5.0
-      hazard_class: irritant
-    - compound: Carbon monoxide
-      concentration_mg_m3: 10-100
-      exposure_limit_mg_m3: 29.0
-      hazard_class: toxic
-    - compound: Volatile organic compounds
-      concentration_mg_m3: 2-20
-      exposure_limit_mg_m3: 100.0
-      hazard_class: irritant
-    particulate_generation:
-      respirable_fraction: 0.7
-      size_range_um:
-      - 0.1
-      - 10.0
-    ppe_requirements:
-      eye_protection: goggles
-      respiratory: PAPR
-      skin_protection: full_suit
-    substrate_compatibility_warnings:
-    - May generate toxic fumes if coating contains heavy metals
-    - Potential for substrate material to vaporize and create additional hazards
-    - Watch for reflective surfaces causing laser beam deflection
-    toxic_gas_risk: moderate
-    ventilation_requirements:
-      exhaust_velocity_m_s: 0.5
-      filtration_type: HEPA
-      minimum_air_changes_per_hour: 10
-    visibility_hazard: moderate
-  thermal_properties:
-    ablation_threshold:
-      pulse_duration_100ns: 4.5
-      pulse_duration_10ns: 3.2
-      wavelength_1064nm: 2.8
-    decomposition_temperature: 1800
-    heat_affected_zone_depth: 45
-    melting_point: 1500
-    specific_heat: 650
-    thermal_conductivity: 8.5
-    thermal_diffusivity: 1.6
-    vaporization_temperature: 2800
-prohibited_materials: []
-valid_materials:
-- Steel
-- Titanium
-- Turbine Blades
-visual_characteristics:
-  appearance_on_categories:
-    ceramic:
-      appearance: The coating appears as a rough, matte finish in colors like gray or black, sometimes with a speckled look
-        from embedded particles.
-      coverage: Coverage is generally high and even, designed for full surface protection, though edges may have slight variations.
-      pattern: Distribution is often uniform or slightly mottled, but can show streaks or patches if application is uneven.
-    composite:
-      appearance: On composites, it appears as a rough, heterogeneous layer in mixed colors, blending with the substrate but
-        showing texture variations.
-      coverage: Coverage varies widely, from partial to full, with inconsistencies at joints or curved areas.
-      pattern: Distribution is patchy or streaked, influenced by the composite's fiber orientation and surface properties.
-    concrete:
-      appearance: It looks like a coarse, gritty coating in gray or earth tones, blending with the surface but adding a rough,
-        sometimes glossy sheen.
-      coverage: Coverage is typically high and uniform for protection, but can vary on rough or uneven surfaces.
-      pattern: Patterns are mottled or streaked, influenced by concrete's porosity and application technique.
-    fabric:
-      appearance: On fabric, it appears as a stiff, crusty deposit in dull hues, embedding into fibers and altering the texture
-        to a rough feel.
-      coverage: Coverage is partial and variable, often limited to surface contact points with gaps in between.
-      pattern: Distribution is blotchy or streaky, following the weave pattern and leading to uneven spots.
-    glass:
-      appearance: On glass, it manifests as a hazy, opaque layer with a rough texture, often in white, gray, or translucent
-        colors that obscure transparency.
-      coverage: Coverage is typically low and non-uniform, as the smooth surface resists coating, leading to gaps and variations.
-      pattern: It forms streaky or blotchy patterns, with poor adhesion causing peeling or beading in spots.
-    metal:
-      appearance: Thermal spray coating on metal appears as a rough, matte to semi-gloss layer, often in metallic gray, black,
-        or colored hues depending on the coating material.
-      coverage: Coverage is usually high and consistent, aiming for full surface protection, but variations can occur at edges
-        or complex geometries.
-      pattern: It typically forms a uniform or slightly streaked pattern, with occasional spatter spots or uneven patches
-        due to application inconsistencies.
-    mineral:
-      appearance: On minerals, it appears as a rough, adherent layer in colors matching or contrasting the substrate, such
-        as metallic or dark shades.
-      coverage: Coverage ranges from partial to full, with variations due to natural irregularities in the mineral surface.
-      pattern: Distribution is often uniform or patchy, depending on the mineral's crystal structure and surface smoothness.
-    plastic:
-      appearance: It looks like a brittle, flaky layer in dull colors such as gray or beige, often cracking or peeling due
-        to thermal expansion mismatches.
-      coverage: Coverage is low and uneven, with frequent gaps and poor adhesion causing partial coverage.
-      pattern: Patterns are irregular with spots and patches, as the coating may not bond well, leading to delamination.
-    rubber:
-      appearance: It manifests as a cracked, peeling film in colors like black or gray, often looking brittle and mismatched
-        with the flexible rubber surface.
-      coverage: Coverage is generally low and non-uniform, with the coating failing to cover the entire surface evenly.
-      pattern: Patterns are irregular with flaking spots and streaks, due to poor adhesion and elasticity differences.
-    semiconductor:
-      appearance: It manifests as a thin, often discolored film in shades like gray or brown, with a smooth to slightly rough
-        texture that may interfere with electronic properties.
-      coverage: Coverage is usually controlled and even for functional layers, but contamination leads to partial, undesirable
-        coverage.
-      pattern: Patterns are typically uniform or speckled, but can show defects like streaks or spots from contamination.
-    specialty:
-      appearance: On specialty materials, it appears variable—rough or smooth in diverse colors—tailored to the substrate
-        but often looking out of place.
-      coverage: Coverage is highly variable, designed for specific needs but prone to inconsistencies if not optimized.
-      pattern: Distribution depends on the material; it can be uniform, patchy, or streaked, based on application and adhesion.
-    stone:
-      appearance: It appears as a gritty, uneven film in shades like gray or tan, sometimes glossy if sealed, but often rough
-        and discolored.
-      coverage: Coverage varies from partial to full, but tends to be inconsistent, with thinner areas on rough surfaces.
-      pattern: Patterns are irregular with patches and streaks, influenced by the stone's porosity and surface irregularities.
-    wood:
-      appearance: On wood, it looks like a coarse, flaky overlay with colors ranging from dull gray to brown, often contrasting
-        with the natural grain and texture.
-      coverage: Coverage is generally low and uneven, with gaps exposing the wood surface due to poor adhesion and material
-        incompatibility.
-      pattern: Distribution is patchy or streaky, as the coating may not adhere well, leading to flaking and irregular spots.
+subcategory: coating
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety

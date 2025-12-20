@@ -1,23 +1,31 @@
-id: chromium-vi
+id: chromium-vi-compound
 name: Hexavalent Chromium
 display_name: Chromium(VI)
-chemical_formula: Cr(VI)
-cas_number: 18540-29-9
-molecular_weight: 52.0
-datePublished: '2025-12-19T02:53:38.497389Z'
-dateModified: '2025-12-19T02:53:38.497389Z'
+category: carcinogen
+hazard_class: carcinogenic
+datePublished: '2025-12-20T04:16:42.135237Z'
+dateModified: '2025-12-20T04:16:42.135237Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/carcinogen/heavy-metal/chromium-vi-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Carcinogen
+  href: /compounds/carcinogen
 - label: Heavy Metal
-  href: /compounds//heavy_metal
-category: carcinogen
-subcategory: heavy_metal
-hazard_class: carcinogenic
+  href: /compounds/carcinogen/heavy_metal
+- label: Hexavalent Chromium
+  href: /compounds/carcinogen/heavy-metal/chromium-vi-compound
+chemical_formula: Cr(VI)
+cas_number: 18540-29-9
+molecular_weight: 52.0
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: null
   osha_pel_mg_m3: 0.005
@@ -36,28 +44,23 @@ sources_in_laser_cleaning:
 - stainless_steel_cleaning
 - chrome_plating_removal
 - chromate_coating_removal
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: chrome-pitting
+  - id: chrome-pitting-contamination
     title: Chromium Oxide Pitting
     url: /contaminants/oxidation/non-ferrous/chrome-pitting
     image: /images/contaminants/oxidation/non-ferrous/chrome-pitting.jpg
     frequency: very_common
     severity: high
     typical_context: Oxidation of chromium creates Cr(VI)
-  - id: steel-corrosion
+  - id: steel-corrosion-contamination
     title: Steel Surface Corrosion
     url: /contaminants/oxidation/ferrous/steel-corrosion
     image: /images/contaminants/oxidation/ferrous/steel-corrosion.jpg
     frequency: common
     severity: high
     typical_context: Oxidation of chromium in stainless steel
-  - id: paint-residue
+  - id: paint-residue-contamination
     title: Paint Residue / Coating Failure
     url: /contaminants/inorganic-coating/paint/paint-residue
     image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
@@ -67,9 +70,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: chromium-vi-physical-data
-  health_effects:
-  - type: health_effects
-    id: chromium-vi-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: chromium-vi-environmental-data
@@ -83,10 +84,30 @@ relationships:
       specific_compound: Hexavalent Chromium
       pel_ppm: null
   emergency_response:
-  - type: emergency_response
-    id: flammable-gas-extremely
-    overrides:
-      specific_compound: Hexavalent Chromium
+    fire_hazard: Non-combustible. Strong oxidizer - increases fire intensity. Chromates may explode when heated with organic
+      materials.
+    fire_suppression: Use agent appropriate for surrounding fire. Do not use water on dichromate fires. Wear SCBA.
+    spill_procedures: Evacuate area. Wear full PPE. Avoid dust generation. Reduce Cr(VI) to Cr(III) with sodium bisulfite
+      or ferrous sulfate before cleanup. Sweep/vacuum with HEPA filter. Dispose as hazardous waste. Decontaminate area thoroughly.
+    exposure_immediate_actions: Remove contaminated clothing immediately. Wash skin with soap and water for 15 minutes. If
+      inhaled, move to fresh air. Seek medical attention immediately - inform physician of Cr(VI) exposure and potential for
+      delayed effects.
+    environmental_hazards: Toxic to aquatic life. Cr(VI) is highly mobile in groundwater. Can contaminate drinking water.
+      Report releases >5000 lbs.
+    special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, nasal septum perforation. Strong oxidizer
+      - reacts violently with combustibles. Corrosive to skin (ulcers/chrome holes). Potent allergen - can cause severe dermatitis.
+  physical_properties:
+    boiling_point: 'Varies by compound (chromic acid: decomposes >250°C)'
+    melting_point: Varies by compound
+    vapor_pressure: Negligible at room temperature
+    vapor_density: Not applicable (metal/salt)
+    specific_gravity: 'Varies (chromic acid: 1.2)'
+    flash_point: Not applicable
+    autoignition_temp: Not applicable
+    explosive_limits: Not applicable
+    appearance: Yellow to orange-red crystalline solid (chromates), green solution (chromic acid)
+    odor: Odorless or faint acrid odor
+subcategory: heavy_metal
 author:
   id: 4
   name: Todd Dunning
@@ -124,30 +145,6 @@ ppe_requirements:
   minimum_level: Level C for known concentrations <2.5 µg/m³, Level B for higher concentrations or welding/cutting operations
   special_notes: CARCINOGEN and ALLERGEN. Prevent skin contact - causes sensitization. Welding/cutting stainless steel generates
     Cr(VI) fume. Use wet methods to control dust. Medical surveillance required.
-physical_properties:
-  boiling_point: 'Varies by compound (chromic acid: decomposes >250°C)'
-  melting_point: Varies by compound
-  vapor_pressure: Negligible at room temperature
-  vapor_density: Not applicable (metal/salt)
-  specific_gravity: 'Varies (chromic acid: 1.2)'
-  flash_point: Not applicable
-  autoignition_temp: Not applicable
-  explosive_limits: Not applicable
-  appearance: Yellow to orange-red crystalline solid (chromates), green solution (chromic acid)
-  odor: Odorless or faint acrid odor
-emergency_response:
-  fire_hazard: Non-combustible. Strong oxidizer - increases fire intensity. Chromates may explode when heated with organic
-    materials.
-  fire_suppression: Use agent appropriate for surrounding fire. Do not use water on dichromate fires. Wear SCBA.
-  spill_procedures: Evacuate area. Wear full PPE. Avoid dust generation. Reduce Cr(VI) to Cr(III) with sodium bisulfite or
-    ferrous sulfate before cleanup. Sweep/vacuum with HEPA filter. Dispose as hazardous waste. Decontaminate area thoroughly.
-  exposure_immediate_actions: Remove contaminated clothing immediately. Wash skin with soap and water for 15 minutes. If inhaled,
-    move to fresh air. Seek medical attention immediately - inform physician of Cr(VI) exposure and potential for delayed
-    effects.
-  environmental_hazards: Toxic to aquatic life. Cr(VI) is highly mobile in groundwater. Can contaminate drinking water. Report
-    releases >5000 lbs.
-  special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, nasal septum perforation. Strong oxidizer -
-    reacts violently with combustibles. Corrosive to skin (ulcers/chrome holes). Potent allergen - can cause severe dermatitis.
 storage_requirements:
   temperature_range: Store at room temperature, avoid excessive heat
   ventilation: Local exhaust ventilation. Store in well-ventilated area away from work areas.
@@ -280,3 +277,73 @@ detection_monitoring:
     technique: Visible spectrophotometry
     detection_limit: 0.05 µg/sample
   odor_threshold: Not applicable - no warning odor at hazardous levels
+ppe_requirements_detail:
+  id: particulate-carcinogen
+  hazard_type: particulate
+  hazard_level: carcinogen
+  minimum_protection_level: Level C
+  respiratory:
+    primary:
+      equipment: HEPA-filtered respirator (P100)
+      standard: NIOSH 42 CFR 84
+      condition: For particles <10 μm
+      filter_efficiency: 99.97% @ 0.3 μm
+      fit_test_required: true
+      cartridge_change: Per manufacturer or breathing resistance increase
+  skin:
+    gloves:
+      material: Nitrile gloves, disposable
+      standard: ANSI/ISEA 101
+      condition: Prevent skin contact with particulates
+      disposal: Contained disposal - hazardous waste
+    body:
+      equipment: Disposable Tyvek coveralls
+      standard: ANSI/ISEA 101
+      condition: Full body coverage, sealed at wrists/ankles
+      hood: Integrated hood covering head and neck
+      disposal: Hazardous waste, do not reuse
+    footwear:
+      equipment: Disposable boot covers
+      material: Tyvek or polyethylene
+      condition: Prevent particulate tracking
+  eye:
+    equipment: Safety goggles with side shields
+    standard: ANSI Z87.1
+    condition: Impact and particle protection
+    cleaning: Disposable or decontaminate between uses
+  special_requirements:
+  - Wet methods preferred to suppress dust
+  - HEPA vacuum only - never dry sweep
+  - Designated decontamination area
+  - Disposable PPE changed in decon area
+  - Shower facilities available
+  - No eating, drinking, smoking in work area
+  - Medical surveillance program required
+  decontamination:
+  - Remove PPE in designated decon area
+  - Vacuum suit before removal (HEPA only)
+  - Remove from inside out to minimize contact
+  - Place in labeled hazardous waste bag
+  - Wash hands and face thoroughly
+  - Shower at end of shift
+  training_required:
+  - Carcinogen hazard awareness
+  - HEPA respirator fit testing
+  - Proper PPE donning and doffing
+  - Decontamination procedures
+  - Medical surveillance requirements
+  medical_surveillance:
+    required: true
+    frequency: Annual minimum
+    requirements:
+    - Baseline and periodic medical exams
+    - Respiratory function testing
+    - Cancer screening per OSHA guidelines
+    - Exposure records maintenance
+  waste_handling:
+  - All PPE as hazardous waste
+  - Sealed, labeled containers
+  - Manifest tracking required
+  - EPA hazardous waste codes applicable
+  specific_compound: Hexavalent Chromium
+  pel_ppm: null

@@ -1,11 +1,12 @@
 id: nylon-laser-cleaning
 name: Nylon
+title: Nylon Laser Cleaning
 category: plastic
-subcategory: thermoplastic
-datePublished: '2025-12-19T02:53:24.387896Z'
-dateModified: '2025-12-19T02:53:24.387896Z'
+datePublished: '2025-12-20T04:16:08.692883Z'
+dateModified: '2025-12-20T04:16:08.692883Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/plastic/thermoplastic/nylon-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,31 @@ breadcrumb:
   href: /materials/plastic/thermoplastic
 - label: Nylon
   href: /materials/plastic/thermoplastic/nylon-laser-cleaning
+description: Nylon, it manifests a remarkable tenacity and non-porous smoothness, which facilitates efficient laser cleaning
+  by preventing contaminant adhesion and preserving structural integrity.
+micro:
+  before: Nylon laser cleaning requires careful parameter selection to optimize contamination removal while preserving substrate
+    integrity.
+  after: ''
+faq:
+- question: How can I laser clean Nylon without causing melting?
+  answer: I've seen Nylon respond well to gentle laser passes that target surface grime first. Start by scanning the area
+    slowly to loosen dirt without building up too much heat in the material. This approach keeps the Nylon's surface intact
+    while removing contaminants effectively, as the plastic tends to soften under prolonged exposure.
+- question: What are the best practices for laser cleaning dirty Nylon gears?
+  answer: When cleaning Nylon gears, begin with a low-intensity sweep to test the material's reaction. Follow up with focused
+    bursts on stubborn spots, always moving the laser steadily to avoid hot spots. In my experience, this method restores
+    the gears' smooth operation without compromising their flexibility or strength.
+- question: Why does Nylon sometimes discolor during laser cleaning, and how to fix it?
+  answer: Nylon can pick up slight discoloration if the laser lingers too long on one area, drawing out underlying pigments.
+    To fix this, reduce dwell time and incorporate short cooling intervals between passes.
+images:
+  hero:
+    alt: Nylon surface during precision laser cleaning process removing contamination layer
+    url: /images/material/nylon-laser-cleaning-hero.jpg
+  micro:
+    alt: Nylon surface at 500x magnification showing laser cleaning results
+    url: /images/material/nylon-laser-cleaning-micro.jpg
 author:
   id: 2
   name: Alessandro Moretti
@@ -46,43 +72,64 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-title: Nylon Laser Cleaning
-description: Nylon, it manifests a remarkable tenacity and non-porous smoothness, which facilitates efficient laser cleaning
-  by preventing contaminant adhesion and preserving structural integrity.
-images:
-  hero:
-    alt: Nylon surface during precision laser cleaning process removing contamination layer
-    url: /images/material/nylon-laser-cleaning-hero.jpg
-  micro:
-    alt: Nylon surface at 500x magnification showing laser cleaning results
-    url: /images/material/nylon-laser-cleaning-micro.jpg
-micro:
-  before: Nylon laser cleaning requires careful parameter selection to optimize contamination removal while preserving substrate
-    integrity.
-  after: ''
-faq:
-- question: How can I laser clean Nylon without causing melting?
-  answer: I've seen Nylon respond well to gentle laser passes that target surface grime first. Start by scanning the area
-    slowly to loosen dirt without building up too much heat in the material. This approach keeps the Nylon's surface intact
-    while removing contaminants effectively, as the plastic tends to soften under prolonged exposure.
-- question: What are the best practices for laser cleaning dirty Nylon gears?
-  answer: When cleaning Nylon gears, begin with a low-intensity sweep to test the material's reaction. Follow up with focused
-    bursts on stubborn spots, always moving the laser steadily to avoid hot spots. In my experience, this method restores
-    the gears' smooth operation without compromising their flexibility or strength.
-- question: Why does Nylon sometimes discolor during laser cleaning, and how to fix it?
-  answer: Nylon can pick up slight discoloration if the laser lingers too long on one area, drawing out underlying pigments.
-    To fix this, reduce dwell time and incorporate short cooling intervals between passes.
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+relationships:
+  contaminants:
+    title: Common Contaminants
+    description: Contaminants that frequently occur on this material during industrial use and require laser cleaning removal
+    groups:
+      organic_residues:
+        title: Organic Residues
+        description: Adhesives, lubricants, oils, and other carbon-based deposits
+        items:
+        - id: adhesive-residue-contamination
+          title: Adhesive Residue / Tape Marks
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminants/adhesive-residue.jpg
+          frequency: common
+          severity: moderate
+      coatings_treatments:
+        title: Coatings & Surface Treatments
+        description: Applied coatings, anodizing, plating, and surface treatment layers
+        items:
+        - id: paint-residue-contamination
+          title: Paint Residue / Coating Failure
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminants/paint-residue.jpg
+          frequency: common
+          severity: moderate
+      chemical_residue:
+        title: Chemical Residues
+        description: Chemical stains, etching, and industrial chemical deposits
+        items:
+        - id: chemical-stains-contamination
+          title: Chemical Stains / Acid Etching
+          url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+          image: /images/contaminants/chemical-stains.jpg
+          frequency: common
+          severity: moderate
+      other:
+        title: Other
+        description: Additional items not categorized above
+        items:
+        - id: uv-chalking-contamination
+          title: UV Photodegradation / Polymer Chalking
+          url: /contaminants/aging/photodegradation/uv-chalking-contamination
+          image: /images/contaminants/uv-chalking.jpg
+          frequency: common
+          severity: moderate
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+subcategory: thermoplastic
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -236,49 +283,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T12:45:27.402183'
       needs_validation: true
-relationships:
-  related_contaminants:
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue
-    image: /images/contaminants/adhesive-residue.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: chemical-stains-contamination
-    title: Chemical Stains / Acid Etching
-    url: /contaminants/chemical-stains
-    image: /images/contaminants/chemical-stains.jpg
-    category: chemical-residue
-    subcategory: industrial
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue
-    image: /images/contaminants/paint-residue.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: uv-chalking-contamination
-    title: UV Photodegradation / Polymer Chalking
-    url: /contaminants/uv-chalking
-    image: /images/contaminants/uv-chalking.jpg
-    category: aging
-    subcategory: photodegradation
-    frequency: common
-    severity: moderate
-    typical_context: general
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
 settings_description: 'When laser cleaning Nylon, start with low power settings right away. This material heats up quickly
   and can deform if you push too hard, so make sure you test on a small area first. You''ll avoid melting the surface by keeping
   pulses short and spaced out.

@@ -1,11 +1,12 @@
 id: basalt-laser-cleaning
 name: Basalt
+title: Basalt Laser Cleaning
 category: stone
-subcategory: igneous
-datePublished: '2025-12-19T02:53:21.380719Z'
-dateModified: '2025-12-19T02:53:21.380719Z'
+datePublished: '2025-12-20T04:16:04.047317Z'
+dateModified: '2025-12-20T04:16:04.047317Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/stone/igneous/basalt-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,32 @@ breadcrumb:
   href: /materials/stone/igneous
 - label: Basalt
   href: /materials/stone/igneous/basalt-laser-cleaning
+description: When handling basalt for laser cleaning in tough industrial settings, I've seen it outperform softer stones like
+  sandstone by staying intact against intense heat and corrosion, so you avoid surface damage during aerospace or marine repairs.
+micro:
+  before: The surface shows heavy contamination with dark patches and scattered debris. Laser cleaning effectively strips
+    away all foreign material while leaving the underlying stone completely intact.
+  after: Now it reveals a uniform, clean texture with the material's natural gray color fully restored. This process removes
+    buildup without any damage to the basalt itself.
+faq:
+- question: How does laser cleaning restore the natural appearance of weathered basalt surfaces?
+  answer: Laser cleaning employs precise energy pulses to eliminate dirt, grime, and oxidation layers from basalt, particularly
+    without harming the stone itself. Notably, this non-abrasive approach restores the original dark luster and texture, thus
+    boosting durability while safeguarding historical or architectural value in just a few sessions.
+  topic_keyword: weathered basalt surfaces
+  topic_statement: Revives dark luster and texture
+- question: Can laser cleaning address the brittleness issues in basalt structures?
+  answer: 'Yes, but indirectly: it cleans contaminants that exacerbate cracking, thus improving surface integrity. However,
+    specifically for inherent brittleness, combine with sealants post-cleaning to boost resistance.'
+  topic_keyword: brittleness issues
+  topic_statement: Combine with post-cleaning sealants
+images:
+  hero:
+    alt: Basalt surface undergoing laser cleaning showing precise contamination removal
+    url: /images/material/basalt-laser-cleaning-hero.jpg
+  micro:
+    alt: Basalt microscopic view of laser cleaning showing detailed precise contamination removal
+    url: /images/material/basalt-laser-cleaning-micro.jpg
 author:
   id: 1
   name: Yi-Chun Lin
@@ -45,54 +72,162 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-title: Basalt Laser Cleaning
-description: When handling basalt for laser cleaning in tough industrial settings, I've seen it outperform softer stones like
-  sandstone by staying intact against intense heat and corrosion, so you avoid surface damage during aerospace or marine repairs.
-images:
-  hero:
-    alt: Basalt surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/basalt-laser-cleaning-hero.jpg
-  micro:
-    alt: Basalt microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/basalt-laser-cleaning-micro.jpg
-micro:
-  before: The surface shows heavy contamination with dark patches and scattered debris. Laser cleaning effectively strips
-    away all foreign material while leaving the underlying stone completely intact.
-  after: Now it reveals a uniform, clean texture with the material's natural gray color fully restored. This process removes
-    buildup without any damage to the basalt itself.
-faq:
-- question: How does laser cleaning restore the natural appearance of weathered basalt surfaces?
-  answer: Laser cleaning employs precise energy pulses to eliminate dirt, grime, and oxidation layers from basalt, particularly
-    without harming the stone itself. Notably, this non-abrasive approach restores the original dark luster and texture, thus
-    boosting durability while safeguarding historical or architectural value in just a few sessions.
-  topic_keyword: weathered basalt surfaces
-  topic_statement: Revives dark luster and texture
-- question: Can laser cleaning address the brittleness issues in basalt structures?
-  answer: 'Yes, but indirectly: it cleans contaminants that exacerbate cracking, thus improving surface integrity. However,
-    specifically for inherent brittleness, combine with sealants post-cleaning to boost resistance.'
-  topic_keyword: brittleness issues
-  topic_statement: Combine with post-cleaning sealants
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-- description: IEC 60825 - Safety of Laser Products
-  image: /images/logo/logo-org-iec.png
-  longName: International Electrotechnical Commission
-  name: IEC
-  url: https://webstore.iec.ch/publication/3587
-- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  image: /images/logo/logo-org-osha.png
-  longName: Occupational Safety and Health Administration
-  name: OSHA
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+relationships:
+  contaminants:
+    title: Common Contaminants
+    description: Contaminants that frequently occur on this material during industrial use and require laser cleaning removal
+    groups:
+      organic_residues:
+        title: Organic Residues
+        description: Adhesives, lubricants, oils, and other carbon-based deposits
+        items:
+        - id: bitumen-tar-contamination
+          title: Bitumen and Tar Coatings
+          url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+          image: /images/contaminants/bitumen-tar.jpg
+          frequency: common
+          severity: moderate
+        - id: carbon-soot-contamination
+          title: Carbon Soot Deposits
+          url: /contaminants/organic-residue/other/carbon-soot-contamination
+          image: /images/contaminants/carbon-soot.jpg
+          frequency: common
+          severity: moderate
+        - id: water-stain-contamination
+          title: Water Staining and Marks
+          url: /contaminants/organic-residue/other/water-stain-contamination
+          image: /images/contaminants/water-stain.jpg
+          frequency: common
+          severity: moderate
+      coatings_treatments:
+        title: Coatings & Surface Treatments
+        description: Applied coatings, anodizing, plating, and surface treatment layers
+        items:
+        - id: ceramic-glaze-contamination
+          title: Ceramic Glaze Deposits
+          url: /contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination
+          image: /images/contaminants/ceramic-glaze.jpg
+          frequency: common
+          severity: moderate
+        - id: concrete-dust-contamination
+          title: Concrete Dust Deposits
+          url: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
+          image: /images/contaminants/concrete-dust.jpg
+          frequency: common
+          severity: moderate
+        - id: efflorescence-contamination
+          title: Concrete Efflorescence
+          url: /contaminants/inorganic-coating/mineral/efflorescence-contamination
+          image: /images/contaminants/efflorescence.jpg
+          frequency: common
+          severity: moderate
+        - id: graffiti-paint-contamination
+          title: Graffiti and Spray Paint
+          url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+          image: /images/contaminants/graffiti-paint.jpg
+          frequency: common
+          severity: moderate
+        - id: mineral-stain-contamination
+          title: Mineral Staining
+          url: /contaminants/inorganic-coating/mineral/mineral-stain-contamination
+          image: /images/contaminants/mineral-stain.jpg
+          frequency: common
+          severity: moderate
+        - id: salt-residue-contamination
+          title: Salt and Chloride Deposits
+          url: /contaminants/inorganic-coating/mineral/salt-residue-contamination
+          image: /images/contaminants/salt-residue.jpg
+          frequency: common
+          severity: moderate
+      biological_growth:
+        title: Biological Growth
+        description: Algae, lichen, biofilms, and other organic growth
+        items:
+        - id: algae-growth-contamination
+          title: Algae and Lichen Growth
+          url: /contaminants/biological/growth/algae-growth-contamination
+          image: /images/contaminants/algae-growth.jpg
+          frequency: common
+          severity: moderate
+        - id: biological-stains-contamination
+          title: Organic Biofilm Deposits
+          url: /contaminants/biological/deposit/biological-stains-contamination
+          image: /images/contaminants/biological-stains.jpg
+          frequency: common
+          severity: moderate
+      thermal_damage:
+        title: Thermal Damage
+        description: Heat-induced scale, oxidation, and thermal degradation products
+        items:
+        - id: fire-damage-contamination
+          title: Fire and Smoke Damage
+          url: /contaminants/thermal-damage/fire/fire-damage-contamination
+          image: /images/contaminants/fire-damage.jpg
+          frequency: common
+          severity: moderate
+        - id: mineral-deposits-contamination
+          title: Hard Water Mineral Scale
+          url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
+          image: /images/contaminants/mineral-deposits.jpg
+          frequency: common
+          severity: moderate
+        - id: scale-buildup-contamination
+          title: Mineral Scale / Hard Water Deposits
+          url: /contaminants/thermal-damage/scale/scale-buildup-contamination
+          image: /images/contaminants/scale-buildup.jpg
+          frequency: common
+          severity: moderate
+      chemical_residue:
+        title: Chemical Residues
+        description: Chemical stains, etching, and industrial chemical deposits
+        items:
+        - id: fertilizer-residue-contamination
+          title: Fertilizer Salt Deposits
+          url: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
+          image: /images/contaminants/fertilizer-residue.jpg
+          frequency: common
+          severity: moderate
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+subcategory: igneous
+applications:
+- Aerospace
+- Marine Engineering
+- Cultural Heritage
+- Construction and Architecture
+- Automotive Manufacturing
+- Energy Sector
+- Electronics Manufacturing
+- Medical Device Manufacturing
+- Industrial Manufacturing
+- Geotechnical Engineering
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: crystalline crystal structure
+    source: ai_research
+    unit: crystal system
+    value: crystalline
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -254,189 +389,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T11:51:12.051697'
       needs_validation: true
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - ANSI Z136.1 - Safe Use of Lasers
-  isBasedOn:
-    name: ANSI Z136.1 - Safe Use of Lasers
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-metadata:
-  last_updated: '2025-10-27T23:48:40.921602Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921610Z'
-  structure_version: '2.0'
-relationships:
-  related_contaminants:
-  - id: algae-growth-contamination
-    title: Algae and Lichen Growth
-    url: /contaminants/algae-growth
-    image: /images/contaminants/algae-growth.jpg
-    category: biological
-    subcategory: growth
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: biological-stains-contamination
-    title: Organic Biofilm Deposits
-    url: /contaminants/biological-stains
-    image: /images/contaminants/biological-stains.jpg
-    category: biological
-    subcategory: deposit
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: bitumen-tar-contamination
-    title: Bitumen and Tar Coatings
-    url: /contaminants/bitumen-tar
-    image: /images/contaminants/bitumen-tar.jpg
-    category: organic-residue
-    subcategory: petroleum
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: carbon-soot-contamination
-    title: Carbon Soot Deposits
-    url: /contaminants/carbon-soot
-    image: /images/contaminants/carbon-soot.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: ceramic-glaze-contamination
-    title: Ceramic Glaze Deposits
-    url: /contaminants/ceramic-glaze
-    image: /images/contaminants/ceramic-glaze.jpg
-    category: inorganic-coating
-    subcategory: ceramic
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: concrete-dust-contamination
-    title: Concrete Dust Deposits
-    url: /contaminants/concrete-dust
-    image: /images/contaminants/concrete-dust.jpg
-    category: inorganic-coating
-    subcategory: mineral
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: efflorescence-contamination
-    title: Concrete Efflorescence
-    url: /contaminants/efflorescence
-    image: /images/contaminants/efflorescence.jpg
-    category: inorganic-coating
-    subcategory: mineral
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: fertilizer-residue-contamination
-    title: Fertilizer Salt Deposits
-    url: /contaminants/fertilizer-residue
-    image: /images/contaminants/fertilizer-residue.jpg
-    category: chemical-residue
-    subcategory: industrial
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: fire-damage-contamination
-    title: Fire and Smoke Damage
-    url: /contaminants/fire-damage
-    image: /images/contaminants/fire-damage.jpg
-    category: thermal-damage
-    subcategory: fire
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: graffiti-paint-contamination
-    title: Graffiti and Spray Paint
-    url: /contaminants/graffiti-paint
-    image: /images/contaminants/graffiti-paint.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: mineral-deposits-contamination
-    title: Hard Water Mineral Scale
-    url: /contaminants/mineral-deposits
-    image: /images/contaminants/mineral-deposits.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: mineral-stain-contamination
-    title: Mineral Staining
-    url: /contaminants/mineral-stain
-    image: /images/contaminants/mineral-stain.jpg
-    category: inorganic-coating
-    subcategory: mineral
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: salt-residue-contamination
-    title: Salt and Chloride Deposits
-    url: /contaminants/salt-residue
-    image: /images/contaminants/salt-residue.jpg
-    category: inorganic-coating
-    subcategory: mineral
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: scale-buildup-contamination
-    title: Mineral Scale / Hard Water Deposits
-    url: /contaminants/scale-buildup
-    image: /images/contaminants/scale-buildup.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: water-stain-contamination
-    title: Water Staining and Marks
-    url: /contaminants/water-stain
-    image: /images/contaminants/water-stain.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-applications:
-- Aerospace
-- Marine Engineering
-- Cultural Heritage
-- Construction and Architecture
-- Automotive Manufacturing
-- Energy Sector
-- Electronics Manufacturing
-- Medical Device Manufacturing
-- Industrial Manufacturing
-- Geotechnical Engineering
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: crystalline crystal structure
-    source: ai_research
-    unit: crystal system
-    value: crystalline
-voice_enhanced: '2025-11-07T02:00:53.224058+00:00'
 components:
   subtitle: Basalt offers exceptional thermal stability up to 1673 Kelvin and high corrosion resistance, making it a uniquely
     durable igneous stone for demanding aerospace and marine applications

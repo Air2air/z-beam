@@ -1,23 +1,31 @@
-id: formaldehyde
+id: formaldehyde-compound
 name: Formaldehyde
 display_name: Formaldehyde (CH₂O)
-chemical_formula: CH2O
-cas_number: 50-00-0
-molecular_weight: 30.03
-datePublished: '2025-12-19T02:53:38.354162Z'
-dateModified: '2025-12-19T02:53:38.354162Z'
+category: carcinogen
+hazard_class: carcinogenic
+datePublished: '2025-12-20T04:16:41.790605Z'
+dateModified: '2025-12-20T04:16:41.790605Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/carcinogen/aldehyde/formaldehyde-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Carcinogen
+  href: /compounds/carcinogen
 - label: Aldehyde
-  href: /compounds//aldehyde
-category: carcinogen
-subcategory: aldehyde
-hazard_class: carcinogenic
+  href: /compounds/carcinogen/aldehyde
+- label: Formaldehyde
+  href: /compounds/carcinogen/aldehyde/formaldehyde-compound
+chemical_formula: CH2O
+cas_number: 50-00-0
+molecular_weight: 30.03
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: 0.75
   osha_pel_mg_m3: 0.92
@@ -37,35 +45,30 @@ sources_in_laser_cleaning:
 - polymer_decomposition
 - organic_coating_pyrolysis
 - adhesive_breakdown
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: adhesive-residue
+  - id: adhesive-residue-contamination
     title: Adhesive Residue / Tape Marks
     url: /contaminants/organic-residue/adhesive/adhesive-residue
     image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
     frequency: common
     severity: moderate
     typical_context: Thermal breakdown of formaldehyde-based adhesives
-  - id: wood-rot
+  - id: wood-rot-contamination
     title: Wood Rot / Fungal Biodegradation
     url: /contaminants/biological/growth/wood-rot
     image: /images/contaminants/biological/growth/wood-rot.jpg
     frequency: common
     severity: moderate
     typical_context: Decomposition of wood compounds
-  - id: paint-residue
+  - id: paint-residue-contamination
     title: Paint Residue / Coating Failure
     url: /contaminants/inorganic-coating/paint/paint-residue
     image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
     frequency: occasional
     severity: moderate
     typical_context: Breakdown of melamine or urea-formaldehyde resins
-  - id: epoxy-residue
+  - id: epoxy-residue-contamination
     title: Epoxy Resin Deposits
     url: /contaminants/organic-residue/adhesive/epoxy-residue
     image: /images/contaminants/organic-residue/adhesive/epoxy-residue.jpg
@@ -75,9 +78,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: formaldehyde-physical-data
-  health_effects:
-  - type: health_effects
-    id: formaldehyde-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: formaldehyde-environmental-data
@@ -91,10 +92,31 @@ relationships:
       specific_compound: Formaldehyde
       pel_ppm: 0.75
   emergency_response:
-  - type: emergency_response
-    id: flammable-gas-extremely
-    overrides:
-      specific_compound: Formaldehyde
+    fire_hazard: Solutions >30% flammable. Pure gas flammable with wide explosive range (7-73%). Vapors heavier than air.
+    fire_suppression: Use water spray, dry chemical, CO2, or foam. Water spray to cool containers and dilute vapors. Approach
+      fire from upwind.
+    spill_procedures: Evacuate area. Ventilate. Neutralize with dilute ammonia or sodium bisulfite solution. Contain with
+      vermiculite or activated carbon. Dispose as hazardous waste.
+    exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
+      clothing. Wash skin thoroughly. Seek immediate medical attention - potential carcinogen and respiratory toxin. Monitor
+      for delayed pulmonary edema.'
+    environmental_hazards: Toxic to aquatic life. Biodegrades rapidly. Report spills >100 lbs to CERCLA. Prevent entry to
+      waterways.
+    special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1) - nasopharyngeal cancer and leukemia established. Severe respiratory
+      irritant. Strong sensitizer causing occupational asthma. Lachrymator (causes tearing). Polymerizes on standing, especially
+      with impurities.
+  physical_properties:
+    boiling_point: -19°C (-2°F) for pure gas
+    melting_point: -92°C (-134°F)
+    vapor_pressure: 1 atm @ -19°C
+    vapor_density: 1.03 (Air=1)
+    specific_gravity: 0.815 @ -20°C (liquid)
+    flash_point: 85°C (185°F) for 37% solution (formalin)
+    autoignition_temp: 430°C (806°F)
+    explosive_limits: 'LEL: 7%, UEL: 73%'
+    appearance: Colorless gas or clear solution (formalin)
+    odor: Pungent, irritating odor @ 0.05-1 ppm (provides warning)
+subcategory: aldehyde
 author:
   id: 1
   name: Yi-Chun Lin
@@ -131,30 +153,6 @@ ppe_requirements:
   minimum_level: Level C for <0.75 ppm with engineering controls, Level B for unknown concentrations or emergency response
   special_notes: IARC Group 1 known human carcinogen (nasopharyngeal cancer, leukemia). Strong sensitizer. Dermal exposure
     significant. Formaldehyde-specific cartridges required (standard organic vapor inadequate).
-physical_properties:
-  boiling_point: -19°C (-2°F) for pure gas
-  melting_point: -92°C (-134°F)
-  vapor_pressure: 1 atm @ -19°C
-  vapor_density: 1.03 (Air=1)
-  specific_gravity: 0.815 @ -20°C (liquid)
-  flash_point: 85°C (185°F) for 37% solution (formalin)
-  autoignition_temp: 430°C (806°F)
-  explosive_limits: 'LEL: 7%, UEL: 73%'
-  appearance: Colorless gas or clear solution (formalin)
-  odor: Pungent, irritating odor @ 0.05-1 ppm (provides warning)
-emergency_response:
-  fire_hazard: Solutions >30% flammable. Pure gas flammable with wide explosive range (7-73%). Vapors heavier than air.
-  fire_suppression: Use water spray, dry chemical, CO2, or foam. Water spray to cool containers and dilute vapors. Approach
-    fire from upwind.
-  spill_procedures: Evacuate area. Ventilate. Neutralize with dilute ammonia or sodium bisulfite solution. Contain with vermiculite
-    or activated carbon. Dispose as hazardous waste.
-  exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
-    clothing. Wash skin thoroughly. Seek immediate medical attention - potential carcinogen and respiratory toxin. Monitor
-    for delayed pulmonary edema.'
-  environmental_hazards: Toxic to aquatic life. Biodegrades rapidly. Report spills >100 lbs to CERCLA. Prevent entry to waterways.
-  special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1) - nasopharyngeal cancer and leukemia established. Severe respiratory
-    irritant. Strong sensitizer causing occupational asthma. Lachrymator (causes tearing). Polymerizes on standing, especially
-    with impurities.
 storage_requirements:
   temperature_range: Store below 25°C (77°F). Refrigeration recommended for solutions to prevent polymerization.
   ventilation: Local exhaust ventilation mandatory. Fume hood for small quantities. Outdoor storage for large quantities.
@@ -284,3 +282,73 @@ detection_monitoring:
     technique: HPLC (DNPH cartridge)
     detection_limit: 0.001 ppm
   odor_threshold: 0.05-1 ppm - provides early warning but olfactory fatigue occurs. Do not rely on odor alone.
+ppe_requirements_detail:
+  id: particulate-carcinogen
+  hazard_type: particulate
+  hazard_level: carcinogen
+  minimum_protection_level: Level C
+  respiratory:
+    primary:
+      equipment: HEPA-filtered respirator (P100)
+      standard: NIOSH 42 CFR 84
+      condition: For particles <10 μm
+      filter_efficiency: 99.97% @ 0.3 μm
+      fit_test_required: true
+      cartridge_change: Per manufacturer or breathing resistance increase
+  skin:
+    gloves:
+      material: Nitrile gloves, disposable
+      standard: ANSI/ISEA 101
+      condition: Prevent skin contact with particulates
+      disposal: Contained disposal - hazardous waste
+    body:
+      equipment: Disposable Tyvek coveralls
+      standard: ANSI/ISEA 101
+      condition: Full body coverage, sealed at wrists/ankles
+      hood: Integrated hood covering head and neck
+      disposal: Hazardous waste, do not reuse
+    footwear:
+      equipment: Disposable boot covers
+      material: Tyvek or polyethylene
+      condition: Prevent particulate tracking
+  eye:
+    equipment: Safety goggles with side shields
+    standard: ANSI Z87.1
+    condition: Impact and particle protection
+    cleaning: Disposable or decontaminate between uses
+  special_requirements:
+  - Wet methods preferred to suppress dust
+  - HEPA vacuum only - never dry sweep
+  - Designated decontamination area
+  - Disposable PPE changed in decon area
+  - Shower facilities available
+  - No eating, drinking, smoking in work area
+  - Medical surveillance program required
+  decontamination:
+  - Remove PPE in designated decon area
+  - Vacuum suit before removal (HEPA only)
+  - Remove from inside out to minimize contact
+  - Place in labeled hazardous waste bag
+  - Wash hands and face thoroughly
+  - Shower at end of shift
+  training_required:
+  - Carcinogen hazard awareness
+  - HEPA respirator fit testing
+  - Proper PPE donning and doffing
+  - Decontamination procedures
+  - Medical surveillance requirements
+  medical_surveillance:
+    required: true
+    frequency: Annual minimum
+    requirements:
+    - Baseline and periodic medical exams
+    - Respiratory function testing
+    - Cancer screening per OSHA guidelines
+    - Exposure records maintenance
+  waste_handling:
+  - All PPE as hazardous waste
+  - Sealed, labeled containers
+  - Manifest tracking required
+  - EPA hazardous waste codes applicable
+  specific_compound: Formaldehyde
+  pel_ppm: 0.75

@@ -1,23 +1,31 @@
-id: ammonia
+id: ammonia-compound
 name: Ammonia
 display_name: Ammonia (NH₃)
-chemical_formula: NH3
-cas_number: 7664-41-7
-molecular_weight: 17.03
-datePublished: '2025-12-19T02:53:38.551912Z'
-dateModified: '2025-12-19T02:53:38.551912Z'
+category: corrosive_gas
+hazard_class: corrosive
+datePublished: '2025-12-20T04:16:42.228418Z'
+dateModified: '2025-12-20T04:16:42.228418Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Corrosive Gas
+  href: /compounds/corrosive_gas
 - label: Alkaline Gas
-  href: /compounds//alkaline_gas
-category: corrosive_gas
-subcategory: alkaline_gas
-hazard_class: corrosive
+  href: /compounds/corrosive_gas/alkaline_gas
+- label: Ammonia
+  href: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
+chemical_formula: NH3
+cas_number: 7664-41-7
+molecular_weight: 17.03
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: 50
   osha_pel_mg_m3: 35
@@ -36,14 +44,9 @@ sources_in_laser_cleaning:
 - nitrogen_compound_decomposition
 - protein_pyrolysis
 - amine_breakdown
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: blood-residue
+  - id: blood-residue-contamination
     title: Biological Blood Residue
     url: /contaminants/biological/deposit/blood-residue
     image: /images/contaminants/biological/deposit/blood-residue.jpg
@@ -53,9 +56,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: ammonia-physical-data
-  health_effects:
-  - type: health_effects
-    id: ammonia-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: ammonia-environmental-data
@@ -69,10 +70,31 @@ relationships:
       specific_compound: Ammonia
       pel_ppm: 50
   emergency_response:
-  - type: emergency_response
-    id: corrosive-liquid-strong
-    overrides:
-      specific_compound: Ammonia
+    fire_hazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse. May
+      reignite after flame is extinguished.
+    fire_suppression: Stop flow if safe to do so. Do not extinguish flame unless leak can be stopped. Cool cylinders with
+      water spray from safe distance. Use dry chemical, CO2 from maximum distance.
+    spill_procedures: EVACUATE. Ventilate area. SCBA required for liquid releases or >300 ppm. Contain with water spray or
+      fog. Dilute with water. Neutralize with acid (sulfuric, hydrochloric). Dike large liquid spills.
+    exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - CRITICAL. Remove
+      contaminated clothing. Wash skin with water. If inhaled: administer oxygen. Seek immediate medical attention - severe
+      irritation likely.'
+    environmental_hazards: Toxic to aquatic life at high concentrations. Rapid volatilization from water. Report releases
+      >100 lbs.
+    special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
+      Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
+  physical_properties:
+    boiling_point: -33.34°C (-28°F)
+    melting_point: -77.73°C (-107.9°F)
+    vapor_pressure: 7510 mmHg @ 20°C
+    vapor_density: 0.60 (Air=1)
+    specific_gravity: 0.682 (liquid @ -33°C)
+    flash_point: Not applicable (gas)
+    autoignition_temp: 651°C (1204°F)
+    explosive_limits: 'LEL: 15%, UEL: 28%'
+    appearance: Colorless gas, colorless liquid under pressure
+    odor: Sharp, pungent, suffocating odor @ 5-50 ppm
+subcategory: alkaline_gas
 author:
   id: 4
   name: Todd Dunning
@@ -109,31 +131,6 @@ ppe_requirements:
   minimum_level: Level C for known <25 ppm, Level B for >25 ppm or liquefied ammonia
   special_notes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
     frostbite. Emergency eyewash/shower within 10 seconds.
-physical_properties:
-  boiling_point: -33.34°C (-28°F)
-  melting_point: -77.73°C (-107.9°F)
-  vapor_pressure: 7510 mmHg @ 20°C
-  vapor_density: 0.60 (Air=1)
-  specific_gravity: 0.682 (liquid @ -33°C)
-  flash_point: Not applicable (gas)
-  autoignition_temp: 651°C (1204°F)
-  explosive_limits: 'LEL: 15%, UEL: 28%'
-  appearance: Colorless gas, colorless liquid under pressure
-  odor: Sharp, pungent, suffocating odor @ 5-50 ppm
-emergency_response:
-  fire_hazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse. May
-    reignite after flame is extinguished.
-  fire_suppression: Stop flow if safe to do so. Do not extinguish flame unless leak can be stopped. Cool cylinders with water
-    spray from safe distance. Use dry chemical, CO2 from maximum distance.
-  spill_procedures: EVACUATE. Ventilate area. SCBA required for liquid releases or >300 ppm. Contain with water spray or fog.
-    Dilute with water. Neutralize with acid (sulfuric, hydrochloric). Dike large liquid spills.
-  exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - CRITICAL. Remove
-    contaminated clothing. Wash skin with water. If inhaled: administer oxygen. Seek immediate medical attention - severe
-    irritation likely.'
-  environmental_hazards: Toxic to aquatic life at high concentrations. Rapid volatilization from water. Report releases >100
-    lbs.
-  special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
-    Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
 storage_requirements:
   temperature_range: Store cylinders <52°C. Keep away from heat.
   ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. Ammonia gas detection mandatory.'
@@ -253,3 +250,72 @@ detection_monitoring:
     technique: Ion chromatography
     detection_limit: 0.02 ppm
   odor_threshold: 5-50 ppm - provides good warning below toxic levels
+ppe_requirements_detail:
+  id: corrosive-liquid-moderate
+  hazard_type: corrosive_liquid
+  hazard_level: moderate
+  minimum_protection_level: Level C
+  respiratory:
+    equipment: Half-face respirator with acid gas cartridge
+    standard: NIOSH 42 CFR 84
+    condition: If vapor exposure possible
+    cartridge_type: Acid gas/organic vapor combination
+    fit_test_required: true
+  skin:
+    gloves:
+      material: Neoprene or PVC gloves
+      length: Elbow-length for handling
+      standard: ASTM F739
+      breakthrough_time: '>8 hours'
+      thickness: '>18 mil'
+    apron:
+      equipment: Chemical-resistant apron
+      material: Neoprene, PVC, or rubber
+      length: Full-length coverage
+      condition: All handling operations
+    footwear:
+      equipment: Chemical-resistant boots
+      material: PVC or rubber
+      height: At least 8 inches
+  eye:
+    primary:
+      equipment: Chemical splash goggles
+      standard: ANSI Z87.1
+      type: Indirect vents, sealed to face
+    secondary:
+      equipment: Face shield (8-inch minimum)
+      condition: Over goggles for handling operations
+      use: Face shield does not replace goggles
+  special_requirements:
+  - Emergency shower and eyewash within 10 seconds travel time
+  - Flush eyes for 15 minutes if contact occurs
+  - Remove contaminated clothing immediately
+  - Work in ventilated area or use fume hood
+  - Have neutralizing agent available (appropriate for specific chemical)
+  decontamination:
+  - Flush contaminated areas with water immediately
+  - Remove contaminated clothing under water if possible
+  - Wash skin thoroughly with soap and water
+  - Launder contaminated clothing separately
+  - Inspect PPE for damage before reuse
+  training_required:
+  - Chemical hazard awareness (corrosives)
+  - Proper PPE selection and use
+  - Emergency response procedures
+  - First aid for chemical burns
+  first_aid:
+    eye_contact:
+    - Flush immediately with water for 15+ minutes
+    - Hold eyelids open during flushing
+    - Seek immediate medical attention
+    skin_contact:
+    - Remove contaminated clothing
+    - Flush with water for 15+ minutes
+    - Wash with soap and water
+    - Seek medical attention
+    inhalation:
+    - Move to fresh air
+    - Administer oxygen if available
+    - Seek medical attention
+  specific_compound: Ammonia
+  pel_ppm: 50

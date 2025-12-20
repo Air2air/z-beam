@@ -1,11 +1,12 @@
 id: aluminum-bronze-laser-cleaning
 name: Aluminum Bronze
+title: Aluminum Bronze Laser Cleaning
 category: metal
-subcategory: alloy
-datePublished: '2025-12-19T02:53:24.573829Z'
-dateModified: '2025-12-19T02:53:24.573829Z'
+datePublished: '2025-12-20T04:16:08.888710Z'
+dateModified: '2025-12-20T04:16:08.888710Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/metal/alloy/aluminum-bronze-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,33 @@ breadcrumb:
   href: /materials/metal/alloy
 - label: Aluminum Bronze
   href: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+description: Aluminum Bronze acts as strong, corrosion-resistant alloy for laser cleaning. Its durability withstands heat
+  during treatment, so contaminants remove easily from surface. Hardness poses challenge, because process needs careful control
+  to avoid damage.
+micro:
+  before: Aluminum Bronze laser cleaning requires careful parameter selection to optimize contamination removal while preserving
+    substrate integrity.
+  after: ''
+faq:
+- question: How can I effectively clean oxidation from aluminum bronze using a laser?
+  answer: We've found that oxidation on aluminum bronze builds up stubbornly because of its strong resistance to corrosion,
+    making single passes less effective. You need to use multiple short bursts from the laser to gradually lift the layer
+    without overheating the base material. In our experience, adjusting the beam to a wider focus helps spread the energy
+    and prevents any uneven heating spots.
+- question: What settings work best for laser cleaning aluminum bronze parts?
+  answer: When laser cleaning aluminum bronze, the main challenge comes from its high reflectivity, which bounces much of
+    the laser energy away compared to less shiny metals like steel. We typically start with lower power levels and slower
+    scan speeds to build up absorption gradually over the surface. This approach ensures you remove contaminants like grease
+    or scale while keeping the alloy's durable structure intact.
+- question: Why does aluminum bronze sometimes warp during laser cleaning?
+  answer: Aluminum bronze can warp if the laser heat isn't managed well, especially since it conducts heat
+images:
+  hero:
+    alt: Aluminum Bronze surface during precision laser cleaning process removing contamination layer
+    url: /images/material/aluminum-bronze-laser-cleaning-hero.jpg
+  micro:
+    alt: Aluminum Bronze surface at 500x magnification showing laser cleaning results
+    url: /images/material/aluminum-bronze-laser-cleaning-micro.jpg
 author:
   id: 1
   name: Yi-Chun Lin
@@ -45,45 +73,22 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-title: Aluminum Bronze Laser Cleaning
-description: Aluminum Bronze acts as strong, corrosion-resistant alloy for laser cleaning. Its durability withstands heat
-  during treatment, so contaminants remove easily from surface. Hardness poses challenge, because process needs careful control
-  to avoid damage.
-images:
-  hero:
-    alt: Aluminum Bronze surface during precision laser cleaning process removing contamination layer
-    url: /images/material/aluminum-bronze-laser-cleaning-hero.jpg
-  micro:
-    alt: Aluminum Bronze surface at 500x magnification showing laser cleaning results
-    url: /images/material/aluminum-bronze-laser-cleaning-micro.jpg
-micro:
-  before: Aluminum Bronze laser cleaning requires careful parameter selection to optimize contamination removal while preserving
-    substrate integrity.
-  after: ''
-faq:
-- question: How can I effectively clean oxidation from aluminum bronze using a laser?
-  answer: We've found that oxidation on aluminum bronze builds up stubbornly because of its strong resistance to corrosion,
-    making single passes less effective. You need to use multiple short bursts from the laser to gradually lift the layer
-    without overheating the base material. In our experience, adjusting the beam to a wider focus helps spread the energy
-    and prevents any uneven heating spots.
-- question: What settings work best for laser cleaning aluminum bronze parts?
-  answer: When laser cleaning aluminum bronze, the main challenge comes from its high reflectivity, which bounces much of
-    the laser energy away compared to less shiny metals like steel. We typically start with lower power levels and slower
-    scan speeds to build up absorption gradually over the surface. This approach ensures you remove contaminants like grease
-    or scale while keeping the alloy's durable structure intact.
-- question: Why does aluminum bronze sometimes warp during laser cleaning?
-  answer: Aluminum bronze can warp if the laser heat isn't managed well, especially since it conducts heat
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+relationships:
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: ce-machinery-directive
+subcategory: alloy
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -346,15 +351,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T19:44:02.583469'
       needs_validation: true
-relationships:
-  related_contaminants: []
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  - type: regulatory_standards
-    id: ce-machinery-directive
 settings_description: When laser cleaning Aluminum Bronze, start with lower power settings to handle its moderate light absorption.
   This alloy cleans smoothly because its tough, corrosion-resistant surface sheds contaminants without pitting. You must keep
   pulses short to match its steady heat tolerance. That way, you avoid surface warping. Just watch for uneven spots at higher

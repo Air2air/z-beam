@@ -1,23 +1,31 @@
-id: acrolein
+id: acrolein-compound
 name: Acrolein
 display_name: Acrolein (C₃H₄O)
-chemical_formula: C3H4O
-cas_number: 107-02-8
-molecular_weight: 56.06
-datePublished: '2025-12-19T02:53:38.418618Z'
-dateModified: '2025-12-19T02:53:38.418618Z'
+category: toxic_gas
+hazard_class: toxic
+datePublished: '2025-12-20T04:16:42.008037Z'
+dateModified: '2025-12-20T04:16:42.008037Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/toxic-gas/aldehyde/acrolein-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Toxic Gas
+  href: /compounds/toxic_gas
 - label: Aldehyde
-  href: /compounds//aldehyde
-category: toxic_gas
-subcategory: aldehyde
-hazard_class: toxic
+  href: /compounds/toxic_gas/aldehyde
+- label: Acrolein
+  href: /compounds/toxic-gas/aldehyde/acrolein-compound
+chemical_formula: C3H4O
+cas_number: 107-02-8
+molecular_weight: 56.06
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: 0.1
   osha_pel_mg_m3: 0.25
@@ -36,35 +44,30 @@ sources_in_laser_cleaning:
 - acrylic_decomposition
 - fat_pyrolysis
 - glycerin_breakdown
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: industrial-oil
+  - id: industrial-oil-contamination
     title: Industrial Oil / Grease Buildup
     url: /contaminants/organic-residue/petroleum/industrial-oil
     image: /images/contaminants/organic-residue/petroleum/industrial-oil.jpg
     frequency: common
     severity: high
     typical_context: Thermal decomposition of fats and oils
-  - id: quench-oil
+  - id: quench-oil-contamination
     title: Quenching Oil Residue
     url: /contaminants/thermal-damage/scale/quench-oil
     image: /images/contaminants/thermal-damage/scale/quench-oil.jpg
     frequency: common
     severity: high
     typical_context: Thermal decomposition of quenching oils
-  - id: cutting-fluid
+  - id: cutting-fluid-contamination
     title: Machining Coolant Residue
     url: /contaminants/organic-residue/lubricant/cutting-fluid
     image: /images/contaminants/organic-residue/lubricant/cutting-fluid.jpg
     frequency: common
     severity: high
     typical_context: Thermal breakdown of oil-based cutting fluids
-  - id: plastic-residue
+  - id: plastic-residue-contamination
     title: Degraded Polymer Deposits
     url: /contaminants/organic-residue/polymer/plastic-residue
     image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
@@ -74,9 +77,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: acrolein-physical-data
-  health_effects:
-  - type: health_effects
-    id: acrolein-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: acrolein-environmental-data
@@ -90,10 +91,32 @@ relationships:
       specific_compound: Acrolein
       pel_ppm: 0.1
   emergency_response:
-  - type: emergency_response
-    id: toxic-gas-extreme
-    overrides:
-      specific_compound: Acrolein
+    fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
+      in fire, releasing toxic gases.
+    fire_suppression: EVACUATE - extremely toxic fumes. Use unmanned equipment. Dry chemical, CO2, alcohol-resistant foam.
+      Water spray to cool containers from safe distance. Do not use water directly on liquid.
+    spill_procedures: EVACUATE IMMEDIATELY. Extremely hazardous. SCBA MANDATORY. Eliminate ignition sources. Ventilate area.
+      Contain with sand/earth. Neutralize with sodium bisulfite solution. Absorb with inert material. Dispose as hazardous
+      waste.
+    exposure_immediate_actions: Remove to fresh air immediately. Severe eye/respiratory irritation likely. Flush eyes with
+      water for 15+ minutes. Remove contaminated clothing. Wash skin thoroughly. Seek medical attention immediately - potential
+      for delayed pulmonary edema.
+    environmental_hazards: Toxic to aquatic life. Volatilizes rapidly from water. Report spills >1 lb. Keep out of waterways.
+    special_hazards: EXTREMELY TOXIC AND IRRITATING. Lachrymator - causes immediate tearing. Severe respiratory irritant -
+      can cause pulmonary edema (delayed 24-48 hours). Polymerizes violently when contaminated. Suspected carcinogen. Fire
+      produces deadly acrolein and formaldehyde.
+  physical_properties:
+    boiling_point: 52.7°C (127°F)
+    melting_point: -87.7°C (-126°F)
+    vapor_pressure: 210 mmHg @ 20°C
+    vapor_density: 1.94 (Air=1)
+    specific_gravity: '0.84'
+    flash_point: -26°C (-15°F)
+    autoignition_temp: 234°C (453°F)
+    explosive_limits: 'LEL: 2.8%, UEL: 31%'
+    appearance: Colorless to pale yellow liquid
+    odor: Pungent, acrid, disagreeable odor - IMMEDIATE WARNING at 0.1 ppm
+subcategory: aldehyde
 author:
   id: 2
   name: Alessandro Moretti
@@ -131,31 +154,6 @@ ppe_requirements:
   minimum_level: Level B minimum for any concentration >0.1 ppm or unknown concentrations
   special_notes: EXTREMELY IRRITATING at sub-ppm levels. Eye and respiratory irritation immediate. Lachrymator (tear gas properties).
     Self-rescue respirators may be inadequate - use supplied air.
-physical_properties:
-  boiling_point: 52.7°C (127°F)
-  melting_point: -87.7°C (-126°F)
-  vapor_pressure: 210 mmHg @ 20°C
-  vapor_density: 1.94 (Air=1)
-  specific_gravity: '0.84'
-  flash_point: -26°C (-15°F)
-  autoignition_temp: 234°C (453°F)
-  explosive_limits: 'LEL: 2.8%, UEL: 31%'
-  appearance: Colorless to pale yellow liquid
-  odor: Pungent, acrid, disagreeable odor - IMMEDIATE WARNING at 0.1 ppm
-emergency_response:
-  fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
-    in fire, releasing toxic gases.
-  fire_suppression: EVACUATE - extremely toxic fumes. Use unmanned equipment. Dry chemical, CO2, alcohol-resistant foam. Water
-    spray to cool containers from safe distance. Do not use water directly on liquid.
-  spill_procedures: EVACUATE IMMEDIATELY. Extremely hazardous. SCBA MANDATORY. Eliminate ignition sources. Ventilate area.
-    Contain with sand/earth. Neutralize with sodium bisulfite solution. Absorb with inert material. Dispose as hazardous waste.
-  exposure_immediate_actions: Remove to fresh air immediately. Severe eye/respiratory irritation likely. Flush eyes with water
-    for 15+ minutes. Remove contaminated clothing. Wash skin thoroughly. Seek medical attention immediately - potential for
-    delayed pulmonary edema.
-  environmental_hazards: Toxic to aquatic life. Volatilizes rapidly from water. Report spills >1 lb. Keep out of waterways.
-  special_hazards: EXTREMELY TOXIC AND IRRITATING. Lachrymator - causes immediate tearing. Severe respiratory irritant - can
-    cause pulmonary edema (delayed 24-48 hours). Polymerizes violently when contaminated. Suspected carcinogen. Fire produces
-    deadly acrolein and formaldehyde.
 storage_requirements:
   temperature_range: Store below 25°C, refrigerate if possible. Keep away from heat.
   ventilation: 'Outdoor storage preferred. Indoor: explosion-proof ventilation with emergency backup. Gas detection mandatory.'
@@ -286,3 +284,94 @@ detection_monitoring:
     technique: HPLC
     detection_limit: 0.01 ppm
   odor_threshold: 0.16-1.0 ppm - provides warning BUT overlaps toxic range. DO NOT rely on odor alone.
+ppe_requirements_detail:
+  id: irritant-gas-high-concentration
+  hazard_type: irritant_gas
+  concentration_range: '>25 ppm or unknown'
+  exposure_duration: any
+  minimum_protection_level: Level B
+  idlh_atmosphere: potentially
+  respiratory:
+    primary:
+      equipment: Self-contained breathing apparatus (SCBA)
+      type: Pressure-demand, positive-pressure
+      standard: NIOSH 42 CFR 84
+      air_supply: Compressed breathing air (Grade D minimum)
+      duration: 30-60 minutes typical
+      condition: MANDATORY for >25 ppm or unknown concentrations
+      maintenance: Daily inspection, annual certification
+    alternative:
+      equipment: Supplied-air respirator with escape bottle
+      type: Pressure-demand mode
+      condition: Only if continuous air supply verified
+      escape_bottle: 5-minute minimum escape time
+  skin:
+    suit:
+      equipment: Level B chemical protective suit
+      material: Butyl rubber, Viton, or multilayer
+      standard: NFPA 1991 Level B
+      condition: Fully encapsulating when >25 ppm
+      splash_protection: Liquid-tight seams
+    gloves:
+      material: Butyl rubber (inner) + outer chemical glove
+      thickness: '>25 mil combined'
+      breakthrough_time: '>8 hours'
+      tape_seal: Taped to suit sleeves
+    boots:
+      equipment: Chemical-resistant boots
+      material: Match suit material
+      condition: Integrated or taped to suit
+  eye:
+    equipment: Full-face respirator facepiece (part of SCBA)
+    backup: Chemical goggles worn under facepiece
+    condition: Full face and eye protection mandatory
+  special_requirements:
+  - Buddy system mandatory - never work alone
+  - Continuous air monitoring with audible alarms
+  - Decontamination area established before entry
+  - Emergency escape routes identified
+  - Communication system established
+  - Entry permit required for confined spaces
+  - Standby rescue team with equivalent PPE
+  entry_procedures:
+  - Pre-entry medical clearance for SCBA use
+  - Equipment inspection checklist
+  - Atmosphere testing before and during entry
+  - Continuous air monitoring
+  - Time limits for SCBA air supply
+  - Backup SCBA or escape respirator available
+  decontamination:
+    primary:
+    - Gross decontamination in hot zone
+    - Suit and equipment wash-down
+    - Methodical removal in decon area
+    - Inner clothing removal last
+    secondary:
+    - Shower immediately after doffing
+    - Wash with soap and water for 15 minutes
+    - Medical evaluation if exposure suspected
+    disposal:
+    - All PPE as hazardous waste unless decontaminated
+    - SCBA facepieces cleaned and disinfected
+    - Suits inspected for damage before reuse
+  training_required:
+  - HAZWOPER 40-hour or equivalent
+  - SCBA qualification and practice
+  - Level B suit donning and doffing
+  - Decontamination procedures
+  - Emergency egress procedures
+  medical_surveillance:
+    required: true
+    frequency: Annual minimum
+    requirements:
+    - Respiratory medical clearance
+    - SCBA fit testing (annual)
+    - Exposure monitoring records
+  limitations:
+  - SCBA air supply limits operation time
+  - Heat stress significant in chemical suits
+  - Dexterity and mobility reduced
+  - Communication may be impaired
+  - Exit buddy system required
+  specific_compound: Acrolein
+  pel_ppm: 0.1

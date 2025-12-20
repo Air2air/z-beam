@@ -1,11 +1,12 @@
 id: ash-laser-cleaning
 name: Ash
+title: Ash Laser Cleaning
 category: wood
-subcategory: hardwood
-datePublished: '2025-12-19T02:53:21.340120Z'
-dateModified: '2025-12-19T02:53:21.340120Z'
+datePublished: '2025-12-20T04:16:03.984717Z'
+dateModified: '2025-12-20T04:16:03.984717Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/wood/hardwood/ash-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,34 @@ breadcrumb:
   href: /materials/wood/hardwood
 - label: Ash
   href: /materials/wood/hardwood/ash-laser-cleaning
+description: Ash's real strength is its outstanding shock resistance and thermal stability, which we've seen enables precise
+  laser cleaning to revive fine details in heritage woodwork and instruments without surface charring or structural weakening.
+micro:
+  before: Before laser cleaning, the ash surface shows heavy contamination across its entire grain structure. The buildup
+    completely obscures the wood's natural pattern. It looks uniformly dark and dirty.
+  after: After treatment, the laser clears away all that grime beautifully. You can now see the clean, open pores and distinct
+    growth rings clearly again. This process restores the original surface without any damage to the underlying wood fibers
+    at all.
+faq:
+- question: How does laser cleaning restore the natural grain of aged Ash wood?
+  answer: Laser cleaning gently ablates surface contaminants like dirt, varnish, or smoke residue from Ash wood without harming
+    the underlying grain. This non-contact approach typically preserves the wood's light color and prominent patterns, uncovering
+    its original beauty in 10-20 minutes per panel—pretty ideal for antique furniture restoration.
+  topic_keyword: natural grain
+  topic_statement: Preserves light color and patterns
+- question: What are the risks of using laser cleaning on Ash wood prone to warping?
+  answer: Yeah, laser cleaning works pretty safely on Ash wood when handled right. It typically dodges the moisture that worsens
+    warping, unlike old methods. Still, too much heat risks micro-cracks; experts advise low-power pulsed lasers plus close
+    monitoring to avoid that, preserving the wood's flexibility for lasting strength.
+  topic_keyword: prone to warping
+  topic_statement: Low-power pulses prevent micro-cracks
+images:
+  hero:
+    alt: Ash surface undergoing laser cleaning showing precise contamination removal
+    url: /images/material/ash-laser-cleaning-hero.jpg
+  micro:
+    alt: Ash microscopic view of laser cleaning showing detailed precise contamination removal
+    url: /images/material/ash-laser-cleaning-micro.jpg
 author:
   id: 4
   name: Todd Dunning
@@ -45,61 +74,100 @@ author:
   - https://spie.org/profile/Todd.Dunning
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
-title: Ash Laser Cleaning
-description: Ash's real strength is its outstanding shock resistance and thermal stability, which we've seen enables precise
-  laser cleaning to revive fine details in heritage woodwork and instruments without surface charring or structural weakening.
-images:
-  hero:
-    alt: Ash surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/ash-laser-cleaning-hero.jpg
-  micro:
-    alt: Ash microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/ash-laser-cleaning-micro.jpg
-micro:
-  before: Before laser cleaning, the ash surface shows heavy contamination across its entire grain structure. The buildup
-    completely obscures the wood's natural pattern. It looks uniformly dark and dirty.
-  after: After treatment, the laser clears away all that grime beautifully. You can now see the clean, open pores and distinct
-    growth rings clearly again. This process restores the original surface without any damage to the underlying wood fibers
-    at all.
-faq:
-- question: How does laser cleaning restore the natural grain of aged Ash wood?
-  answer: Laser cleaning gently ablates surface contaminants like dirt, varnish, or smoke residue from Ash wood without harming
-    the underlying grain. This non-contact approach typically preserves the wood's light color and prominent patterns, uncovering
-    its original beauty in 10-20 minutes per panel—pretty ideal for antique furniture restoration.
-  topic_keyword: natural grain
-  topic_statement: Preserves light color and patterns
-- question: What are the risks of using laser cleaning on Ash wood prone to warping?
-  answer: Yeah, laser cleaning works pretty safely on Ash wood when handled right. It typically dodges the moisture that worsens
-    warping, unlike old methods. Still, too much heat risks micro-cracks; experts advise low-power pulsed lasers plus close
-    monitoring to avoid that, preserving the wood's flexibility for lasting strength.
-  topic_keyword: prone to warping
-  topic_statement: Low-power pulses prevent micro-cracks
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-- description: IEC 60825 - Safety of Laser Products
-  image: /images/logo/logo-org-iec.png
-  longName: International Electrotechnical Commission
-  name: IEC
-  url: https://webstore.iec.ch/publication/3587
-- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  image: /images/logo/logo-org-osha.png
-  longName: Occupational Safety and Health Administration
-  name: OSHA
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-- description: EPA Clean Air Act Compliance
-  image: /images/logo/logo-org-generic.png
-  longName: Unknown Organization
-  name: Unknown
-  url: ''
+relationships:
+  contaminants:
+    title: Common Contaminants
+    description: Contaminants that frequently occur on this material during industrial use and require laser cleaning removal
+    groups:
+      organic_residues:
+        title: Organic Residues
+        description: Adhesives, lubricants, oils, and other carbon-based deposits
+        items:
+        - id: adhesive-residue-contamination
+          title: Adhesive Residue / Tape Marks
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminants/adhesive-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: wax-buildup-contamination
+          title: Wax Coating Buildup
+          url: /contaminants/organic-residue/wax/wax-buildup-contamination
+          image: /images/contaminants/wax-buildup.jpg
+          frequency: common
+          severity: moderate
+      coatings_treatments:
+        title: Coatings & Surface Treatments
+        description: Applied coatings, anodizing, plating, and surface treatment layers
+        items:
+        - id: lead-paint-contamination
+          title: Lead-Based Paint Removal
+          url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+          image: /images/contaminants/lead-paint.jpg
+          frequency: common
+          severity: moderate
+        - id: paint-residue-contamination
+          title: Paint Residue / Coating Failure
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminants/paint-residue.jpg
+          frequency: common
+          severity: moderate
+      biological_growth:
+        title: Biological Growth
+        description: Algae, lichen, biofilms, and other organic growth
+        items:
+        - id: algae-growth-contamination
+          title: Algae and Lichen Growth
+          url: /contaminants/biological/growth/algae-growth-contamination
+          image: /images/contaminants/algae-growth.jpg
+          frequency: common
+          severity: moderate
+        - id: mold-mildew-contamination
+          title: Mold and Mildew Growth
+          url: /contaminants/biological/growth/mold-mildew-contamination
+          image: /images/contaminants/mold-mildew.jpg
+          frequency: common
+          severity: moderate
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+subcategory: hardwood
+applications:
+- Cultural Heritage Restoration
+- Aerospace Component Manufacturing
+- Musical Instrument Restoration
+- Marine and Boat Building
+- Furniture Manufacturing and Refinishing
+- Sports Equipment Manufacturing
+- Architectural Woodwork
+- Tool and Handle Manufacturing
+- Automotive Interior Restoration
+- Museum Conservation
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -261,106 +329,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T11:50:39.074814'
       needs_validation: true
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - EPA Clean Air Act Compliance
-  isBasedOn:
-    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-metadata:
-  regulatory_standards:
-  - EPA Clean Air Act Compliance
-relationships:
-  related_contaminants:
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue
-    image: /images/contaminants/adhesive-residue.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: algae-growth-contamination
-    title: Algae and Lichen Growth
-    url: /contaminants/algae-growth
-    image: /images/contaminants/algae-growth.jpg
-    category: biological
-    subcategory: growth
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: lead-paint-contamination
-    title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint
-    image: /images/contaminants/lead-paint.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: mold-mildew-contamination
-    title: Mold and Mildew Growth
-    url: /contaminants/mold-mildew
-    image: /images/contaminants/mold-mildew.jpg
-    category: biological
-    subcategory: growth
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue
-    image: /images/contaminants/paint-residue.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: wax-buildup-contamination
-    title: Wax Coating Buildup
-    url: /contaminants/wax-buildup
-    image: /images/contaminants/wax-buildup.jpg
-    category: organic-residue
-    subcategory: wax
-    frequency: common
-    severity: moderate
-    typical_context: general
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-applications:
-- Cultural Heritage Restoration
-- Aerospace Component Manufacturing
-- Musical Instrument Restoration
-- Marine and Boat Building
-- Furniture Manufacturing and Refinishing
-- Sports Equipment Manufacturing
-- Architectural Woodwork
-- Tool and Handle Manufacturing
-- Automotive Interior Restoration
-- Museum Conservation
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: amorphous crystal structure
-    source: ai_research
-    unit: crystal system
-    value: amorphous
-voice_enhanced: '2025-11-07T02:01:35.969209+00:00'
 components:
   subtitle: Ash offers superior fracture toughness at 0.36 MPa√m and a high laser absorption of 0.82 for controlled material
     processing

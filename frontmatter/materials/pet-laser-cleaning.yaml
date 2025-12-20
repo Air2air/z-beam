@@ -1,11 +1,12 @@
 id: pet-laser-cleaning
 name: PET
+title: PET Laser Cleaning
 category: plastic
-subcategory: thermoplastic
-datePublished: '2025-12-19T02:53:24.444763Z'
-dateModified: '2025-12-19T02:53:24.444763Z'
+datePublished: '2025-12-20T04:16:08.743069Z'
+dateModified: '2025-12-20T04:16:08.743069Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/plastic/thermoplastic/pet-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,32 @@ breadcrumb:
   href: /materials/plastic/thermoplastic
 - label: PET
   href: /materials/plastic/thermoplastic/pet-laser-cleaning
+description: PET exhibits non-porous and smooth characteristics, so laser cleaning removes contaminants effectively from surfaces
+  without damaging underlying structure.
+micro:
+  before: PET laser cleaning requires careful parameter selection to optimize contamination removal while preserving substrate
+    integrity.
+  after: ''
+faq:
+- question: Why does PET sometimes warp during laser cleaning?
+  answer: I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the laser
+    heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this, keep the
+    laser moving steadily and use shorter pulses so the material stays intact without deforming.
+- question: How do I prepare PET surfaces for effective laser cleaning?
+  answer: When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This works
+    best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove them cleanly
+    without residue. I've found wiping with a mild solvent beforehand makes the process faster and leaves a spotless finish
+    every time.
+- question: What's the best speed for laser cleaning PET to avoid damage?
+  answer: Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser plastics,
+    PET's flexibility means it
+images:
+  hero:
+    alt: PET surface during precision laser cleaning process removing contamination layer
+    url: /images/material/pet-laser-cleaning-hero.jpg
+  micro:
+    alt: PET surface at 500x magnification showing laser cleaning results
+    url: /images/material/pet-laser-cleaning-micro.jpg
 author:
   id: 1
   name: Yi-Chun Lin
@@ -45,44 +72,54 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-title: PET Laser Cleaning
-description: PET exhibits non-porous and smooth characteristics, so laser cleaning removes contaminants effectively from surfaces
-  without damaging underlying structure.
-images:
-  hero:
-    alt: PET surface during precision laser cleaning process removing contamination layer
-    url: /images/material/pet-laser-cleaning-hero.jpg
-  micro:
-    alt: PET surface at 500x magnification showing laser cleaning results
-    url: /images/material/pet-laser-cleaning-micro.jpg
-micro:
-  before: PET laser cleaning requires careful parameter selection to optimize contamination removal while preserving substrate
-    integrity.
-  after: ''
-faq:
-- question: Why does PET sometimes warp during laser cleaning?
-  answer: I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the laser
-    heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this, keep the
-    laser moving steadily and use shorter pulses so the material stays intact without deforming.
-- question: How do I prepare PET surfaces for effective laser cleaning?
-  answer: When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This works
-    best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove them cleanly
-    without residue. I've found wiping with a mild solvent beforehand makes the process faster and leaves a spotless finish
-    every time.
-- question: What's the best speed for laser cleaning PET to avoid damage?
-  answer: Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser plastics,
-    PET's flexibility means it
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+relationships:
+  contaminants:
+    title: Common Contaminants
+    description: Contaminants that frequently occur on this material during industrial use and require laser cleaning removal
+    groups:
+      organic_residues:
+        title: Organic Residues
+        description: Adhesives, lubricants, oils, and other carbon-based deposits
+        items:
+        - id: adhesive-residue-contamination
+          title: Adhesive Residue / Tape Marks
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminants/adhesive-residue.jpg
+          frequency: common
+          severity: moderate
+      coatings_treatments:
+        title: Coatings & Surface Treatments
+        description: Applied coatings, anodizing, plating, and surface treatment layers
+        items:
+        - id: paint-residue-contamination
+          title: Paint Residue / Coating Failure
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminants/paint-residue.jpg
+          frequency: common
+          severity: moderate
+      chemical_residue:
+        title: Chemical Residues
+        description: Chemical stains, etching, and industrial chemical deposits
+        items:
+        - id: chemical-stains-contamination
+          title: Chemical Stains / Acid Etching
+          url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+          image: /images/contaminants/chemical-stains.jpg
+          frequency: common
+          severity: moderate
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+subcategory: thermoplastic
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -235,40 +272,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T15:42:36.520118'
       needs_validation: true
-relationships:
-  related_contaminants:
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue
-    image: /images/contaminants/adhesive-residue.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: chemical-stains-contamination
-    title: Chemical Stains / Acid Etching
-    url: /contaminants/chemical-stains
-    image: /images/contaminants/chemical-stains.jpg
-    category: chemical-residue
-    subcategory: industrial
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue
-    image: /images/contaminants/paint-residue.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
 settings_description: When laser cleaning PET, you must start with the lowest possible power settings to avoid quick melting,
   as this thermoplastic softens much faster than sturdier plastics like PVC. Unlike metals that reflect energy and stay cool,
   PET absorbs just enough to heat evenly, so it demands precise control to prevent warping. Make sure you use short pulses

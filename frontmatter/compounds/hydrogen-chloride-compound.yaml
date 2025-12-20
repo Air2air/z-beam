@@ -1,23 +1,31 @@
-id: hydrogen-chloride
+id: hydrogen-chloride-compound
 name: Hydrogen Chloride
 display_name: Hydrogen Chloride (HCl)
-chemical_formula: HCl
-cas_number: 7647-01-0
-molecular_weight: 36.46
-datePublished: '2025-12-19T02:53:38.431599Z'
-dateModified: '2025-12-19T02:53:38.431599Z'
+category: corrosive_gas
+hazard_class: corrosive
+datePublished: '2025-12-20T04:16:42.026571Z'
+dateModified: '2025-12-20T04:16:42.026571Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Corrosive Gas
+  href: /compounds/corrosive_gas
 - label: Acid Gas
-  href: /compounds//acid_gas
-category: corrosive_gas
-subcategory: acid_gas
-hazard_class: corrosive
+  href: /compounds/corrosive_gas/acid_gas
+- label: Hydrogen Chloride
+  href: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
+chemical_formula: HCl
+cas_number: 7647-01-0
+molecular_weight: 36.46
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: null
   osha_pel_mg_m3: 7
@@ -36,21 +44,16 @@ sources_in_laser_cleaning:
 - pvc_decomposition
 - chlorinated_polymer_pyrolysis
 - chlorinated_solvent_breakdown
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: plastic-residue
+  - id: plastic-residue-contamination
     title: Degraded Polymer Deposits
     url: /contaminants/organic-residue/polymer/plastic-residue
     image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
     frequency: very_common
     severity: high
     typical_context: Thermal decomposition of PVC (polyvinyl chloride)
-  - id: adhesive-residue
+  - id: adhesive-residue-contamination
     title: Adhesive Residue / Tape Marks
     url: /contaminants/organic-residue/adhesive/adhesive-residue
     image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
@@ -60,9 +63,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: hydrogen-chloride-physical-data
-  health_effects:
-  - type: health_effects
-    id: hydrogen-chloride-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: hydrogen-chloride-environmental-data
@@ -76,10 +77,29 @@ relationships:
       specific_compound: Hydrogen Chloride
       pel_ppm: null
   emergency_response:
-  - type: emergency_response
-    id: corrosive-liquid-strong
-    overrides:
-      specific_compound: Hydrogen Chloride
+    fire_hazard: Non-flammable. Cylinders may explode when heated. Corrosive decomposition products.
+    fire_suppression: Do not use water directly on HCl gas - forms corrosive hydrochloric acid mist. Cool cylinders with water
+      spray from safe distance.
+    spill_procedures: EVACUATE. Ventilate area. SCBA required for >5 ppm. Neutralize with soda ash, lime, or sodium bicarbonate.
+      Contain with dry sand or earth. Decontaminate equipment.
+    exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - GET MEDICAL HELP
+      IMMEDIATELY. Skin: remove contaminated clothing, flush with water for 15 minutes. If inhaled: administer oxygen. Seek
+      immediate medical attention - corrosive injury.'
+    environmental_hazards: Toxic to aquatic life. Forms hydrochloric acid in water. Report releases >5000 lbs.
+    special_hazards: Extremely corrosive to all tissues. Forms dense white corrosive mist in moist air. Reacts with metals
+      producing flammable hydrogen gas. Causes severe burns, permanent eye damage, respiratory tract damage.
+  physical_properties:
+    boiling_point: -85.05°C (-121°F)
+    melting_point: -114.17°C (-173.5°F)
+    vapor_pressure: '>760 mmHg @ 20°C (gas)'
+    vapor_density: 1.27 (Air=1)
+    specific_gravity: 1.19 (liquid @ -26°C)
+    flash_point: Not applicable (non-flammable)
+    autoignition_temp: Not applicable
+    explosive_limits: Not applicable
+    appearance: Colorless gas, colorless to light yellow liquid (anhydrous)
+    odor: Pungent, irritating odor @ 0.8-5 ppm
+subcategory: acid_gas
 author:
   id: 3
   name: Ikmanda Roswati
@@ -118,29 +138,6 @@ ppe_requirements:
   minimum_level: Level C for known <5 ppm, Level B for >5 ppm or liquid HCl
   special_notes: Extremely corrosive. Causes severe burns on contact. Fumes in moist air. Emergency eyewash/shower within
     10 seconds mandatory. Liquid causes frostbite (cryogenic).
-physical_properties:
-  boiling_point: -85.05°C (-121°F)
-  melting_point: -114.17°C (-173.5°F)
-  vapor_pressure: '>760 mmHg @ 20°C (gas)'
-  vapor_density: 1.27 (Air=1)
-  specific_gravity: 1.19 (liquid @ -26°C)
-  flash_point: Not applicable (non-flammable)
-  autoignition_temp: Not applicable
-  explosive_limits: Not applicable
-  appearance: Colorless gas, colorless to light yellow liquid (anhydrous)
-  odor: Pungent, irritating odor @ 0.8-5 ppm
-emergency_response:
-  fire_hazard: Non-flammable. Cylinders may explode when heated. Corrosive decomposition products.
-  fire_suppression: Do not use water directly on HCl gas - forms corrosive hydrochloric acid mist. Cool cylinders with water
-    spray from safe distance.
-  spill_procedures: EVACUATE. Ventilate area. SCBA required for >5 ppm. Neutralize with soda ash, lime, or sodium bicarbonate.
-    Contain with dry sand or earth. Decontaminate equipment.
-  exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - GET MEDICAL HELP
-    IMMEDIATELY. Skin: remove contaminated clothing, flush with water for 15 minutes. If inhaled: administer oxygen. Seek
-    immediate medical attention - corrosive injury.'
-  environmental_hazards: Toxic to aquatic life. Forms hydrochloric acid in water. Report releases >5000 lbs.
-  special_hazards: Extremely corrosive to all tissues. Forms dense white corrosive mist in moist air. Reacts with metals producing
-    flammable hydrogen gas. Causes severe burns, permanent eye damage, respiratory tract damage.
 storage_requirements:
   temperature_range: Store cylinders <52°C. Keep away from heat.
   ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with acid-resistant ductwork. HCl gas detection
@@ -254,3 +251,72 @@ detection_monitoring:
     technique: Ion chromatography
     detection_limit: 0.01 ppm
   odor_threshold: 0.8-5 ppm - provides adequate warning but close to toxic levels
+ppe_requirements_detail:
+  id: corrosive-liquid-moderate
+  hazard_type: corrosive_liquid
+  hazard_level: moderate
+  minimum_protection_level: Level C
+  respiratory:
+    equipment: Half-face respirator with acid gas cartridge
+    standard: NIOSH 42 CFR 84
+    condition: If vapor exposure possible
+    cartridge_type: Acid gas/organic vapor combination
+    fit_test_required: true
+  skin:
+    gloves:
+      material: Neoprene or PVC gloves
+      length: Elbow-length for handling
+      standard: ASTM F739
+      breakthrough_time: '>8 hours'
+      thickness: '>18 mil'
+    apron:
+      equipment: Chemical-resistant apron
+      material: Neoprene, PVC, or rubber
+      length: Full-length coverage
+      condition: All handling operations
+    footwear:
+      equipment: Chemical-resistant boots
+      material: PVC or rubber
+      height: At least 8 inches
+  eye:
+    primary:
+      equipment: Chemical splash goggles
+      standard: ANSI Z87.1
+      type: Indirect vents, sealed to face
+    secondary:
+      equipment: Face shield (8-inch minimum)
+      condition: Over goggles for handling operations
+      use: Face shield does not replace goggles
+  special_requirements:
+  - Emergency shower and eyewash within 10 seconds travel time
+  - Flush eyes for 15 minutes if contact occurs
+  - Remove contaminated clothing immediately
+  - Work in ventilated area or use fume hood
+  - Have neutralizing agent available (appropriate for specific chemical)
+  decontamination:
+  - Flush contaminated areas with water immediately
+  - Remove contaminated clothing under water if possible
+  - Wash skin thoroughly with soap and water
+  - Launder contaminated clothing separately
+  - Inspect PPE for damage before reuse
+  training_required:
+  - Chemical hazard awareness (corrosives)
+  - Proper PPE selection and use
+  - Emergency response procedures
+  - First aid for chemical burns
+  first_aid:
+    eye_contact:
+    - Flush immediately with water for 15+ minutes
+    - Hold eyelids open during flushing
+    - Seek immediate medical attention
+    skin_contact:
+    - Remove contaminated clothing
+    - Flush with water for 15+ minutes
+    - Wash with soap and water
+    - Seek medical attention
+    inhalation:
+    - Move to fresh air
+    - Administer oxygen if available
+    - Seek medical attention
+  specific_compound: Hydrogen Chloride
+  pel_ppm: null

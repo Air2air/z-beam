@@ -1,11 +1,12 @@
 id: steel-laser-cleaning
 name: Steel
+title: Steel Laser Cleaning
 category: metal
-subcategory: ferrous
-datePublished: '2025-12-19T02:53:23.653791Z'
-dateModified: '2025-12-19T02:53:23.653791Z'
+datePublished: '2025-12-20T04:16:07.672860Z'
+dateModified: '2025-12-20T04:16:07.672860Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/metal/ferrous/steel-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,33 @@ breadcrumb:
   href: /materials/metal/ferrous
 - label: Steel
   href: /materials/metal/ferrous/steel-laser-cleaning
+description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the substrate
+  during contaminant removal, which leads to efficient restoration without structural compromise. This durability, it sets
+  steel apart from less resilient ferrous alloys, exhibiting practical benefits in demanding sectors such as manufacturing
+  and shipbuilding where surface integrity persists under intense exposure.
+micro:
+  before: Under magnification, the steel surface reveals a contaminated layer of rust and debris clinging to its durable ferrous
+    structure. Particles scatter across the dense material, dulling its inherent strength and shine. This buildup hampers
+    performance in automotive and construction uses, where clean surfaces ensure reliable bonds and longevity.
+  after: After laser cleaning, the process strips away the
+faq:
+- question: 'Steel in Laser Cleaning: Key Facts'
+  answer: "**What makes steel a go-to material in industry?**  \nSteel stands out as a metal with solid strength and versatility.\
+    \ We use it everywhere—from bridges to machine parts—because it holds up under heavy loads. Its density sits around 7.85\
+    \ g/cm³, which gives it that hefty feel without being too brittle. Porosity stays low at about 0.1%, so it resists water\
+    \ or gases sneaking in over time. In my projects, this reliability keeps things running smooth.\n\n**How does laser cleaning\
+    \ handle steel surfaces?**  \nLaser cleaning works well on steel by zapping away rust, paint, or grime without damaging\
+    \ the base. The beam heats just the top layer, and buildup vaporizes or flakes off. You get a clean finish that looks\
+    \ almost new. For steel, a power range of 100 W does the job nicely, especially on thinner sheets. It brings back that\
+    \ shiny surface fast, and no chemicals needed. Though thicker pieces might take a pass or two, results stay consistent.\
+    \ I've seen it fix old tools in minutes—practical and effective."
+images:
+  hero:
+    alt: Steel surface undergoing laser cleaning showing precise contamination removal
+    url: /images/material/steel-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Steel surface after laser cleaning showing detailed surface structure
+    url: /images/material/steel-laser-cleaning-micro.jpg
 author:
   id: 2
   name: Alessandro Moretti
@@ -46,50 +74,490 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-title: Steel Laser Cleaning
-description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the substrate
-  during contaminant removal, which leads to efficient restoration without structural compromise. This durability, it sets
-  steel apart from less resilient ferrous alloys, exhibiting practical benefits in demanding sectors such as manufacturing
-  and shipbuilding where surface integrity persists under intense exposure.
-images:
-  hero:
-    alt: Steel surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/steel-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Steel surface after laser cleaning showing detailed surface structure
-    url: /images/material/steel-laser-cleaning-micro.jpg
-micro:
-  before: Under magnification, the steel surface reveals a contaminated layer of rust and debris clinging to its durable ferrous
-    structure. Particles scatter across the dense material, dulling its inherent strength and shine. This buildup hampers
-    performance in automotive and construction uses, where clean surfaces ensure reliable bonds and longevity.
-  after: After laser cleaning, the process strips away the
-faq:
-- question: 'Steel in Laser Cleaning: Key Facts'
-  answer: "**What makes steel a go-to material in industry?**  \nSteel stands out as a metal with solid strength and versatility.\
-    \ We use it everywhere—from bridges to machine parts—because it holds up under heavy loads. Its density sits around 7.85\
-    \ g/cm³, which gives it that hefty feel without being too brittle. Porosity stays low at about 0.1%, so it resists water\
-    \ or gases sneaking in over time. In my projects, this reliability keeps things running smooth.\n\n**How does laser cleaning\
-    \ handle steel surfaces?**  \nLaser cleaning works well on steel by zapping away rust, paint, or grime without damaging\
-    \ the base. The beam heats just the top layer, and buildup vaporizes or flakes off. You get a clean finish that looks\
-    \ almost new. For steel, a power range of 100 W does the job nicely, especially on thinner sheets. It brings back that\
-    \ shiny surface fast, and no chemicals needed. Though thicker pieces might take a pass or two, results stay consistent.\
-    \ I've seen it fix old tools in minutes—practical and effective."
-regulatory_standards:
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-- description: IEC 60825 - Safety of Laser Products
-  image: /images/logo/logo-org-iec.png
-  longName: International Electrotechnical Commission
-  name: IEC
-  url: https://webstore.iec.ch/en/publication/3587
-- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  image: /images/logo/logo-org-osha.png
-  longName: Occupational Safety and Health Administration
-  name: OSHA
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+relationships:
+  contaminants:
+    title: Common Contaminants
+    description: Contaminants that frequently occur on this material during industrial use and require laser cleaning removal
+    groups:
+      organic_residues:
+        title: Organic Residues
+        description: Adhesives, lubricants, oils, and other carbon-based deposits
+        items:
+        - id: adhesive-residue-contamination
+          title: Adhesive Residue / Tape Marks
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminants/adhesive-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: anti-seize-contamination
+          title: Anti-Seize Compound
+          url: /contaminants/organic-residue/lubricant/anti-seize-contamination
+          image: /images/contaminants/anti-seize.jpg
+          frequency: common
+          severity: moderate
+        - id: bitumen-tar-contamination
+          title: Bitumen and Tar Coatings
+          url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+          image: /images/contaminants/bitumen-tar.jpg
+          frequency: common
+          severity: moderate
+        - id: carbon-buildup-contamination
+          title: Carbon Deposit Buildup
+          url: /contaminants/organic-residue/other/carbon-buildup-contamination
+          image: /images/contaminants/carbon-buildup.jpg
+          frequency: common
+          severity: moderate
+        - id: carbon-soot-contamination
+          title: Carbon Soot Deposits
+          url: /contaminants/organic-residue/other/carbon-soot-contamination
+          image: /images/contaminants/carbon-soot.jpg
+          frequency: common
+          severity: moderate
+        - id: cutting-fluid-contamination
+          title: Machining Coolant Residue
+          url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
+          image: /images/contaminants/cutting-fluid.jpg
+          frequency: common
+          severity: moderate
+        - id: epoxy-residue-contamination
+          title: Epoxy Resin Deposits
+          url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+          image: /images/contaminants/epoxy-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: fuel-varnish-contamination
+          title: Fuel System Varnish
+          url: /contaminants/organic-residue/petroleum/fuel-varnish-contamination
+          image: /images/contaminants/fuel-varnish.jpg
+          frequency: common
+          severity: moderate
+        - id: gasket-material-contamination
+          title: Gasket Material Residue
+          url: /contaminants/organic-residue/adhesive/gasket-material-contamination
+          image: /images/contaminants/gasket-material.jpg
+          frequency: common
+          severity: moderate
+        - id: graphite-marks-contamination
+          title: Graphite Deposit Traces
+          url: /contaminants/organic-residue/marking/graphite-marks-contamination
+          image: /images/contaminants/graphite-marks.jpg
+          frequency: common
+          severity: moderate
+        - id: grease-deposits-contamination
+          title: Heavy Machinery Grease
+          url: /contaminants/organic-residue/petroleum/grease-deposits-contamination
+          image: /images/contaminants/grease-deposits.jpg
+          frequency: common
+          severity: moderate
+        - id: hydraulic-fluid-contamination
+          title: Hydraulic Fluid Contamination
+          url: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
+          image: /images/contaminants/hydraulic-fluid.jpg
+          frequency: common
+          severity: moderate
+        - id: ink-stains-contamination
+          title: Printing Ink Residue
+          url: /contaminants/organic-residue/marking/ink-stains-contamination
+          image: /images/contaminants/ink-stains.jpg
+          frequency: common
+          severity: moderate
+        - id: laser-marking-contamination
+          title: Laser Marking Discoloration
+          url: /contaminants/organic-residue/marking/laser-marking-contamination
+          image: /images/contaminants/laser-marking.jpg
+          frequency: common
+          severity: moderate
+        - id: metal-polish-contamination
+          title: Metal Polish Residue
+          url: /contaminants/organic-residue/wax/metal-polish-contamination
+          image: /images/contaminants/metal-polish.jpg
+          frequency: common
+          severity: moderate
+        - id: plastic-residue-contamination
+          title: Degraded Polymer Deposits
+          url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+          image: /images/contaminants/plastic-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: road-grime-contamination
+          title: Automotive Road Grime
+          url: /contaminants/organic-residue/other/road-grime-contamination
+          image: /images/contaminants/road-grime.jpg
+          frequency: common
+          severity: moderate
+        - id: rubber-residue-contamination
+          title: Rubber Compound Residue
+          url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+          image: /images/contaminants/rubber-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: silicone-buildup-contamination
+          title: Silicone Sealant Buildup
+          url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+          image: /images/contaminants/silicone-buildup.jpg
+          frequency: common
+          severity: moderate
+        - id: teflon-residue-contamination
+          title: PTFE Coating Residue
+          url: /contaminants/organic-residue/other/teflon-residue-contamination
+          image: /images/contaminants/teflon-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: thread-locker-contamination
+          title: Threadlocker Adhesive
+          url: /contaminants/organic-residue/adhesive/thread-locker-contamination
+          image: /images/contaminants/thread-locker.jpg
+          frequency: common
+          severity: moderate
+        - id: tree-sap-contamination
+          title: Tree Sap and Resin
+          url: /contaminants/organic-residue/natural/tree-sap-contamination
+          image: /images/contaminants/tree-sap.jpg
+          frequency: common
+          severity: moderate
+        - id: undercoating-contamination
+          title: Automotive Undercoating
+          url: /contaminants/organic-residue/other/undercoating-contamination
+          image: /images/contaminants/undercoating.jpg
+          frequency: common
+          severity: moderate
+        - id: water-stain-contamination
+          title: Water Staining and Marks
+          url: /contaminants/organic-residue/other/water-stain-contamination
+          image: /images/contaminants/water-stain.jpg
+          frequency: common
+          severity: moderate
+        - id: wax-buildup-contamination
+          title: Wax Coating Buildup
+          url: /contaminants/organic-residue/wax/wax-buildup-contamination
+          image: /images/contaminants/wax-buildup.jpg
+          frequency: common
+          severity: moderate
+      oxidation_corrosion:
+        title: Oxidation & Corrosion
+        description: Surface oxidation, rust, and corrosion products specific to this material
+        items:
+        - id: battery-corrosion-contamination
+          title: Battery Leakage Corrosion
+          url: /contaminants/oxidation/battery/battery-corrosion-contamination
+          image: /images/contaminants/battery-corrosion.jpg
+          frequency: common
+          severity: moderate
+        - id: rust-oxidation-contamination
+          title: Rust / Iron Oxide Formation
+          url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+          image: /images/contaminants/rust-oxidation.jpg
+          frequency: common
+          severity: moderate
+        - id: steel-corrosion-contamination
+          title: Steel Surface Corrosion
+          url: /contaminants/oxidation/ferrous/steel-corrosion-contamination
+          image: /images/contaminants/steel-corrosion.jpg
+          frequency: common
+          severity: moderate
+      coatings_treatments:
+        title: Coatings & Surface Treatments
+        description: Applied coatings, anodizing, plating, and surface treatment layers
+        items:
+        - id: brake-dust-contamination
+          title: Brake Pad Dust Deposits
+          url: /contaminants/inorganic-coating/mineral/brake-dust-contamination
+          image: /images/contaminants/brake-dust.jpg
+          frequency: common
+          severity: moderate
+        - id: brass-plating-contamination
+          title: Brass Coating Removal
+          url: /contaminants/metallic-coating/plating/brass-plating-contamination
+          image: /images/contaminants/brass-plating.jpg
+          frequency: common
+          severity: moderate
+        - id: cadmium-plating-contamination
+          title: Cadmium Plating Removal
+          url: /contaminants/metallic-coating/plating/cadmium-plating-contamination
+          image: /images/contaminants/cadmium-plating.jpg
+          frequency: common
+          severity: moderate
+        - id: ceramic-coating-contamination
+          title: Ceramic Heat Barrier Coating
+          url: /contaminants/inorganic-coating/ceramic/ceramic-coating-contamination
+          image: /images/contaminants/ceramic-coating.jpg
+          frequency: common
+          severity: moderate
+        - id: concrete-dust-contamination
+          title: Concrete Dust Deposits
+          url: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
+          image: /images/contaminants/concrete-dust.jpg
+          frequency: common
+          severity: moderate
+        - id: conversion-coating-contamination
+          title: Chemical Conversion Coating
+          url: /contaminants/inorganic-coating/coating/conversion-coating-contamination
+          image: /images/contaminants/conversion-coating.jpg
+          frequency: common
+          severity: moderate
+        - id: copper-plating-contamination
+          title: Copper Electroplating
+          url: /contaminants/metallic-coating/plating/copper-plating-contamination
+          image: /images/contaminants/copper-plating.jpg
+          frequency: common
+          severity: moderate
+        - id: corrosion-inhibitor-contamination
+          title: Corrosion Inhibitor Coating
+          url: /contaminants/inorganic-coating/coating/corrosion-inhibitor-contamination
+          image: /images/contaminants/corrosion-inhibitor.jpg
+          frequency: common
+          severity: moderate
+        - id: diamond-coating-contamination
+          title: Diamond-Like Carbon Removal
+          url: /contaminants/inorganic-coating/coating/diamond-coating-contamination
+          image: /images/contaminants/diamond-coating.jpg
+          frequency: common
+          severity: moderate
+        - id: electroplating-residue-contamination
+          title: Electroplating Solution Residue
+          url: /contaminants/metallic-coating/plating/electroplating-residue-contamination
+          image: /images/contaminants/electroplating-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: graffiti-paint-contamination
+          title: Graffiti and Spray Paint
+          url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+          image: /images/contaminants/graffiti-paint.jpg
+          frequency: common
+          severity: moderate
+        - id: lead-paint-contamination
+          title: Lead-Based Paint Removal
+          url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+          image: /images/contaminants/lead-paint.jpg
+          frequency: common
+          severity: moderate
+        - id: nickel-plating-contamination
+          title: Electroless Nickel Plating
+          url: /contaminants/metallic-coating/plating/nickel-plating-contamination
+          image: /images/contaminants/nickel-plating.jpg
+          frequency: common
+          severity: moderate
+        - id: paint-residue-contamination
+          title: Paint Residue / Coating Failure
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminants/paint-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: pickling-residue-contamination
+          title: Acid Pickling Stains
+          url: /contaminants/inorganic-coating/coating/pickling-residue-contamination
+          image: /images/contaminants/pickling-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: powder-coating-contamination
+          title: Powder Coating Buildup
+          url: /contaminants/inorganic-coating/paint/powder-coating-contamination
+          image: /images/contaminants/powder-coating.jpg
+          frequency: common
+          severity: moderate
+        - id: primer-coating-contamination
+          title: Paint Primer Layers
+          url: /contaminants/inorganic-coating/paint/primer-coating-contamination
+          image: /images/contaminants/primer-coating.jpg
+          frequency: common
+          severity: moderate
+        - id: salt-residue-contamination
+          title: Salt and Chloride Deposits
+          url: /contaminants/inorganic-coating/mineral/salt-residue-contamination
+          image: /images/contaminants/salt-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: tin-plating-contamination
+          title: Tin Plating Residue
+          url: /contaminants/metallic-coating/plating/tin-plating-contamination
+          image: /images/contaminants/tin-plating.jpg
+          frequency: common
+          severity: moderate
+        - id: zinc-plating-contamination
+          title: Zinc Electroplating
+          url: /contaminants/metallic-coating/plating/zinc-plating-contamination
+          image: /images/contaminants/zinc-plating.jpg
+          frequency: common
+          severity: moderate
+      biological_growth:
+        title: Biological Growth
+        description: Algae, lichen, biofilms, and other organic growth
+        items:
+        - id: algae-growth-contamination
+          title: Algae and Lichen Growth
+          url: /contaminants/biological/growth/algae-growth-contamination
+          image: /images/contaminants/algae-growth.jpg
+          frequency: common
+          severity: moderate
+        - id: biological-stains-contamination
+          title: Organic Biofilm Deposits
+          url: /contaminants/biological/deposit/biological-stains-contamination
+          image: /images/contaminants/biological-stains.jpg
+          frequency: common
+          severity: moderate
+        - id: insect-residue-contamination
+          title: Insect Impact Residue
+          url: /contaminants/biological/deposit/insect-residue-contamination
+          image: /images/contaminants/insect-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: pollen-deposit-contamination
+          title: Pollen Accumulation
+          url: /contaminants/biological/deposit/pollen-deposit-contamination
+          image: /images/contaminants/pollen-deposit.jpg
+          frequency: common
+          severity: moderate
+      thermal_damage:
+        title: Thermal Damage
+        description: Heat-induced scale, oxidation, and thermal degradation products
+        items:
+        - id: annealing-scale-contamination
+          title: Heat Treatment Scale
+          url: /contaminants/thermal-damage/scale/annealing-scale-contamination
+          image: /images/contaminants/annealing-scale.jpg
+          frequency: common
+          severity: moderate
+        - id: exhaust-residue-contamination
+          title: Exhaust System Deposits
+          url: /contaminants/thermal-damage/fire/exhaust-residue-contamination
+          image: /images/contaminants/exhaust-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: fire-damage-contamination
+          title: Fire and Smoke Damage
+          url: /contaminants/thermal-damage/fire/fire-damage-contamination
+          image: /images/contaminants/fire-damage.jpg
+          frequency: common
+          severity: moderate
+        - id: forging-scale-contamination
+          title: Forging Mill Scale
+          url: /contaminants/thermal-damage/scale/forging-scale-contamination
+          image: /images/contaminants/forging-scale.jpg
+          frequency: common
+          severity: moderate
+        - id: lime-scale-contamination
+          title: Limescale Deposits
+          url: /contaminants/thermal-damage/scale/lime-scale-contamination
+          image: /images/contaminants/lime-scale.jpg
+          frequency: common
+          severity: moderate
+        - id: mineral-deposits-contamination
+          title: Hard Water Mineral Scale
+          url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
+          image: /images/contaminants/mineral-deposits.jpg
+          frequency: common
+          severity: moderate
+        - id: plasma-spray-contamination
+          title: Thermal Spray Coating
+          url: /contaminants/thermal-damage/coating/plasma-spray-contamination
+          image: /images/contaminants/plasma-spray.jpg
+          frequency: common
+          severity: moderate
+        - id: quench-oil-contamination
+          title: Quenching Oil Residue
+          url: /contaminants/thermal-damage/scale/quench-oil-contamination
+          image: /images/contaminants/quench-oil.jpg
+          frequency: common
+          severity: moderate
+        - id: scale-buildup-contamination
+          title: Mineral Scale / Hard Water Deposits
+          url: /contaminants/thermal-damage/scale/scale-buildup-contamination
+          image: /images/contaminants/scale-buildup.jpg
+          frequency: common
+          severity: moderate
+      chemical_residue:
+        title: Chemical Residues
+        description: Chemical stains, etching, and industrial chemical deposits
+        items:
+        - id: beryllium-oxide-contamination
+          title: Beryllium Oxide Contamination
+          url: /contaminants/chemical-residue/hazardous/beryllium-oxide-contamination
+          image: /images/contaminants/beryllium-oxide.jpg
+          frequency: common
+          severity: moderate
+        - id: chemical-stains-contamination
+          title: Chemical Stains / Acid Etching
+          url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+          image: /images/contaminants/chemical-stains.jpg
+          frequency: common
+          severity: moderate
+        - id: fertilizer-residue-contamination
+          title: Fertilizer Salt Deposits
+          url: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
+          image: /images/contaminants/fertilizer-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: mercury-contamination
+          title: Mercury Spill Residue
+          url: /contaminants/chemical-residue/hazardous/mercury-contamination
+          image: /images/contaminants/mercury.jpg
+          frequency: common
+          severity: moderate
+        - id: pcb-contamination
+          title: PCB Oil Contamination
+          url: /contaminants/chemical-residue/industrial/pcb-contamination
+          image: /images/contaminants/pcb.jpg
+          frequency: common
+          severity: moderate
+        - id: pesticide-residue-contamination
+          title: Pesticide Chemical Residue
+          url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
+          image: /images/contaminants/pesticide-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: radioactive-contamination
+          title: Surface Radioactive Contamination
+          url: /contaminants/chemical-residue/hazardous/radioactive-contamination
+          image: /images/contaminants/radioactive.jpg
+          frequency: common
+          severity: moderate
+        - id: uranium-oxide-contamination
+          title: Depleted Uranium Oxide
+          url: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
+          image: /images/contaminants/uranium-oxide.jpg
+          frequency: common
+          severity: moderate
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: ce-machinery-directive
+subcategory: ferrous
+applications:
+- Automotive
+- Construction
+- Manufacturing
+- Oil & Gas
+- Rail Transport
+- Shipbuilding
+characteristics:
+  density:
+    source: scientific_literature
+    source_type: ''
+    source_name: C
+    citation: ''
+    context: ''
+    confidence: 90
+    researched_date: '2025-11-07T12:51:49.748913'
+    needs_validation: true
+    value: '7.874'
+  thermal_conductivity:
+    source: ai_research
+    needs_research: true
+    researched_date: '2025-11-07T12:53:29.099045'
+  laser_absorption:
+    source: ai_research
+    needs_research: true
+    researched_date: '2025-11-07T12:57:43.066850'
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -268,675 +736,6 @@ properties:
       unit: ''
       confidence: 95
       source: ai_research
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - ANSI Z136.1 - Safe Use of Lasers
-  isBasedOn:
-    name: ANSI Z136.1 - Safe Use of Lasers
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-metadata:
-  last_updated: '2025-10-27T23:48:40.922778Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922783Z'
-  structure_version: '2.0'
-relationships:
-  related_contaminants:
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue
-    image: /images/contaminants/adhesive-residue.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: algae-growth-contamination
-    title: Algae and Lichen Growth
-    url: /contaminants/algae-growth
-    image: /images/contaminants/algae-growth.jpg
-    category: biological
-    subcategory: growth
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: annealing-scale-contamination
-    title: Heat Treatment Scale
-    url: /contaminants/annealing-scale
-    image: /images/contaminants/annealing-scale.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: anti-seize-contamination
-    title: Anti-Seize Compound
-    url: /contaminants/anti-seize
-    image: /images/contaminants/anti-seize.jpg
-    category: organic-residue
-    subcategory: lubricant
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: battery-corrosion-contamination
-    title: Battery Leakage Corrosion
-    url: /contaminants/battery-corrosion
-    image: /images/contaminants/battery-corrosion.jpg
-    category: oxidation
-    subcategory: battery
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: beryllium-oxide-contamination
-    title: Beryllium Oxide Contamination
-    url: /contaminants/beryllium-oxide
-    image: /images/contaminants/beryllium-oxide.jpg
-    category: chemical-residue
-    subcategory: hazardous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: biological-stains-contamination
-    title: Organic Biofilm Deposits
-    url: /contaminants/biological-stains
-    image: /images/contaminants/biological-stains.jpg
-    category: biological
-    subcategory: deposit
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: bitumen-tar-contamination
-    title: Bitumen and Tar Coatings
-    url: /contaminants/bitumen-tar
-    image: /images/contaminants/bitumen-tar.jpg
-    category: organic-residue
-    subcategory: petroleum
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: brake-dust-contamination
-    title: Brake Pad Dust Deposits
-    url: /contaminants/brake-dust
-    image: /images/contaminants/brake-dust.jpg
-    category: inorganic-coating
-    subcategory: mineral
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: brass-plating-contamination
-    title: Brass Coating Removal
-    url: /contaminants/brass-plating
-    image: /images/contaminants/brass-plating.jpg
-    category: metallic-coating
-    subcategory: plating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: cadmium-plating-contamination
-    title: Cadmium Plating Removal
-    url: /contaminants/cadmium-plating
-    image: /images/contaminants/cadmium-plating.jpg
-    category: metallic-coating
-    subcategory: plating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: carbon-buildup-contamination
-    title: Carbon Deposit Buildup
-    url: /contaminants/carbon-buildup
-    image: /images/contaminants/carbon-buildup.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: carbon-soot-contamination
-    title: Carbon Soot Deposits
-    url: /contaminants/carbon-soot
-    image: /images/contaminants/carbon-soot.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: ceramic-coating-contamination
-    title: Ceramic Heat Barrier Coating
-    url: /contaminants/ceramic-coating
-    image: /images/contaminants/ceramic-coating.jpg
-    category: inorganic-coating
-    subcategory: ceramic
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: chemical-stains-contamination
-    title: Chemical Stains / Acid Etching
-    url: /contaminants/chemical-stains
-    image: /images/contaminants/chemical-stains.jpg
-    category: chemical-residue
-    subcategory: industrial
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: concrete-dust-contamination
-    title: Concrete Dust Deposits
-    url: /contaminants/concrete-dust
-    image: /images/contaminants/concrete-dust.jpg
-    category: inorganic-coating
-    subcategory: mineral
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: conversion-coating-contamination
-    title: Chemical Conversion Coating
-    url: /contaminants/conversion-coating
-    image: /images/contaminants/conversion-coating.jpg
-    category: inorganic-coating
-    subcategory: coating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: copper-plating-contamination
-    title: Copper Electroplating
-    url: /contaminants/copper-plating
-    image: /images/contaminants/copper-plating.jpg
-    category: metallic-coating
-    subcategory: plating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: corrosion-inhibitor-contamination
-    title: Corrosion Inhibitor Coating
-    url: /contaminants/corrosion-inhibitor
-    image: /images/contaminants/corrosion-inhibitor.jpg
-    category: inorganic-coating
-    subcategory: coating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: cutting-fluid-contamination
-    title: Machining Coolant Residue
-    url: /contaminants/cutting-fluid
-    image: /images/contaminants/cutting-fluid.jpg
-    category: organic-residue
-    subcategory: lubricant
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: diamond-coating-contamination
-    title: Diamond-Like Carbon Removal
-    url: /contaminants/diamond-coating
-    image: /images/contaminants/diamond-coating.jpg
-    category: inorganic-coating
-    subcategory: coating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: electroplating-residue-contamination
-    title: Electroplating Solution Residue
-    url: /contaminants/electroplating-residue
-    image: /images/contaminants/electroplating-residue.jpg
-    category: metallic-coating
-    subcategory: plating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: epoxy-residue-contamination
-    title: Epoxy Resin Deposits
-    url: /contaminants/epoxy-residue
-    image: /images/contaminants/epoxy-residue.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: exhaust-residue-contamination
-    title: Exhaust System Deposits
-    url: /contaminants/exhaust-residue
-    image: /images/contaminants/exhaust-residue.jpg
-    category: thermal-damage
-    subcategory: fire
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: fertilizer-residue-contamination
-    title: Fertilizer Salt Deposits
-    url: /contaminants/fertilizer-residue
-    image: /images/contaminants/fertilizer-residue.jpg
-    category: chemical-residue
-    subcategory: industrial
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: fire-damage-contamination
-    title: Fire and Smoke Damage
-    url: /contaminants/fire-damage
-    image: /images/contaminants/fire-damage.jpg
-    category: thermal-damage
-    subcategory: fire
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: forging-scale-contamination
-    title: Forging Mill Scale
-    url: /contaminants/forging-scale
-    image: /images/contaminants/forging-scale.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: fuel-varnish-contamination
-    title: Fuel System Varnish
-    url: /contaminants/fuel-varnish
-    image: /images/contaminants/fuel-varnish.jpg
-    category: organic-residue
-    subcategory: petroleum
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: gasket-material-contamination
-    title: Gasket Material Residue
-    url: /contaminants/gasket-material
-    image: /images/contaminants/gasket-material.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: graffiti-paint-contamination
-    title: Graffiti and Spray Paint
-    url: /contaminants/graffiti-paint
-    image: /images/contaminants/graffiti-paint.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: graphite-marks-contamination
-    title: Graphite Deposit Traces
-    url: /contaminants/graphite-marks
-    image: /images/contaminants/graphite-marks.jpg
-    category: organic-residue
-    subcategory: marking
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: grease-deposits-contamination
-    title: Heavy Machinery Grease
-    url: /contaminants/grease-deposits
-    image: /images/contaminants/grease-deposits.jpg
-    category: organic-residue
-    subcategory: petroleum
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: hydraulic-fluid-contamination
-    title: Hydraulic Fluid Contamination
-    url: /contaminants/hydraulic-fluid
-    image: /images/contaminants/hydraulic-fluid.jpg
-    category: organic-residue
-    subcategory: petroleum
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: ink-stains-contamination
-    title: Printing Ink Residue
-    url: /contaminants/ink-stains
-    image: /images/contaminants/ink-stains.jpg
-    category: organic-residue
-    subcategory: marking
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: insect-residue-contamination
-    title: Insect Impact Residue
-    url: /contaminants/insect-residue
-    image: /images/contaminants/insect-residue.jpg
-    category: biological
-    subcategory: deposit
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: laser-marking-contamination
-    title: Laser Marking Discoloration
-    url: /contaminants/laser-marking
-    image: /images/contaminants/laser-marking.jpg
-    category: organic-residue
-    subcategory: marking
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: lead-paint-contamination
-    title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint
-    image: /images/contaminants/lead-paint.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: lime-scale-contamination
-    title: Limescale Deposits
-    url: /contaminants/lime-scale
-    image: /images/contaminants/lime-scale.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: mercury-contamination
-    title: Mercury Spill Residue
-    url: /contaminants/mercury
-    image: /images/contaminants/mercury.jpg
-    category: chemical-residue
-    subcategory: hazardous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: metal-polish-contamination
-    title: Metal Polish Residue
-    url: /contaminants/metal-polish
-    image: /images/contaminants/metal-polish.jpg
-    category: organic-residue
-    subcategory: wax
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: mineral-deposits-contamination
-    title: Hard Water Mineral Scale
-    url: /contaminants/mineral-deposits
-    image: /images/contaminants/mineral-deposits.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: nickel-plating-contamination
-    title: Electroless Nickel Plating
-    url: /contaminants/nickel-plating
-    image: /images/contaminants/nickel-plating.jpg
-    category: metallic-coating
-    subcategory: plating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue
-    image: /images/contaminants/paint-residue.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: pcb-contamination
-    title: PCB Oil Contamination
-    url: /contaminants/pcb
-    image: /images/contaminants/pcb.jpg
-    category: chemical-residue
-    subcategory: industrial
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: pesticide-residue-contamination
-    title: Pesticide Chemical Residue
-    url: /contaminants/pesticide-residue
-    image: /images/contaminants/pesticide-residue.jpg
-    category: chemical-residue
-    subcategory: industrial
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: pickling-residue-contamination
-    title: Acid Pickling Stains
-    url: /contaminants/pickling-residue
-    image: /images/contaminants/pickling-residue.jpg
-    category: inorganic-coating
-    subcategory: coating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: plasma-spray-contamination
-    title: Thermal Spray Coating
-    url: /contaminants/plasma-spray
-    image: /images/contaminants/plasma-spray.jpg
-    category: thermal-damage
-    subcategory: coating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: plastic-residue-contamination
-    title: Degraded Polymer Deposits
-    url: /contaminants/plastic-residue
-    image: /images/contaminants/plastic-residue.jpg
-    category: organic-residue
-    subcategory: polymer
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: pollen-deposit-contamination
-    title: Pollen Accumulation
-    url: /contaminants/pollen-deposit
-    image: /images/contaminants/pollen-deposit.jpg
-    category: biological
-    subcategory: deposit
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: powder-coating-contamination
-    title: Powder Coating Buildup
-    url: /contaminants/powder-coating
-    image: /images/contaminants/powder-coating.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: primer-coating-contamination
-    title: Paint Primer Layers
-    url: /contaminants/primer-coating
-    image: /images/contaminants/primer-coating.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: quench-oil-contamination
-    title: Quenching Oil Residue
-    url: /contaminants/quench-oil
-    image: /images/contaminants/quench-oil.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: radioactive-contamination
-    title: Surface Radioactive Contamination
-    url: /contaminants/radioactive
-    image: /images/contaminants/radioactive.jpg
-    category: chemical-residue
-    subcategory: hazardous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: road-grime-contamination
-    title: Automotive Road Grime
-    url: /contaminants/road-grime
-    image: /images/contaminants/road-grime.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: rubber-residue-contamination
-    title: Rubber Compound Residue
-    url: /contaminants/rubber-residue
-    image: /images/contaminants/rubber-residue.jpg
-    category: organic-residue
-    subcategory: polymer
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: rust-oxidation-contamination
-    title: Rust / Iron Oxide Formation
-    url: /contaminants/rust-oxidation
-    image: /images/contaminants/rust-oxidation.jpg
-    category: oxidation
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: salt-residue-contamination
-    title: Salt and Chloride Deposits
-    url: /contaminants/salt-residue
-    image: /images/contaminants/salt-residue.jpg
-    category: inorganic-coating
-    subcategory: mineral
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: scale-buildup-contamination
-    title: Mineral Scale / Hard Water Deposits
-    url: /contaminants/scale-buildup
-    image: /images/contaminants/scale-buildup.jpg
-    category: thermal-damage
-    subcategory: scale
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: silicone-buildup-contamination
-    title: Silicone Sealant Buildup
-    url: /contaminants/silicone-buildup
-    image: /images/contaminants/silicone-buildup.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: steel-corrosion-contamination
-    title: Steel Surface Corrosion
-    url: /contaminants/steel-corrosion
-    image: /images/contaminants/steel-corrosion.jpg
-    category: oxidation
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: teflon-residue-contamination
-    title: PTFE Coating Residue
-    url: /contaminants/teflon-residue
-    image: /images/contaminants/teflon-residue.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: thread-locker-contamination
-    title: Threadlocker Adhesive
-    url: /contaminants/thread-locker
-    image: /images/contaminants/thread-locker.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: tin-plating-contamination
-    title: Tin Plating Residue
-    url: /contaminants/tin-plating
-    image: /images/contaminants/tin-plating.jpg
-    category: metallic-coating
-    subcategory: plating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: tree-sap-contamination
-    title: Tree Sap and Resin
-    url: /contaminants/tree-sap
-    image: /images/contaminants/tree-sap.jpg
-    category: organic-residue
-    subcategory: natural
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: undercoating-contamination
-    title: Automotive Undercoating
-    url: /contaminants/undercoating
-    image: /images/contaminants/undercoating.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: uranium-oxide-contamination
-    title: Depleted Uranium Oxide
-    url: /contaminants/uranium-oxide
-    image: /images/contaminants/uranium-oxide.jpg
-    category: chemical-residue
-    subcategory: hazardous
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: water-stain-contamination
-    title: Water Staining and Marks
-    url: /contaminants/water-stain
-    image: /images/contaminants/water-stain.jpg
-    category: organic-residue
-    subcategory: other
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: wax-buildup-contamination
-    title: Wax Coating Buildup
-    url: /contaminants/wax-buildup
-    image: /images/contaminants/wax-buildup.jpg
-    category: organic-residue
-    subcategory: wax
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: zinc-plating-contamination
-    title: Zinc Electroplating
-    url: /contaminants/zinc-plating
-    image: /images/contaminants/zinc-plating.jpg
-    category: metallic-coating
-    subcategory: plating
-    frequency: common
-    severity: moderate
-    typical_context: general
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  - type: regulatory_standards
-    id: ce-machinery-directive
-applications:
-- Automotive
-- Construction
-- Manufacturing
-- Oil & Gas
-- Rail Transport
-- Shipbuilding
-voice_enhanced: '2025-11-07T04:15:22.161935+00:00'
-characteristics:
-  density:
-    source: scientific_literature
-    source_type: ''
-    source_name: C
-    citation: ''
-    context: ''
-    confidence: 90
-    researched_date: '2025-11-07T12:51:49.748913'
-    needs_validation: true
-    value: '7.874'
-  thermal_conductivity:
-    source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:53:29.099045'
-  laser_absorption:
-    source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:57:43.066850'
 components:
   micro:
     before: At 1000x magnification, the steel surface before laser cleaning shows heavy rust buildup and scattered debris.

@@ -1,23 +1,31 @@
-id: hydrogen-cyanide
+id: hydrogen-cyanide-compound
 name: Hydrogen Cyanide
 display_name: Hydrogen Cyanide (HCN)
-chemical_formula: HCN
-cas_number: 74-90-8
-molecular_weight: 27.03
-datePublished: '2025-12-19T02:53:38.390212Z'
-dateModified: '2025-12-19T02:53:38.390212Z'
+category: toxic_gas
+hazard_class: toxic
+datePublished: '2025-12-20T04:16:41.871908Z'
+dateModified: '2025-12-20T04:16:41.871908Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/toxic-gas/cyanide/hydrogen-cyanide-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Toxic Gas
+  href: /compounds/toxic_gas
 - label: Cyanide
-  href: /compounds//cyanide
-category: toxic_gas
-subcategory: cyanide
-hazard_class: toxic
+  href: /compounds/toxic_gas/cyanide
+- label: Hydrogen Cyanide
+  href: /compounds/toxic-gas/cyanide/hydrogen-cyanide-compound
+chemical_formula: HCN
+cas_number: 74-90-8
+molecular_weight: 27.03
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: 10
   osha_pel_mg_m3: 11
@@ -36,28 +44,23 @@ sources_in_laser_cleaning:
 - nitrogen_containing_polymers
 - polyurethane_decomposition
 - nylon_pyrolysis
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: plastic-residue
+  - id: plastic-residue-contamination
     title: Degraded Polymer Deposits
     url: /contaminants/organic-residue/polymer/plastic-residue
     image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
     frequency: occasional
     severity: high
     typical_context: Thermal decomposition of nitrogen-containing polymers (polyurethane, nylon, acrylics)
-  - id: rubber-residue
+  - id: rubber-residue-contamination
     title: Rubber Compound Residue
     url: /contaminants/organic-residue/polymer/rubber-residue
     image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
     frequency: occasional
     severity: high
     typical_context: Pyrolysis of nitrile rubber
-  - id: adhesive-residue
+  - id: adhesive-residue-contamination
     title: Adhesive Residue / Tape Marks
     url: /contaminants/organic-residue/adhesive/adhesive-residue
     image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
@@ -67,9 +70,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: hydrogen-cyanide-physical-data
-  health_effects:
-  - type: health_effects
-    id: hydrogen-cyanide-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: hydrogen-cyanide-environmental-data
@@ -83,10 +84,33 @@ relationships:
       specific_compound: Hydrogen Cyanide
       pel_ppm: 10
   emergency_response:
-  - type: emergency_response
-    id: toxic-gas-extreme
-    overrides:
-      specific_compound: Hydrogen Cyanide
+    fire_hazard: Extremely flammable liquid and vapor. Wide explosive range. May polymerize explosively if contaminated. Vapors
+      may travel to ignition source.
+    fire_suppression: Evacuate area immediately - extremely toxic combustion products. Use unmanned hose holders or monitor
+      nozzles. Dry chemical, CO2, alcohol-resistant foam from safe distance. Water spray to cool cylinders.
+    spill_procedures: EVACUATE IMMEDIATELY - call HAZMAT team. Self-Contained Breathing Apparatus MANDATORY. Eliminate ignition
+      sources. Contain with sand/vermiculite. Neutralize with sodium hydroxide or calcium hypochlorite solution. Decontaminate
+      area thoroughly.
+    exposure_immediate_actions: MEDICAL EMERGENCY - minutes count. Remove to fresh air immediately. Administer 100% oxygen.
+      Apply cyanide antidote kit (amyl nitrite, sodium nitrite, sodium thiosulfate) per protocol. CPR if needed. Rush to hospital
+      - inform medical staff of cyanide exposure immediately.
+    environmental_hazards: Extremely toxic to all life. Highly volatile - rapidly disperses but lethal during dispersion.
+      Report any release immediately. Toxic to aquatic life at extremely low concentrations.
+    special_hazards: ONE OF THE MOST TOXIC INDUSTRIAL CHEMICALS. Inhibits cellular respiration by binding to cytochrome oxidase.
+      Death can occur within minutes. Polymerizes violently with alkaline contamination. Decomposes producing nitrogen oxides
+      and hydrogen cyanide gas.
+  physical_properties:
+    boiling_point: 25.6°C (78°F)
+    melting_point: -13.3°C (8°F)
+    vapor_pressure: 620 mmHg @ 20°C
+    vapor_density: 0.94 (Air=1)
+    specific_gravity: 0.687 @ 20°C (liquid)
+    flash_point: -17.8°C (0°F) closed cup
+    autoignition_temp: 538°C (1000°F)
+    explosive_limits: 'LEL: 5.6%, UEL: 40%'
+    appearance: Colorless or pale blue liquid, colorless gas
+    odor: 'Faint bitter almond odor; WARNING: 20-40% of population cannot detect odor (genetic variation)'
+subcategory: cyanide
 author:
   id: 4
   name: Todd Dunning
@@ -124,33 +148,6 @@ ppe_requirements:
   minimum_level: Level A for unknown concentrations or >10 ppm, Level B minimum for known concentrations <10 ppm
   special_notes: HCN penetrates ordinary clothing. Rapidly absorbed through skin causing systemic poisoning. Use butyl rubber
     - NOT neoprene or natural rubber. Emergency cyanide antidote kit must be immediately available.
-physical_properties:
-  boiling_point: 25.6°C (78°F)
-  melting_point: -13.3°C (8°F)
-  vapor_pressure: 620 mmHg @ 20°C
-  vapor_density: 0.94 (Air=1)
-  specific_gravity: 0.687 @ 20°C (liquid)
-  flash_point: -17.8°C (0°F) closed cup
-  autoignition_temp: 538°C (1000°F)
-  explosive_limits: 'LEL: 5.6%, UEL: 40%'
-  appearance: Colorless or pale blue liquid, colorless gas
-  odor: 'Faint bitter almond odor; WARNING: 20-40% of population cannot detect odor (genetic variation)'
-emergency_response:
-  fire_hazard: Extremely flammable liquid and vapor. Wide explosive range. May polymerize explosively if contaminated. Vapors
-    may travel to ignition source.
-  fire_suppression: Evacuate area immediately - extremely toxic combustion products. Use unmanned hose holders or monitor
-    nozzles. Dry chemical, CO2, alcohol-resistant foam from safe distance. Water spray to cool cylinders.
-  spill_procedures: EVACUATE IMMEDIATELY - call HAZMAT team. Self-Contained Breathing Apparatus MANDATORY. Eliminate ignition
-    sources. Contain with sand/vermiculite. Neutralize with sodium hydroxide or calcium hypochlorite solution. Decontaminate
-    area thoroughly.
-  exposure_immediate_actions: MEDICAL EMERGENCY - minutes count. Remove to fresh air immediately. Administer 100% oxygen.
-    Apply cyanide antidote kit (amyl nitrite, sodium nitrite, sodium thiosulfate) per protocol. CPR if needed. Rush to hospital
-    - inform medical staff of cyanide exposure immediately.
-  environmental_hazards: Extremely toxic to all life. Highly volatile - rapidly disperses but lethal during dispersion. Report
-    any release immediately. Toxic to aquatic life at extremely low concentrations.
-  special_hazards: ONE OF THE MOST TOXIC INDUSTRIAL CHEMICALS. Inhibits cellular respiration by binding to cytochrome oxidase.
-    Death can occur within minutes. Polymerizes violently with alkaline contamination. Decomposes producing nitrogen oxides
-    and hydrogen cyanide gas.
 storage_requirements:
   temperature_range: Store below 25°C (77°F), ideally <15°C. Avoid heating above boiling point.
   ventilation: 'Outdoor storage strongly preferred. If indoors: continuous mechanical ventilation with emergency backup, HCN
@@ -294,3 +291,94 @@ detection_monitoring:
     detection_limit: 0.03 ppm
   odor_threshold: UNRELIABLE - 20-40% of population cannot smell HCN (genetic). Odor threshold (0.58-5 ppm) overlaps toxic
     range. NEVER rely on odor - MANDATORY continuous monitoring with alarms.
+ppe_requirements_detail:
+  id: irritant-gas-high-concentration
+  hazard_type: irritant_gas
+  concentration_range: '>25 ppm or unknown'
+  exposure_duration: any
+  minimum_protection_level: Level B
+  idlh_atmosphere: potentially
+  respiratory:
+    primary:
+      equipment: Self-contained breathing apparatus (SCBA)
+      type: Pressure-demand, positive-pressure
+      standard: NIOSH 42 CFR 84
+      air_supply: Compressed breathing air (Grade D minimum)
+      duration: 30-60 minutes typical
+      condition: MANDATORY for >25 ppm or unknown concentrations
+      maintenance: Daily inspection, annual certification
+    alternative:
+      equipment: Supplied-air respirator with escape bottle
+      type: Pressure-demand mode
+      condition: Only if continuous air supply verified
+      escape_bottle: 5-minute minimum escape time
+  skin:
+    suit:
+      equipment: Level B chemical protective suit
+      material: Butyl rubber, Viton, or multilayer
+      standard: NFPA 1991 Level B
+      condition: Fully encapsulating when >25 ppm
+      splash_protection: Liquid-tight seams
+    gloves:
+      material: Butyl rubber (inner) + outer chemical glove
+      thickness: '>25 mil combined'
+      breakthrough_time: '>8 hours'
+      tape_seal: Taped to suit sleeves
+    boots:
+      equipment: Chemical-resistant boots
+      material: Match suit material
+      condition: Integrated or taped to suit
+  eye:
+    equipment: Full-face respirator facepiece (part of SCBA)
+    backup: Chemical goggles worn under facepiece
+    condition: Full face and eye protection mandatory
+  special_requirements:
+  - Buddy system mandatory - never work alone
+  - Continuous air monitoring with audible alarms
+  - Decontamination area established before entry
+  - Emergency escape routes identified
+  - Communication system established
+  - Entry permit required for confined spaces
+  - Standby rescue team with equivalent PPE
+  entry_procedures:
+  - Pre-entry medical clearance for SCBA use
+  - Equipment inspection checklist
+  - Atmosphere testing before and during entry
+  - Continuous air monitoring
+  - Time limits for SCBA air supply
+  - Backup SCBA or escape respirator available
+  decontamination:
+    primary:
+    - Gross decontamination in hot zone
+    - Suit and equipment wash-down
+    - Methodical removal in decon area
+    - Inner clothing removal last
+    secondary:
+    - Shower immediately after doffing
+    - Wash with soap and water for 15 minutes
+    - Medical evaluation if exposure suspected
+    disposal:
+    - All PPE as hazardous waste unless decontaminated
+    - SCBA facepieces cleaned and disinfected
+    - Suits inspected for damage before reuse
+  training_required:
+  - HAZWOPER 40-hour or equivalent
+  - SCBA qualification and practice
+  - Level B suit donning and doffing
+  - Decontamination procedures
+  - Emergency egress procedures
+  medical_surveillance:
+    required: true
+    frequency: Annual minimum
+    requirements:
+    - Respiratory medical clearance
+    - SCBA fit testing (annual)
+    - Exposure monitoring records
+  limitations:
+  - SCBA air supply limits operation time
+  - Heat stress significant in chemical suits
+  - Dexterity and mobility reduced
+  - Communication may be impaired
+  - Exit buddy system required
+  specific_compound: Hydrogen Cyanide
+  pel_ppm: 10

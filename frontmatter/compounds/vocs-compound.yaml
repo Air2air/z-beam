@@ -1,23 +1,31 @@
-id: vocs
+id: vocs-compound
 name: Volatile Organic Compounds
 display_name: VOCs
-chemical_formula: Various
-cas_number: N/A
-molecular_weight: null
-datePublished: '2025-12-19T02:53:38.578862Z'
-dateModified: '2025-12-19T02:53:38.578862Z'
+category: irritant
+hazard_class: irritant
+datePublished: '2025-12-20T04:16:42.262933Z'
+dateModified: '2025-12-20T04:16:42.262933Z'
 content_type: compounds
 schema_version: 5.0.0
+full_path: /compounds/irritant/organic-vapor/vocs-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
+- label: Irritant
+  href: /compounds/irritant
 - label: Organic Vapor
-  href: /compounds//organic_vapor
-category: irritant
-subcategory: organic_vapor
-hazard_class: irritant
+  href: /compounds/irritant/organic_vapor
+- label: Volatile Organic Compounds
+  href: /compounds/irritant/organic-vapor/vocs-compound
+chemical_formula: Various
+cas_number: N/A
+molecular_weight: null
+description: null
+exposure_guidelines: null
+detection_methods: null
+first_aid: null
 exposure_limits:
   osha_pel_ppm: null
   osha_pel_mg_m3: null
@@ -36,56 +44,51 @@ sources_in_laser_cleaning:
 - organic_material_vaporization
 - polymer_decomposition
 - solvent_evaporation
-description: null
-health_effects: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
 relationships:
   produced_by_contaminants:
-  - id: paint-residue
+  - id: paint-residue-contamination
     title: Paint Residue / Coating Failure
     url: /contaminants/inorganic-coating/paint/paint-residue
     image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
     frequency: very_common
     severity: moderate
     typical_context: Vaporization of paint solvents and binders
-  - id: graffiti-paint
+  - id: graffiti-paint-contamination
     title: Graffiti and Spray Paint
     url: /contaminants/inorganic-coating/paint/graffiti-paint
     image: /images/contaminants/inorganic-coating/paint/graffiti-paint.jpg
     frequency: very_common
     severity: moderate
     typical_context: Release of spray paint solvents
-  - id: adhesive-residue
+  - id: adhesive-residue-contamination
     title: Adhesive Residue / Tape Marks
     url: /contaminants/organic-residue/adhesive/adhesive-residue
     image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
     frequency: very_common
     severity: moderate
     typical_context: Release of adhesive solvents
-  - id: industrial-oil
+  - id: industrial-oil-contamination
     title: Industrial Oil / Grease Buildup
     url: /contaminants/organic-residue/petroleum/industrial-oil
     image: /images/contaminants/organic-residue/petroleum/industrial-oil.jpg
     frequency: very_common
     severity: moderate
     typical_context: Vaporization of hydrocarbon compounds
-  - id: silicone-buildup
+  - id: silicone-buildup-contamination
     title: Silicone Sealant Buildup
     url: /contaminants/organic-residue/adhesive/silicone-buildup
     image: /images/contaminants/organic-residue/adhesive/silicone-buildup.jpg
     frequency: common
     severity: moderate
     typical_context: Thermal breakdown of silicone polymers
-  - id: rubber-residue
+  - id: rubber-residue-contamination
     title: Rubber Compound Residue
     url: /contaminants/organic-residue/polymer/rubber-residue
     image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
     frequency: common
     severity: moderate
     typical_context: Pyrolysis products
-  - id: plastic-residue
+  - id: plastic-residue-contamination
     title: Degraded Polymer Deposits
     url: /contaminants/organic-residue/polymer/plastic-residue
     image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
@@ -95,9 +98,7 @@ relationships:
   chemical_properties:
   - type: chemical_properties
     id: vocs-physical-data
-  health_effects:
-  - type: health_effects
-    id: vocs-toxicology
+  health_effects: null
   environmental_impact:
   - type: environmental_impact
     id: vocs-environmental-data
@@ -111,10 +112,31 @@ relationships:
       specific_compound: Volatile Organic Compounds
       pel_ppm: null
   emergency_response:
-  - type: emergency_response
-    id: flammable-gas-extremely
-    overrides:
-      specific_compound: Volatile Organic Compounds
+    fire_hazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel to ignition sources. Explosive mixtures
+      possible.
+    fire_suppression: Use dry chemical, CO2, foam appropriate for specific VOC. Water spray to cool containers. Prevent runoff
+      contamination.
+    spill_procedures: Eliminate ignition sources. Ventilate area. Identify VOCs if possible. Contain with absorbent. Dispose
+      as hazardous waste. Monitor air quality.
+    exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water. Remove contaminated clothing. Wash skin. Seek
+      medical attention - inform physician of specific VOCs if known. Monitor for delayed effects.'
+    environmental_hazards: Many VOCs toxic to aquatic life. Contribute to ozone formation and smog. Bioaccumulate. Contaminate
+      groundwater.
+    special_hazards: Complex mixtures with unpredictable effects. Some carcinogenic (benzene, formaldehyde, 1,3-butadiene).
+      Others neurotoxic (toluene, xylene, styrene). Respiratory irritants. Contribute to indoor air quality problems. Chronic
+      exposure health effects vary widely.
+  physical_properties:
+    boiling_point: Variable (<260°C by EPA definition)
+    melting_point: Variable
+    vapor_pressure: High (>0.01 kPa @ 25°C by definition)
+    vapor_density: Variable, typically >1 (heavier than air)
+    specific_gravity: Variable (0.7-1.6 typical)
+    flash_point: Variable (many <38°C)
+    autoignition_temp: Variable (200-600°C typical)
+    explosive_limits: Variable depending on compound
+    appearance: Colorless to colored liquids or gases
+    odor: Variable - sweet, pungent, solvent-like, or odorless
+subcategory: organic_vapor
 author:
   id: 2
   name: Alessandro Moretti
@@ -152,31 +174,6 @@ ppe_requirements:
   minimum_level: Level C for known low concentrations, Level B for unknown mixtures or high vapor concentrations
   special_notes: VOCs vary widely in toxicity. Mixture effects unpredictable. Some VOCs carcinogenic (benzene, formaldehyde).
     Others neurotoxic (toluene, xylene). Identify specific VOCs when possible.
-physical_properties:
-  boiling_point: Variable (<260°C by EPA definition)
-  melting_point: Variable
-  vapor_pressure: High (>0.01 kPa @ 25°C by definition)
-  vapor_density: Variable, typically >1 (heavier than air)
-  specific_gravity: Variable (0.7-1.6 typical)
-  flash_point: Variable (many <38°C)
-  autoignition_temp: Variable (200-600°C typical)
-  explosive_limits: Variable depending on compound
-  appearance: Colorless to colored liquids or gases
-  odor: Variable - sweet, pungent, solvent-like, or odorless
-emergency_response:
-  fire_hazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel to ignition sources. Explosive mixtures
-    possible.
-  fire_suppression: Use dry chemical, CO2, foam appropriate for specific VOC. Water spray to cool containers. Prevent runoff
-    contamination.
-  spill_procedures: Eliminate ignition sources. Ventilate area. Identify VOCs if possible. Contain with absorbent. Dispose
-    as hazardous waste. Monitor air quality.
-  exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water. Remove contaminated clothing. Wash skin. Seek
-    medical attention - inform physician of specific VOCs if known. Monitor for delayed effects.'
-  environmental_hazards: Many VOCs toxic to aquatic life. Contribute to ozone formation and smog. Bioaccumulate. Contaminate
-    groundwater.
-  special_hazards: Complex mixtures with unpredictable effects. Some carcinogenic (benzene, formaldehyde, 1,3-butadiene).
-    Others neurotoxic (toluene, xylene, styrene). Respiratory irritants. Contribute to indoor air quality problems. Chronic
-    exposure health effects vary widely.
 storage_requirements:
   temperature_range: Cool storage below 25°C typical. Refrigerate if highly volatile.
   ventilation: Local exhaust ventilation. Outdoor storage preferred for large quantities.
@@ -289,3 +286,76 @@ detection_monitoring:
     detection_limit: µg/L levels
   odor_threshold: Variable. Some VOCs odorless (benzene), others pungent at low ppm. Olfactory fatigue common. Do not rely
     on odor.
+ppe_requirements_detail:
+  id: irritant-gas-low-concentration
+  hazard_type: irritant_gas
+  concentration_range: <25 ppm
+  exposure_duration: short_term
+  minimum_protection_level: Level C
+  respiratory:
+    primary:
+      equipment: NIOSH-approved organic vapor respirator
+      standard: NIOSH 42 CFR 84
+      filter_type: Organic vapor cartridge
+      condition: For concentrations <25 ppm
+      fit_test_required: true
+      change_schedule: Per manufacturer guidance or saturation
+    upgrade_conditions:
+    - trigger: Concentration >25 ppm
+      equipment: Self-contained breathing apparatus (SCBA)
+    - trigger: Unknown concentration
+      equipment: SCBA or supplied-air respirator
+    - trigger: Oxygen deficient atmosphere (<19.5%)
+      equipment: SCBA (pressure-demand mode)
+  skin:
+    gloves:
+      material: Nitrile or butyl rubber
+      thickness: 15-18 mil minimum
+      standard: ANSI/ISEA 105
+      breakthrough_time: '>480 minutes'
+      condition: All handling operations
+    body:
+      equipment: Chemical-resistant apron or coveralls
+      material: Tyvek or equivalent polymer-laminate
+      standard: ANSI/ISEA 101
+      condition: Splash potential or prolonged exposure
+    footwear:
+      equipment: Chemical-resistant boots
+      material: Nitrile or PVC
+      condition: Floor contamination or large spills
+  eye:
+    primary:
+      equipment: Chemical safety goggles
+      type: Indirect vents, sealed to face
+      standard: ANSI Z87.1
+      marking: Z87+ for impact protection
+      condition: All operations with exposure potential
+    secondary:
+      equipment: Face shield
+      condition: Splash hazard or container transfer
+      use: Over goggles, not replacement
+  special_requirements:
+  - Work in well-ventilated area or use local exhaust ventilation
+  - Eliminate all ignition sources within 50 feet
+  - Emergency shower and eyewash within 10 seconds travel time
+  - Prohibit eating, drinking, smoking in contaminated areas
+  - Wash hands thoroughly before eating or drinking
+  decontamination:
+  - Remove contaminated clothing immediately
+  - Wash skin with soap and water
+  - Launder contaminated clothing separately
+  - Do not reuse until properly decontaminated
+  training_required:
+  - Respiratory protection program
+  - Chemical hazard awareness
+  - PPE donning and doffing procedures
+  - Emergency response procedures
+  medical_surveillance:
+    required: false
+    recommended: Annual respiratory fitness evaluation
+  limitations:
+  - Not for IDLH (Immediately Dangerous to Life or Health) atmospheres
+  - Not for oxygen-deficient environments
+  - Air-purifying respirators do not supply oxygen
+  specific_compound: Volatile Organic Compounds
+  pel_ppm: null

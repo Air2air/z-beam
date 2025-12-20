@@ -1,11 +1,12 @@
 id: birch-laser-cleaning
 name: Birch
+title: Birch Laser Cleaning
 category: wood
-subcategory: hardwood
-datePublished: '2025-12-19T02:53:21.440893Z'
-dateModified: '2025-12-19T02:53:21.440893Z'
+datePublished: '2025-12-20T04:16:04.147697Z'
+dateModified: '2025-12-20T04:16:04.147697Z'
 content_type: materials
 schema_version: 5.0.0
+full_path: /materials/wood/hardwood/birch-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -17,6 +18,34 @@ breadcrumb:
   href: /materials/wood/hardwood
 - label: Birch
   href: /materials/wood/hardwood/birch-laser-cleaning
+description: Birch wood's balanced porosity and toughness let operators dial in laser cleaning processes that remove contaminants
+  cleanly from heritage pieces without compromising structural integrity.
+micro:
+  before: Before laser cleaning, the birch surface shows heavy contamination across its grain. The buildup obscures the wood's
+    natural pattern.
+  after: After treatment, the laser clears away all that residue completely. Now you can see the clean, detailed texture of
+    the wood underneath again.
+faq:
+- question: How can laser cleaning restore birch wood surfaces without damaging the grain?
+  answer: Laser cleaning basically employs precise, non-abrasive pulses to strip dirt, old finishes, or contaminants from
+    birch, while preserving its fine grain and natural color. This technique pretty much skips mechanical abrasion, delivering
+    fairly minimal structural impact for a clean, restored finish.
+  topic_keyword: damaging the grain
+  topic_statement: Uses non-abrasive pulses
+- question: What are the challenges of cleaning birch with traditional methods, and why choose laser instead?
+  answer: Birch wood is pretty sensitive to moisture and abrasion, so traditional methods like sanding or chemicals typically
+    risk warping or discoloring it. Laser cleaning addresses this effectively by precisely vaporizing surface grime, avoiding
+    any heat damage or residues. This preserves the wood's natural grain, lightweight structure, and aesthetic appeal during
+    delicate restorations. Best of all, it's fairly eco-friendly, minimizing chemical use and waste overall.
+  topic_keyword: challenges of cleaning birch
+  topic_statement: Laser avoids damage, residues
+images:
+  hero:
+    alt: Birch surface undergoing laser cleaning showing precise contamination removal
+    url: /images/material/birch-laser-cleaning-hero.jpg
+  micro:
+    alt: Birch microscopic view of laser cleaning showing detailed precise contamination removal
+    url: /images/material/birch-laser-cleaning-micro.jpg
 author:
   id: 4
   name: Todd Dunning
@@ -45,61 +74,100 @@ author:
   - https://spie.org/profile/Todd.Dunning
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
-title: Birch Laser Cleaning
-description: Birch wood's balanced porosity and toughness let operators dial in laser cleaning processes that remove contaminants
-  cleanly from heritage pieces without compromising structural integrity.
-images:
-  hero:
-    alt: Birch surface undergoing laser cleaning showing precise contamination removal
-    url: /images/material/birch-laser-cleaning-hero.jpg
-  micro:
-    alt: Birch microscopic view of laser cleaning showing detailed precise contamination removal
-    url: /images/material/birch-laser-cleaning-micro.jpg
-micro:
-  before: Before laser cleaning, the birch surface shows heavy contamination across its grain. The buildup obscures the wood's
-    natural pattern.
-  after: After treatment, the laser clears away all that residue completely. Now you can see the clean, detailed texture of
-    the wood underneath again.
-faq:
-- question: How can laser cleaning restore birch wood surfaces without damaging the grain?
-  answer: Laser cleaning basically employs precise, non-abrasive pulses to strip dirt, old finishes, or contaminants from
-    birch, while preserving its fine grain and natural color. This technique pretty much skips mechanical abrasion, delivering
-    fairly minimal structural impact for a clean, restored finish.
-  topic_keyword: damaging the grain
-  topic_statement: Uses non-abrasive pulses
-- question: What are the challenges of cleaning birch with traditional methods, and why choose laser instead?
-  answer: Birch wood is pretty sensitive to moisture and abrasion, so traditional methods like sanding or chemicals typically
-    risk warping or discoloring it. Laser cleaning addresses this effectively by precisely vaporizing surface grime, avoiding
-    any heat damage or residues. This preserves the wood's natural grain, lightweight structure, and aesthetic appeal during
-    delicate restorations. Best of all, it's fairly eco-friendly, minimizing chemical use and waste overall.
-  topic_keyword: challenges of cleaning birch
-  topic_statement: Laser avoids damage, residues
-regulatory_standards:
-- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  image: /images/logo/logo-org-fda.png
-  longName: Food and Drug Administration
-  name: FDA
-  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-- description: IEC 60825 - Safety of Laser Products
-  image: /images/logo/logo-org-iec.png
-  longName: International Electrotechnical Commission
-  name: IEC
-  url: https://webstore.iec.ch/publication/3587
-- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  image: /images/logo/logo-org-osha.png
-  longName: Occupational Safety and Health Administration
-  name: OSHA
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-- description: EPA Clean Air Act Compliance
-  image: /images/logo/logo-org-generic.png
-  longName: Unknown Organization
-  name: Unknown
-  url: ''
+relationships:
+  contaminants:
+    title: Common Contaminants
+    description: Contaminants that frequently occur on this material during industrial use and require laser cleaning removal
+    groups:
+      organic_residues:
+        title: Organic Residues
+        description: Adhesives, lubricants, oils, and other carbon-based deposits
+        items:
+        - id: adhesive-residue-contamination
+          title: Adhesive Residue / Tape Marks
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminants/adhesive-residue.jpg
+          frequency: common
+          severity: moderate
+        - id: wax-buildup-contamination
+          title: Wax Coating Buildup
+          url: /contaminants/organic-residue/wax/wax-buildup-contamination
+          image: /images/contaminants/wax-buildup.jpg
+          frequency: common
+          severity: moderate
+      coatings_treatments:
+        title: Coatings & Surface Treatments
+        description: Applied coatings, anodizing, plating, and surface treatment layers
+        items:
+        - id: lead-paint-contamination
+          title: Lead-Based Paint Removal
+          url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+          image: /images/contaminants/lead-paint.jpg
+          frequency: common
+          severity: moderate
+        - id: paint-residue-contamination
+          title: Paint Residue / Coating Failure
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminants/paint-residue.jpg
+          frequency: common
+          severity: moderate
+      biological_growth:
+        title: Biological Growth
+        description: Algae, lichen, biofilms, and other organic growth
+        items:
+        - id: algae-growth-contamination
+          title: Algae and Lichen Growth
+          url: /contaminants/biological/growth/algae-growth-contamination
+          image: /images/contaminants/algae-growth.jpg
+          frequency: common
+          severity: moderate
+        - id: mold-mildew-contamination
+          title: Mold and Mildew Growth
+          url: /contaminants/biological/growth/mold-mildew-contamination
+          image: /images/contaminants/mold-mildew.jpg
+          frequency: common
+          severity: moderate
+  regulatory:
+    title: Regulatory Standards
+    description: Safety, environmental, and industry standards applicable to laser cleaning this material
+    groups:
+      all_standards:
+        title: Applicable Standards
+        description: All regulatory standards and guidelines
+        items:
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
+subcategory: hardwood
+applications:
+- Aerospace
+- Automotive
+- Cultural Heritage
+- Marine
+- Electronics Manufacturing
+- Medical Equipment
+- Furniture Manufacturing
+- Energy Sector
+- Musical Instrument Manufacturing
+- Architectural Restoration
+characteristics:
+  crystallineStructure:
+    allowedValues:
+    - FCC
+    - BCC
+    - HCP
+    - amorphous
+    - cubic
+    - hexagonal
+    - tetragonal
+    - orthorhombic
+    - monoclinic
+    - triclinic
+    description: amorphous crystal structure
+    source: ai_research
+    unit: crystal system
+    value: amorphous
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -261,106 +329,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T11:51:50.916370'
       needs_validation: true
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - EPA Clean Air Act Compliance
-  isBasedOn:
-    name: ANSI Z136.1 - Safe Use of Lasers
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-metadata:
-  regulatory_standards:
-  - EPA Clean Air Act Compliance
-relationships:
-  related_contaminants:
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/adhesive-residue
-    image: /images/contaminants/adhesive-residue.jpg
-    category: organic-residue
-    subcategory: adhesive
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: algae-growth-contamination
-    title: Algae and Lichen Growth
-    url: /contaminants/algae-growth
-    image: /images/contaminants/algae-growth.jpg
-    category: biological
-    subcategory: growth
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: lead-paint-contamination
-    title: Lead-Based Paint Removal
-    url: /contaminants/lead-paint
-    image: /images/contaminants/lead-paint.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: mold-mildew-contamination
-    title: Mold and Mildew Growth
-    url: /contaminants/mold-mildew
-    image: /images/contaminants/mold-mildew.jpg
-    category: biological
-    subcategory: growth
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/paint-residue
-    image: /images/contaminants/paint-residue.jpg
-    category: inorganic-coating
-    subcategory: paint
-    frequency: common
-    severity: moderate
-    typical_context: general
-  - id: wax-buildup-contamination
-    title: Wax Coating Buildup
-    url: /contaminants/wax-buildup
-    image: /images/contaminants/wax-buildup.jpg
-    category: organic-residue
-    subcategory: wax
-    frequency: common
-    severity: moderate
-    typical_context: general
-  regulatory_standards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-applications:
-- Aerospace
-- Automotive
-- Cultural Heritage
-- Marine
-- Electronics Manufacturing
-- Medical Equipment
-- Furniture Manufacturing
-- Energy Sector
-- Musical Instrument Manufacturing
-- Architectural Restoration
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: amorphous crystal structure
-    source: ai_research
-    unit: crystal system
-    value: amorphous
-voice_enhanced: '2025-11-07T02:42:42.852993+00:00'
 components:
   subtitle: Birch combines a high tensile strength of 130 MPa with a low thermal conductivity of 0.163 W/m·K, making it uniquely
     dimensionally stable for precision manufacturing applications
