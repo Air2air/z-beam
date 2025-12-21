@@ -58,6 +58,13 @@ class DatasetMerger {
           updated = true;
         }
         
+        // Add author from frontmatter
+        const authorData = this.loadAuthorFromFrontmatter(file, 'materials');
+        if (authorData && !materialData.author) {
+          materialData.author = authorData;
+          updated = true;
+        }
+        
         // Ensure variableMeasured has ≥20 items
         if (!materialData.variableMeasured || materialData.variableMeasured.length < 20) {
           materialData.variableMeasured = this.extractVariables(materialData);
@@ -142,6 +149,13 @@ class DatasetMerger {
           }
         }
         
+        // Add author from frontmatter
+        const authorData = this.loadAuthorFromFrontmatter(file, 'contaminants');
+        if (authorData && !contaminantData.author) {
+          contaminantData.author = authorData;
+          updated = true;
+        }
+        
         // Ensure variableMeasured ≥20
         if (!contaminantData.variableMeasured || contaminantData.variableMeasured.length < 20) {
           contaminantData.variableMeasured = this.extractVariables(contaminantData);
@@ -219,6 +233,52 @@ class DatasetMerger {
     }
     
     return variables;
+  }
+
+  /**
+   * Load author from frontmatter YAML file
+   */
+  loadAuthorFromFrontmatter(datasetFile, type) {
+    try {
+      // Convert dataset filename to frontmatter filename
+      const yamlFile = datasetFile.replace('.json', '.yaml');
+      const frontmatterPath = path.join(FRONTMATTER_DIR, type, yamlFile);
+      
+      if (!fs.existsSync(frontmatterPath)) {
+        return null;
+      }
+      
+      const frontmatter = yaml.load(fs.readFileSync(frontmatterPath, 'utf8'));
+      
+      if (!frontmatter.author) {
+        return null;
+      }
+      
+      // Build Schema.org Person object
+      const author = {
+        '@type': 'Person',
+        'name': frontmatter.author.name
+      };
+      
+      if (frontmatter.author.jobTitle) {
+        author.jobTitle = frontmatter.author.jobTitle;
+      }
+      
+      if (frontmatter.author.expertise) {
+        author.knowsAbout = frontmatter.author.expertise;
+      }
+      
+      // Add affiliation (organization)
+      author.affiliation = {
+        '@type': 'Organization',
+        'name': 'Z-Beam Laser Cleaning Research Lab'
+      };
+      
+      return author;
+    } catch (error) {
+      // Silent fail - author is optional
+      return null;
+    }
   }
 
   /**
