@@ -46,18 +46,16 @@ const mockGetSettingsArticle = getSettingsArticle as jest.MockedFunction<typeof 
 
 describe('ItemPage → Dataset Schema Integration', () => {
   const materialArticle = {
-    metadata: {
+    metadata: createMockMaterial({
       name: 'Titanium',
       slug: 'titanium-laser-cleaning',
       category: 'metal',
       subcategory: 'non-ferrous',
       title: 'Titanium Laser Cleaning',
-      datePublished: '2025-01-01',
-      dateModified: '2025-01-01',
-      author: {
+      author: createMockAuthor({
         name: 'Test Author',
         email: 'test@z-beam.com'
-      },
+      }),
       materialProperties: {
         material_characteristics: {
           density: { value: 4.5, unit: 'g/cm³', min: 0.5, max: 23 },
@@ -67,11 +65,11 @@ describe('ItemPage → Dataset Schema Integration', () => {
           thermalConductivity: { value: 21.9, unit: 'W/(m·K)', min: 7, max: 430 }
         }
       }
-    },
+    }),
     components: {}
   };
 
-  const settingsWithMachineSettings = {
+  const settingsWithMachineSettings = createMockSettings({
     machineSettings: {
       powerRange: { value: 200, unit: 'W', min: 100, max: 300 },
       wavelength: { value: 1064, unit: 'nm', min: 532, max: 1064 },
@@ -82,7 +80,7 @@ describe('ItemPage → Dataset Schema Integration', () => {
       passCount: { value: 3, unit: 'passes', min: 1, max: 10 },
       overlapRatio: { value: 50, unit: '%', min: 10, max: 90 }
     }
-  };
+  });
 
   const mockConfig: ContentTypeConfig = {
     type: 'materials',
@@ -129,7 +127,9 @@ describe('ItemPage → Dataset Schema Integration', () => {
   });
 
   it.skip('Dataset schema should include variableMeasured from machineSettings', async () => {
-    // TODO: Machine settings integration with dataset schema needs implementation
+    // NOTE: Test pending machine settings schema integration
+    // See: https://github.com/z-beam/z-beam/issues/TBD-machine-settings-schema
+    // Blocks: Dataset variableMeasured field population
     mockGetSettingsArticle.mockResolvedValue(settingsWithMachineSettings as any);
 
     const { container } = render(

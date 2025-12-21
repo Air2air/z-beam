@@ -70,23 +70,23 @@ describe('Unified Dataset Generation', () => {
         const content = fs.readFileSync(filePath, 'utf8');
         const data = yaml.load(content);
         
-        if (!data.machineSettings) {
-          criticalErrors.push(`${file}: Missing machineSettings object`);
+        if (!data.machine_settings) {
+          criticalErrors.push(`${file}: Missing machine_settings object`);
           return;
         }
         
         // Check if this is an incomplete dataset (missing multiple parameters)
-        const missingParams = REQUIRED_PARAMETERS.filter(param => !data.machineSettings[param]);
+        const missingParams = REQUIRED_PARAMETERS.filter(param => !data.machine_settings[param]);
         if (missingParams.length >= 5) {
           incompleteFiles.push(`${file}: Incomplete dataset (missing ${missingParams.length}/8 parameters)`);
           return; // Skip detailed validation for incomplete files
         }
         
         REQUIRED_PARAMETERS.forEach(param => {
-          if (!data.machineSettings[param]) {
+          if (!data.machine_settings[param]) {
             criticalErrors.push(`${file}: Missing parameter ${param}`);
           } else {
-            const p = data.machineSettings[param];
+            const p = data.machine_settings[param];
             if (p.value === undefined) {
               criticalErrors.push(`${file}: ${param} missing value`);
             }
@@ -128,10 +128,10 @@ describe('Unified Dataset Generation', () => {
         const content = fs.readFileSync(filePath, 'utf8');
         const data = yaml.load(content);
         
-        if (!data.machineSettings) return;
+        if (!data.machine_settings) return;
         
         REQUIRED_PARAMETERS.forEach(param => {
-          const p = data.machineSettings[param];
+          const p = data.machine_settings[param];
           if (p && p.value !== undefined && p.min !== undefined && p.max !== undefined) {
             if (p.value < p.min || p.value > p.max) {
               errors.push(`${file}: ${param} value ${p.value} outside range [${p.min}, ${p.max}]`);

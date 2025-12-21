@@ -1,0 +1,244 @@
+# YAML Schema for Material/Contaminant/Settings Frontmatter
+# Version: 5.0.0
+
+$schema: http://json-schema.org/draft-07/schema#
+$id: https://z-beam.com/schemas/frontmatter-v5.0.0.json
+
+definitions:
+  # Common definitions
+  author:
+    type: object
+    required: [id, name, country, email]
+    properties:
+      id: { type: integer }
+      name: { type: string }
+      country: { type: string }
+      country_display: { type: string }
+      title: { type: string }
+      sex: { type: string, enum: [m, f, nb] }
+      jobTitle: { type: string }
+      expertise: { type: array, items: { type: string } }
+      affiliation:
+        type: object
+        properties:
+          name: { type: string }
+          type: { type: string }
+      credentials: { type: array, items: { type: string } }
+      email: { type: string, format: email }
+      image: { type: string }
+      imageAlt: { type: string }
+      url: { type: string, format: uri }
+      sameAs: { type: array, items: { type: string, format: uri } }
+      persona_file: { type: string }
+      formatting_file: { type: string }
+
+  breadcrumb_item:
+    type: object
+    required: [label, href]
+    properties:
+      label: { type: string }
+      href: { type: string }
+
+  image_object:
+    type: object
+    required: [url, alt]
+    properties:
+      url: { type: string }
+      alt: { type: string }
+      width: { type: integer }
+      height: { type: integer }
+
+  machine_parameter:
+    type: object
+    required: [description, unit, value]
+    properties:
+      description: { type: string }
+      unit: { type: string }
+      value: { type: number }
+      min: { type: number }
+      max: { type: number }
+
+  machine_settings:
+    type: object
+    required: [powerRange, wavelength, spotSize, repetitionRate, energyDensity, pulseWidth, scanSpeed, passCount]
+    properties:
+      powerRange: { $ref: '#/definitions/machine_parameter' }
+      wavelength: { $ref: '#/definitions/machine_parameter' }
+      spotSize: { $ref: '#/definitions/machine_parameter' }
+      repetitionRate: { $ref: '#/definitions/machine_parameter' }
+      energyDensity: { $ref: '#/definitions/machine_parameter' }
+      pulseWidth: { $ref: '#/definitions/machine_parameter' }
+      scanSpeed: { $ref: '#/definitions/machine_parameter' }
+      passCount: { $ref: '#/definitions/machine_parameter' }
+      overlapRatio: { $ref: '#/definitions/machine_parameter' }
+
+# Main schema types
+type: object
+required: [id, name, datePublished, dateModified, content_type, schema_version, full_path, breadcrumb, author]
+
+properties:
+  id:
+    type: string
+    pattern: "^[a-z0-9-]+$"
+    description: "Lowercase slug identifier"
+
+  name:
+    type: string
+    minLength: 1
+    description: "Display name of the material/contaminant/setting"
+
+  datePublished:
+    type: string
+    format: date-time
+    description: "ISO 8601 date-time"
+
+  dateModified:
+    type: string
+    format: date-time
+    description: "ISO 8601 date-time"
+
+  content_type:
+    type: string
+    enum: [unified_material, unified_contamination, settings]
+    description: "Type of content page"
+
+  schema_version:
+    type: string
+    pattern: "^\\d+\\.\\d+\\.\\d+$"
+    description: "Semantic version number"
+
+  full_path:
+    type: string
+    pattern: "^/"
+    description: "Full URL path"
+
+  breadcrumb:
+    type: array
+    minItems: 1
+    items:
+      $ref: '#/definitions/breadcrumb_item'
+
+  author:
+    $ref: '#/definitions/author'
+
+  # Content fields
+  micro:
+    type: string
+    minLength: 10
+    maxLength: 500
+    description: "Micro description (short summary)"
+
+  subtitle:
+    type: string
+    minLength: 10
+    maxLength: 200
+    description: "Page subtitle"
+
+  description:
+    type: string
+    minLength: 10
+    maxLength: 5000
+    description: "Main description"
+
+  # Images
+  images:
+    type: object
+    properties:
+      hero: { $ref: '#/definitions/image_object' }
+      micro: { $ref: '#/definitions/image_object' }
+
+  # Machine settings (for settings content type)
+  machine_settings:
+    $ref: '#/definitions/machine_settings'
+
+  # Relationships
+  relationships:
+    type: object
+    properties:
+      related_materials:
+        type: array
+        items:
+          type: object
+          properties:
+            type: { const: materials }
+            id: { type: string }
+      related_contaminants:
+        type: array
+        items:
+          type: object
+          properties:
+            type: { const: contaminants }
+            id: { type: string }
+      regulatory_standards:
+        type: array
+        items:
+          type: object
+          properties:
+            type: { const: regulatory_standards }
+            id: { type: string }
+
+  # Challenges
+  challenges:
+    type: object
+    properties:
+      thermal_management:
+        type: array
+        items:
+          type: object
+          required: [challenge, severity, impact, solutions]
+          properties:
+            challenge: { type: string }
+            severity: { type: string, enum: [low, medium, high, critical] }
+            property_value: { type: string }
+            threshold_range: { type: string }
+            impact: { type: string }
+            solutions: { type: array, items: { type: string } }
+
+      surface_characteristics:
+        type: array
+        items:
+          type: object
+          required: [challenge, severity, impact, solutions]
+          properties:
+            challenge: { type: string }
+            severity: { type: string, enum: [low, medium, high, critical] }
+            reflectivity_range: { type: string }
+            impact: { type: string }
+            solutions: { type: array, items: { type: string } }
+
+      contamination_challenges:
+        type: array
+        items:
+          type: object
+          required: [challenge, severity, impact, solutions]
+          properties:
+            challenge: { type: string }
+            severity: { type: string, enum: [low, medium, high, critical] }
+            impact: { type: string }
+            solutions: { type: array, items: { type: string } }
+
+  # Component summaries
+  component_summaries:
+    type: object
+    properties:
+      machine_settings:
+        type: object
+        properties:
+          title: { type: string }
+          description: { type: string }
+      material_safety_heatmap:
+        type: object
+        properties:
+          title: { type: string }
+          description: { type: string }
+
+# Conditional validation based on content_type
+if:
+  properties:
+    content_type:
+      const: settings
+then:
+  required: [machine_settings]
+  properties:
+    machine_settings:
+      $ref: '#/definitions/machine_settings'

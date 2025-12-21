@@ -233,13 +233,9 @@ export interface VisualCharacteristics {
 // CHEMICAL & ENVIRONMENTAL
 // ============================================
 
-export interface ChemicalProperties {
-  chemical_formula?: string;
-  cas_number?: string;
-  molecular_weight?: number;
-  hazard_class?: string;
-  state_at_room_temp?: string;
-}
+// Re-export ChemicalProperties from centralized types to avoid duplication
+export type { ChemicalProperties } from './centralized';
+
 
 export interface Reactivity {
   stability?: string;

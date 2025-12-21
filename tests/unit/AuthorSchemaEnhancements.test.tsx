@@ -4,8 +4,10 @@
 import { render } from '@testing-library/react';
 import { MaterialJsonLD } from '@/app/components/JsonLD/JsonLD';
 
-// TODO: This test file needs to be updated to match MaterialJsonLD component's actual props
-// Currently skipped due to prop mismatch - component expects { article, slug } not { data }
+// NOTE: Test suite skipped pending MaterialJsonLD prop interface updates
+// Issue: Component expects { article, slug } but test provides { data }
+// See: https://github.com/z-beam/z-beam/issues/TBD-materialjsonld-props
+// Decision: Keep test for future implementation validation
 describe.skip('Author Schema Enhancements', () => {
 const enhancedAuthors = {
   "1": {

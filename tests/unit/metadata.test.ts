@@ -303,18 +303,21 @@ describe('Enhanced Metadata Generation', () => {
   });
 
   describe('Subtitle Integration', () => {
-    it('should combine subtitle with description', () => {
+    it('should combine subtitle with description for material pages', () => {
       const metadata: ArticleMetadata = {
         title: 'Advanced Laser Techniques',
         subtitle: 'Comprehensive Technical Analysis',
         slug: 'laser-cleaning-process',
         description: 'Detailed guide to laser cleaning techniques and applications.',
+        content_type: 'unified_material',
+        name: 'Test Material',
+        category: 'Metal'
       };
 
       const result = createMetadata(metadata);
 
-      expect(result.description).toContain('Detailed guide to laser cleaning techniques');
-      expect(result.openGraph.description).toContain('Detailed guide to laser cleaning techniques');
+      expect(result.description).toContain('Comprehensive Technical Analysis');
+      expect(result.openGraph.description).toContain('Comprehensive Technical Analysis');
     });
 
     it('should use description only when subtitle missing', () => {

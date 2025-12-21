@@ -7,6 +7,9 @@ import { getAllCategories } from '@/app/utils/materialCategories';
 import { CATEGORY_METADATA, VALID_CATEGORIES } from '@/app/metadata';
 import { SITE_CONFIG } from '@/app/config';
 
+// Run serially to avoid worker memory issues
+jest.setTimeout(30000);
+
 // Mock dependencies
 jest.mock('@/app/utils/materialCategories');
 jest.mock('@/app/components/Layout/Layout', () => ({

@@ -1,0 +1,41 @@
+# Z-Beam Code Owners
+# These owners will be requested for review when someone opens a pull request
+
+# Default owners for everything in the repo
+* @todddunning
+
+# Critical configuration files
+/.github/ @todddunning
+/.github/copilot-instructions.md @todddunning
+/schemas/ @todddunning
+/app/config/ @todddunning
+/jest.config.js @todddunning
+/next.config.js @todddunning
+/tsconfig.json @todddunning
+/.eslintrc.json @todddunning
+
+# Test infrastructure
+/tests/**/*.test.{ts,tsx,js} @todddunning
+/tests/utils/ @todddunning
+
+# Documentation
+/docs/ @todddunning
+/README.md @todddunning
+
+# API routes
+/app/api/ @todddunning
+
+# Schema generators (critical for SEO)
+/app/utils/schemas/ @todddunning
+
+# Frontmatter data
+/frontmatter/ @todddunning
+
+# Build and deployment
+/scripts/deployment/ @todddunning
+/vercel.json @todddunning
+
+# Critical utilities
+/app/utils/errorSystem.ts @todddunning
+/app/utils/performanceCache.ts @todddunning
+/app/utils/startupValidation.ts @todddunning

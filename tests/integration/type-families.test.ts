@@ -2,9 +2,17 @@
  * Type Families Validation Tests
  * Tests the new type families structure and import/export functionality
  * 
- * NOTE: These tests are skipped because the types/families/ directory structure
- * was never implemented. The actual type system uses flat files in types/ directory.
- * TODO: Either implement the families structure or remove these tests entirely.
+ * ARCHITECTURE DECISION: Tests skipped - types/families/ structure not implemented
+ * Current System: Flat file structure in types/ directory
+ * Decision: Keep tests as specification for potential future refactor
+ * See: docs/adr/TBD-type-organization-strategy.md
+ * 
+ * Options:
+ * A) Implement families structure (requires major refactor)
+ * B) Remove tests (loses specification)
+ * C) Keep as-is (documents intended architecture)
+ * 
+ * Current Decision: C (Keep as architectural documentation)
  */
 
 import { describe, test, expect } from '@jest/globals';

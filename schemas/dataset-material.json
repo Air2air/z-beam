@@ -1,0 +1,247 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://z-beam.com/schemas/dataset-material.json",
+  "title": "Material Dataset Schema",
+  "description": "Schema for unified material datasets (includes machine settings)",
+  "type": "object",
+  "required": [
+    "@context",
+    "@type",
+    "@id",
+    "name",
+    "description",
+    "variableMeasured",
+    "citation",
+    "distribution",
+    "measurementTechnique",
+    "license",
+    "creator",
+    "publisher",
+    "material"
+  ],
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "type": "string",
+      "const": "Dataset"
+    },
+    "@id": {
+      "type": "string",
+      "pattern": "^https://www\\.z-beam\\.com/materials/.+#dataset$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "description": {
+      "type": "string",
+      "minLength": 50
+    },
+    "variableMeasured": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["@type", "name"],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "PropertyValue"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "number" }
+            ]
+          },
+          "unitText": {
+            "type": "string"
+          },
+          "minValue": {
+            "type": "number"
+          },
+          "maxValue": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "citation": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["@type", "name"],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": ["CreativeWork", "ScholarlyArticle"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "distribution": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["@type", "encodingFormat", "contentUrl"],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "DataDownload"
+          },
+          "encodingFormat": {
+            "type": "string",
+            "enum": ["application/json", "text/csv", "text/plain"]
+          },
+          "contentUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "measurementTechnique": {
+      "type": "string",
+      "minLength": 10
+    },
+    "license": {
+      "type": "object",
+      "required": ["@type", "name", "url"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "CreativeWork"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "creator": {
+      "type": "object",
+      "required": ["@type", "name"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "publisher": {
+      "type": "object",
+      "required": ["@type", "name"],
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "Organization"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "material": {
+      "type": "object",
+      "required": ["name", "classification", "machineSettings", "materialProperties"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "object",
+          "required": ["category", "subcategory"],
+          "properties": {
+            "category": {
+              "type": "string"
+            },
+            "subcategory": {
+              "type": "string"
+            }
+          }
+        },
+        "machineSettings": {
+          "type": "object",
+          "required": ["powerRange", "wavelength", "spotSize", "repetitionRate", "pulseWidth", "scanSpeed"],
+          "properties": {
+            "powerRange": {
+              "$ref": "#/definitions/parameterValue"
+            },
+            "wavelength": {
+              "$ref": "#/definitions/parameterValue"
+            },
+            "spotSize": {
+              "$ref": "#/definitions/parameterValue"
+            },
+            "repetitionRate": {
+              "$ref": "#/definitions/parameterValue"
+            },
+            "pulseWidth": {
+              "$ref": "#/definitions/parameterValue"
+            },
+            "scanSpeed": {
+              "$ref": "#/definitions/parameterValue"
+            }
+          }
+        },
+        "materialProperties": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "safetyData": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "parameterValue": {
+      "type": "object",
+      "required": ["value", "unit"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

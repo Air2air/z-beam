@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Z-Beam Pre-Commit Hook
+# Validates YAML schemas, runs TypeScript check, and quick test smoke test
+
+echo "🔍 Running pre-commit checks..."
+
+# 1. Validate YAML frontmatter schemas
+echo "\n📄 Validating YAML schemas..."
+node scripts/validate-yaml-schemas.js
+if [ $? -ne 0 ]; then
+  echo "❌ YAML schema validation failed"
+  exit 1
+fi
+
+# 2. TypeScript type checking
+echo "\n📘 Running TypeScript type check..."
+npx tsc --noEmit --skipLibCheck
+if [ $? -ne 0 ]; then
+  echo "❌ TypeScript errors found"
+  exit 1
+fi
+
+# 3. Run quick smoke tests (only fast unit tests)
+echo "\n🧪 Running smoke tests..."
+npm test -- --testPathPattern="tests/unit" --maxWorkers=2 --bail
+if [ $? -ne 0 ]; then
+  echo "❌ Smoke tests failed"
+  exit 1
+fi
+
+echo "\n✅ All pre-commit checks passed!"
+exit 0

@@ -1427,8 +1427,10 @@ export interface PropertyWithUnits {
 
 /**
  * Chemical properties structure
+ * Consolidated interface supporting both laser processing and chemical safety data
  */
 export interface ChemicalProperties {
+  // Chemical composition (laser processing context)
   formula?: string | PropertyWithUnits;
   molecularWeight?: PropertyWithUnits;
   density?: PropertyWithUnits;
@@ -1439,7 +1441,16 @@ export interface ChemicalProperties {
   toxicity?: PropertyWithUnits;
   stability?: PropertyWithUnits;
   corrosionResistance?: PropertyWithUnits;
-  [key: string]: string | PropertyWithUnits | undefined;
+  
+  // Chemical identification (safety context)
+  chemical_formula?: string;
+  cas_number?: string;
+  molecular_weight?: number;
+  hazard_class?: string;
+  state_at_room_temp?: string;
+  
+  // Allow additional properties
+  [key: string]: string | number | PropertyWithUnits | undefined;
 }
 
 /**

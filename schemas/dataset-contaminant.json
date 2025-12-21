@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://z-beam.com/schemas/dataset-contaminant.json",
+  "title": "Contaminant Dataset Schema",
+  "description": "Schema for unified contaminant datasets (includes compounds)",
+  "type": "object",
+  "required": [
+    "@context",
+    "@type",
+    "@id",
+    "name",
+    "description",
+    "variableMeasured",
+    "citation",
+    "distribution",
+    "measurementTechnique",
+    "license",
+    "creator",
+    "publisher",
+    "contaminant"
+  ],
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://schema.org"
+    },
+    "@type": {
+      "type": "string",
+      "const": "Dataset"
+    },
+    "@id": {
+      "type": "string",
+      "pattern": "^https://www\\.z-beam\\.com/contaminants/.+#dataset$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "description": {
+      "type": "string",
+      "minLength": 50
+    },
+    "variableMeasured": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["@type", "name"],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "PropertyValue"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "number" }
+            ]
+          }
+        }
+      }
+    },
+    "citation": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["@type", "name"],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": ["CreativeWork", "ScholarlyArticle"]
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "distribution": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["@type", "encodingFormat", "contentUrl"],
+        "properties": {
+          "@type": {
+            "type": "string",
+            "const": "DataDownload"
+          },
+          "encodingFormat": {
+            "type": "string",
+            "enum": ["application/json", "text/csv", "text/plain"]
+          },
+          "contentUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "measurementTechnique": {
+      "type": "string",
+      "minLength": 10
+    },
+    "license": {
+      "type": "object",
+      "required": ["@type", "name", "url"]
+    },
+    "creator": {
+      "type": "object",
+      "required": ["@type", "name"]
+    },
+    "publisher": {
+      "type": "object",
+      "required": ["@type", "name"]
+    },
+    "contaminant": {
+      "type": "object",
+      "required": ["name", "classification", "properties", "removalTechniques"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "object",
+          "required": ["category"],
+          "properties": {
+            "category": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "compounds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["formula", "name"],
+            "properties": {
+              "formula": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "hazards": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "properties": {
+          "type": "object",
+          "minProperties": 1
+        },
+        "removalTechniques": {
+          "type": "object",
+          "required": ["recommended"],
+          "properties": {
+            "recommended": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "laserSettings": {
+              "type": "object"
+            }
+          }
+        },
+        "safetyData": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
