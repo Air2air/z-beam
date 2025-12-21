@@ -19,6 +19,13 @@ import 'server-only';
 
 import { SITE_CONFIG } from '../constants';
 import { generateBreadcrumbs } from '../breadcrumbs';
+import { 
+  getContentType, 
+  isContaminantPage, 
+  isSettingsPage, 
+  isMaterialPage,
+  isCompoundPage 
+} from '../contentTypeDetection';
 import {
   getMetadata,
   hasProductData,
@@ -40,18 +47,34 @@ import {
 
 import type { SchemaData, SchemaOrgBase, SchemaOrgGraph, SchemaContext, ServiceOffering } from './generators/types';
 
+/**
+ * Options for configuring schema generator behavior
+ */
 export interface SchemaGeneratorOptions {
+  /** Priority level for schema ordering (higher = generated first) */
   priority?: number;
+  /** Whether this schema is required for the page */
   required?: boolean;
+  /** Condition function to determine if schema should be generated */
   condition?: (data: SchemaData, context: SchemaContext) => boolean;
 }
 
+/**
+ * Schema generator function signature
+ * @param data - The page data to generate schema from
+ * @param context - Context information (URL, slug, etc.)
+ * @param options - Optional configuration
+ * @returns Generated schema or null if conditions not met
+ */
 export type SchemaGenerator = (
   data: SchemaData,
   context: SchemaContext,
   options?: SchemaGeneratorOptions
 ) => SchemaOrgBase | null;
 
+/**
+ * Registry of all registered schema generators
+ */
 export interface SchemaRegistry {
   [key: string]: {
     generator: SchemaGenerator;
@@ -63,6 +86,16 @@ export interface SchemaRegistry {
 // Schema Factory Class
 // ============================================================================
 
+/**
+ * Main schema factory for generating all JSON-LD schemas
+ * 
+ * @class SchemaFactory
+ * @example
+ * ```typescript
+ * const factory = new SchemaFactory(pageData, 'materials/metal/ferrous/steel');
+ * const schemas = factory.generate(); // Returns array of Schema.org objects
+ * ```
+ */
 export class SchemaFactory {
   private data: SchemaData;
   private context: SchemaContext;
@@ -83,6 +116,7 @@ export class SchemaFactory {
       const meta = getMetadata(data);
       console.log('[SchemaFactory Debug]', {
         slug,
+        contentType: getContentType(slug),
         hasProductData: hasProductData(data),
         hasMachineSettings: hasMachineSettings(data),
         hasMaterialProperties: hasMaterialProperties(data),
@@ -179,16 +213,15 @@ export class SchemaFactory {
         // Article for material/contaminant pages (not settings pages)
         const meta = getMetadata(data);
         const hasCategory = !!(meta.category);
-        const isSettingsPage = context.slug.startsWith('settings/');
-        const isMaterialOrContaminant = context.slug.startsWith('materials/') || context.slug.startsWith('contaminants/');
-        return hasCategory && !isSettingsPage && isMaterialOrContaminant;
+        const isMaterialOrContaminant = isMaterialPage(context.slug) || isContaminantPage(context.slug);
+        return hasCategory && !isSettingsPage(context.slug) && isMaterialOrContaminant;
       }
     });
     this.register('TechArticle', generateTechArticleSchema, { 
       priority: 80,
       condition: (data, context) => {
         // TechArticle for settings pages (technical specifications)
-        return context.slug.startsWith('settings/');
+        return isSettingsPage(context.slug);
       }
     });
     this.register('Product', generateProductSchema, {
@@ -248,7 +281,7 @@ export class SchemaFactory {
       condition: (data, context) => {
         // Only for settings pages with machine settings (they have interactive tools)
         const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
-        return context.slug.startsWith('settings/') && !!fm?.machineSettings;
+        return isSettingsPage(context.slug) && !!fm?.machineSettings;
       }
     });
     this.register('ContactPoint', generateContactPointSchema, {
@@ -266,9 +299,8 @@ export class SchemaFactory {
       condition: (data, context) => {
         const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
         const hasMatOrSettings = !!(fm?.materialProperties || fm?.machineSettings);
-        const isContaminant = context.slug.startsWith('contaminants/');
         const hasContaminantData = !!(fm?.composition || fm?.safety_data || fm?.laser_properties);
-        return hasMatOrSettings || (isContaminant && hasContaminantData);
+        return hasMatOrSettings || (isContaminantPage(context.slug) && hasContaminantData);
       }
     });
     this.register('ChemicalSubstance', generateChemicalSubstanceSchema, {
@@ -276,10 +308,8 @@ export class SchemaFactory {
       condition: (data, context) => {
         // For compound pages OR contaminant pages with chemical composition
         const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
-        const isCompoundPage = context.slug.startsWith('compounds/');
-        const isContaminantPage = context.slug.startsWith('contaminants/');
         const hasChemicalData = !!(fm?.chemical_formula || (fm as any)?.chemicalFormula || (fm as any)?.composition);
-        return (isCompoundPage || isContaminantPage) && hasChemicalData;
+        return (isCompoundPage(context.slug) || isContaminantPage(context.slug)) && hasChemicalData;
       }
     });
     this.register('Certification', generateCertificationSchema, {
@@ -682,8 +712,6 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   const { pageUrl, baseUrl, slug } = context;
   const products: any[] = [];
   
-  const isContaminant = slug.startsWith('contaminants/');
-  const isSettings = slug.startsWith('settings/');
   const meta = getMetadata(data);
   const mainImage = getMainImage(data);
   const authorData = (meta as any).author || data.author;
@@ -724,9 +752,9 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       })
     });
   });
-  
+
   // Contaminant-specific removal services
-  if (isContaminant) {
+  if (isContaminantPage(slug)) {
     const contaminantName = meta.name || data.title || 'Contaminant';
     const composition = (meta as any).composition;
     const safetyData = (meta as any).safety_data || (data.frontmatter as any)?.safety_data;
@@ -855,7 +883,7 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   }
   
   // Settings-specific equipment configuration services
-  if (isSettings) {
+  if (isSettingsPage(slug)) {
     const materialName = meta.name || data.title || 'Material';
     const machineSettings = (meta as any).machineSettings;
     
@@ -1893,8 +1921,10 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   // Contaminant pages: use composition, safety_data, laser_properties
   const hasMachineSettings = !!frontmatter.machineSettings;
   const hasMaterialProperties = !!frontmatter.materialProperties;
-  const isContaminant = context.slug.startsWith('contaminants/');
   const hasContaminantData = !!(frontmatter.composition || frontmatter.safety_data || frontmatter.laser_properties);
+  
+  // Use centralized detection utility
+  const isContaminant = isContaminantPage(context.slug);
   
   if (!hasMachineSettings && !hasMaterialProperties && !(isContaminant && hasContaminantData)) {
     console.warn(`📊 Dataset schema excluded for ${context.slug}: No machineSettings, materialProperties, or contaminant data available`);
