@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import type { BreadcrumbItem, BreadcrumbsProps } from "@/types";
 import { capitalizeWords } from "../../utils/formatting";
-import { SITE_CONFIG } from "@/config/site";
+import { SITE_CONFIG } from "@/app/config/site";
 
 /**
  * WCAG 2.1 AAA Compliant Breadcrumb Component

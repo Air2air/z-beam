@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AuthorProps } from "@/types";
-import { SITE_CONFIG } from "@/config/site";
+import { SITE_CONFIG } from "@/app/config/site";
 import { DatePanel } from "../DatePanel/DatePanel";
 
 export function Author({

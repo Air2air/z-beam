@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FooterNavItem, SocialLink } from "@/types";
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
-import { SITE_CONFIG } from "@/config/site";
+import { SITE_CONFIG } from "@/app/config/site";
 import { MAIN_NAV_ITEMS } from "../../config/navigation";
 import { openCookieSettings } from "../CookieConsent";
 
