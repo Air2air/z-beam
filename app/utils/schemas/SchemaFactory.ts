@@ -263,18 +263,23 @@ export class SchemaFactory {
     });
     this.register('Dataset', generateDatasetSchema, {
       priority: 20,
-      condition: (data) => {
+      condition: (data, context) => {
         const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
-        return !!(fm?.materialProperties || fm?.machineSettings);
+        const hasMatOrSettings = !!(fm?.materialProperties || fm?.machineSettings);
+        const isContaminant = context.slug.startsWith('contaminants/');
+        const hasContaminantData = !!(fm?.composition || fm?.safety_data || fm?.laser_properties);
+        return hasMatOrSettings || (isContaminant && hasContaminantData);
       }
     });
     this.register('ChemicalSubstance', generateChemicalSubstanceSchema, {
       priority: 17,
       condition: (data, context) => {
-        // Only for compound pages with chemical formula
+        // For compound pages OR contaminant pages with chemical composition
         const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
         const isCompoundPage = context.slug.startsWith('compounds/');
-        return isCompoundPage && !!(fm?.chemical_formula || (fm as any)?.chemicalFormula);
+        const isContaminantPage = context.slug.startsWith('contaminants/');
+        const hasChemicalData = !!(fm?.chemical_formula || (fm as any)?.chemicalFormula || (fm as any)?.composition);
+        return (isCompoundPage || isContaminantPage) && hasChemicalData;
       }
     });
     this.register('Certification', generateCertificationSchema, {
@@ -674,8 +679,14 @@ function generateTechArticleSchema(data: any, context: SchemaContext): SchemaOrg
  * Product Schema - Enhanced for equipment
  */
 function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
-  const { pageUrl, baseUrl } = context;
+  const { pageUrl, baseUrl, slug } = context;
   const products: any[] = [];
+  
+  const isContaminant = slug.startsWith('contaminants/');
+  const isSettings = slug.startsWith('settings/');
+  const meta = getMetadata(data);
+  const mainImage = getMainImage(data);
+  const authorData = (meta as any).author || data.author;
 
   // Equipment products
   ['needle100_150', 'needle200_300', 'jangoSpecs'].forEach(key => {
@@ -713,14 +724,213 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       })
     });
   });
+  
+  // Contaminant-specific removal services
+  if (isContaminant) {
+    const contaminantName = meta.name || data.title || 'Contaminant';
+    const composition = (meta as any).composition;
+    const safetyData = (meta as any).safety_data || (data.frontmatter as any)?.safety_data;
+    
+    // Build safety properties array
+    const safetyProperties: any[] = [];
+    if (safetyData) {
+      if (safetyData.fire_explosion_risk) {
+        safetyProperties.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'fire_explosion_risk',
+          'name': 'Fire/Explosion Risk',
+          'value': safetyData.fire_explosion_risk
+        });
+      }
+      if (safetyData.toxic_gas_risk) {
+        safetyProperties.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'toxic_gas_risk',
+          'name': 'Toxic Gas Risk',
+          'value': safetyData.toxic_gas_risk
+        });
+      }
+      if (safetyData.visibility_hazard) {
+        safetyProperties.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'visibility_hazard',
+          'name': 'Visibility Hazard',
+          'value': safetyData.visibility_hazard
+        });
+      }
+    }
+    
+    // Add composition as properties
+    if (composition && Array.isArray(composition)) {
+      composition.forEach((compound: string, index: number) => {
+        safetyProperties.push({
+          '@type': 'PropertyValue',
+          'propertyID': `composition_${index}`,
+          'name': 'Chemical Composition',
+          'value': compound
+        });
+      });
+    }
+    
+    // Build safety consideration text
+    let safetyConsideration: string | undefined;
+    if (safetyData?.ppe_requirements) {
+      const ppeItems: string[] = [];
+      if (safetyData.ppe_requirements.respiratory) {
+        ppeItems.push(`Respiratory: ${safetyData.ppe_requirements.respiratory}`);
+      }
+      if (safetyData.ppe_requirements.eye_protection) {
+        ppeItems.push(`Eye Protection: ${safetyData.ppe_requirements.eye_protection}`);
+      }
+      if (ppeItems.length > 0) {
+        safetyConsideration = `Required PPE: ${ppeItems.join(', ')}.`;
+      }
+    }
+    
+    products.push({
+      '@type': 'Product',
+      '@id': `${pageUrl}#service-contaminant-removal`,
+      'name': `Professional ${contaminantName} Removal Service`,
+      'description': `Expert laser-based ${contaminantName.toLowerCase()} removal service. Safe, non-abrasive cleaning that preserves substrate integrity. Professional technicians with specialized PPE and ventilation equipment.`,
+      'category': `Industrial Cleaning Services / Contamination Removal / ${contaminantName} Cleaning`,
+      'brand': {
+        '@type': 'Brand',
+        'name': SITE_CONFIG.name
+      },
+      'author': authorData ? {
+        '@type': 'Person',
+        'name': authorData.name || SITE_CONFIG.author,
+        ...(authorData.jobTitle && { 'jobTitle': authorData.jobTitle }),
+        ...(authorData.url && { 'url': authorData.url })
+      } : {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl
+      },
+      'provider': {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl,
+        'telephone': SITE_CONFIG.contact.general.phone,
+        'address': {
+          '@type': 'PostalAddress',
+          'addressLocality': SITE_CONFIG.address.city,
+          'addressRegion': SITE_CONFIG.address.state,
+          'addressCountry': SITE_CONFIG.address.country
+        }
+      },
+      'offers': {
+        '@type': 'Offer',
+        'price': SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+        'priceCurrency': SITE_CONFIG.pricing.professionalCleaning.currency,
+        'priceSpecification': {
+          '@type': 'UnitPriceSpecification',
+          'price': SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+          'priceCurrency': SITE_CONFIG.pricing.professionalCleaning.currency,
+          'unitText': SITE_CONFIG.pricing.professionalCleaning.unit
+        },
+        'availability': 'https://schema.org/InStock',
+        'url': pageUrl,
+        'seller': {
+          '@type': 'Organization',
+          'name': SITE_CONFIG.name,
+          'url': baseUrl
+        }
+      },
+      'areaServed': [
+        {
+          '@type': 'Country',
+          'name': 'United States'
+        },
+        {
+          '@type': 'Country',
+          'name': 'Canada'
+        }
+      ],
+      'serviceType': 'Contamination Removal',
+      'image': mainImage,
+      ...(safetyProperties.length > 0 && { 'additionalProperty': safetyProperties }),
+      ...(safetyConsideration && { 'safetyConsideration': safetyConsideration })
+    });
+  }
+  
+  // Settings-specific equipment configuration services
+  if (isSettings) {
+    const materialName = meta.name || data.title || 'Material';
+    const machineSettings = (meta as any).machineSettings;
+    
+    // Build settings properties array
+    const settingsProperties: any[] = [];
+    if (machineSettings) {
+      Object.entries(machineSettings).forEach(([key, settingData]: [string, any]) => {
+        if (settingData?.value !== undefined && settingData?.unit) {
+          settingsProperties.push({
+            '@type': 'PropertyValue',
+            'propertyID': key,
+            'name': key.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+            'value': settingData.value,
+            'unitText': settingData.unit,
+            ...(settingData.min !== undefined && { 'minValue': settingData.min }),
+            ...(settingData.max !== undefined && { 'maxValue': settingData.max })
+          });
+        }
+      });
+    }
+    
+    products.push({
+      '@type': 'Product',
+      '@id': `${pageUrl}#service-configuration`,
+      'name': `${materialName} Laser Configuration Service`,
+      'description': `Professional laser parameter configuration and optimization for ${materialName.toLowerCase()} cleaning. Expert technicians configure your equipment with validated settings for optimal results and safety.`,
+      'category': `Professional Services / Equipment Configuration / ${materialName} Optimization`,
+      'brand': {
+        '@type': 'Brand',
+        'name': SITE_CONFIG.name
+      },
+      'author': authorData ? {
+        '@type': 'Person',
+        'name': authorData.name || SITE_CONFIG.author,
+        ...(authorData.jobTitle && { 'jobTitle': authorData.jobTitle }),
+        ...(authorData.url && { 'url': authorData.url })
+      } : {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl
+      },
+      'provider': {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl,
+        'telephone': SITE_CONFIG.contact.general.phone
+      },
+      'offers': {
+        '@type': 'Offer',
+        'price': SITE_CONFIG.pricing.professionalCleaning.hourlyRate * 0.5,
+        'priceCurrency': SITE_CONFIG.pricing.professionalCleaning.currency,
+        'priceSpecification': {
+          '@type': 'UnitPriceSpecification',
+          'price': SITE_CONFIG.pricing.professionalCleaning.hourlyRate * 0.5,
+          'priceCurrency': SITE_CONFIG.pricing.professionalCleaning.currency,
+          'unitText': 'per configuration session'
+        },
+        'availability': 'https://schema.org/InStock',
+        'url': pageUrl,
+        'seller': {
+          '@type': 'Organization',
+          'name': SITE_CONFIG.name,
+          'url': baseUrl
+        }
+      },
+      'serviceType': 'Equipment Configuration',
+      'image': mainImage,
+      ...(settingsProperties.length > 0 && { 'additionalProperty': settingsProperties })
+    });
+  }
 
   // Material-specific service products
-  const meta = getMetadata(data);
   if (meta.materialProperties) {
-    const mainImage = getMainImage(data);
     const materialName = meta.name || data.title || 'Material';
     const materialCategory = meta.category || 'Material';
-    const authorData = (meta as any).author || data.author;
     
     // Extract safety data from frontmatter/metadata
     const safetyData = (meta as any).safety_data || (meta as any).safetyData || (data.frontmatter as any)?.safety_data;
@@ -1677,25 +1887,29 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
 function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
   
-  // DATASET QUALITY POLICY: Dataset schema requires EITHER machineSettings OR materialProperties
+  // DATASET QUALITY POLICY: Dataset schema requires EITHER machineSettings OR materialProperties OR contaminant data
   // Material pages: use machineSettings (loaded from settings files) and/or materialProperties
   // Settings pages: use machineSettings primarily
+  // Contaminant pages: use composition, safety_data, laser_properties
   const hasMachineSettings = !!frontmatter.machineSettings;
   const hasMaterialProperties = !!frontmatter.materialProperties;
+  const isContaminant = context.slug.startsWith('contaminants/');
+  const hasContaminantData = !!(frontmatter.composition || frontmatter.safety_data || frontmatter.laser_properties);
   
-  if (!hasMachineSettings && !hasMaterialProperties) {
-    console.warn(`📊 Dataset schema excluded for ${context.slug}: No machineSettings or materialProperties available`);
+  if (!hasMachineSettings && !hasMaterialProperties && !(isContaminant && hasContaminantData)) {
+    console.warn(`📊 Dataset schema excluded for ${context.slug}: No machineSettings, materialProperties, or contaminant data available`);
     return null;
   }
   
   const { slug, baseUrl } = context;
   
-  // Extract material slug from the full slug path (e.g., "materials/metal/non-ferrous/titanium" -> "titanium")
+  // Extract material/contaminant slug from the full slug path
   const materialSlug = slug.split('/').pop() || slug;
   
-  // Normalize slug: remove -laser-cleaning or -settings suffix for unified dataset naming
-  const baseMaterialSlug = materialSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '');
-  const datasetName = `${baseMaterialSlug}-laser-cleaning`;
+  // Normalize slug: remove suffixes for unified dataset naming
+  const baseMaterialSlug = materialSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '').replace(/-contamination$/, '');
+  const datasetFolder = isContaminant ? 'contaminants' : 'materials';
+  const datasetName = isContaminant ? materialSlug : `${baseMaterialSlug}-laser-cleaning`;
 
   // E-E-A-T Enhancement: Use page author as dataset creator for authority
   const author = frontmatter.author || data.author;
@@ -1706,10 +1920,13 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     'url': SITE_CONFIG.url
   };
 
-  // Build variableMeasured array from both material properties and machine settings
+  // Build variableMeasured array from material properties, machine settings, OR contaminant data
   const measurements: any[] = [];
   const machineSettings = frontmatter.machineSettings as Record<string, any>;
   const materialProps = frontmatter.materialProperties as Record<string, any> | undefined;
+  const composition = isContaminant ? (frontmatter.composition as any) : null;
+  const safetyData = isContaminant ? (frontmatter.safety_data as any) : null;
+  const laserProps = isContaminant ? (frontmatter.laser_properties as any) : null;
   
   // Add machine settings if present
   if (machineSettings) {
@@ -1739,6 +1956,81 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
           // Add min/max for range-based parameters
           ...(settingData.min !== undefined && { 'minValue': settingData.min }),
           ...(settingData.max !== undefined && { 'maxValue': settingData.max })
+        });
+      }
+    });
+  }
+  
+  // Add contaminant composition data if present
+  if (composition && Array.isArray(composition)) {
+    composition.forEach((compound: string, index: number) => {
+      measurements.push({
+        '@type': 'PropertyValue',
+        'propertyID': `composition_${index}`,
+        'name': 'Chemical Composition',
+        'value': compound,
+        'description': `Primary chemical compound in contamination`
+      });
+    });
+  }
+  
+  // Add contaminant safety data if present
+  if (safetyData) {
+    if (safetyData.fire_explosion_risk) {
+      measurements.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'fire_explosion_risk',
+        'name': 'Fire/Explosion Risk',
+        'value': safetyData.fire_explosion_risk
+      });
+    }
+    if (safetyData.toxic_gas_risk) {
+      measurements.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'toxic_gas_risk',
+        'name': 'Toxic Gas Risk',
+        'value': safetyData.toxic_gas_risk
+      });
+    }
+    if (safetyData.visibility_hazard) {
+      measurements.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'visibility_hazard',
+        'name': 'Visibility Hazard',
+        'value': safetyData.visibility_hazard
+      });
+    }
+    if (safetyData.ppe_requirements) {
+      const ppe = safetyData.ppe_requirements;
+      if (ppe.respiratory) {
+        measurements.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'ppe_respiratory',
+          'name': 'Required Respiratory Protection',
+          'value': ppe.respiratory
+        });
+      }
+      if (ppe.eye_protection) {
+        measurements.push({
+          '@type': 'PropertyValue',
+          'propertyID': 'ppe_eye_protection',
+          'name': 'Required Eye Protection',
+          'value': ppe.eye_protection
+        });
+      }
+    }
+  }
+  
+  // Add contaminant laser properties if present
+  if (laserProps) {
+    Object.entries(laserProps).forEach(([key, value]: [string, any]) => {
+      if (typeof value === 'string' || typeof value === 'number') {
+        measurements.push({
+          '@type': 'PropertyValue',
+          'propertyID': key,
+          'name': key.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+          'value': value,
+          'description': `Laser property for contamination removal`
         });
       }
     });
@@ -1846,9 +2138,15 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
 
   const hasMachineSettingsData = !!(machineSettings && Object.keys(machineSettings).length > 0);
   const hasMaterialPropsData = !!(materialProps && Object.keys(materialProps).length > 0);
+  const hasContaminantDataMeasurements = isContaminant && (composition || safetyData || laserProps);
   
-  let datasetDescription = `Comprehensive laser cleaning dataset for ${frontmatter.name || 'material'}.`;
-  if (hasMachineSettingsData && hasMaterialPropsData) {
+  let datasetDescription = isContaminant 
+    ? `Comprehensive contamination dataset for ${frontmatter.name || 'contaminant'}.`
+    : `Comprehensive laser cleaning dataset for ${frontmatter.name || 'material'}.`;
+    
+  if (isContaminant && hasContaminantDataMeasurements) {
+    datasetDescription += ' Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.';
+  } else if (hasMachineSettingsData && hasMaterialPropsData) {
     datasetDescription += ' Includes validated machine parameters, material properties, and computed optimal parameter ranges from multi-factor heatmap analysis for optimal cleaning results.';
   } else if (hasMachineSettingsData) {
     datasetDescription += ' Includes validated machine parameters and computed optimal ranges for laser cleaning.';
@@ -1858,8 +2156,10 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
 
   return {
     '@type': 'Dataset',
-    '@id': `${baseUrl}/datasets/materials/${datasetName}#dataset`,
-    'name': `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
+    '@id': `${baseUrl}/datasets/${datasetFolder}/${datasetName}#dataset`,
+    'name': isContaminant 
+      ? `${frontmatter.name || 'Contaminant'} Removal Dataset`
+      : `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
     'description': datasetDescription,
     'version': '1.0',
     'license': {
@@ -1874,19 +2174,19 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
       {
         '@type': 'DataDownload',
         'encodingFormat': 'application/json',
-        'contentUrl': `${SITE_CONFIG.url}/datasets/materials/${datasetName}.json`,
+        'contentUrl': `${SITE_CONFIG.url}/datasets/${datasetFolder}/${datasetName}.json`,
         'name': 'JSON Dataset'
       },
       {
         '@type': 'DataDownload',
         'encodingFormat': 'text/csv',
-        'contentUrl': `${SITE_CONFIG.url}/datasets/materials/${datasetName}.csv`,
+        'contentUrl': `${SITE_CONFIG.url}/datasets/${datasetFolder}/${datasetName}.csv`,
         'name': 'CSV Dataset'
       },
       {
         '@type': 'DataDownload',
         'encodingFormat': 'text/plain',
-        'contentUrl': `${SITE_CONFIG.url}/datasets/materials/${datasetName}.txt`,
+        'contentUrl': `${SITE_CONFIG.url}/datasets/${datasetFolder}/${datasetName}.txt`,
         'name': 'Plain Text Dataset'
       }
     ],
@@ -1896,7 +2196,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
       '@type': 'Place',
       'name': 'Global'
     },
-    'url': `${baseUrl}/datasets/materials/${datasetName}`
+    'url': `${baseUrl}/datasets/${datasetFolder}/${datasetName}`
   };
 }
 

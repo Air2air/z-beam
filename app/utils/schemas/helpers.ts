@@ -22,6 +22,9 @@ export function hasProductData(data: any): boolean {
     data.needle200_300 ||
     data.jangoSpecs ||
     meta.materialProperties ||
+    meta.machineSettings ||
+    meta.composition ||
+    meta.safety_data ||
     data.products
   );
 }
