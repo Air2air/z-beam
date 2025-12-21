@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Titanium oxide layer removal
 
-Generated: 2025-12-21T01:26:06.581Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Optimal wavelength for Titanium absorption 
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Optimal beam spot diameter for Titanium surface 
+
+REPETITION RATE:
+  Value: 100 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient Titanium cleaning 
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Optimal pulse duration for Titanium ablation without 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform Titanium cleaning
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Optimal number of passes for thorough Titanium cleaning
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for complete Titanium surface 
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Minimum fluence required for effective Titanium surface cleaning
+
+POWER:
+  Value: 100 W
+  Range: 20-500 W
+  Description: Typical range for industrial Nd:YAG laser cleaning systems; starting at 100W balances efficiency and safety for Ti's high reflectivity and melting point (~1668°C). Max avoids substrate damage via thermal accumulation. Source: IPG Photonics specs and studies on Ti alloy cleaning (e.g., J. Laser Appl. 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for contamination removal; slower for heavy contaminants (e.g., oxides), faster for light. Recommended 1500 mm/s optimizes fluence without overheating Ti's conductive surface. Source: Industry manuals (CleanLaser) and process optimization in Opt. Lasers Eng. (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for Ti cleaning to ablate contaminants while minimizing heat-affected zone (HAZ <10 μm); picosecond/femtosecond for ultra-precision but costlier. 20 ns recommended for low thermal damage. Source: Laser physics reviews in Appl. Surf. Sci. (2019) on metal ablation thresholds.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning; higher rates speed up process but risk heat buildup on reflective Ti. 50 kHz balances speed and minimal accumulation. Trade-off: >80 kHz may require cooling. Source: Academic lit. e.g., J. Phys. D: Appl. Phys. (2017) on pulse overlap effects.
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below Ti's ablation threshold (~3 J/cm² at 1064 nm) for safe contaminant removal without substrate etching. Recommended 1.0 J/cm² for industrial prep. Ti's reflectivity (~40% at 1064 nm) requires higher input. Source: Ablation studies in Surf. Coat. Technol. (2021).
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: Smaller for fine detail (e.g., aerospace Ti parts), larger for broad areas. 300 μm recommended for uniform cleaning on Ti without excessive overlap heating. Source: Equipment specs from Laserax and Coherent, aligned with ISO 11553 standards.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination; multi-pass for heavy (e.g., rust/scale on Ti). Recommended 2 passes ensures complete removal with low risk to Ti's integrity. Source: Case studies in industrial laser cleaning (e.g., Proc. SPIE 2022) for metal surfaces.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 60% recommended for Ti to avoid gaps or over-etching while managing heat from conductivity. Higher for heavy contamination. Source: Process optimization in J. Clean. Prod. (2019) and manufacturer guidelines (e.g., Adapt Laser).
+
+
+Generated: 2025-12-21T03:37:07.029Z
 License: CC BY 4.0

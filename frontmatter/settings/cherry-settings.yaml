@@ -1,7 +1,7 @@
 id: cherry-settings
 name: Cherry
-datePublished: '2025-12-20T23:40:39.590132Z'
-dateModified: '2025-12-20T23:40:39.590132Z'
+datePublished: '2025-12-21T03:33:02.601986Z'
+dateModified: '2025-12-21T03:33:02.601986Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/hardwood/cherry-settings
@@ -37,8 +37,7 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
-    with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
@@ -55,184 +54,13 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Cherry surface cleaning without thermal
-      damage
-    unit: W
-    value: 90
-  wavelength:
-    description: Near-infrared wavelength for optimal absorption in Cherry organic
-      compounds
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Beam spot diameter for precise cleaning control
-    unit: μm
-    value: 80
-  repetitionRate:
-    description: Optimal repetition rate for continuous cleaning process
-    unit: kHz
-    value: 50
-  energyDensity:
-    description: Fluence threshold for effective contaminant removal
-    unit: J/cm²
-    value: 1.8
-  pulseWidth:
-    description: Nanosecond pulse duration for efficient ablation of contaminants
-    unit: ns
-    value: 12
-  scanSpeed:
-    description: Optimal scanning speed for efficient area coverage
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Number of cleaning passes for complete surface treatment
-    unit: passes
-    value: 2
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage
-    unit: '%'
-    value: 30
-  dwellTime:
-    description: Effective dwell time per spot for contaminant removal
-    unit: μs
-    value: 100
-challenges:
-  thermal_management:
-  - challenge: Charring and carbonization
-    severity: high
-    threshold_temperature: 250-300°C
-    impact: Wood chars at low temperatures leaving black marks and structural damage
-    solutions:
-    - Use pulse mode with 2-5 second cooling between passes
-    - Reduce power by 30-40% compared to metals
-    - Increase scan speed to reduce dwell time
-    - Monitor surface for discoloration; stop if browning occurs
-  - challenge: Slow thermal diffusivity
-    severity: medium
-    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
-    impact: Heat accumulates rapidly causing thermal damage zones
-    solutions:
-    - Increase cooling time between passes
-    - Use lower repetition rates (<20 kHz)
-    - Apply crosshatch patterns to distribute heat
-  surface_characteristics:
-  - challenge: Grain direction sensitivity
-    severity: medium
-    variation: 20-40% absorption variation by grain orientation
-    impact: Laser absorption varies significantly with grain direction
-    solutions:
-    - Scan parallel to grain for consistent results
-    - Use crosshatch pattern (0° and 90°) for uniform cleaning
-    - Test on scrap to determine optimal scan direction
-  - challenge: Porous structure with deep contamination
-    severity: medium
-    porosity_range: 12-65% (softwoods highest)
-    impact: Contaminants penetrate deep into wood structure
-    solutions:
-    - Multiple passes with progressive power increase
-    - Reduce scan speed for deeper penetration (600 mm/s)
-    - Chemical pre-treatment for deep-seated contamination
-  contamination_challenges:
-  - challenge: Varnish and coating removal
-    severity: medium
-    impact: Thick coatings require multiple passes and generate smoke/fumes
-    solutions:
-    - First pass 80W fast (1500 mm/s) for bulk removal
-    - Second pass 60W slow (800 mm/s) for residue
-    - Use fume extraction to prevent redeposition
-    - Limit to 2-3 passes maximum to avoid substrate damage
-description: When laser cleaning Cherry, start with its high porosity. This property
-  absorbs laser energy quickly, so you must use low power settings to remove contaminants
-  without scorching the surface. Its low density helps the process by allowing even
-  heat distribution, but watch for splintering in the middle of the job. Adjust scan
-  speed higher to reduce dwell time on porous areas. Make sure you overlap passes
-  minimally to avoid uneven ablation. These steps restore the wood's natural grain
-  effectively.
-category: wood
-subcategory: hardwood
-title: Cherry Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: When laser cleaning Cherry, start with its high porosity.
-micro: When laser cleaning Cherry, start with its high porosity. This property absorbs
-  laser energy quickly, so you must use low power settings to remove contaminants
-  without scorching the surface.
-machineSettings:
-  powerRange:
-    description: Optimal average power for Cherry surface cleaning without thermal
-      damage
+    description: Optimal average power for Cherry surface cleaning without thermal damage
     unit: W
     value: 90
     min: 1.0
     max: 120
   wavelength:
-    description: Near-infrared wavelength for optimal absorption in Cherry organic
-      compounds
+    description: Near-infrared wavelength for optimal absorption in Cherry organic compounds
     unit: nm
     value: 1064
     min: 355
@@ -290,72 +118,183 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for wood cleaning at 1064 nm to remove contaminants
-      without charring; starting at 50 W for delicate hardwoods like cherry to minimize
-      thermal damage. Max safe ~200 W to avoid substrate ablation. Source: Studies
-      on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018); IPG Photonics
-      YLR series specs for cleaning applications.'
+    description: 'Typical range for wood cleaning at 1064 nm to remove contaminants without charring; starting at 50 W for
+      delicate hardwoods like cherry to minimize thermal damage. Max safe ~200 W to avoid substrate ablation. Source: Studies
+      on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018); IPG Photonics YLR series specs for cleaning applications.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Effective speeds for contaminant removal on wood; 500 mm/s recommended
-      for optimal balance of cleaning efficiency and heat control on cherry wood.
-      Slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light.
-      Source: Industry standards from Laser Cleaning Europe guidelines and equipment
-      manuals (e.g., Adapt Laser Systems).'
+    description: 'Effective speeds for contaminant removal on wood; 500 mm/s recommended for optimal balance of cleaning efficiency
+      and heat control on cherry wood. Slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Source:
+      Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for wood to ablate contaminants with
-      minimal heat-affected zone; 20 ns recommended for cherry to reduce thermal diffusion
-      given wood''s low conductivity (~0.16 W/m·K). Picosecond (ps) or femtosecond
-      optional for ultra-precision but less common industrially. Source: Laser physics
-      research in Optics and Lasers in Engineering (2020).'
+    description: 'Nanosecond regime preferred for wood to ablate contaminants with minimal heat-affected zone; 20 ns recommended
+      for cherry to reduce thermal diffusion given wood''s low conductivity (~0.16 W/m·K). Picosecond (ps) or femtosecond
+      optional for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering
+      (2020).'
   repetition_rate:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for pulsed cleaning of organics; 30 kHz balances speed and
-      heat accumulation on cherry wood (reflectivity ~40% at 1064 nm, melting point
-      N/A but charring >200°C). Higher rates increase speed but risk buildup. Source:
-      Academic literature, e.g., Applied Surface Science (2019) on wood laser processing.'
+    description: 'Typical for pulsed cleaning of organics; 30 kHz balances speed and heat accumulation on cherry wood (reflectivity
+      ~40% at 1064 nm, melting point N/A but charring >200°C). Higher rates increase speed but risk buildup. Source: Academic
+      literature, e.g., Applied Surface Science (2019) on wood laser processing.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe contaminant removal; cherry wood damage threshold
-      ~8-12 J/cm² at 1064 nm due to low thermal conductivity. 1.5 J/cm² recommended
-      for cleaning without substrate harm. Source: Ablation threshold studies in Journal
-      of Applied Physics (2017) for hardwoods.'
+    description: 'Fluence range for safe contaminant removal; cherry wood damage threshold ~8-12 J/cm² at 1064 nm due to low
+      thermal conductivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies
+      in Journal of Applied Physics (2017) for hardwoods.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for precise cleaning; 200 μm recommended for cherry
-      surface preparation to cover details without overexposure. Smaller for fine
-      work, larger for broad areas. Source: Equipment specs from Coherent and Trumpf
-      laser cleaning systems.'
+    description: 'Beam diameter for precise cleaning; 200 μm recommended for cherry surface preparation to cover details without
+      overexposure. Smaller for fine work, larger for broad areas. Source: Equipment specs from Coherent and Trumpf laser
+      cleaning systems.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Multi-pass for thorough removal on wood; 2 passes recommended for
-      cherry to ensure complete contamination clearance while monitoring for discoloration.
-      Single pass for light soils. Source: Industry case studies in restoration (e.g.,
-      ICALEO proceedings, 2021).'
+    description: 'Multi-pass for thorough removal on wood; 2 passes recommended for cherry to ensure complete contamination
+      clearance while monitoring for discoloration. Single pass for light soils. Source: Industry case studies in restoration
+      (e.g., ICALEO proceedings, 2021).'
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform coverage; 60% recommended for cherry to avoid gaps
-      or excessive overlap heating, given wood''s sensitivity. Source: Process optimization
-      in Laser & Photonics Reviews (2016).'
+    description: 'Ensures uniform coverage; 60% recommended for cherry to avoid gaps or excessive overlap heating, given wood''s
+      sensitivity. Source: Process optimization in Laser & Photonics Reviews (2016).'
+challenges:
+  thermal_management:
+  - challenge: Charring and carbonization
+    severity: high
+    threshold_temperature: 250-300°C
+    impact: Wood chars at low temperatures leaving black marks and structural damage
+    solutions:
+    - Use pulse mode with 2-5 second cooling between passes
+    - Reduce power by 30-40% compared to metals
+    - Increase scan speed to reduce dwell time
+    - Monitor surface for discoloration; stop if browning occurs
+  - challenge: Slow thermal diffusivity
+    severity: medium
+    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
+    impact: Heat accumulates rapidly causing thermal damage zones
+    solutions:
+    - Increase cooling time between passes
+    - Use lower repetition rates (<20 kHz)
+    - Apply crosshatch patterns to distribute heat
+  surface_characteristics:
+  - challenge: Grain direction sensitivity
+    severity: medium
+    variation: 20-40% absorption variation by grain orientation
+    impact: Laser absorption varies significantly with grain direction
+    solutions:
+    - Scan parallel to grain for consistent results
+    - Use crosshatch pattern (0° and 90°) for uniform cleaning
+    - Test on scrap to determine optimal scan direction
+  - challenge: Porous structure with deep contamination
+    severity: medium
+    porosity_range: 12-65% (softwoods highest)
+    impact: Contaminants penetrate deep into wood structure
+    solutions:
+    - Multiple passes with progressive power increase
+    - Reduce scan speed for deeper penetration (600 mm/s)
+    - Chemical pre-treatment for deep-seated contamination
+  contamination_challenges:
+  - challenge: Varnish and coating removal
+    severity: medium
+    impact: Thick coatings require multiple passes and generate smoke/fumes
+    solutions:
+    - First pass 80W fast (1500 mm/s) for bulk removal
+    - Second pass 60W slow (800 mm/s) for residue
+    - Use fume extraction to prevent redeposition
+    - Limit to 2-3 passes maximum to avoid substrate damage
+description: When laser cleaning Cherry, start with its high porosity. This property absorbs laser energy quickly, so you
+  must use low power settings to remove contaminants without scorching the surface. Its low density helps the process by allowing
+  even heat distribution, but watch for splintering in the middle of the job. Adjust scan speed higher to reduce dwell time
+  on porous areas. Make sure you overlap passes minimally to avoid uneven ablation. These steps restore the wood's natural
+  grain effectively.
+category: wood
+subcategory: hardwood
+title: Cherry Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: When laser cleaning Cherry, start with its high porosity.
+micro: When laser cleaning Cherry, start with its high porosity. This property absorbs laser energy quickly, so you must use
+  low power settings to remove contaminants without scorching the surface.

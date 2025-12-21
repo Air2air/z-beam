@@ -5,8 +5,8 @@
     "subcategory": "metamorphic",
     "title": "Gneiss Settings",
     "description": "Before laser cleaning, Gneiss surfaces require careful parameter selection After cleaning, Gneiss surfaces show restored appearance with controlled parameters",
-    "datePublished": "2025-12-20T23:40:43.879075Z",
-    "dateModified": "2025-12-20T23:40:43.879075Z",
+    "datePublished": "2025-12-21T03:33:05.011250Z",
+    "dateModified": "2025-12-21T03:33:05.011250Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -41,7 +41,127 @@
       "formatting_file": "usa_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "value": 90,
+      "unit": "W",
+      "description": "Optimal power for stone surface restoration",
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "value": 1064,
+      "unit": "nm",
+      "description": "Near-IR wavelength for stone cleaning",
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "value": 80,
+      "unit": "μm",
+      "description": "Moderate spot for effective treatment",
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "value": 40,
+      "unit": "kHz",
+      "description": "Balanced frequency for stone cleaning",
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "value": 2.2,
+      "unit": "J/cm²",
+      "description": "Energy for contamination removal",
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "value": 10,
+      "unit": "ns",
+      "description": "Controlled pulses for minimal damage",
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "value": 400,
+      "unit": "mm/s",
+      "description": "Steady scanning for uniform cleaning",
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "value": 2,
+      "unit": "passes",
+      "description": "Multiple passes for thorough treatment",
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "value": 50,
+      "unit": "%",
+      "description": "Standard overlap for consistent results",
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 1000,
+      "value": 200,
+      "unit": "W",
+      "description": "Typical range for industrial cleaning of hard stones like Gneiss using 1064 nm lasers to remove contaminants without substrate damage; starting at 200 W balances efficiency and safety. Conservative max to avoid thermal cracking given Gneiss's low thermal conductivity (~2 W/mK). Source: IPG Photonics equipment specs for stone cleaning; academic review in 'Laser Cleaning of Stone Surfaces' (J. Appl. Phys., 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Range for effective contaminant removal on rocky surfaces; slower for heavy contamination (e.g., rust or oils), faster for light dust. Recommended 1500 mm/s for optimal balance on Gneiss to prevent overheating. Source: Industry standards from Laserax manuals; case studies on granite-like materials in Opt. Lasers Eng. (2020)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for Gneiss cleaning to ablate contaminants with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost—ns sufficient for industrial use. Recommended 20 ns avoids excessive heat buildup in low-conductivity Gneiss. Source: Laser physics research in Appl. Surf. Sci. (2019) on stone ablation thresholds."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 50,
+      "description": "Typical for pulsed 1064 nm lasers in cleaning; higher rates speed up process but risk heat accumulation on reflective, low-conductivity Gneiss (reflectivity ~20-30% at 1064 nm). Recommended 50 kHz for efficient cleaning without thermal damage. Source: Academic literature in J. Laser Appl. (2021) on rock surface preparation."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 2,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe contaminant removal; Gneiss damage threshold ~6-8 J/cm² due to high melting point (~1200°C). Recommended 2 J/cm² for effective cleaning below threshold. Conservative estimates for industrial use. Source: Ablation threshold studies in Opt. Express (2017) on metamorphic rocks like Gneiss/granite."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Typical beam diameters for precise industrial cleaning; smaller for fine details, larger for broad areas. Recommended 200 μm for Gneiss to ensure uniform coverage on textured surfaces. Source: Equipment specifications from Coherent and Trumpf lasers for stone applications."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass for heavy layers; recommended 2 passes for complete removal on Gneiss without risking substrate erosion. Source: Industry practice in cultural heritage cleaning case studies (e.g., granite analogs) from Restaurators (2019); adaptable to industrial."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "Ensures uniform coverage; 60% recommended for Gneiss to avoid gaps on irregular surfaces while minimizing over-processing and heat buildup. Typical range from process optimization. Source: Studies in Laser Ablation and Surf. Process. (2022) on optimizing scan patterns for stones."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

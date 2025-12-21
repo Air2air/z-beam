@@ -1,7 +1,7 @@
 id: terbium-settings
 name: Terbium
-datePublished: '2025-12-20T23:40:43.037175Z'
-dateModified: '2025-12-20T23:40:43.037175Z'
+datePublished: '2025-12-21T03:33:04.479866Z'
+dateModified: '2025-12-21T03:33:04.479866Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/rare-earth/lanthanide/terbium-settings
@@ -38,8 +38,8 @@ author:
   - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
@@ -55,200 +55,6 @@ relationships:
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
 machine_settings:
-  powerRange:
-    description: Optimal average power for Terbium oxide layer removal
-    unit: W
-    value: 45
-  wavelength:
-    description: Near-IR wavelength for optimal Terbium absorption
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Beam spot diameter for precise cleaning
-    unit: μm
-    value: 80
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning
-    unit: kHz
-    value: 50
-  fluenceThreshold:
-    description: Fluence threshold for Terbium oxide removal
-    unit: J/cm²
-    value: 2.5
-  pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation
-    unit: ns
-    value: 15
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Number of cleaning passes for complete oxide removal
-    unit: passes
-    value: 3
-  overlapRatio:
-    description: Optimal beam overlap for complete coverage
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: Rapid oxidation and pyrophoricity
-    severity: critical
-    threshold_temperature: Above 150-300°C causes spontaneous ignition in air
-    impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine
-      particles pyrophoric
-    solutions:
-    - Process in inert atmosphere (argon or nitrogen) or high vacuum
-    - Use pulse mode with 10-15 second cooling to prevent sustained heating
-    - Keep surface temperature below 150°C monitored with IR camera
-    - Have fire suppression ready for pyrophoric materials
-    - Immediate passivation after cleaning to prevent further oxidation
-  - challenge: Variable thermal properties across series
-    severity: medium
-    property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
-    impact: Different lanthanides require different cooling strategies
-    solutions:
-    - Light lanthanides (La, Ce, Pr) require more cooling time
-    - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
-    - Adjust parameters by specific element, not just category
-    - Test on small area to determine optimal cooling requirements
-  surface_characteristics:
-  - challenge: Oxide layer formation and removal
-    severity: high
-    impact: Surface oxidizes within seconds to minutes forming opaque layer
-    solutions:
-    - Clean in controlled atmosphere to prevent immediate reoxidation
-    - Multiple passes may be required as oxide reforms between passes
-    - Oxide removal threshold (1-3 J/cm²) lower than metal substrate (2-5 J/cm²)
-    - Chemical passivation immediately after cleaning
-    - Store in inert atmosphere or vacuum after processing
-  - challenge: Magnetic property sensitivity
-    severity: high
-    impact: Heating above Curie temperature permanently alters magnetic properties
-    solutions:
-    - Monitor temperature strictly; Nd magnets lose magnetism above 310-400°C
-    - Use ultrashort pulses (picosecond) for minimal heat-affected zone
-    - Reduce power by 60-70% compared to non-magnetic metals
-    - Test magnetic properties before and after cleaning to verify preservation
-  contamination_challenges:
-  - challenge: High-value material recovery
-    severity: medium
-    impact: Rare-earth elements extremely valuable; contamination removal must preserve
-      material
-    solutions:
-    - First pass 15W very slow (500 mm/s) for assessment
-    - Gradual power increase (15W → 25W → 35W) across multiple passes
-    - Collect all ablated material for potential recovery
-    - Document process for traceability and quality control
-    - Consider chemical pre-treatment to reduce laser exposure
-  - challenge: Strategic material handling requirements
-    severity: medium
-    impact: Export-controlled materials require documentation and secure handling
-    solutions:
-    - Clean in controlled access facility
-    - Document all processing parameters and material quantities
-    - Secure storage of cleaned materials
-    - Follow applicable export control regulations
-    - Chain of custody documentation for high-value materials
-description: 'When laser cleaning Terbium, you must first watch out for its high reflectivity,
-  which bounces back most of the laser energy compared to less reflective rare-earth
-  metals like neodymium. This difference means you need to adjust your setup carefully
-  to prevent inefficient cleaning or unintended heating elsewhere. Make sure you start
-  with lower power levels right away, so you avoid scattering the beam and wasting
-  energy on surfaces that won''t absorb it well.
-
-
-  Unlike more absorbent metals in electronics manufacturing, Terbium''s shiny nature
-  demands you increase the number of passes slowly while keeping the spot size tight.
-  You should also control scan speeds to let the laser dwell just long enough for
-  gradual contaminant removal without risking surface damage. Its dense and hard structure
-  holds up well under repeated exposure, but poor thermal conductivity traps heat
-  locally, so monitor for hotspots that could warp delicate aerospace parts.
-
-
-  In my experience with medical applications, this reflective trait sets Terbium apart,
-  requiring you to test absorptivity enhancers if cleaning proves stubborn. Always
-  prioritize overlap in your paths to ensure even coverage, restoring the finish without
-  compromising its oxidation-prone edges. Approach it methodically, and you''ll clear
-  residues effectively for renewable energy components too.'
-category: rare-earth
-subcategory: lanthanide
-title: Terbium Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: When laser cleaning Terbium, you must first watch out for its high
-  reflectivity, which bounces back most of the laser energy compared to less reflective...
-micro: When laser cleaning Terbium, you must first watch out for its high reflectivity,
-  which bounces back most of the laser energy compared to less reflective rare-earth
-  metals like neodymium. This difference means you need to adjust your setup carefully
-  to prevent inefficient cleaning or unintended heating elsewhere.
-machineSettings:
   powerRange:
     description: Optimal average power for Terbium oxide layer removal
     unit: W
@@ -308,79 +114,212 @@ machineSettings:
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for Nd:YAG laser cleaning of reflective metals; starting
-      at 100W to balance ablation and heat input. Terbium''s low thermal conductivity
-      (~11 W/mK) requires conservative power to avoid melting (mp 1356°C). Source:
-      Extrapolated from metal cleaning studies (e.g., Kumar et al., Opt. Lasers Eng.
-      2018); manufacturer specs like IPG Photonics YLR series limit max to prevent
-      substrate damage.'
+    description: 'Typical range for Nd:YAG laser cleaning of reflective metals; starting at 100W to balance ablation and heat
+      input. Terbium''s low thermal conductivity (~11 W/mK) requires conservative power to avoid melting (mp 1356°C). Source:
+      Extrapolated from metal cleaning studies (e.g., Kumar et al., Opt. Lasers Eng. 2018); manufacturer specs like IPG Photonics
+      YLR series limit max to prevent substrate damage.'
   scan_speed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective speeds for contamination removal on metals; higher for
-      light contaminants (e.g., oxides), lower for heavy. Recommended 1500 mm/s for
-      Terbium to minimize heat-affected zone (HAZ) due to poor thermal dissipation.
-      Source: Industry standards from Laser Clean Corp. manuals; case studies on rare
-      earth alloys (e.g., J. Laser Appl. 2020).'
+    description: 'Effective speeds for contamination removal on metals; higher for light contaminants (e.g., oxides), lower
+      for heavy. Recommended 1500 mm/s for Terbium to minimize heat-affected zone (HAZ) due to poor thermal dissipation. Source:
+      Industry standards from Laser Clean Corp. manuals; case studies on rare earth alloys (e.g., J. Laser Appl. 2020).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning to achieve plasma-mediated
-      ablation with minimal HAZ; picosecond (ps) or femtosecond (fs) for ultra-precision
-      but costlier. 20 ns recommended for Terbium to limit thermal diffusion. Source:
-      Laser physics research on metal ablation (e.g., Ancona et al., Appl. Surf. Sci.
-      2010); avoids fs due to Terbium''s reflectivity at 1064 nm.'
+    description: 'Nanosecond regime preferred for industrial cleaning to achieve plasma-mediated ablation with minimal HAZ;
+      picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended for Terbium to limit thermal
+      diffusion. Source: Laser physics research on metal ablation (e.g., Ancona et al., Appl. Surf. Sci. 2010); avoids fs
+      due to Terbium''s reflectivity at 1064 nm.'
   repetition_rate:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for pulsed cleaning; higher rates speed up process but risk
-      heat accumulation in low-conductivity materials like Terbium. 30 kHz balances
-      efficiency and safety. Trade-off: >50 kHz may cause subsurface heating. Source:
-      Academic literature on Nd:YAG cleaning (e.g., Lee et al., J. Phys. D 2015);
-      adapted for rare earth metals.'
+    description: 'Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity
+      materials like Terbium. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause subsurface heating. Source:
+      Academic literature on Nd:YAG cleaning (e.g., Lee et al., J. Phys. D 2015); adapted for rare earth metals.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence below Terbium''s ablation threshold (~4 J/cm² estimated
-      for 1064 nm) for safe contaminant removal without substrate damage. Recommended
-      1.5 J/cm² for light industrial cleaning. Terbium''s high reflectivity (~70%
-      at IR) requires higher fluence than dielectrics. Source: Ablation threshold
-      studies on similar metals (e.g., Rubenchik et al., Appl. Opt. 2017); conservative
-      due to limited Terbium-specific data.'
+    description: 'Fluence below Terbium''s ablation threshold (~4 J/cm² estimated for 1064 nm) for safe contaminant removal
+      without substrate damage. Recommended 1.5 J/cm² for light industrial cleaning. Terbium''s high reflectivity (~70% at
+      IR) requires higher fluence than dielectrics. Source: Ablation threshold studies on similar metals (e.g., Rubenchik
+      et al., Appl. Opt. 2017); conservative due to limited Terbium-specific data.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for precise cleaning; smaller for fine details, larger
-      for broad areas. 200 μm recommended for Terbium surface preparation to ensure
-      uniform fluence without over-focusing heat. Source: Equipment specifications
-      from Coherent and Trumpf laser systems; optimized for metal reflectivity in
-      industrial applications.'
+    description: 'Beam diameter for precise cleaning; smaller for fine details, larger for broad areas. 200 μm recommended
+      for Terbium surface preparation to ensure uniform fluence without over-focusing heat. Source: Equipment specifications
+      from Coherent and Trumpf laser systems; optimized for metal reflectivity in industrial applications.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers;
-      2 passes recommended for complete Terbium cleaning without excessive exposure.
-      Multi-pass allows lower fluence per pass to protect soft substrate. Source:
-      Industry practice from case studies on alloy cleaning (e.g., Proc. SPIE 2019);
-      Terbium''s malleability favors fewer passes.'
+    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for complete Terbium
+      cleaning without excessive exposure. Multi-pass allows lower fluence per pass to protect soft substrate. Source: Industry
+      practice from case studies on alloy cleaning (e.g., Proc. SPIE 2019); Terbium''s malleability favors fewer passes.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage; 50% recommended for Terbium to avoid gaps
-      or over-ablation, balancing speed and efficacy. Higher (70-80%) for heavy contaminants.
-      Source: Process optimization studies (e.g., Katayama et al., J. Laser Micro/Nanoeng.
-      2012); standard for scanned laser cleaning of metals.'
+    description: 'Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and
+      efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser
+      Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals.'
+challenges:
+  thermal_management:
+  - challenge: Rapid oxidation and pyrophoricity
+    severity: critical
+    threshold_temperature: Above 150-300°C causes spontaneous ignition in air
+    impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
+    solutions:
+    - Process in inert atmosphere (argon or nitrogen) or high vacuum
+    - Use pulse mode with 10-15 second cooling to prevent sustained heating
+    - Keep surface temperature below 150°C monitored with IR camera
+    - Have fire suppression ready for pyrophoric materials
+    - Immediate passivation after cleaning to prevent further oxidation
+  - challenge: Variable thermal properties across series
+    severity: medium
+    property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
+    impact: Different lanthanides require different cooling strategies
+    solutions:
+    - Light lanthanides (La, Ce, Pr) require more cooling time
+    - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
+    - Adjust parameters by specific element, not just category
+    - Test on small area to determine optimal cooling requirements
+  surface_characteristics:
+  - challenge: Oxide layer formation and removal
+    severity: high
+    impact: Surface oxidizes within seconds to minutes forming opaque layer
+    solutions:
+    - Clean in controlled atmosphere to prevent immediate reoxidation
+    - Multiple passes may be required as oxide reforms between passes
+    - Oxide removal threshold (1-3 J/cm²) lower than metal substrate (2-5 J/cm²)
+    - Chemical passivation immediately after cleaning
+    - Store in inert atmosphere or vacuum after processing
+  - challenge: Magnetic property sensitivity
+    severity: high
+    impact: Heating above Curie temperature permanently alters magnetic properties
+    solutions:
+    - Monitor temperature strictly; Nd magnets lose magnetism above 310-400°C
+    - Use ultrashort pulses (picosecond) for minimal heat-affected zone
+    - Reduce power by 60-70% compared to non-magnetic metals
+    - Test magnetic properties before and after cleaning to verify preservation
+  contamination_challenges:
+  - challenge: High-value material recovery
+    severity: medium
+    impact: Rare-earth elements extremely valuable; contamination removal must preserve material
+    solutions:
+    - First pass 15W very slow (500 mm/s) for assessment
+    - Gradual power increase (15W → 25W → 35W) across multiple passes
+    - Collect all ablated material for potential recovery
+    - Document process for traceability and quality control
+    - Consider chemical pre-treatment to reduce laser exposure
+  - challenge: Strategic material handling requirements
+    severity: medium
+    impact: Export-controlled materials require documentation and secure handling
+    solutions:
+    - Clean in controlled access facility
+    - Document all processing parameters and material quantities
+    - Secure storage of cleaned materials
+    - Follow applicable export control regulations
+    - Chain of custody documentation for high-value materials
+description: 'When laser cleaning Terbium, you must first watch out for its high reflectivity, which bounces back most of
+  the laser energy compared to less reflective rare-earth metals like neodymium. This difference means you need to adjust
+  your setup carefully to prevent inefficient cleaning or unintended heating elsewhere. Make sure you start with lower power
+  levels right away, so you avoid scattering the beam and wasting energy on surfaces that won''t absorb it well.
+
+
+  Unlike more absorbent metals in electronics manufacturing, Terbium''s shiny nature demands you increase the number of passes
+  slowly while keeping the spot size tight. You should also control scan speeds to let the laser dwell just long enough for
+  gradual contaminant removal without risking surface damage. Its dense and hard structure holds up well under repeated exposure,
+  but poor thermal conductivity traps heat locally, so monitor for hotspots that could warp delicate aerospace parts.
+
+
+  In my experience with medical applications, this reflective trait sets Terbium apart, requiring you to test absorptivity
+  enhancers if cleaning proves stubborn. Always prioritize overlap in your paths to ensure even coverage, restoring the finish
+  without compromising its oxidation-prone edges. Approach it methodically, and you''ll clear residues effectively for renewable
+  energy components too.'
+category: rare-earth
+subcategory: lanthanide
+title: Terbium Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: When laser cleaning Terbium, you must first watch out for its high reflectivity, which bounces back most
+  of the laser energy compared to less reflective...
+micro: When laser cleaning Terbium, you must first watch out for its high reflectivity, which bounces back most of the laser
+  energy compared to less reflective rare-earth metals like neodymium. This difference means you need to adjust your setup
+  carefully to prevent inefficient cleaning or unintended heating elsewhere.

@@ -1,7 +1,7 @@
 id: gorilla-glass-settings
 name: Gorilla Glass
-datePublished: '2025-12-20T23:40:40.201250Z'
-dateModified: '2025-12-20T23:40:40.201250Z'
+datePublished: '2025-12-21T03:33:02.950684Z'
+dateModified: '2025-12-21T03:33:02.950684Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/soda-lime/gorilla-glass-settings
@@ -37,8 +37,7 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
-    with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
@@ -54,178 +53,6 @@ relationships:
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
 machine_settings:
-  powerRange:
-    description: Optimal power range for Gorilla Glass cleaning without thermal damage
-    unit: W
-    value: 100
-  wavelength:
-    description: Optimal wavelength for Gorilla Glass processing with good absorption
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Optimal spot size for precision cleaning of Gorilla Glass surfaces
-    unit: μm
-    value: 50
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 100
-  fluenceThreshold:
-    description: Optimal fluence threshold for contaminant removal without glass damage
-    unit: J/cm²
-    value: 2.5
-  pulseWidth:
-    description: Optimal pulse width for controlled ablation of surface contaminants
-    unit: ns
-    value: 10
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Optimal number of passes for complete contaminant removal
-    unit: passes
-    value: 3
-  overlapRatio:
-    description: Optimal beam overlap ratio for uniform cleaning coverage
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: Thermal shock and catastrophic failure
-    severity: critical
-    threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
-    impact: Glass shatters from thermal gradients due to low thermal expansion and
-      brittleness
-    solutions:
-    - Use pulse mode with 5-8 second cooling between passes
-    - Preheat substrate to room temperature before cleaning
-    - Avoid cold spots (air vents, cold backing) during processing
-    - Tempered glass more resistant but still susceptible to thermal shock
-    - Monitor for stress fractures; stop immediately if cracks appear
-  - challenge: Low thermal diffusivity
-    severity: high
-    property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
-    impact: Heat accumulates in localized zones creating thermal gradients
-    solutions:
-    - Reduce power by 30-40% compared to metals
-    - Increase scan speed to distribute heat (1000-2000 mm/s)
-    - Use defocused beam to spread energy over larger area
-    - Optical-grade glass (fused silica) tolerates higher power
-  surface_characteristics:
-  - challenge: Surface defects and stress concentrators
-    severity: high
-    impact: Scratches, chips, and inclusions dramatically lower damage threshold
-    solutions:
-    - Inspect surface with magnification before cleaning
-    - Reduce power 40-50% for scratched or damaged glass
-    - Clean around defects with extreme caution
-    - Polished optical glass requires different parameters than rough architectural
-      glass
-  - challenge: Coating and film removal
-    severity: medium
-    impact: Thin films, anti-reflective coatings, and tints have different damage
-      thresholds than substrate
-    solutions:
-    - Test on edge first to determine coating removal threshold
-    - Coated glass may require 40-60W initial pass
-    - Bare glass requires 20-30% lower power after coating removal
-    - AR coatings very sensitive - use 30-40W maximum
-  contamination_challenges:
-  - challenge: Adhesive and paint removal
-    severity: medium
-    impact: Thick coatings require multiple passes and generate debris that can scratch
-      glass
-    solutions:
-    - First pass 60W fast (1800 mm/s) for bulk removal
-    - Second pass 40W slow (1000 mm/s) for residue
-    - Use air assist to blow debris away from surface
-    - Chemical pre-treatment reduces laser exposure time
-    - Avoid dragging ablated material across clean areas
-description: We've found that Gorilla Glass cleans reliably with laser when we prioritize
-  its strong energy absorption, which removes surface residues effectively without
-  excessive material removal. This lets us restore clarity on delicate displays in
-  electronics repair. But in the middle of passes, its limited heat spreading can
-  build localized stress—so reduce speed to prevent cracking the chemically toughened
-  layers.
-category: glass
-subcategory: soda-lime
-title: Gorilla Glass Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: We've found that Gorilla Glass cleans reliably with laser when we
-  prioritize its strong energy absorption, which removes surface residues effectively
-  without...
-micro: We've found that Gorilla Glass cleans reliably with laser when we prioritize
-  its strong energy absorption, which removes surface residues effectively without
-  excessive material removal. This lets us restore clarity on delicate displays in
-  electronics repair.
-machineSettings:
   powerRange:
     description: Optimal power range for Gorilla Glass cleaning without thermal damage
     unit: W
@@ -285,76 +112,187 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for delicate glass substrates like Gorilla Glass to
-      avoid thermal damage; starting at 50W for light contamination removal. Max safe
-      below 200W to prevent cracking due to low thermal conductivity (~1 W/mK). Source:
-      IPG Photonics laser cleaning guidelines for optics; academic review in Journal
-      of Laser Applications (2018).'
+    description: 'Typical range for delicate glass substrates like Gorilla Glass to avoid thermal damage; starting at 50W
+      for light contamination removal. Max safe below 200W to prevent cracking due to low thermal conductivity (~1 W/mK).
+      Source: IPG Photonics laser cleaning guidelines for optics; academic review in Journal of Laser Applications (2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Range for effective contaminant ablation without substrate heating;
-      slower speeds (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s)
-      for light. Recommended 500 mm/s for Gorilla Glass to balance efficiency and
-      safety. Source: Industry standards from Laser Institute of America; equipment
-      manuals from Coherent Inc.'
+    description: 'Range for effective contaminant ablation without substrate heating; slower speeds (100-500 mm/s) for heavy
+      contamination, faster (1000-2000 mm/s) for light. Recommended 500 mm/s for Gorilla Glass to balance efficiency and safety.
+      Source: Industry standards from Laser Institute of America; equipment manuals from Coherent Inc.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 10
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning; picosecond
-      (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially.
-      10 ns recommended to limit heat diffusion in Gorilla Glass (high reflectivity
-      ~4% at 1064 nm). Source: Laser physics research in Applied Physics A (2020)
-      on glass ablation thresholds.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal
+      HAZ but less common industrially. 10 ns recommended to limit heat diffusion in Gorilla Glass (high reflectivity ~4%
+      at 1064 nm). Source: Laser physics research in Applied Physics A (2020) on glass ablation thresholds.'
   repetition_rate:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; lower rates reduce heat
-      accumulation in low-conductivity Gorilla Glass, higher enable faster processing
-      but risk overheating. 20 kHz recommended for balanced throughput. Trade-off:
-      high freq increases cumulative fluence. Source: Academic literature in Optics
-      and Lasers in Engineering (2019).'
+    description: 'Typical 10-100 kHz for pulsed cleaning; lower rates reduce heat accumulation in low-conductivity Gorilla
+      Glass, higher enable faster processing but risk overheating. 20 kHz recommended for balanced throughput. Trade-off:
+      high freq increases cumulative fluence. Source: Academic literature in Optics and Lasers in Engineering (2019).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal (e.g., oils, fingerprints);
-      Gorilla Glass damage threshold ~2-5 J/cm² at 1064 nm ns pulses due to softening
-      point ~500°C. Recommended 0.5 J/cm² for safe cleaning below threshold. Source:
-      Ablation threshold studies in Journal of Applied Physics (2017) on strengthened
-      glass.'
+    description: 'Fluence range for contaminant removal (e.g., oils, fingerprints); Gorilla Glass damage threshold ~2-5 J/cm²
+      at 1064 nm ns pulses due to softening point ~500°C. Recommended 0.5 J/cm² for safe cleaning below threshold. Source:
+      Ablation threshold studies in Journal of Applied Physics (2017) on strengthened glass.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller spots (50-200 μm) for fine detail cleaning on Gorilla Glass
-      surfaces; larger (200-500 μm) for broad areas. 200 μm recommended for uniform
-      coverage without pinpoint damage. Source: Equipment specifications from Trumpf
+    description: 'Smaller spots (50-200 μm) for fine detail cleaning on Gorilla Glass surfaces; larger (200-500 μm) for broad
+      areas. 200 μm recommended for uniform coverage without pinpoint damage. Source: Equipment specifications from Trumpf
       and Coherent laser systems for precision optics cleaning.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination; multi-pass (2-5) for heavy
-      layers to avoid exceeding damage fluence per pass. Recommended 2 passes for
-      Gorilla Glass to ensure complete removal while minimizing thermal stress. Source:
-      Industry case studies in Surface and Coatings Technology (2021); Corning application
-      notes.'
+    description: 'Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid exceeding damage fluence
+      per pass. Recommended 2 passes for Gorilla Glass to ensure complete removal while minimizing thermal stress. Source:
+      Industry case studies in Surface and Coatings Technology (2021); Corning application notes.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '30-80% overlap ensures uniform fluence distribution; higher for
-      delicate materials like Gorilla Glass to prevent uneven heating or missed spots.
-      50% recommended for optimal coverage in industrial cleaning. Source: Process
+    description: '30-80% overlap ensures uniform fluence distribution; higher for delicate materials like Gorilla Glass to
+      prevent uneven heating or missed spots. 50% recommended for optimal coverage in industrial cleaning. Source: Process
       optimization studies in Lasers in Manufacturing and Materials Processing (2022).'
+challenges:
+  thermal_management:
+  - challenge: Thermal shock and catastrophic failure
+    severity: critical
+    threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+    impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
+    solutions:
+    - Use pulse mode with 5-8 second cooling between passes
+    - Preheat substrate to room temperature before cleaning
+    - Avoid cold spots (air vents, cold backing) during processing
+    - Tempered glass more resistant but still susceptible to thermal shock
+    - Monitor for stress fractures; stop immediately if cracks appear
+  - challenge: Low thermal diffusivity
+    severity: high
+    property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+    impact: Heat accumulates in localized zones creating thermal gradients
+    solutions:
+    - Reduce power by 30-40% compared to metals
+    - Increase scan speed to distribute heat (1000-2000 mm/s)
+    - Use defocused beam to spread energy over larger area
+    - Optical-grade glass (fused silica) tolerates higher power
+  surface_characteristics:
+  - challenge: Surface defects and stress concentrators
+    severity: high
+    impact: Scratches, chips, and inclusions dramatically lower damage threshold
+    solutions:
+    - Inspect surface with magnification before cleaning
+    - Reduce power 40-50% for scratched or damaged glass
+    - Clean around defects with extreme caution
+    - Polished optical glass requires different parameters than rough architectural glass
+  - challenge: Coating and film removal
+    severity: medium
+    impact: Thin films, anti-reflective coatings, and tints have different damage thresholds than substrate
+    solutions:
+    - Test on edge first to determine coating removal threshold
+    - Coated glass may require 40-60W initial pass
+    - Bare glass requires 20-30% lower power after coating removal
+    - AR coatings very sensitive - use 30-40W maximum
+  contamination_challenges:
+  - challenge: Adhesive and paint removal
+    severity: medium
+    impact: Thick coatings require multiple passes and generate debris that can scratch glass
+    solutions:
+    - First pass 60W fast (1800 mm/s) for bulk removal
+    - Second pass 40W slow (1000 mm/s) for residue
+    - Use air assist to blow debris away from surface
+    - Chemical pre-treatment reduces laser exposure time
+    - Avoid dragging ablated material across clean areas
+description: We've found that Gorilla Glass cleans reliably with laser when we prioritize its strong energy absorption, which
+  removes surface residues effectively without excessive material removal. This lets us restore clarity on delicate displays
+  in electronics repair. But in the middle of passes, its limited heat spreading can build localized stress—so reduce speed
+  to prevent cracking the chemically toughened layers.
+category: glass
+subcategory: soda-lime
+title: Gorilla Glass Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: We've found that Gorilla Glass cleans reliably with laser when we prioritize its strong energy absorption,
+  which removes surface residues effectively without...
+micro: We've found that Gorilla Glass cleans reliably with laser when we prioritize its strong energy absorption, which removes
+  surface residues effectively without excessive material removal. This lets us restore clarity on delicate displays in electronics
+  repair.

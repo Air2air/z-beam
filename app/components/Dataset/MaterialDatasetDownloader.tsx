@@ -1,15 +1,15 @@
-// app/components/Dataset/MaterialDatasetCardWrapper.tsx
+// app/components/Dataset/MaterialDatasetDownloader.tsx
 
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSectionClient from './DatasetSectionClient';
-import type { MaterialDatasetCardWrapperProps } from '@/types/centralized';
+import type { MaterialDatasetDownloaderProps } from '@/types/centralized';
 
 /**
  * Server component that calculates dataset stats at build time
  * Data must be passed as props from the page that already loaded it
  */
-export default function MaterialDatasetCardWrapper({
+export default function MaterialDatasetDownloader({
   materialName,
   slug,
   category,
@@ -19,7 +19,7 @@ export default function MaterialDatasetCardWrapper({
   faq = [],
   regulatoryStandards = [],
   showFullDataset: _showFullDataset = false
-}: MaterialDatasetCardWrapperProps) {
+}: MaterialDatasetDownloaderProps) {
   // Calculate stats from provided data
   const totalProperties = Object.values(materialProperties).reduce((total: number, section: any) => {
     if (section && typeof section === 'object' && !Array.isArray(section)) {
@@ -35,6 +35,11 @@ export default function MaterialDatasetCardWrapper({
 
   const faqCount = Array.isArray(faq) ? faq.length : ((faq as any)?.questions?.length || 0);
   const standardsCount = regulatoryStandards?.length || 0;
+  
+  // Break down properties by section for better stats
+  const physicalProps = Object.keys(materialProperties?.physical_properties || {}).filter(k => !['label', 'percentage', 'description'].includes(k)).length;
+  const laserInteraction = Object.keys(materialProperties?.laser_material_interaction || {}).filter(k => !['label', 'percentage', 'description'].includes(k)).length;
+  
   const variablesCount = totalProperties;
   const sectionsCount = Object.keys(materialProperties).length;
 
@@ -82,11 +87,12 @@ export default function MaterialDatasetCardWrapper({
         category={category}
         subcategory={subcategory}
         includes={[
-          'Material properties with full specifications',
-          'Processing parameters and recommended settings',
-          'Application examples and use cases',
-          'Safety information and handling guidelines',
-          'Source references and validation data'
+          `Material properties (${totalProperties} variables across ${sectionsCount} categories)`,
+          `Machine settings (${settingsCount} parameters with min/max ranges)`,
+          `FAQs and troubleshooting (${faqCount} entries)`,
+          `Regulatory standards and compliance (${standardsCount} references)`,
+          'Source citations and validation data',
+          'Processing parameters and recommended settings'
         ]}
         categoryLink={{
           href: `/materials/${category}`,

@@ -1,7 +1,7 @@
 id: borosilicate-glass-settings
 name: Borosilicate Glass
-datePublished: '2025-12-20T23:40:39.193209Z'
-dateModified: '2025-12-20T23:40:39.193209Z'
+datePublished: '2025-12-21T03:33:02.408571Z'
+dateModified: '2025-12-21T03:33:02.408571Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/soda-lime/borosilicate-glass-settings
@@ -36,8 +36,7 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
-    in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
@@ -55,52 +54,129 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Borosilicate Glass surface cleaning without
-      thermal damage
+    description: Optimal average power for Borosilicate Glass surface cleaning without thermal damage
     unit: W
     value: 25
+    min: 1.0
+    max: 120
   wavelength:
-    description: Near-IR wavelength providing good transmission control for surface
-      contamination removal
+    description: Near-IR wavelength providing good transmission control for surface contamination removal
     unit: nm
     value: 1064
+    min: 355
+    max: 10640
   spotSize:
     description: Beam spot diameter for precise cleaning control on glass surface
     unit: μm
     value: 100
+    min: 0.1
+    max: 500
   repetitionRate:
     description: Optimal repetition rate for efficient cleaning with thermal management
     unit: kHz
     value: 50
+    min: 1
+    max: 200
   fluenceThreshold:
     description: Fluence threshold for contaminant removal without glass damage
     unit: J/cm²
     value: 2.5
+    min: 0.3
+    max: 4.5
   pulseWidth:
-    description: Nanosecond pulse duration for efficient contaminant removal with
-      minimal substrate heating
+    description: Nanosecond pulse duration for efficient contaminant removal with minimal substrate heating
     unit: ns
     value: 100
+    min: 0.1
+    max: 1000
   scanSpeed:
     description: Optimal scanning speed for uniform cleaning coverage
     unit: mm/s
     value: 500
+    min: 10
+    max: 5000
   passCount:
     description: Number of cleaning passes for complete contaminant removal
     unit: passes
     value: 3
+    min: 1
+    max: 10
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive energy
-      deposition
+    description: Optimal beam overlap for uniform cleaning without excessive energy deposition
     unit: '%'
     value: 50
+    min: 10
+    max: 90
+  power:
+    min: 20
+    max: 200
+    value: 50
+    unit: W
+    description: Typical range for industrial cleaning of delicate substrates like borosilicate glass to prevent thermal cracking;
+      starting at 50W for light contamination, max safe below 200W to avoid substrate heating beyond 500°C (IPG Photonics
+      laser cleaning systems specs; borosilicate's low thermal conductivity ~1 W/mK limits heat dissipation).
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 2000
+    unit: mm/s
+    description: Effective for contaminant removal without excessive dwell time; slower (500-1000 mm/s) for heavy contamination,
+      faster (up to 5000 mm/s) for light; recommended 2000 mm/s balances efficiency and safety (industry standards from Laserax
+      and Adapt Laser manuals; considers glass reflectivity ~4% at 1064 nm).
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning; 10-50 ns minimizes heat-affected zone
+      (HAZ <10 μm) while ablating contaminants; avoids fs for industrial scalability (Laser Physics research, e.g., studies
+      on ns pulses for glass in Opt. Express 2018; borosilicate's melting point ~820°C requires short pulses to limit conduction).
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: Typical for pulsed cleaning; 20-50 kHz recommended to reduce heat accumulation in low-conductivity glass;
+      higher rates (>50 kHz) speed up process but risk cumulative heating (trade-off noted in academic literature, e.g., J.
+      Laser Appl. 2020; balances with glass's thermal diffusivity ~0.6 mm²/s).
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 2
+    unit: J/cm²
+    description: Fluence range for safe contaminant removal; damage threshold ~8-12 J/cm² for borosilicate at 1064 nm ns pulses;
+      recommended 1-3 J/cm² avoids ablation/cracking (ablation threshold studies in Appl. Surf. Sci. 2015; low absorption
+      at 1064 nm (~10 cm⁻¹) means fluence targets surface contaminants primarily).
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: Beam diameter for precise surface preparation; smaller (100-200 μm) for fine details, larger (up to 500 μm)
+      for broad areas; 200 μm recommended for uniform cleaning on glass (equipment specifications from Coherent and Trumpf
+      lasers; suits borosilicate's smooth surface to minimize edge effects).
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: Single pass for light contamination, multi-pass (2-3) for heavy; recommended 2 passes ensures complete removal
+      without damage (industry case studies on glass cleaning, e.g., proceedings from ICALEO 2019; accounts for glass's high
+      fracture toughness but sensitivity to repeated heating).
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 70
+    unit: '%'
+    description: Ensures uniform coverage and avoids streaks; 50-70% for light cleaning, up to 80% for heavy; 70% optimal
+      for borosilicate to prevent uneven heating (process optimization studies in J. Clean. Prod. 2021; standard in scanning
+      systems to maintain consistent fluence distribution).
 challenges:
   thermal_management:
   - challenge: Thermal shock and catastrophic failure
     severity: critical
     threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
-    impact: Glass shatters from thermal gradients due to low thermal expansion and
-      brittleness
+    impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
     solutions:
     - Use pulse mode with 5-8 second cooling between passes
     - Preheat substrate to room temperature before cleaning
@@ -124,12 +200,10 @@ challenges:
     - Inspect surface with magnification before cleaning
     - Reduce power 40-50% for scratched or damaged glass
     - Clean around defects with extreme caution
-    - Polished optical glass requires different parameters than rough architectural
-      glass
+    - Polished optical glass requires different parameters than rough architectural glass
   - challenge: Coating and film removal
     severity: medium
-    impact: Thin films, anti-reflective coatings, and tints have different damage
-      thresholds than substrate
+    impact: Thin films, anti-reflective coatings, and tints have different damage thresholds than substrate
     solutions:
     - Test on edge first to determine coating removal threshold
     - Coated glass may require 40-60W initial pass
@@ -138,21 +212,18 @@ challenges:
   contamination_challenges:
   - challenge: Adhesive and paint removal
     severity: medium
-    impact: Thick coatings require multiple passes and generate debris that can scratch
-      glass
+    impact: Thick coatings require multiple passes and generate debris that can scratch glass
     solutions:
     - First pass 60W fast (1800 mm/s) for bulk removal
     - Second pass 40W slow (1000 mm/s) for residue
     - Use air assist to blow debris away from surface
     - Chemical pre-treatment reduces laser exposure time
     - Avoid dragging ablated material across clean areas
-description: We've found that when laser cleaning borosilicate glass, you need to
-  start with gentle power levels right away, since its brittle nature compared to
-  tougher metals can lead to cracks if heat builds up too fast. Begin by scanning
-  slowly to let its superior heat resistance—unlike everyday soda-lime glass—absorb
-  energy without shocking the surface. Then, increase passes gradually, overlapping
-  beams to clear contaminants evenly while preserving the glass's clarity and strength
-  for lab or medical uses.
+description: We've found that when laser cleaning borosilicate glass, you need to start with gentle power levels right away,
+  since its brittle nature compared to tougher metals can lead to cracks if heat builds up too fast. Begin by scanning slowly
+  to let its superior heat resistance—unlike everyday soda-lime glass—absorb energy without shocking the surface. Then, increase
+  passes gradually, overlapping beams to clear contaminants evenly while preserving the glass's clarity and strength for lab
+  or medical uses.
 category: glass
 subcategory: soda-lime
 title: Borosilicate Glass Settings
@@ -166,8 +237,7 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
+  description: Federal requirements for personal protective equipment in construction and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -198,8 +268,7 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -223,144 +292,8 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: We've found that when laser cleaning borosilicate glass, you need
-  to start with gentle power levels right away, since its brittle nature compared
-  to tougher...
-micro: We've found that when laser cleaning borosilicate glass, you need to start
-  with gentle power levels right away, since its brittle nature compared to tougher
-  metals can lead to cracks if heat builds up too fast. Begin by scanning slowly to
-  let its superior heat resistance—unlike everyday soda-lime glass—absorb energy without
-  shocking the surface.
-machineSettings:
-  powerRange:
-    description: Optimal average power for Borosilicate Glass surface cleaning without
-      thermal damage
-    unit: W
-    value: 25
-    min: 1.0
-    max: 120
-  wavelength:
-    description: Near-IR wavelength providing good transmission control for surface
-      contamination removal
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    description: Beam spot diameter for precise cleaning control on glass surface
-    unit: μm
-    value: 100
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  fluenceThreshold:
-    description: Fluence threshold for contaminant removal without glass damage
-    unit: J/cm²
-    value: 2.5
-    min: 0.3
-    max: 4.5
-  pulseWidth:
-    description: Nanosecond pulse duration for efficient contaminant removal with
-      minimal substrate heating
-    unit: ns
-    value: 100
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 3
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive energy
-      deposition
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 20
-    max: 200
-    value: 50
-    unit: W
-    description: Typical range for industrial cleaning of delicate substrates like
-      borosilicate glass to prevent thermal cracking; starting at 50W for light contamination,
-      max safe below 200W to avoid substrate heating beyond 500°C (IPG Photonics laser
-      cleaning systems specs; borosilicate's low thermal conductivity ~1 W/mK limits
-      heat dissipation).
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 2000
-    unit: mm/s
-    description: Effective for contaminant removal without excessive dwell time; slower
-      (500-1000 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light;
-      recommended 2000 mm/s balances efficiency and safety (industry standards from
-      Laserax and Adapt Laser manuals; considers glass reflectivity ~4% at 1064 nm).
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning;
-      10-50 ns minimizes heat-affected zone (HAZ <10 μm) while ablating contaminants;
-      avoids fs for industrial scalability (Laser Physics research, e.g., studies
-      on ns pulses for glass in Opt. Express 2018; borosilicate's melting point ~820°C
-      requires short pulses to limit conduction).
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: Typical for pulsed cleaning; 20-50 kHz recommended to reduce heat
-      accumulation in low-conductivity glass; higher rates (>50 kHz) speed up process
-      but risk cumulative heating (trade-off noted in academic literature, e.g., J.
-      Laser Appl. 2020; balances with glass's thermal diffusivity ~0.6 mm²/s).
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 2
-    unit: J/cm²
-    description: Fluence range for safe contaminant removal; damage threshold ~8-12
-      J/cm² for borosilicate at 1064 nm ns pulses; recommended 1-3 J/cm² avoids ablation/cracking
-      (ablation threshold studies in Appl. Surf. Sci. 2015; low absorption at 1064
-      nm (~10 cm⁻¹) means fluence targets surface contaminants primarily).
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: Beam diameter for precise surface preparation; smaller (100-200 μm)
-      for fine details, larger (up to 500 μm) for broad areas; 200 μm recommended
-      for uniform cleaning on glass (equipment specifications from Coherent and Trumpf
-      lasers; suits borosilicate's smooth surface to minimize edge effects).
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: Single pass for light contamination, multi-pass (2-3) for heavy;
-      recommended 2 passes ensures complete removal without damage (industry case
-      studies on glass cleaning, e.g., proceedings from ICALEO 2019; accounts for
-      glass's high fracture toughness but sensitivity to repeated heating).
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 70
-    unit: '%'
-    description: Ensures uniform coverage and avoids streaks; 50-70% for light cleaning,
-      up to 80% for heavy; 70% optimal for borosilicate to prevent uneven heating
-      (process optimization studies in J. Clean. Prod. 2021; standard in scanning
-      systems to maintain consistent fluence distribution).
+seo_description: We've found that when laser cleaning borosilicate glass, you need to start with gentle power levels right
+  away, since its brittle nature compared to tougher...
+micro: We've found that when laser cleaning borosilicate glass, you need to start with gentle power levels right away, since
+  its brittle nature compared to tougher metals can lead to cracks if heat builds up too fast. Begin by scanning slowly to
+  let its superior heat resistance—unlike everyday soda-lime glass—absorb energy without shocking the surface.

@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for metal oxide removal
 
-Generated: 2025-12-21T01:26:06.576Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal metal absorption
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Pulse frequency for controlled cleaning
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Energy per unit area for oxide removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Pulse duration for minimal heat-affected zone
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Beam travel speed for uniform treatment
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning cycles for complete removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap for consistent coverage
+
+POWER:
+  Value: 100 W
+  Range: 50-300 W
+  Description: Typical range for 1064 nm ns-pulsed lasers in industrial cleaning of Ti-6Al-4V to remove contaminants without excessive heating; starting at 100 W for light oxidation, max limited by low thermal conductivity (6.7 W/m·K) to avoid melting (1660°C); source: CleanLaser CL 1000 manual and study in Optics and Lasers in Engineering (2018) on Ti alloys.
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for ablation of surface contaminants; 2000 mm/s recommended for optimal balance of removal efficiency and minimal HAZ on reflective Ti-6Al-4V; slower (500-1000 mm/s) for heavy contamination like oxides, faster for light residues; source: Industry standards from Laserax equipment guidelines and Journal of Laser Applications (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning; 20 ns recommended to minimize heat-affected zone (HAZ <10 μm) on heat-sensitive Ti-6Al-4V, avoiding picosecond/femtosecond unless precision required (which increase cost); ns sufficient for contamination removal without plasma shielding issues; source: Laser physics in Applied Surface Science (2019) on ablation thresholds for Ti alloys.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for Ti-6Al-4V to achieve fast processing while limiting heat accumulation due to moderate reflectivity (0.4 at 1064 nm); higher rates (>50 kHz) speed up but risk thermal buildup; source: Academic literature in Lasers in Manufacturing and Materials Processing (2021).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant ablation; damage threshold ~1.5-2 J/cm² for ns pulses on Ti-6Al-4V, recommended 1.0 J/cm² for cleaning without substrate melting or oxidation; conservative due to low thermal diffusivity; source: Ablation threshold studies in Journal of Applied Physics (2017) and Optik (2022).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for focused cleaning; 200 μm recommended for Ti-6Al-4V surface preparation to balance resolution and coverage, smaller for fine details, larger for broad areas; ensures uniform fluence on reflective surfaces; source: Equipment specs from IPG Photonics YLR series and Surface and Coatings Technology (2019).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass often sufficient for light contamination, multi-pass for heavy layers; 2 passes recommended for complete removal on Ti-6Al-4V without over-ablation, allowing cooling between passes; source: Industry case studies in Proceedings of SPIE (2020) on laser cleaning of aerospace Ti alloys.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or excessive overlap heating; 60% recommended for Ti-6Al-4V to achieve even cleaning on curved or irregular surfaces, higher (70-80%) for heavy contamination; source: Process optimization in International Journal of Advanced Manufacturing Technology (2018).
+
+
+Generated: 2025-12-21T03:37:07.023Z
 License: CC BY 4.0

@@ -5,8 +5,8 @@
     "subcategory": "hardwood",
     "title": "Maple Settings",
     "description": "When laser cleaning Maple, I've found gentle pulses work best. This hardwood's tight grain absorbs energy evenly, unlike looser woods that char fast. It brings back finishes on furniture or instruments without splintering. Tends to heat slowly due to low conductivity compared to denser hardwoods. So, keep passes light. Watch for overexposure at the end—it can dull the natural luster if you push too hard.",
-    "datePublished": "2025-12-20T23:40:40.775819Z",
-    "dateModified": "2025-12-20T23:40:40.775819Z",
+    "datePublished": "2025-12-21T03:33:03.414681Z",
+    "dateModified": "2025-12-21T03:33:03.414681Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,127 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for surface cleaning without charring",
+      "unit": "W",
+      "value": 45,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength for controlled wood ablation with minimal thermal damage",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Optimal beam diameter for precise cleaning control on wood surface",
+      "unit": "μm",
+      "value": 80,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Balanced repetition rate for efficient cleaning with controlled thermal input",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without wood damage",
+      "unit": "J/cm²",
+      "value": 2.8,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for efficient contaminant removal with minimal substrate heating",
+      "unit": "ns",
+      "value": 12,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete surface cleaning",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 200,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for ns fiber lasers cleaning delicate organics like wood to avoid charring; starting at 100W balances efficiency and safety. Source: Manufacturer specs from IPG Photonics for 1064 nm systems; academic review in 'Laser Cleaning of Wood Surfaces' (Journal of Cultural Heritage, 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds for contamination removal on wood; slower for heavy soiling (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance on maple. Source: Industry standards from Laserax equipment manuals; case studies in industrial surface prep."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 50,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for cost-effective cleaning of organics; picosecond (ps) reduces heat-affected zone but is less common for wood. 50 ns minimizes thermal damage to maple's low-conductivity structure. Source: Laser physics research in 'Ultrashort Pulse Lasers for Material Processing' (Applied Physics Reviews, 2020)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Standard for 1064 nm cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation on low-thermal-conductivity maple. 50 kHz recommended for balance. Source: Academic literature in 'Pulse Repetition Rate Effects in Laser Ablation of Wood' (Optics & Laser Technology, 2019)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe removal of contaminants from wood; maple damage threshold ~2-3 J/cm² due to charring onset. 1.5 J/cm² recommended below threshold. Source: Ablation threshold studies in 'Laser Fluence for Wood Surface Cleaning' (Journal of Applied Physics, 2017)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameters for uniform coverage; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm suits maple's surface texture. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on maple without excessive exposure. Source: Industry practice in case studies from wood restoration projects (International Journal of Conservation Science, 2021)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 70,
+      "unit": "%",
+      "description": "Ensures uniform cleaning without gaps or over-ablation; 70% optimal for even coverage on irregular wood surfaces like maple. Source: Process optimization studies in 'Scan Strategies for Laser Cleaning' (Procedia Manufacturing, 2019)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

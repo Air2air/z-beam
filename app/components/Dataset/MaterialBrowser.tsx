@@ -4,6 +4,8 @@
 import React, { useState, useMemo } from 'react';
 import { SearchIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
 import { DatasetCard } from './DatasetCard';
+import { SectionContainer } from '../SectionContainer';
+import MaterialFilters from './MaterialFilters';
 import { getGridClasses } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
 import { triggerDownload } from '@/app/utils/downloadUtils';
@@ -17,11 +19,13 @@ interface MaterialBrowserExtendedProps extends MaterialBrowserProps {
   onSearchChange?: (term: string) => void;
   onCategoryChange?: (category: string) => void;
   onSortChange?: (sort: 'name' | 'category') => void;
+  withFilterSection?: boolean; // New prop to enable full filter section UI
 }
 
 export default function MaterialBrowser({ 
   materials, 
   showFilters = true,
+  withFilterSection = false,
   searchTerm: externalSearchTerm,
   selectedCategory: externalCategory,
   sortBy: externalSortBy,
@@ -79,6 +83,59 @@ export default function MaterialBrowser({
   const formatCategoryName = (category: string) => {
     return capitalizeWords(category.replace(/-/g, ' '));
   };
+
+  // If withFilterSection is true, render with SectionContainer wrappers
+  if (withFilterSection) {
+    return (
+      <>
+        {/* Search & Filters Section */}
+        <SectionContainer title="Or, search & filter" bgColor="default" horizPadding={true} radius={true}>
+          <MaterialFilters
+            searchTerm={searchTerm}
+            selectedCategory={selectedCategory}
+            sortBy={sortBy}
+            categories={categories}
+            resultCount={filteredMaterials.length}
+            totalCount={materials.length}
+            onSearchChange={handleSearchChange}
+            onCategoryChange={handleCategoryChange}
+            onSortChange={handleSortChange}
+          />
+        </SectionContainer>
+
+        {/* Results Section */}
+        <SectionContainer title="Materials" bgColor="transparent" radius={false}>
+          <div className={getGridClasses('cards')}>
+            {filteredMaterials.map((material: any) => (
+              <DatasetCard
+                key={material.slug}
+                name={material.name}
+                slug={material.slug}
+                category={formatCategoryName(material.category)}
+                subcategory={formatCategoryName(material.subcategory)}
+                onQuickDownload={(format: string, url: string) => {
+                  triggerDownload(url, `${material.slug}.${format.toLowerCase()}`);
+                }}
+              />
+            ))}
+            {filteredMaterials.length === 0 && (
+              <div className="text-center py-12 col-span-full">
+                <div className="text-tertiary mb-4">
+                  <SearchIcon className="w-16 h-16 mx-auto" />
+                </div>
+                <h3 className="text-lg text-secondary font-medium mb-2">
+                  No materials found
+                </h3>
+                <p className="text-muted">
+                  Try adjusting your search or filters
+                </p>
+              </div>
+            )}
+          </div>
+        </SectionContainer>
+      </>
+    );
+  }
 
   // Expose search/filter UI separately
   const filtersUI = (

@@ -7,7 +7,7 @@ import { HeatBuildup } from '@/app/components/HeatBuildup';
 import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
 import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
-import MaterialDatasetCardWrapper from '@/app/components/Dataset/MaterialDatasetCardWrapper';
+import MaterialDatasetDownloader from '@/app/components/Dataset/MaterialDatasetDownloader';
 import { MachineSettings } from '@/app/components/MachineSettings/MachineSettings';
 import { ScheduleCards } from '@/app/components/Schedule/ScheduleCards';
 import { GridSection } from '@/app/components/GridSection/GridSection';
@@ -585,12 +585,12 @@ export function SettingsLayout({
       )}
 
       {/* Dataset Download Section */}
-      <MaterialDatasetCardWrapper
+      <MaterialDatasetDownloader
         materialName={settings.name}
         slug={slug}
         category={category}
         subcategory={subcategory}
-        machineSettings={settings.machineSettings}
+        machineSettings={(settings as any).machine_settings || settings.machineSettings || {}}
         materialProperties={materialProps || {}}
         faq={(settings as any).faq || []}
         regulatoryStandards={(settings as any).regulatoryStandards || []}

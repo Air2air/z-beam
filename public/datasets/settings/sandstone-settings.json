@@ -5,8 +5,8 @@
     "subcategory": "sedimentary",
     "title": "Sandstone Settings",
     "description": "When laser cleaning sandstone, the biggest hurdle I've seen is its porous, layered structure that traps grime deep inside while heating unevenly during treatment. This tends to cause micro-cracks if you push too hard, since the stone's sedimentary makeup varies from spot to spot. To handle it, go slow with gentle pulses that let the laser seep into those pores without overwhelming the surface, focusing on dry runs first to map weak areas. Watch out at the end—overlapping passes can still fracture edges, so always cool between them.",
-    "datePublished": "2025-12-20T23:40:42.234059Z",
-    "dateModified": "2025-12-20T23:40:42.234059Z",
+    "datePublished": "2025-12-21T03:33:04.137913Z",
+    "dateModified": "2025-12-21T03:33:04.137913Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,127 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for sandstone cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength optimized for sandstone mineral absorption",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "fluenceThreshold": {
+      "description": "Minimum fluence required for effective sandstone cleaning",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.3,
+      "max": 4.5
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for effective contaminant removal",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete cleaning",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform coverage",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 1000,
+      "value": 200,
+      "unit": "W",
+      "description": "Typical range for 1064 nm Nd:YAG lasers in industrial stone cleaning; starting at 200W balances efficiency and safety to avoid thermal damage to sandstone's low thermal conductivity (~2 W/mK). Max safe ~500-1000W before risking fractures (source: Lee et al., 2016, J. Cult. Herit.; IPG Photonics specs)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "value": 1000,
+      "unit": "mm/s",
+      "description": "Effective range for contamination removal; slower (100-500 mm/s) for heavy soiling, faster (2000-5000 mm/s) for light; 1000 mm/s recommended for optimal balance on porous sandstone to prevent overheating (source: Industry guidelines from LaserClen systems; Asmus, 1995, Stud. Conserv.)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 15,
+      "description": "Nanosecond regime (5-50 ns) typical for 1064 nm cleaning of stone; 15 ns recommended for minimal heat-affected zone (HAZ) on sandstone, reducing thermal diffusion; picosecond (ps) options (e.g., 10-100 ps) for ultra-precision but higher cost (source: Ancona et al., 2010, Opt. Express; laser physics reviews on ablation)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 30,
+      "unit": "kHz",
+      "description": "Common range for pulsed cleaning; 20-50 kHz recommended for sandstone to achieve fast coverage without excessive heat accumulation, trading off speed vs. thermal buildup in low-conductivity material (source: Pouli et al., 2015, Appl. Phys. A; academic studies on pulse overlap)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe ablation of contaminants; sandstone damage threshold ~3-5 J/cm² (quartz component); 1.5 J/cm² recommended for cleaning without substrate harm, based on reflectivity (~0.2-0.4 at 1064 nm) (source: Ristoscu et al., 2018, Appl. Surf. Sci.; ablation threshold studies)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter range for industrial cleaning; 100-200 μm for fine detail on textured sandstone, 300-500 μm for large areas; 200 μm recommended for uniform energy distribution and control (source: Coherent/Trumpf equipment manuals; case studies in stone restoration)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on sandstone without overexposure, allowing cooling between passes (source: Industry practice in heritage cleaning; Verges-Belmin, 2008, J. Cult. Herit.)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Standard range for uniform coverage; 50% recommended for sandstone to ensure no gaps in porous surfaces while minimizing total energy input and heat buildup (source: Process optimization in laser scanning; Klein et al., 1999, J. Appl. Phys.)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

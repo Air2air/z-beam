@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 80 W
+  Range: 1-120 W
+  Description: Optimal average power for ceramic cleaning
 
-Generated: 2025-12-21T01:26:06.341Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Pulse frequency for controlled material removal
+
+ENERGY DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Energy per unit area for surface cleaning
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Pulse duration for minimal thermal penetration
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Beam travel speed for uniform coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Number of cleaning cycles for complete removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap for consistent surface treatment
+
+POWER:
+  Value: 50 W
+  Range: 20-300 W
+  Description: Typical range for pulsed Nd:YAG lasers in ceramic cleaning; starting at 50 W to avoid thermal damage to BN's high melting point substrate (~3000°C). Max safe below damage threshold. Source: IPG Photonics specs for cleaning systems; conservative for BN due to limited specific studies.
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contamination removal; recommended 1000 mm/s for optimal balance of cleaning efficiency and heat control on BN. Light contamination: 1500-3000 mm/s; heavy: 100-500 mm/s. Source: Industry standards from Laserax and Adapt Laser manuals.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning to ablate contaminants with minimal HAZ; 20 ns recommended for BN to leverage its thermal conductivity and reduce heat accumulation. Picosecond (ps) or femtosecond for ultra-precision but less common industrially. Source: Laser physics reviews in Optics & Lasers in Engineering (e.g., studies on ceramic ablation).
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning; 30 kHz recommended for BN to balance speed and prevent heat buildup, as higher rates increase average power and risk substrate damage. Trade-off: High freq accelerates cleaning but accumulates heat in low-absorptivity materials like BN at 1064 nm. Source: Academic literature in Journal of Applied Physics on pulse train effects.
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant ablation; damage threshold for BN estimated ~2-5 J/cm² based on ceramic studies, so 0.5 J/cm² recommended to stay below while effective for surface prep. Conservative due to BN's reflectivity at 1064 nm. Source: Ablation threshold studies in Applied Surface Science (e.g., on nitrides and ceramics).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Typical beam diameter for cleaning; 200 μm recommended for BN to provide fine control on detailed surfaces without excessive energy concentration. Fine detail: 100-200 μm; large area: 300-500 μm. Source: Equipment specs from Coherent and Trumpf laser systems for industrial cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Typical for complete removal in multi-pass to ensure uniform cleaning without single-pass overload; 2 passes recommended for BN contamination to minimize risk to substrate integrity. Single pass for light layers. Source: Industry case studies in laser cleaning of ceramics (e.g., SPIE proceedings).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Standard for uniform coverage; 50% recommended for BN to achieve even cleaning while avoiding overexposure and heat zones. Range adjusts for contamination density. Source: Process optimization in Journal of Laser Applications and manufacturer guidelines (e.g., CleanLaser).
+
+
+Generated: 2025-12-21T03:37:06.681Z
 License: CC BY 4.0

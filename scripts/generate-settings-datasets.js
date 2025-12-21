@@ -53,12 +53,12 @@ function processSettingsFile(filePath) {
     }
     
     // Merge machine settings: use material descriptions if available
-    if (materialData && materialData.machineSettings) {
-      Object.keys(data.machineSettings || {}).forEach(param => {
-        if (materialData.machineSettings[param]?.description) {
-          data.machineSettings[param] = {
-            ...data.machineSettings[param],
-            description: materialData.machineSettings[param].description
+    if (materialData && materialData.machine_settings) {
+      Object.keys(data.machine_settings || {}).forEach(param => {
+        if (materialData.machine_settings[param]?.description) {
+          data.machine_settings[param] = {
+            ...data.machine_settings[param],
+            description: materialData.machine_settings[param].description
           };
         }
       });
@@ -76,7 +76,7 @@ function processSettingsFile(filePath) {
         dateModified: data.dateModified || new Date().toISOString(),
         author: data.author
       },
-      machineSettings: data.machineSettings || {},
+      machine_settings: data.machine_settings || {},
       components: data.components || {},
       research_library: data.research_library || {},
       seo_settings_page: data.seo_settings_page || {}
@@ -88,10 +88,10 @@ function processSettingsFile(filePath) {
     
     // Generate CSV (flatten all machine settings parameters)
     const csvRows = ['Parameter,Value,Unit,Min,Max,Description'];
-    if (dataset.machineSettings) {
+    if (dataset.machine_settings) {
       // Always include all parameters: powerRange, wavelength, spotSize, repetitionRate, 
       // energyDensity, pulseWidth, scanSpeed, passCount, overlapRatio
-      Object.entries(dataset.machineSettings).forEach(([key, param]) => {
+      Object.entries(dataset.machine_settings).forEach(([key, param]) => {
         if (typeof param === 'object' && param !== null) {
           const row = [
             key,
@@ -124,7 +124,7 @@ function processSettingsFile(filePath) {
       'These values are scientifically derived from material properties and research.'
     ];
     
-    if (dataset.machineSettings) {
+    if (dataset.machine_settings) {
       // Always include ALL parameters in consistent order
       const paramOrder = [
         'powerRange', 'wavelength', 'spotSize', 'repetitionRate',
@@ -132,7 +132,7 @@ function processSettingsFile(filePath) {
       ];
       
       paramOrder.forEach(key => {
-        const param = dataset.machineSettings[key];
+        const param = dataset.machine_settings[key];
         if (param && typeof param === 'object') {
           txtLines.push('');
           txtLines.push(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}:`);
@@ -158,7 +158,7 @@ function processSettingsFile(filePath) {
       });
       
       // Add any additional parameters not in the standard order
-      Object.entries(dataset.machineSettings).forEach(([key, param]) => {
+      Object.entries(dataset.machine_settings).forEach(([key, param]) => {
         if (!paramOrder.includes(key) && typeof param === 'object' && param !== null) {
           txtLines.push('');
           txtLines.push(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}:`);

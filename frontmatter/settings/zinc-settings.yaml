@@ -1,7 +1,7 @@
 id: zinc-settings
 name: Zinc
-datePublished: '2025-12-20T23:40:43.553373Z'
-dateModified: '2025-12-20T23:40:43.553373Z'
+datePublished: '2025-12-21T03:33:04.826400Z'
+dateModified: '2025-12-21T03:33:04.826400Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/zinc-settings
@@ -38,8 +38,8 @@ author:
   - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
@@ -59,39 +59,118 @@ machine_settings:
     description: Optimal average power for Zinc oxide removal without substrate damage
     unit: W
     value: 100
+    min: 1.0
+    max: 120
   wavelength:
     description: Near-IR wavelength with good Zinc absorption and minimal reflectivity
     unit: nm
     value: 1064
+    min: 355
+    max: 10640
   spotSize:
     description: Beam spot diameter for effective Zinc oxide removal
     unit: μm
     value: 50
+    min: 0.1
+    max: 500
   repetitionRate:
     description: Optimal repetition rate for continuous cleaning with thermal management
     unit: kHz
     value: 50
+    min: 1
+    max: 200
   energyDensity:
     description: Fluence threshold for Zinc oxide ablation without melting substrate
     unit: J/cm²
     value: 5.1
+    min: 0.1
+    max: 20.0
   pulseWidth:
-    description: Nanosecond pulse duration for efficient Zinc ablation with thermal
-      control
+    description: Nanosecond pulse duration for efficient Zinc ablation with thermal control
     unit: ns
     value: 10
+    min: 0.1
+    max: 1000
   scanSpeed:
     description: Optimal scanning speed for uniform Zinc surface cleaning
     unit: mm/s
     value: 500
+    min: 10
+    max: 5000
   passCount:
     description: Number of passes for thorough Zinc oxide removal
     unit: passes
     value: 3
+    min: 1
+    max: 10
   overlapRatio:
     description: Optimal beam overlap for complete Zinc surface coverage
     unit: '%'
     value: 50
+    min: 10
+    max: 90
+  power:
+    min: 50
+    max: 500
+    value: 150
+    unit: W
+    description: 'Typical range for industrial 1064 nm fiber lasers cleaning reflective metals like zinc to avoid excessive
+      heat buildup; starting at 150 W balances efficiency and safety. Max limited to prevent melting (zinc MP ~419°C). Source:
+      CleanLaser and IPG Photonics equipment specs for metal surface preparation.'
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Range ensures effective contaminant removal without substrate ablation; slower for heavy contamination (e.g.,
+      oils), faster for light rust. Recommended 1500 mm/s for optimal zinc cleaning to minimize thermal effects due to high
+      reflectivity. Source: Industry standards from Laserax and academic reviews in J. Laser Appl. (2018).'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 50
+    description: 'Nanosecond regime preferred for cost-effective industrial cleaning of zinc; shorter pulses (ps/fs) reduce
+      HAZ but are less common at 1064 nm. 50 ns recommended for minimal heat diffusion in zinc''s high thermal conductivity
+      (~116 W/mK). Source: Laser physics studies in Opt. Express (2015) on metal ablation thresholds.'
+  repetition_rate:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: 'Typical for pulsed fiber lasers; higher rates speed up cleaning but increase heat accumulation on reflective
+      zinc, risking damage. 50 kHz balances speed and safety. Source: Academic literature in Appl. Surf. Sci. (2020) on pulse
+      train effects for metal cleaning.'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    description: 'Fluence range for contaminant ablation without zinc damage; threshold ~2.5 J/cm² due to high reflectivity
+      at 1064 nm. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account for zinc''s low melting
+      point. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017).'
+  spot_size:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: 'Smaller spots for precision on zinc details, larger for broad areas; 200 μm recommended for uniform energy
+      distribution and reduced peak fluence on reflective surfaces. Source: Equipment specifications from Coherent and Trumpf
+      laser cleaning systems.'
+  pass_count:
+    min: 1
+    max: 10
+    unit: passes
+    value: 2
+    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for zinc to ensure
+      complete removal without cumulative heating. Source: Industry case studies in Surf. Coat. Technol. (2019) on multi-pass
+      laser cleaning of metals.'
+  overlap_ratio:
+    min: 10
+    max: 90
+    unit: '%'
+    value: 60
+    description: 'Ensures uniform coverage without gaps or overexposure; 60% optimal for zinc to prevent uneven heating on
+      large areas. Source: Process optimization in Laser Technol. J. (2021), typical for industrial scanning parameters.'
 challenges:
   thermal_management:
   - challenge: High thermal conductivity and heat spread
@@ -130,8 +209,7 @@ challenges:
   contamination_challenges:
   - challenge: Rust and oxide layer removal
     severity: medium
-    impact: Requires multiple passes; rust/oxide has different absorption than base
-      metal
+    impact: Requires multiple passes; rust/oxide has different absorption than base metal
     solutions:
     - First pass at higher power (100-120W) to remove bulk oxide
     - Second pass at lower power (60-80W) for final cleaning
@@ -143,11 +221,9 @@ challenges:
     - Use fume extraction to prevent redeposition
     - Higher scan speeds (3000-5000 mm/s) for thin films
     - Chemical pre-cleaning for heavy contamination
-description: We've found zinc cleans up nicely with laser settings. It reflects a
-  lot of light, so we start low on power to avoid scattering energy. This keeps the
-  surface cool and removes grime without melting. But watch the heat buildup mid-process—it
-  spreads fast because zinc conducts well. Adjust overlap to stay safe, and you'll
-  get a smooth finish every time.
+description: We've found zinc cleans up nicely with laser settings. It reflects a lot of light, so we start low on power to
+  avoid scattering energy. This keeps the surface cool and removes grime without melting. But watch the heat buildup mid-process—it
+  spreads fast because zinc conducts well. Adjust overlap to stay safe, and you'll get a smooth finish every time.
 category: metal
 subcategory: alloy
 title: Zinc Settings
@@ -161,8 +237,7 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
+  description: Federal requirements for personal protective equipment in construction and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -193,8 +268,7 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -219,133 +293,5 @@ regulatory_standards_detail:
   - osha-ppe-requirements
   category: operational_safety
 seo_description: We've found zinc cleans up nicely with laser settings.
-micro: We've found zinc cleans up nicely with laser settings. It reflects a lot of
-  light, so we start low on power to avoid scattering energy.
-machineSettings:
-  powerRange:
-    description: Optimal average power for Zinc oxide removal without substrate damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  wavelength:
-    description: Near-IR wavelength with good Zinc absorption and minimal reflectivity
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    description: Beam spot diameter for effective Zinc oxide removal
-    unit: μm
-    value: 50
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for continuous cleaning with thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  energyDensity:
-    description: Fluence threshold for Zinc oxide ablation without melting substrate
-    unit: J/cm²
-    value: 5.1
-    min: 0.1
-    max: 20.0
-  pulseWidth:
-    description: Nanosecond pulse duration for efficient Zinc ablation with thermal
-      control
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform Zinc surface cleaning
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Number of passes for thorough Zinc oxide removal
-    unit: passes
-    value: 3
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for complete Zinc surface coverage
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 500
-    value: 150
-    unit: W
-    description: 'Typical range for industrial 1064 nm fiber lasers cleaning reflective
-      metals like zinc to avoid excessive heat buildup; starting at 150 W balances
-      efficiency and safety. Max limited to prevent melting (zinc MP ~419°C). Source:
-      CleanLaser and IPG Photonics equipment specs for metal surface preparation.'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1500
-    description: 'Range ensures effective contaminant removal without substrate ablation;
-      slower for heavy contamination (e.g., oils), faster for light rust. Recommended
-      1500 mm/s for optimal zinc cleaning to minimize thermal effects due to high
-      reflectivity. Source: Industry standards from Laserax and academic reviews in
-      J. Laser Appl. (2018).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 50
-    description: 'Nanosecond regime preferred for cost-effective industrial cleaning
-      of zinc; shorter pulses (ps/fs) reduce HAZ but are less common at 1064 nm. 50
-      ns recommended for minimal heat diffusion in zinc''s high thermal conductivity
-      (~116 W/mK). Source: Laser physics studies in Opt. Express (2015) on metal ablation
-      thresholds.'
-  repetition_rate:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 50
-    description: 'Typical for pulsed fiber lasers; higher rates speed up cleaning
-      but increase heat accumulation on reflective zinc, risking damage. 50 kHz balances
-      speed and safety. Source: Academic literature in Appl. Surf. Sci. (2020) on
-      pulse train effects for metal cleaning.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    description: 'Fluence range for contaminant ablation without zinc damage; threshold
-      ~2.5 J/cm² due to high reflectivity at 1064 nm. Recommended 1.5 J/cm² for safe
-      removal of oxides/contaminants. Conservative to account for zinc''s low melting
-      point. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017).'
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Smaller spots for precision on zinc details, larger for broad areas;
-      200 μm recommended for uniform energy distribution and reduced peak fluence
-      on reflective surfaces. Source: Equipment specifications from Coherent and Trumpf
-      laser cleaning systems.'
-  pass_count:
-    min: 1
-    max: 10
-    unit: passes
-    value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy layers;
-      2 passes recommended for zinc to ensure complete removal without cumulative
-      heating. Source: Industry case studies in Surf. Coat. Technol. (2019) on multi-pass
-      laser cleaning of metals.'
-  overlap_ratio:
-    min: 10
-    max: 90
-    unit: '%'
-    value: 60
-    description: 'Ensures uniform coverage without gaps or overexposure; 60% optimal
-      for zinc to prevent uneven heating on large areas. Source: Process optimization
-      in Laser Technol. J. (2021), typical for industrial scanning parameters.'
+micro: We've found zinc cleans up nicely with laser settings. It reflects a lot of light, so we start low on power to avoid
+  scattering energy.

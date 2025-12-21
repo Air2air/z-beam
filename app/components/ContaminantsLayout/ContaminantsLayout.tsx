@@ -12,6 +12,7 @@ import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/u
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { SafetyOverview } from '../Contaminants';
 import { convertCitationsToStandards, getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
+import ContaminantDatasetDownloader from '../Dataset/ContaminantDatasetDownloader';
 import type { LayoutProps, ContaminantsLayoutProps, SectionConfig } from '@/types';
 
 // Re-export for convenience
@@ -56,6 +57,23 @@ export function ContaminantsLayout(props: ContaminantsLayoutProps) {
       component: SafetyOverview,
       condition: !!safetyData,
       props: { safetyData }
+    },
+    {
+      component: ContaminantDatasetDownloader,
+      props: {
+        contaminantName,
+        slug,
+        category,
+        subcategory,
+        laserProperties: relationships?.laser_properties,
+        visualCharacteristics: relationships?.visual_characteristics,
+        removalByMaterial: relationships?.removal_by_material,
+        composition: (metadata as any)?.composition,
+        safetyData: relationships?.safety_data || (metadata as any)?.safety_data,
+        faq: metadata?.faq,
+        regulatoryStandards: (metadata as any)?.regulatoryStandards || relationships?.regulatory_standards,
+        showFullDataset: true,
+      }
     },
     {
       component: RegulatoryStandards,

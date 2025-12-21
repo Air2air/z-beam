@@ -5,8 +5,8 @@
     "subcategory": "soda-lime",
     "title": "Crown Glass Settings",
     "description": "We've found Crown Glass tricky to clean without cracking. It handles heat poorly compared to sturdier borosilicate types. Start low on power to dodge thermal shock.\n\nThis soda-lime glass expands quickly when heated. Heat builds up unevenly since it conducts poorly. We adjust by slowing scan speeds and adding overlaps.\n\nUnlike denser ceramics, its fragility demands gentle pulses. Multiple light passes restore surfaces cleanly. Avoid high energy—it warps edges fast.\n\nIn heritage work, this approach preserves details well. We've seen it shine in labs too. Just cool between runs to stay safe.",
-    "datePublished": "2025-12-20T23:40:39.773123Z",
-    "dateModified": "2025-12-20T23:40:39.773123Z",
+    "datePublished": "2025-12-21T03:33:02.687908Z",
+    "dateModified": "2025-12-21T03:33:02.687908Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,127 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Crown Glass surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 25,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength providing optimal absorption in surface contaminants while minimizing glass substrate damage",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning with adequate energy density",
+      "unit": "μm",
+      "value": 50,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate balancing cleaning efficiency and thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal below glass damage threshold",
+      "unit": "J/cm²",
+      "value": 1.2,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for efficient contaminant removal with minimal thermal diffusion into glass substrate",
+      "unit": "ns",
+      "value": 8,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of cleaning passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Typical range for 1064 nm laser cleaning of delicate glass substrates like Crown Glass to remove contaminants without inducing thermal stress; starting at 50 W allows controlled ablation. Max safe before damage ~200 W depending on fluence. Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review in 'Laser Cleaning of Glass' (Optics and Lasers in Engineering, 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "value": 500,
+      "unit": "mm/s",
+      "description": "Effective range for contaminant removal on glass; slower speeds (100-500 mm/s) for heavy contamination, faster (500-2000 mm/s) for light; 500 mm/s optimal to minimize heat accumulation on low-thermal-conductivity Crown Glass. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 20,
+      "description": "Nanosecond regime preferred for Crown Glass to balance ablation efficiency and minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; ns avoids excessive plasma formation on reflective glass surfaces. Source: Laser physics studies in 'Pulsed Laser Cleaning of Glass' (Applied Surface Science, 2015), recommending ns for industrial use."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 30,
+      "unit": "kHz",
+      "description": "Standard range for 1064 nm cleaning; 30 kHz recommended for Crown Glass to achieve fast coverage without significant heat buildup, as higher rates (>50 kHz) increase thermal load on glass with moderate reflectivity (~4-8% at 1064 nm). Trade-off: higher freq speeds process but risks microcracks. Source: Academic literature in Journal of Applied Physics (2020) on pulse train effects in glass cleaning."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 2,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe contaminant ablation on Crown Glass; damage threshold ~10-15 J/cm² at 1064 nm due to low absorption; 2 J/cm² recommended to stay below threshold while effective for oxides/dirt removal, considering glass melting point ~500°C. Source: Ablation threshold studies in Optics Express (2017) and ISO 21254 standards for laser-induced damage."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameter range for uniform cleaning; 100-200 μm for fine surface prep on optical Crown Glass, up to 500 μm for large-area industrial use; 200 μm balances resolution and efficiency without focusing-induced hotspots. Source: Equipment specifications from Trumpf and SPI Lasers for 1064 nm systems."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Typically 1-2 passes for light contamination on Crown Glass, up to 5 for heavy buildup; multi-pass at lower fluence preferred to avoid cumulative thermal damage. Source: Industry case studies in 'Industrial Laser Cleaning Applications' (Proceedings of SPIE, 2019) for glass substrates."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 70,
+      "unit": "%",
+      "description": "Overlap ensures uniform coverage without gaps or over-ablation; 70% recommended for Crown Glass to achieve even cleaning on flat surfaces while minimizing total energy input and thermal gradients. Source: Process optimization in Laser & Photonics Reviews (2016), typical 50-80% for scanned beam cleaning."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

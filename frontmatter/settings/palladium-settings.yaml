@@ -1,7 +1,7 @@
 id: palladium-settings
 name: Palladium
-datePublished: '2025-12-20T23:40:41.101587Z'
-dateModified: '2025-12-20T23:40:41.101587Z'
+datePublished: '2025-12-21T03:33:03.584922Z'
+dateModified: '2025-12-21T03:33:03.584922Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/palladium-settings
@@ -36,8 +36,7 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
-    in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
@@ -55,206 +54,13 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Palladium oxide removal without substrate
-      damage
-    unit: W
-    value: 90
-  wavelength:
-    description: Near-IR wavelength for efficient absorption by Palladium oxides and
-      contaminants
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Beam spot diameter for precise cleaning control on Palladium surfaces
-    unit: μm
-    value: 80
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 50
-  fluenceThreshold:
-    description: Threshold fluence for effective contaminant removal from Palladium
-    unit: J/cm²
-    value: 2.5
-  pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of surface contaminants
-    unit: ns
-    value: 12
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 3
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive heat
-      accumulation
-    unit: '%'
-    value: 50
-  dwellTime:
-    description: Effective dwell time per cleaning spot for optimal results
-    unit: μs
-    value: 100
-challenges:
-  thermal_management:
-  - challenge: High thermal conductivity and heat spread
-    severity: medium
-    property_value: 4-400 W/(m·K) depending on metal
-    impact: Heat spreads rapidly causing large heat-affected zones
-    solutions:
-    - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-    - Increase scan speed to minimize dwell time
-    - Apply cooling between passes for thick sections
-  - challenge: Melting and heat-affected zone formation
-    severity: high
-    threshold_range: 660°C (Al) to 3422°C (W)
-    impact: Substrate melting or microstructural changes in heat-affected zone
-    solutions:
-    - Stay below 70% of melting temperature
-    - Use pulse mode with adequate cooling time
-    - Monitor for surface discoloration indicating oxidation
-  surface_characteristics:
-  - challenge: High reflectivity
-    severity: high
-    reflectivity_range: 60-95% at 1064nm for polished metals
-    impact: Most laser energy reflected, requiring higher power; safety hazard
-    solutions:
-    - Use shorter wavelengths (355nm UV) for better absorption
-    - Increase power density but monitor for thermal damage
-    - Ensure proper beam containment and safety measures
-    - Surface oxidation/roughness improves absorption
-  - challenge: Surface finish variations
-    severity: medium
-    impact: Polished surfaces reflect more, rough surfaces absorb better
-    solutions:
-    - Adjust power based on surface condition
-    - Test parameters on similar finish samples
-    - Polished surfaces need 20-40% more power
-  contamination_challenges:
-  - challenge: Rust and oxide layer removal
-    severity: medium
-    impact: Requires multiple passes; rust/oxide has different absorption than base
-      metal
-    solutions:
-    - First pass at higher power (100-120W) to remove bulk oxide
-    - Second pass at lower power (60-80W) for final cleaning
-    - Monitor for base metal exposure to avoid over-processing
-  - challenge: Oil and grease removal
-    severity: low
-    impact: Organic contaminants vaporize easily but can redeposit
-    solutions:
-    - Use fume extraction to prevent redeposition
-    - Higher scan speeds (3000-5000 mm/s) for thin films
-    - Chemical pre-cleaning for heavy contamination
-description: 'When laser cleaning Palladium, you''ll want to begin with a careful
-  setup to handle its high reflectivity. Start by selecting a lower power level right
-  from the outset. This metal reflects a lot of the laser energy, so you must dial
-  it back to ensure the beam gets absorbed enough for effective cleaning without wasting
-  shots.
-
-
-  Move on to your scan speed next. Keep it moderate to allow the heat to spread evenly
-  across the dense surface. Palladium''s strong thermal conductivity helps here—it
-  pulls heat away quickly, which prevents hot spots and protects the underlying structure
-  during the process.
-
-
-  Watch out midway through: don''t push the fluence too high, or you risk uneven ablation
-  on this corrosion-resistant material. Its noble nature means contaminants cling
-  stubbornly, so make multiple passes with good overlap to lift them without scratching
-  the finish.
-
-
-  Finish by checking the dwell time—short bursts work best. This approach cleans jewelry
-  or aerospace parts cleanly every time, leaving no residue behind.'
-category: metal
-subcategory: non-ferrous
-title: Palladium Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: When laser cleaning Palladium, you'll want to begin with a careful
-  setup to handle its high reflectivity.
-micro: When laser cleaning Palladium, you'll want to begin with a careful setup to
-  handle its high reflectivity. Start by selecting a lower power level right from
-  the outset.
-machineSettings:
-  powerRange:
-    description: Optimal average power for Palladium oxide removal without substrate
-      damage
+    description: Optimal average power for Palladium oxide removal without substrate damage
     unit: W
     value: 90
     min: 1.0
     max: 120
   wavelength:
-    description: Near-IR wavelength for efficient absorption by Palladium oxides and
-      contaminants
+    description: Near-IR wavelength for efficient absorption by Palladium oxides and contaminants
     unit: nm
     value: 1064
     min: 355
@@ -296,8 +102,7 @@ machineSettings:
     min: 1
     max: 10
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive heat
-      accumulation
+    description: Optimal beam overlap for uniform cleaning without excessive heat accumulation
     unit: '%'
     value: 50
     min: 10
@@ -313,74 +118,202 @@ machineSettings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for Nd:YAG laser cleaning of reflective metals like
-      Pd to avoid thermal damage; starting at 200W balances efficiency and safety.
-      Max limited by Pd''s high reflectivity (~60% at 1064nm) to prevent melting (mp
-      1555°C). Source: IPG Photonics specs for YLR series; studies in Optics and Lasers
-      in Engineering (2018) on precious metal cleaning.'
+    description: 'Typical range for Nd:YAG laser cleaning of reflective metals like Pd to avoid thermal damage; starting at
+      200W balances efficiency and safety. Max limited by Pd''s high reflectivity (~60% at 1064nm) to prevent melting (mp
+      1555°C). Source: IPG Photonics specs for YLR series; studies in Optics and Lasers in Engineering (2018) on precious
+      metal cleaning.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal on Pd; slower for heavy
-      oxides (500-1000 mm/s), faster for light contaminants (2000-3000 mm/s). Recommended
-      1500 mm/s for optimal balance without excessive heat. Source: Industry standards
-      from Laserax manuals; J. Cleaner Prod. (2020) case studies on metal surface
-      prep.'
+    description: 'Effective speeds for contamination removal on Pd; slower for heavy oxides (500-1000 mm/s), faster for light
+      contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance without excessive heat. Source: Industry standards
+      from Laserax manuals; J. Cleaner Prod. (2020) case studies on metal surface prep.'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Ns regime preferred for cost-effective cleaning of Pd; ps (5-50
-      ps) minimizes HAZ due to Pd''s thermal conductivity (71 W/mK), but ns sufficient.
-      Avoid fs for industrial scale. Recommended 20 ns for low thermal impact. Source:
-      Laser physics in Appl. Phys. A (2015) on metal ablation thresholds.'
+    description: 'Ns regime preferred for cost-effective cleaning of Pd; ps (5-50 ps) minimizes HAZ due to Pd''s thermal conductivity
+      (71 W/mK), but ns sufficient. Avoid fs for industrial scale. Recommended 20 ns for low thermal impact. Source: Laser
+      physics in Appl. Phys. A (2015) on metal ablation thresholds.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning to control heat accumulation on reflective
-      Pd; higher rates speed up process but risk buildup. 50 kHz recommended for uniform
-      cleaning without overheating. Trade-off: >80 kHz increases efficiency but requires
-      cooling. Source: Academic lit. in J. Appl. Phys. (2017); Coherent Inc. equipment
-      guidelines.'
+    description: 'Typical for pulsed cleaning to control heat accumulation on reflective Pd; higher rates speed up process
+      but risk buildup. 50 kHz recommended for uniform cleaning without overheating. Trade-off: >80 kHz increases efficiency
+      but requires cooling. Source: Academic lit. in J. Appl. Phys. (2017); Coherent Inc. equipment guidelines.'
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence range for contaminant ablation on Pd without substrate damage;
-      threshold ~2-3 J/cm² for ns pulses at 1064nm due to reflectivity. Recommended
-      1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account for
-      Pd''s properties. Source: Ablation studies in Surf. Coat. Technol. (2019); uncertainty
-      noted for exact Pd data, extrapolated from Ni/Pt analogs.'
+    description: 'Fluence range for contaminant ablation on Pd without substrate damage; threshold ~2-3 J/cm² for ns pulses
+      at 1064nm due to reflectivity. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account
+      for Pd''s properties. Source: Ablation studies in Surf. Coat. Technol. (2019); uncertainty noted for exact Pd data,
+      extrapolated from Ni/Pt analogs.'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter for precise cleaning on Pd; smaller for fine details
-      (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for uniform
-      coverage in industrial prep. Source: Equipment specs from Trumpf and Adapt Laser
+    description: 'Beam diameter for precise cleaning on Pd; smaller for fine details (100-200 μm), larger for areas (300-500
+      μm). 200 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Trumpf and Adapt Laser
       Systems; process optimization in Lasers Manuf. Mater. Process. (2021).'
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes
-      typical for complete Pd surface cleaning without damage. Recommended for layered
-      contaminants in catalysis/electronics apps. Source: Industry practice in case
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete Pd surface cleaning
+      without damage. Recommended for layered contaminants in catalysis/electronics apps. Source: Industry practice in case
       studies from SPIE Proc. (2016); conservative for Pd''s sensitivity.'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage on Pd; 30-50% for large areas, 60-80% for
-      precision. 60% recommended to avoid gaps while minimizing overexposure/heat.
-      Source: Process studies in Opt. Lasers Eng. (2022); typical range from manufacturer
+    description: 'Ensures uniform coverage on Pd; 30-50% for large areas, 60-80% for precision. 60% recommended to avoid gaps
+      while minimizing overexposure/heat. Source: Process studies in Opt. Lasers Eng. (2022); typical range from manufacturer
       guidelines like CleanLASER.'
+challenges:
+  thermal_management:
+  - challenge: High thermal conductivity and heat spread
+    severity: medium
+    property_value: 4-400 W/(m·K) depending on metal
+    impact: Heat spreads rapidly causing large heat-affected zones
+    solutions:
+    - Use shorter pulse durations (picosecond/femtosecond) for localized heating
+    - Increase scan speed to minimize dwell time
+    - Apply cooling between passes for thick sections
+  - challenge: Melting and heat-affected zone formation
+    severity: high
+    threshold_range: 660°C (Al) to 3422°C (W)
+    impact: Substrate melting or microstructural changes in heat-affected zone
+    solutions:
+    - Stay below 70% of melting temperature
+    - Use pulse mode with adequate cooling time
+    - Monitor for surface discoloration indicating oxidation
+  surface_characteristics:
+  - challenge: High reflectivity
+    severity: high
+    reflectivity_range: 60-95% at 1064nm for polished metals
+    impact: Most laser energy reflected, requiring higher power; safety hazard
+    solutions:
+    - Use shorter wavelengths (355nm UV) for better absorption
+    - Increase power density but monitor for thermal damage
+    - Ensure proper beam containment and safety measures
+    - Surface oxidation/roughness improves absorption
+  - challenge: Surface finish variations
+    severity: medium
+    impact: Polished surfaces reflect more, rough surfaces absorb better
+    solutions:
+    - Adjust power based on surface condition
+    - Test parameters on similar finish samples
+    - Polished surfaces need 20-40% more power
+  contamination_challenges:
+  - challenge: Rust and oxide layer removal
+    severity: medium
+    impact: Requires multiple passes; rust/oxide has different absorption than base metal
+    solutions:
+    - First pass at higher power (100-120W) to remove bulk oxide
+    - Second pass at lower power (60-80W) for final cleaning
+    - Monitor for base metal exposure to avoid over-processing
+  - challenge: Oil and grease removal
+    severity: low
+    impact: Organic contaminants vaporize easily but can redeposit
+    solutions:
+    - Use fume extraction to prevent redeposition
+    - Higher scan speeds (3000-5000 mm/s) for thin films
+    - Chemical pre-cleaning for heavy contamination
+description: 'When laser cleaning Palladium, you''ll want to begin with a careful setup to handle its high reflectivity. Start
+  by selecting a lower power level right from the outset. This metal reflects a lot of the laser energy, so you must dial
+  it back to ensure the beam gets absorbed enough for effective cleaning without wasting shots.
+
+
+  Move on to your scan speed next. Keep it moderate to allow the heat to spread evenly across the dense surface. Palladium''s
+  strong thermal conductivity helps here—it pulls heat away quickly, which prevents hot spots and protects the underlying
+  structure during the process.
+
+
+  Watch out midway through: don''t push the fluence too high, or you risk uneven ablation on this corrosion-resistant material.
+  Its noble nature means contaminants cling stubbornly, so make multiple passes with good overlap to lift them without scratching
+  the finish.
+
+
+  Finish by checking the dwell time—short bursts work best. This approach cleans jewelry or aerospace parts cleanly every
+  time, leaving no residue behind.'
+category: metal
+subcategory: non-ferrous
+title: Palladium Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: When laser cleaning Palladium, you'll want to begin with a careful setup to handle its high reflectivity.
+micro: When laser cleaning Palladium, you'll want to begin with a careful setup to handle its high reflectivity. Start by
+  selecting a lower power level right from the outset.

@@ -5,8 +5,8 @@
     "subcategory": "metamorphic",
     "title": "Slate Settings",
     "description": "We've found that slate's layered structure demands careful attention right from the start during laser cleaning. It can delaminate if heat builds up too quickly, so begin with lower power settings to prevent cracking along those natural fissures. This makes slate different from more uniform stones—its metamorphic origins create a brittle yet durable surface that absorbs laser energy well but conducts heat poorly. We typically adjust the scan speed to allow gentle passes, ensuring contaminants lift without stressing the layers. In our experience, this approach restores heritage pieces beautifully, like old roofing or monuments, while avoiding surface pitting. Keep overlap minimal to dodge uneven heating, and always test on a small area first—slate's low porosity means residues cling tight, but multiple light passes clear them effectively without weakening the stone's natural compressive strength.",
-    "datePublished": "2025-12-20T23:40:42.630661Z",
-    "dateModified": "2025-12-20T23:40:42.630661Z",
+    "datePublished": "2025-12-21T03:33:04.314952Z",
+    "dateModified": "2025-12-21T03:33:04.314952Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,127 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Slate surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-infrared wavelength optimized for Slate mineral absorption",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal from Slate",
+      "unit": "J/cm²",
+      "value": 12.7,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for effective contaminant removal",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of cleaning passes for thorough removal",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning coverage",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 500,
+      "value": 200,
+      "unit": "W",
+      "description": "Typical range for Nd:YAG laser cleaning of stone materials like slate to remove contaminants without thermal damage; starting at 200W for controlled ablation. Max safe ~500W to avoid cracking. Source: Manufacturer specs from IPG Photonics (e.g., YLR series for stone restoration) and academic paper by S. J. H. Lee et al. (Opt. Lasers Eng., 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds for 1064 nm cleaning of slate; slower (500-1000 mm/s) for heavy contamination like rust/moss, faster (2000-3000 mm/s) for light dirt. Recommended 1500 mm/s for balanced efficiency and minimal heat input. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime (5-100 ns) preferred for slate to ablate contaminants via photothermal effects with low heat-affected zone; picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended to minimize thermal diffusion in low-conductivity slate. Source: Laser physics research by P. Psyllaki et al. (J. Cult. Herit., 2009)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Typical 10-100 kHz for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation on reflective slate surfaces. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases throughput but requires faster scan speeds. Source: Academic literature, e.g., R. N. Raman et al. (Appl. Surf. Sci., 2017)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe cleaning of slate at 1064 nm; damage threshold ~2-3 J/cm² due to slate's moderate absorption and low thermal conductivity (~1-2 W/m·K). Recommended 1.5 J/cm² for contaminant ablation without substrate etching. Source: Ablation threshold studies by A. Pouli et al. (Appl. Phys. A, 2010)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameter 100-500 μm; smaller (100-200 μm) for fine surface preparation on slate, larger (300-500 μm) for broad area cleaning. 200 μm recommended for uniform contaminant removal on textured slate surfaces. Source: Equipment specifications from Coherent Inc. (Arma series) and industry case studies."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on slate without over-ablation, allowing cooling between passes. Source: Industry practice from stone restoration case studies (e.g., European Laser Cleaning Association reports, 2021)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "30-80% overlap ensures uniform coverage; 60% recommended for slate to avoid striping while preventing excessive heat buildup on low-reflectivity contaminants. Source: Process optimization studies by M. Autric et al. (Proc. SPIE, 2015)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

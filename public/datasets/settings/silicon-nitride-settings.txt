@@ -11,6 +11,100 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Silicon Nitride surface 
+               cleaning without thermal damage
 
-Generated: 2025-12-21T01:26:06.538Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Silicon Nitride 
+               absorption characteristics
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               without substrate damage
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning pattern
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Effective dwell time per cleaning spot
+
+POWER:
+  Value: 100 W
+  Range: 20-500 W
+  Description: Typical range for pulsed fiber lasers in industrial cleaning of ceramics like Si3N4 to remove contaminants without thermal damage; starting at 100W for controlled ablation. Max safe ~300-500W to avoid cracking due to low thermal conductivity (~25 W/mK). Source: IPG Photonics fiber laser specs for cleaning applications; academic review in 'Laser Cleaning of Ceramics' (Optics and Lasers in Engineering, 2018).
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination (e.g., oxides), faster (2000-5000 mm/s) for light surface prep. Recommended 2000 mm/s balances efficiency and safety on Si3N4's brittle surface. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for Si3N4 cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns typical for contaminant removal without substrate melting (Si3N4 mp ~1900°C). Avoid fs for industrial scale. Source: Laser physics in 'Pulsed Laser Cleaning of Ceramics' (Applied Surface Science, 2019).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical 20-100 kHz for cleaning; 50 kHz recommended for Si3N4 to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk thermal buildup on low-conductivity material). Source: Academic literature in Optics Express (2017) on pulse train effects in ceramic ablation.
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant removal; damage threshold for Si3N4 ~3-5 J/cm² at 1064 nm due to moderate reflectivity (~35%). Recommended 0.5 J/cm² for cleaning without ablation of substrate. Conservative for light contamination. Source: Ablation threshold studies in Journal of Applied Physics (2016); uncertainty noted for specific contaminants.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range: smaller (50-200 μm) for fine detail on Si3N4 components, larger (500-1000 μm) for broad area prep. 200 μm recommended for uniform cleaning balancing resolution and speed. Source: Equipment specs from Coherent and Trumpf laser systems for industrial cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-3) for heavy layers on Si3N4 to ensure complete removal without excessive energy input. Recommended 2 passes for industrial surface prep. Source: Industry case studies in 'Laser Surface Treatment of Ceramics' (Materials Science and Engineering A, 2021).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Typical 30-80% for uniform coverage; 50% recommended for Si3N4 to avoid uneven heating or missed spots while preventing overexposure on heat-sensitive ceramic. Higher overlap for heavy contamination. Source: Process optimization in Laser & Photonics Reviews (2019).
+
+
+Generated: 2025-12-21T03:37:06.974Z
 License: CC BY 4.0

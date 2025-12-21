@@ -5,8 +5,8 @@
     "subcategory": "soda-lime",
     "title": "Lead Crystal Settings",
     "description": "When laser cleaning Lead Crystal, you'll want to start with its soft, lead-infused structure. This makes it more prone to surface damage than regular glass, so it absorbs heat unevenly and risks cracking under direct exposure. Use gentle, low-energy pulses to lift contaminants without etching the crystal's shine. Keep your scan slow and overlap lightly for even coverage. Always watch for clouding at the end, and pause to cool if it appears.",
-    "datePublished": "2025-12-20T23:40:40.584941Z",
-    "dateModified": "2025-12-20T23:40:40.584941Z",
+    "datePublished": "2025-12-21T03:33:03.306487Z",
+    "dateModified": "2025-12-21T03:33:03.306487Z",
     "author": {
       "id": 1,
       "name": "Yi-Chun Lin",
@@ -41,7 +41,127 @@
       "formatting_file": "taiwan_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Lead Crystal surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 25,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength for optimal absorption in Lead Crystal with minimal transmission",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control on Lead Crystal surfaces",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 20,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without substrate damage",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
+      "unit": "ns",
+      "value": 100,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of cleaning passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning pattern",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 10,
+      "max": 100,
+      "value": 20,
+      "unit": "W",
+      "description": "Typical range for delicate glass-like materials to avoid thermal damage; starting low prevents cracking in lead crystal (thermal conductivity ~1 W/mK, melting point ~500-600°C). Max safe based on avoiding substrate ablation. Source: IPG Photonics laser cleaning guidelines for optics."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1000,
+      "description": "Effective for contaminant removal without overheating; slower for heavy contamination (e.g., oxides), faster for light dust. Recommended balances speed and safety for lead crystal's low thermal conductivity. Source: Industry standards from Laserax equipment manuals."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) in transparent lead crystal at 1064 nm; picosecond (ps) or femtosecond reduces thermal effects but increases cost. Avoids cracking due to reflectivity (~4% at 1064 nm). Source: Laser physics studies in Optics Express (e.g., ns pulses for glass ablation thresholds)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 20,
+      "unit": "kHz",
+      "description": "Typical for efficient cleaning; lower rates reduce heat accumulation in low-conductivity lead crystal, higher speeds up process but risks damage. Trade-off: high freq increases throughput but potential thermal buildup. Source: Academic literature in Journal of Applied Physics on pulsed laser cleaning."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1,
+      "unit": "J/cm²",
+      "description": "Fluence range for removing contaminants (e.g., 0.5-1 for light, 1-3 for heavy) while below lead crystal damage threshold (~4-5 J/cm² at 1064 nm due to transparency). Conservative for safety. Source: Ablation threshold studies in Applied Surface Science for glass materials."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Smaller for fine details on intricate lead crystal surfaces, larger for broad areas; 200 μm balances precision and coverage without excessive energy concentration. Source: Equipment specs from Coherent and Trumpf laser systems for precision cleaning."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal without risking damage to fragile lead crystal. Source: Industry case studies in laser cleaning of cultural heritage glass (e.g., adaptable to industrial from SPIE proceedings)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 70,
+      "unit": "%",
+      "description": "Ensures uniform coverage and avoids gaps in cleaning; 70% optimal for even fluence distribution on reflective, delicate surfaces like lead crystal. Source: Process optimization in Journal of Laser Applications."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

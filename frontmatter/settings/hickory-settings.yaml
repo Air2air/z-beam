@@ -1,7 +1,7 @@
 id: hickory-settings
 name: Hickory
-datePublished: '2025-12-20T23:40:40.324636Z'
-dateModified: '2025-12-20T23:40:40.324636Z'
+datePublished: '2025-12-21T03:33:03.050267Z'
+dateModified: '2025-12-21T03:33:03.050267Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/hardwood/hickory-settings
@@ -37,8 +37,7 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
-    with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
@@ -54,167 +53,6 @@ relationships:
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
 machine_settings:
-  powerRange:
-    description: Optimal average power for Hickory surface cleaning without charring
-    unit: W
-    value: 100
-  wavelength:
-    description: Near-IR wavelength optimized for Hickory absorption and minimal penetration
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Optimal beam diameter for precision cleaning resolution
-    unit: μm
-    value: 100
-  repetitionRate:
-    description: High repetition rate for efficient cleaning coverage
-    unit: kHz
-    value: 50
-  energyDensity:
-    description: Fluence threshold for effective contaminant removal from Hickory
-    unit: J/cm²
-    value: 1.2
-  pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of contaminants
-    unit: ns
-    value: 10
-  scanSpeed:
-    description: Scanning speed for efficient area coverage without thermal damage
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 2
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without over-processing
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: Charring and carbonization
-    severity: high
-    threshold_temperature: 250-300°C
-    impact: Wood chars at low temperatures leaving black marks and structural damage
-    solutions:
-    - Use pulse mode with 2-5 second cooling between passes
-    - Reduce power by 30-40% compared to metals
-    - Increase scan speed to reduce dwell time
-    - Monitor surface for discoloration; stop if browning occurs
-  - challenge: Slow thermal diffusivity
-    severity: medium
-    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
-    impact: Heat accumulates rapidly causing thermal damage zones
-    solutions:
-    - Increase cooling time between passes
-    - Use lower repetition rates (<20 kHz)
-    - Apply crosshatch patterns to distribute heat
-  surface_characteristics:
-  - challenge: Grain direction sensitivity
-    severity: medium
-    variation: 20-40% absorption variation by grain orientation
-    impact: Laser absorption varies significantly with grain direction
-    solutions:
-    - Scan parallel to grain for consistent results
-    - Use crosshatch pattern (0° and 90°) for uniform cleaning
-    - Test on scrap to determine optimal scan direction
-  - challenge: Porous structure with deep contamination
-    severity: medium
-    porosity_range: 12-65% (softwoods highest)
-    impact: Contaminants penetrate deep into wood structure
-    solutions:
-    - Multiple passes with progressive power increase
-    - Reduce scan speed for deeper penetration (600 mm/s)
-    - Chemical pre-treatment for deep-seated contamination
-  contamination_challenges:
-  - challenge: Varnish and coating removal
-    severity: medium
-    impact: Thick coatings require multiple passes and generate smoke/fumes
-    solutions:
-    - First pass 80W fast (1500 mm/s) for bulk removal
-    - Second pass 60W slow (800 mm/s) for residue
-    - Use fume extraction to prevent redeposition
-    - Limit to 2-3 passes maximum to avoid substrate damage
-description: The key with Hickory lies in its dense hardwood structure. We've found
-  this makes it durable yet prone to heat buildup during laser cleaning. Start with
-  lower power settings to remove surface contaminants steadily. Its moderate porosity
-  absorbs residues unevenly, so watch for uneven cleaning in the middle of passes.
-  Adjust scan speeds slower to avoid charring the grain. This approach restores the
-  wood without damaging its natural toughness.
-category: wood
-subcategory: hardwood
-title: Hickory Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: The key with Hickory lies in its dense hardwood structure.
-micro: The key with Hickory lies in its dense hardwood structure. We've found this
-  makes it durable yet prone to heat buildup during laser cleaning.
-machineSettings:
   powerRange:
     description: Optimal average power for Hickory surface cleaning without charring
     unit: W
@@ -274,72 +112,181 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for 1064 nm pulsed lasers on wood; starting at 50W
-      balances cleaning efficiency and heat input to prevent charring on low-conductivity
-      hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer
-      specs from IPG Photonics YLR series and studies on wood laser ablation (e.g.,
-      Journal of Cultural Heritage, 2018).'
+    description: 'Typical range for 1064 nm pulsed lasers on wood; starting at 50W balances cleaning efficiency and heat input
+      to prevent charring on low-conductivity hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer
+      specs from IPG Photonics YLR series and studies on wood laser ablation (e.g., Journal of Cultural Heritage, 2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective speeds for contamination removal; 1000 mm/s recommended
-      for optimal balance on Hickory to avoid overheating. Slower (100-500 mm/s) for
-      heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards
-      from Laserax equipment manuals and process optimization in Optics and Lasers
-      in Engineering (2020).'
+    description: 'Effective speeds for contamination removal; 1000 mm/s recommended for optimal balance on Hickory to avoid
+      overheating. Slower (100-500 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards
+      from Laserax equipment manuals and process optimization in Optics and Lasers in Engineering (2020).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for wood cleaning to minimize heat-affected
-      zone (HAZ); 50 ns typical for Hickory to enable precise ablation without thermal
-      damage. Picosecond (ps) or femtosecond for ultra-fine work but less common industrially.
-      Source: Laser physics research in Applied Surface Science (2019) on wood substrates.'
+    description: 'Nanosecond regime preferred for wood cleaning to minimize heat-affected zone (HAZ); 50 ns typical for Hickory
+      to enable precise ablation without thermal damage. Picosecond (ps) or femtosecond for ultra-fine work but less common
+      industrially. Source: Laser physics research in Applied Surface Science (2019) on wood substrates.'
   repetition_rate:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: '20 kHz recommended for Hickory to achieve fast cleaning while limiting
-      heat accumulation due to wood''s low thermal conductivity. Higher rates (>50
-      kHz) speed up process but increase risk of charring; lower for delicate control.
-      Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser
-      cleaning of organics.'
+    description: '20 kHz recommended for Hickory to achieve fast cleaning while limiting heat accumulation due to wood''s
+      low thermal conductivity. Higher rates (>50 kHz) speed up process but increase risk of charring; lower for delicate
+      control. Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser cleaning of organics.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence below Hickory''s damage threshold (~3-5 J/cm² at 1064 nm)
-      for safe cleaning; 2 J/cm² recommended for contamination removal without ablation
-      of substrate. Conservative for hardwoods to prevent carbonization. Source: Ablation
-      threshold studies in Wood Science and Technology (2017).'
+    description: 'Fluence below Hickory''s damage threshold (~3-5 J/cm² at 1064 nm) for safe cleaning; 2 J/cm² recommended
+      for contamination removal without ablation of substrate. Conservative for hardwoods to prevent carbonization. Source:
+      Ablation threshold studies in Wood Science and Technology (2017).'
   spot_size:
     min: 0.1
     max: 500
     value: 300
     unit: μm
-    description: '300 μm recommended for Hickory surface preparation, balancing fine
-      detail and large-area coverage. Smaller (100-200 μm) for precision, larger (500-1000
-      μm) for broad cleaning. Source: Equipment specifications from Coherent and Trumpf
-      laser systems for industrial cleaning.'
+    description: '300 μm recommended for Hickory surface preparation, balancing fine detail and large-area coverage. Smaller
+      (100-200 μm) for precision, larger (500-1000 μm) for broad cleaning. Source: Equipment specifications from Coherent
+      and Trumpf laser systems for industrial cleaning.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: '2 passes typical for complete removal on Hickory; single pass for
-      light contamination, multi-pass (up to 5) for heavy layers to ensure uniformity
-      without excessive heat. Source: Industry case studies in restoration of wooden
+    description: '2 passes typical for complete removal on Hickory; single pass for light contamination, multi-pass (up to
+      5) for heavy layers to ensure uniformity without excessive heat. Source: Industry case studies in restoration of wooden
       artifacts (e.g., Studies in Conservation, 2022).'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '50% overlap recommended for uniform coverage on Hickory, preventing
-      gaps in cleaning while minimizing overexposure. Range 30-80% based on contamination
-      density. Source: Process optimization studies in Laser Cleaning Journal (2020).'
+    description: '50% overlap recommended for uniform coverage on Hickory, preventing gaps in cleaning while minimizing overexposure.
+      Range 30-80% based on contamination density. Source: Process optimization studies in Laser Cleaning Journal (2020).'
+challenges:
+  thermal_management:
+  - challenge: Charring and carbonization
+    severity: high
+    threshold_temperature: 250-300°C
+    impact: Wood chars at low temperatures leaving black marks and structural damage
+    solutions:
+    - Use pulse mode with 2-5 second cooling between passes
+    - Reduce power by 30-40% compared to metals
+    - Increase scan speed to reduce dwell time
+    - Monitor surface for discoloration; stop if browning occurs
+  - challenge: Slow thermal diffusivity
+    severity: medium
+    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
+    impact: Heat accumulates rapidly causing thermal damage zones
+    solutions:
+    - Increase cooling time between passes
+    - Use lower repetition rates (<20 kHz)
+    - Apply crosshatch patterns to distribute heat
+  surface_characteristics:
+  - challenge: Grain direction sensitivity
+    severity: medium
+    variation: 20-40% absorption variation by grain orientation
+    impact: Laser absorption varies significantly with grain direction
+    solutions:
+    - Scan parallel to grain for consistent results
+    - Use crosshatch pattern (0° and 90°) for uniform cleaning
+    - Test on scrap to determine optimal scan direction
+  - challenge: Porous structure with deep contamination
+    severity: medium
+    porosity_range: 12-65% (softwoods highest)
+    impact: Contaminants penetrate deep into wood structure
+    solutions:
+    - Multiple passes with progressive power increase
+    - Reduce scan speed for deeper penetration (600 mm/s)
+    - Chemical pre-treatment for deep-seated contamination
+  contamination_challenges:
+  - challenge: Varnish and coating removal
+    severity: medium
+    impact: Thick coatings require multiple passes and generate smoke/fumes
+    solutions:
+    - First pass 80W fast (1500 mm/s) for bulk removal
+    - Second pass 60W slow (800 mm/s) for residue
+    - Use fume extraction to prevent redeposition
+    - Limit to 2-3 passes maximum to avoid substrate damage
+description: The key with Hickory lies in its dense hardwood structure. We've found this makes it durable yet prone to heat
+  buildup during laser cleaning. Start with lower power settings to remove surface contaminants steadily. Its moderate porosity
+  absorbs residues unevenly, so watch for uneven cleaning in the middle of passes. Adjust scan speeds slower to avoid charring
+  the grain. This approach restores the wood without damaging its natural toughness.
+category: wood
+subcategory: hardwood
+title: Hickory Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: The key with Hickory lies in its dense hardwood structure.
+micro: The key with Hickory lies in its dense hardwood structure. We've found this makes it durable yet prone to heat buildup
+  during laser cleaning.

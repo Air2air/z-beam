@@ -13,6 +13,94 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 90 W
+  Range: 1-120 W
+  Description: Optimal average power for Breccia surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T01:26:06.349Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Breccia mineral 
+               absorption characteristics
+
+SPOT SIZE:
+  Value: 80 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning 
+
+ENERGY DENSITY:
+  Value: 3.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal
+
+PULSE WIDTH:
+  Value: 12 ns
+  Range: 0.1-1000 ns
+  Description: Short pulse duration for efficient ablation of surface 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for efficient area coverage
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of cleaning passes for complete 
+               surface treatment
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning results
+
+POWER:
+  Value: 100 W
+  Range: 50-300 W
+  Description: Typical range for industrial cleaning of stone materials like Breccia (carbonate-based rock similar to marble) using 1064 nm lasers to remove contaminants without substrate damage; starting at 100 W allows controlled ablation. Max safe ~300 W to avoid cracking due to low thermal conductivity (~2 W/m·K). Source: Manufacturer specs from IPG Photonics fiber lasers for stone cleaning; academic papers on marble ablation (e.g., Pouli et al., Applied Physics A, 2010).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contaminant removal on Breccia; slower speeds (200-500 mm/s) for heavy contamination (e.g., rust or oils), faster (up to 2000 mm/s) for light dust. Recommended 500 mm/s balances efficiency and uniformity. Source: Industry standards from laser cleaning equipment manuals (e.g., Adapt Laser Systems); case studies on stone surface preparation.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for 1064 nm cleaning of Breccia to achieve photothermal ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost—ns sufficient for industrial use. Avoid fs for porous stones to prevent micro-cracking. Source: Laser physics research on stone ablation (e.g., Marczak et al., Journal of Cultural Heritage, 2008).
+
+REPETITION_RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed 1064 nm lasers in stone cleaning; 20 kHz recommended for Breccia to enable fast processing while limiting heat accumulation (Breccia melting point ~800-1200°C, reflectivity ~0.3-0.5 at 1064 nm). Higher rates (>50 kHz) risk thermal buildup in low-conductivity materials. Source: Academic literature on Nd:YAG cleaning of marbles (e.g., Verges-Belmin, Studies in Conservation, 2005).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant removal on Breccia; damage threshold ~3 J/cm² (based on carbonate stone studies), so stay below 2.5 J/cm² to avoid surface pitting. Recommended 1 J/cm² for effective cleaning with low risk. Source: Ablation threshold studies for limestones/marble at 1064 nm (e.g., Gross et al., Applied Surface Science, 2001). Conservative estimate due to Breccia's variable composition.
+
+SPOT_SIZE:
+  Value: 500 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for industrial cleaning; smaller (200 μm) for fine details on Breccia surfaces, larger (800 μm) for broad areas. 500 μm recommended for uniform coverage on porous stone without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser systems for surface preparation.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (up to 5) for heavy layers on Breccia; 2 passes recommended for complete removal while minimizing thermal stress. Multi-pass allows lower fluence per pass. Source: Industry practice and case studies on stone restoration (e.g., European Laser Cleaning Network reports).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Standard range for uniform scan coverage in laser cleaning; 50% recommended for Breccia to ensure no gaps in porous surfaces while avoiding over-heating. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in industrial laser applications (e.g., LaserNet guidelines; research in Optics and Lasers in Engineering, 2015).
+
+
+Generated: 2025-12-21T03:37:06.690Z
 License: CC BY 4.0

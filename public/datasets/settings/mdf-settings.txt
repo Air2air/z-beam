@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for MDF surface cleaning without 
 
-Generated: 2025-12-21T01:26:06.452Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal MDF absorption and 
+               minimal substrate damage
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: High repetition rate for efficient surface cleaning
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled material 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform surface treatment
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for thorough contamination 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap percentage for complete surface coverage
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Energy density threshold for MDF surface ablation
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Beam dwell time per spot for effective material removal
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for industrial laser cleaning of wood-based materials like MDF to avoid charring; starting at 100W for light contamination. Max safe before substrate damage (thermal degradation) is ~500W at 1064 nm. Source: IPG Photonics YLR series specs and studies on laser ablation of composites (e.g., J. Laser Appl. 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal on MDF; slower for heavy contamination (500-1000 mm/s) to ensure ablation, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and heat control. Source: Industry manuals from CleanLaser and process optimization in Opt. Lasers Eng. (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for MDF cleaning due to cost-effectiveness; picosecond (ps) or femtosecond reduces HAZ but unnecessary for most industrial apps. 20 ns minimizes thermal effects on low-conductivity MDF. Source: Laser physics reviews in Appl. Phys. A (2019) on pulsed laser cleaning of organics.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for 1064 nm cleaning; 50 kHz recommended for MDF to achieve fast coverage without excessive heat accumulation, trading off speed vs. thermal buildup in resinous material. Higher rates (>80 kHz) risk damage. Source: Academic literature, e.g., J. Appl. Phys. (2021) on pulse repetition in ablation.
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe removal of contaminants from MDF; damage threshold ~5-10 J/cm² due to charring/melting (MDF decomposition ~200-300°C). Recommended 2 J/cm² for effective cleaning below threshold. Source: Ablation studies in Wood Sci. Technol. (2017) and laser threshold measurements.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise industrial cleaning; 200 μm recommended for MDF to balance resolution on fibrous surface and large-area coverage, avoiding excessive heat concentration. Finer for details (<150 μm), larger for broad prep (300-500 μm). Source: Equipment specs from Coherent and Trumpf lasers.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete MDF surface prep without overexposure. Source: Industry case studies in laser cleaning of wood composites (e.g., Proc. SPIE 2022).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage on irregular MDF surfaces; 60% recommended for optimal cleaning without gaps or over-ablation, typical range 30-80% based on scan patterns. Source: Process optimization in J. Mater. Process. Technol. (2019).
+
+
+Generated: 2025-12-21T03:37:06.859Z
 License: CC BY 4.0

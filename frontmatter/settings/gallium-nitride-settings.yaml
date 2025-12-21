@@ -1,7 +1,7 @@
 id: gallium-nitride-settings
 name: Gallium Nitride
-datePublished: '2025-12-20T23:40:43.831136Z'
-dateModified: '2025-12-20T23:40:43.831136Z'
+datePublished: '2025-12-21T03:33:04.984636Z'
+dateModified: '2025-12-21T03:33:04.984636Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/semiconductor/compound/gallium-nitride-settings
@@ -38,8 +38,8 @@ author:
   - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
@@ -55,125 +55,6 @@ relationships:
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
 machine_settings:
-  powerRange:
-    value: 60
-    unit: W
-    description: Controlled power for precision semiconductor cleaning
-  wavelength:
-    value: 1064
-    unit: nm
-    description: Near-IR for minimal lattice damage
-  spotSize:
-    value: 30
-    unit: μm
-    description: Small spot for high-precision cleaning
-  repetitionRate:
-    value: 30
-    unit: kHz
-    description: Moderate frequency for controlled removal
-  energyDensity:
-    value: 1.5
-    unit: J/cm²
-    description: Precision energy for contamination removal
-  pulseWidth:
-    value: 10
-    unit: ns
-    description: Ultra-short pulses for minimal thermal damage
-  scanSpeed:
-    value: 300
-    unit: mm/s
-    description: Careful scanning for uniform treatment
-  passCount:
-    value: 3
-    unit: passes
-    description: Multiple passes for complete cleaning
-  overlapRatio:
-    value: 60
-    unit: '%'
-    description: High overlap for thorough coverage
-challenges:
-- Requires careful power calibration to prevent material damage
-- Monitor surface temperature during processing
-- Verify cleaning effectiveness through inspection
-description: Before laser cleaning, Gallium Nitride surfaces require careful parameter
-  selection After cleaning, Gallium Nitride surfaces show restored appearance with
-  controlled parameters
-category: semiconductor
-subcategory: compound
-title: Gallium Nitride Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: Before laser cleaning, Gallium Nitride surfaces require careful parameter
-  selection After cleaning, Gallium Nitride surfaces show restored appearance with...
-micro: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection
-  After cleaning, Gallium Nitride surfaces show restored appearance with controlled
-  parameters.
-machineSettings:
   powerRange:
     value: 60
     unit: W
@@ -233,69 +114,138 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for pulsed fiber lasers in semiconductor cleaning;
-      starting at 50 W balances efficiency and safety for GaN''s sensitivity to heat
-      (thermal conductivity ~130 W/mK); max avoids melting point (~2500°C). Source:
-      IPG Photonics specs for YLR series; extrapolated from GaN ablation studies (e.g.,
-      J. Appl. Phys. 2015).'
+    description: 'Typical range for pulsed fiber lasers in semiconductor cleaning; starting at 50 W balances efficiency and
+      safety for GaN''s sensitivity to heat (thermal conductivity ~130 W/mK); max avoids melting point (~2500°C). Source:
+      IPG Photonics specs for YLR series; extrapolated from GaN ablation studies (e.g., J. Appl. Phys. 2015).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective for light contaminants at higher speeds, slower for heavy;
-      1000 mm/s optimal for uniform GaN surface prep without overheating. Range from
-      industry standards for 1064 nm cleaning. Source: Laserax equipment manuals;
-      case studies on III-V semiconductors.'
+    description: 'Effective for light contaminants at higher speeds, slower for heavy; 1000 mm/s optimal for uniform GaN surface
+      prep without overheating. Range from industry standards for 1064 nm cleaning. Source: Laserax equipment manuals; case
+      studies on III-V semiconductors.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 10
     unit: ps
-    description: 'Picosecond preferred over ns for minimal HAZ on reflective GaN (reflectivity
-      ~40% at 1064 nm); avoids thermal accumulation. Femtosecond possible but less
-      common industrially. Source: Laser physics research (Opt. Express 2018 on ultrashort
-      pulse cleaning of nitrides).'
+    description: 'Picosecond preferred over ns for minimal HAZ on reflective GaN (reflectivity ~40% at 1064 nm); avoids thermal
+      accumulation. Femtosecond possible but less common industrially. Source: Laser physics research (Opt. Express 2018 on
+      ultrashort pulse cleaning of nitrides).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: '50 kHz balances speed and heat management for GaN; higher rates
-      risk accumulation on low-absorptivity material, slower for precision. Trade-off:
-      faster cleaning but potential thermal damage. Source: Academic literature (Appl.
-      Surf. Sci. 2020 on pulsed laser cleaning of GaN).'
+    description: '50 kHz balances speed and heat management for GaN; higher rates risk accumulation on low-absorptivity material,
+      slower for precision. Trade-off: faster cleaning but potential thermal damage. Source: Academic literature (Appl. Surf.
+      Sci. 2020 on pulsed laser cleaning of GaN).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Below GaN damage threshold (~1-2 J/cm² at 1064 nm ns pulses) for
-      safe contaminant removal; 0.5 J/cm² recommended for light industrial cleaning.
-      Conservative for GaN''s high melting point but low IR absorption. Source: Ablation
-      threshold studies (J. Phys. D: Appl. Phys. 2017).'
+    description: 'Below GaN damage threshold (~1-2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; 0.5 J/cm² recommended
+      for light industrial cleaning. Conservative for GaN''s high melting point but low IR absorption. Source: Ablation threshold
+      studies (J. Phys. D: Appl. Phys. 2017).'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: '200 μm for fine GaN surface prep (e.g., LED substrates); smaller
-      for detail, larger for area coverage. Matches typical Gaussian beam in cleaning
-      heads. Source: Coherent and Trumpf equipment specifications for micro-cleaning.'
+    description: '200 μm for fine GaN surface prep (e.g., LED substrates); smaller for detail, larger for area coverage. Matches
+      typical Gaussian beam in cleaning heads. Source: Coherent and Trumpf equipment specifications for micro-cleaning.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Multi-pass (2 recommended) for complete removal of heavy contaminants
-      without single-pass overload on delicate GaN; single pass for light. Based on
-      industrial practice for semiconductors. Source: Case studies in Surf. Coat.
-      Technol. 2019.'
+    description: 'Multi-pass (2 recommended) for complete removal of heavy contaminants without single-pass overload on delicate
+      GaN; single pass for light. Based on industrial practice for semiconductors. Source: Case studies in Surf. Coat. Technol.
+      2019.'
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: '60% ensures uniform coverage on GaN without excessive energy overlap
-      causing damage; typical range for pulsed scanning. Optimizes for even ablation
-      of contaminants. Source: Process optimization studies (Opt. Lasers Eng. 2021).'
+    description: '60% ensures uniform coverage on GaN without excessive energy overlap causing damage; typical range for pulsed
+      scanning. Optimizes for even ablation of contaminants. Source: Process optimization studies (Opt. Lasers Eng. 2021).'
+challenges:
+- Requires careful power calibration to prevent material damage
+- Monitor surface temperature during processing
+- Verify cleaning effectiveness through inspection
+description: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection After cleaning, Gallium Nitride
+  surfaces show restored appearance with controlled parameters
+category: semiconductor
+subcategory: compound
+title: Gallium Nitride Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection After cleaning, Gallium
+  Nitride surfaces show restored appearance with...
+micro: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection After cleaning, Gallium Nitride
+  surfaces show restored appearance with controlled parameters.

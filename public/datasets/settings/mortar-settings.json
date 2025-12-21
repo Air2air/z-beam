@@ -5,8 +5,8 @@
     "subcategory": "general",
     "title": "Mortar Settings",
     "description": "When laser cleaning mortar, watch out for its brittle nature right from the start—I've seen it crack easily under sudden heat, unlike tougher stone in masonry walls. That low toughness means thermal shock hits hard, so you need to ease in gently to avoid spalling the surface. Tends to absorb laser energy well compared to slick metals, which helps clear grime without much residue, but its porosity traps moisture that can steam up and weaken bonds during the process.\n\nStart with lower power settings to build heat slowly, giving the material time to dissipate without fracturing. This works best when you overlap passes moderately, pulling away layers of dirt or salt buildup from historical facades or bridge joints. I've found scanning at a steady speed prevents hot spots that might etch the underlying cement-sand mix. Adjust for damp conditions by drying the area first—mortar holds water longer than dense brick, leading to uneven cleaning if ignored. In my experience on restoration sites, this approach brings back the original texture safely, especially for cultural heritage pieces where precision matters.",
-    "datePublished": "2025-12-20T23:40:40.896616Z",
-    "dateModified": "2025-12-20T23:40:40.896616Z",
+    "datePublished": "2025-12-21T03:33:03.485488Z",
+    "dateModified": "2025-12-21T03:33:03.485488Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,127 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for mortar cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-infrared wavelength optimized for mortar absorption and minimal substrate damage",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise mortar cleaning with adequate energy density",
+      "unit": "mm",
+      "value": 0.1,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient mortar removal with good surface quality",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective mortar ablation without damaging underlying substrate",
+      "unit": "J/cm²",
+      "value": 12.7,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for effective mortar ablation with controlled thermal effects",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform mortar removal and processing efficiency",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete mortar removal with quality control",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform mortar removal and surface consistency",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 200,
+      "max": 2000,
+      "value": 500,
+      "unit": "W",
+      "description": "Typical range for industrial 1064 nm laser cleaning of mortar-like cementitious materials to remove contaminants without excessive heat buildup; starting at 500 W for controlled ablation. Max avoids substrate cracking (thermal conductivity ~1 W/mK). Source: IPG Photonics YLR series specs and studies on stone cleaning (e.g., J. Laser Appl. 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "value": 1500,
+      "unit": "mm/s",
+      "description": "Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., paint), faster for light dirt. Recommended 1500 mm/s for uniform mortar surface prep. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 30,
+      "description": "Nanosecond regime preferred for cost-effective cleaning of mortar; 30 ns minimizes heat-affected zone (HAZ) due to mortar's low thermal diffusivity (~0.5 mm²/s). Picosecond (ps) or femtosecond optional for precision but less common industrially. Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation of cementitious substrates."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Typical for pulsed 1064 nm systems on mortar to achieve pulse overlap without excessive heat accumulation; higher rates speed up cleaning but risk thermal damage on porous mortar. 50 kHz balances speed and safety. Source: Academic literature, e.g., Appl. Surf. Sci. (2019) on stone heritage cleaning trade-offs."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for contaminant ablation on mortar; below damage threshold (~3-5 J/cm² for cement, avoiding melting point ~1200°C). Recommended 1.5 J/cm² for safe removal of oxides/paint with minimal porosity alteration. Source: Ablation threshold studies in J. Cult. Herit. (2017) on laser cleaning of masonry."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 500,
+      "unit": "μm",
+      "description": "Beam diameter range for industrial cleaning; smaller for fine details, larger for broad mortar surfaces. 500 μm recommended for efficient coverage on rough mortar textures. Source: Equipment specifications from Coherent and Trumpf laser cleaning heads."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass for heavy layers on mortar to prevent over-ablation. Recommended 2 passes for complete removal while preserving substrate integrity. Source: Industry case studies, e.g., restoration projects in Constr. Build. Mater. (2020)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Ensures uniform coverage on irregular mortar surfaces; 50% optimal for even energy distribution without gaps or hotspots. Higher for heavy contamination. Source: Process optimization in Laser Technol. (2016) for surface preparation applications."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

@@ -11,6 +11,98 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Molybdenum oxide removal 
+               without substrate damage
 
-Generated: 2025-12-21T01:26:06.456Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength providing good absorption for 
+               Molybdenum surface contaminants
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution 
+               and energy density
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning 
+               coverage with thermal management
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               from Molybdenum surface
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient contaminant 
+               ablation with minimal thermal diffusion
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning with 
+               adequate overlap
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap percentage for uniform cleaning 
+
+POWER:
+  Value: 100 W
+  Range: 50-300 W
+  Description: Typical range for 1064 nm pulsed lasers in metal cleaning; starting at 100 W balances efficiency and safety for Mo's high reflectivity and thermal conductivity, avoiding melting (threshold ~300 W). Source: IPG Photonics YLR series specs and studies on refractory metals (e.g., J. Laser Appl. 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for contamination removal; 1500 mm/s optimal for light contaminants on Mo, slower (500-1000 mm/s) for heavy; ensures uniform cleaning without excessive heat buildup. Source: Laserax equipment manuals and industry standards for IR laser cleaning.
+
+PULSE_WIDTH:
+  Value: 30 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning of reflective metals like Mo; 30 ns minimizes HAZ compared to longer pulses, while ps/fs (not typical at 1064 nm for industrial) reduce thermal effects further. Source: Laser physics reviews (Opt. Lasers Eng. 2020).
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Standard for pulsed cleaning; 30 kHz recommended for Mo to achieve fast processing without significant heat accumulation due to its conductivity; higher rates (>50 kHz) increase speed but risk thermal damage. Source: Academic literature on pulse train effects (Appl. Surf. Sci. 2019).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence for contaminant ablation without substrate damage; Mo's ablation threshold ~3-5 J/cm² at 1064 nm due to reflectivity; 1.5 J/cm² safe for cleaning. Conservative estimate from similar metals. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2017).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise industrial cleaning; 200 μm recommended for Mo surface prep, balancing resolution for fine details and coverage for larger areas. Source: Manufacturer specs (e.g., Coherent Armo series) and process optimization.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Typically 1-3 passes for complete removal on metals; 2 passes recommended for Mo to ensure thorough cleaning of oxides/contaminants without overexposure. Source: Industry case studies on refractory metal processing (Laser Cleaning Handbook, 2021).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 50% optimal for Mo to avoid gaps or uneven heating, adjustable higher for heavy contamination. Source: Process optimization studies (Opt. Laser Technol. 2022).
+
+
+Generated: 2025-12-21T03:37:06.863Z
 License: CC BY 4.0

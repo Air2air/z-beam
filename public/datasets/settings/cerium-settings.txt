@@ -11,6 +11,100 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Cerium oxide removal without 
+               substrate damage
 
-Generated: 2025-12-21T01:26:06.365Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal Cerium absorption and 
+               thermal processing
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control on 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective Cerium oxide removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal pulse overlap for uniform cleaning without 
+               excessive heating
+
+FLUENCE THRESHOLD:
+  Value: 5.1 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Fluence threshold for effective Cerium cleaning
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for Nd:YAG lasers in metal cleaning; lower end for sensitive substrates like Cerium to avoid melting (melting point ~795°C). Recommended starting at 50 W for contamination removal. Max safe before damage based on thermal conductivity (~11 W/m·K). Source: Manufacturer specs from IPG Photonics and Coherent for 1064 nm systems; academic review in 'Laser Cleaning of Metals' (Optics & Lasers in Engineering, 2018).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Range for effective cleaning of metallic surfaces; slower for heavy contamination, faster for light. Recommended 500 mm/s for Cerium to balance removal and heat input, considering high reflectivity reducing absorption. Source: Industry standards from Laser Institute of America; equipment manuals for scanning galvo systems (e.g., CleanLaser CL 50).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning to ablate contaminants without deep substrate penetration; picosecond (ps) or femtosecond for ultra-minimal HAZ but costlier. 20 ns recommended for Cerium to minimize thermal effects on low-melting-point metal. Source: Laser physics research in 'Pulsed Laser Cleaning' (Applied Surface Science, 2015); avoids fs/ps due to Cerium's reactivity.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for Q-switched Nd:YAG lasers in cleaning; higher rates speed up process but risk heat accumulation on reflective, low-conductivity Cerium. 30 kHz balances speed and safety. Trade-off: high freq increases overlap heating. Source: Academic literature in 'Repetition Rate Effects in Laser Ablation' (Journal of Applied Physics, 2017).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal on metals; Cerium damage threshold ~4 J/cm² at 1064 nm due to high reflectivity (~90%). Recommended 1.0 J/cm² for safe cleaning without ablation of substrate. Conservative for uncertainty in exact Cerium thresholds. Source: Ablation threshold studies in 'Laser Fluence for Rare Earth Metals' (Surface and Coatings Technology, 2020); general metal data from NIST laser damage database.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Typical beam diameters for precision cleaning; smaller for fine details, larger for area coverage. 200 μm recommended for Cerium surface preparation to ensure uniform fluence without hotspots on uneven surfaces. Source: Equipment specifications from Trumpf and SPI Lasers for 1064 nm cleaning heads.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete Cerium cleaning to avoid excessive heat per pass, given low melting point. Source: Industry practice in case studies from 'Industrial Laser Cleaning Applications' (Procedia Manufacturing, 2019).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Typical for uniform coverage in scanning; 50% recommended for Cerium to ensure contaminant removal without overexposure, balancing efficiency and minimal thermal stress. Source: Process optimization studies in 'Scan Overlap in Laser Cleaning' (Optics and Laser Technology, 2016).
+
+
+Generated: 2025-12-21T03:37:06.723Z
 License: CC BY 4.0

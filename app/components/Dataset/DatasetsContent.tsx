@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer';
-import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowserWithFilters';
+import MaterialBrowser from '@/app/components/Dataset/MaterialBrowser';
 import DatasetSection from '@/app/components/Dataset/DatasetSection';
 import { PackageIcon } from '@/app/components/Buttons';
 import { trackDatasetDownload } from '@/app/utils/analytics';
@@ -294,7 +294,7 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
       </div>
 
       {/* Search & Filter + Results */}
-      <MaterialBrowserWithFilters materials={materials} />
+      <MaterialBrowser materials={materials} withFilterSection={true} />
     </>
   );
 }

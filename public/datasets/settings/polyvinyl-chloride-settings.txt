@@ -11,6 +11,92 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for PVC cleaning without thermal 
 
-Generated: 2025-12-21T01:26:06.502Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal PVC absorption and 
+               minimal substrate damage
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise PVC cleaning
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient PVC removal
+
+ENERGY DENSITY:
+  Value: 5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective PVC ablation
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled PVC ablation
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform PVC removal
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete PVC removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform PVC cleaning
+
+POWER:
+  Value: 50 W
+  Range: 10-200 W
+  Description: Typical range for polymer cleaning to avoid thermal damage; starting at 50 W for PVC's low melting point (~160°C); max safe ~150 W to prevent substrate melting. Source: IPG Photonics specs for fiber lasers in polymer applications; studies in Optics and Lasers in Engineering (2018) on PVC ablation.
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for contamination removal without overheating; slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light; recommended 1000 mm/s balances efficiency and safety for PVC's poor thermal conductivity. Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cleaner Production (2020).
+
+PULSE_WIDTH:
+  Value: 30 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning of polymers to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond for ultra-precision but costlier; 30 ns optimal for PVC to enable photothermal ablation without excessive melting. Source: Laser physics research in Applied Surface Science (2019) on polymer thresholds; avoids fs/ps due to equipment availability.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning; 20-50 kHz recommended for PVC to achieve fast processing while limiting heat accumulation from low reflectivity (~5-10% at 1064 nm); higher rates increase speed but risk thermal buildup. Source: Academic literature in Optics Express (2021) on repetition rate effects in polymer laser cleaning.
+
+ENERGY_DENSITY:
+  Value: 0.3 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe ablation of contaminants on polymers; PVC damage threshold ~0.5 J/cm²; recommended 0.3 J/cm² for cleaning without substrate degradation, considering low thermal conductivity (0.19 W/mK). Source: Ablation threshold studies in Journal of Applied Physics (2017) for PVC at 1064 nm.
+
+SPOT_SIZE:
+  Value: 150 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for effective coverage; smaller (50-100 μm) for fine details, larger (200-300 μm) for broad areas; 150 μm recommended for uniform PVC surface preparation without pinpoint damage. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-4) for heavy; 2 passes recommended for complete PVC cleaning to ensure removal without cumulative heat damage. Source: Industry practice in case studies from Surface and Coatings Technology (2022); avoids excessive passes due to PVC's heat sensitivity.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or over-ablation; 50% optimal for PVC to prevent uneven heating and maintain surface integrity during scanning. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020); typical 30-80% range for polymer applications.
+
+
+Generated: 2025-12-21T03:37:06.920Z
 License: CC BY 4.0

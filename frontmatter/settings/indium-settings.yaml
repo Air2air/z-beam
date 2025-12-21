@@ -1,7 +1,7 @@
 id: indium-settings
 name: Indium
-datePublished: '2025-12-20T23:40:40.387628Z'
-dateModified: '2025-12-20T23:40:40.387628Z'
+datePublished: '2025-12-21T03:33:03.085944Z'
+dateModified: '2025-12-21T03:33:03.085944Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/indium-settings
@@ -38,8 +38,8 @@ author:
   - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
@@ -56,180 +56,7 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Indium oxide removal without substrate
-      damage
-    unit: W
-    value: 45
-  wavelength:
-    description: Near-IR wavelength providing good absorption in Indium oxide layer
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Beam spot diameter for precise oxide removal
-    unit: μm
-    value: 80
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage
-    unit: kHz
-    value: 50
-  fluenceThreshold:
-    description: Fluence threshold for Indium oxide ablation
-    unit: J/cm²
-    value: 2.8
-  pulseWidth:
-    description: Nanosecond pulse duration for controlled oxide ablation
-    unit: ns
-    value: 12
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Recommended number of passes for complete oxide removal
-    unit: passes
-    value: 2
-  overlapRatio:
-    description: Optimal beam overlap for uniform coverage
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: High thermal conductivity and heat spread
-    severity: medium
-    property_value: 4-400 W/(m·K) depending on metal
-    impact: Heat spreads rapidly causing large heat-affected zones
-    solutions:
-    - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-    - Increase scan speed to minimize dwell time
-    - Apply cooling between passes for thick sections
-  - challenge: Melting and heat-affected zone formation
-    severity: high
-    threshold_range: 660°C (Al) to 3422°C (W)
-    impact: Substrate melting or microstructural changes in heat-affected zone
-    solutions:
-    - Stay below 70% of melting temperature
-    - Use pulse mode with adequate cooling time
-    - Monitor for surface discoloration indicating oxidation
-  surface_characteristics:
-  - challenge: High reflectivity
-    severity: high
-    reflectivity_range: 60-95% at 1064nm for polished metals
-    impact: Most laser energy reflected, requiring higher power; safety hazard
-    solutions:
-    - Use shorter wavelengths (355nm UV) for better absorption
-    - Increase power density but monitor for thermal damage
-    - Ensure proper beam containment and safety measures
-    - Surface oxidation/roughness improves absorption
-  - challenge: Surface finish variations
-    severity: medium
-    impact: Polished surfaces reflect more, rough surfaces absorb better
-    solutions:
-    - Adjust power based on surface condition
-    - Test parameters on similar finish samples
-    - Polished surfaces need 20-40% more power
-  contamination_challenges:
-  - challenge: Rust and oxide layer removal
-    severity: medium
-    impact: Requires multiple passes; rust/oxide has different absorption than base
-      metal
-    solutions:
-    - First pass at higher power (100-120W) to remove bulk oxide
-    - Second pass at lower power (60-80W) for final cleaning
-    - Monitor for base metal exposure to avoid over-processing
-  - challenge: Oil and grease removal
-    severity: low
-    impact: Organic contaminants vaporize easily but can redeposit
-    solutions:
-    - Use fume extraction to prevent redeposition
-    - Higher scan speeds (3000-5000 mm/s) for thin films
-    - Chemical pre-cleaning for heavy contamination
-description: When laser cleaning Indium, you must start with a cautious low-power
-  setup to avoid melting its soft surface, unlike tougher metals that handle more
-  heat. Begin by pulsing gently to penetrate its high reflectivity, which reflects
-  energy better than copper does. Slowly increase scan speed across the area, ensuring
-  even passes that restore its conductive finish without warping. This approach clears
-  contaminants while preserving Indium's malleability for electronics use.
-category: metal
-subcategory: specialty
-title: Indium Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: When laser cleaning Indium, you must start with a cautious low-power
-  setup to avoid melting its soft surface, unlike tougher metals that handle more
-  heat.
-micro: When laser cleaning Indium, you must start with a cautious low-power setup
-  to avoid melting its soft surface, unlike tougher metals that handle more heat.
-  Begin by pulsing gently to penetrate its high reflectivity, which reflects energy
-  better than copper does.
-machineSettings:
-  powerRange:
-    description: Optimal average power for Indium oxide removal without substrate
-      damage
+    description: Optimal average power for Indium oxide removal without substrate damage
     unit: W
     value: 45
     min: 1.0
@@ -287,69 +114,187 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in metal cleaning; lower
-      end for delicate soft metals like Indium to avoid melting (mp 156.6°C). Recommended
-      start conservatively low. Source: IPG Photonics specs for cleaning heads; conservative
-      for Indium''s low thermal resistance (similar to Al studies in Opt. Lasers Eng.
-      2018).'
+    description: 'Typical range for pulsed Nd:YAG lasers in metal cleaning; lower end for delicate soft metals like Indium
+      to avoid melting (mp 156.6°C). Recommended start conservatively low. Source: IPG Photonics specs for cleaning heads;
+      conservative for Indium''s low thermal resistance (similar to Al studies in Opt. Lasers Eng. 2018).'
   scan_speed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective for contamination removal on reflective metals; slower
-      for heavy contamination (e.g., oxides), faster for light. Recommended balances
-      speed and fluence control. Source: Industry standards from Laserax manuals;
-      adapted for Indium''s high reflectivity reducing absorption.'
+    description: 'Effective for contamination removal on reflective metals; slower for heavy contamination (e.g., oxides),
+      faster for light. Recommended balances speed and fluence control. Source: Industry standards from Laserax manuals; adapted
+      for Indium''s high reflectivity reducing absorption.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal
-      HAZ on soft metals; picosecond (ps) for ultra-precision but overkill for Indium.
-      Avoids excessive heat buildup due to Indium''s conductivity (82 W/m·K). Source:
-      Laser physics in J. Appl. Phys. 2015 on ns ablation thresholds for low-mp metals.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on soft metals; picosecond (ps)
+      for ultra-precision but overkill for Indium. Avoids excessive heat buildup due to Indium''s conductivity (82 W/m·K).
+      Source: Laser physics in J. Appl. Phys. 2015 on ns ablation thresholds for low-mp metals.'
   repetition_rate:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for industrial cleaning; moderate rate prevents heat accumulation
-      on heat-sensitive Indium while enabling efficient coverage. Higher rates increase
-      speed but risk thermal damage. Source: Academic lit. in Appl. Surf. Sci. 2020
-      on pulse train effects for metals.'
+    description: 'Typical for industrial cleaning; moderate rate prevents heat accumulation on heat-sensitive Indium while
+      enabling efficient coverage. Higher rates increase speed but risk thermal damage. Source: Academic lit. in Appl. Surf.
+      Sci. 2020 on pulse train effects for metals.'
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence below Indium''s ablation threshold (~2-4 J/cm² at 1064 nm
-      due to reflectivity >90%); safe for contaminant removal without substrate melting.
-      Conservative to account for variability in contamination. Source: Ablation studies
+    description: 'Fluence below Indium''s ablation threshold (~2-4 J/cm² at 1064 nm due to reflectivity >90%); safe for contaminant
+      removal without substrate melting. Conservative to account for variability in contamination. Source: Ablation studies
       in Phys. Procedia 2013 for soft metals; estimated for Indium.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller for precise surface prep on Indium components (e.g., electronics);
-      larger for broad areas. Balances fluence and coverage. Source: Equipment specs
-      from Coherent Inc. cleaning systems; suitable for fine Indium features.'
+    description: 'Smaller for precise surface prep on Indium components (e.g., electronics); larger for broad areas. Balances
+      fluence and coverage. Source: Equipment specs from Coherent Inc. cleaning systems; suitable for fine Indium features.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Multi-pass for thorough removal of layered contamination without
-      single-pass overload; single pass for light cleaning. Recommended for uniform
-      Indium surface prep. Source: Industry case studies in J. Laser Appl. 2019 on
-      metal oxide removal.'
+    description: 'Multi-pass for thorough removal of layered contamination without single-pass overload; single pass for light
+      cleaning. Recommended for uniform Indium surface prep. Source: Industry case studies in J. Laser Appl. 2019 on metal
+      oxide removal.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage on irregular Indium surfaces; 50% optimal
-      for efficiency without excessive exposure. Higher for heavy contamination. Source:
-      Process optimization in Opt. Laser Technol. 2017 for scanned laser cleaning.'
+    description: 'Ensures uniform coverage on irregular Indium surfaces; 50% optimal for efficiency without excessive exposure.
+      Higher for heavy contamination. Source: Process optimization in Opt. Laser Technol. 2017 for scanned laser cleaning.'
+challenges:
+  thermal_management:
+  - challenge: High thermal conductivity and heat spread
+    severity: medium
+    property_value: 4-400 W/(m·K) depending on metal
+    impact: Heat spreads rapidly causing large heat-affected zones
+    solutions:
+    - Use shorter pulse durations (picosecond/femtosecond) for localized heating
+    - Increase scan speed to minimize dwell time
+    - Apply cooling between passes for thick sections
+  - challenge: Melting and heat-affected zone formation
+    severity: high
+    threshold_range: 660°C (Al) to 3422°C (W)
+    impact: Substrate melting or microstructural changes in heat-affected zone
+    solutions:
+    - Stay below 70% of melting temperature
+    - Use pulse mode with adequate cooling time
+    - Monitor for surface discoloration indicating oxidation
+  surface_characteristics:
+  - challenge: High reflectivity
+    severity: high
+    reflectivity_range: 60-95% at 1064nm for polished metals
+    impact: Most laser energy reflected, requiring higher power; safety hazard
+    solutions:
+    - Use shorter wavelengths (355nm UV) for better absorption
+    - Increase power density but monitor for thermal damage
+    - Ensure proper beam containment and safety measures
+    - Surface oxidation/roughness improves absorption
+  - challenge: Surface finish variations
+    severity: medium
+    impact: Polished surfaces reflect more, rough surfaces absorb better
+    solutions:
+    - Adjust power based on surface condition
+    - Test parameters on similar finish samples
+    - Polished surfaces need 20-40% more power
+  contamination_challenges:
+  - challenge: Rust and oxide layer removal
+    severity: medium
+    impact: Requires multiple passes; rust/oxide has different absorption than base metal
+    solutions:
+    - First pass at higher power (100-120W) to remove bulk oxide
+    - Second pass at lower power (60-80W) for final cleaning
+    - Monitor for base metal exposure to avoid over-processing
+  - challenge: Oil and grease removal
+    severity: low
+    impact: Organic contaminants vaporize easily but can redeposit
+    solutions:
+    - Use fume extraction to prevent redeposition
+    - Higher scan speeds (3000-5000 mm/s) for thin films
+    - Chemical pre-cleaning for heavy contamination
+description: When laser cleaning Indium, you must start with a cautious low-power setup to avoid melting its soft surface,
+  unlike tougher metals that handle more heat. Begin by pulsing gently to penetrate its high reflectivity, which reflects
+  energy better than copper does. Slowly increase scan speed across the area, ensuring even passes that restore its conductive
+  finish without warping. This approach clears contaminants while preserving Indium's malleability for electronics use.
+category: metal
+subcategory: specialty
+title: Indium Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: When laser cleaning Indium, you must start with a cautious low-power setup to avoid melting its soft surface,
+  unlike tougher metals that handle more heat.
+micro: When laser cleaning Indium, you must start with a cautious low-power setup to avoid melting its soft surface, unlike
+  tougher metals that handle more heat. Begin by pulsing gently to penetrate its high reflectivity, which reflects energy
+  better than copper does.

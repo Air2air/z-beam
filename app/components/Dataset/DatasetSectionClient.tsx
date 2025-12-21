@@ -18,10 +18,11 @@ interface DatasetSectionClientProps {
   category: string;
   subcategory: string | undefined;
   includes: Array<string>;
-  categoryLink: {
+  categoryLink?: {
     href: string;
     label: string;
   };
+  contentType?: 'materials' | 'contaminants';
 }
 
 export default function DatasetSectionClient({
@@ -34,12 +35,15 @@ export default function DatasetSectionClient({
   category,
   subcategory,
   includes,
-  categoryLink
+  categoryLink,
+  contentType = 'materials'
 }: DatasetSectionClientProps) {
   
   const handleDownload = (format: 'json' | 'csv' | 'txt') => {
-    const fileName = `${baseSlug}-laser-cleaning.${format}`;
-    const filePath = `/datasets/materials/${fileName}`;
+    const fileName = contentType === 'contaminants' 
+      ? `${baseSlug}.${format}`
+      : `${baseSlug}-laser-cleaning.${format}`;
+    const filePath = `/datasets/${contentType}/${fileName}`;
     
     // Track download event
     trackDatasetDownload({
@@ -54,7 +58,10 @@ export default function DatasetSectionClient({
   };
 
   const getDirectLink = (format: 'json' | 'csv' | 'txt') => {
-    return `/datasets/materials/${baseSlug}-laser-cleaning.${format}`;
+    const fileName = contentType === 'contaminants'
+      ? `${baseSlug}.${format}`
+      : `${baseSlug}-laser-cleaning.${format}`;
+    return `/datasets/${contentType}/${fileName}`;
   };
 
   return (

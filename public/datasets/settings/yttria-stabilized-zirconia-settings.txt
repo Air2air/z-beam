@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 80 W
+  Range: 1-120 W
+  Description: Optimal average power for ceramic cleaning
 
-Generated: 2025-12-21T01:26:06.600Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Pulse frequency for controlled material removal
+
+ENERGY DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Energy per unit area for surface cleaning
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Pulse duration for minimal thermal penetration
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Beam travel speed for uniform coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Number of cleaning cycles for complete removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap for consistent surface treatment
+
+POWER:
+  Value: 200 W
+  Range: 50-500 W
+  Description: Typical range for industrial Nd:YAG laser cleaning of ceramics like YSZ to ablate contaminants without thermal damage; starting at 200W for balanced efficiency. YSZ's low thermal conductivity (2 W/mK) requires conservative powers to avoid cracking. Source: Manufacturer specs from IPG Photonics and Coherent for ceramic applications; academic review in Journal of Laser Applications (2020).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for 1064 nm cleaning, slower for heavy contamination (e.g., oxides) and faster for light; 500 mm/s recommended for optimal fluence delivery on YSZ without overheating. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial YSZ cleaning to minimize heat-affected zone (HAZ) due to YSZ's high melting point (~2700°C) and moderate reflectivity at 1064 nm; picosecond (ps) or femtosecond (fs) for ultra-precise but costlier. Source: Laser physics research in Optics Express (e.g., study on ceramic ablation thresholds, 2018).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Standard for pulsed cleaning to ensure pulse overlap without excessive heat accumulation on low-conductivity YSZ; higher rates speed up process but risk thermal buildup. Source: Academic literature in Applied Surface Science (review on pulse repetition effects, 2019).
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal (e.g., oils, rust) below YSZ damage threshold (~6-10 J/cm² at 1064 nm ns pulses); 2 J/cm² recommended for safe surface preparation. Source: Ablation threshold studies in Journal of Applied Physics (zirconia laser interaction, 2017) and SPIE proceedings.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precise vs. broad cleaning; 200 μm ideal for YSZ industrial applications like coating prep to focus energy without substrate etching. Source: Equipment specifications from Trumpf and CleanLaser systems for ceramic processing.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete YSZ cleaning while monitoring for microcracks. Source: Industry case studies in Surface and Coatings Technology (YSZ thermal barrier cleaning, 2021).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or over-ablation on brittle YSZ; 50% balances efficiency and even energy distribution. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (scan strategy for ceramics, 2022).
+
+
+Generated: 2025-12-21T03:37:07.055Z
 License: CC BY 4.0

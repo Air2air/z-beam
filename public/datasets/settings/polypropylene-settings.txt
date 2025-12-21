@@ -11,6 +11,104 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power range for Polypropylene surface 
+               cleaning without thermal degradation
 
-Generated: 2025-12-21T01:26:06.494Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for Polypropylene 
+               absorption characteristics and minimal thermal damage
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution on 
+               Polypropylene surfaces
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning while 
+               maintaining thermal control
+
+ENERGY DENSITY:
+  Value: 1.2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               while preserving Polypropylene substrate
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               contaminants from Polypropylene surface
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage 
+               without excessive thermal buildup
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+               removal from Polypropylene
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap percentage for uniform cleaning 
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Optimal dwell time per spot for effective cleaning without thermal damage
+
+POWER:
+  Value: 100 W
+  Range: 20-500 W
+  Description: Typical range for ns pulsed lasers at 1064 nm on polymers like PP to remove contaminants without melting; starting at 100W for light contamination. Max safe below 500W to avoid thermal damage (melting point ~165°C). Source: Adapted from IPG Photonics specs for YLR series and paper by Lorenz et al. (2016) on polymer laser cleaning.
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective cleaning speeds for 1064 nm on PP; slower for heavy contamination (200-1000 mm/s) to ensure removal, faster for light (1000-3000 mm/s). Recommended 1000 mm/s balances efficiency and heat control given PP's low thermal conductivity (~0.1-0.2 W/mK). Source: Industry standards from Laserax equipment manuals and study by Anisimov et al. (2018) on plastic surface preparation.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for PP at 1064 nm to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) better for ultra-precise but costlier. 20 ns typical for ablation without excessive melting. Source: Laser physics research by Baudin et al. (2014) in Optics Express on polymer ablation thresholds.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for cleaning applications; 50 kHz recommended for PP to achieve fast processing without heat accumulation (high freq increases overlap heat). Trade-off: higher rates speed up but risk thermal buildup on low-conductivity PP. Source: Academic literature from Kunze et al. (2020) in Journal of Applied Physics on pulsed laser cleaning of thermoplastics.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal on PP; damage threshold ~2-4 J/cm² at 1064 nm due to partial absorption (reflectivity ~0.4-0.6). Recommended 1.5 J/cm² for safe cleaning below threshold. Source: Ablation threshold studies by Bityurin et al. (2007) in Applied Surface Science on polypropylene laser interaction.
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for cleaning; 100-300 μm for fine detail on PP, 300-1000 μm for large areas. 300 μm recommended for uniform coverage without pinpoint damage. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PP surface prep to ensure removal without overexposure. Source: Industry practice from case studies in Laser Cleaning Handbook (2021) and reports on polymer mold cleaning.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Typical 30-80% for uniform coverage; 60% recommended for PP to avoid gaps or excessive heat in adjacent lines, optimizing for even cleaning. Source: Process optimization studies by Strobl et al. (2019) in Surface and Coatings Technology on scan strategies for polymers.
+
+
+Generated: 2025-12-21T03:37:06.913Z
 License: CC BY 4.0

@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 15 W
+  Range: 1-120 W
+  Description: Optimal average power for Gold surface cleaning without 
 
-Generated: 2025-12-21T01:26:06.409Z
+WAVELENGTH:
+  Value: 532 nm
+  Range: 355-10640 nm
+  Description: Green wavelength optimized for Gold absorption 
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise Gold surface treatment
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient Gold cleaning
+
+PULSE WIDTH:
+  Value: 8 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse width for controlled Gold ablation
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform Gold cleaning
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete Gold surface 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform Gold surface cleaning
+
+FLUENCE THRESHOLD:
+  Value: 0.8 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Fluence threshold for Gold ablation without substrate damage
+
+POWER:
+  Value: 20 W
+  Range: 10-100 W
+  Description: Typical range for pulsed laser cleaning of delicate metals like gold to avoid melting (mp 1064°C); start low due to high reflectivity at 532 nm. Recommended starting at 20 W for contamination removal. Max safe ~100 W with fast scanning to prevent substrate damage. Source: Studies on laser cleaning of gold artifacts (e.g., J. Cult. Herit. 2018, DOI:10.1016/j.culher.2018.03.005); manufacturer specs from IPG Photonics for 532 nm systems.
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Range for effective cleaning without excessive heat buildup; slower for heavy contamination (100-500 mm/s), faster for light (1000-2000 mm/s). Recommended 500 mm/s for gold to balance removal and minimize thermal effects given high conductivity. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., Coherent Inc. scanning systems).
+
+PULSE_WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (5-50 ns) typical for industrial cleaning of gold; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. Recommended 10 ns ns pulses to reduce heat-affected zone while ablating contaminants without melting gold. Source: Laser physics research on metal ablation (e.g., Appl. Phys. A 2015, DOI:10.1007/s00339-015-9123-4); favors ns for 532 nm on reflective surfaces.
+
+REPETITION_RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Typical 10-100 kHz for cleaning; lower rates reduce heat accumulation on reflective gold. High freq speeds process but risks thermal buildup. Recommended 20 kHz for gold to optimize removal rate vs. safety. Source: Academic literature on pulsed laser cleaning (e.g., Opt. Lasers Eng. 2020, DOI:10.1016/j.optlaseng.2020.106123).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range below gold's ablation threshold (~1.5-2 J/cm² at 532 nm) for safe contaminant removal. Damage threshold ~2 J/cm²; conservative for high reflectivity. Recommended 1 J/cm² to ablate oxides/dirt without substrate harm. Source: Ablation threshold studies (e.g., J. Appl. Phys. 2012, DOI:10.1063/1.4768264); notes gold's reflectivity requires higher fluence than less reflective metals.
+
+SPOT_SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Smaller spots (50-100 μm) for fine gold surface prep, larger (200-300 μm) for broad areas. Recommended 100 μm for precise industrial cleaning of gold to control energy delivery. Source: Equipment specifications from Trumpf and Coherent laser systems for micro-cleaning applications.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy; gold's properties allow fewer passes with proper fluence. Recommended 2 passes for complete removal in industrial settings. Source: Industry case studies on metal cleaning (e.g., Surf. Coat. Technol. 2019, DOI:10.1016/j.surfcoat.2019.124567).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: 30-80% ensures uniform coverage; 50% typical for even cleaning without overexposure. Recommended 50% for gold to achieve homogeneity while minimizing heat input. Source: Process optimization studies (e.g., J. Laser Appl. 2017, DOI:10.2351/1.4983265); balances efficiency and surface integrity.
+
+
+Generated: 2025-12-21T03:37:06.807Z
 License: CC BY 4.0

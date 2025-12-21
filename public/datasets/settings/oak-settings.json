@@ -5,8 +5,8 @@
     "subcategory": "hardwood",
     "title": "Oak Settings",
     "description": "We've found Oak's open porosity sets it apart from denser hardwoods like maple. This lets contaminants seep deep into the grain, so we typically start with low-power passes to gently draw them out without charring. Watch for uneven heat buildup in those pores—bump up overlap midway to even things out and preserve the wood's natural strength.",
-    "datePublished": "2025-12-20T23:40:41.041553Z",
-    "dateModified": "2025-12-20T23:40:41.041553Z",
+    "datePublished": "2025-12-21T03:33:03.551956Z",
+    "dateModified": "2025-12-21T03:33:03.551956Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,134 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Oak surface cleaning without charring",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength for optimal absorption in Oak cellulose and lignin",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning resolution",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without wood damage",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete surface cleaning",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning pattern",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "dwellTime": {
+      "description": "Optimal dwell time per cleaning spot",
+      "unit": "μs",
+      "value": 100,
+      "min": 0.2,
+      "max": 200
+    },
+    "power": {
+      "min": 20,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Typical range for pulsed Nd:YAG lasers in wood cleaning to remove contaminants without charring; starting at 50 W for light soiling on oak, max limited by oak's low thermal conductivity (~0.17 W/m·K) to avoid substrate damage. Source: Studies on laser cleaning of wooden artifacts (e.g., Journal of Cultural Heritage, 2015)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 500,
+      "description": "Effective speeds for 1064 nm cleaning of oak; slower for heavy contamination (e.g., mold or grease) to ensure removal, faster for light dust; 500 mm/s optimal for balancing efficiency and heat control. Source: Industry manuals from IPG Photonics and Adapt Laser Systems."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for industrial cleaning of oak to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; 20 ns balances ablation of contaminants with oak's sensitivity to thermal damage. Source: Laser physics research in Optics & Lasers in Engineering (2018)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 30,
+      "unit": "kHz",
+      "description": "Typical for 1064 nm cleaning; 30 kHz recommended for oak to achieve fast coverage without excessive heat accumulation, as higher rates (>50 kHz) risk charring due to oak's low reflectivity (~10-20% at 1064 nm). Trade-off: higher freq speeds process but increases thermal load. Source: Academic literature, Applied Surface Science (2020)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for contaminant removal on wood; oak damage threshold ~3-5 J/cm² (ablation starts at ~1 J/cm² for organics); 1.5 J/cm² safe for cleaning without degrading cellulose structure. Conservative due to oak's melting/decomposition point ~200-300°C. Source: Ablation threshold studies in Journal of Applied Physics (2017)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter for precise industrial cleaning; smaller for fine details on oak surfaces (e.g., engravings), larger for broad areas; 200 μm recommended for uniform contaminant removal without excessive overlap heating. Source: Equipment specs from Coherent and Trumpf lasers."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for oak to ensure complete removal while monitoring for discoloration. Source: Industry case studies on wood restoration (e.g., Laser Cleaning Conference proceedings, 2019)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

@@ -17,6 +17,102 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 90 W
+  Range: 1-120 W
+  Description: Optimal average power for Palladium oxide removal 
+               without substrate damage
 
-Generated: 2025-12-21T01:26:06.471Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for efficient absorption by 
+               Palladium oxides and contaminants
+
+SPOT SIZE:
+  Value: 80 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control on 
+               Palladium surfaces
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+PULSE WIDTH:
+  Value: 12 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               surface contaminants
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive heat accumulation
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Threshold fluence for effective contaminant removal from Palladium
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Effective dwell time per cleaning spot for optimal results
+
+POWER:
+  Value: 200 W
+  Range: 50-500 W
+  Description: Typical range for Nd:YAG laser cleaning of reflective metals like Pd to avoid thermal damage; starting at 200W balances efficiency and safety. Max limited by Pd's high reflectivity (~60% at 1064nm) to prevent melting (mp 1555°C). Source: IPG Photonics specs for YLR series; studies in Optics and Lasers in Engineering (2018) on precious metal cleaning.
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal on Pd; slower for heavy oxides (500-1000 mm/s), faster for light contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance without excessive heat. Source: Industry standards from Laserax manuals; J. Cleaner Prod. (2020) case studies on metal surface prep.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Ns regime preferred for cost-effective cleaning of Pd; ps (5-50 ps) minimizes HAZ due to Pd's thermal conductivity (71 W/mK), but ns sufficient. Avoid fs for industrial scale. Recommended 20 ns for low thermal impact. Source: Laser physics in Appl. Phys. A (2015) on metal ablation thresholds.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning to control heat accumulation on reflective Pd; higher rates speed up process but risk buildup. 50 kHz recommended for uniform cleaning without overheating. Trade-off: >80 kHz increases efficiency but requires cooling. Source: Academic lit. in J. Appl. Phys. (2017); Coherent Inc. equipment guidelines.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant ablation on Pd without substrate damage; threshold ~2-3 J/cm² for ns pulses at 1064nm due to reflectivity. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account for Pd's properties. Source: Ablation studies in Surf. Coat. Technol. (2019); uncertainty noted for exact Pd data, extrapolated from Ni/Pt analogs.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise cleaning on Pd; smaller for fine details (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Trumpf and Adapt Laser Systems; process optimization in Lasers Manuf. Mater. Process. (2021).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete Pd surface cleaning without damage. Recommended for layered contaminants in catalysis/electronics apps. Source: Industry practice in case studies from SPIE Proc. (2016); conservative for Pd's sensitivity.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage on Pd; 30-50% for large areas, 60-80% for precision. 60% recommended to avoid gaps while minimizing overexposure/heat. Source: Process studies in Opt. Lasers Eng. (2022); typical range from manufacturer guidelines like CleanLASER.
+
+
+Generated: 2025-12-21T03:37:06.881Z
 License: CC BY 4.0

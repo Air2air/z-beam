@@ -5,8 +5,8 @@
     "subcategory": "sedimentary",
     "title": "Dolomite Settings",
     "description": "Before laser cleaning, Dolomite surfaces require careful parameter selection After cleaning, Dolomite surfaces show restored appearance with controlled parameters",
-    "datePublished": "2025-12-20T23:40:43.788202Z",
-    "dateModified": "2025-12-20T23:40:43.788202Z",
+    "datePublished": "2025-12-21T03:33:04.956845Z",
+    "dateModified": "2025-12-21T03:33:04.956845Z",
     "author": {
       "id": 1,
       "name": "Yi-Chun Lin",
@@ -41,7 +41,127 @@
       "formatting_file": "taiwan_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "value": 90,
+      "unit": "W",
+      "description": "Optimal power for stone surface restoration",
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "value": 1064,
+      "unit": "nm",
+      "description": "Near-IR wavelength for stone cleaning",
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "value": 80,
+      "unit": "μm",
+      "description": "Moderate spot for effective treatment",
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "value": 40,
+      "unit": "kHz",
+      "description": "Balanced frequency for stone cleaning",
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "value": 2.2,
+      "unit": "J/cm²",
+      "description": "Energy for contamination removal",
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "value": 10,
+      "unit": "ns",
+      "description": "Controlled pulses for minimal damage",
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "value": 400,
+      "unit": "mm/s",
+      "description": "Steady scanning for uniform cleaning",
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "value": 2,
+      "unit": "passes",
+      "description": "Multiple passes for thorough treatment",
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "value": 50,
+      "unit": "%",
+      "description": "Standard overlap for consistent results",
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 500,
+      "unit": "W",
+      "value": 150,
+      "description": "Typical range for industrial cleaning of carbonate stones like dolomite to remove contaminants without thermal damage; start at 150W for controlled ablation. Max safe ~300-500W depending on fluence. Based on manufacturer specs from IPG Photonics and Coherent for 1064 nm systems used in heritage stone cleaning (e.g., avoids decomposition above 900°C)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds for 1064 nm cleaning of dolomite; slower for heavy contamination (500-1000 mm/s), faster for light (2000-5000 mm/s). Recommended 1500 mm/s for optimal contaminant removal with minimal passes. From industry standards in laser cleaning manuals (e.g., Adapt Laser Systems) and studies on stone surface preparation."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 20,
+      "description": "Nanosecond regime preferred for cost-effective cleaning of dolomite; picosecond (ps) or femtosecond for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat diffusion in low-conductivity dolomite. Supported by laser physics research in Optics & Lasers in Engineering (e.g., ns pulses reduce thermal effects in carbonates)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 50,
+      "description": "Typical for 1064 nm cleaning to balance speed and heat; higher rates (50-100 kHz) enable faster processing but risk accumulation in low-thermal-conductivity dolomite. 50 kHz recommended for safe operation. From academic literature like Journal of Applied Physics on pulse train effects in stone ablation."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 1.5,
+      "description": "Fluence range for contaminant removal on dolomite; damage threshold ~2-4 J/cm² (avoids carbonate decomposition). 1.5 J/cm² recommended for safe cleaning. Based on ablation threshold studies in Applied Surface Science (e.g., 1064 nm on calcite/dolomite analogs, conservative due to reflectivity ~0.2-0.3 at IR)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter for precise vs. broad cleaning; smaller for fine details on dolomite surfaces (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for uniform preparation. From equipment specs in Laserax and SPI Lasers systems for industrial stone applications."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "value": 2,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on dolomite without over-ablation. Drawn from industry case studies in heritage conservation (e.g., ICSC World Heritage reports on laser cleaning of carbonate stones)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "value": 60,
+      "description": "Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on irregular dolomite surfaces. 60% recommended to prevent gaps in cleaning. From process optimization studies in Lasers in Engineering journal for scanned beam cleaning of minerals."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

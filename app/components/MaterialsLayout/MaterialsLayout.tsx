@@ -9,7 +9,7 @@ import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { LaserMaterialInteraction } from '../LaserMaterialInteraction/LaserMaterialInteraction';
 import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialCharacteristics';
 import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
-import MaterialDatasetCardWrapper from '../Dataset/MaterialDatasetCardWrapper';
+import MaterialDatasetDownloader from '../Dataset/MaterialDatasetDownloader';
 import { CardGrid } from '../CardGrid';
 import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
@@ -107,16 +107,16 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       }
     })),
     {
-      component: MaterialDatasetCardWrapper,
+      component: MaterialDatasetDownloader,
       props: {
         materialName,
         slug,
         category,
         subcategory,
-        machineSettings: metadata?.machineSettings,
-        materialProperties: metadata?.materialProperties,
+        machineSettings: (metadata as any)?.machine_settings || relationships?.machine_settings || {},
+        materialProperties: (metadata as any)?.properties || relationships?.material_properties || relationships?.materialProperties || {},
         faq: metadata?.faq,
-        regulatoryStandards: (metadata as any)?.regulatoryStandards,
+        regulatoryStandards: relationships?.regulatory_standards || (metadata as any)?.regulatoryStandards || [],
         showFullDataset: true,
       }
     },

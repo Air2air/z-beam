@@ -11,6 +11,95 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 90 W
+  Range: 1-120 W
+  Description: Optimal average power for polyester resin composite 
+               cleaning without thermal damage
 
-Generated: 2025-12-21T01:26:06.487Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimal for polyester resin 
+               composite processing
+
+SPOT SIZE:
+  Value: 80 μm
+  Range: 0.1-500 μm
+  Description: Optimal beam spot diameter for precision cleaning
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning process
+
+PULSE WIDTH:
+  Value: 15 ns
+  Range: 0.1-1000 ns
+  Description: Optimal pulse duration for efficient material removal 
+               with minimal heat affected zone
+
+SCAN SPEED:
+  Value: 800 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for efficient coverage and 
+               material removal
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap percentage for uniform cleaning
+
+FLUENCE:
+  Value: 3 J/cm²
+  Range: 3-5 J/cm²
+  Description: Energy density threshold for effective Polyester Resin Composites cleaning - Energy density threshold for composite material cleaning considering matrix and reinforcement properties
+
+POWER:
+  Value: 100 W
+  Range: 20-500 W
+  Description: Typical range for industrial 1064 nm laser cleaning of polymer composites to balance efficiency and heat input; starting at 100 W avoids thermal damage to polyester's low melting point (~260°C). Max safe ~300 W at high speeds to prevent substrate ablation. Source: Laserax manufacturer specs and studies in Optics and Lasers in Engineering (2018) on composite surface prep.
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contamination removal; slower (500-1000 mm/s) for heavy contaminants like oils, faster (2000-5000 mm/s) for light dust. Recommended 2000 mm/s for optimal cleaning without overheating polyester's low thermal conductivity (~0.2 W/m·K). Source: IPG Photonics equipment manuals and Journal of Cleaner Production (2020) case studies on polymer composites.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (5-100 ns) preferred over ps/fs for cost-effective 1064 nm cleaning of composites; 20 ns minimizes heat-affected zone (HAZ <50 μm) by reducing thermal diffusion in polyester. Ps/fs (e.g., <1 ps) for ultra-precise but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for polyester composites to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk melting if >50 kHz without high speed). Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on fiber-reinforced polymers.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe ablation of contaminants; damage threshold for polyester composites ~3-5 J/cm² due to reflectivity (~5-10% at 1064 nm) and low thermal conductivity. Recommended 1.5 J/cm² for effective cleaning without substrate damage. Source: Ablation threshold studies in Composites Part B: Engineering (2017) and SPIE proceedings on laser cleaning.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Typical beam diameter for industrial cleaning; 100-200 μm for fine surface prep on composites, 300-500 μm for large areas. 200 μm recommended for polyester to ensure uniform energy distribution and avoid localized overheating. Source: Coherent Inc. equipment specifications and industry standards from Laser Institute of America.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on polyester composites without excessive heat buildup. Source: Industry practice in case studies from Journal of Materials Processing Technology (2022) on resin composite cleaning.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: 30-80% ensures uniform coverage; 50% recommended for polyester to balance efficiency and avoid uneven heating or missed spots during scan. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in Optics & Laser Technology (2019) on polymer surface treatment.
+
+
+Generated: 2025-12-21T03:37:06.907Z
 License: CC BY 4.0

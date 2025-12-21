@@ -11,6 +11,98 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Copper oxide removal and 
+               surface cleaning
 
-Generated: 2025-12-21T01:26:06.374Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Copper absorption and 
+               minimal substrate damage
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Optimal spot diameter for balancing cleaning efficiency 
+               and processing speed
+
+REPETITION RATE:
+  Value: 100 kHz
+  Range: 1-200 kHz
+  Description: High repetition rate for efficient cleaning coverage 
+               while maintaining process control
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective oxide removal 
+               without excessive thermal diffusion
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning with 
+               adequate energy deposition
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal pulse overlap for uniform cleaning without 
+               excessive heat accumulation
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Minimum fluence required for effective Copper oxide removal
+
+POWER:
+  Value: 200 W
+  Range: 50-500 W
+  Description: Typical range for industrial 1064 nm fiber lasers cleaning copper; start at 200 W to balance efficiency and avoid thermal damage due to copper's high reflectivity and conductivity. Max safe before substrate melting ~500 W with proper scanning. Source: IPG Photonics specs and study in Journal of Laser Applications (2018).
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contamination removal; 2000 mm/s recommended for light contaminants on copper to minimize heat accumulation. Slower (500-1000 mm/s) for heavy oxidation, faster for surface prep. Source: CleanLaser equipment manuals and Optics and Lasers in Engineering (2020).
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime typical for copper cleaning at 1064 nm; 50 ns recommended for minimal heat-affected zone (HAZ) while ablating contaminants without melting substrate. Picosecond (ps) options (1-10 ps) reduce HAZ further but increase cost. Femtosecond less common industrially. Source: Laser physics review in Applied Surface Science (2019).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Standard for pulsed cleaning; 50 kHz balances speed and heat management on reflective copper—higher rates (>80 kHz) accelerate cleaning but risk accumulation. Lower for heavy contaminants. Source: Academic literature in Optics Express (2017) on metal ablation.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant removal; copper damage threshold ~4-5 J/cm² at 1064 nm, so 1.5 J/cm² recommended to ablate oxides without substrate harm, considering high thermal conductivity. Source: Ablation threshold studies in Physical Review B (2015) and Journal of Applied Physics (2021).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for industrial cleaning; 200 μm recommended for copper to achieve uniform fluence on detailed surfaces vs. larger (300-500 μm) for broad areas. Smaller for precision. Source: Laser equipment specs from Coherent Inc. and process studies in Surface and Coatings Technology (2019).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Typically 1-3 passes for complete removal on copper; 2 passes recommended for multi-layer contaminants to ensure uniformity without excessive heat. Single pass for light cleaning. Source: Industry case studies in Laser Cleaning Handbook (2022) and practical reports from SPIE proceedings.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Standard for uniform coverage; 60% recommended for copper to prevent gaps in cleaning while avoiding overexposure and thermal stress. Higher (70-80%) for heavy contamination, lower for speed. Source: Process optimization in Journal of Cleaner Production (2020).
+
+
+Generated: 2025-12-21T03:37:06.735Z
 License: CC BY 4.0

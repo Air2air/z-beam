@@ -5,8 +5,8 @@
     "subcategory": "hardwood",
     "title": "Birch Settings",
     "description": "The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser energy than denser hardwoods. This property allows the process to remove surface contaminants and restore natural grain effectively, but it also increases the risk of uneven heating if not managed carefully. We typically start with reduced power levels to prevent charring in those open pores, gradually increasing as the cleaning progresses to expose underlying layers without compromising structural integrity. In our experience, this approach improves adhesion removal in applications like furniture manufacturing or architectural restoration, where preserving the wood's flexibility is essential. Watch for localized discoloration mid-process, and adjust scan speeds upward to reduce dwell time on porous areas, ensuring the material's moderate strength holds up across multiple passes.",
-    "datePublished": "2025-12-20T23:40:39.127142Z",
-    "dateModified": "2025-12-20T23:40:39.127142Z",
+    "datePublished": "2025-12-21T03:33:02.376214Z",
+    "dateModified": "2025-12-21T03:33:02.376214Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -41,7 +41,127 @@
       "formatting_file": "usa_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Birch surface cleaning without charring",
+      "unit": "W",
+      "value": 45,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength for optimal Birch wood absorption and minimal subsurface damage",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning resolution on Birch surface features",
+      "unit": "μm",
+      "value": 80,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage while maintaining thermal control",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without damaging Birch substrate",
+      "unit": "J/cm²",
+      "value": 4.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants without excessive heat diffusion",
+      "unit": "ns",
+      "value": 12,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage without excessive dwell time",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of cleaning passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap percentage for uniform cleaning coverage",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Typical range for wood cleaning at 1064 nm to avoid charring; start at 50 W for light contamination on birch (low thermal conductivity ~0.16 W/mK limits heat dissipation). Max safe below substrate damage threshold. Source: Studies on Nd:YAG laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds for contaminant removal without excessive heat buildup; recommended 1500 mm/s for optimal balance on birch. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Source: Industry manuals from IPG Photonics and laser cleaning equipment standards."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime typical for industrial cleaning of organics like birch contaminants; 20 ns recommended for minimal heat-affected zone (HAZ) due to birch's low melting point (~200-300°C for lignin). Picosecond (ps) or femtosecond better for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering (2020)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 30,
+      "unit": "kHz",
+      "description": "Standard for pulsed cleaning to balance speed and heat; 30 kHz recommended for birch to prevent accumulation (high freq increases speed but risks thermal damage on low-conductivity wood). Trade-off: >50 kHz faster but monitor for charring. Source: Academic literature on wood surface treatment (Applied Surface Science, 2019)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe contaminant ablation; birch damage threshold ~2-4 J/cm² at 1064 nm due to moderate reflectivity (~20-30%). Recommended 1.5 J/cm² for cleaning without substrate harm. Source: Ablation threshold studies on hardwoods (Journal of Laser Applications, 2017)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameter for precise industrial cleaning; 200 μm recommended for birch surface preparation (fine detail for contamination removal). Smaller (100-200 μm) for detailed work, larger (300-500 μm) for broad areas. Source: Equipment specs from Coherent and Trumpf laser systems."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Typically 1-3 passes for light to moderate contamination on birch; multi-pass (2 recommended) ensures complete removal without single-pass overheating. Single pass for very light dirt. Source: Industry case studies on wood restoration (Laser Cleaning Conference proceedings, 2021)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "Ensures uniform coverage in scan patterns; 60% recommended for birch to avoid gaps or overexposure (higher overlap for heavy contamination, lower for efficiency). Typical range 30-80% in optimization. Source: Process studies in International Journal of Advanced Manufacturing Technology (2016)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

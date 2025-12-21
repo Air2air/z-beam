@@ -2585,15 +2585,34 @@ export interface CategoryDatasetCardWrapperProps {
 }
 
 /**
- * MaterialDatasetCardWrapper component props
+ * MaterialDatasetDownloader component props
  */
-export interface MaterialDatasetCardWrapperProps {
+export interface MaterialDatasetDownloaderProps {
   materialName: string;
   slug: string;
   category: string;
   subcategory: string;
   machineSettings?: Record<string, any>;
   materialProperties?: Record<string, any>;
+  faq?: any[];
+  regulatoryStandards?: any[];
+  showFullDataset?: boolean;
+}
+
+// Legacy alias for backwards compatibility
+export type MaterialDatasetCardWrapperProps = MaterialDatasetDownloaderProps;
+
+/**
+ * ContaminantDatasetDownloader component props
+ */
+export interface ContaminantDatasetDownloaderProps {
+  contaminantName: string;
+  slug: string;
+  category: string;
+  subcategory?: string;
+  laserProperties?: any;
+  visualCharacteristics?: any;
+  removalByMaterial?: any;
   faq?: any[];
   regulatoryStandards?: any[];
   showFullDataset?: boolean;
@@ -3431,7 +3450,7 @@ export interface CompleteDatabaseProps {
   totalMaterials: number;
 }
 
-export interface DatasetDownloadProps extends MaterialDatasetCardWrapperProps {
+export interface DatasetDownloadProps extends MaterialDatasetDownloaderProps {
   showFullDataset?: boolean;
 }
 

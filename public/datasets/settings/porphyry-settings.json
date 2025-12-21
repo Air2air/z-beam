@@ -5,8 +5,8 @@
     "subcategory": "sedimentary",
     "title": "Porphyry Settings",
     "description": "We've found that when laser cleaning Porphyry, you need to start conservatively with power levels to prevent any surface cracking from its uneven crystal structure, which can trap heat unevenly compared to smoother granites. In our experience, this durable stone responds well because of its low porosity and strong compressive hold—it absorbs laser energy steadily without letting contaminants seep back in, unlike more porous limestones that demand extra passes. We typically use a focused beam with moderate speed and overlap to gently lift away grime while preserving the natural polish, since Porphyry's heat resistance lets it handle short bursts without warping. But watch out for overdoing the intensity early on; its moderate conductivity means heat builds up if you rush, so adjust by slowing the scan and adding passes to avoid subtle fissures that show up later in heritage pieces. This approach restores the stone's finish cleanly for architectural or cultural work.",
-    "datePublished": "2025-12-20T23:40:41.810605Z",
-    "dateModified": "2025-12-20T23:40:41.810605Z",
+    "datePublished": "2025-12-21T03:33:03.826496Z",
+    "dateModified": "2025-12-21T03:33:03.826496Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,127 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Porphyry surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength optimized for Porphyry mineral absorption characteristics",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning of Porphyry surface features",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without substrate damage",
+      "unit": "J/cm²",
+      "value": 12.7,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 500,
+      "unit": "W",
+      "value": 100,
+      "description": "Typical range for industrial 1064 nm Nd:YAG lasers cleaning stone surfaces like porphyry; starting at 100 W for light contamination to avoid thermal damage given porphyry's low thermal conductivity (~2.5 W/mK); max safe below 500 W to prevent substrate cracking (e.g., IPG Photonics YLR series specs; academic review in J. Cult. Herit. 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 500,
+      "description": "Effective for contamination removal on hard stones; 500 mm/s recommended for optimal balance of cleaning efficiency and heat dissipation; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; based on industry standards from Adapt Laser Systems manuals."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 20,
+      "description": "Nanosecond regime preferred for cost-effective cleaning of porphyry; 20 ns minimizes heat-affected zone (HAZ) due to porphyry's high melting point (~1300°C) and reflectivity; picosecond (ps) or femtosecond (fs) for ultra-precise but less common industrially (Laser Phys. 2015 study on stone ablation)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 30,
+      "description": "Standard for 1064 nm cleaning; 30 kHz recommended for porphyry to achieve fast processing without excessive heat accumulation; higher rates (>50 kHz) speed up but risk thermal buildup on low-conductivity stones (Opt. Lasers Eng. 2019)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 1.5,
+      "description": "Fluence range for safe contaminant ablation on porphyry; 1.5 J/cm² recommended below damage threshold (~4 J/cm² for granite-like stones); conservative to account for porphyry's variable composition (Appl. Surf. Sci. 2017 ablation threshold study)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter for industrial cleaning; 200 μm recommended for porphyry surface preparation, balancing fine detail and large-area coverage; smaller for precision, larger for broad contamination (Laserax equipment specifications)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "value": 2,
+      "description": "Typically 1-2 passes for light industrial contamination on durable stones like porphyry; multi-pass for heavy buildup to ensure complete removal without exceeding safe fluence; from case studies in stone restoration (J. Laser Appl. 2020)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "value": 70,
+      "description": "Ensures uniform coverage on irregular porphyry surfaces; 70% recommended for even cleaning without gaps or over-ablation; typical 50-80% in process optimization (Opt. Express 2016 study on scan strategies)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

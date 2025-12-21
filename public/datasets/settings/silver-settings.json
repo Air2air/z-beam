@@ -5,8 +5,8 @@
     "subcategory": "non-ferrous",
     "title": "Silver Settings",
     "description": "I've found that silver responds exceptionally well to laser cleaning when you keep the energy levels low and steady right from the start. Its mirror-like shine means most of the laser light bounces away, so you need to build up the process gradually over several passes to gently lift off tarnish or grime without scorching the surface. This approach works because silver conducts heat so efficiently—it spreads warmth quickly, helping to avoid hot spots that could warp delicate pieces like jewelry or artifacts from cultural heritage sites. But watch out in the middle of your session; if you ramp up too fast, that quick heat spread can push the metal toward its relatively low melting point, leading to unwanted melting or a dull patina that ruins the finish. To sidestep this, always test on a small area first and adjust by slowing the scan speed, which brings back that bright luster reliably in my experience with electronics and medical devices.",
-    "datePublished": "2025-12-20T23:40:42.589786Z",
-    "dateModified": "2025-12-20T23:40:42.589786Z",
+    "datePublished": "2025-12-21T03:33:04.298989Z",
+    "dateModified": "2025-12-21T03:33:04.298989Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,127 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power range for Silver cleaning considering thermal conductivity",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength optimized for Silver's moderate reflectivity and thermal processing",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Optimal spot size for precision cleaning of Silver surfaces",
+      "unit": "μm",
+      "value": 50,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "High repetition rate for efficient cleaning while managing heat accumulation",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence optimized for Silver ablation threshold and cleaning effectiveness",
+      "unit": "J/cm²",
+      "value": 5.1,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation without excessive thermal damage",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Scan speed balancing cleaning efficiency and process control",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Number of passes for complete contaminant removal without substrate damage",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal overlap between adjacent scan lines for uniform cleaning",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 500,
+      "unit": "W",
+      "value": 100,
+      "description": "Typical range for industrial Nd:YAG laser cleaning of reflective metals like silver; starting at 100W to account for high reflectivity (~98% at 1064 nm) reducing absorption; max limited to avoid melting (Tm=962°C); based on IPG Photonics and Laserax equipment specs for metal surface preparation."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 2000,
+      "description": "Effective speeds for contamination removal on silver; 2000 mm/s recommended for optimal balance of cleaning rate and minimal heat accumulation due to silver's high thermal conductivity (429 W/m·K); lower for heavy contamination, higher for light; from industry manuals (e.g., Adapt Laser Systems) and process optimization studies."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 50,
+      "description": "Nanosecond regime preferred for cost-effective cleaning of silver with low heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precise applications but unnecessary for industrial contamination removal; ns avoids plasma shielding issues at 1064 nm; supported by laser physics research (e.g., J. Appl. Phys. studies on metal ablation)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 50,
+      "description": "Standard for pulsed laser cleaning; 50 kHz recommended for silver to enable fast processing while limiting heat buildup from pulse overlap; higher rates increase speed but risk thermal damage on reflective surfaces; trade-off noted in academic literature (e.g., Opt. Lasers Eng. reviews on pulse train effects)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 1,
+      "description": "Fluence range for safe removal of contaminants (e.g., oxides, fingerprints) on silver; below ablation threshold (~2.5 J/cm² for ns pulses at 1064 nm due to high reflectivity); 1.0 J/cm² recommended to minimize substrate damage; from ablation threshold studies (e.g., Appl. Surf. Sci. papers on silver at IR wavelengths)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter range for industrial cleaning; 200 μm recommended for silver to provide good resolution on detailed surfaces while covering larger areas efficiently; smaller for fine features, larger for broad preparation; per equipment specifications (e.g., CleanLaser CL series manuals)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "value": 2,
+      "description": "Typically 1-3 passes for light contamination on silver, up to 5 for heavy buildup; multi-pass (2 recommended) ensures complete removal without exceeding thermal limits; single pass possible for very light dirt; drawn from industry case studies (e.g., laser cleaning of cultural heritage silver artifacts in J. Cult. Herit.)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "value": 70,
+      "description": "Standard overlap for uniform coverage in raster scanning; 70% recommended for silver to prevent streaking from high reflectivity and ensure even fluence distribution; lower (50%) for speed on large areas, higher (80%) for precision; from process optimization studies (e.g., Opt. Express on scan strategies for metals)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

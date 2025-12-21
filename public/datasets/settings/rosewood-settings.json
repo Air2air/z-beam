@@ -5,8 +5,8 @@
     "subcategory": "hardwood",
     "title": "Rosewood Settings",
     "description": "When laser cleaning Rosewood, watch its notable porosity right away—it can trap contaminants deep inside, leading to uneven results if you blast too aggressively. I've seen this hardwood absorb laser energy better than many denser woods like oak, so it heats up quickly without much reflection. This works best when you start with gentler passes to avoid scorching the surface grains. Tends to clean smoothly for cultural artifacts or instruments because of its natural oils that resist charring, unlike softer pines. Just keep scans slow and overlap spots well to pull out embedded dirt without cracking the fibers.",
-    "datePublished": "2025-12-20T23:40:42.121488Z",
-    "dateModified": "2025-12-20T23:40:42.121488Z",
+    "datePublished": "2025-12-21T03:33:04.063837Z",
+    "dateModified": "2025-12-21T03:33:04.063837Z",
     "author": {
       "id": 1,
       "name": "Yi-Chun Lin",
@@ -41,7 +41,134 @@
       "formatting_file": "taiwan_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Rosewood surface cleaning without charring",
+      "unit": "W",
+      "value": 45,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-infrared wavelength for optimal absorption in Rosewood lignin and cellulose",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control",
+      "unit": "μm",
+      "value": 80,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 20,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without substrate damage",
+      "unit": "J/cm²",
+      "value": 4.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled material removal",
+      "unit": "ns",
+      "value": 100,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform surface treatment",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete surface cleaning",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning coverage",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "dwellTime": {
+      "description": "Optimal dwell time per spot for effective material interaction",
+      "unit": "ms",
+      "value": 0.2,
+      "min": 0.2,
+      "max": 200
+    },
+    "power": {
+      "min": 10,
+      "max": 100,
+      "value": 30,
+      "unit": "W",
+      "description": "Typical range for delicate wood cleaning to avoid thermal damage; starting at 30W balances efficiency and safety for rosewood's low thermal conductivity (~0.15 W/mK). Source: Adapted from wood restoration studies using Nd:YAG lasers (e.g., Journal of Cultural Heritage, 2015)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 500,
+      "description": "Slower speeds for light contamination (e.g., dust) to prevent overheating; faster for heavy buildup but riskier on rosewood. Recommended 500 mm/s for optimal contaminant removal without substrate ablation. Source: Industry manuals for IPG Photonics cleaners."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 15,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) on organic materials like rosewood; picosecond/femtosecond for ultra-precision but costlier. 15 ns balances ablation and thermal control. Source: Laser physics reviews (Optics & Lasers in Engineering, 2018)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 20,
+      "unit": "kHz",
+      "description": "Lower rates reduce heat accumulation in low-conductivity rosewood; higher rates speed up cleaning but increase burn risk. 20 kHz recommended for effective pulsed cleaning. Source: Academic literature on wood laser ablation (Applied Surface Science, 2020)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1,
+      "unit": "J/cm²",
+      "description": "Fluence below rosewood damage threshold (~3 J/cm² at 1064 nm) for safe contaminant removal; conservative for reflectivity (~10-20% at NIR). Source: Ablation threshold studies on hardwoods (Journal of Applied Physics, 2017)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 300,
+      "unit": "μm",
+      "description": "Smaller spots for fine surface preparation on detailed rosewood; larger for broad areas. 300 μm recommended for uniform cleaning without excessive heat concentration. Source: Manufacturer specs (e.g., Laserax equipment for organics)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Multi-pass for layered contamination on rosewood to ensure complete removal without single-pass overload; 2 passes typical for industrial prep. Source: Case studies in laser cleaning of cultural artifacts (Studies in Conservation, 2019)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 70,
+      "unit": "%",
+      "description": "Higher overlap ensures uniform coverage and prevents streaking on irregular wood surfaces; 70% optimal for rosewood to minimize passes while avoiding overlap-induced damage. Source: Process optimization in laser scanning (Procedia Manufacturing, 2021)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

@@ -11,6 +11,99 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 45 W
+  Range: 1-120 W
+  Description: Optimal average power for Birch surface cleaning 
+               without charring
 
-Generated: 2025-12-21T01:26:06.334Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal Birch wood absorption 
+               and minimal subsurface damage
+
+SPOT SIZE:
+  Value: 80 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning resolution on 
+               Birch surface features
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               while maintaining thermal control
+
+ENERGY DENSITY:
+  Value: 4.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               without damaging Birch substrate
+
+PULSE WIDTH:
+  Value: 12 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               contaminants without excessive heat diffusion
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage 
+               without excessive dwell time
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of cleaning passes for complete 
+               contaminant removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap percentage for uniform cleaning 
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for wood cleaning at 1064 nm to avoid charring; start at 50 W for light contamination on birch (low thermal conductivity ~0.16 W/mK limits heat dissipation). Max safe below substrate damage threshold. Source: Studies on Nd:YAG laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contaminant removal without excessive heat buildup; recommended 1500 mm/s for optimal balance on birch. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Source: Industry manuals from IPG Photonics and laser cleaning equipment standards.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime typical for industrial cleaning of organics like birch contaminants; 20 ns recommended for minimal heat-affected zone (HAZ) due to birch's low melting point (~200-300°C for lignin). Picosecond (ps) or femtosecond better for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering (2020).
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Standard for pulsed cleaning to balance speed and heat; 30 kHz recommended for birch to prevent accumulation (high freq increases speed but risks thermal damage on low-conductivity wood). Trade-off: >50 kHz faster but monitor for charring. Source: Academic literature on wood surface treatment (Applied Surface Science, 2019).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant ablation; birch damage threshold ~2-4 J/cm² at 1064 nm due to moderate reflectivity (~20-30%). Recommended 1.5 J/cm² for cleaning without substrate harm. Source: Ablation threshold studies on hardwoods (Journal of Laser Applications, 2017).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise industrial cleaning; 200 μm recommended for birch surface preparation (fine detail for contamination removal). Smaller (100-200 μm) for detailed work, larger (300-500 μm) for broad areas. Source: Equipment specs from Coherent and Trumpf laser systems.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Typically 1-3 passes for light to moderate contamination on birch; multi-pass (2 recommended) ensures complete removal without single-pass overheating. Single pass for very light dirt. Source: Industry case studies on wood restoration (Laser Cleaning Conference proceedings, 2021).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage in scan patterns; 60% recommended for birch to avoid gaps or overexposure (higher overlap for heavy contamination, lower for efficiency). Typical range 30-80% in optimization. Source: Process studies in International Journal of Advanced Manufacturing Technology (2016).
+
+
+Generated: 2025-12-21T03:37:06.674Z
 License: CC BY 4.0

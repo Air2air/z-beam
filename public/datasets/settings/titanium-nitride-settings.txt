@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 80 W
+  Range: 1-120 W
+  Description: Optimal average power for ceramic cleaning
 
-Generated: 2025-12-21T01:26:06.579Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Pulse frequency for controlled material removal
+
+ENERGY DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Energy per unit area for surface cleaning
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Pulse duration for minimal thermal penetration
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Beam travel speed for uniform coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Number of cleaning cycles for complete removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap for consistent surface treatment
+
+POWER:
+  Value: 100 W
+  Range: 20-300 W
+  Description: Typical range for industrial laser cleaning of hard coatings like TiN to ablate contaminants without substrate melting (TiN melting point ~2950°C). Starting at 100W for controlled energy delivery; max limited to avoid thermal damage. Source: IPG Photonics YLR series specs for 1064 nm cleaning systems; academic review in 'Laser Cleaning of Metallic Substrates' (Optics and Lasers in Engineering, 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds balance ablation efficiency and heat accumulation on TiN's moderate thermal conductivity (~20 W/m·K). Recommended 1500 mm/s for optimal contaminant removal; slower (100-1000 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning of TiN to achieve photothermal ablation with minimal heat-affected zone (HAZ <10 μm). Picosecond (ps, 1-100 ps) or femtosecond (fs) reduce HAZ further but increase cost; 50 ns recommended for balance. Source: Laser physics research in Applied Surface Science (2019) on TiN ablation thresholds at 1064 nm.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning to ensure pulse overlap without excessive heat buildup on reflective TiN surfaces (reflectivity ~40% at 1064 nm). 50 kHz recommended for TiN to speed up process while monitoring temperature; higher rates (>100 kHz) risk accumulation, lower for precision. Source: Academic literature in Optics Express (2017) on pulse repetition effects in coating cleaning.
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe ablation of contaminants on TiN; damage threshold ~2-3 J/cm² due to high melting point and conductivity. Recommended 1.0 J/cm² for effective cleaning without delamination. Conservative estimate for industrial use. Source: Ablation threshold studies in Journal of Applied Physics (2021) for TiN at 1064 nm.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter suited for TiN surface preparation; smaller (50-100 μm) for fine details, larger (200-500 μm) for broad areas. 200 μm recommended for uniform coverage on coated surfaces. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on TiN to avoid over-ablation. Recommended 2 passes for complete, damage-free cleaning. Source: Industry practice in case studies from Surface & Coatings Technology (2019).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform fluence distribution on TiN for even cleaning; 60% recommended to prevent gaps or hotspots given beam Gaussian profile. Typical range 30-80% based on scan speed. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2022).
+
+
+Generated: 2025-12-21T03:37:07.027Z
 License: CC BY 4.0

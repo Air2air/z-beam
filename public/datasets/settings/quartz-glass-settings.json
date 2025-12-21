@@ -5,8 +5,8 @@
     "subcategory": "soda-lime",
     "title": "Quartz Glass Settings",
     "description": "In our experience, quartz glass cleans up nicely with laser methods that prioritize gentle energy delivery. We typically start sessions with lower power levels to preserve its pristine optical clarity, since this material's high heat resistance lets it handle the process without warping. That low expansion under heat means you can maintain steady scans without risking built-up stress cracks over multiple passes. We've seen great results restoring surfaces in lab equipment or optical parts, where contaminants lift off cleanly and leave the glass undamaged. Its brittle nature, though, calls for controlled overlap in your beam paths to avoid uneven heating spots. What works best is building up passes gradually, allowing natural cooling between them to keep integrity intact. Watch out at the end—pushing too high on fluence can trigger micro-fractures, so always test on a scrap piece first to dial in safe thresholds.",
-    "datePublished": "2025-12-20T23:40:41.938791Z",
-    "dateModified": "2025-12-20T23:40:41.938791Z",
+    "datePublished": "2025-12-21T03:33:03.877019Z",
+    "dateModified": "2025-12-21T03:33:03.877019Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,127 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Quartz Glass cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength with good transmission through Quartz Glass for selective contaminant removal",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning with adequate energy density",
+      "unit": "μm",
+      "value": 50,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with controlled thermal accumulation",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "fluenceThreshold": {
+      "description": "Energy density threshold for effective contaminant removal without damaging Quartz Glass substrate",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.3,
+      "max": 4.5
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate heating",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Number of cleaning passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap percentage for uniform cleaning coverage",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 500,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for industrial laser cleaning systems (e.g., CleanLaser CL 50-500 models) on delicate substrates like quartz glass to avoid thermal damage; starting at 100W for controlled ablation of contaminants. Max safe ~300-500W depending on fluence to prevent cracking (source: IPG Photonics specs and J. Laser Appl. 2018 study on glass cleaning)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 500,
+      "description": "Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; 500 mm/s recommended for optimal balance on quartz to minimize heat input (source: Industry standards from Laserax manuals and Opt. Lasers Eng. 2020 on scan optimization)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime typical for cost-effective cleaning of quartz glass; 5-50 ns for ns lasers, ps (10-100 ps) for minimal HAZ but higher cost; 20 ns recommended to reduce thermal effects given quartz's low absorption at 1064 nm (source: Laser physics in Appl. Phys. A 2019 on pulse regimes for dielectrics)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Standard for pulsed cleaning; 20-50 kHz for controlled energy delivery, up to 100 kHz for faster processing but risk of heat accumulation on low-conductivity quartz; 50 kHz balances speed and safety (source: Academic lit. in J. Appl. Phys. 2021 on rep rate trade-offs for transparent substrates)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence for contaminant ablation without substrate damage; damage threshold for quartz ~10-15 J/cm² at 1064 nm ns pulses; 1.5 J/cm² recommended for safe cleaning of organics/metals on glass (source: Ablation studies in Opt. Express 2017 on fused silica thresholds)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameter range for precision vs. area coverage; 50-200 μm for fine detail on quartz surfaces, 200-500 μm for larger areas; 200 μm recommended for uniform cleaning without hotspots (source: Equipment specs from Coherent and Trumpf laser systems)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on quartz while staying below damage threshold (source: Industry case studies in Surf. Coat. Technol. 2022 on multi-pass laser cleaning of glass)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Ensures uniform coverage; 30-50% for speed, 50-80% for thorough cleaning; 50% recommended for quartz to avoid uneven heating given its thermal properties (source: Process optimization in Lasers Manuf. Mater. Process. 2019)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

@@ -5,8 +5,8 @@
     "subcategory": "thermoplastic",
     "title": "Polyimide Settings",
     "description": "Before laser cleaning, Polyimide surfaces require careful parameter selection After cleaning, Polyimide surfaces show restored appearance with controlled parameters",
-    "datePublished": "2025-12-20T23:40:43.989886Z",
-    "dateModified": "2025-12-20T23:40:43.989886Z",
+    "datePublished": "2025-12-21T03:33:05.078656Z",
+    "dateModified": "2025-12-21T03:33:05.078656Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,127 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "value": 30,
+      "unit": "W",
+      "description": "Low power for thermal-sensitive polymer cleaning",
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "value": 1064,
+      "unit": "nm",
+      "description": "Near-IR wavelength for controlled absorption",
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "value": 100,
+      "unit": "μm",
+      "description": "Larger spot for gentle surface treatment",
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "value": 20,
+      "unit": "kHz",
+      "description": "Lower frequency to prevent thermal damage",
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "value": 0.5,
+      "unit": "J/cm²",
+      "description": "Low energy density to avoid melting",
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "value": 10,
+      "unit": "ns",
+      "description": "Short pulses for minimal thermal impact",
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "value": 800,
+      "unit": "mm/s",
+      "description": "Fast scanning to reduce heat accumulation",
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "value": 2,
+      "unit": "passes",
+      "description": "Multiple gentle passes for gradual cleaning",
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "value": 30,
+      "unit": "%",
+      "description": "Lower overlap to prevent overheating",
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Typical range for industrial laser cleaning of polymers like polyimide to avoid thermal damage; starting at 50W for controlled contaminant removal. Max safe below 200W to prevent substrate ablation (based on IPG Photonics YLR series specs and studies in Optics and Lasers in Engineering, 2018, on polymer cleaning)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds for 1064nm cleaning of polyimide; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for balance of efficiency and minimal HAZ (industry standards from Laserax equipment manuals and J. Cleaner Production, 2020, case studies on surface prep)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for polyimide to balance cleaning efficacy and cost; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially. 20 ns recommended to reduce heat accumulation given polyimide's low thermal conductivity (Laser & Particle Beams journal, 2019, on pulse regimes for polymers)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Typical for 1064nm cleaning; higher rates increase speed but risk heat buildup in low-conductivity polyimide. 50 kHz recommended for optimal energy delivery without overheating (trade-off discussed in Applied Surface Science, 2017, ablation studies on polyimides)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 0.8,
+      "unit": "J/cm²",
+      "description": "Fluence below polyimide damage threshold (~2.5 J/cm² at 1064nm ns pulses) for safe contaminant removal; 0.2-1.0 for light, up to 2.0 for heavy. Recommended 0.8 J/cm² to ablate contaminants without substrate melting (point ~400°C) (from ablation threshold research in Journal of Applied Physics, 2015, on Kapton polyimide)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameter for precise cleaning; smaller for fine details (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for polyimide surface prep to ensure uniform fluence (equipment specs from Coherent Inc. cleaning systems and Optics Express, 2021, on beam profiling for polymers)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete polyimide cleaning without excessive exposure (industry practice from Adapt Laser Systems case studies and Surface and Coatings Technology, 2019, on multi-pass optimization)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on irregular polyimide surfaces. 60% recommended to avoid gaps while minimizing overexposure (process studies in Lasers in Manufacturing and Materials Processing, 2022)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

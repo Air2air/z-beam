@@ -1,7 +1,7 @@
 id: slate-settings
 name: Slate
-datePublished: '2025-12-20T23:40:42.630661Z'
-dateModified: '2025-12-20T23:40:42.630661Z'
+datePublished: '2025-12-21T03:33:04.314952Z'
+dateModified: '2025-12-21T03:33:04.314952Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/stone/metamorphic/slate-settings
@@ -38,8 +38,8 @@ author:
   - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
@@ -56,184 +56,7 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Slate surface cleaning without thermal
-      damage
-    unit: W
-    value: 100
-  wavelength:
-    description: Near-infrared wavelength optimized for Slate mineral absorption
-    unit: nm
-    value: 1064
-  spotSize:
-    description: Beam spot diameter for precise cleaning control
-    unit: μm
-    value: 100
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage
-    unit: kHz
-    value: 50
-  energyDensity:
-    description: Fluence threshold for effective contaminant removal from Slate
-    unit: J/cm²
-    value: 12.7
-  pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal
-    unit: ns
-    value: 10
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning
-    unit: mm/s
-    value: 500
-  passCount:
-    description: Recommended number of cleaning passes for thorough removal
-    unit: passes
-    value: 2
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage
-    unit: '%'
-    value: 50
-challenges:
-  thermal_management:
-  - challenge: Thermal shock and microcracking
-    severity: critical
-    threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-    impact: Natural stone contains microfissures that propagate under thermal stress
-    solutions:
-    - Use pulse mode with 8-12 second cooling between passes
-    - Reduce power by 40-50% for weathered or damaged stone
-    - Preheat substrate if possible to reduce thermal gradients
-    - Granite more resistant than marble; sandstone most vulnerable
-    - Monitor for surface crazing; stop immediately if cracks appear
-  - challenge: Moisture-induced spalling
-    severity: high
-    threshold_temperature: Steam formation >100°C with trapped moisture
-    impact: Porous stone traps moisture that explosively converts to steam
-    solutions:
-    - Test moisture content before cleaning (>3% requires drying)
-    - Allow 48-72 hours drying after rain before laser cleaning
-    - Reduce power by 50% for damp stone
-    - Use pulse mode with extended cooling (15-20 seconds)
-    - Heritage stone requires especially gentle approach
-  surface_characteristics:
-  - challenge: Weathering and surface degradation
-    severity: high
-    impact: Aged stone has weaker surface layer more susceptible to damage
-    solutions:
-    - Reduce power 40-60% for weathered stone vs fresh stone
-    - Test on inconspicuous area first
-    - Multiple gentle passes (4-6 at 40-60W) preferred
-    - Monitor for powdering or flaking; adjust power immediately
-    - Heritage conservation requires documentation and testing
-  - challenge: Mineral composition heterogeneity
-    severity: medium
-    impact: Mixed minerals have different absorption and damage thresholds
-    solutions:
-    - Use moderate power (60-80W) suitable for both light and dark minerals
-    - Crosshatch scan pattern for uniform coverage
-    - Avoid dwelling on dark minerals (feldspar, mica) which absorb more energy
-    - Quartzite and marble more homogeneous than granite
-  contamination_challenges:
-  - challenge: Biological growth and deep staining
-    severity: medium
-    porosity_range: 0.5-25% (sandstone highly porous)
-    impact: Algae, lichen, and pollution penetrate deep into porous structure
-    solutions:
-    - First pass 80W fast (1200 mm/s) for surface growth
-    - Second pass 60W slow (700 mm/s) for roots and stains
-    - Third pass 40W very slow (400 mm/s) for deep staining
-    - Chemical biocide pre-treatment kills roots and reduces laser exposure
-    - Dense stones (granite, marble) clean in 1-2 passes vs 3-4 for porous stones
-description: We've found that slate's layered structure demands careful attention
-  right from the start during laser cleaning. It can delaminate if heat builds up
-  too quickly, so begin with lower power settings to prevent cracking along those
-  natural fissures. This makes slate different from more uniform stones—its metamorphic
-  origins create a brittle yet durable surface that absorbs laser energy well but
-  conducts heat poorly. We typically adjust the scan speed to allow gentle passes,
-  ensuring contaminants lift without stressing the layers. In our experience, this
-  approach restores heritage pieces beautifully, like old roofing or monuments, while
-  avoiding surface pitting. Keep overlap minimal to dodge uneven heating, and always
-  test on a small area first—slate's low porosity means residues cling tight, but
-  multiple light passes clear them effectively without weakening the stone's natural
-  compressive strength.
-category: stone
-subcategory: metamorphic
-title: Slate Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety
-seo_description: We've found that slate's layered structure demands careful attention
-  right from the start during laser cleaning.
-micro: We've found that slate's layered structure demands careful attention right
-  from the start during laser cleaning. It can delaminate if heat builds up too quickly,
-  so begin with lower power settings to prevent cracking along those natural fissures.
-machineSettings:
-  powerRange:
-    description: Optimal average power for Slate surface cleaning without thermal
-      damage
+    description: Optimal average power for Slate surface cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -291,75 +114,196 @@ machineSettings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for Nd:YAG laser cleaning of stone materials like
-      slate to remove contaminants without thermal damage; starting at 200W for controlled
-      ablation. Max safe ~500W to avoid cracking. Source: Manufacturer specs from
-      IPG Photonics (e.g., YLR series for stone restoration) and academic paper by
-      S. J. H. Lee et al. (Opt. Lasers Eng., 2018).'
+    description: 'Typical range for Nd:YAG laser cleaning of stone materials like slate to remove contaminants without thermal
+      damage; starting at 200W for controlled ablation. Max safe ~500W to avoid cracking. Source: Manufacturer specs from
+      IPG Photonics (e.g., YLR series for stone restoration) and academic paper by S. J. H. Lee et al. (Opt. Lasers Eng.,
+      2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for 1064 nm cleaning of slate; slower (500-1000
-      mm/s) for heavy contamination like rust/moss, faster (2000-3000 mm/s) for light
-      dirt. Recommended 1500 mm/s for balanced efficiency and minimal heat input.
-      Source: Industry standards from Laser Cleaning Europe guidelines and equipment
-      manuals (e.g., Adapt Laser Systems).'
+    description: 'Effective speeds for 1064 nm cleaning of slate; slower (500-1000 mm/s) for heavy contamination like rust/moss,
+      faster (2000-3000 mm/s) for light dirt. Recommended 1500 mm/s for balanced efficiency and minimal heat input. Source:
+      Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime (5-100 ns) preferred for slate to ablate contaminants
-      via photothermal effects with low heat-affected zone; picosecond (ps) or femtosecond
-      (fs) for ultra-precise but costlier applications. 20 ns recommended to minimize
-      thermal diffusion in low-conductivity slate. Source: Laser physics research
-      by P. Psyllaki et al. (J. Cult. Herit., 2009).'
+    description: 'Nanosecond regime (5-100 ns) preferred for slate to ablate contaminants via photothermal effects with low
+      heat-affected zone; picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended
+      to minimize thermal diffusion in low-conductivity slate. Source: Laser physics research by P. Psyllaki et al. (J. Cult.
+      Herit., 2009).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates (50-100 kHz)
-      speed up process but risk heat accumulation on reflective slate surfaces. 50
-      kHz balances speed and safety for contamination removal. Trade-off: High freq
-      increases throughput but requires faster scan speeds. Source: Academic literature,
-      e.g., R. N. Raman et al. (Appl. Surf. Sci., 2017).'
+    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation
+      on reflective slate surfaces. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases
+      throughput but requires faster scan speeds. Source: Academic literature, e.g., R. N. Raman et al. (Appl. Surf. Sci.,
+      2017).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe cleaning of slate at 1064 nm; damage threshold
-      ~2-3 J/cm² due to slate''s moderate absorption and low thermal conductivity
-      (~1-2 W/m·K). Recommended 1.5 J/cm² for contaminant ablation without substrate
-      etching. Source: Ablation threshold studies by A. Pouli et al. (Appl. Phys.
-      A, 2010).'
+    description: 'Fluence range for safe cleaning of slate at 1064 nm; damage threshold ~2-3 J/cm² due to slate''s moderate
+      absorption and low thermal conductivity (~1-2 W/m·K). Recommended 1.5 J/cm² for contaminant ablation without substrate
+      etching. Source: Ablation threshold studies by A. Pouli et al. (Appl. Phys. A, 2010).'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter 100-500 μm; smaller (100-200 μm) for fine surface
-      preparation on slate, larger (300-500 μm) for broad area cleaning. 200 μm recommended
-      for uniform contaminant removal on textured slate surfaces. Source: Equipment
+    description: 'Beam diameter 100-500 μm; smaller (100-200 μm) for fine surface preparation on slate, larger (300-500 μm)
+      for broad area cleaning. 200 μm recommended for uniform contaminant removal on textured slate surfaces. Source: Equipment
       specifications from Coherent Inc. (Arma series) and industry case studies.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy
-      layers; 2 passes recommended for complete removal on slate without over-ablation,
-      allowing cooling between passes. Source: Industry practice from stone restoration
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
+      removal on slate without over-ablation, allowing cooling between passes. Source: Industry practice from stone restoration
       case studies (e.g., European Laser Cleaning Association reports, 2021).'
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: '30-80% overlap ensures uniform coverage; 60% recommended for slate
-      to avoid striping while preventing excessive heat buildup on low-reflectivity
-      contaminants. Source: Process optimization studies by M. Autric et al. (Proc.
-      SPIE, 2015).'
+    description: '30-80% overlap ensures uniform coverage; 60% recommended for slate to avoid striping while preventing excessive
+      heat buildup on low-reflectivity contaminants. Source: Process optimization studies by M. Autric et al. (Proc. SPIE,
+      2015).'
+challenges:
+  thermal_management:
+  - challenge: Thermal shock and microcracking
+    severity: critical
+    threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+    impact: Natural stone contains microfissures that propagate under thermal stress
+    solutions:
+    - Use pulse mode with 8-12 second cooling between passes
+    - Reduce power by 40-50% for weathered or damaged stone
+    - Preheat substrate if possible to reduce thermal gradients
+    - Granite more resistant than marble; sandstone most vulnerable
+    - Monitor for surface crazing; stop immediately if cracks appear
+  - challenge: Moisture-induced spalling
+    severity: high
+    threshold_temperature: Steam formation >100°C with trapped moisture
+    impact: Porous stone traps moisture that explosively converts to steam
+    solutions:
+    - Test moisture content before cleaning (>3% requires drying)
+    - Allow 48-72 hours drying after rain before laser cleaning
+    - Reduce power by 50% for damp stone
+    - Use pulse mode with extended cooling (15-20 seconds)
+    - Heritage stone requires especially gentle approach
+  surface_characteristics:
+  - challenge: Weathering and surface degradation
+    severity: high
+    impact: Aged stone has weaker surface layer more susceptible to damage
+    solutions:
+    - Reduce power 40-60% for weathered stone vs fresh stone
+    - Test on inconspicuous area first
+    - Multiple gentle passes (4-6 at 40-60W) preferred
+    - Monitor for powdering or flaking; adjust power immediately
+    - Heritage conservation requires documentation and testing
+  - challenge: Mineral composition heterogeneity
+    severity: medium
+    impact: Mixed minerals have different absorption and damage thresholds
+    solutions:
+    - Use moderate power (60-80W) suitable for both light and dark minerals
+    - Crosshatch scan pattern for uniform coverage
+    - Avoid dwelling on dark minerals (feldspar, mica) which absorb more energy
+    - Quartzite and marble more homogeneous than granite
+  contamination_challenges:
+  - challenge: Biological growth and deep staining
+    severity: medium
+    porosity_range: 0.5-25% (sandstone highly porous)
+    impact: Algae, lichen, and pollution penetrate deep into porous structure
+    solutions:
+    - First pass 80W fast (1200 mm/s) for surface growth
+    - Second pass 60W slow (700 mm/s) for roots and stains
+    - Third pass 40W very slow (400 mm/s) for deep staining
+    - Chemical biocide pre-treatment kills roots and reduces laser exposure
+    - Dense stones (granite, marble) clean in 1-2 passes vs 3-4 for porous stones
+description: We've found that slate's layered structure demands careful attention right from the start during laser cleaning.
+  It can delaminate if heat builds up too quickly, so begin with lower power settings to prevent cracking along those natural
+  fissures. This makes slate different from more uniform stones—its metamorphic origins create a brittle yet durable surface
+  that absorbs laser energy well but conducts heat poorly. We typically adjust the scan speed to allow gentle passes, ensuring
+  contaminants lift without stressing the layers. In our experience, this approach restores heritage pieces beautifully, like
+  old roofing or monuments, while avoiding surface pitting. Keep overlap minimal to dodge uneven heating, and always test
+  on a small area first—slate's low porosity means residues cling tight, but multiple light passes clear them effectively
+  without weakening the stone's natural compressive strength.
+category: stone
+subcategory: metamorphic
+title: Slate Settings
+regulatory_standards_detail:
+- id: osha-ppe-requirements
+  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  short_title: OSHA PPE Requirements
+  authority: OSHA
+  authority_full: Occupational Safety and Health Administration
+  agency_type: federal
+  country: United States
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+  image: /images/logo/logo-org-osha.png
+  description: Federal requirements for personal protective equipment in construction and industrial operations
+  scope: Eye protection, respiratory protection, protective clothing
+  applicability:
+  - All workplaces using laser equipment
+  - Operators and nearby personnel
+  - Maintenance personnel
+  compliance_requirements:
+  - Laser safety eyewear rated for wavelength
+  - Protective clothing for skin exposure risk
+  - Respiratory protection for fume/particulate exposure
+  - Employer-provided PPE at no cost to employees
+  - PPE training and fit testing
+  compliance_level: mandatory
+  enforcement: OSHA inspections and citations
+  penalties: Up to $15,625 per serious violation
+  effective_date: 1971-04-28
+  last_amended: 2023-01-23
+  jurisdiction: United States (federal)
+  related_standards:
+  - ansi-z87-1-eye-protection
+  - ansi-z136-1-laser-safety
+  category: workplace_safety
+- id: ansi-z136-1-laser-safety
+  title: ANSI Z136.1 - Safe Use of Lasers
+  short_title: ANSI Laser Safety Standard
+  authority: ANSI
+  authority_full: American National Standards Institute
+  agency_type: standards_body
+  country: United States
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo-org-ansi.png
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  scope: Hazard evaluation, control measures, safety procedures, training
+  applicability:
+  - All laser operators and safety officers
+  - Laser safety programs
+  - Facility design and operations
+  compliance_requirements:
+  - Laser safety officer designation
+  - Hazard evaluation and classification
+  - Nominal hazard zone calculation
+  - Standard operating procedures
+  - Laser safety training program
+  - Medical surveillance for high-power operations
+  - Controlled access to laser areas
+  compliance_level: recommended
+  adoption: Widely adopted, referenced by OSHA
+  effective_date: 2022-08-01
+  edition: 2022 edition
+  replaces: ANSI Z136.1-2014
+  jurisdiction: International (US-origin)
+  related_standards:
+  - iec-60825-laser-safety
+  - osha-ppe-requirements
+  category: operational_safety
+seo_description: We've found that slate's layered structure demands careful attention right from the start during laser cleaning.
+micro: We've found that slate's layered structure demands careful attention right from the start during laser cleaning. It
+  can delaminate if heat builds up too quickly, so begin with lower power settings to prevent cracking along those natural
+  fissures.

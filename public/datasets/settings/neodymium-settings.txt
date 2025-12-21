@@ -11,6 +11,95 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Neodymium oxide removal 
+               without substrate damage
 
-Generated: 2025-12-21T01:26:06.459Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Fundamental Nd:YAG wavelength with good Neodymium 
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               surface contaminants
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete surface 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive heat accumulation
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for Nd:YAG laser cleaning of soft metals like Neodymium to avoid thermal damage due to its low melting point (1021°C) and moderate thermal conductivity (16.5 W/m·K); starting at 100W balances efficiency and safety. Source: IPG Photonics YLR series specs for industrial cleaning; academic review in Optics and Lasers in Engineering (2018) on metal surface preparation.
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contaminant removal on reflective metals; slower for heavy contamination (e.g., oxides), faster for light rust/oils. Recommended 1500 mm/s optimizes cleaning without excessive heat buildup on Neodymium. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for rare earth metals.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning with minimal heat-affected zone (HAZ) on heat-sensitive Neodymium; picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost. 20 ns recommended for balancing ablation and substrate integrity. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects for metal cleaning; avoids fs due to overkill for industrial apps.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed Nd:YAG cleaning; higher rates speed up process but risk heat accumulation on low-conductivity Neodymium, potentially causing melting. 30 kHz recommended for efficient, controlled energy delivery. Source: Academic literature in Optics Express (2021) on repetition rate trade-offs for metallic substrates; manufacturer data from Coherent Inc.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe ablation of contaminants (e.g., oils, oxides) without exceeding Neodymium's damage threshold (~4 J/cm² at 1064 nm due to reflectivity ~60%). 1.5 J/cm² recommended for effective cleaning below threshold. Source: Ablation threshold studies in Journal of Applied Physics (2017) for rare earth metals; conservative for Neodymium's properties.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precision vs. area coverage; smaller for fine surface prep on Neodymium components (e.g., magnets), larger for broad cleaning. 200 μm recommended for uniform energy distribution without hotspots. Source: Equipment specifications from Trumpf laser systems; process optimization in Surface and Coatings Technology (2022).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy layers to ensure complete removal without cumulative damage to soft Neodymium. 2 passes recommended for industrial surface preparation. Source: Industry practice in laser cleaning case studies, e.g., SPIE Proceedings (2020) on metallic alloys; adapts to Neodymium's reactivity.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage and prevents gaps in cleaning; 50% optimal for Neodymium to minimize overexposure while achieving even fluence distribution. Higher for detailed work. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2019); standard in equipment like Adapt Laser guidelines.
+
+
+Generated: 2025-12-21T03:37:06.868Z
 License: CC BY 4.0

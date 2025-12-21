@@ -5,8 +5,8 @@
     "subcategory": "fiber-reinforced",
     "title": "Ceramic Matrix Composites CMCs Settings",
     "description": "When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded fibers, as these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early check helps prevent thermal stress that might crack the brittle matrix, so we recommend a gentle initial scan to test response. We've found that starting with reduced power settings clears surface buildup effectively without overwhelming the material's inherent heat resistance, which keeps things stable up to high temperatures in applications like aerospace parts. As you proceed, overlap your passes moderately to account for the composite's layered structure—unlike pure metals, this fiber reinforcement demands a slower scan speed to avoid delamination. In our experience, this approach leverages the material's durability and low expansion under heat, ensuring clean results for automotive or energy components while dodging common pitfalls like subsurface damage from over-aggressive pulses. Finally, inspect between passes to confirm no oxidation creeps in, adjusting as needed for optimal preservation.",
-    "datePublished": "2025-12-20T23:40:39.516504Z",
-    "dateModified": "2025-12-20T23:40:39.516504Z",
+    "datePublished": "2025-12-21T03:33:02.566968Z",
+    "dateModified": "2025-12-21T03:33:02.566968Z",
     "author": {
       "id": 1,
       "name": "Yi-Chun Lin",
@@ -41,7 +41,127 @@
       "formatting_file": "taiwan_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for CMC surface contaminant removal without substrate damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength providing optimal absorption balance for CMC ceramic phases and contaminants",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter optimized for precision cleaning of CMC surface features",
+      "unit": "μm",
+      "value": 50,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "High repetition rate for efficient area coverage while maintaining thermal management",
+      "unit": "kHz",
+      "value": 100,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence level sufficient for contaminant ablation while below CMC damage threshold",
+      "unit": "J/cm²",
+      "value": 5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for efficient contaminant ablation with minimal thermal diffusion into CMC substrate",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform contaminant removal across CMC surfaces",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Number of cleaning passes for thorough contaminant removal with process control",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Beam overlap percentage ensuring complete coverage without excessive heat accumulation",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 500,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for industrial laser cleaning of composites to avoid thermal damage; starting at 100W for CMCs due to low thermal conductivity (e.g., SiC/SiC CMCs). Max safe below 500W to prevent cracking. Source: IPG Photonics specs for YLR series lasers adapted for ceramics; academic review in Optics and Lasers in Engineering (2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for CMCs to minimize HAZ. Source: Industry standards from Laser Institute of America; case studies in Journal of Laser Applications (2020)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 20,
+      "description": "Nanosecond regime preferred for CMCs to achieve ablation with minimal thermal diffusion; picosecond (ps) or femtosecond reduces HAZ further but increases cost. 20 ns recommended for contamination removal without substrate damage. Source: Laser physics in Applied Surface Science (2019) on ceramic ablation thresholds."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 30,
+      "description": "Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity CMCs. 30 kHz balances speed and safety. Trade-off: >50 kHz may cause delamination. Source: Academic literature in Optics Express (2021) on pulse train effects for composites."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 1.5,
+      "description": "Fluence range for contaminant removal; CMCs damage threshold ~2-4 J/cm² at 1064 nm due to high reflectivity and brittleness. Recommended 1.5 J/cm² for safe cleaning. Source: Ablation studies in Journal of Applied Physics (2017) for SiC-based CMCs."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter for uniform coverage; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for CMCs to control energy delivery and avoid point overheating. Source: Equipment specs from Coherent Inc. laser systems for surface preparation."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "value": 2,
+      "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for CMCs to ensure complete removal without excessive exposure. Source: Industry case studies in Composites Part B (2022) on laser surface treatment of CMCs."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "value": 70,
+      "description": "Ensures uniform cleaning without gaps or overexposure; 70% optimal for CMCs to maintain even fluence distribution and prevent uneven heating. Source: Process optimization in Surface and Coatings Technology (2020)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

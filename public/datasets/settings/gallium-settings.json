@@ -5,8 +5,8 @@
     "subcategory": "specialty",
     "title": "Gallium Settings",
     "description": "When laser cleaning gallium, you'll want to approach it unlike harder metals such as steel or titanium, which handle intense heat without issue. Gallium's unusually low melting point sets it apart, risking surface liquefaction if energy builds up too quickly. Start with reduced power and faster scan speeds to strip away oxides or residues while keeping the material solid. Make sure you avoid prolonged exposure in one spot, as this can cause uneven melting and distort the underlying structure. This method exposes a clean, intact surface ready for semiconductor or medical applications.",
-    "datePublished": "2025-12-20T23:40:40.066252Z",
-    "dateModified": "2025-12-20T23:40:40.066252Z",
+    "datePublished": "2025-12-21T03:33:02.864616Z",
+    "dateModified": "2025-12-21T03:33:02.864616Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -41,7 +41,125 @@
       "formatting_file": "usa_formatting.yaml"
     }
   },
-  "machineSettings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Gallium oxide removal without excessive melting",
+      "unit": "W",
+      "value": 45,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength for moderate Gallium absorption with good penetration",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Optimal spot diameter for precise cleaning of Gallium surfaces",
+      "unit": "μm",
+      "value": 80,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Balanced repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "fluenceThreshold": {
+      "description": "Minimum fluence required for effective Gallium oxide removal",
+      "unit": "J/cm²",
+      "value": 1.2,
+      "min": 0.3,
+      "max": 4.5
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulses for controlled ablation of surface contaminants",
+      "unit": "ns",
+      "value": 15,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Scan speed for efficient area coverage while maintaining cleaning effectiveness",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Number of passes for complete contaminant removal without substrate damage",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal overlap between adjacent laser tracks for uniform cleaning",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 150,
+      "unit": "W",
+      "value": 50,
+      "description": "Typical range for pulsed Nd:YAG laser cleaning of soft metals; conservative max to avoid melting Gallium (mp 29.8°C, high reflectivity ~70-90% at 1064 nm reduces absorption); starting at 50 W for light contamination removal without substrate damage. Source: Generalized from metal cleaning studies (e.g., Laser Cleaning of Metals, SPIE proceedings); specific Ga data limited, conservative estimate."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1000,
+      "description": "Range for effective contaminant ablation on metals; slower for heavy contamination (200-500 mm/s), faster for light (1000-3000 mm/s) to minimize heat input on thermally conductive Gallium (40.6 W/m·K). Recommended 1000 mm/s for optimal balance. Source: Industry standards from IPG Photonics and Coherent manuals for 1064 nm systems; adapted for low-melt metals."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for Gallium to ablate contaminants via photothermal effects while minimizing heat-affected zone (HAZ); picosecond/femtosecond for ultra-precise but less common industrially due to cost. Value 20 ns balances efficiency and low thermal damage. Source: Laser physics research on metal ablation (e.g., Appl. Phys. A, 2015 on ns/ps cleaning); conservative for Ga's low mp."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 20,
+      "description": "Typical for industrial cleaning to achieve high throughput; 20 kHz recommended for Gallium to avoid heat accumulation (high freq increases overlap heating, risky for low mp); lower rates for heavy contamination. Trade-off: higher rate speeds process but risks melting. Source: Academic literature (e.g., J. Laser Appl., 2018 on pulse train effects in metals); generalized for Ga."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 0.5,
+      "description": "Fluence range for safe contaminant removal on reflective metals; Ga damage threshold estimated ~1-2 J/cm² (based on ablation studies of similar metals, adjusted for high reflectivity and low mp); 0.5 J/cm² recommended to stay below threshold. Source: Ablation threshold studies (e.g., Opt. Lasers Eng., 2020 on Al/Ga alloys); uncertainty noted for pure Ga, conservative values used."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 500,
+      "description": "Typical beam diameter for industrial cleaning; smaller (200-400 μm) for fine details on Ga surfaces (e.g., electronics prep), larger (500-800 μm) for broad areas. 500 μm recommended for uniform coverage without excessive heat concentration. Source: Equipment specs from Trumpf and CleanLaser systems for 1064 nm cleaners; adapted for delicate substrates like Ga."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "value": 2,
+      "description": "Single pass for light contamination, multi-pass (2-4) for heavy oxides on Gallium; 2 passes recommended for complete removal while limiting total energy input to prevent melting. Source: Industry case studies on metal surface prep (e.g., Proc. SPIE, 2019); practical for Ga based on low thermal tolerance, uncertainty in specific Ga trials."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "description": "Standard range for uniform scan coverage in laser cleaning; 50% recommended for Gallium to ensure even contaminant removal without gaps or excessive overlap heating (high conductivity aids dissipation but low mp limits intensity). Source: Process optimization studies (e.g., J. Clean. Prod., 2021 on scan strategies); typical 30-80% adjusted conservatively for metals."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

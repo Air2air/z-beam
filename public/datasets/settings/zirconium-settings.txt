@@ -11,6 +11,105 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Zirconium oxide removal 
+               without substrate damage
 
-Generated: 2025-12-21T01:26:06.607Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Zirconium's moderate 
+               absorption and thermal processing
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Optimal beam diameter for balancing cleaning efficiency 
+               and processing speed
+
+REPETITION RATE:
+  Value: 100 kHz
+  Range: 1-200 kHz
+  Description: High repetition rate for efficient surface coverage 
+               while maintaining thermal control
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence optimized for Zirconium oxide ablation 
+               threshold while preserving base material
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient oxide layer 
+               ablation with minimal heat affected zone
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Scanning speed providing effective oxide removal with 
+               controlled thermal input
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for thorough oxide removal 
+               with minimal substrate impact
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap percentage ensuring complete surface 
+               coverage without excessive thermal buildup
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Effective interaction time per spot for controlled material removal
+
+POWER:
+  Value: 150 W
+  Range: 50-500 W
+  Description: Typical range for pulsed fiber lasers cleaning reflective metals like zirconium; starting at 150 W balances efficiency and avoids overheating due to Zr's high reflectivity (~90% at 1064 nm). Max safe before damage ~500 W based on thermal conductivity (21 W/mK). Source: IPG Photonics specs and studies on metal decontamination (e.g., J. Laser Appl. 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for light contamination (e.g., oxides) at higher speeds; slower (500-1000 mm/s) for heavy buildup. Recommended 1500 mm/s optimizes cleaning rate while minimizing heat input on Zr's melting point (1855°C). Source: Industry manuals (e.g., CleanLaser systems) and process optimization in Nucl. Eng. Des. 2020.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning of Zr to ablate contaminants with minimal HAZ; picosecond (5-50 ps) for ultra-low thermal effects but costlier. 20 ns recommended to limit plasma shielding on reflective surfaces. Source: Laser physics reviews (Opt. Lasers Eng. 2019) and ablation studies on Zr alloys.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for 1064 nm cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation on low-conductivity Zr. 30 kHz balances throughput and safety. Trade-off: faster cleaning vs. potential subsurface heating. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2021).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal (e.g., oxides, rust) without ablating Zr substrate; damage threshold ~2.5-4 J/cm² due to high reflectivity. Recommended 1.5 J/cm² for safe surface prep. Conservative for Zr's properties. Source: Ablation threshold studies on Zr (J. Phys. D: Appl. Phys. 2017; similar to Ti alloys).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller spots (100-200 μm) for fine detail on Zr components (e.g., nuclear cladding); larger (300-500 μm) for broad areas. 200 μm recommended for uniform energy distribution on reflective surfaces. Source: Equipment specs (e.g., Coherent lasers) and industrial case studies.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination; multi-pass (2-3) for heavy layers to avoid damage. Recommended 2 passes for complete Zr oxide removal without excessive heat. Source: Industry practice in nuclear decontamination (e.g., IAEA reports) and case studies on Zr alloys.
+
+OVERLAP_RATIO:
+  Value: 70 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage on irregular Zr surfaces; 50% for speed, 80% for thoroughness. 70% recommended to prevent gaps while minimizing over-processing and heat buildup. Source: Process optimization studies (Opt. Laser Technol. 2022) for metal cleaning.
+
+
+Generated: 2025-12-21T03:37:07.064Z
 License: CC BY 4.0

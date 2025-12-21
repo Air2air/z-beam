@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 25 W
+  Range: 1-120 W
+  Description: Optimal average power for Pyrex surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T01:26:06.511Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength providing good absorption in surface 
+               contaminants while minimizing bulk Pyrex absorption
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning with adequate 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               and thermal management
+
+PULSE WIDTH:
+  Value: 100 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal with controlled thermal effects
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of cleaning passes for complete 
+               contaminant removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap percentage for uniform cleaning 
+               without excessive thermal buildup
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Energy density threshold for effective contaminant removal without damaging Pyrex substrate
+
+POWER:
+  Value: 100 W
+  Range: 20-500 W
+  Description: Typical range for industrial cleaning of delicate glasses like Pyrex to avoid thermal cracking; starting at 100W for light contamination, max below damage threshold (~500W for short pulses). Source: Manufacturer specs from IPG Photonics and Coherent for 1064 nm systems; academic paper on glass cleaning (Opt. Lasers Eng., 2018).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for 1064 nm cleaning of Pyrex; slower (100-500 mm/s) for heavy contamination, faster (up to 3000 mm/s) for light; 500 mm/s optimal for balance of efficiency and safety. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for Pyrex to ablate contaminants without deep penetration; 20 ns minimizes heat-affected zone (HAZ) due to Pyrex's low thermal conductivity (~1 W/mK); picosecond (ps) possible but less common industrially. Source: Laser physics research (Appl. Phys. A, 2015) on glass ablation thresholds.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for 1064 nm cleaning to ensure pulse overlap without excessive heat accumulation on Pyrex (melting point ~820°C); 50 kHz balances speed and thermal management; higher rates increase efficiency but risk stress. Source: Academic literature (J. Appl. Phys., 2020) on pulsed laser cleaning of borosilicates.
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal on Pyrex; below damage threshold (~5-10 J/cm² at 1064 nm due to moderate absorption); 1 J/cm² recommended for safe cleaning without substrate ablation. Source: Ablation threshold studies (Opt. Express, 2017) for borosilicate glass.
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise cleaning of Pyrex surfaces; smaller (100-300 μm) for fine details, larger for area coverage; 300 μm typical to control energy density on reflective/low-conductivity Pyrex. Source: Equipment specifications from Trumpf and SPI Lasers.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes recommended for complete removal on Pyrex without cumulative thermal damage. Source: Industry case studies (Proc. SPIE, 2019) on glass surface preparation.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage in scan patterns; 50% optimal for Pyrex to avoid gaps or overexposure, considering beam Gaussian profile. Source: Process optimization studies (Surf. Coat. Technol., 2021) for laser cleaning applications.
+
+
+Generated: 2025-12-21T03:37:06.931Z
 License: CC BY 4.0

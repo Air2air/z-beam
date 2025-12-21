@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Alumina surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T01:26:06.312Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength providing good absorption in Alumina 
+               with minimal reflection
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution 
+               and energy density
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate balancing cleaning efficiency 
+               and thermal management
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient material 
+               removal with controlled thermal effects
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive thermal buildup
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Minimum fluence required for effective Alumina surface cleaning
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for ns-pulsed fiber lasers in ceramic cleaning to avoid thermal damage; recommended starting at 100W for light contamination on alumina (high melting point ~2072°C but low thermal conductivity). Source: Manufacturer specs from IPG Photonics and Coherent for 1064 nm systems; academic paper by Anisimov et al. (2015) in J. Appl. Phys.
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (500-1000 mm/s), faster for light (3000-5000 mm/s). Recommended 2000 mm/s for optimal balance on alumina. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (5-100 ns) preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit thermal diffusion in low-conductivity alumina. Source: Laser physics research in Opt. Express by Colombier et al. (2012) on ceramic ablation thresholds.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical 10-100 kHz for pulsed cleaning; higher rates increase speed but risk heat accumulation on alumina (trade-off: >50 kHz may cause microcracks). 30 kHz recommended for safe operation. Source: Academic literature in Appl. Surf. Sci. by Lorenz et al. (2009) on repetition rate effects in oxide cleaning.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant ablation without substrate damage; alumina damage threshold at 1064 nm ~2-4 J/cm². 1.5 J/cm² recommended for safe cleaning of light contaminants. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. by Autrique et al. (2013) for ceramics at IR wavelengths.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precision (50-200 μm for fine details) vs. area coverage (200-500 μm); 200 μm recommended for uniform cleaning on alumina surfaces. Source: Equipment specifications from Trumpf and SPI Lasers for scanning heads in industrial cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on alumina without risking brittleness-induced damage. Source: Industry practice in case studies from Laser Institute of America reports on ceramic surface preparation.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: 30-80% ensures uniform coverage; 60% recommended to avoid gaps or overexposure on reflective alumina (reflectivity ~20-40% at 1064 nm). Source: Process optimization studies in Surf. Coat. Technol. by Kumar et al. (2018) on scan overlap for laser cleaning.
+
+
+Generated: 2025-12-21T03:37:06.645Z
 License: CC BY 4.0

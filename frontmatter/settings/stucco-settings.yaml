@@ -1,7 +1,7 @@
 id: stucco-settings
 name: Stucco
-datePublished: '2025-12-20T23:40:42.874572Z'
-dateModified: '2025-12-20T23:40:42.874572Z'
+datePublished: '2025-12-21T03:33:04.412290Z'
+dateModified: '2025-12-21T03:33:04.412290Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/masonry/concrete/stucco-settings
@@ -38,8 +38,8 @@ author:
   - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
@@ -56,45 +56,124 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Stucco surface cleaning without substrate
-      damage
+    description: Optimal average power for Stucco surface cleaning without substrate damage
     unit: W
     value: 100
+    min: 1.0
+    max: 120
   wavelength:
-    description: Near-infrared wavelength optimized for Stucco absorption and minimal
-      substrate interaction
+    description: Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction
     unit: nm
     value: 1064
+    min: 355
+    max: 10640
   spotSize:
     description: Beam spot diameter for balanced cleaning efficiency and resolution
     unit: mm
     value: 0.2
+    min: 0.1
+    max: 500
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and process
-      speed
+    description: Optimal repetition rate for efficient cleaning coverage and process speed
     unit: kHz
     value: 50
+    min: 1
+    max: 200
   energyDensity:
     description: Fluence threshold for effective Stucco surface cleaning
     unit: J/cm²
     value: 3.2
+    min: 0.1
+    max: 20.0
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with
-      controlled thermal effects
+    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
     unit: ns
     value: 10
+    min: 0.1
+    max: 1000
   scanSpeed:
     description: Optimal scanning speed for uniform cleaning without thermal accumulation
     unit: mm/s
     value: 500
+    min: 10
+    max: 5000
   passCount:
     description: Recommended number of passes for complete contaminant removal
     unit: passes
     value: 2
+    min: 1
+    max: 10
   overlapRatio:
     description: Optimal beam overlap for uniform cleaning coverage
     unit: '%'
     value: 50
+    min: 10
+    max: 90
+  power:
+    min: 50
+    max: 500
+    value: 200
+    unit: W
+    description: Typical range for industrial cleaning of porous, low-conductivity materials like stucco to avoid thermal
+      damage; starting at 200W for controlled ablation. Max limited to prevent cracking. Based on manufacturer specs from
+      IPG Photonics and Adapt Laser Systems for 1064 nm systems on stone-like surfaces (similar to stucco).
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: Effective range for contamination removal on stucco; slower for heavy soiling (500-1000 mm/s), faster for
+      light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser cleaning
+      of building materials (e.g., EU project reports on historical stone cleaning).
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 30
+    description: Nanosecond regime preferred for stucco to achieve ablation with minimal heat-affected zone (HAZ); picosecond
+      (ps) or femtosecond (fs) for ultra-sensitive cases but less common industrially due to cost. 30 ns recommended for 1064
+      nm on plaster-like materials. Supported by laser physics research in Optics & Laser Technology (e.g., studies on pulsed
+      laser ablation of cementitious materials).
+  repetition_rate:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: Typical for pulsed cleaning to ensure overlap without excessive heat buildup on low-conductivity stucco;
+      higher rates speed up process but risk accumulation. 50 kHz recommended for optimal balance. From academic literature
+      on 1064 nm cleaning of stone (e.g., Journal of Cultural Heritage papers on facade restoration).
+  energy_density:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    value: 1.2
+    description: Fluence range for safe removal of contaminants from stucco without substrate damage (threshold ~2-3 J/cm²
+      for plaster); lower for light dirt, higher for heavy. 1.2 J/cm² recommended conservatively. Based on ablation threshold
+      studies in Applied Surface Science (e.g., laser cleaning of concrete and stucco analogs).
+  spot_size:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 300
+    description: Beam diameter range for uniform coverage on rough stucco surfaces; smaller for detail work, larger for broad
+      areas. 300 μm recommended for industrial contamination removal. From equipment specifications of systems like Laserax
+      or CleanLASER for architectural applications.
+  pass_count:
+    min: 1
+    max: 10
+    unit: passes
+    value: 2
+    description: Single pass for light cleaning, multi-pass for heavy contamination on porous stucco; 2 passes recommended
+      to ensure complete removal without overexposure. Drawn from industry case studies on building restoration (e.g., reports
+      from the International Centre for the Study of the Preservation and Restoration of Cultural Property).
+  overlap_ratio:
+    min: 10
+    max: 90
+    unit: '%'
+    value: 60
+    description: Ensures uniform coverage on irregular stucco textures; 60% recommended for even cleaning without gaps or
+      excessive overlap heat. Typical range from process optimization studies in laser surface treatment (e.g., Industrial
+      Laser Solutions magazine articles on scan strategies for non-metals).
 challenges:
   thermal_management:
   - challenge: Moisture-induced spalling and explosive failure
@@ -137,22 +216,18 @@ challenges:
   contamination_challenges:
   - challenge: Paint and coating removal from porous substrate
     severity: medium
-    impact: Paint penetrates into pores requiring deep cleaning without substrate
-      damage
+    impact: Paint penetrates into pores requiring deep cleaning without substrate damage
     solutions:
     - First pass 100W fast (1500 mm/s) for surface paint layer
     - Second pass 70W slow (800 mm/s) for paint in pores
     - Third pass 50W very slow (500 mm/s) for residual staining
     - Chemical stripping pre-treatment reduces laser exposure
     - Heritage masonry requires gentler approach (max 60W)
-description: In our experience, the key with Stucco lies in its porous, cement-based
-  structure that absorbs contaminants deeply while resisting heat buildup effectively
-  during laser cleaning. We've found this makes it different from smoother masonry,
-  so we typically start with controlled, low-intensity passes to gently lift surface
-  grime without cracking the fragile matrix—watch out for overexposure here, as it
-  can dry out and weaken the bonds mid-process. To handle this, we adjust by overlapping
-  scans lightly and adding a damp post-treatment to restore evenness, ensuring clean
-  results for heritage restorations.
+description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants deeply
+  while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother masonry,
+  so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the fragile matrix—watch
+  out for overexposure here, as it can dry out and weaken the bonds mid-process. To handle this, we adjust by overlapping
+  scans lightly and adding a damp post-treatment to restore evenness, ensuring clean results for heritage restorations.
 category: masonry
 subcategory: concrete
 title: Stucco Settings
@@ -166,8 +241,7 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction
-    and industrial operations
+  description: Federal requirements for personal protective equipment in construction and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -198,8 +272,7 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and
-    safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -223,146 +296,9 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: In our experience, the key with Stucco lies in its porous, cement-based
-  structure that absorbs contaminants deeply while resisting heat buildup effectively...
-micro: In our experience, the key with Stucco lies in its porous, cement-based structure
-  that absorbs contaminants deeply while resisting heat buildup effectively during
-  laser cleaning. We've found this makes it different from smoother masonry, so we
-  typically start with controlled, low-intensity passes to gently lift surface grime
-  without cracking the fragile matrix—watch out for overexposure here, as it can dry
-  out and weaken the bonds mid-process.
-machineSettings:
-  powerRange:
-    description: Optimal average power for Stucco surface cleaning without substrate
-      damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  wavelength:
-    description: Near-infrared wavelength optimized for Stucco absorption and minimal
-      substrate interaction
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    description: Beam spot diameter for balanced cleaning efficiency and resolution
-    unit: mm
-    value: 0.2
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and process
-      speed
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  energyDensity:
-    description: Fluence threshold for effective Stucco surface cleaning
-    unit: J/cm²
-    value: 3.2
-    min: 0.1
-    max: 20.0
-  pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with
-      controlled thermal effects
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning without thermal accumulation
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 500
-    value: 200
-    unit: W
-    description: Typical range for industrial cleaning of porous, low-conductivity
-      materials like stucco to avoid thermal damage; starting at 200W for controlled
-      ablation. Max limited to prevent cracking. Based on manufacturer specs from
-      IPG Photonics and Adapt Laser Systems for 1064 nm systems on stone-like surfaces
-      (similar to stucco).
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1500
-    description: Effective range for contamination removal on stucco; slower for heavy
-      soiling (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500
-      mm/s balances efficiency and safety. From industry standards in laser cleaning
-      of building materials (e.g., EU project reports on historical stone cleaning).
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 30
-    description: Nanosecond regime preferred for stucco to achieve ablation with minimal
-      heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-sensitive
-      cases but less common industrially due to cost. 30 ns recommended for 1064 nm
-      on plaster-like materials. Supported by laser physics research in Optics & Laser
-      Technology (e.g., studies on pulsed laser ablation of cementitious materials).
-  repetition_rate:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 50
-    description: Typical for pulsed cleaning to ensure overlap without excessive heat
-      buildup on low-conductivity stucco; higher rates speed up process but risk accumulation.
-      50 kHz recommended for optimal balance. From academic literature on 1064 nm
-      cleaning of stone (e.g., Journal of Cultural Heritage papers on facade restoration).
-  energy_density:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    value: 1.2
-    description: Fluence range for safe removal of contaminants from stucco without
-      substrate damage (threshold ~2-3 J/cm² for plaster); lower for light dirt, higher
-      for heavy. 1.2 J/cm² recommended conservatively. Based on ablation threshold
-      studies in Applied Surface Science (e.g., laser cleaning of concrete and stucco
-      analogs).
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 300
-    description: Beam diameter range for uniform coverage on rough stucco surfaces;
-      smaller for detail work, larger for broad areas. 300 μm recommended for industrial
-      contamination removal. From equipment specifications of systems like Laserax
-      or CleanLASER for architectural applications.
-  pass_count:
-    min: 1
-    max: 10
-    unit: passes
-    value: 2
-    description: Single pass for light cleaning, multi-pass for heavy contamination
-      on porous stucco; 2 passes recommended to ensure complete removal without overexposure.
-      Drawn from industry case studies on building restoration (e.g., reports from
-      the International Centre for the Study of the Preservation and Restoration of
-      Cultural Property).
-  overlap_ratio:
-    min: 10
-    max: 90
-    unit: '%'
-    value: 60
-    description: Ensures uniform coverage on irregular stucco textures; 60% recommended
-      for even cleaning without gaps or excessive overlap heat. Typical range from
-      process optimization studies in laser surface treatment (e.g., Industrial Laser
-      Solutions magazine articles on scan strategies for non-metals).
+seo_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants
+  deeply while resisting heat buildup effectively...
+micro: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants deeply
+  while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother masonry,
+  so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the fragile matrix—watch
+  out for overexposure here, as it can dry out and weaken the bonds mid-process.

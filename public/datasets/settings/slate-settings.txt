@@ -11,6 +11,92 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Slate surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T01:26:06.547Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for Slate mineral 
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage
+
+ENERGY DENSITY:
+  Value: 12.7 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of cleaning passes for thorough 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning coverage
+
+POWER:
+  Value: 200 W
+  Range: 50-500 W
+  Description: Typical range for Nd:YAG laser cleaning of stone materials like slate to remove contaminants without thermal damage; starting at 200W for controlled ablation. Max safe ~500W to avoid cracking. Source: Manufacturer specs from IPG Photonics (e.g., YLR series for stone restoration) and academic paper by S. J. H. Lee et al. (Opt. Lasers Eng., 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for 1064 nm cleaning of slate; slower (500-1000 mm/s) for heavy contamination like rust/moss, faster (2000-3000 mm/s) for light dirt. Recommended 1500 mm/s for balanced efficiency and minimal heat input. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (5-100 ns) preferred for slate to ablate contaminants via photothermal effects with low heat-affected zone; picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended to minimize thermal diffusion in low-conductivity slate. Source: Laser physics research by P. Psyllaki et al. (J. Cult. Herit., 2009).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical 10-100 kHz for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation on reflective slate surfaces. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases throughput but requires faster scan speeds. Source: Academic literature, e.g., R. N. Raman et al. (Appl. Surf. Sci., 2017).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe cleaning of slate at 1064 nm; damage threshold ~2-3 J/cm² due to slate's moderate absorption and low thermal conductivity (~1-2 W/m·K). Recommended 1.5 J/cm² for contaminant ablation without substrate etching. Source: Ablation threshold studies by A. Pouli et al. (Appl. Phys. A, 2010).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter 100-500 μm; smaller (100-200 μm) for fine surface preparation on slate, larger (300-500 μm) for broad area cleaning. 200 μm recommended for uniform contaminant removal on textured slate surfaces. Source: Equipment specifications from Coherent Inc. (Arma series) and industry case studies.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on slate without over-ablation, allowing cooling between passes. Source: Industry practice from stone restoration case studies (e.g., European Laser Cleaning Association reports, 2021).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: 30-80% overlap ensures uniform coverage; 60% recommended for slate to avoid striping while preventing excessive heat buildup on low-reflectivity contaminants. Source: Process optimization studies by M. Autric et al. (Proc. SPIE, 2015).
+
+
+Generated: 2025-12-21T03:37:06.981Z
 License: CC BY 4.0
