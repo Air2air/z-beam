@@ -6,8 +6,48 @@ import DatasetSectionClient from './DatasetSectionClient';
 import type { MaterialDatasetDownloaderProps } from '@/types/centralized';
 
 /**
- * Server component that calculates dataset stats at build time
- * Data must be passed as props from the page that already loaded it
+ * Material Dataset Downloader Component
+ * 
+ * Server component that generates dataset download sections for material and settings pages.
+ * Calculates comprehensive statistics from material properties and machine settings at build
+ * time, providing download options in JSON, CSV, and TXT formats.
+ * 
+ * **Features:**
+ * - Automatic stat calculation from provided data (no API calls)
+ * - Support for multiple export formats (JSON, CSV, TXT)
+ * - Property categorization (physical properties, laser interaction, etc.)
+ * - Machine parameter tracking with min/max ranges
+ * - FAQ and regulatory standards integration
+ * - Category-level navigation links
+ * 
+ * **Performance:**
+ * - Static generation at build time (no client-side processing)
+ * - Zero runtime data fetching
+ * - Optimized for SEO with structured metadata
+ * 
+ * @component
+ * @param {MaterialDatasetDownloaderProps} props - Component props
+ * @returns {JSX.Element} Dataset download section with statistics and download buttons
+ * 
+ * @example
+ * ```tsx
+ * // In a material page (materials/[category]/[subcategory]/[item]/page.tsx)
+ * import MaterialDatasetDownloader from '@/app/components/Dataset/MaterialDatasetDownloader';
+ * 
+ * <MaterialDatasetDownloader
+ *   materialName={frontmatter.name}
+ *   slug={slug}
+ *   category={frontmatter.category}
+ *   subcategory={frontmatter.subcategory}
+ *   machineSettings={frontmatter.machineSettings}
+ *   materialProperties={frontmatter.materialProperties}
+ *   faq={frontmatter.faq}
+ *   regulatoryStandards={frontmatter.regulatory_standards}
+ * />
+ * ```
+ * 
+ * @see {@link MaterialDatasetDownloaderProps} for prop definitions
+ * @see {@link DatasetSectionClient} for client-side download functionality
  */
 export default function MaterialDatasetDownloader({
   materialName,

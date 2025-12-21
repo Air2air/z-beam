@@ -3,25 +3,61 @@
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSectionClient from './DatasetSectionClient';
-
-export interface ContaminantDatasetDownloaderProps {
-  contaminantName: string;
-  slug: string;
-  category: string;
-  subcategory?: string;
-  laserProperties?: any;
-  visualCharacteristics?: any;
-  removalByMaterial?: any;
-  composition?: any[];
-  safetyData?: any;
-  faq?: any[];
-  regulatoryStandards?: any[];
-  showFullDataset?: boolean;
-}
+import type { ContaminantDatasetDownloaderProps } from '@/types/centralized';
 
 /**
- * Server component for contaminant dataset downloads
- * Calculates dataset stats from contaminant data at build time
+ * Contaminant Dataset Downloader Component
+ * 
+ * Server component that generates dataset download sections for contaminant pages.
+ * Calculates comprehensive statistics from contamination characteristics, laser cleaning
+ * parameters, visual identification profiles, and material-specific removal methods.
+ * 
+ * **Features:**
+ * - Laser parameter statistics (wavelength sensitivity, power requirements)
+ * - Visual identification profiles by substrate material
+ * - Material-specific removal method counts
+ * - Chemical composition and safety data
+ * - Support for JSON, CSV, and TXT export formats
+ * - Regulatory standards and compliance tracking
+ * 
+ * **Data Categories:**
+ * - **Laser Properties:** Parameters, optical properties, removal characteristics, thermal properties
+ * - **Visual Characteristics:** Appearance profiles organized by substrate category
+ * - **Removal Methods:** Material-specific laser cleaning approaches
+ * - **Composition:** Chemical constituents and concentrations
+ * - **Safety Data:** Handling requirements and hazard classifications
+ * 
+ * **Performance:**
+ * - Static generation at build time (no runtime fetching)
+ * - Optimized stat calculation from structured frontmatter data
+ * - Zero client-side processing for statistics
+ * 
+ * @component
+ * @param {ContaminantDatasetDownloaderProps} props - Component props
+ * @returns {JSX.Element} Dataset download section with contaminant-specific statistics
+ * 
+ * @example
+ * ```tsx
+ * // In a contaminant page (contaminants/[category]/[subcategory]/page.tsx)
+ * import ContaminantDatasetDownloader from '@/app/components/Dataset/ContaminantDatasetDownloader';
+ * 
+ * <ContaminantDatasetDownloader
+ *   contaminantName={frontmatter.name}
+ *   slug={slug}
+ *   category={frontmatter.category}
+ *   subcategory={frontmatter.subcategory}
+ *   laserProperties={frontmatter.laser_properties}
+ *   visualCharacteristics={frontmatter.visual_characteristics}
+ *   removalByMaterial={frontmatter.removal_by_material}
+ *   composition={frontmatter.composition}
+ *   safetyData={frontmatter.safety_data}
+ *   faq={frontmatter.faq}
+ *   regulatoryStandards={frontmatter.regulatory_standards}
+ * />
+ * ```
+ * 
+ * @see {@link ContaminantDatasetDownloaderProps} for prop definitions
+ * @see {@link DatasetSectionClient} for client-side download functionality
  */
 export default function ContaminantDatasetDownloader({
   contaminantName,

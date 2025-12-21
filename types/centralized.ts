@@ -2587,6 +2587,38 @@ export interface CategoryDatasetCardWrapperProps {
 /**
  * MaterialDatasetDownloader component props
  */
+/**
+ * Props for MaterialDatasetDownloader component
+ * 
+ * Server component that generates material/settings dataset download sections.
+ * Calculates statistics from provided data at build time and renders download
+ * options in JSON, CSV, and TXT formats.
+ * 
+ * @interface MaterialDatasetDownloaderProps
+ * @property {string} materialName - Display name of the material (e.g., "Aluminum")
+ * @property {string} slug - URL slug for the material page
+ * @property {string} category - Material category (e.g., "metal", "plastic")
+ * @property {string} subcategory - Material subcategory (e.g., "non-ferrous", "thermoplastic")
+ * @property {Record<string, any>} [machineSettings] - Machine parameter settings with min/max ranges
+ * @property {Record<string, any>} [materialProperties] - Material properties organized by category
+ * @property {any[]} [faq] - Frequently asked questions array
+ * @property {any[]} [regulatoryStandards] - Regulatory standards and compliance references
+ * @property {boolean} [showFullDataset] - Whether to show full dataset preview (default: false)
+ * 
+ * @example
+ * ```tsx
+ * <MaterialDatasetDownloader
+ *   materialName="Aluminum"
+ *   slug="materials/metal/non-ferrous/aluminum-laser-cleaning"
+ *   category="metal"
+ *   subcategory="non-ferrous"
+ *   machineSettings={frontmatter.machineSettings}
+ *   materialProperties={frontmatter.materialProperties}
+ *   faq={frontmatter.faq}
+ *   regulatoryStandards={frontmatter.regulatory_standards}
+ * />
+ * ```
+ */
 export interface MaterialDatasetDownloaderProps {
   materialName: string;
   slug: string;
@@ -2599,11 +2631,60 @@ export interface MaterialDatasetDownloaderProps {
   showFullDataset?: boolean;
 }
 
-// Legacy alias for backwards compatibility
+/**
+ * @deprecated Use MaterialDatasetDownloaderProps instead. This alias will be removed in v2.0.
+ * 
+ * Legacy type alias maintained for backwards compatibility.
+ * Please update imports to use MaterialDatasetDownloaderProps directly:
+ * 
+ * ```ts
+ * // OLD (deprecated)
+ * import type { MaterialDatasetCardWrapperProps } from '@/types/centralized';
+ * 
+ * // NEW (preferred)
+ * import type { MaterialDatasetDownloaderProps } from '@/types/centralized';
+ * ```
+ * 
+ * @see MaterialDatasetDownloaderProps
+ */
 export type MaterialDatasetCardWrapperProps = MaterialDatasetDownloaderProps;
 
 /**
- * ContaminantDatasetDownloader component props
+ * Props for ContaminantDatasetDownloader component
+ * 
+ * Server component that generates contaminant dataset download sections.
+ * Calculates statistics from contamination data including laser parameters,
+ * visual identification profiles, material-specific removal methods, and
+ * safety standards.
+ * 
+ * @interface ContaminantDatasetDownloaderProps
+ * @property {string} contaminantName - Display name of the contaminant (e.g., "Rust")
+ * @property {string} slug - URL slug for the contaminant page
+ * @property {string} category - Contaminant category (e.g., "oxidation", "organic-residue")
+ * @property {string} [subcategory] - Contaminant subcategory (e.g., "ferrous", "polymer")
+ * @property {any} [laserProperties] - Laser cleaning parameters and optical properties
+ * @property {any} [visualCharacteristics] - Visual identification profiles by substrate
+ * @property {any} [removalByMaterial] - Material-specific removal methods and parameters
+ * @property {any} [composition] - Chemical composition data
+ * @property {any} [safetyData] - Safety standards and handling requirements
+ * @property {any[]} [faq] - Frequently asked questions array
+ * @property {any[]} [regulatoryStandards] - Regulatory standards and compliance references
+ * @property {boolean} [showFullDataset] - Whether to show full dataset preview (default: false)
+ * 
+ * @example
+ * ```tsx
+ * <ContaminantDatasetDownloader
+ *   contaminantName="Rust (Ferrous Oxidation)"
+ *   slug="contaminants/oxidation/ferrous"
+ *   category="oxidation"
+ *   subcategory="ferrous"
+ *   laserProperties={frontmatter.laser_properties}
+ *   visualCharacteristics={frontmatter.visual_characteristics}
+ *   removalByMaterial={frontmatter.removal_by_material}
+ *   composition={frontmatter.composition}
+ *   safetyData={frontmatter.safety_data}
+ * />
+ * ```
  */
 export interface ContaminantDatasetDownloaderProps {
   contaminantName: string;
@@ -2613,6 +2694,8 @@ export interface ContaminantDatasetDownloaderProps {
   laserProperties?: any;
   visualCharacteristics?: any;
   removalByMaterial?: any;
+  composition?: any[];
+  safetyData?: any;
   faq?: any[];
   regulatoryStandards?: any[];
   showFullDataset?: boolean;
