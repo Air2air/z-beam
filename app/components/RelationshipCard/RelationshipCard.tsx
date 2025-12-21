@@ -11,7 +11,7 @@
 
 import Link from "next/link";
 import { ArticleMetadata } from "@/types";
-import { SITE_CONFIG } from "@/app/utils/constants";
+import { SITE_CONFIG } from "@/config/site";
 
 export interface RelationshipCardProps {
   frontmatter?: ArticleMetadata;

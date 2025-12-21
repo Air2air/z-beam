@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from '../components/JsonLD/JsonLD';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
-import { SITE_CONFIG } from '../utils/constants';
+import { SITE_CONFIG } from '@/config/site';
 import { SectionContainer } from '../components/SectionContainer';
 import { AlertTriangleIcon, ShieldIcon, CheckCircleIcon, PhoneIcon } from '@/app/components/Buttons';
 

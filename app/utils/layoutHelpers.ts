@@ -4,9 +4,29 @@
 /**
  * Infer criticality level from parameter key
  */
-export function inferCriticality(key: string): 'critical' | 'high' | 'medium' | 'low' {
-  const criticalKeys = ['powerRange', 'energyDensity', 'pulseWidth'];
-  return criticalKeys.includes(key) ? 'high' : 'medium';
+export function inferCriticality(key: string): 'critical' | 'important' | 'standard' | 'medium' | 'high' | 'low' {
+  const lowerKey = key.toLowerCase();
+  
+  // Critical parameters - directly affect laser safety and substrate integrity
+  const criticalKeys = ['power', 'wavelength', 'pulse_duration', 'fluence'];
+  if (criticalKeys.some(k => lowerKey.includes(k))) {
+    return 'critical';
+  }
+  
+  // Important parameters - significantly affect process quality
+  const importantKeys = ['spot_size', 'beam_quality', 'repetition_rate', 'pulse_energy'];
+  if (importantKeys.some(k => lowerKey.includes(k))) {
+    return 'important';
+  }
+  
+  // Legacy compatibility - map to new values
+  const legacyCritical = ['powerRange', 'energyDensity', 'pulseWidth'];
+  if (legacyCritical.includes(key)) {
+    return 'high';
+  }
+  
+  // Default to standard for unknown parameters
+  return 'standard';
 }
 
 /**

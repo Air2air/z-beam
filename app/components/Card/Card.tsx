@@ -15,7 +15,7 @@ import Link from "next/link";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { CardProps } from "@/types";
-import { SITE_CONFIG } from "../../utils/constants";
+import { SITE_CONFIG } from "@/config/site";
 import { getCardVariant } from "@/app/config/card-variants";
 
 export function MaterialCard({

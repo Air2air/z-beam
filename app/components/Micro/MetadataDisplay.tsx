@@ -2,7 +2,7 @@
 "use client";
 
 import { FrontmatterType } from '@/types';
-import { SITE_CONFIG } from '../../utils/constants';
+import { SITE_CONFIG } from '@/config/site';
 
 interface MetadataType {
   generated?: string;

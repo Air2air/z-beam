@@ -5,7 +5,10 @@
 This README is the single source of truth for building, maintaining, and extending the Z-Beam project. It integrates all critical principles, workflows, and enforcement mechanisms from previous documentation.
 
 **� Smart Deploy System Active** - Combined deployment and monitoring system using `smart-deploy.sh`.
-
+### 📚 Quick Links
+- **[Development Runbook](docs/RUNBOOK.md)** - Essential procedures for common tasks
+- **[Architecture Decision Records](docs/adr/)** - Why decisions were made
+- **Test Status**: 121/122 suites passing (99.2%), 2,640 tests passing
 ---
 
 ## 1. Core Mandate & Principles
@@ -48,7 +51,12 @@ This README is the single source of truth for building, maintaining, and extendi
 │   │   ├── smart-deploy.sh # Main deployment script
 │   │   └── deploy-prod.sh  # Direct production deploy
 │   └── validation/         # Validation scripts
-├── docs/                   # Documentation (archived)
+├── tests/                  # Test suite
+│   └── utils/              # Test utilities
+│       └── mockFactory.ts  # Centralized mock generators
+├── docs/                   # Documentation
+│   ├── RUNBOOK.md          # Development procedures
+│   └── adr/                # Architecture Decision Records
 ├── package.json            # NPM scripts & dependencies
 ├── next.config.js          # Next.js config
 ├── tailwind.config.js      # Tailwind CSS config

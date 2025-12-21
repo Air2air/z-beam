@@ -1,6 +1,6 @@
 // app/components/JsonLD/JsonLD.tsx
 import React from 'react';
-import { SITE_CONFIG } from '../../utils/constants';
+import { SITE_CONFIG } from '@/config/site';
 import { createJsonLdForArticle } from '../../utils/jsonld-helper';
 import { SchemaFactory } from '../../utils/schemas/SchemaFactory';
 import { validateAndLogSchema } from '../../utils/validators';

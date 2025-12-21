@@ -5,7 +5,7 @@ import { HomePageGrid } from "./components/HomePageGrid";
 import { ScheduleCards } from "./components/Schedule/ScheduleCards";
 import { JsonLD } from "./components/JsonLD/JsonLD";
 import { createMetadata } from "./utils/metadata";
-import { SITE_CONFIG } from "./utils/constants";
+import { SITE_CONFIG } from "@/config/site";
 import fs from 'fs/promises';
 import path from 'path';
 import yaml from 'js-yaml';

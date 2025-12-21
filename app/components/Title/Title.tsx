@@ -3,7 +3,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { TitleProps } from '@/types';
-import { SITE_CONFIG } from '../../utils/constants';
+import { SITE_CONFIG } from '@/config/site';
 import { Button } from '../Button';
 
 /**

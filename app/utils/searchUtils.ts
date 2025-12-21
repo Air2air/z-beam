@@ -180,30 +180,36 @@ export function getChemicalProperties(item: {
       return item.frontmatter.chemicalProperties;
     }
     
-    // Look for individual chemical properties in frontmatter
-    if (item.frontmatter.chemicalSymbol || 
-        item.frontmatter.chemicalFormula || 
-        item.frontmatter.formula) {
-      return {
-        chemical_formula: item.frontmatter.chemicalFormula || item.frontmatter.formula
-      };
-    }
-    
-    // Try to infer from subject if it's a known material
+    // Try to infer from subject if it's a known material (check this first before individual fields)
     if (item.frontmatter.subject) {
       const subject = normalizeString(item.frontmatter.subject);
       
       if (subject === "alumina") {
         return {
-          chemical_formula: "Al₂O₃"
+          symbol: "Al",
+          formula: "Al₂O₃",
+          materialType: item.frontmatter.materialType || toMaterialType(item.frontmatter.category) || "ceramic"
         };
       }
       
       if (subject === "silicon nitride") {
         return {
-          chemical_formula: "Si₃N₄"
+          symbol: "Si",
+          formula: "Si₃N₄",
+          materialType: item.frontmatter.materialType || toMaterialType(item.frontmatter.category) || "ceramic"
         };
       }
+    }
+    
+    // Look for individual chemical properties in frontmatter
+    if (item.frontmatter.chemicalSymbol || 
+        item.frontmatter.chemicalFormula || 
+        item.frontmatter.formula) {
+      return {
+        symbol: item.frontmatter.chemicalSymbol,
+        formula: item.frontmatter.chemicalFormula || item.frontmatter.formula,
+        materialType: item.frontmatter.materialType || toMaterialType(item.frontmatter.category)
+      };
     }
   }
   

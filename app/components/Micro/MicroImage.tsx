@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { SITE_CONFIG } from '../../utils/constants';
+import { SITE_CONFIG } from '@/config/site';
 
 interface MicroImageProps {
   imageSource?: string;

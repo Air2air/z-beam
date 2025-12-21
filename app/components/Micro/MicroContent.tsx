@@ -4,7 +4,7 @@
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { useEffect, useRef } from 'react';
 import { FrontmatterType } from '@/types';
-import { SITE_CONFIG } from '../../utils/constants';
+import { SITE_CONFIG } from '@/config/site';
 
 interface MicroContentProps {
   before: string;

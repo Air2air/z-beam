@@ -4,7 +4,8 @@
 import React from 'react';
 import { CardGrid } from '../CardGrid';
 import type { GridItem } from '@/types';
-// TODO: Fix or remove these imports - files don't exist or aren't modules
+// NOTE: Commented imports pending implementation of relationship mapper utilities
+// See: https://github.com/z-beam/z-beam/issues/TBD-relationship-mapper
 // import { linkagesToGridItems } from '@/app/utils/relationshipMapper';
 // import type { RelationshipSectionProps } from '@/types/domain-linkages';
 

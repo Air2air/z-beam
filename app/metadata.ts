@@ -1,6 +1,6 @@
 // app/metadata.ts
 // SEO metadata configuration for material category pages
-import { SITE_CONFIG } from './utils/constants';
+import { SITE_CONFIG } from '@/config/site';
 import { CategoryMetadata } from '@/types';
 
 export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {

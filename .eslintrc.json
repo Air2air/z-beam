@@ -13,6 +13,8 @@
     "@typescript-eslint/no-require-imports": "warn",
     "prefer-const": "error",
     "react/no-unescaped-entities": "warn",
+    
+    // Architecture enforcement - prevent deprecated imports
     "no-restricted-imports": ["error", {
       "patterns": [{
         "group": ["../**/app/**", "../../app/**", "../../../app/**"],
@@ -20,7 +22,40 @@
       }, {
         "group": ["../**/types/**", "../../types/**"],
         "message": "Use @/types instead of relative imports for types"
+      }, {
+        "group": ["@/utils/constants", "../utils/constants", "../../utils/constants"],
+        "message": "Import from @/config instead. SITE_CONFIG has been moved to app/config/site.ts"
+      }, {
+        "group": ["@/utils/business-config", "../utils/business-config"],
+        "message": "Import BUSINESS_CONFIG from @/config instead. File is deprecated."
       }]
-    }]
-  }
+    }],
+    
+    // Code quality rules
+    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+    "complexity": ["warn", 20],
+    "max-lines-per-function": ["warn", { 
+      "max": 100,
+      "skipBlankLines": true,
+      "skipComments": true
+    }],
+    "max-depth": ["warn", 4]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts"],
+      "rules": {
+        "max-lines-per-function": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["scripts/**/*.js", "scripts/**/*.ts"],
+      "rules": {
+        "no-console": "off",
+        "max-lines-per-function": "off"
+      }
+    }
+  ]
 }

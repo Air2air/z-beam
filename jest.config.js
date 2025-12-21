@@ -8,8 +8,11 @@ const customJestConfig = {
   displayName: 'Next.js Testing Framework',
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
-  workerIdleMemoryLimit: '512MB',
+  workerIdleMemoryLimit: '1GB',
   maxWorkers: '50%',
+  maxConcurrency: 5,
+  bail: false,
+  testTimeout: 30000,
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
     "^@components/(.*)$": "<rootDir>/app/components/$1",

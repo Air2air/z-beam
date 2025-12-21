@@ -126,7 +126,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
         items: faq
       }) : null,
       
-      // Breadcrumb (using legacy function - TODO: migrate)
+      // Breadcrumb schema (legacy function - consider migrating to schemas/generators/common.ts)
       createBreadcrumbSchema(slug, title, category),
       
       // WebPage
@@ -138,10 +138,10 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
         modifiedDate
       }),
       
-      // Video (using legacy function - TODO: migrate)
+      // Video schema (legacy function - consider migrating to dedicated generator)
       createVideoSchema(materialName, context.pageUrl),
       
-      // Compliance (using legacy function - TODO: migrate)
+      // Compliance schema (legacy function - consider migrating to dedicated generator)
       regulatoryStandards.length > 0 ? createComplianceSchema(regulatoryStandards, materialName) : null
     ];
     
