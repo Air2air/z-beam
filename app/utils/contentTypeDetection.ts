@@ -13,7 +13,7 @@ import type { ContentType } from '@/types';
  * Detect content type from a URL slug or path
  * 
  * @param slug - The URL slug/path (e.g., 'materials/metal/ferrous/steel')
- * @returns The detected content type
+ * @returns The detected content type or null for non-content pages
  * 
  * @example
  * ```typescript
@@ -21,10 +21,11 @@ import type { ContentType } from '@/types';
  * getContentType('contaminants/oxidation/ferrous/rust-oxidation') // returns 'contaminants'
  * getContentType('settings/metal/ferrous/steel-settings') // returns 'settings'
  * getContentType('compounds/toxic-gas/acid-gas') // returns 'compounds'
+ * getContentType('about') // returns null
  * ```
  */
-export function getContentType(slug: string): ContentType {
-  if (!slug) return 'page';
+export function getContentType(slug: string): ContentType | null {
+  if (!slug) return null;
   
   const normalizedSlug = slug.toLowerCase();
   
@@ -33,7 +34,7 @@ export function getContentType(slug: string): ContentType {
   if (normalizedSlug.startsWith('contaminants/')) return 'contaminants';
   if (normalizedSlug.startsWith('compounds/')) return 'compounds';
   
-  return 'page';
+  return null;
 }
 
 /**
@@ -80,10 +81,10 @@ export function isCompoundPage(slug: string): boolean {
  * Get the root path for a content type
  * 
  * @param contentType - The content type
- * @returns The root path (e.g., 'materials', 'contaminants')
+ * @returns The root path (e.g., 'materials', 'contaminants') or empty string for null
  */
-export function getRootPath(contentType: ContentType): string {
-  return contentType === 'page' ? '' : contentType;
+export function getRootPath(contentType: ContentType | null): string {
+  return contentType || '';
 }
 
 /**
@@ -99,23 +100,26 @@ export function getRootPath(contentType: ContentType): string {
  * 
  * parseSlug('contaminants/oxidation/ferrous')
  * // returns { contentType: 'contaminants', category: 'oxidation', subcategory: 'ferrous', item: undefined }
+ * 
+ * parseSlug('about')
+ * // returns { contentType: null }
  * ```
  */
 export function parseSlug(slug: string): {
-  contentType: ContentType;
+  contentType: ContentType | null;
   category?: string;
   subcategory?: string;
   item?: string;
 } {
   if (!slug) {
-    return { contentType: 'page' };
+    return { contentType: null };
   }
   
   const parts = slug.split('/').filter(Boolean);
   const contentType = getContentType(slug);
   
-  if (contentType === 'page') {
-    return { contentType: 'page' };
+  if (!contentType) {
+    return { contentType: null };
   }
   
   // Remove content type prefix from parts
