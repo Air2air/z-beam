@@ -67,9 +67,11 @@ machineSettings:
   fluenceThreshold: PropertyValue   # ⚠️ NEW FIELD - Some materials only
 ```
 
-#### 3. **applications**
+#### 3. **applications** ❌ REMOVED (Dec 2025)
 ```yaml
-applications: Array<String>    # List of industry applications
+# applications: Array<String>    # ❌ FORBIDDEN - Not part of approved frontmatter schema
+# This field has been removed from all frontmatter files
+# Applications data should be derived from material properties and use cases
 ```
 
 #### 4. **compatibility** (Optional - Not in all files)

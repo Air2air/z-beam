@@ -74,10 +74,10 @@ regulatoryStandards:
     image: String                     # Logo path
 
 # ============================================================================
-# APPLICATIONS
+# APPLICATIONS - ❌ REMOVED (Dec 2025)
 # ============================================================================
-applications:
-  - String                            # Industry/use case (Aerospace, Automotive, etc.)
+# applications:                       # ❌ FORBIDDEN - Not part of approved schema
+#   - String                          # This field has been removed
 
 # ============================================================================
 # MATERIAL PROPERTIES (NESTED CATEGORIES)

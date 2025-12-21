@@ -175,7 +175,7 @@ The Z-Beam project uses a **centralized configuration system** for all site-wide
 
 **Usage Example:**
 ```typescript
-import { SITE_CONFIG } from '@/app/utils/constants';
+import { SITE_CONFIG } from '@/app/config/site';
 
 // Generate metadata
 export async function generateMetadata(): Promise<Metadata> {
