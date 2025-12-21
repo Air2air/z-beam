@@ -387,6 +387,11 @@ npm run lint                       # Run ESLint
 npm run validate:yaml              # Validate YAML files
 node scripts/validate-yaml-schemas.js  # Direct validation
 npx tsc --noEmit                   # Type check only
+
+# Post-Deployment Validation (NEW - Dec 21, 2025)
+npm run validate:production:simple           # Quick check (10 checks, <1s)
+npm run validate:production:full             # Full check (55 checks, ~15s)
+npm run validate:production:comprehensive    # Complete (55+ checks, API calls)
 ```
 
 ### Environment Variables
