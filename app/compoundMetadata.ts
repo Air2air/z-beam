@@ -1,6 +1,6 @@
 // app/compoundMetadata.ts
 // SEO metadata configuration for compound category pages
-import { SITE_CONFIG } from '@/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 import { CategoryMetadata } from '@/types';
 
 export const COMPOUND_CATEGORY_METADATA: Record<string, CategoryMetadata> = {

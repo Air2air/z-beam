@@ -2,7 +2,7 @@
 "use client";
 
 import { FrontmatterType } from '@/types';
-import { SITE_CONFIG } from '@/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 
 interface TechnicalDetailsProps {
   laserParams?: {

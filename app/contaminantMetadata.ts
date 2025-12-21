@@ -1,6 +1,6 @@
 // app/contaminantMetadata.ts
 // SEO metadata configuration for contaminant category pages
-import { SITE_CONFIG } from '@/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 import { CategoryMetadata } from '@/types';
 
 export const CONTAMINANT_CATEGORY_METADATA: Record<string, CategoryMetadata> = {

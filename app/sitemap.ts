@@ -1,5 +1,5 @@
 // app/sitemap.ts
-import { SITE_CONFIG } from '@/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 import fs from 'fs';
 import path from 'path';
 import { buildCategoryUrl, buildSubcategoryUrl, buildUrlFromMetadata } from './utils/urlBuilder';

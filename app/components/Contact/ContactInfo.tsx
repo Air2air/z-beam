@@ -1,6 +1,6 @@
 // app/components/Contact/ContactInfo.tsx
 import React from 'react';
-import { SITE_CONFIG } from '@/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 import { Title } from '../Title';
 
 export function ContactInfo() {

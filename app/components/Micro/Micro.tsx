@@ -16,7 +16,7 @@ import { useMicroParsing } from './useMicroParsing';
 import { MicroDataStructure, MicroProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
-import { SITE_CONFIG } from '@/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 import { capitalizeFirst } from '@/app/utils/formatting';
 import './micro-accessibility.css';
 
