@@ -684,9 +684,6 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   const isContaminant = slug.startsWith('contaminants/');
   const isSettings = slug.startsWith('settings/');
-  const meta = getMetadata(data);
-  const mainImage = getMainImage(data);
-  const authorData = (meta as any).author || data.author;
 
   // Equipment products
   ['needle100_150', 'needle200_300', 'jangoSpecs'].forEach(key => {
@@ -727,6 +724,9 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   // Contaminant-specific removal services
   if (isContaminant) {
+    const meta = getMetadata(data);
+    const mainImage = getMainImage(data);
+    const authorData = (meta as any).author || data.author;
     const contaminantName = meta.name || data.title || 'Contaminant';
     const composition = (meta as any).composition;
     const safetyData = (meta as any).safety_data || (data.frontmatter as any)?.safety_data;
@@ -856,6 +856,9 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   // Settings-specific equipment configuration services
   if (isSettings) {
+    const meta = getMetadata(data);
+    const mainImage = getMainImage(data);
+    const authorData = (meta as any).author || data.author;
     const materialName = meta.name || data.title || 'Material';
     const machineSettings = (meta as any).machineSettings;
     
@@ -928,7 +931,10 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   }
 
   // Material-specific service products
+  const meta = getMetadata(data);
   if (meta.materialProperties) {
+    const mainImage = getMainImage(data);
+    const authorData = (meta as any).author || data.author;
     const materialName = meta.name || data.title || 'Material';
     const materialCategory = meta.category || 'Material';
     

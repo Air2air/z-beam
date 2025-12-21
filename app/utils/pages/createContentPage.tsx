@@ -53,14 +53,14 @@ export function createCategoryPage(contentType: ContentType) {
       return await generateCategoryStaticParams(config);
     },
 
-    generateMetadata: async ({ params }: { params: { category: string } }) => {
-      const { category } = params;
+    generateMetadata: async ({ params }: { params: Promise<{ category: string }> }) => {
+      const { category } = await params;
       const metadata = (categoryMetadata as Record<string, any> | undefined)?.[category];
       return generateCategoryMetadata(config, category, metadata);
     },
 
-    default: async function ContentCategoryPage({ params }: { params: { category: string } }) {
-      const { category } = params;
+    default: async function ContentCategoryPage({ params }: { params: Promise<{ category: string }> }) {
+      const { category } = await params;
       const categoryData = await findCategoryBySlug(config, category);
       const metadata = (categoryMetadata as Record<string, any> | undefined)?.[category];
       
