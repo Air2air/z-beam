@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/semiconductor/elemental/germanium-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Germanium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/germanium-laser-cleaning
 #
@@ -13,38 +13,20 @@ Basic,Info,Name,Germanium,,,,,Material name
 Basic,Info,Category,semiconductor,,,,,Material category
 Basic,Info,Subcategory,elemental,,,,,Material subcategory
 Basic,Info,Slug,germanium-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,60,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,30,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,30,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,1.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,300,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,60,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,5.3,g/cm³,2.2,5.5,,Material property: density
-Property,material_characteristics,porosity,0,%,,,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,0.3,μm,,,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,52,MPa,30.8,255,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,103,GPa,81.1,1.5e+11,,Material property: youngsModulus
-Property,material_characteristics,hardness,1.2,GPa,2,2600,,Material property: hardness
-Property,material_characteristics,flexuralStrength,130,MPa,79.9,148,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,8,μm/year,0,2.4,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,0.6,mm/year,0.87,157500,,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,52,MPa,133,7343,,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,6,MPa m^{1/2},0.52,0.97,,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,0.46,Ω·m,11.4,1.4e+06,,Material property: electricalResistivity
-Property,laser_material_interaction,thermalDestruction,1211,K,1502,1696,,Material property: thermalDestruction
-Property,laser_material_interaction,laserAbsorption,0.55,dimensionless,19380,1.1e+06,,Material property: laserAbsorption
-Property,laser_material_interaction,laserDamageThreshold,10.2,J/cm²,0.47,8.9,scientific_literature,Material property: laserDamageThreshold
-Property,laser_material_interaction,ablationThreshold,0.42,J/cm²,1.2,2,scientific_literature,Material property: ablationThreshold
-Property,laser_material_interaction,thermalDiffusivity,3.6e-05,m²/s,2.4e-05,9.2e-05,scientific_literature,Material property: thermalDiffusivity
-Property,laser_material_interaction,thermalExpansion,5.9e-06,K^{-1},0.000002,0.000006,scientific_literature,Material property: thermalExpansion
-Property,laser_material_interaction,specificHeat,322,J/(kg·K),300,900,scientific_literature,Material property: specificHeat
-Property,laser_material_interaction,thermalConductivity,60.2,W/m·K,0.2,156,scientific_literature,Material property: thermalConductivity
-Property,laser_material_interaction,laserReflectivity,0.36,fraction,0.3,0.36,scientific_literature,Material property: laserReflectivity
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,60,W,1,120,,Controlled power for precision semiconductor cleaning
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR for minimal lattice damage
+Machine,Settings,spotSize,30,μm,0.1,500,,Small spot for high-precision cleaning
+Machine,Settings,repetitionRate,30,kHz,1,200,,Moderate frequency for controlled removal
+Machine,Settings,energyDensity,1.5,J/cm²,0.1,20,,Precision energy for contamination removal
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Ultra-short pulses for minimal thermal damage
+Machine,Settings,scanSpeed,300,mm/s,10,5000,,Careful scanning for uniform treatment
+Machine,Settings,passCount,3,passes,1,10,,Multiple passes for complete cleaning
+Machine,Settings,overlapRatio,60,%,10,90,,High overlap for thorough coverage
+Machine,Settings,power,50,W,10,100,,"Typical range for pulsed Nd:YAG lasers in semiconductor cleaning to avoid thermal damage; recommended starting at 50 W for balanced ablation of contaminants on Ge, which has moderate thermal conductivity (60 W/mK) and high reflectivity (~40% at 1064 nm). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review in 'Laser Cleaning' by Kononenko (2020)."
+Machine,Settings,scan_speed,1000,mm/s,10,5000,,"Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g., oxides), faster for light particles; recommended 1000 mm/s for Ge to minimize heat-affected zone given its melting point of 938°C. Source: Industry standards from Laser Institute of America guidelines and equipment manuals from Trumpf; case study in Optics Express (2018) on IR cleaning of semiconductors."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on Ge; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially; 20 ns balances ablation efficiency and thermal confinement. Source: Laser physics research in Applied Physics A (2015) on ns/ps ablation thresholds for Ge at 1064 nm, noting reduced cracking in ns pulses."
+Machine,Settings,repetition_rate,20,kHz,1,200,,"Typical for pulsed cleaning to achieve uniform energy delivery; higher rates increase speed but risk heat accumulation on low-conductivity Ge; 20 kHz recommended for optimal throughput without substrate heating. Source: Academic literature in Journal of Applied Physics (2017) on rep rate effects in IR laser cleaning of semiconductors, highlighting trade-offs for materials like Ge."
+Machine,Settings,energy_density,0.8,J/cm²,0.1,20,,"Fluence below Ge's damage threshold (~2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; lower for light cleaning, higher for heavy; 0.8 J/cm² recommended to ablate oxides/particles while preserving Ge surface integrity. Source: Ablation threshold studies in Physical Review B (2012) and Optics and Lasers in Engineering (2019), confirming Ge thresholds and conservative cleaning fluences."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter range for precise industrial cleaning; smaller for fine details on Ge wafers, larger for area prep; 200 μm recommended for uniform coverage without excessive overlap heating. Source: Equipment specifications from Coherent and Spectra-Physics galvo scanners; process studies in Applied Surface Science (2021) for IR cleaning of Ge optics."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for complete removal of stubborn layers; 2 passes recommended for Ge to ensure thorough cleaning without risking cumulative thermal damage. Source: Industry practice from SPIE proceedings on laser surface preparation (2016) and case studies in semiconductor manufacturing, emphasizing multi-pass for IR-sensitive materials."
+Machine,Settings,overlap_ratio,60,%,10,90,,"Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence in cleaning semiconductors."

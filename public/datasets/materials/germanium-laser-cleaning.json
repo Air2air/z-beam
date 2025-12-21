@@ -5,14 +5,13 @@
   "name": "Germanium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Germanium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Germanium",
@@ -97,240 +96,125 @@
       "powerRange": {
         "value": 60,
         "unit": "W",
+        "description": "Controlled power for precision semiconductor cleaning",
         "min": 1,
         "max": 120
       },
       "wavelength": {
         "value": 1064,
         "unit": "nm",
+        "description": "Near-IR for minimal lattice damage",
         "min": 355,
         "max": 10640
       },
       "spotSize": {
         "value": 30,
         "unit": "μm",
+        "description": "Small spot for high-precision cleaning",
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
         "value": 30,
         "unit": "kHz",
+        "description": "Moderate frequency for controlled removal",
         "min": 1,
         "max": 200
       },
       "energyDensity": {
         "value": 1.5,
         "unit": "J/cm²",
+        "description": "Precision energy for contamination removal",
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
         "value": 10,
         "unit": "ns",
+        "description": "Ultra-short pulses for minimal thermal damage",
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
         "value": 300,
         "unit": "mm/s",
+        "description": "Careful scanning for uniform treatment",
         "min": 10,
         "max": 5000
       },
       "passCount": {
         "value": 3,
         "unit": "passes",
+        "description": "Multiple passes for complete cleaning",
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
         "value": 60,
         "unit": "%",
+        "description": "High overlap for thorough coverage",
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 10,
+        "max": 100,
+        "value": 50,
+        "unit": "W",
+        "description": "Typical range for pulsed Nd:YAG lasers in semiconductor cleaning to avoid thermal damage; recommended starting at 50 W for balanced ablation of contaminants on Ge, which has moderate thermal conductivity (60 W/mK) and high reflectivity (~40% at 1064 nm). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review in 'Laser Cleaning' by Kononenko (2020)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g., oxides), faster for light particles; recommended 1000 mm/s for Ge to minimize heat-affected zone given its melting point of 938°C. Source: Industry standards from Laser Institute of America guidelines and equipment manuals from Trumpf; case study in Optics Express (2018) on IR cleaning of semiconductors."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on Ge; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially; 20 ns balances ablation efficiency and thermal confinement. Source: Laser physics research in Applied Physics A (2015) on ns/ps ablation thresholds for Ge at 1064 nm, noting reduced cracking in ns pulses."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 20,
+        "description": "Typical for pulsed cleaning to achieve uniform energy delivery; higher rates increase speed but risk heat accumulation on low-conductivity Ge; 20 kHz recommended for optimal throughput without substrate heating. Source: Academic literature in Journal of Applied Physics (2017) on rep rate effects in IR laser cleaning of semiconductors, highlighting trade-offs for materials like Ge."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 0.8,
+        "description": "Fluence below Ge's damage threshold (~2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; lower for light cleaning, higher for heavy; 0.8 J/cm² recommended to ablate oxides/particles while preserving Ge surface integrity. Source: Ablation threshold studies in Physical Review B (2012) and Optics and Lasers in Engineering (2019), confirming Ge thresholds and conservative cleaning fluences."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter range for precise industrial cleaning; smaller for fine details on Ge wafers, larger for area prep; 200 μm recommended for uniform coverage without excessive overlap heating. Source: Equipment specifications from Coherent and Spectra-Physics galvo scanners; process studies in Applied Surface Science (2021) for IR cleaning of Ge optics."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass for complete removal of stubborn layers; 2 passes recommended for Ge to ensure thorough cleaning without risking cumulative thermal damage. Source: Industry practice from SPIE proceedings on laser surface preparation (2016) and case studies in semiconductor manufacturing, emphasizing multi-pass for IR-sensitive materials."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence in cleaning semiconductors."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "density": {
-          "value": 5.3,
-          "unit": "g/cm³",
-          "min": 2.2,
-          "max": 5.5
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%"
-        },
-        "surfaceRoughness": {
-          "value": 0.3,
-          "unit": "μm"
-        },
-        "tensileStrength": {
-          "value": 52,
-          "unit": "MPa",
-          "min": 30.8,
-          "max": 255
-        },
-        "youngsModulus": {
-          "value": 103,
-          "unit": "GPa",
-          "min": 81.1,
-          "max": "1.5e+11"
-        },
-        "hardness": {
-          "value": 1.2,
-          "unit": "GPa",
-          "min": 2,
-          "max": 2600
-        },
-        "flexuralStrength": {
-          "value": 130,
-          "unit": "MPa",
-          "min": 79.9,
-          "max": 148
-        },
-        "oxidationResistance": {
-          "value": 8,
-          "unit": "μm/year",
-          "min": 0,
-          "max": 2.4
-        },
-        "corrosionResistance": {
-          "value": 0.6,
-          "unit": "mm/year",
-          "min": 0.87,
-          "max": 157500
-        },
-        "compressiveStrength": {
-          "value": 52,
-          "unit": "MPa",
-          "min": 133,
-          "max": 7343
-        },
-        "fractureToughness": {
-          "value": 6,
-          "unit": "MPa m^{1/2}",
-          "min": 0.52,
-          "max": 0.97
-        },
-        "electricalResistivity": {
-          "value": 0.46,
-          "unit": "Ω·m",
-          "min": 11.4,
-          "max": "1.4e+06"
-        },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 1211,
-          "unit": "K",
-          "min": 1502,
-          "max": 1696
-        },
-        "laserAbsorption": {
-          "value": 0.55,
-          "unit": "dimensionless",
-          "min": 19380,
-          "max": "1.1e+06"
-        },
-        "laserDamageThreshold": {
-          "value": 10.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "textbook",
-          "source_name": "Handbook of Laser Technology and Applications",
-          "citation": "Webb, C.E. and Jones, J.D.C., Handbook of Laser Technology and Applications, Vol. III: Applications, Institute of Physics Publishing, 2004, ISBN 978-0-7503-0606-5",
-          "context": "Single-crystal Germanium (99.999% purity), room temperature (25°C), 10.6 μm wavelength (CO2 laser), 30 ns pulse duration, normal incidence, uncoated surface",
-          "researched_date": "2025-11-24T12:38:39.787316",
-          "needs_validation": true,
-          "min": 0.47,
-          "max": 8.9
-        },
-        "ablationThreshold": {
-          "value": 0.42,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "Bonse, J., Baudach, S., Krüger, J., Lenzner, M., & Kautek, W., Femtosecond laser ablation of bare and anodic oxidized germanium, Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-6",
-          "context": "Polycrystalline Germanium (99.999% purity), room temperature (25°C), femtosecond Ti:sapphire laser at 800 nm wavelength, 150 fs pulse duration, in air",
-          "researched_date": "2025-11-24T12:38:47.500862",
-          "needs_validation": true,
-          "min": 1.2,
-          "max": 2
-        },
-        "thermalDiffusivity": {
-          "value": "3.6e-05",
-          "unit": "m²/s",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56263-9",
-          "context": "Intrinsic single-crystal Germanium (99.999% purity), 300 K, calculated from thermal conductivity, density, and specific heat capacity",
-          "researched_date": "2025-11-24T12:39:01.938208",
-          "needs_validation": true,
-          "min": "2.4e-05",
-          "max": "9.2e-05"
-        },
-        "thermalExpansion": {
-          "value": "5.9e-06",
-          "unit": "K^{-1}",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Polycrystalline Germanium (99.999% purity), 25°C, measured via dilatometry",
-          "researched_date": "2025-11-24T12:39:09.983521",
-          "needs_validation": true,
-          "min": 0.000002,
-          "max": 0.000006
-        },
-        "specificHeat": {
-          "value": 322,
-          "unit": "J/(kg·K)",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Pure Germanium (99.999% purity), 25°C, differential scanning calorimetry",
-          "researched_date": "2025-11-24T12:39:17.023264",
-          "needs_validation": true,
-          "min": 300,
-          "max": 900
-        },
-        "thermalConductivity": {
-          "value": 60.2,
-          "unit": "W/m·K",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics, 104th Ed.",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Intrinsic polycrystalline Germanium (99.999% purity), 300 K, steady-state heat flow method",
-          "researched_date": "2025-11-24T12:39:23.778101",
-          "needs_validation": true,
-          "min": 0.2,
-          "max": 156
-        },
-        "laserReflectivity": {
-          "value": 0.36,
-          "unit": "fraction",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "Handbook of Optical Constants of Solids",
-          "citation": "Palik, E.D. (Ed.), Handbook of Optical Constants of Solids, Academic Press, 1985, ISBN 978-0-12-544415-6",
-          "context": "Polycrystalline Germanium (99.999% purity), 300 K, normal incidence reflectivity for infrared wavelengths (2-14 μm, typical for CO2 lasers at 10.6 μm)",
-          "researched_date": "2025-11-24T12:39:29.175448",
-          "needs_validation": true,
-          "min": 0.3,
-          "max": 0.36
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -343,7 +227,8 @@
       "value": 60,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Controlled power for precision semiconductor cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -352,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR for minimal lattice damage"
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +247,8 @@
       "value": 30,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Small spot for high-precision cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -370,7 +257,8 @@
       "value": 30,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Moderate frequency for controlled removal"
     },
     {
       "@type": "PropertyValue",
@@ -379,7 +267,8 @@
       "value": 1.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Precision energy for contamination removal"
     },
     {
       "@type": "PropertyValue",
@@ -388,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Ultra-short pulses for minimal thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -397,7 +287,8 @@
       "value": 300,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Careful scanning for uniform treatment"
     },
     {
       "@type": "PropertyValue",
@@ -406,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Multiple passes for complete cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -415,234 +307,89 @@
       "value": 60,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "High overlap for thorough coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 5.3,
-      "unitText": "g/cm³",
-      "minValue": 2.2,
-      "maxValue": 5.5
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 50,
+      "unitText": "W",
+      "minValue": 10,
+      "maxValue": 100,
+      "description": "Typical range for pulsed Nd:YAG lasers in semiconductor cleaning to avoid thermal damage; recommended starting at 50 W for balanced ablation of contaminants on Ge, which has moderate thermal conductivity (60 W/mK) and high reflectivity (~40% at 1064 nm). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review in 'Laser Cleaning' by Kononenko (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g., oxides), faster for light particles; recommended 1000 mm/s for Ge to minimize heat-affected zone given its melting point of 938°C. Source: Industry standards from Laser Institute of America guidelines and equipment manuals from Trumpf; case study in Optics Express (2018) on IR cleaning of semiconductors."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 0.3,
-      "unitText": "μm"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on Ge; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially; 20 ns balances ablation efficiency and thermal confinement. Source: Laser physics research in Applied Physics A (2015) on ns/ps ablation thresholds for Ge at 1064 nm, noting reduced cracking in ns pulses."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 52,
-      "unitText": "MPa",
-      "minValue": 30.8,
-      "maxValue": 255
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning to achieve uniform energy delivery; higher rates increase speed but risk heat accumulation on low-conductivity Ge; 20 kHz recommended for optimal throughput without substrate heating. Source: Academic literature in Journal of Applied Physics (2017) on rep rate effects in IR laser cleaning of semiconductors, highlighting trade-offs for materials like Ge."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 103,
-      "unitText": "GPa",
-      "minValue": 81.1,
-      "maxValue": "1.5e+11"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 1.2,
-      "unitText": "GPa",
-      "minValue": 2,
-      "maxValue": 2600
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 130,
-      "unitText": "MPa",
-      "minValue": 79.9,
-      "maxValue": 148
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 8,
-      "unitText": "μm/year",
-      "minValue": 0,
-      "maxValue": 2.4
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.6,
-      "unitText": "mm/year",
-      "minValue": 0.87,
-      "maxValue": 157500
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 52,
-      "unitText": "MPa",
-      "minValue": 133,
-      "maxValue": 7343
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 6,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.52,
-      "maxValue": 0.97
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 0.46,
-      "unitText": "Ω·m",
-      "minValue": 11.4,
-      "maxValue": "1.4e+06"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1211,
-      "unitText": "K",
-      "minValue": 1502,
-      "maxValue": 1696
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.55,
-      "unitText": "dimensionless",
-      "minValue": 19380,
-      "maxValue": "1.1e+06"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 10.2,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 0.8,
       "unitText": "J/cm²",
-      "minValue": 0.47,
-      "maxValue": 8.9,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below Ge's damage threshold (~2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; lower for light cleaning, higher for heavy; 0.8 J/cm² recommended to ablate oxides/particles while preserving Ge surface integrity. Source: Ablation threshold studies in Physical Review B (2012) and Optics and Lasers in Engineering (2019), confirming Ge thresholds and conservative cleaning fluences."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.42,
-      "unitText": "J/cm²",
-      "minValue": 1.2,
-      "maxValue": 2,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for precise industrial cleaning; smaller for fine details on Ge wafers, larger for area prep; 200 μm recommended for uniform coverage without excessive overlap heating. Source: Equipment specifications from Coherent and Spectra-Physics galvo scanners; process studies in Applied Surface Science (2021) for IR cleaning of Ge optics."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "3.6e-05",
-      "unitText": "m²/s",
-      "minValue": "2.4e-05",
-      "maxValue": "9.2e-05",
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass for complete removal of stubborn layers; 2 passes recommended for Ge to ensure thorough cleaning without risking cumulative thermal damage. Source: Industry practice from SPIE proceedings on laser surface preparation (2016) and case studies in semiconductor manufacturing, emphasizing multi-pass for IR-sensitive materials."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "5.9e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000002,
-      "maxValue": 0.000006,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 322,
-      "unitText": "J/(kg·K)",
-      "minValue": 300,
-      "maxValue": 900,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 60.2,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 156,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.36,
-      "unitText": "fraction",
-      "minValue": 0.3,
-      "maxValue": 0.36,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence in cleaning semiconductors."
     }
   ],
-  "citation": "Z-Beam (2025). Germanium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/germanium-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Germanium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/germanium-laser-cleaning"
 }

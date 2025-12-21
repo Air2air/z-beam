@@ -5,14 +5,13 @@
   "name": "Aluminum Nitride Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Aluminum Nitride. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Aluminum Nitride",
@@ -97,242 +96,125 @@
       "powerRange": {
         "value": 80,
         "unit": "W",
+        "description": "Optimal average power for ceramic cleaning",
         "min": 1,
         "max": 120
       },
       "wavelength": {
         "value": 1064,
         "unit": "nm",
+        "description": "Near-IR wavelength for optimal absorption",
         "min": 355,
         "max": 10640
       },
       "spotSize": {
         "value": 50,
         "unit": "μm",
+        "description": "Beam spot diameter for effective cleaning resolution",
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
         "value": 50,
         "unit": "kHz",
+        "description": "Pulse frequency for controlled material removal",
         "min": 1,
         "max": 200
       },
       "energyDensity": {
         "value": 2,
         "unit": "J/cm²",
+        "description": "Energy per unit area for surface cleaning",
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
         "value": 10,
         "unit": "ns",
+        "description": "Pulse duration for minimal thermal penetration",
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
         "value": 500,
         "unit": "mm/s",
+        "description": "Beam travel speed for uniform coverage",
         "min": 10,
         "max": 5000
       },
       "passCount": {
         "value": 3,
         "unit": "passes",
+        "description": "Number of cleaning cycles for complete removal",
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
         "value": 50,
         "unit": "%",
+        "description": "Beam overlap for consistent surface treatment",
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 200,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for industrial cleaning of ceramics like AlN to avoid thermal damage; starting at 100 W balances efficiency and safety. Max ~200 W before risking substrate ablation. Source: IPG Photonics laser cleaning systems specs for delicate materials."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective speeds for contaminant removal on AlN; slower for heavy contamination (500-1000 mm/s), faster for light (2000-5000 mm/s). Recommended 2000 mm/s for optimal balance. Source: Industry standards from Laserax equipment manuals."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for AlN cleaning to minimize heat-affected zone (HAZ) due to high thermal conductivity; picosecond (ps) or femtosecond for ultra-precision but less common industrially. 20 ns recommended for low HAZ. Source: Laser physics studies in Optics & Laser Technology (e.g., ns pulses for ceramics)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 50,
+        "description": "Typical for 1064 nm cleaning; 50 kHz recommended for AlN to achieve fast cleaning without excessive heat accumulation, trading off speed vs. thermal load. Higher rates (>80 kHz) increase heat on reflective AlN. Source: Academic literature in Applied Surface Science on pulse repetition effects."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 1.5,
+        "description": "Fluence range for safe contaminant ablation on AlN; damage threshold ~2-3 J/cm² at 1064 nm due to AlN's high melting point and reflectivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies in Journal of Applied Physics for nitrides."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter for uniform cleaning; smaller (50-100 μm) for fine details, larger (200-500 μm) for area prep on AlN. 200 μm recommended for industrial surface preparation. Source: Manufacturer specs from Coherent and Trumpf laser systems."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete AlN cleaning to ensure uniformity without overexposure. Source: Industry case studies in laser cleaning of ceramics (e.g., SPIE proceedings)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage; 60% recommended for AlN to avoid gaps or overheating, typical range 30-80% based on contamination. Source: Process optimization in Journal of Laser Applications."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "density": {
-          "value": 3.3,
-          "unit": "g/cm³",
-          "min": 1.7,
-          "max": 16.3
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%",
-          "min": 0,
-          "max": 30
-        },
-        "surfaceRoughness": {
-          "value": 0.5,
-          "unit": "μm"
-        },
-        "tensileStrength": {
-          "value": 300,
-          "unit": "MPa",
-          "min": 5,
-          "max": 600
-        },
-        "youngsModulus": {
-          "value": 310,
-          "unit": "GPa",
-          "min": 40,
-          "max": 679
-        },
-        "hardness": {
-          "value": 12,
-          "unit": "GPa",
-          "min": 6.7,
-          "max": 3150
-        },
-        "flexuralStrength": {
-          "value": 350,
-          "unit": "MPa",
-          "min": 45.6,
-          "max": 1153
-        },
-        "oxidationResistance": {
-          "value": 20,
-          "unit": "μm/year",
-          "min": 0,
-          "max": 2310
-        },
-        "corrosionResistance": {
-          "value": 0.78,
-          "unit": "mm/year",
-          "min": "0.00047",
-          "max": 262
-        },
-        "compressiveStrength": {
-          "value": 300,
-          "unit": "MPa",
-          "min": 95,
-          "max": 4090
-        },
-        "fractureToughness": {
-          "value": 18,
-          "unit": "MPa m^{1/2}",
-          "min": 0.56,
-          "max": 5.7
-        },
-        "electricalResistivity": {
-          "value": 10000000000000,
-          "unit": "Ω·m",
-          "min": 0,
-          "max": 100000000000000
-        },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 2473,
-          "unit": "K",
-          "min": 273,
-          "max": 3900
-        },
-        "laserAbsorption": {
-          "value": 0.15,
-          "unit": "dimensionless",
-          "min": 0.35,
-          "max": 2625
-        },
-        "laserDamageThreshold": {
-          "value": 12.5,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Journal of the European Ceramic Society",
-          "citation": "Wang, Y. et al., Laser damage threshold and ablation characteristics of aluminum nitride ceramics, Journal of the European Ceramic Society, 2018, DOI: 10.1016/j.jeurceramsoc.2018.05.012",
-          "context": "High-purity polycrystalline AlN (99.8% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, single-shot measurement",
-          "researched_date": "2025-11-24T19:45:14.935486",
-          "needs_validation": true,
-          "min": 1.6,
-          "max": 20.9
-        },
-        "ablationThreshold": {
-          "value": 2.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Physics A: Materials Science & Processing",
-          "citation": "P. Rudolph et al., Applied Physics A 110, 479-485 (2013), DOI: 10.1007/s00339-012-7174-5",
-          "context": "Polycrystalline AlN ceramic (99.5% purity, commercial grade), room temperature (25°C), nanosecond pulsed Nd:YAG laser at 532 nm wavelength, single-pulse ablation in air",
-          "researched_date": "2025-11-24T19:45:20.248619",
-          "needs_validation": true,
-          "min": 0.57,
-          "max": 4
-        },
-        "thermalDiffusivity": {
-          "value": "8.5e-05",
-          "unit": "m²/s",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "Engineered Materials Handbook, Volume 4: Ceramics and Glasses",
-          "citation": "ASM International, Engineered Materials Handbook, Volume 4: Ceramics and Glasses, 1991, ISBN 978-0-87170-282-9",
-          "context": "Sintered polycrystalline Aluminum Nitride (>99% purity), 25°C, laser flash method",
-          "researched_date": "2025-11-24T19:45:31.124951",
-          "needs_validation": true,
-          "min": 0.000001,
-          "max": "7.3e-05"
-        },
-        "thermalExpansion": {
-          "value": "4.5e-06",
-          "unit": "K^{-1}",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "ASM Engineered Materials Handbook, Volume 4: Ceramics and Glasses",
-          "citation": "ASM International, Engineered Materials Handbook, Volume 4: Ceramics and Glasses, ASM International, 1991, ISBN 978-0-87170-285-8",
-          "context": "Polycrystalline Aluminum Nitride (99.5% purity, sintered), 25-1000°C, measured via dilatometry",
-          "researched_date": "2025-11-24T19:45:38.811945",
-          "needs_validation": true,
-          "min": 0.000003,
-          "max": "1.1e-05"
-        },
-        "specificHeat": {
-          "value": 740,
-          "unit": "J/(kg·K)",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC, Aluminum Nitride (AlN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5f4b0e1a4a4b0e8a0e1a4a4b0e8a0e, accessed 2023",
-          "context": "Polycrystalline Aluminum Nitride (99.5% purity), 25°C, differential scanning calorimetry (DSC) measurement",
-          "researched_date": "2025-11-24T19:45:43.028313",
-          "needs_validation": true,
-          "min": 250,
-          "max": 2500
-        },
-        "thermalConductivity": {
-          "value": 170,
-          "unit": "W/m·K",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "Lide, D. R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2, Section 12: Properties of Solids, p. 12-XXX",
-          "context": "Polycrystalline aluminum nitride (AlN) ceramic, >99% purity, 25°C (298 K), measured by laser flash method under standard atmospheric conditions",
-          "researched_date": "2025-11-24T19:45:55.838309",
-          "needs_validation": true,
-          "min": 1.4,
-          "max": 127
-        },
-        "laserReflectivity": {
-          "value": 0.23,
-          "unit": "",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical Properties of Aluminum Nitride Ceramics for Laser Applications",
-          "citation": "Johnson, R. et al., Journal of the American Ceramic Society, 2018, DOI: 10.1111/jace.15567",
-          "context": "Polycrystalline AlN (99.8% purity), 25°C, normal incidence reflectivity at 1064 nm wavelength (Nd:YAG laser), measured on polished surfaces",
-          "researched_date": "2025-11-24T19:46:04.231512",
-          "needs_validation": true,
-          "min": 0.05,
-          "max": 0.4
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -345,7 +227,8 @@
       "value": 80,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for ceramic cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -354,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal absorption"
     },
     {
       "@type": "PropertyValue",
@@ -363,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for effective cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -372,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Pulse frequency for controlled material removal"
     },
     {
       "@type": "PropertyValue",
@@ -381,7 +267,8 @@
       "value": 2,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Energy per unit area for surface cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -390,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Pulse duration for minimal thermal penetration"
     },
     {
       "@type": "PropertyValue",
@@ -399,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Beam travel speed for uniform coverage"
     },
     {
       "@type": "PropertyValue",
@@ -408,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning cycles for complete removal"
     },
     {
       "@type": "PropertyValue",
@@ -417,236 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Beam overlap for consistent surface treatment"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 3.3,
-      "unitText": "g/cm³",
-      "minValue": 1.7,
-      "maxValue": 16.3
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 200,
+      "description": "Typical range for industrial cleaning of ceramics like AlN to avoid thermal damage; starting at 100 W balances efficiency and safety. Max ~200 W before risking substrate ablation. Source: IPG Photonics laser cleaning systems specs for delicate materials."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 30
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 2000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for contaminant removal on AlN; slower for heavy contamination (500-1000 mm/s), faster for light (2000-5000 mm/s). Recommended 2000 mm/s for optimal balance. Source: Industry standards from Laserax equipment manuals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 0.5,
-      "unitText": "μm"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 300,
-      "unitText": "MPa",
-      "minValue": 5,
-      "maxValue": 600
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 310,
-      "unitText": "GPa",
-      "minValue": 40,
-      "maxValue": 679
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 12,
-      "unitText": "GPa",
-      "minValue": 6.7,
-      "maxValue": 3150
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 350,
-      "unitText": "MPa",
-      "minValue": 45.6,
-      "maxValue": 1153
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
       "value": 20,
-      "unitText": "μm/year",
-      "minValue": 0,
-      "maxValue": 2310
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for AlN cleaning to minimize heat-affected zone (HAZ) due to high thermal conductivity; picosecond (ps) or femtosecond for ultra-precision but less common industrially. 20 ns recommended for low HAZ. Source: Laser physics studies in Optics & Laser Technology (e.g., ns pulses for ceramics)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.78,
-      "unitText": "mm/year",
-      "minValue": "0.00047",
-      "maxValue": 262
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for 1064 nm cleaning; 50 kHz recommended for AlN to achieve fast cleaning without excessive heat accumulation, trading off speed vs. thermal load. Higher rates (>80 kHz) increase heat on reflective AlN. Source: Academic literature in Applied Surface Science on pulse repetition effects."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 300,
-      "unitText": "MPa",
-      "minValue": 95,
-      "maxValue": 4090
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 18,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.56,
-      "maxValue": 5.7
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 10000000000000,
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 100000000000000
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 2473,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 3900
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.15,
-      "unitText": "dimensionless",
-      "minValue": 0.35,
-      "maxValue": 2625
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 12.5,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 1.6,
-      "maxValue": 20.9,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant ablation on AlN; damage threshold ~2-3 J/cm² at 1064 nm due to AlN's high melting point and reflectivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies in Journal of Applied Physics for nitrides."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.57,
-      "maxValue": 4,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter for uniform cleaning; smaller (50-100 μm) for fine details, larger (200-500 μm) for area prep on AlN. 200 μm recommended for industrial surface preparation. Source: Manufacturer specs from Coherent and Trumpf laser systems."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "8.5e-05",
-      "unitText": "m²/s",
-      "minValue": 0.000001,
-      "maxValue": "7.3e-05",
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete AlN cleaning to ensure uniformity without overexposure. Source: Industry case studies in laser cleaning of ceramics (e.g., SPIE proceedings)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "4.5e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000003,
-      "maxValue": "1.1e-05",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 740,
-      "unitText": "J/(kg·K)",
-      "minValue": 250,
-      "maxValue": 2500,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 170,
-      "unitText": "W/m·K",
-      "minValue": 1.4,
-      "maxValue": 127,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.23,
-      "unitText": "",
-      "minValue": 0.05,
-      "maxValue": 0.4,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage; 60% recommended for AlN to avoid gaps or overheating, typical range 30-80% based on contamination. Source: Process optimization in Journal of Laser Applications."
     }
   ],
-  "citation": "Z-Beam (2025). Aluminum Nitride Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/technical/aluminum-nitride-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Aluminum Nitride Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/technical/aluminum-nitride-laser-cleaning"
 }

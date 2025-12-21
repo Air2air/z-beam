@@ -24,12 +24,12 @@ description: Coolant-scale contamination arises from silicate and phosphate depo
   more readily but leaves residues; removal challenges include avoiding substrate erosion during mechanical methods, yet laser
   cleaning succeeds by vaporizing layers precisely through thermal expansion, so surfaces restore uniformity without harm.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Engine coolant scale on ceramic surfaces looks like white, chalky deposits that can adhere firmly and
@@ -102,7 +102,7 @@ relationships:
           or surface damage.
         coverage: Coverage is generally sparse and uneven, limited to exposed areas in contact with the coolant.
         pattern: Distribution is often in random spots or streaks where coolant has splashed or seeped into the wood grain.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -193,7 +193,7 @@ relationships:
   prohibited_materials:
   - Plastics
   - Rubber
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -292,8 +292,8 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: scale
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   aluminum:
     laser_parameters:
       wavelength:

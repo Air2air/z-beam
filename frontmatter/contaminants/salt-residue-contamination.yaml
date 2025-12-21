@@ -23,12 +23,12 @@ description: Salt-residue contamination builds up from marine deposits or road s
   that traditional scraping often worsens by scratching substrates. Laser cleaning tackles this head-on by vaporizing residues
   precisely, preserving material integrity without chemicals or abrasion.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: White or grayish powdery residues, often in crevices or glazed surfaces, leading to a dull look.
@@ -83,7 +83,7 @@ relationships:
         appearance: White, powdery, or crystalline stains that can darken the wood, often causing a rough or raised texture.
         coverage: Limited to surface areas, often sparse but can spread with prolonged exposure to contaminants.
         pattern: Spots or patches, typically following the wood grain or moisture paths, with uneven distribution.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -191,7 +191,7 @@ relationships:
   - Soapstone
   prohibited_materials:
   - Electronics
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: none
       description: No significant fire or explosion risk identified
@@ -271,8 +271,8 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: mineral
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   aluminum:
     laser_parameters:
       wavelength:

@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Lead Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,318 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power range for Lead surface cleaning
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength optimized for Lead absorption and minimal reflectivity
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise Lead surface treatment
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for efficient Lead cleaning process
 
 fluenceThreshold:
   Value:  2.5 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Minimum fluence required for effective Lead removal
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for controlled Lead ablation
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform Lead cleaning
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete Lead contamination removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform Lead surface cleaning
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    500 W
+  Note:   Typical range for industrial 1064 nm Nd:YAG lasers cleaning soft metals like lead to avoid melting (melting point 327°C); starting at 100W for light contamination; max safe below 500W to prevent substrate damage. Source: Manufacturer specs from IPG Photonics and Laserax systems for metal cleaning.
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  electricalConductivity:
-    Value:  4.8e+06 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: ai_research
+scan_speed:
+  Value:  1500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds balance cleaning efficiency and heat input; recommended 1500 mm/s for optimal removal without excessive heating on reflective lead; lower for heavy contamination (500-1000 mm/s), higher for light (2000-3000 mm/s). Source: Industry standards from SPIE proceedings on laser cleaning processes.
 
-  electricalResistivity:
-    Value:  2.2e-07 Ω·m
-    Min:    0 Ω·m
-    Max:    0.000002 Ω·m
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of lead; 20 ns recommended for minimal heat-affected zone (HAZ) due to lead's high thermal conductivity; picosecond (ps) or femtosecond for ultra-precise but less common industrially. Source: Laser physics research in Optics & Laser Technology journal on metal ablation.
 
-  surfaceRoughness:
-    Value:  1.6 μm
-    Min:    0.02 μm
-    Max:    6.6 μm
-    Source: ai_research
+repetition_rate:
+  Value:  30 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for lead to achieve fast cleaning while minimizing heat accumulation (high freq risks melting); trade-off: higher rates speed up process but increase thermal load. Source: Academic literature from Applied Surface Science on pulse repetition effects.
 
-  youngsModulus:
-    Value:  16 GPa
-    Min:    10.4 GPa
-    Max:    200000000000 GPa
-    Source: ai_research
+energy_density:
+  Value:  1 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for contaminant ablation without damaging lead substrate; damage threshold ~2-3 J/cm² for lead at 1064 nm due to reflectivity; 1.0 J/cm² safe for cleaning. Conservative estimate based on ablation studies; source: Threshold studies in Journal of Applied Physics on IR laser-metal interactions.
 
-  oxidationResistance:
-    Value:  0.65  (dimensionless scale, 0-1 where 1 is highest resistance)
-    Min:    -554  (dimensionless scale, 0-1 where 1 is highest resistance)
-    Max:    1762  (dimensionless scale, 0-1 where 1 is highest resistance)
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for uniform coverage; 200 μm recommended for lead cleaning to balance resolution and area efficiency; smaller for fine details (100-200 μm), larger for broad surfaces (300-500 μm). Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.
 
-  density:
-    Value:  11.3 g/cm³
-    Min:    1.7 g/cm³
-    Max:    9408 g/cm³
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete lead surface preparation to ensure removal without over-processing soft substrate. Source: Industry case studies from Laser Cleaning International reports on metal decontamination.
 
-  hardness:
-    Value:  5 HB
-    Min:    0.2 HB
-    Max:    3500 HB
-    Source: ai_research
-
-  corrosionResistance:
-    Value:  0.92 dimensionless
-    Min:    -1.1 dimensionless
-    Max:    1.1e+06 dimensionless
-    Source: ai_research
-
-  compressiveStrength:
-    Value:  12 MPa
-    Min:    8 MPa
-    Max:    2625 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  12 MPa
-    Min:    11.4 MPa
-    Max:    2897 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  12 MPa
-    Min:    3 MPa
-    Max:    3000 MPa
-    Source: ai_research
-
-  porosity:
-    Value:  0 %
-    Min:    0 %
-    Max:    15 %
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.35 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  boilingPoint:
-    Value:  2022 K
-    Min:    929 K
-    Max:    6454 K
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  6.6e+07 m^{-1}
-    Min:    589000 m^{-1}
-    Max:    9.9e+07 m^{-1}
-    Source: ai_research
-
-  meltingPoint:
-    Value:  601 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  1.3e-06 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  601 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.65 dimensionless
-    Min:    0.35 dimensionless
-    Max:    1 dimensionless
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  18 K
-    Min:    6.7 K
-    Max:    379050 K
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  601 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  128 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.98 1
-    Min:    0.4 1
-    Max:    73.5 1
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  35.3 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  28.9 10^{-6} K^{-1}
-    Min:    0.000004 10^{-6} K^{-1}
-    Max:    31.7 10^{-6} K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  7.5e+07 m^{-1}
-    Min:    0.02 m^{-1}
-    Max:    4.2e+08 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  2.4e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.42 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptionCoefficient:
-    Value:  1.2e+07 m⁻¹
-    Min:    589000 m⁻¹
-    Max:    9.9e+07 m⁻¹
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.35 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  0.15 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.65 dimensionless
-    Min:    0.35 dimensionless
-    Max:    1 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  601 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  0.0005 W/m
-    Min:    6.7 W/m
-    Max:    379050 W/m
-    Source: ai_research
-
-  vaporPressure:
-    Value:  2.1e-07 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  601 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  128 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.98 1
-    Min:    0.4 1
-    Max:    73.5 1
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  35.3 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  28.9 10^{-6} K^{-1}
-    Min:    0.000004 10^{-6} K^{-1}
-    Max:    31.7 10^{-6} K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  7.5e+07 m^{-1}
-    Min:    0.02 m^{-1}
-    Max:    4.2e+08 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  2.4e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.42 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
+overlap_ratio:
+  Value:  50 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage without gaps or excessive overlap heating; 50% recommended for lead to optimize cleaning uniformity while managing heat on low-melting material. Source: Process optimization studies in Surface and Coatings Technology journal.
 
 ================================================================================
 CITATION & USAGE
@@ -370,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

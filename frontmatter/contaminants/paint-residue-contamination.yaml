@@ -29,12 +29,12 @@ micro:
     laser ablation.
   before: Surface shows contamination from paint residue / coating failure affecting material appearance and properties.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Paint residue shows as flaking, cracking, or bubbling in various hues, leading to a rough, pitted texture
@@ -123,7 +123,7 @@ relationships:
     - varies by paint color
     texture: flaking, peeling, cracked
     thickness: thin chips to thick layers
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -257,7 +257,7 @@ relationships:
   - age
   - weathering
   - mechanical_damage
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -361,8 +361,8 @@ author:
   formatting_file: indonesia_formatting.yaml
 title: Paint Residue / Coating Failure Laser Cleaning
 subcategory: paint
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   acrylic-(pmma):
     laser_parameters:
       wavelength:

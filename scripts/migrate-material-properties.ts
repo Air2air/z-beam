@@ -80,7 +80,7 @@ const PROPERTY_DATABASE: Record<string, Partial<MaterialProperties>> = {
     thermal: {
       meltingPoint: { value: 660, unit: '°C', min: 658, max: 662 },
       thermalConductivity: { value: 237, unit: 'W/(m·K)', min: 220, max: 250 },
-      heatCapacity: { value: 897, unit: 'J/(kg·K)', min: 890, max: 910 },
+      heatCapacity: { value: 897, unit: 'J/(kg·K)' },
       thermalDiffusivity: { value: 97, unit: 'mm²/s' },
       vaporizationTemperature: { value: 2519, unit: '°C' }
     },

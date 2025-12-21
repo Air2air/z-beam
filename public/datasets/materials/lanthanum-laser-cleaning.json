@@ -5,14 +5,13 @@
   "name": "Lanthanum Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Lanthanum. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Lanthanum",
@@ -95,250 +94,134 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Lanthanum oxide removal without substrate damage",
         "unit": "W",
         "value": 90,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for optimal absorption in Lanthanum oxides",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise oxide removal control",
         "unit": "μm",
         "value": 80,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for continuous cleaning coverage",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Fluence threshold for effective Lanthanum cleaning",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "energyDensity": {
+        "description": "Fluence threshold for Lanthanum oxide ablation",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for efficient oxide layer removal",
         "unit": "ns",
         "value": 12,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning efficiency",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete oxide removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for pulsed Nd:YAG lasers in metal cleaning to avoid thermal damage; recommended starting at 100 W for Lanthanum's low melting point (921°C) and moderate thermal conductivity (~13 W/mK). Conservative max to prevent substrate melting. Source: General manufacturer specs (e.g., IPG Photonics) and ablation studies on rare earth metals (e.g., J. Appl. Phys. 2018 on similar metals)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Range for effective contaminant removal without excessive heat buildup; slower for heavy contamination (100-500 mm/s), faster for light (1000-2000 mm/s). Recommended 500 mm/s for balanced cleaning on reflective Lanthanum surfaces. Source: Industry standards from laser cleaning equipment manuals (e.g., Laserax systems) and process optimization in Opt. Lasers Eng. (2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for industrial cleaning to balance ablation and minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier. 20 ns recommended for Lanthanum to limit thermal diffusion given its properties. Source: Laser physics research in Appl. Surf. Sci. (2019) on metal ablation thresholds."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning; higher rates increase speed but risk heat accumulation on low-conductivity Lanthanum. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause overheating. Source: Academic literature, e.g., J. Laser Appl. (2021) on repetition rate effects in metal surface prep."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for contaminant removal without damaging Lanthanum (estimated damage threshold ~4 J/cm² at 1064 nm due to high reflectivity). Recommended 1.5 J/cm² for safe cleaning of oxides or contaminants. Source: Ablation threshold studies on rare earths (e.g., Phys. Rev. B 2017) and general metal cleaning in Lasers Manuf. Mater. Process. (2022)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller for fine detail (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for uniform cleaning on Lanthanum without excessive energy concentration. Source: Equipment specifications from manufacturers like Coherent and Trumpf for 1064 nm systems."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Lanthanum while minimizing risk to soft substrate. Source: Industry case studies in laser cleaning of metals (e.g., Proc. SPIE 2019) and practical guidelines from Adapt Laser Systems."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 50% recommended for Lanthanum to avoid gaps or over-ablation on irregular surfaces. Lower (30%) for speed, higher (80%) for thoroughness. Source: Process optimization studies in J. Clean. Prod. (2021) on scan strategies for metallic substrates."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "youngsModulus": {
-          "value": 61.3,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 15.8,
-          "max": 63.5
-        },
-        "oxidationResistance": {
-          "value": 1.1,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0,
-          "max": 149
-        },
-        "density": {
-          "value": 6.2,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 4.3,
-          "max": 8.8
-        },
-        "hardness": {
-          "value": 0.35,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 0.38,
-          "max": 906
-        },
-        "absorptivity": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.25,
-          "max": 0.6
-        },
-        "boilingPoint": {
-          "value": 3737,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 1705,
-          "max": 3834
-        },
-        "thermalDestruction": {
-          "value": 1194,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 3520
-        },
-        "specificHeat": {
-          "value": 195,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 113,
-          "max": 457
-        },
-        "laserReflectivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 0.94
-        },
-        "thermalConductivity": {
-          "value": 13.4,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 10.4,
-          "max": 17.5
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 26.2
-        },
-        "ablationThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.65,
-          "max": 2.9
-        },
-        "absorptionCoefficient": {
-          "value": "2.8e+07",
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 298300,
-          "max": "6.6e+07"
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "source": "ai_research",
-          "unit": "dimensionless",
-          "value": 0.42,
-          "min": 0.25,
-          "max": 0.6
-        },
-        "thermalDestruction": {
-          "value": 1194,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 3520
-        },
-        "specificHeat": {
-          "value": 195,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 113,
-          "max": 457
-        },
-        "laserReflectivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 0.94
-        },
-        "thermalConductivity": {
-          "value": 13.4,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 10.4,
-          "max": 17.5
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 26.2
-        },
-        "ablationThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.65,
-          "max": 2.9
-        },
-        "absorptionCoefficient": {
-          "value": "2.8e+07",
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 298300,
-          "max": "6.6e+07"
-        },
-        "laserDamageThreshold": {
-          "value": 2.3,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Journal of Applied Physics",
-          "citation": "Liu, Y. et al., Laser ablation thresholds of rare-earth metals: Lanthanum and cerium, Journal of Applied Physics, 2018, DOI: 10.1063/1.5028294",
-          "context": "Pure lanthanum (99.9% purity), 300 K, nanosecond pulsed Nd:YAG laser at 1064 nm wavelength, measured in vacuum",
-          "researched_date": "2025-11-24T12:00:23.880524",
-          "needs_validation": true,
-          "min": 1.1,
-          "max": 3.3
-        },
-        "thermalDiffusivity": {
-          "value": "1.1e-05",
-          "unit": "m²/s",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2",
-          "context": "Pure lanthanum (99.9% purity), 300 K, calculated from standard properties under ambient pressure",
-          "researched_date": "2025-11-24T12:00:34.917113",
-          "needs_validation": true,
-          "min": 0.000007,
-          "max": "1.9e-05"
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -351,7 +234,8 @@
       "value": 90,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Lanthanum oxide removal without substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -360,7 +244,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal absorption in Lanthanum oxides"
     },
     {
       "@type": "PropertyValue",
@@ -369,7 +254,8 @@
       "value": 80,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise oxide removal control"
     },
     {
       "@type": "PropertyValue",
@@ -378,7 +264,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for continuous cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -387,7 +274,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Fluence threshold for effective Lanthanum cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -396,7 +284,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for Lanthanum oxide ablation"
     },
     {
       "@type": "PropertyValue",
@@ -405,7 +294,8 @@
       "value": 12,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for efficient oxide layer removal"
     },
     {
       "@type": "PropertyValue",
@@ -414,7 +304,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning efficiency"
     },
     {
       "@type": "PropertyValue",
@@ -423,7 +314,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -432,274 +324,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 61.3,
-      "unitText": "GPa",
-      "minValue": 15.8,
-      "maxValue": 63.5,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 500,
+      "description": "Typical range for pulsed Nd:YAG lasers in metal cleaning to avoid thermal damage; recommended starting at 100 W for Lanthanum's low melting point (921°C) and moderate thermal conductivity (~13 W/mK). Conservative max to prevent substrate melting. Source: General manufacturer specs (e.g., IPG Photonics) and ablation studies on rare earth metals (e.g., J. Appl. Phys. 2018 on similar metals)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 1.1,
-      "unitText": "",
-      "minValue": 0,
-      "maxValue": 149,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Range for effective contaminant removal without excessive heat buildup; slower for heavy contamination (100-500 mm/s), faster for light (1000-2000 mm/s). Recommended 500 mm/s for balanced cleaning on reflective Lanthanum surfaces. Source: Industry standards from laser cleaning equipment manuals (e.g., Laserax systems) and process optimization in Opt. Lasers Eng. (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 6.2,
-      "unitText": "g/cm³",
-      "minValue": 4.3,
-      "maxValue": 8.8,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for industrial cleaning to balance ablation and minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier. 20 ns recommended for Lanthanum to limit thermal diffusion given its properties. Source: Laser physics research in Appl. Surf. Sci. (2019) on metal ablation thresholds."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 0.35,
-      "unitText": "GPa",
-      "minValue": 0.38,
-      "maxValue": 906,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning; higher rates increase speed but risk heat accumulation on low-conductivity Lanthanum. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause overheating. Source: Academic literature, e.g., J. Laser Appl. (2021) on repetition rate effects in metal surface prep."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.25,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 3737,
-      "unitText": "K",
-      "minValue": 1705,
-      "maxValue": 3834,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1194,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 3520,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 195,
-      "unitText": "J/kg·K",
-      "minValue": 113,
-      "maxValue": 457,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 0.94,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 13.4,
-      "unitText": "W/m·K",
-      "minValue": 10.4,
-      "maxValue": 17.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 26.2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 1.2,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 2.9,
-      "measurementTechnique": "ai_research"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for contaminant removal without damaging Lanthanum (estimated damage threshold ~4 J/cm² at 1064 nm due to high reflectivity). Recommended 1.5 J/cm² for safe cleaning of oxides or contaminants. Source: Ablation threshold studies on rare earths (e.g., Phys. Rev. B 2017) and general metal cleaning in Lasers Manuf. Mater. Process. (2022)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": "2.8e+07",
-      "unitText": "m^{-1}",
-      "minValue": 298300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller for fine detail (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for uniform cleaning on Lanthanum without excessive energy concentration. Source: Equipment specifications from manufacturers like Coherent and Trumpf for 1064 nm systems."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.25,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Lanthanum while minimizing risk to soft substrate. Source: Industry case studies in laser cleaning of metals (e.g., Proc. SPIE 2019) and practical guidelines from Adapt Laser Systems."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1194,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 3520,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 195,
-      "unitText": "J/kg·K",
-      "minValue": 113,
-      "maxValue": 457,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 0.94,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 13.4,
-      "unitText": "W/m·K",
-      "minValue": 10.4,
-      "maxValue": 17.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 26.2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.2,
-      "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 2.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": "2.8e+07",
-      "unitText": "m^{-1}",
-      "minValue": 298300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.3,
-      "unitText": "J/cm²",
-      "minValue": 1.1,
-      "maxValue": 3.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.1e-05",
-      "unitText": "m²/s",
-      "minValue": 0.000007,
-      "maxValue": "1.9e-05",
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage; 50% recommended for Lanthanum to avoid gaps or over-ablation on irregular surfaces. Lower (30%) for speed, higher (80%) for thoroughness. Source: Process optimization studies in J. Clean. Prod. (2021) on scan strategies for metallic substrates."
     }
   ],
-  "citation": "Z-Beam (2025). Lanthanum Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/lanthanum-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Alessandro Moretti",
-    "jobTitle": "Materials Engineer",
-    "knowsAbout": [
-      "Laser-Based Additive Manufacturing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Lanthanum Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/lanthanum-laser-cleaning"
 }

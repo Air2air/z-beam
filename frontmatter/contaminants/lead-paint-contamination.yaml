@@ -24,12 +24,12 @@ description: Lead paint contamination consists of hazardous layers from old coat
   effective since precise pulses ablate the paint selectively, so it preserves underlying concrete or wood without chemical
   residues.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Lead paint on ceramic surfaces appears as a hard, glossy coating in bright colors, possibly with a cracked
@@ -122,7 +122,7 @@ relationships:
           through in areas.
         pattern: Distribution is generally uniform initially but becomes patchy or blistered with age, following the wood
           grain or forming irregular flakes.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -226,7 +226,7 @@ relationships:
   - Fir
   prohibited_materials:
   - Delicate Substrates
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -317,8 +317,8 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: paint
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   ash:
     laser_parameters:
       wavelength:

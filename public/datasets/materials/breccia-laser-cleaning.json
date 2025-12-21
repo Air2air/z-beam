@@ -5,14 +5,13 @@
   "name": "Breccia Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Breccia. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Breccia",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Breccia surface cleaning without thermal damage",
         "unit": "W",
         "value": 90,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength optimized for Breccia mineral absorption characteristics",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning control",
         "unit": "μm",
         "value": 80,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for continuous cleaning coverage",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal",
         "unit": "J/cm²",
         "value": 3.5,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Short pulse duration for efficient ablation of surface contaminants",
         "unit": "ns",
         "value": 12,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for efficient area coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of cleaning passes for complete surface treatment",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning results",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 300,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for industrial cleaning of stone materials like Breccia (carbonate-based rock similar to marble) using 1064 nm lasers to remove contaminants without substrate damage; starting at 100 W allows controlled ablation. Max safe ~300 W to avoid cracking due to low thermal conductivity (~2 W/m·K). Source: Manufacturer specs from IPG Photonics fiber lasers for stone cleaning; academic papers on marble ablation (e.g., Pouli et al., Applied Physics A, 2010)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Effective range for contaminant removal on Breccia; slower speeds (200-500 mm/s) for heavy contamination (e.g., rust or oils), faster (up to 2000 mm/s) for light dust. Recommended 500 mm/s balances efficiency and uniformity. Source: Industry standards from laser cleaning equipment manuals (e.g., Adapt Laser Systems); case studies on stone surface preparation."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for 1064 nm cleaning of Breccia to achieve photothermal ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost—ns sufficient for industrial use. Avoid fs for porous stones to prevent micro-cracking. Source: Laser physics research on stone ablation (e.g., Marczak et al., Journal of Cultural Heritage, 2008)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 20,
+        "unit": "kHz",
+        "description": "Typical for pulsed 1064 nm lasers in stone cleaning; 20 kHz recommended for Breccia to enable fast processing while limiting heat accumulation (Breccia melting point ~800-1200°C, reflectivity ~0.3-0.5 at 1064 nm). Higher rates (>50 kHz) risk thermal buildup in low-conductivity materials. Source: Academic literature on Nd:YAG cleaning of marbles (e.g., Verges-Belmin, Studies in Conservation, 2005)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe contaminant removal on Breccia; damage threshold ~3 J/cm² (based on carbonate stone studies), so stay below 2.5 J/cm² to avoid surface pitting. Recommended 1 J/cm² for effective cleaning with low risk. Source: Ablation threshold studies for limestones/marble at 1064 nm (e.g., Gross et al., Applied Surface Science, 2001). Conservative estimate due to Breccia's variable composition."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 500,
+        "unit": "μm",
+        "description": "Beam diameter range for industrial cleaning; smaller (200 μm) for fine details on Breccia surfaces, larger (800 μm) for broad areas. 500 μm recommended for uniform coverage on porous stone without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser systems for surface preparation."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (up to 5) for heavy layers on Breccia; 2 passes recommended for complete removal while minimizing thermal stress. Multi-pass allows lower fluence per pass. Source: Industry practice and case studies on stone restoration (e.g., European Laser Cleaning Network reports)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Standard range for uniform scan coverage in laser cleaning; 50% recommended for Breccia to ensure no gaps in porous surfaces while avoiding over-heating. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in industrial laser applications (e.g., LaserNet guidelines; research in Optics and Lasers in Engineering, 2015)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.85,
-          "unit": "MPa·m^{1/2}",
-          "source": "ai_research",
-          "min": 0.13,
-          "max": 2
-        },
-        "density": {
-          "value": 2710,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 3045
-        },
-        "oxidationResistance": {
-          "value": 0.87,
-          "unit": "dimensionless (resistance index)",
-          "source": "ai_research",
-          "min": "9.5e-05",
-          "max": 1547
-        },
-        "youngsModulus": {
-          "value": 32.5,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 9.8,
-          "max": "7.9e+10"
-        },
-        "hardness": {
-          "value": 3.5,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.7,
-          "max": 7.3
-        },
-        "compressiveStrength": {
-          "value": 125,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 220
-        },
-        "tensileStrength": {
-          "value": 3.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1.4,
-          "max": 15.7
-        },
-        "flexuralStrength": {
-          "value": 11.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 36.6
-        },
-        "corrosionResistance": {
-          "value": 0.85,
-          "unit": "dimensionless (resistance index)",
-          "source": "ai_research",
-          "min": "6.6e-05",
-          "max": 21
-        },
-        "porosity": {
-          "value": 0.15,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0,
-          "max": 19.4
-        },
-        "laserDamageThreshold": {
-          "value": 1.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Cleaning of Geological Materials: Damage Thresholds for Sedimentary Rocks Including Breccia",
-          "citation": "Poole, A. B., et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028374",
-          "context": "Natural breccia stone (angular fragments of limestone and sandstone, 95% purity equivalent, no coatings), 20°C, measured using Q-switched Nd:YAG laser at 1064 nm wavelength, 10 ns pulse duration",
-          "researched_date": "2025-11-24T11:52:28.276919",
-          "needs_validation": true,
-          "min": 0.42,
-          "max": 13.1
-        },
-        "thermalDestruction": {
-          "value": 1673,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "laserReflectivity": {
-          "value": 0.22,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalExpansion": {
-          "value": "8.2e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "thermalConductivity": {
-          "value": 2.3,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserAbsorption": {
-          "value": 4500,
-          "unit": "cm^{-1}",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": 0.000001,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.75,
-          "unit": "dimensionless",
-          "min": 0.6,
-          "max": 0.9,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 5000000,
-          "unit": "m⁻¹",
-          "min": 1000000,
-          "max": 10000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 2.5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 5,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.8,
-          "max": 2.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "min": 0.1,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1073,
-          "unit": "K",
-          "min": 900,
-          "max": 1300,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 10,
-          "unit": "Pa",
-          "min": 0.1,
-          "max": 100,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1673,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "laserReflectivity": {
-          "value": 0.22,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalExpansion": {
-          "value": "8.2e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "thermalConductivity": {
-          "value": 2.3,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserAbsorption": {
-          "value": 4500,
-          "unit": "cm^{-1}",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": 0.000001,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "ablationThreshold": {
-          "value": 1.4,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation Thresholds of Natural Stones for Cultural Heritage Conservation",
-          "citation": "Pořízka, P. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123",
-          "context": "Breccia Paesina (limestone-based breccia, 95% CaCO3 composition), 20°C, measured using 1064 nm Nd:YAG nanosecond pulsed laser, single pulse regime",
-          "researched_date": "2025-11-24T11:52:33.374892",
-          "needs_validation": true,
-          "min": 0.65,
-          "max": 6.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 90,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Breccia surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength optimized for Breccia mineral absorption characteristics"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 80,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning control"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for continuous cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 3.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 12,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Short pulse duration for efficient ablation of surface contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for efficient area coverage"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of cleaning passes for complete surface treatment"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning results"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.85,
-      "unitText": "MPa·m^{1/2}",
-      "minValue": 0.13,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 300,
+      "description": "Typical range for industrial cleaning of stone materials like Breccia (carbonate-based rock similar to marble) using 1064 nm lasers to remove contaminants without substrate damage; starting at 100 W allows controlled ablation. Max safe ~300 W to avoid cracking due to low thermal conductivity (~2 W/m·K). Source: Manufacturer specs from IPG Photonics fiber lasers for stone cleaning; academic papers on marble ablation (e.g., Pouli et al., Applied Physics A, 2010)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2710,
-      "unitText": "kg/m³",
-      "minValue": 2.2,
-      "maxValue": 3045,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contaminant removal on Breccia; slower speeds (200-500 mm/s) for heavy contamination (e.g., rust or oils), faster (up to 2000 mm/s) for light dust. Recommended 500 mm/s balances efficiency and uniformity. Source: Industry standards from laser cleaning equipment manuals (e.g., Adapt Laser Systems); case studies on stone surface preparation."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.87,
-      "unitText": "dimensionless (resistance index)",
-      "minValue": "9.5e-05",
-      "maxValue": 1547,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for 1064 nm cleaning of Breccia to achieve photothermal ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost—ns sufficient for industrial use. Avoid fs for porous stones to prevent micro-cracking. Source: Laser physics research on stone ablation (e.g., Marczak et al., Journal of Cultural Heritage, 2008)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 32.5,
-      "unitText": "GPa",
-      "minValue": 9.8,
-      "maxValue": "7.9e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 3.5,
-      "unitText": "Mohs",
-      "minValue": 0.7,
-      "maxValue": 7.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 125,
-      "unitText": "MPa",
-      "minValue": 2.1,
-      "maxValue": 220,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 3.2,
-      "unitText": "MPa",
-      "minValue": 1.4,
-      "maxValue": 15.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 11.2,
-      "unitText": "MPa",
-      "minValue": 2.2,
-      "maxValue": 36.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.85,
-      "unitText": "dimensionless (resistance index)",
-      "minValue": "6.6e-05",
-      "maxValue": 21,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.15,
-      "unitText": "fraction",
-      "minValue": 0,
-      "maxValue": 19.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 1.1,
-      "unitText": "J/cm²",
-      "minValue": 0.42,
-      "maxValue": 13.1,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1673,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.22,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "8.2e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 2.3,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 4500,
-      "unitText": "cm^{-1}",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": 0.000001,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.75,
-      "unitText": "dimensionless",
-      "minValue": 0.6,
-      "maxValue": 0.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 5000000,
-      "unitText": "m⁻¹",
-      "minValue": 1000000,
-      "maxValue": 10000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.5,
-      "unitText": "J/cm²",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 5,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Typical for pulsed 1064 nm lasers in stone cleaning; 20 kHz recommended for Breccia to enable fast processing while limiting heat accumulation (Breccia melting point ~800-1200°C, reflectivity ~0.3-0.5 at 1064 nm). Higher rates (>50 kHz) risk thermal buildup in low-conductivity materials. Source: Academic literature on Nd:YAG cleaning of marbles (e.g., Verges-Belmin, Studies in Conservation, 2005)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.8,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": 0.1,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1073,
-      "unitText": "K",
-      "minValue": 900,
-      "maxValue": 1300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 10,
-      "unitText": "Pa",
-      "minValue": 0.1,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1673,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.22,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "8.2e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 2.3,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 4500,
-      "unitText": "cm^{-1}",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": 0.000001,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.4,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1,
       "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 6.3,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant removal on Breccia; damage threshold ~3 J/cm² (based on carbonate stone studies), so stay below 2.5 J/cm² to avoid surface pitting. Recommended 1 J/cm² for effective cleaning with low risk. Source: Ablation threshold studies for limestones/marble at 1064 nm (e.g., Gross et al., Applied Surface Science, 2001). Conservative estimate due to Breccia's variable composition."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 500,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for industrial cleaning; smaller (200 μm) for fine details on Breccia surfaces, larger (800 μm) for broad areas. 500 μm recommended for uniform coverage on porous stone without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser systems for surface preparation."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (up to 5) for heavy layers on Breccia; 2 passes recommended for complete removal while minimizing thermal stress. Multi-pass allows lower fluence per pass. Source: Industry practice and case studies on stone restoration (e.g., European Laser Cleaning Network reports)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Standard range for uniform scan coverage in laser cleaning; 50% recommended for Breccia to ensure no gaps in porous surfaces while avoiding over-heating. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in industrial laser applications (e.g., LaserNet guidelines; research in Optics and Lasers in Engineering, 2015)."
     }
   ],
-  "citation": "Z-Beam (2025). Breccia Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/breccia-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Breccia Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/breccia-laser-cleaning"
 }

@@ -52,7 +52,9 @@ export default async function ServicesPage() {
   // Generate schemas using centralized registry
   const serviceSchema = SchemaRegistry.getPageSchemas('services', {
     pricing,
-    description: 'Professional on-site laser cleaning service with experienced technicians and state-of-the-art equipment. Specializing in industrial surface preparation, rust removal, coating removal, and precision cleaning for aerospace, automotive, and manufacturing industries.'
+    description: 'Professional on-site laser cleaning service with experienced technicians and state-of-the-art equipment. Specializing in industrial surface preparation, rust removal, coating removal, and precision cleaning for aerospace, automotive, and manufacturing industries.',
+    video: pageConfig.video, // Include video data if present in YAML
+    datePublished: pageConfig.datePublished
   });
   
   return (

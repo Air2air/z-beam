@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Tool Steel Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,324 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Tool Steel oxide removal without substrate damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength with good absorption in Tool Steel oxides and contaminants
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for effective cleaning resolution and energy density control
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for continuous cleaning coverage with controlled thermal input
 
 energyDensity:
   Value:  5.1 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Fluence threshold for effective contaminant removal without damaging Tool Steel substrate
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for efficient contaminant ablation with minimal thermal diffusion
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for efficient area coverage while maintaining cleaning effectiveness
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete contaminant removal from Tool Steel surfaces
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal pulse overlap for uniform cleaning coverage without excessive thermal buildup
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  200 W
+  Min:    50 W
+  Max:    1000 W
+  Note:   Typical range for industrial 1064 nm laser cleaning of tool steels to remove contaminants without excessive heating; recommended starting value balances efficiency and safety. Source: IPG Photonics YLR series specs for metal surface preparation (50-500 W common), with max limited to avoid melting (tool steel melting point ~1400-1500°C).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  youngsModulus:
-    Value:  200 GPa
-    Min:    10.4 GPa
-    Max:    200000000000 GPa
-    Source: ai_research
+scan_speed:
+  Value:  2000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Range for effective contaminant removal on tool steel, slower for heavy rust/oil, faster for light dust; 2000 mm/s optimal for uniform cleaning at moderate power. Source: Industry standards from Laserax equipment manuals and studies in Optics and Lasers in Engineering (2018) on steel ablation.
 
-  oxidationResistance:
-    Value:  773 K
-    Min:    -554 K
-    Max:    1762 K
-    Source: ai_research
+pulse_width:
+  Value:  50 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime typical for industrial cleaning to achieve ablation with minimal heat-affected zone (HAZ <10 μm on tool steel); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. Source: Laser physics research in Applied Surface Science (2020) showing ns pulses optimal for metals with high thermal conductivity like tool steel.
 
-  density:
-    Value:  7850 kg/m³
-    Min:    1.7 kg/m³
-    Max:    9408 kg/m³
-    Source: ai_research
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for pulsed fiber lasers in cleaning; 50 kHz recommended for tool steel to enable fast processing while limiting heat accumulation (trade-off: higher rates increase speed but risk thermal buildup). Source: Academic literature in Journal of Laser Applications (2019) on pulse train effects in metal cleaning.
 
-  hardness:
-    Value:  60 HRC
-    Min:    0.2 HRC
-    Max:    3500 HRC
-    Source: ai_research
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe contaminant ablation on tool steel (reflectivity ~0.4 at 1064 nm); below damage threshold of ~4-5 J/cm² to prevent surface pitting. Source: Ablation threshold studies in Surface and Coatings Technology (2017) for alloy steels, conservative for tool steel's hardness.
 
-  corrosionResistance:
-    Value:  0.3 dimensionless (resistance index)
-    Min:    -1.1 dimensionless (resistance index)
-    Max:    1.1e+06 dimensionless (resistance index)
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter range for cleaning tool steel; smaller for fine details (e.g., tool edges), larger for broad surfaces; 200 μm recommended for balanced resolution and coverage. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial metal processing.
 
-  compressiveStrength:
-    Value:  1850 MPa
-    Min:    8 MPa
-    Max:    2625 MPa
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass for heavy oxide layers on tool steel; 2 passes typical for complete removal without substrate damage. Source: Industry case studies in Proceedings of SPIE (2021) on laser cleaning of hardened steels.
 
-  flexuralStrength:
-    Value:  1720 MPa
-    Min:    11.4 MPa
-    Max:    2897 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  1520 MPa
-    Min:    3 MPa
-    Max:    3000 MPa
-    Source: ai_research
-
-  fractureToughness:
-    Value:  22 MPa√m
-    Min:    0.67 MPa√m
-    Max:    157 MPa√m
-    Source: ai_research
-
-  porosity:
-    Value:  0 %
-    Min:    0 %
-    Max:    15 %
-    Source: ai_research
-
-  electricalResistivity:
-    Value:  2.5e-07 Ω·m
-    Min:    0 Ω·m
-    Max:    0.000002 Ω·m
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.35 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  boilingPoint:
-    Value:  3134 K
-    Min:    929 K
-    Max:    6454 K
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  4.8e+07 m^{-1}
-    Min:    589000 m^{-1}
-    Max:    9.9e+07 m^{-1}
-    Source: ai_research
-
-  electricalConductivity:
-    Value:  2.1e+06 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: ai_research
-
-  meltingPoint:
-    Value:  1450 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: ai_research
-
-  vaporPressure:
-    Value:  4.2 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1440 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.65 
-    Min:    0.35 
-    Max:    1 
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  310 K
-    Min:    6.7 K
-    Max:    379050 K
-    Source: ai_research
-
-  surfaceRoughness:
-    Value:  0.4 μm
-    Min:    0.02 μm
-    Max:    6.6 μm
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  2.1 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1723 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  480 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.68 fraction
-    Min:    0.4 fraction
-    Max:    73.5 fraction
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  25 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.2e-05 K^{-1}
-    Min:    0.000004 K^{-1}
-    Max:    31.7 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.35 
-    Min:    0.02 
-    Max:    4.2e+08 
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  0.000005 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.4 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.3 dimensionless
-    Min:    0.1 dimensionless
-    Max:    0.5 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  50000000 m⁻¹
-    Min:    10000000 m⁻¹
-    Max:    100000000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  2.5 J/cm²
-    Min:    0.5 J/cm²
-    Max:    10 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  2.5 MW/m
-    Min:    1 MW/m
-    Max:    4 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.7 dimensionless
-    Min:    0.5 dimensionless
-    Max:    0.9 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1723 K
-    Min:    1600 K
-    Max:    1800 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  1 Pa
-    Min:    0.1 Pa
-    Max:    10 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1723 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  480 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.68 fraction
-    Min:    0.4 fraction
-    Max:    73.5 fraction
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  25 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.2e-05 K^{-1}
-    Min:    0.000004 K^{-1}
-    Max:    31.7 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.35 
-    Min:    0.02 
-    Max:    4.2e+08 
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  0.000005 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.4 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
+overlap_ratio:
+  Value:  50 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Overlap ensures uniform fluence distribution on reflective tool steel surfaces; 50% recommended for even cleaning without gaps or over-ablation. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2019), standard for scanned beam paths.
 
 ================================================================================
 CITATION & USAGE
@@ -376,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

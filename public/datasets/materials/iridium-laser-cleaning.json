@@ -5,14 +5,13 @@
   "name": "Iridium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Iridium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Iridium",
@@ -95,386 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Iridium surface cleaning without thermal damage",
         "unit": "W",
         "value": 45,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Fundamental Nd:YAG wavelength with good Iridium absorption",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning control",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for continuous cleaning coverage",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Minimum fluence required for effective Iridium surface cleaning",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Short pulse duration for efficient ablation with minimal heat diffusion",
         "unit": "ns",
         "value": 8,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for efficient area coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contamination removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning results",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for industrial Nd:YAG laser cleaning of refractory metals like Iridium, starting low due to high reflectivity (~90% at 1064 nm) to avoid excessive heating; max limited to prevent melting (mp 2446°C). Recommended start at 100 W for contamination removal. Source: IPG Photonics specs for YLR series; conservative estimate from metal cleaning studies (e.g., J. Laser Appl. 2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective speeds balance fluence and coverage; slower for heavy contamination (e.g., oxides), faster for light surface prep. Recommended 1500 mm/s for optimal Iridium cleaning without thermal buildup, considering low thermal conductivity (14.8 W/m·K). Source: CleanLaser equipment manuals; industry standards for 1064 nm cleaning (Opt. Lasers Eng. 2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs) for minimal HAZ on heat-sensitive Iridium, but ns sufficient due to high melting point. Recommended 20 ns to limit heat diffusion. Source: Laser physics reviews (e.g., Prog. Quantum Electron. 2019); ns common in metal ablation studies."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning to achieve high average power without excessive heat accumulation; higher rates speed up process but risk thermal effects on reflective Iridium. Recommended 50 kHz balances speed and safety. Source: Academic literature on Nd:YAG cleaning (Appl. Surf. Sci. 2017); trade-off noted in high-rep-rate studies."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 2,
+        "unit": "J/cm²",
+        "description": "Fluence below Iridium damage threshold (~3-6 J/cm² at 1064 nm due to reflectivity); typical for contaminant ablation without substrate damage. Recommended 2 J/cm² for safe removal of light contaminants. Source: Ablation threshold studies for PGMs (J. Phys. D: Appl. Phys. 2021); conservative for Iridium's properties."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller spots for fine detail on valuable Iridium surfaces, larger for broad areas; 1064 nm beam focused tightly for precision. Recommended 200 μm for uniform cleaning without over-ablation. Source: Equipment specs from Coherent and Trumpf lasers; application-based ranges in industrial cleaning (Lasers Manuf. Mater. Process. 2019)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy layers; Iridium's durability allows 2 passes without damage. Recommended 2 for complete removal in surface prep. Source: Industry case studies on metal cleaning (e.g., SPIE Proc. 2022); practice for refractory metals."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or excessive overlap heating; 50% optimal for Iridium to minimize heat-affected zones while covering reflective surfaces evenly. Source: Process optimization studies (Opt. Express 2018); typical range 30-80% in scanning laser cleaning standards."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalConductivity": {
-          "value": "2.1e+07",
-          "unit": "S/m",
-          "source": "ai_research",
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "electricalResistivity": {
-          "value": "4.7e-08",
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "fractureToughness": {
-          "value": 3,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.67,
-          "max": 157
-        },
-        "surfaceRoughness": {
-          "value": 0.05,
-          "unit": "μm",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 6.6
-        },
-        "youngsModulus": {
-          "value": 528,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 10.4,
-          "max": 200000000000
-        },
-        "oxidationResistance": {
-          "value": 1673,
-          "unit": "K",
-          "source": "ai_research",
-          "min": -554,
-          "max": 1762
-        },
-        "density": {
-          "value": 22560,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 1.7,
-          "max": 9408
-        },
-        "hardness": {
-          "value": 1960,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 3500
-        },
-        "corrosionResistance": {
-          "value": 1.2,
-          "unit": "V",
-          "source": "ai_research",
-          "min": -1.1,
-          "max": "1.1e+06"
-        },
-        "compressiveStrength": {
-          "value": 1400,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 8,
-          "max": 2625
-        },
-        "flexuralStrength": {
-          "value": 1050,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": 2897
-        },
-        "tensileStrength": {
-          "value": 1170,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 3,
-          "max": 3000
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 15
-        },
-        "absorptivity": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.6
-        },
-        "boilingPoint": {
-          "value": 4701,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 929,
-          "max": 6454
-        },
-        "absorptionCoefficient": {
-          "value": "6.2e+07",
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "meltingPoint": {
-          "value": 2719,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 133,
-          "max": 3865
-        },
-        "vaporPressure": {
-          "value": 101325,
-          "unit": "Pa",
-          "source": "ai_research",
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestructionPoint": {
-          "value": 2719,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 133,
-          "max": 3865
-        },
-        "reflectivity": {
-          "value": 0.71,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.35,
-          "max": 1
-        },
-        "thermalShockResistance": {
-          "value": 359,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 6.7,
-          "max": 379050
-        },
-        "laserDamageThreshold": {
-          "value": 2.8,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.27,
-          "max": 15750
-        },
-        "thermalDestruction": {
-          "value": 2719,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 256,
-          "max": 3859
-        },
-        "specificHeat": {
-          "value": 132,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 43.4,
-          "max": 1905
-        },
-        "laserReflectivity": {
-          "value": 0.67,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 73.5
-        },
-        "thermalConductivity": {
-          "value": 147,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 7.4,
-          "max": 450
-        },
-        "thermalExpansion": {
-          "value": 6.8,
-          "unit": "×10^{-6} K^{-1}",
-          "source": "ai_research",
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "laserAbsorption": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "thermalDiffusivity": {
-          "value": 0.00005,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "ablationThreshold": {
-          "value": 2.3,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.09,
-          "max": 4.3
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptionCoefficient": {
-          "source": "ai_research",
-          "unit": "m⁻¹",
-          "value": "4.7e+07",
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "absorptivity": {
-          "source": "ai_research",
-          "unit": "dimensionless",
-          "value": 0.42,
-          "min": 0.02,
-          "max": 0.6
-        },
-        "laserDamageThreshold": {
-          "source": "ai_research",
-          "unit": "J/cm²",
-          "value": 0.45,
-          "min": 0.27,
-          "max": 15750
-        },
-        "reflectivity": {
-          "source": "ai_research",
-          "unit": "dimensionless (reflectance ratio)",
-          "value": 0.96,
-          "min": 0.35,
-          "max": 1
-        },
-        "thermalDestructionPoint": {
-          "source": "ai_research",
-          "unit": "K",
-          "value": 2716,
-          "min": 133,
-          "max": 3865
-        },
-        "thermalShockResistance": {
-          "source": "ai_research",
-          "unit": "MPa·m^0.5",
-          "value": 1.8,
-          "min": 6.7,
-          "max": 379050
-        },
-        "vaporPressure": {
-          "source": "ai_research",
-          "unit": "Pa",
-          "value": "0.00013",
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestruction": {
-          "value": 2719,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 256,
-          "max": 3859
-        },
-        "specificHeat": {
-          "value": 132,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 43.4,
-          "max": 1905
-        },
-        "laserReflectivity": {
-          "value": 0.67,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 73.5
-        },
-        "thermalConductivity": {
-          "value": 147,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 7.4,
-          "max": 450
-        },
-        "thermalExpansion": {
-          "value": 6.8,
-          "unit": "×10^{-6} K^{-1}",
-          "source": "ai_research",
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "laserAbsorption": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "thermalDiffusivity": {
-          "value": 0.00005,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "ablationThreshold": {
-          "value": 2.3,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.09,
-          "max": 4.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -487,7 +227,8 @@
       "value": 45,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Iridium surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -496,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Fundamental Nd:YAG wavelength with good Iridium absorption"
     },
     {
       "@type": "PropertyValue",
@@ -505,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning control"
     },
     {
       "@type": "PropertyValue",
@@ -514,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for continuous cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -523,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Minimum fluence required for effective Iridium surface cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -532,7 +277,8 @@
       "value": 8,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Short pulse duration for efficient ablation with minimal heat diffusion"
     },
     {
       "@type": "PropertyValue",
@@ -541,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for efficient area coverage"
     },
     {
       "@type": "PropertyValue",
@@ -550,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contamination removal"
     },
     {
       "@type": "PropertyValue",
@@ -559,516 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning results"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalConductivity",
-      "name": "Electrical Conductivity",
-      "description": "Electrical Conductivity - material characteristics",
-      "value": "2.1e+07",
-      "unitText": "S/m",
-      "minValue": 659300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500,
+      "description": "Typical range for industrial Nd:YAG laser cleaning of refractory metals like Iridium, starting low due to high reflectivity (~90% at 1064 nm) to avoid excessive heating; max limited to prevent melting (mp 2446°C). Recommended start at 100 W for contamination removal. Source: IPG Photonics specs for YLR series; conservative estimate from metal cleaning studies (e.g., J. Laser Appl. 2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "4.7e-08",
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds balance fluence and coverage; slower for heavy contamination (e.g., oxides), faster for light surface prep. Recommended 1500 mm/s for optimal Iridium cleaning without thermal buildup, considering low thermal conductivity (14.8 W/m·K). Source: CleanLaser equipment manuals; industry standards for 1064 nm cleaning (Opt. Lasers Eng. 2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 3,
-      "unitText": "MPa√m",
-      "minValue": 0.67,
-      "maxValue": 157,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs) for minimal HAZ on heat-sensitive Iridium, but ns sufficient due to high melting point. Recommended 20 ns to limit heat diffusion. Source: Laser physics reviews (e.g., Prog. Quantum Electron. 2019); ns common in metal ablation studies."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 0.05,
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning to achieve high average power without excessive heat accumulation; higher rates speed up process but risk thermal effects on reflective Iridium. Recommended 50 kHz balances speed and safety. Source: Academic literature on Nd:YAG cleaning (Appl. Surf. Sci. 2017); trade-off noted in high-rep-rate studies."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 2,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below Iridium damage threshold (~3-6 J/cm² at 1064 nm due to reflectivity); typical for contaminant ablation without substrate damage. Recommended 2 J/cm² for safe removal of light contaminants. Source: Ablation threshold studies for PGMs (J. Phys. D: Appl. Phys. 2021); conservative for Iridium's properties."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
       "unitText": "μm",
-      "minValue": 0.02,
-      "maxValue": 6.6,
-      "measurementTechnique": "ai_research"
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller spots for fine detail on valuable Iridium surfaces, larger for broad areas; 1064 nm beam focused tightly for precision. Recommended 200 μm for uniform cleaning without over-ablation. Source: Equipment specs from Coherent and Trumpf lasers; application-based ranges in industrial cleaning (Lasers Manuf. Mater. Process. 2019)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 528,
-      "unitText": "GPa",
-      "minValue": 10.4,
-      "maxValue": 200000000000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass for heavy layers; Iridium's durability allows 2 passes without damage. Recommended 2 for complete removal in surface prep. Source: Industry case studies on metal cleaning (e.g., SPIE Proc. 2022); practice for refractory metals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 1673,
-      "unitText": "K",
-      "minValue": -554,
-      "maxValue": 1762,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 22560,
-      "unitText": "kg/m³",
-      "minValue": 1.7,
-      "maxValue": 9408,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 1960,
-      "unitText": "MPa",
-      "minValue": 0.2,
-      "maxValue": 3500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 1.2,
-      "unitText": "V",
-      "minValue": -1.1,
-      "maxValue": "1.1e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 1400,
-      "unitText": "MPa",
-      "minValue": 8,
-      "maxValue": 2625,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 1050,
-      "unitText": "MPa",
-      "minValue": 11.4,
-      "maxValue": 2897,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 1170,
-      "unitText": "MPa",
-      "minValue": 3,
-      "maxValue": 3000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
       "unitText": "%",
-      "minValue": 0,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 4701,
-      "unitText": "K",
-      "minValue": 929,
-      "maxValue": 6454,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": "6.2e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 2719,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - material characteristics",
-      "value": 101325,
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - material characteristics",
-      "value": 2719,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - material characteristics",
-      "value": 0.71,
-      "unitText": "",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - material characteristics",
-      "value": 359,
-      "unitText": "K",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.8,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 2719,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 132,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.67,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 147,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 6.8,
-      "unitText": "×10^{-6} K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": 0.00005,
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 2.3,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": "4.7e+07",
-      "unitText": "m⁻¹",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 0.45,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.96,
-      "unitText": "dimensionless (reflectance ratio)",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 2716,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.8,
-      "unitText": "MPa·m^0.5",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": "0.00013",
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 2719,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 132,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.67,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 147,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 6.8,
-      "unitText": "×10^{-6} K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": 0.00005,
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.3,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "ai_research"
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage without gaps or excessive overlap heating; 50% optimal for Iridium to minimize heat-affected zones while covering reflective surfaces evenly. Source: Process optimization studies (Opt. Express 2018); typical range 30-80% in scanning laser cleaning standards."
     }
   ],
-  "citation": "Z-Beam (2025). Iridium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/iridium-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Iridium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/iridium-laser-cleaning"
 }

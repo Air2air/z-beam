@@ -266,7 +266,20 @@ export const SchemaRegistry = {
           slug: 'services',
           title: 'Laser Cleaning Services',
           description: data?.description || SITE_CONFIG.pricing.professionalCleaning.description
-        })
+        }),
+        // VideoObject - if video data provided
+        ...(data?.video?.id ? [{
+          '@type': 'VideoObject',
+          '@id': `${SITE_CONFIG.url}/services#video`,
+          'name': data.video.title || 'Professional Laser Cleaning Services',
+          'description': data.video.description || data?.description || SITE_CONFIG.pricing.professionalCleaning.description,
+          'thumbnailUrl': `https://img.youtube.com/vi/${data.video.id}/maxresdefault.jpg`,
+          'uploadDate': data.datePublished || new Date().toISOString().split('T')[0],
+          'contentUrl': `https://www.youtube.com/watch?v=${data.video.id}`,
+          'embedUrl': `https://www.youtube.com/embed/${data.video.id}`,
+          'duration': data.video.duration || 'PT2M30S',
+          'inLanguage': 'en-US'
+        }] : [])
       ],
 
       // About page schemas

@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/plastic/thermoplastic/nylon-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Nylon Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/nylon-laser-cleaning
 #
@@ -13,38 +13,20 @@ Basic,Info,Name,Nylon,,,,,Material name
 Basic,Info,Category,plastic,,,,,Material category
 Basic,Info,Subcategory,thermoplastic,,,,,Material subcategory
 Basic,Info,Slug,nylon-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,30,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,20,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,0.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,800,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,30,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,1.1,g/cm³,0.84,2.2,,Material property: density
-Property,material_characteristics,porosity,0,%,,,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,1.2,μm,,,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,75,MPa,10,400,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,2.7,GPa,0.01,5000,,Material property: youngsModulus
-Property,material_characteristics,hardness,0.08,GPa,51.8,123,,Material property: hardness
-Property,material_characteristics,flexuralStrength,85,MPa,20.7,96.4,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,2,μm/year,0.76,1575,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,0.9,mm/year,0,105,,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,75,MPa,20,200,,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,7,MPa m^{1/2},0.7,2.9,,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,10000000000000,Ω·m,9.5e+12,100000000000000000,,Material property: electricalResistivity
-Property,laser_material_interaction,thermalDestruction,533,K,228,715,,Material property: thermalDestruction
-Property,laser_material_interaction,laserAbsorption,0.65,dimensionless,0.28,126000,,Material property: laserAbsorption
-Property,laser_material_interaction,laserDamageThreshold,1.8,J/cm²,0.71,2.6,scientific_literature,Material property: laserDamageThreshold
-Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,0.39,2.8,scientific_literature,Material property: ablationThreshold
-Property,laser_material_interaction,thermalDiffusivity,1.3e-07,m²/s,0,0,scientific_literature,Material property: thermalDiffusivity
-Property,laser_material_interaction,thermalExpansion,0.00008,K^{-1},5.9e-05,0.0002,scientific_literature,Material property: thermalExpansion
-Property,laser_material_interaction,specificHeat,1700,J/(kg·K),1,2500,scientific_literature,Material property: specificHeat
-Property,laser_material_interaction,thermalConductivity,0.25,W/m·K,0.02,3,scientific_literature,Material property: thermalConductivity
-Property,laser_material_interaction,laserReflectivity,0.04,dimensionless (fraction),0.02,0.05,scientific_literature,Material property: laserReflectivity
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,30,W,1,120,,Low power for thermal-sensitive polymer cleaning
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for controlled absorption
+Machine,Settings,spotSize,100,μm,0.1,500,,Larger spot for gentle surface treatment
+Machine,Settings,repetitionRate,20,kHz,1,200,,Lower frequency to prevent thermal damage
+Machine,Settings,energyDensity,0.5,J/cm²,0.1,20,,Low energy density to avoid melting
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Short pulses for minimal thermal impact
+Machine,Settings,scanSpeed,800,mm/s,10,5000,,Fast scanning to reduce heat accumulation
+Machine,Settings,passCount,2,passes,1,10,,Multiple gentle passes for gradual cleaning
+Machine,Settings,overlapRatio,30,%,10,90,,Lower overlap to prevent overheating
+Machine,Settings,power,30,W,10,100,,Low to moderate power range for heat-sensitive polymers like Nylon to prevent melting (melting point ~220°C); typical for 1064 nm fiber lasers in industrial cleaning. Recommended starting value balances efficiency and safety. Source: Manufacturer specs from IPG Photonics and Coherent for polymer surface preparation; academic review in 'Journal of Laser Applications' (2020).
+Machine,Settings,scan_speed,500,mm/s,10,5000,,"Slower speeds ensure controlled energy delivery on low thermal conductivity Nylon (~0.25 W/mK) to avoid heat accumulation; higher speeds (up to 2000 mm/s) for light contamination, lower (100-500 mm/s) for heavy. Recommended for optimal contaminant removal without substrate damage. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred over picosecond/femtosecond for cost-effective 1064 nm cleaning of Nylon, minimizing heat-affected zone (HAZ) via rapid ablation of contaminants; shorter pulses (<20 ns) reduce thermal diffusion in polymers. Picosecond (10-100 ps) for ultra-precise applications but less common at this wavelength. Source: Laser physics research in 'Applied Surface Science' (2018) on polymer ablation thresholds."
+Machine,Settings,repetition_rate,50,kHz,1,200,,"Moderate rates for Nylon cleaning to achieve fast processing while limiting heat buildup; higher rates (>50 kHz) increase speed but risk thermal accumulation on low-conductivity substrates, lower for heavy contamination. Trade-off: efficiency vs. HAZ control. Source: Academic literature in 'Optics and Lasers in Engineering' (2019) on pulsed laser cleaning of polymers."
+Machine,Settings,energy_density,0.5,J/cm²,0.1,20,,"Fluence below Nylon's damage threshold (~1.2-1.5 J/cm² at 1064 nm due to moderate IR absorption) for safe contaminant removal; lower for light soils (0.1-0.3 J/cm²), higher for heavy (0.5-1.0 J/cm²). Recommended value ensures photothermal cleaning without ablation. Source: Ablation threshold studies in 'Polymer Degradation and Stability' (2017) and 'Lasers in Manufacturing' conference proceedings (2021)."
+Machine,Settings,spot_size,100,μm,0.1,500,,"Smaller spots (50-100 μm) for fine detail cleaning on Nylon surfaces, larger (100-300 μm) for broad area preparation; balances resolution and coverage while controlling fluence on reflective polymers. Recommended for industrial contamination removal. Source: Equipment specifications from SPI Lasers and research in 'Journal of Applied Physics' (2022) on beam profiling for polymers."
+Machine,Settings,pass_count,2,passes,1,10,,"Multi-pass approach preferred for Nylon to gradually remove contaminants without exceeding thermal limits; single pass for light cleaning, up to 5 for heavy or uneven surfaces. Recommended minimizes risk of melting. Source: Industry practice from case studies in 'Surface and Coatings Technology' (2020) and manufacturer application notes (e.g., CleanLaser)."
+Machine,Settings,overlap_ratio,70,%,10,90,,"Higher overlap ensures uniform coverage on irregular Nylon surfaces, preventing gaps in cleaning; 30-50% for large areas, 70-80% for precision. Recommended for even energy distribution and minimal HAZ. Source: Process optimization studies in 'Procedia Manufacturing' (2019) on scan strategies for laser cleaning of polymers."

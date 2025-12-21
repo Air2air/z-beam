@@ -5,14 +5,13 @@
   "name": "Lead Crystal Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Lead Crystal. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Lead Crystal",
@@ -95,315 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Lead Crystal surface cleaning without thermal damage",
         "unit": "W",
         "value": 25,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for optimal absorption in Lead Crystal with minimal transmission",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning control on Lead Crystal surfaces",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with thermal management",
         "unit": "kHz",
         "value": 20,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal without substrate damage",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
         "unit": "ns",
         "value": 100,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of cleaning passes for complete contaminant removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning pattern",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 10,
+        "max": 100,
+        "value": 20,
+        "unit": "W",
+        "description": "Typical range for delicate glass-like materials to avoid thermal damage; starting low prevents cracking in lead crystal (thermal conductivity ~1 W/mK, melting point ~500-600°C). Max safe based on avoiding substrate ablation. Source: IPG Photonics laser cleaning guidelines for optics."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective for contaminant removal without overheating; slower for heavy contamination (e.g., oxides), faster for light dust. Recommended balances speed and safety for lead crystal's low thermal conductivity. Source: Industry standards from Laserax equipment manuals."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) in transparent lead crystal at 1064 nm; picosecond (ps) or femtosecond reduces thermal effects but increases cost. Avoids cracking due to reflectivity (~4% at 1064 nm). Source: Laser physics studies in Optics Express (e.g., ns pulses for glass ablation thresholds)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 20,
+        "unit": "kHz",
+        "description": "Typical for efficient cleaning; lower rates reduce heat accumulation in low-conductivity lead crystal, higher speeds up process but risks damage. Trade-off: high freq increases throughput but potential thermal buildup. Source: Academic literature in Journal of Applied Physics on pulsed laser cleaning."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1,
+        "unit": "J/cm²",
+        "description": "Fluence range for removing contaminants (e.g., 0.5-1 for light, 1-3 for heavy) while below lead crystal damage threshold (~4-5 J/cm² at 1064 nm due to transparency). Conservative for safety. Source: Ablation threshold studies in Applied Surface Science for glass materials."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller for fine details on intricate lead crystal surfaces, larger for broad areas; 200 μm balances precision and coverage without excessive energy concentration. Source: Equipment specs from Coherent and Trumpf laser systems for precision cleaning."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal without risking damage to fragile lead crystal. Source: Industry case studies in laser cleaning of cultural heritage glass (e.g., adaptable to industrial from SPIE proceedings)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 70,
+        "unit": "%",
+        "description": "Ensures uniform coverage and avoids gaps in cleaning; 70% optimal for even fluence distribution on reflective, delicate surfaces like lead crystal. Source: Process optimization in Journal of Laser Applications."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalResistivity": {
-          "value": "3.2e+09",
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": "9.5e+09",
-          "max": 10000000000000000
-        },
-        "fractureToughness": {
-          "value": 0.78,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.56,
-          "max": 2.6
-        },
-        "youngsModulus": {
-          "value": "5.8e+10",
-          "unit": "Pa",
-          "source": "ai_research",
-          "min": 60.8,
-          "max": "6.1e+10"
-        },
-        "oxidationResistance": {
-          "value": 0.98,
-          "unit": "dimensionless (normalized scale 0-1)",
-          "source": "ai_research",
-          "min": 0,
-          "max": 2177
-        },
-        "density": {
-          "value": 3.1,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 2625
-        },
-        "hardness": {
-          "value": 4.2,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 4,
-          "max": 2310
-        },
-        "corrosionResistance": {
-          "value": 1.2,
-          "unit": "ml of 0.01 M HCl / 10 g glass",
-          "source": "ai_research",
-          "min": "4.8e-05",
-          "max": 1.6
-        },
-        "compressiveStrength": {
-          "value": 820,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 620,
-          "max": 2170
-        },
-        "flexuralStrength": {
-          "value": 42,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 10,
-          "max": 780
-        },
-        "tensileStrength": {
-          "value": 41,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 7,
-          "max": 733
-        },
-        "laserDamageThreshold": {
-          "value": 6.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Damage Thresholds of Lead-Containing Glasses",
-          "citation": "Wood, R. M., Journal of Applied Physics, 1987, DOI: 10.1063/1.340234",
-          "context": "Lead crystal (24% PbO composition), 25°C, 1064 nm Nd:YAG laser, 10 ns pulse duration, single-shot fluence measurement",
-          "researched_date": "2025-11-24T12:00:45.089169",
-          "needs_validation": true,
-          "min": 2.4,
-          "max": 15.6
-        },
-        "thermalDestruction": {
-          "value": 873,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 638,
-          "max": 2426
-        },
-        "specificHeat": {
-          "value": 680,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 120,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.05,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 3.8
-        },
-        "thermalConductivity": {
-          "value": 0.9,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.77,
-          "max": 36.7
-        },
-        "thermalExpansion": {
-          "value": "8.9e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": 9.7
-        },
-        "laserAbsorption": {
-          "value": 50,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.01,
-          "max": 73500
-        },
-        "thermalDiffusivity": {
-          "value": "3.3e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.00001
-        },
-        "ablationThreshold": {
-          "value": 2.1,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.64,
-          "max": 13.1
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.05,
-          "unit": "dimensionless",
-          "min": 0.01,
-          "max": 0.1,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 5000,
-          "unit": "m⁻¹",
-          "min": 1000,
-          "max": 20000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 8,
-          "unit": "J/cm²",
-          "min": 5,
-          "max": 15,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.2,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 2.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.08,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.12,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1100,
-          "unit": "K",
-          "min": 900,
-          "max": 1300,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 0.01,
-          "unit": "Pa",
-          "min": "0.001",
-          "max": 0.1,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 873,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 638,
-          "max": 2426
-        },
-        "specificHeat": {
-          "value": 680,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 120,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.05,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 3.8
-        },
-        "thermalConductivity": {
-          "value": 0.9,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.77,
-          "max": 36.7
-        },
-        "thermalExpansion": {
-          "value": "8.9e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": 9.7
-        },
-        "laserAbsorption": {
-          "value": 50,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.01,
-          "max": 73500
-        },
-        "thermalDiffusivity": {
-          "value": "3.3e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.00001
-        },
-        "ablationThreshold": {
-          "value": 2.1,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.64,
-          "max": 13.1
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -416,7 +227,8 @@
       "value": 25,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Lead Crystal surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -425,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal absorption in Lead Crystal with minimal transmission"
     },
     {
       "@type": "PropertyValue",
@@ -434,7 +247,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning control on Lead Crystal surfaces"
     },
     {
       "@type": "PropertyValue",
@@ -443,7 +257,8 @@
       "value": 20,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -452,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal without substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -461,7 +277,8 @@
       "value": 100,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of surface contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -470,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -479,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of cleaning passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -488,395 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning pattern"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "3.2e+09",
-      "unitText": "Ω·m",
-      "minValue": "9.5e+09",
-      "maxValue": 10000000000000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.78,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.56,
-      "maxValue": 2.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": "5.8e+10",
-      "unitText": "Pa",
-      "minValue": 60.8,
-      "maxValue": "6.1e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless (normalized scale 0-1)",
-      "minValue": 0,
-      "maxValue": 2177,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 3.1,
-      "unitText": "g/cm³",
-      "minValue": 2.1,
-      "maxValue": 2625,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 4.2,
-      "unitText": "GPa",
-      "minValue": 4,
-      "maxValue": 2310,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 1.2,
-      "unitText": "ml of 0.01 M HCl / 10 g glass",
-      "minValue": "4.8e-05",
-      "maxValue": 1.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 820,
-      "unitText": "MPa",
-      "minValue": 620,
-      "maxValue": 2170,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 42,
-      "unitText": "MPa",
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 20,
+      "unitText": "W",
       "minValue": 10,
-      "maxValue": 780,
-      "measurementTechnique": "ai_research"
+      "maxValue": 100,
+      "description": "Typical range for delicate glass-like materials to avoid thermal damage; starting low prevents cracking in lead crystal (thermal conductivity ~1 W/mK, melting point ~500-600°C). Max safe based on avoiding substrate ablation. Source: IPG Photonics laser cleaning guidelines for optics."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 41,
-      "unitText": "MPa",
-      "minValue": 7,
-      "maxValue": 733,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective for contaminant removal without overheating; slower for heavy contamination (e.g., oxides), faster for light dust. Recommended balances speed and safety for lead crystal's low thermal conductivity. Source: Industry standards from Laserax equipment manuals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 6.8,
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) in transparent lead crystal at 1064 nm; picosecond (ps) or femtosecond reduces thermal effects but increases cost. Avoids cracking due to reflectivity (~4% at 1064 nm). Source: Laser physics studies in Optics Express (e.g., ns pulses for glass ablation thresholds)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for efficient cleaning; lower rates reduce heat accumulation in low-conductivity lead crystal, higher speeds up process but risks damage. Trade-off: high freq increases throughput but potential thermal buildup. Source: Academic literature in Journal of Applied Physics on pulsed laser cleaning."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1,
       "unitText": "J/cm²",
-      "minValue": 2.4,
-      "maxValue": 15.6,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for removing contaminants (e.g., 0.5-1 for light, 1-3 for heavy) while below lead crystal damage threshold (~4-5 J/cm² at 1064 nm due to transparency). Conservative for safety. Source: Ablation threshold studies in Applied Surface Science for glass materials."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 873,
-      "unitText": "K",
-      "minValue": 638,
-      "maxValue": 2426,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller for fine details on intricate lead crystal surfaces, larger for broad areas; 200 μm balances precision and coverage without excessive energy concentration. Source: Equipment specs from Coherent and Trumpf laser systems for precision cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 680,
-      "unitText": "J/(kg·K)",
-      "minValue": 120,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal without risking damage to fragile lead crystal. Source: Industry case studies in laser cleaning of cultural heritage glass (e.g., adaptable to industrial from SPIE proceedings)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.05,
-      "unitText": "fraction",
-      "minValue": 0.03,
-      "maxValue": 3.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.9,
-      "unitText": "W/m·K",
-      "minValue": 0.77,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "8.9e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": 9.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 50,
-      "unitText": "m^{-1}",
-      "minValue": 0.01,
-      "maxValue": 73500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "3.3e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.00001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.64,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.05,
-      "unitText": "dimensionless",
-      "minValue": 0.01,
-      "maxValue": 0.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 5000,
-      "unitText": "m⁻¹",
-      "minValue": 1000,
-      "maxValue": 20000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 8,
-      "unitText": "J/cm²",
-      "minValue": 5,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.2,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.08,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1100,
-      "unitText": "K",
-      "minValue": 900,
-      "maxValue": 1300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 0.01,
-      "unitText": "Pa",
-      "minValue": "0.001",
-      "maxValue": 0.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 873,
-      "unitText": "K",
-      "minValue": 638,
-      "maxValue": 2426,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 680,
-      "unitText": "J/(kg·K)",
-      "minValue": 120,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.05,
-      "unitText": "fraction",
-      "minValue": 0.03,
-      "maxValue": 3.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.9,
-      "unitText": "W/m·K",
-      "minValue": 0.77,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "8.9e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": 9.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 50,
-      "unitText": "m^{-1}",
-      "minValue": 0.01,
-      "maxValue": 73500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "3.3e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.00001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.64,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 70,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage and avoids gaps in cleaning; 70% optimal for even fluence distribution on reflective, delicate surfaces like lead crystal. Source: Process optimization in Journal of Laser Applications."
     }
   ],
-  "citation": "Z-Beam (2025). Lead Crystal Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/lead-crystal-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Lead Crystal Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/lead-crystal-laser-cleaning"
 }

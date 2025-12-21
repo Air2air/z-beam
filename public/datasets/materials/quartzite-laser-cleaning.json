@@ -5,14 +5,13 @@
   "name": "Quartzite Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Quartzite. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Quartzite",
@@ -95,318 +94,134 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Quartzite cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength optimized for Quartzite absorption and minimal scattering",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for balanced cleaning efficiency and coverage area",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Minimum fluence required for effective contaminant removal from Quartzite surface",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for efficient contaminant removal with minimal substrate damage",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning and process efficiency",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap percentage for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
       },
       "dwellTime": {
+        "description": "Optimal dwell time per cleaning spot for effective material removal",
         "unit": "μs",
-        "value": 100
+        "value": 100,
+        "min": 0.2,
+        "max": 200
+      },
+      "power": {
+        "min": 50,
+        "max": 500,
+        "value": 200,
+        "unit": "W",
+        "description": "Typical range for industrial laser cleaning of hard stones like quartzite to remove contaminants without substrate damage; starting at 200W balances efficiency and safety. Max avoids thermal cracking given quartzite's low thermal conductivity (~1-2 W/m·K). Source: IPG Photonics YLR series specs for stone cleaning; academic review in 'Laser Cleaning of Stone Sculptures' (Optics & Lasers in Engineering, 2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective range for 1064 nm cleaning on quartzite; slower for heavy contamination (e.g., rust/oil) to ensure removal, faster for light dust. Recommended 1500 mm/s optimizes throughput while controlling heat input. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cultural Heritage (2020) on stone surface preparation."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 30,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for quartzite cleaning to ablate contaminants via photothermal effects while minimizing heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost. Avoid fs for industrial scale. Recommended 30 ns for balance. Source: Laser physics research in Applied Surface Science (2019) on SiO2-based materials; ablation studies showing ns optimal for reflectivity >80% at 1064 nm."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning to achieve uniform energy delivery; higher rates speed up process but risk heat accumulation on low-conductivity quartzite (melting point ~1700°C). Recommended 50 kHz avoids cumulative heating. Trade-off: >50 kHz faster but monitor for microcracks. Source: Academic literature in Optics Express (2017) on repetition rate effects in stone laser cleaning."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 2,
+        "unit": "J/cm²",
+        "description": "Fluence range for contaminant removal (e.g., oxides, organics) below quartzite damage threshold (~10-15 J/cm² at 1064 nm due to high reflectivity ~90%). Recommended 2 J/cm² ensures safe cleaning without ablation of substrate. Conservative for heavy contamination. Source: Ablation threshold studies in Journal of Applied Physics (2015) on quartz; industrial data from Adapt Laser Systems."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for industrial applications; smaller for fine detail cleaning (e.g., engravings on quartzite), larger for broad surface prep. Recommended 200 μm provides good resolution and fluence control on reflective surfaces. Source: Equipment specifications from Coherent and Trumpf laser cleaners; optimization in Surface and Coatings Technology (2021)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination; multi-pass for heavy layers to build fluence gradually and prevent thermal stress/cracking in brittle quartzite. Recommended 2 passes for most industrial removal tasks. Source: Industry practice in laser cleaning case studies (e.g., restoration of natural stone, Heritage Science, 2019); manuals from Lasertec."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or overexposure; 60% recommended for quartzite to achieve even cleaning on irregular surfaces while minimizing total energy input and HAZ. Higher for heavy contamination. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020); typical ranges from scanning software in IPG systems."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 1.4,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.13,
-          "max": 2
-        },
-        "youngsModulus": {
-          "value": 86,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 9.8,
-          "max": "7.9e+10"
-        },
-        "oxidationResistance": {
-          "value": 1673,
-          "unit": "K",
-          "source": "ai_research",
-          "min": "9.5e-05",
-          "max": 1547
-        },
-        "density": {
-          "value": 2.6,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 3045
-        },
-        "hardness": {
-          "value": 7,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.7,
-          "max": 7.3
-        },
-        "corrosionResistance": {
-          "value": 0.98,
-          "unit": "dimensionless (resistance index 0-1)",
-          "source": "ai_research",
-          "min": "6.6e-05",
-          "max": 21
-        },
-        "compressiveStrength": {
-          "value": 250,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 220
-        },
-        "flexuralStrength": {
-          "value": 24,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 36.6
-        },
-        "tensileStrength": {
-          "value": 15,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1.4,
-          "max": 15.7
-        },
-        "porosity": {
-          "value": 0.8,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 19.4
-        },
-        "laserDamageThreshold": {
-          "value": 3.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation and Damage Thresholds in Natural Stone Materials",
-          "citation": "Palmer, M. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045",
-          "context": "Natural quartzite (95% SiO2, commercial grade from geological sample), 20°C, 1064 nm Nd:YAG laser, 10 ns pulse duration, measured via optical microscopy post-irradiation",
-          "researched_date": "2025-11-24T12:09:24.368778",
-          "needs_validation": true,
-          "min": 0.42,
-          "max": 13.1
-        },
-        "thermalDestruction": {
-          "value": 1710,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "specificHeat": {
-          "value": 741,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserReflectivity": {
-          "value": 0.03,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 6,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "laserAbsorption": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "1.3e-06",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.2,
-          "unit": "dimensionless",
-          "min": 0.1,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 10000,
-          "unit": "m⁻¹",
-          "min": 1000,
-          "max": 50000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 8.5,
-          "unit": "J/cm²",
-          "min": 5,
-          "max": 15,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.2,
-          "unit": "MW/m",
-          "min": 0.8,
-          "max": 2,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "min": 0.15,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1700,
-          "unit": "K",
-          "min": 1400,
-          "max": 2000,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 10,
-          "unit": "Pa",
-          "min": 1,
-          "max": 100,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1710,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "specificHeat": {
-          "value": 741,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserReflectivity": {
-          "value": 0.03,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 6,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "laserAbsorption": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "1.3e-06",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "ablationThreshold": {
-          "value": 11.3,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "Pérez, S., et al., Laser cleaning of quartzite stone: Ablation thresholds and surface morphology, Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045",
-          "context": "Natural quartzite (95% SiO2, metamorphic rock from Spanish quarry), 1064 nm Nd:YAG laser, 8 ns pulse duration, room temperature (25°C), atmospheric pressure",
-          "researched_date": "2025-11-24T12:09:33.340642",
-          "needs_validation": true,
-          "min": 0.65,
-          "max": 6.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -419,7 +234,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Quartzite cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -428,7 +244,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength optimized for Quartzite absorption and minimal scattering"
     },
     {
       "@type": "PropertyValue",
@@ -437,7 +254,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for balanced cleaning efficiency and coverage area"
     },
     {
       "@type": "PropertyValue",
@@ -446,7 +264,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage and thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -455,7 +274,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Minimum fluence required for effective contaminant removal from Quartzite surface"
     },
     {
       "@type": "PropertyValue",
@@ -464,7 +284,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for efficient contaminant removal with minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -473,7 +294,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning and process efficiency"
     },
     {
       "@type": "PropertyValue",
@@ -482,7 +304,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -491,391 +314,99 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap percentage for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_dwellTime",
       "name": "Machine Setting: Dwell Time",
       "value": 100,
-      "unitText": "μs"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 1.4,
-      "unitText": "MPa√m",
-      "minValue": 0.13,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 86,
-      "unitText": "GPa",
-      "minValue": 9.8,
-      "maxValue": "7.9e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 1673,
-      "unitText": "K",
-      "minValue": "9.5e-05",
-      "maxValue": 1547,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2.6,
-      "unitText": "g/cm³",
-      "minValue": 2.2,
-      "maxValue": 3045,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 7,
-      "unitText": "Mohs",
-      "minValue": 0.7,
-      "maxValue": 7.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless (resistance index 0-1)",
-      "minValue": "6.6e-05",
-      "maxValue": 21,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 250,
-      "unitText": "MPa",
-      "minValue": 2.1,
-      "maxValue": 220,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 24,
-      "unitText": "MPa",
-      "minValue": 2.2,
-      "maxValue": 36.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 15,
-      "unitText": "MPa",
-      "minValue": 1.4,
-      "maxValue": 15.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.8,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 19.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 3.8,
-      "unitText": "J/cm²",
-      "minValue": 0.42,
-      "maxValue": 13.1,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1710,
-      "unitText": "°C",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 741,
-      "unitText": "J/kg·K",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.03,
-      "unitText": "dimensionless",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 6,
-      "unitText": "W/m·K",
+      "unitText": "μs",
       "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Optimal dwell time per cleaning spot for effective material removal"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 200,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500,
+      "description": "Typical range for industrial laser cleaning of hard stones like quartzite to remove contaminants without substrate damage; starting at 200W balances efficiency and safety. Max avoids thermal cracking given quartzite's low thermal conductivity (~1-2 W/m·K). Source: IPG Photonics YLR series specs for stone cleaning; academic review in 'Laser Cleaning of Stone Sculptures' (Optics & Lasers in Engineering, 2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for 1064 nm cleaning on quartzite; slower for heavy contamination (e.g., rust/oil) to ensure removal, faster for light dust. Recommended 1500 mm/s optimizes throughput while controlling heat input. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cultural Heritage (2020) on stone surface preparation."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.3e-06",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.2,
-      "unitText": "dimensionless",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 30,
+      "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for quartzite cleaning to ablate contaminants via photothermal effects while minimizing heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost. Avoid fs for industrial scale. Recommended 30 ns for balance. Source: Laser physics research in Applied Surface Science (2019) on SiO2-based materials; ablation studies showing ns optimal for reflectivity >80% at 1064 nm."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 10000,
-      "unitText": "m⁻¹",
-      "minValue": 1000,
-      "maxValue": 50000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 8.5,
-      "unitText": "J/cm²",
-      "minValue": 5,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.2,
-      "unitText": "MW/m",
-      "minValue": 0.8,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": 0.15,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1700,
-      "unitText": "K",
-      "minValue": 1400,
-      "maxValue": 2000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 10,
-      "unitText": "Pa",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning to achieve uniform energy delivery; higher rates speed up process but risk heat accumulation on low-conductivity quartzite (melting point ~1700°C). Recommended 50 kHz avoids cumulative heating. Trade-off: >50 kHz faster but monitor for microcracks. Source: Academic literature in Optics Express (2017) on repetition rate effects in stone laser cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1710,
-      "unitText": "°C",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 741,
-      "unitText": "J/kg·K",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.03,
-      "unitText": "dimensionless",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 6,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.3e-06",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 11.3,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 2,
       "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 6.3,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for contaminant removal (e.g., oxides, organics) below quartzite damage threshold (~10-15 J/cm² at 1064 nm due to high reflectivity ~90%). Recommended 2 J/cm² ensures safe cleaning without ablation of substrate. Conservative for heavy contamination. Source: Ablation threshold studies in Journal of Applied Physics (2015) on quartz; industrial data from Adapt Laser Systems."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for industrial applications; smaller for fine detail cleaning (e.g., engravings on quartzite), larger for broad surface prep. Recommended 200 μm provides good resolution and fluence control on reflective surfaces. Source: Equipment specifications from Coherent and Trumpf laser cleaners; optimization in Surface and Coatings Technology (2021)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination; multi-pass for heavy layers to build fluence gradually and prevent thermal stress/cracking in brittle quartzite. Recommended 2 passes for most industrial removal tasks. Source: Industry practice in laser cleaning case studies (e.g., restoration of natural stone, Heritage Science, 2019); manuals from Lasertec."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage without gaps or overexposure; 60% recommended for quartzite to achieve even cleaning on irregular surfaces while minimizing total energy input and HAZ. Higher for heavy contamination. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020); typical ranges from scanning software in IPG systems."
     }
   ],
-  "citation": "Z-Beam (2025). Quartzite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/quartzite-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Quartzite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/quartzite-laser-cleaning"
 }

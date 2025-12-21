@@ -24,12 +24,12 @@ description: Road-grime contamination builds up on vehicle surfaces during every
   Laser cleaning tackles these challenges effectively by vaporizing the grime layer without damaging underlying metals, ramping
   up removal speed while cutting down on chemical use for a clean, efficient process.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Appears as dark, muddy stains that contrast with smooth surfaces, sometimes leaving a gritty residue that
@@ -119,7 +119,7 @@ relationships:
           on horizontal surfaces.
         pattern: Often appears in splatters or patches, following the wood grain and accumulating in cracks or low points
           where moisture and grime settle.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -208,7 +208,7 @@ relationships:
   - Aluminum
   prohibited_materials:
   - Electronics
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -312,8 +312,8 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: other
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   aluminum:
     laser_parameters:
       wavelength:

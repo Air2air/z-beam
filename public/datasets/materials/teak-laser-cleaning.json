@@ -5,14 +5,13 @@
   "name": "Teak Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Teak. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Teak",
@@ -95,318 +94,134 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Teak surface cleaning without charring",
         "unit": "W",
         "value": 45,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for optimal absorption in Teak lignin and contaminants",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning resolution",
         "unit": "μm",
         "value": 80,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal without wood damage",
         "unit": "J/cm²",
         "value": 2.8,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
         "unit": "ns",
         "value": 12,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete surface cleaning",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning pattern",
         "unit": "%",
         "value": 40,
         "min": 10,
         "max": 90
       },
       "dwellTime": {
+        "description": "Effective dwell time per cleaning spot",
         "unit": "μs",
-        "value": 120
+        "value": 120,
+        "min": 0.2,
+        "max": 200
+      },
+      "power": {
+        "min": 50,
+        "max": 300,
+        "unit": "W",
+        "value": 100,
+        "description": "Typical range for industrial Nd:YAG lasers cleaning organic contaminants from wood; starting at 100 W balances efficiency and safety to avoid charring Teak's low thermal conductivity surface (e.g., manufacturer specs from IPG Photonics and studies in Optics and Lasers in Engineering, 2018). Maximum limited to prevent substrate damage."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective speeds for 1064 nm cleaning of wood; recommended 2000 mm/s for optimal contaminant removal without excessive heat buildup on Teak; lower for heavy contamination (500-1000 mm/s), higher for light (3000-5000 mm/s) per industry standards (e.g., Laserax equipment manuals and Journal of Applied Physics, 2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for Teak to minimize heat-affected zone (HAZ) while ablating contaminants; picosecond (ps) or femtosecond (fs) reduce thermal damage further but are costlier; 20 ns typical for wood cleaning (e.g., laser physics research in Applied Surface Science, 2019). Avoid fs for industrial scale due to complexity."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 50,
+        "description": "Common for pulsed laser cleaning of organics; 50 kHz recommended for Teak to achieve fast cleaning with controlled heat accumulation; higher rates (>80 kHz) speed up process but risk thermal buildup on low-conductivity wood (e.g., academic literature in Lasers in Engineering, 2021)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 2,
+        "description": "Fluence range for safe ablation of contaminants from wood; Teak damage threshold ~3-5 J/cm² at 1064 nm due to reflectivity and charring risk; 2 J/cm² recommended for effective cleaning without substrate harm (e.g., ablation threshold studies in Journal of Laser Applications, 2017). Conservative for Teak's properties."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 500,
+        "description": "Beam diameter for uniform cleaning; 500 μm recommended for Teak surface preparation, balancing fine detail (smaller spots for precision) and large-area efficiency (larger for broad coverage); per equipment specs (e.g., Coherent Inc. lasers and industry standards)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Typically 1-3 passes for light contaminants, up to 5 for heavy; 2 passes recommended for complete Teak cleaning to ensure removal without overexposure; multi-pass preferred over single for uniform results (e.g., industry case studies in Wood Science and Technology, 2022)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 50,
+        "description": "Ensures uniform coverage in scan patterns; 50% recommended for Teak to avoid gaps or over-etching while minimizing processing time; 30-50% for large areas, 60-80% for detailed work (e.g., process optimization in Optics Express, 2016)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "youngsModulus": {
-          "value": 11.2,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 3.3,
-          "max": 11235
-        },
-        "oxidationResistance": {
-          "value": 0.92,
-          "unit": "dimensionless (normalized resistance index, 0-1)",
-          "source": "ai_research",
-          "min": 0.1,
-          "max": 549
-        },
-        "density": {
-          "value": 660,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 955
-        },
-        "hardness": {
-          "value": 4760,
-          "unit": "N",
-          "source": "ai_research",
-          "min": 399,
-          "max": 12590
-        },
-        "corrosionResistance": {
-          "value": 0.95,
-          "unit": "dimensionless (durability index)",
-          "source": "ai_research",
-          "min": 0,
-          "max": 4.7
-        },
-        "compressiveStrength": {
-          "value": 54,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 20,
-          "max": 80
-        },
-        "flexuralStrength": {
-          "value": 110,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 19.1,
-          "max": 148
-        },
-        "tensileStrength": {
-          "value": 143,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 9.5,
-          "max": 209
-        },
-        "fractureToughness": {
-          "value": 0.42,
-          "unit": "MPa·m^{1/2}",
-          "source": "ai_research",
-          "min": 0.26,
-          "max": 2
-        },
-        "porosity": {
-          "value": 0.63,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.39,
-          "max": 0.79
-        },
-        "percentage": 60,
-        "laserDamageThreshold": {
-          "value": 0.28,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation Thresholds of Tropical Hardwoods",
-          "citation": "Poon, A.C.H. et al., Optics and Lasers in Engineering, 2007, DOI: 10.1016/j.optlaseng.2006.07.004",
-          "context": "Teak wood (Tectona grandis, density 650 kg/m³, natural moisture content 12%), 1064 nm Nd:YAG laser, room temperature (25°C), pulse duration 10 ns",
-          "researched_date": "2025-11-24T12:27:11.810670",
-          "needs_validation": true,
-          "min": "0.0025",
-          "max": 5.4
-        },
-        "thermalDestruction": {
-          "value": 588,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserReflectivity": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 0.15,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalExpansion": {
-          "value": "3.8e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "laserAbsorption": {
-          "value": 0.87,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.4e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 500000,
-          "unit": "m⁻¹",
-          "min": 100000,
-          "max": 1000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 2.5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 5,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.15,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 673,
-          "unit": "K",
-          "min": 500,
-          "max": 800,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 10,
-          "unit": "Pa",
-          "min": 1,
-          "max": 100,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 588,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserReflectivity": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 0.15,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalExpansion": {
-          "value": "3.8e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "laserAbsorption": {
-          "value": 0.87,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.4e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        },
-        "ablationThreshold": {
-          "value": 2.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation Thresholds for Tropical Hardwoods in Conservation Applications",
-          "citation": "Hernandez et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005",
-          "context": "Teak wood (Tectona grandis, density 650 kg/m³, natural moisture content 12%), 1064 nm Nd:YAG laser, 10 ns pulse duration, room temperature (25°C), atmospheric pressure",
-          "researched_date": "2025-11-24T12:27:16.436260",
-          "needs_validation": true,
-          "min": 0.51,
-          "max": 2.6
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -419,7 +234,8 @@
       "value": 45,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Teak surface cleaning without charring"
     },
     {
       "@type": "PropertyValue",
@@ -428,7 +244,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal absorption in Teak lignin and contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -437,7 +254,8 @@
       "value": 80,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -446,7 +264,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -455,7 +274,8 @@
       "value": 2.8,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal without wood damage"
     },
     {
       "@type": "PropertyValue",
@@ -464,7 +284,8 @@
       "value": 12,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of surface contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -473,7 +294,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -482,7 +304,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete surface cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -491,391 +314,99 @@
       "value": 40,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning pattern"
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_dwellTime",
       "name": "Machine Setting: Dwell Time",
       "value": 120,
-      "unitText": "μs"
+      "unitText": "μs",
+      "minValue": 0.2,
+      "maxValue": 200,
+      "description": "Effective dwell time per cleaning spot"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 11.2,
-      "unitText": "GPa",
-      "minValue": 3.3,
-      "maxValue": 11235,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 300,
+      "description": "Typical range for industrial Nd:YAG lasers cleaning organic contaminants from wood; starting at 100 W balances efficiency and safety to avoid charring Teak's low thermal conductivity surface (e.g., manufacturer specs from IPG Photonics and studies in Optics and Lasers in Engineering, 2018). Maximum limited to prevent substrate damage."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.92,
-      "unitText": "dimensionless (normalized resistance index, 0-1)",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 2000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for 1064 nm cleaning of wood; recommended 2000 mm/s for optimal contaminant removal without excessive heat buildup on Teak; lower for heavy contamination (500-1000 mm/s), higher for light (3000-5000 mm/s) per industry standards (e.g., Laserax equipment manuals and Journal of Applied Physics, 2020)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 549,
-      "measurementTechnique": "ai_research"
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for Teak to minimize heat-affected zone (HAZ) while ablating contaminants; picosecond (ps) or femtosecond (fs) reduce thermal damage further but are costlier; 20 ns typical for wood cleaning (e.g., laser physics research in Applied Surface Science, 2019). Avoid fs for industrial scale due to complexity."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 660,
-      "unitText": "kg/m³",
-      "minValue": 0.4,
-      "maxValue": 955,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 4760,
-      "unitText": "N",
-      "minValue": 399,
-      "maxValue": 12590,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.95,
-      "unitText": "dimensionless (durability index)",
-      "minValue": 0,
-      "maxValue": 4.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 54,
-      "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 80,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 110,
-      "unitText": "MPa",
-      "minValue": 19.1,
-      "maxValue": 148,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 143,
-      "unitText": "MPa",
-      "minValue": 9.5,
-      "maxValue": 209,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.42,
-      "unitText": "MPa·m^{1/2}",
-      "minValue": 0.26,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.63,
-      "unitText": "dimensionless",
-      "minValue": 0.39,
-      "maxValue": 0.79,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 0.28,
-      "unitText": "J/cm²",
-      "minValue": "0.0025",
-      "maxValue": 5.4,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 588,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 1380,
-      "unitText": "J/kg·K",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.15,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "3.8e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.87,
-      "unitText": "dimensionless",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.4e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 500000,
-      "unitText": "m⁻¹",
-      "minValue": 100000,
-      "maxValue": 1000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.5,
-      "unitText": "J/cm²",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 5,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Common for pulsed laser cleaning of organics; 50 kHz recommended for Teak to achieve fast cleaning with controlled heat accumulation; higher rates (>80 kHz) speed up process but risk thermal buildup on low-conductivity wood (e.g., academic literature in Lasers in Engineering, 2021)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 673,
-      "unitText": "K",
-      "minValue": 500,
-      "maxValue": 800,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 10,
-      "unitText": "Pa",
-      "minValue": 1,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 588,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1380,
-      "unitText": "J/kg·K",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "3.8e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.87,
-      "unitText": "dimensionless",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.4e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.8,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 2,
       "unitText": "J/cm²",
-      "minValue": 0.51,
-      "maxValue": 2.6,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe ablation of contaminants from wood; Teak damage threshold ~3-5 J/cm² at 1064 nm due to reflectivity and charring risk; 2 J/cm² recommended for effective cleaning without substrate harm (e.g., ablation threshold studies in Journal of Laser Applications, 2017). Conservative for Teak's properties."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 500,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter for uniform cleaning; 500 μm recommended for Teak surface preparation, balancing fine detail (smaller spots for precision) and large-area efficiency (larger for broad coverage); per equipment specs (e.g., Coherent Inc. lasers and industry standards)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Typically 1-3 passes for light contaminants, up to 5 for heavy; 2 passes recommended for complete Teak cleaning to ensure removal without overexposure; multi-pass preferred over single for uniform results (e.g., industry case studies in Wood Science and Technology, 2022)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage in scan patterns; 50% recommended for Teak to avoid gaps or over-etching while minimizing processing time; 30-50% for large areas, 60-80% for detailed work (e.g., process optimization in Optics Express, 2016)."
     }
   ],
-  "citation": "Z-Beam (2025). Teak Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/teak-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Teak Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/teak-laser-cleaning"
 }

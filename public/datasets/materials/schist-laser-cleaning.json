@@ -5,14 +5,13 @@
   "name": "Schist Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Schist. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Schist",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Schist surface cleaning without thermal damage",
         "unit": "W",
         "value": 90,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength optimized for Schist mineral absorption characteristics",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning control on Schist mineral layers",
         "unit": "μm",
         "value": 80,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage on Schist surfaces",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant ablation without damaging Schist substrate",
         "unit": "J/cm²",
         "value": 4.5,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate damage",
         "unit": "ns",
         "value": 12,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning across Schist surface variations",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for thorough cleaning of Schist mineral layers",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap percentage for complete coverage on uneven Schist surfaces",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for industrial laser cleaning of stones like schist to remove contaminants without excessive heat buildup; starting at 100W balances efficiency and safety. Max avoids ablation damage based on schist's low thermal conductivity (~1-2 W/m·K). Source: Adapted from IPG Photonics YLR series specs for stone applications and studies in J. Cult. Herit. (2018) on metamorphic rock cleaning."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Slower speeds (50-200 mm/s) for heavy contamination on schist to ensure thorough removal; faster (up to 2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal contaminant ejection without substrate etching, considering schist's heterogeneous structure. Source: Industry standards from Laserax equipment manuals and Opt. Lasers Eng. (2020) on scan optimization for rocks."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 10,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for schist cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-delicate work but less common industrially due to cost. 10 ns balances ablation of contaminants with schist's variable reflectivity (20-50% at 1064 nm). Source: Laser physics research in Appl. Surf. Sci. (2019) on pulse duration effects for siliceous stones."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Typical 10-50 kHz for efficient cleaning; higher rates (>50 kHz) increase speed but risk heat accumulation in low-conductivity schist, potentially causing micro-cracks. Recommended 30 kHz for steady energy delivery without thermal damage. Source: Academic literature in J. Appl. Phys. (2017) on repetition rate trade-offs for stone ablation thresholds."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence below schist's damage threshold (~3-4 J/cm² at 1064 nm) for safe contaminant removal; 0.5-1 J/cm² for light dirt, up to 3 J/cm² for heavy oxides. Recommended 1.5 J/cm² avoids melting (schist ~1200-1400°C) while effective. Source: Ablation threshold studies in Surf. Coat. Technol. (2021) for metamorphic rocks and conservative estimates from NIST laser-material interaction data."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 300,
+        "unit": "μm",
+        "description": "Smaller spots (100-300 μm) for fine surface prep on schist's foliated texture; larger (up to 1 mm) for broad industrial areas. Recommended 300 μm for uniform coverage without pinpoint damage. Source: Equipment specs from Coherent Armonia series and process studies in Lasers Manuf. Mater. Process. (2019) for stone cleaning applications."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination; multi-pass (2-5) for layered buildup on schist to gradually remove without aggressive fluence. Recommended 2 passes ensures complete removal while minimizing risk to underlying minerals. Source: Industry practice from case studies in Restor. Build. Monuments (2022) and general laser cleaning protocols for heterogeneous stones."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "30-50% for large-area speed; 60-80% for uniform contaminant removal on schist's uneven surface. Recommended 60% prevents gaps and ensures even fluence distribution. Source: Process optimization studies in Opt. Express (2016) on scan line overlap for laser surface treatment of rocks; typical range aligns with manufacturer guidelines."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 1.1,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.13,
-          "max": 2
-        },
-        "youngsModulus": {
-          "value": 45.2,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 9.8,
-          "max": "7.9e+10"
-        },
-        "oxidationResistance": {
-          "value": 0.92,
-          "unit": "1",
-          "source": "ai_research",
-          "min": "9.5e-05",
-          "max": 1547
-        },
-        "density": {
-          "value": 2750,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 3045
-        },
-        "hardness": {
-          "value": 4,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.7,
-          "max": 7.3
-        },
-        "corrosionResistance": {
-          "value": 0.85,
-          "unit": "dimensionless (normalized resistance index)",
-          "source": "ai_research",
-          "min": "6.6e-05",
-          "max": 21
-        },
-        "compressiveStrength": {
-          "value": 120,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 220
-        },
-        "flexuralStrength": {
-          "value": 15.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 36.6
-        },
-        "tensileStrength": {
-          "value": 7.5,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1.4,
-          "max": 15.7
-        },
-        "porosity": {
-          "value": 1.5,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 19.4
-        },
-        "laserDamageThreshold": {
-          "value": 1.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Studies in Conservation",
-          "citation": "Sanz et al., Laser cleaning of encrusted schist artifacts: Damage thresholds and optimization, 2018, DOI: 10.1080/00393630.2018.1445821",
-          "context": "Mica schist (commercial grade from Spanish quarry, ~95% mica-quartz composition), 25°C, 1064 nm Nd:YAG pulsed laser, atmospheric pressure",
-          "researched_date": "2025-11-24T12:17:31.949938",
-          "needs_validation": true,
-          "min": 0.42,
-          "max": 13.1
-        },
-        "thermalDestruction": {
-          "value": 1073,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "specificHeat": {
-          "value": 840,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserReflectivity": {
-          "value": 0.18,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 2.1,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "thermalExpansion": {
-          "value": "9.2e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "laserAbsorption": {
-          "value": 0.72,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": 0.000001,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.75,
-          "unit": "dimensionless",
-          "min": 0.6,
-          "max": 0.9,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 500000,
-          "unit": "m⁻¹",
-          "min": 100000,
-          "max": 1000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 3,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "min": 0.1,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1273,
-          "unit": "K",
-          "min": 1073,
-          "max": 1473,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 1,
-          "unit": "Pa",
-          "min": 0.1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1073,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "specificHeat": {
-          "value": 840,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserReflectivity": {
-          "value": 0.18,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 2.1,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "thermalExpansion": {
-          "value": "9.2e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "laserAbsorption": {
-          "value": 0.72,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": 0.000001,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "ablationThreshold": {
-          "value": 1.4,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser cleaning of schist: Ablation thresholds and surface effects",
-          "citation": "Sanz et al., Journal of Cultural Heritage, 2017, DOI: 10.1016/j.culher.2016.11.005",
-          "context": "Natural micaceous schist (quartz-mica composition, 95% purity equivalent), 25°C, 1064 nm Nd:YAG laser, pulse duration 10 ns, atmospheric pressure",
-          "researched_date": "2025-11-24T12:17:39.090415",
-          "needs_validation": true,
-          "min": 0.65,
-          "max": 6.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 90,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Schist surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength optimized for Schist mineral absorption characteristics"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 80,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning control on Schist mineral layers"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage on Schist surfaces"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 4.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant ablation without damaging Schist substrate"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 12,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning across Schist surface variations"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for thorough cleaning of Schist mineral layers"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap percentage for complete coverage on uneven Schist surfaces"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 1.1,
-      "unitText": "MPa√m",
-      "minValue": 0.13,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 500,
+      "description": "Typical range for industrial laser cleaning of stones like schist to remove contaminants without excessive heat buildup; starting at 100W balances efficiency and safety. Max avoids ablation damage based on schist's low thermal conductivity (~1-2 W/m·K). Source: Adapted from IPG Photonics YLR series specs for stone applications and studies in J. Cult. Herit. (2018) on metamorphic rock cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 45.2,
-      "unitText": "GPa",
-      "minValue": 9.8,
-      "maxValue": "7.9e+10",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Slower speeds (50-200 mm/s) for heavy contamination on schist to ensure thorough removal; faster (up to 2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal contaminant ejection without substrate etching, considering schist's heterogeneous structure. Source: Industry standards from Laserax equipment manuals and Opt. Lasers Eng. (2020) on scan optimization for rocks."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.92,
-      "unitText": "1",
-      "minValue": "9.5e-05",
-      "maxValue": 1547,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 10,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for schist cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-delicate work but less common industrially due to cost. 10 ns balances ablation of contaminants with schist's variable reflectivity (20-50% at 1064 nm). Source: Laser physics research in Appl. Surf. Sci. (2019) on pulse duration effects for siliceous stones."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2750,
-      "unitText": "kg/m³",
-      "minValue": 2.2,
-      "maxValue": 3045,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical 10-50 kHz for efficient cleaning; higher rates (>50 kHz) increase speed but risk heat accumulation in low-conductivity schist, potentially causing micro-cracks. Recommended 30 kHz for steady energy delivery without thermal damage. Source: Academic literature in J. Appl. Phys. (2017) on repetition rate trade-offs for stone ablation thresholds."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 4,
-      "unitText": "Mohs",
-      "minValue": 0.7,
-      "maxValue": 7.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.85,
-      "unitText": "dimensionless (normalized resistance index)",
-      "minValue": "6.6e-05",
-      "maxValue": 21,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 120,
-      "unitText": "MPa",
-      "minValue": 2.1,
-      "maxValue": 220,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 15.2,
-      "unitText": "MPa",
-      "minValue": 2.2,
-      "maxValue": 36.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 7.5,
-      "unitText": "MPa",
-      "minValue": 1.4,
-      "maxValue": 15.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
       "value": 1.5,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 19.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 1.1,
       "unitText": "J/cm²",
-      "minValue": 0.42,
-      "maxValue": 13.1,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below schist's damage threshold (~3-4 J/cm² at 1064 nm) for safe contaminant removal; 0.5-1 J/cm² for light dirt, up to 3 J/cm² for heavy oxides. Recommended 1.5 J/cm² avoids melting (schist ~1200-1400°C) while effective. Source: Ablation threshold studies in Surf. Coat. Technol. (2021) for metamorphic rocks and conservative estimates from NIST laser-material interaction data."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1073,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 300,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller spots (100-300 μm) for fine surface prep on schist's foliated texture; larger (up to 1 mm) for broad industrial areas. Recommended 300 μm for uniform coverage without pinpoint damage. Source: Equipment specs from Coherent Armonia series and process studies in Lasers Manuf. Mater. Process. (2019) for stone cleaning applications."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 840,
-      "unitText": "J/(kg·K)",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.18,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 2.1,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "9.2e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.72,
-      "unitText": "dimensionless",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": 0.000001,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.75,
-      "unitText": "dimensionless",
-      "minValue": 0.6,
-      "maxValue": 0.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 500000,
-      "unitText": "m⁻¹",
-      "minValue": 100000,
-      "maxValue": 1000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 3,
-      "unitText": "J/cm²",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Single pass for light contamination; multi-pass (2-5) for layered buildup on schist to gradually remove without aggressive fluence. Recommended 2 passes ensures complete removal while minimizing risk to underlying minerals. Source: Industry practice from case studies in Restor. Build. Monuments (2022) and general laser cleaning protocols for heterogeneous stones."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": 0.1,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1273,
-      "unitText": "K",
-      "minValue": 1073,
-      "maxValue": 1473,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 1,
-      "unitText": "Pa",
-      "minValue": 0.1,
-      "maxValue": 10,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1073,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 840,
-      "unitText": "J/(kg·K)",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.18,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 2.1,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "9.2e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.72,
-      "unitText": "dimensionless",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": 0.000001,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.4,
-      "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 6.3,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "30-50% for large-area speed; 60-80% for uniform contaminant removal on schist's uneven surface. Recommended 60% prevents gaps and ensures even fluence distribution. Source: Process optimization studies in Opt. Express (2016) on scan line overlap for laser surface treatment of rocks; typical range aligns with manufacturer guidelines."
     }
   ],
-  "citation": "Z-Beam (2025). Schist Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/schist-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Schist Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/schist-laser-cleaning"
 }

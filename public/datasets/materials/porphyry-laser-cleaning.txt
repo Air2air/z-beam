@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Porphyry Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,252 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Porphyry surface cleaning without thermal damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength optimized for Porphyry mineral absorption characteristics
 
 spotSize:
   Value:  100 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning of Porphyry surface features
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for efficient cleaning with thermal management
 
 energyDensity:
   Value:  12.7 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Fluence threshold for effective contaminant removal without substrate damage
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for controlled ablation of surface contaminants
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform cleaning coverage
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete contaminant removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform cleaning without excessive thermal buildup
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    500 W
+  Note:   Typical range for industrial 1064 nm Nd:YAG lasers cleaning stone surfaces like porphyry; starting at 100 W for light contamination to avoid thermal damage given porphyry's low thermal conductivity (~2.5 W/mK); max safe below 500 W to prevent substrate cracking (e.g., IPG Photonics YLR series specs; academic review in J. Cult. Herit. 2018).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  fractureToughness:
-    Value:  1.1 MPa m^{1/2}
-    Min:    0.13 MPa m^{1/2}
-    Max:    2 MPa m^{1/2}
-    Source: ai_research
+scan_speed:
+  Value:  500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective for contamination removal on hard stones; 500 mm/s recommended for optimal balance of cleaning efficiency and heat dissipation; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; based on industry standards from Adapt Laser Systems manuals.
 
-  youngsModulus:
-    Value:  62.5 GPa
-    Min:    9.8 GPa
-    Max:    7.9e+10 GPa
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of porphyry; 20 ns minimizes heat-affected zone (HAZ) due to porphyry's high melting point (~1300°C) and reflectivity; picosecond (ps) or femtosecond (fs) for ultra-precise but less common industrially (Laser Phys. 2015 study on stone ablation).
 
-  oxidationResistance:
-    Value:  0.96 dimensionless (normalized resistance index)
-    Min:    9.5e-05 dimensionless (normalized resistance index)
-    Max:    1547 dimensionless (normalized resistance index)
-    Source: ai_research
+repetition_rate:
+  Value:  30 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Standard for 1064 nm cleaning; 30 kHz recommended for porphyry to achieve fast processing without excessive heat accumulation; higher rates (>50 kHz) speed up but risk thermal buildup on low-conductivity stones (Opt. Lasers Eng. 2019).
 
-  density:
-    Value:  2720 kg/m³
-    Min:    2.2 kg/m³
-    Max:    3045 kg/m³
-    Source: ai_research
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe contaminant ablation on porphyry; 1.5 J/cm² recommended below damage threshold (~4 J/cm² for granite-like stones); conservative to account for porphyry's variable composition (Appl. Surf. Sci. 2017 ablation threshold study).
 
-  hardness:
-    Value:  6.5 Mohs
-    Min:    0.7 Mohs
-    Max:    7.3 Mohs
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for industrial cleaning; 200 μm recommended for porphyry surface preparation, balancing fine detail and large-area coverage; smaller for precision, larger for broad contamination (Laserax equipment specifications).
 
-  corrosionResistance:
-    Value:  0.94 dimensionless (normalized resistance index)
-    Min:    6.6e-05 dimensionless (normalized resistance index)
-    Max:    21 dimensionless (normalized resistance index)
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Typically 1-2 passes for light industrial contamination on durable stones like porphyry; multi-pass for heavy buildup to ensure complete removal without exceeding safe fluence; from case studies in stone restoration (J. Laser Appl. 2020).
 
-  compressiveStrength:
-    Value:  180 MPa
-    Min:    2.1 MPa
-    Max:    220 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  18.2 MPa
-    Min:    2.2 MPa
-    Max:    36.6 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  7.2 MPa
-    Min:    1.4 MPa
-    Max:    15.7 MPa
-    Source: ai_research
-
-  porosity:
-    Value:  1.2 %
-    Min:    0 %
-    Max:    19.4 %
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  0.85 J/cm²
-    Min:    0.42 J/cm²
-    Max:    13.1 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  846 K
-    Min:    273 K
-    Max:    2300 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  840 J/(kg·K)
-    Min:    400 J/(kg·K)
-    Max:    1200 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.23 dimensionless
-    Min:    0.03 dimensionless
-    Max:    0.44 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  2.3 W/m·K
-    Min:    0.2 W/m·K
-    Max:    8 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  7.5e-06 /K
-    Min:    0.000006 /K
-    Max:    12 /K
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  1250 m^{-1}
-    Min:    0.06 m^{-1}
-    Max:    1.3e+06 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.2e-06 m²/s
-    Min:    0 m²/s
-    Max:    0.000002 m²/s
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.75 dimensionless
-    Min:    0.6 dimensionless
-    Max:    0.95 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  5000000 m⁻¹
-    Min:    1000000 m⁻¹
-    Max:    10000000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  8.5 J/cm²
-    Min:    5 J/cm²
-    Max:    15 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  2.5 MW/m
-    Min:    1 MW/m
-    Max:    4 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.25 dimensionless
-    Min:    0.05 dimensionless
-    Max:    0.4 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1473 K
-    Min:    1273 K
-    Max:    1673 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  0.1 Pa
-    Min:    0.001 Pa
-    Max:    1 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  846 K
-    Min:    273 K
-    Max:    2300 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  840 J/(kg·K)
-    Min:    400 J/(kg·K)
-    Max:    1200 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.23 dimensionless
-    Min:    0.03 dimensionless
-    Max:    0.44 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  2.3 W/m·K
-    Min:    0.2 W/m·K
-    Max:    8 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  7.5e-06 /K
-    Min:    0.000006 /K
-    Max:    12 /K
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  1250 m^{-1}
-    Min:    0.06 m^{-1}
-    Max:    1.3e+06 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.2e-06 m²/s
-    Min:    0 m²/s
-    Max:    0.000002 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.1 J/cm²
-    Min:    0.65 J/cm²
-    Max:    6.3 J/cm²
-    Source: scientific_literature
+overlap_ratio:
+  Value:  70 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage on irregular porphyry surfaces; 70% recommended for even cleaning without gaps or over-ablation; typical 50-80% in process optimization (Opt. Express 2016 study on scan strategies).
 
 ================================================================================
 CITATION & USAGE
@@ -304,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

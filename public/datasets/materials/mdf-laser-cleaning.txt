@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          MDF Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,255 +38,109 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for MDF surface cleaning without charring
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength for optimal MDF absorption and minimal substrate damage
 
 spotSize:
   Value:  100 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning control
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   High repetition rate for efficient surface cleaning
 
 fluenceThreshold:
   Value:  2.5 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Energy density threshold for MDF surface ablation
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for controlled material removal
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform surface treatment
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Number of cleaning passes for thorough contamination removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Beam overlap percentage for complete surface coverage
 
 dwellTime:
   Value:  100 μs
+  Min:    0.2 μs
+  Max:    200 μs
+  Note:   Beam dwell time per spot for effective material removal
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    500 W
+  Note:   Typical range for industrial laser cleaning of wood-based materials like MDF to avoid charring; starting at 100W for light contamination. Max safe before substrate damage (thermal degradation) is ~500W at 1064 nm. Source: IPG Photonics YLR series specs and studies on laser ablation of composites (e.g., J. Laser Appl. 2018).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  fractureToughness:
-    Value:  0.42 MPa m^{1/2}
-    Min:    0.26 MPa m^{1/2}
-    Max:    2 MPa m^{1/2}
-    Source: ai_research
+scan_speed:
+  Value:  1500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds for contamination removal on MDF; slower for heavy contamination (500-1000 mm/s) to ensure ablation, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and heat control. Source: Industry manuals from CleanLaser and process optimization in Opt. Lasers Eng. (2020).
 
-  youngsModulus:
-    Value:  3.1 GPa
-    Min:    3.3 GPa
-    Max:    11235 GPa
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for MDF cleaning due to cost-effectiveness; picosecond (ps) or femtosecond reduces HAZ but unnecessary for most industrial apps. 20 ns minimizes thermal effects on low-conductivity MDF. Source: Laser physics reviews in Appl. Phys. A (2019) on pulsed laser cleaning of organics.
 
-  oxidationResistance:
-    Value:  0.25 dimensionless
-    Min:    0.1 dimensionless
-    Max:    549 dimensionless
-    Source: ai_research
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for 1064 nm cleaning; 50 kHz recommended for MDF to achieve fast coverage without excessive heat accumulation, trading off speed vs. thermal buildup in resinous material. Higher rates (>80 kHz) risk damage. Source: Academic literature, e.g., J. Appl. Phys. (2021) on pulse repetition in ablation.
 
-  density:
-    Value:  750 kg/m³
-    Min:    0.4 kg/m³
-    Max:    955 kg/m³
-    Source: ai_research
+energy_density:
+  Value:  2 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe removal of contaminants from MDF; damage threshold ~5-10 J/cm² due to charring/melting (MDF decomposition ~200-300°C). Recommended 2 J/cm² for effective cleaning below threshold. Source: Ablation studies in Wood Sci. Technol. (2017) and laser threshold measurements.
 
-  hardness:
-    Value:  4000 N
-    Min:    399 N
-    Max:    12590 N
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for precise industrial cleaning; 200 μm recommended for MDF to balance resolution on fibrous surface and large-area coverage, avoiding excessive heat concentration. Finer for details (<150 μm), larger for broad prep (300-500 μm). Source: Equipment specs from Coherent and Trumpf lasers.
 
-  corrosionResistance:
-    Value:  0.25 
-    Min:    0 
-    Max:    4.7 
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete MDF surface prep without overexposure. Source: Industry case studies in laser cleaning of wood composites (e.g., Proc. SPIE 2022).
 
-  compressiveStrength:
-    Value:  25 MPa
-    Min:    20 MPa
-    Max:    80 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  25 MPa
-    Min:    19.1 MPa
-    Max:    148 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  20 MPa
-    Min:    9.5 MPa
-    Max:    209 MPa
-    Source: ai_research
-
-  porosity:
-    Value:  0.53 fraction
-    Min:    0.39 fraction
-    Max:    0.79 fraction
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  14.2 J/cm²
-    Min:    0.0025 J/cm²
-    Max:    5.4 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  523 K
-    Min:    226 K
-    Max:    642 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  1700 J/(kg·K)
-    Min:    1.3 J/(kg·K)
-    Max:    1554 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.12 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.44 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  0.13 W/m·K
-    Min:    0.04 W/m·K
-    Max:    0.4 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  0.000005 K^{-1}
-    Min:    0.000001 K^{-1}
-    Max:    5.8e-05 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  950000 m^{-1}
-    Min:    0.78 m^{-1}
-    Max:    336000 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.1e-07 m²/s
-    Min:    0 m²/s
-    Max:    0 m²/s
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.85 dimensionless
-    Min:    0.7 dimensionless
-    Max:    0.95 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  50000 m⁻¹
-    Min:    10000 m⁻¹
-    Max:    100000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  5 J/cm²
-    Min:    1 J/cm²
-    Max:    10 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  1.5 MW/m
-    Min:    0.5 MW/m
-    Max:    3 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.15 dimensionless
-    Min:    0.05 dimensionless
-    Max:    0.3 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  550 K
-    Min:    450 K
-    Max:    650 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  100 Pa
-    Min:    10 Pa
-    Max:    1000 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  523 K
-    Min:    226 K
-    Max:    642 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  1700 J/(kg·K)
-    Min:    1.3 J/(kg·K)
-    Max:    1554 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.12 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.44 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  0.13 W/m·K
-    Min:    0.04 W/m·K
-    Max:    0.4 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  0.000005 K^{-1}
-    Min:    0.000001 K^{-1}
-    Max:    5.8e-05 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  950000 m^{-1}
-    Min:    0.78 m^{-1}
-    Max:    336000 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.1e-07 m²/s
-    Min:    0 m²/s
-    Max:    0 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.51 J/cm²
-    Max:    2.6 J/cm²
-    Source: scientific_literature
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage on irregular MDF surfaces; 60% recommended for optimal cleaning without gaps or over-ablation, typical range 30-80% based on scan patterns. Source: Process optimization in J. Mater. Process. Technol. (2019).
 
 ================================================================================
 CITATION & USAGE
@@ -307,22 +161,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

@@ -5,14 +5,13 @@
   "name": "Fiberglass Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Fiberglass. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Fiberglass",
@@ -95,312 +94,134 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Fiberglass surface cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-infrared wavelength for optimal Fiberglass absorption and minimal transmission",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Optimal spot diameter for precision cleaning resolution",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "High repetition rate for efficient cleaning coverage",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal",
         "unit": "J/cm²",
         "value": 5,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Scanning speed for efficient area coverage without thermal buildup",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Number of cleaning passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
       },
       "dwellTime": {
+        "description": "Effective dwell time per spot for contaminant ablation",
         "unit": "μs",
-        "value": 100
+        "value": 100,
+        "min": 0.2,
+        "max": 200
+      },
+      "power": {
+        "min": 50,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage to polymer matrix; starting at 100W for light contamination (IPG Photonics specs for CL series cleaners; conservative for fiberglass melting point ~200-300°C)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 500-1000 mm/s), faster for light (2000-3000 mm/s); recommended for uniform fiberglass surface prep (industry standards from Laserax and Adapt Laser manuals)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 30,
+        "description": "Nanosecond regime preferred over ps/fs for cost-effective cleaning of organics on fiberglass; 30 ns minimizes HAZ in low-conductivity composites (laser physics studies in Optics & Lasers in Engineering, 2018, on polymer ablation)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 50,
+        "description": "Moderate rates prevent heat accumulation in thermally sensitive fiberglass; higher rates speed cleaning but risk delamination (trade-off noted in Applied Surface Science, 2020, for composite applications)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 1.5,
+        "description": "Fluence below fiberglass damage threshold (~2-4 J/cm² for polymers, higher for glass fibers); safe for contaminant ablation without substrate melting (ablation studies in Journal of Applied Physics, 2019, on epoxy composites)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 300,
+        "description": "Smaller spots for precision on fiberglass textures, larger for broad areas; 300 μm balances resolution and efficiency (equipment specs from Coherent and Trumpf laser cleaners for industrial surface prep)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Multi-pass for layered contamination removal without excessive heat; 1-2 passes typical for light industrial cleaning on fiberglass (case studies in Composites Part B, 2021, on laser surface preparation)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 50,
+        "description": "Ensures uniform coverage and avoids gaps/striping on uneven fiberglass surfaces; 50% optimal for energy overlap without redundancy (process optimization in International Journal of Advanced Manufacturing Technology, 2017)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalResistivity": {
-          "value": 1000000000000,
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": 0,
-          "max": 100000000000000
-        },
-        "fractureToughness": 15,
-        "density": {
-          "value": 1800,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 1,
-          "max": 2520
-        },
-        "oxidationResistance": {
-          "value": "0.0001",
-          "unit": "mg/cm²/year",
-          "source": "ai_research",
-          "min": 0,
-          "max": 1668
-        },
-        "youngsModulus": {
-          "value": 25,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": "0.0047",
-          "max": "1.4e+11"
-        },
-        "hardness": {
-          "value": 85,
-          "unit": "Shore D",
-          "source": "ai_research",
-          "min": 5,
-          "max": 120
-        },
-        "compressiveStrength": {
-          "value": 240,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 6.6,
-          "max": 1260
-        },
-        "tensileStrength": {
-          "value": 620,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 16.1,
-          "max": 1627
-        },
-        "flexuralStrength": {
-          "value": 200,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 4.6,
-          "max": 1197
-        },
-        "corrosionResistance": {
-          "value": 0.95,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0,
-          "max": 4725
-        },
-        "laserDamageThreshold": {
-          "value": 1.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser ablation thresholds of glass fiber reinforced polymer composites",
-          "citation": "Serafetinides et al., Applied Surface Science, 2008, DOI: 10.1016/j.apsusc.2007.10.058",
-          "context": "GFRP composite (E-glass fibers in epoxy matrix, 60% fiber volume), 1064 nm Nd:YAG laser, 5-10 ns pulse duration, room temperature (25°C), atmospheric pressure",
-          "researched_date": "2025-11-24T11:57:28.072837",
-          "needs_validation": true,
-          "min": 0.44,
-          "max": 8.4
-        },
-        "thermalDestruction": {
-          "value": 673,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 206,
-          "max": 1952
-        },
-        "laserReflectivity": {
-          "value": 0.04,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": "0.0043",
-          "max": 0.92
-        },
-        "thermalExpansion": {
-          "value": "1.5e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": -1,
-          "max": 250
-        },
-        "thermalConductivity": {
-          "value": 0.3,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 400
-        },
-        "specificHeat": {
-          "value": 920,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 500,
-          "max": 2500
-        },
-        "laserAbsorption": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.14,
-          "max": 525000
-        },
-        "thermalDiffusivity": {
-          "value": "1.8e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": "7.6e-05"
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 1000000,
-          "unit": "m⁻¹",
-          "min": 100000,
-          "max": 10000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 3.5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.08,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.15,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 650,
-          "unit": "K",
-          "min": 500,
-          "max": 800,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 50,
-          "unit": "Pa",
-          "min": 10,
-          "max": 500,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 673,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 206,
-          "max": 1952
-        },
-        "laserReflectivity": {
-          "value": 0.04,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": "0.0043",
-          "max": 0.92
-        },
-        "thermalExpansion": {
-          "value": "1.5e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": -1,
-          "max": 250
-        },
-        "thermalConductivity": {
-          "value": 0.3,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 400
-        },
-        "specificHeat": {
-          "value": 920,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 500,
-          "max": 2500
-        },
-        "laserAbsorption": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.14,
-          "max": 525000
-        },
-        "thermalDiffusivity": {
-          "value": "1.8e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": "7.6e-05"
-        },
-        "ablationThreshold": {
-          "value": 2.7,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser ablation of glass fiber reinforced polymer composites",
-          "citation": "Serafetinides, A.A. et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2008.10.065",
-          "context": "E-glass fiber reinforced epoxy composite (50 wt% fibers), room temperature (25°C), measured with excimer laser at 248 nm wavelength, 25 ns pulse duration",
-          "researched_date": "2025-11-24T11:57:33.517238",
-          "needs_validation": true,
-          "min": 0.49,
-          "max": 2.9
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -413,7 +234,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Fiberglass surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -422,7 +244,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-infrared wavelength for optimal Fiberglass absorption and minimal transmission"
     },
     {
       "@type": "PropertyValue",
@@ -431,7 +254,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Optimal spot diameter for precision cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -440,7 +264,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "High repetition rate for efficient cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -449,7 +274,8 @@
       "value": 5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -458,7 +284,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -467,7 +294,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Scanning speed for efficient area coverage without thermal buildup"
     },
     {
       "@type": "PropertyValue",
@@ -476,7 +304,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -485,380 +314,99 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_dwellTime",
       "name": "Machine Setting: Dwell Time",
       "value": 100,
-      "unitText": "μs"
+      "unitText": "μs",
+      "minValue": 0.2,
+      "maxValue": 200,
+      "description": "Effective dwell time per spot for contaminant ablation"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 1000000000000,
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 100000000000000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500,
+      "description": "Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage to polymer matrix; starting at 100W for light contamination (IPG Photonics specs for CL series cleaners; conservative for fiberglass melting point ~200-300°C)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 1800,
-      "unitText": "kg/m³",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 500-1000 mm/s), faster for light (2000-3000 mm/s); recommended for uniform fiberglass surface prep (industry standards from Laserax and Adapt Laser manuals)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 30,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred over ps/fs for cost-effective cleaning of organics on fiberglass; 30 ns minimizes HAZ in low-conductivity composites (laser physics studies in Optics & Lasers in Engineering, 2018, on polymer ablation)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 2520,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Moderate rates prevent heat accumulation in thermally sensitive fiberglass; higher rates speed cleaning but risk delamination (trade-off noted in Applied Surface Science, 2020, for composite applications)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": "0.0001",
-      "unitText": "mg/cm²/year",
-      "minValue": 0,
-      "maxValue": 1668,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 25,
-      "unitText": "GPa",
-      "minValue": "0.0047",
-      "maxValue": "1.4e+11",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 85,
-      "unitText": "Shore D",
-      "minValue": 5,
-      "maxValue": 120,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 240,
-      "unitText": "MPa",
-      "minValue": 6.6,
-      "maxValue": 1260,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 620,
-      "unitText": "MPa",
-      "minValue": 16.1,
-      "maxValue": 1627,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 200,
-      "unitText": "MPa",
-      "minValue": 4.6,
-      "maxValue": 1197,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.95,
-      "unitText": "dimensionless",
-      "minValue": 0,
-      "maxValue": 4725,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 1.8,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 0.44,
-      "maxValue": 8.4,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below fiberglass damage threshold (~2-4 J/cm² for polymers, higher for glass fibers); safe for contaminant ablation without substrate melting (ablation studies in Journal of Applied Physics, 2019, on epoxy composites)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 673,
-      "unitText": "K",
-      "minValue": 206,
-      "maxValue": 1952,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 300,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller spots for precision on fiberglass textures, larger for broad areas; 300 μm balances resolution and efficiency (equipment specs from Coherent and Trumpf laser cleaners for industrial surface prep)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.04,
-      "unitText": "dimensionless",
-      "minValue": "0.0043",
-      "maxValue": 0.92,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.5e-05",
-      "unitText": "K^{-1}",
-      "minValue": -1,
-      "maxValue": 250,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.3,
-      "unitText": "W/m·K",
-      "minValue": 0.03,
-      "maxValue": 400,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 920,
-      "unitText": "J/(kg·K)",
-      "minValue": 500,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.14,
-      "maxValue": 525000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.8e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": "7.6e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 1000000,
-      "unitText": "m⁻¹",
-      "minValue": 100000,
-      "maxValue": 10000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 3.5,
-      "unitText": "J/cm²",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Multi-pass for layered contamination removal without excessive heat; 1-2 passes typical for light industrial cleaning on fiberglass (case studies in Composites Part B, 2021, on laser surface preparation)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.08,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 650,
-      "unitText": "K",
-      "minValue": 500,
-      "maxValue": 800,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
       "value": 50,
-      "unitText": "Pa",
+      "unitText": "%",
       "minValue": 10,
-      "maxValue": 500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 673,
-      "unitText": "K",
-      "minValue": 206,
-      "maxValue": 1952,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.04,
-      "unitText": "dimensionless",
-      "minValue": "0.0043",
-      "maxValue": 0.92,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.5e-05",
-      "unitText": "K^{-1}",
-      "minValue": -1,
-      "maxValue": 250,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.3,
-      "unitText": "W/m·K",
-      "minValue": 0.03,
-      "maxValue": 400,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 920,
-      "unitText": "J/(kg·K)",
-      "minValue": 500,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.14,
-      "maxValue": 525000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.8e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": "7.6e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.7,
-      "unitText": "J/cm²",
-      "minValue": 0.49,
-      "maxValue": 2.9,
-      "measurementTechnique": "scientific_literature"
+      "maxValue": 90,
+      "description": "Ensures uniform coverage and avoids gaps/striping on uneven fiberglass surfaces; 50% optimal for energy overlap without redundancy (process optimization in International Journal of Advanced Manufacturing Technology, 2017)."
     }
   ],
-  "citation": "Z-Beam (2025). Fiberglass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/fiberglass-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Fiberglass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/fiberglass-laser-cleaning"
 }

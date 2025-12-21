@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/rare-earth/lanthanide/praseodymium-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Praseodymium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/praseodymium-laser-cleaning
 #
@@ -13,42 +13,22 @@ Basic,Info,Name,Praseodymium,,,,,Material name
 Basic,Info,Category,rare-earth,,,,,Material category
 Basic,Info,Subcategory,lanthanide,,,,,Material subcategory
 Basic,Info,Slug,praseodymium-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,90,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,80,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
-Machine,Settings,energyDensity,3.2,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,12,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,40,%,10,90,,Machine setting: overlapRatio
-Machine,Settings,dwellTime,120,μs,,,,Machine setting: dwellTime
-Property,material_characteristics,youngsModulus,37.3,GPa,15.8,63.5,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,1.2,dimensionless,0,149,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,6.8,g/cm³,4.3,8.8,ai_research,Material property: density
-Property,material_characteristics,hardness,26,HV,0.38,906,ai_research,Material property: hardness
-Property,material_characteristics,absorptivity,0.32,,0.25,0.6,ai_research,Material property: absorptivity
-Property,material_characteristics,boilingPoint,3512,K,1705,3834,ai_research,Material property: boilingPoint
-Property,material_characteristics,thermalDestruction,1204,K,273,3520,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,195,J/(kg·K),113,457,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.72,dimensionless,0.4,0.94,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,17,W/(m·K),10.4,17.5,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,11.3,10^{-6} K^{-1},0.000006,26.2,ai_research,Material property: thermalExpansion
-Property,material_characteristics,ablationThreshold,2.9,J/cm²,0.65,2.9,ai_research,Material property: ablationThreshold
-Property,material_characteristics,absorptionCoefficient,6.3e+07,m^{-1},298300,6.6e+07,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,absorptivity,0.72,dimensionless,0.25,0.6,ai_research,Material property: absorptivity
-Property,laser_material_interaction,thermalDestruction,1204,K,273,3520,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,195,J/(kg·K),113,457,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.72,dimensionless,0.4,0.94,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,17,W/(m·K),10.4,17.5,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,11.3,10^{-6} K^{-1},0.000006,26.2,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,ablationThreshold,2.9,J/cm²,0.65,2.9,ai_research,Material property: ablationThreshold
-Property,laser_material_interaction,absorptionCoefficient,6.3e+07,m^{-1},298300,6.6e+07,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,1.9,J/cm²,1.1,3.3,scientific_literature,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalDiffusivity,1.3e-05,m^2/s,0.000007,1.9e-05,scientific_literature,Material property: thermalDiffusivity
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,90,W,1,120,,Optimal average power for Praseodymium oxide removal
+Machine,Settings,wavelength,1064,nm,355,10640,,Optimal wavelength for Praseodymium absorption characteristics
+Machine,Settings,spotSize,80,μm,0.1,500,,Optimal beam spot diameter for Praseodymium surface processing
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient Praseodymium cleaning
+Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Minimum fluence required for effective Praseodymium surface cleaning
+Machine,Settings,energyDensity,3.2,J/cm²,0.1,20,,Optimal energy density for controlled Praseodymium ablation
+Machine,Settings,pulseWidth,12,ns,0.1,1000,,Optimal pulse duration for Praseodymium thermal management
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform Praseodymium cleaning
+Machine,Settings,passCount,3,passes,1,10,,Optimal number of passes for complete Praseodymium surface cleaning
+Machine,Settings,overlapRatio,40,%,10,90,,Optimal beam overlap for uniform Praseodymium processing
+Machine,Settings,dwellTime,120,μs,0.2,200,,Optimal dwell time per spot for Praseodymium material interaction
+Machine,Settings,power,50,W,20,200,,"Typical range for Nd:YAG laser cleaning of reflective metals like rare earths; starting at 50W to avoid thermal damage given Praseodymium's low melting point (931°C) and moderate thermal conductivity (~17 W/m·K). Conservative max to prevent substrate melting. Based on manufacturer specs from IPG Photonics for metal cleaning systems; no Praseodymium-specific studies found, generalized from aluminum cleaning (Optics & Laser Technology, 2018)."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective speeds for contamination removal without excessive heat buildup; recommended 1500 mm/s for balanced cleaning rate on light contaminants. Slower for heavy contamination (500-1000 mm/s). Industry standards from laser cleaning equipment manuals (e.g., Adapt Laser Systems); adjusted for Praseodymium's reflectivity at 1064 nm to minimize absorption issues."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred for cleaning to ablate contaminants while minimizing heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for Praseodymium to limit thermal diffusion due to low conductivity. From laser physics research on metal ablation thresholds (Applied Surface Science, 2015); ns pulses common for industrial cleaning."
+Machine,Settings,repetition_rate,30,kHz,1,200,,"Typical for pulsed cleaning to balance speed and heat management; 30 kHz recommended to avoid accumulation on heat-sensitive Praseodymium. Higher rates (>50 kHz) increase speed but risk overheating. Trade-off noted in academic literature (Journal of Laser Applications, 2020); based on Nd:YAG systems for metallic surfaces."
+Machine,Settings,energy_density,1,J/cm²,0.1,20,,"Fluence range for contaminant removal below ablation threshold; Praseodymium damage threshold estimated ~4 J/cm² at 1064 nm due to high reflectivity. 1.0 J/cm² safe for cleaning. From ablation threshold studies on similar rare earth metals (Surface and Coatings Technology, 2019); conservative estimate as specific Praseodymium data scarce."
+Machine,Settings,spot_size,100,μm,0.1,500,,"Beam diameter for precise cleaning; 100 μm recommended for uniform coverage on Praseodymium surfaces, suitable for fine detail or large areas. Smaller for intricate work, larger for broad preparation. Equipment specifications from Coherent Inc. laser systems; tailored for reflective metals to optimize energy delivery."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Praseodymium without risking damage. Industry practice from case studies on metal surface preparation (Laser Cleaning Handbook, 2021); multi-pass ensures thoroughness on soft substrates."
+Machine,Settings,overlap_ratio,50,%,10,90,,"Ensures uniform coverage; 50% recommended for even cleaning on Praseodymium, avoiding gaps or overexposure. Typical 30-80% range from process optimization studies (Procedia Manufacturing, 2017); higher overlap for heavy contaminants to compensate for reflectivity."

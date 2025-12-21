@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/stone/sedimentary/porphyry-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Porphyry Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/porphyry-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Porphyry,,,,,Material name
 Basic,Info,Category,stone,,,,,Material category
 Basic,Info,Subcategory,sedimentary,,,,,Material subcategory
 Basic,Info,Slug,porphyry-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,12.7,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,fractureToughness,1.1,MPa m^{1/2},0.13,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,62.5,GPa,9.8,7.9e+10,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,0.96,dimensionless (normalized resistance index),9.5e-05,1547,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,2720,kg/m³,2.2,3045,ai_research,Material property: density
-Property,material_characteristics,hardness,6.5,Mohs,0.7,7.3,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.94,dimensionless (normalized resistance index),6.6e-05,21,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,180,MPa,2.1,220,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,18.2,MPa,2.2,36.6,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,7.2,MPa,1.4,15.7,ai_research,Material property: tensileStrength
-Property,material_characteristics,porosity,1.2,%,0,19.4,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,0.85,J/cm²,0.42,13.1,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,846,K,273,2300,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,840,J/(kg·K),400,1200,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.23,dimensionless,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,2.3,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,7.5e-06,/K,0.000006,12,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,1250,m^{-1},0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.2e-06,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.75,dimensionless,0.6,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,5000000,m⁻¹,1000000,10000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,8.5,J/cm²,5,15,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,2.5,MW/m,1,4,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.25,dimensionless,0.05,0.4,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,1473,K,1273,1673,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,0.1,Pa,0.001,1,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,846,K,273,2300,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,840,J/(kg·K),400,1200,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.23,dimensionless,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,2.3,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,7.5e-06,/K,0.000006,12,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,1250,m^{-1},0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.2e-06,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.1,J/cm²,0.65,6.3,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for Porphyry surface cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength optimized for Porphyry mineral absorption characteristics
+Machine,Settings,spotSize,100,μm,0.1,500,,Beam spot diameter for precise cleaning of Porphyry surface features
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,energyDensity,12.7,J/cm²,0.1,20,,Fluence threshold for effective contaminant removal without substrate damage
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of surface contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning without excessive thermal buildup
+Machine,Settings,power,100,W,50,500,,"Typical range for industrial 1064 nm Nd:YAG lasers cleaning stone surfaces like porphyry; starting at 100 W for light contamination to avoid thermal damage given porphyry's low thermal conductivity (~2.5 W/mK); max safe below 500 W to prevent substrate cracking (e.g., IPG Photonics YLR series specs; academic review in J. Cult. Herit. 2018)."
+Machine,Settings,scan_speed,500,mm/s,10,5000,,"Effective for contamination removal on hard stones; 500 mm/s recommended for optimal balance of cleaning efficiency and heat dissipation; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; based on industry standards from Adapt Laser Systems manuals."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred for cost-effective cleaning of porphyry; 20 ns minimizes heat-affected zone (HAZ) due to porphyry's high melting point (~1300°C) and reflectivity; picosecond (ps) or femtosecond (fs) for ultra-precise but less common industrially (Laser Phys. 2015 study on stone ablation).
+Machine,Settings,repetition_rate,30,kHz,1,200,,Standard for 1064 nm cleaning; 30 kHz recommended for porphyry to achieve fast processing without excessive heat accumulation; higher rates (>50 kHz) speed up but risk thermal buildup on low-conductivity stones (Opt. Lasers Eng. 2019).
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Fluence range for safe contaminant ablation on porphyry; 1.5 J/cm² recommended below damage threshold (~4 J/cm² for granite-like stones); conservative to account for porphyry's variable composition (Appl. Surf. Sci. 2017 ablation threshold study).
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for industrial cleaning; 200 μm recommended for porphyry surface preparation, balancing fine detail and large-area coverage; smaller for precision, larger for broad contamination (Laserax equipment specifications)."
+Machine,Settings,pass_count,2,passes,1,10,,Typically 1-2 passes for light industrial contamination on durable stones like porphyry; multi-pass for heavy buildup to ensure complete removal without exceeding safe fluence; from case studies in stone restoration (J. Laser Appl. 2020).
+Machine,Settings,overlap_ratio,70,%,10,90,,Ensures uniform coverage on irregular porphyry surfaces; 70% recommended for even cleaning without gaps or over-ablation; typical 50-80% in process optimization (Opt. Express 2016 study on scan strategies).

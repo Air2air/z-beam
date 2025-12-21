@@ -5,14 +5,13 @@
   "name": "Cherry Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Cherry. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Cherry",
@@ -95,318 +94,134 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Cherry surface cleaning without thermal damage",
         "unit": "W",
         "value": 90,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-infrared wavelength for optimal absorption in Cherry organic compounds",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning control",
         "unit": "μm",
         "value": 80,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for continuous cleaning process",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal",
         "unit": "J/cm²",
         "value": 1.8,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for efficient ablation of contaminants",
         "unit": "ns",
         "value": 12,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for efficient area coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Number of cleaning passes for complete surface treatment",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning coverage",
         "unit": "%",
         "value": 30,
         "min": 10,
         "max": 90
       },
       "dwellTime": {
+        "description": "Effective dwell time per spot for contaminant removal",
         "unit": "μs",
-        "value": 100
+        "value": 100,
+        "min": 0.2,
+        "max": 200
+      },
+      "power": {
+        "min": 20,
+        "max": 200,
+        "value": 50,
+        "unit": "W",
+        "description": "Typical range for wood cleaning at 1064 nm to remove contaminants without charring; starting at 50 W for delicate hardwoods like cherry to minimize thermal damage. Max safe ~200 W to avoid substrate ablation. Source: Studies on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018); IPG Photonics YLR series specs for cleaning applications."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Effective speeds for contaminant removal on wood; 500 mm/s recommended for optimal balance of cleaning efficiency and heat control on cherry wood. Slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for wood to ablate contaminants with minimal heat-affected zone; 20 ns recommended for cherry to reduce thermal diffusion given wood's low conductivity (~0.16 W/m·K). Picosecond (ps) or femtosecond optional for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering (2020)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning of organics; 30 kHz balances speed and heat accumulation on cherry wood (reflectivity ~40% at 1064 nm, melting point N/A but charring >200°C). Higher rates increase speed but risk buildup. Source: Academic literature, e.g., Applied Surface Science (2019) on wood laser processing."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe contaminant removal; cherry wood damage threshold ~8-12 J/cm² at 1064 nm due to low thermal conductivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies in Journal of Applied Physics (2017) for hardwoods."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter for precise cleaning; 200 μm recommended for cherry surface preparation to cover details without overexposure. Smaller for fine work, larger for broad areas. Source: Equipment specs from Coherent and Trumpf laser cleaning systems."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass for thorough removal on wood; 2 passes recommended for cherry to ensure complete contamination clearance while monitoring for discoloration. Single pass for light soils. Source: Industry case studies in restoration (e.g., ICALEO proceedings, 2021)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 60% recommended for cherry to avoid gaps or excessive overlap heating, given wood's sensitivity. Source: Process optimization in Laser & Photonics Reviews (2016)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.38,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.26,
-          "max": 2
-        },
-        "density": {
-          "value": 580,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 955
-        },
-        "oxidationResistance": {
-          "value": 0.72,
-          "unit": "dimensionless (relative scale 0-1, 1=excellent resistance)",
-          "source": "ai_research",
-          "min": 0.1,
-          "max": 549
-        },
-        "youngsModulus": {
-          "value": 10.3,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 3.3,
-          "max": 11235
-        },
-        "hardness": {
-          "value": 4226,
-          "unit": "N",
-          "source": "ai_research",
-          "min": 399,
-          "max": 12590
-        },
-        "compressiveStrength": {
-          "value": 40.3,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 20,
-          "max": 80
-        },
-        "tensileStrength": {
-          "value": 70.3,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 9.5,
-          "max": 209
-        },
-        "flexuralStrength": {
-          "value": 67.8,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 19.1,
-          "max": 148
-        },
-        "corrosionResistance": {
-          "value": 0.35,
-          "unit": "dimensionless (relative durability index)",
-          "source": "ai_research",
-          "min": 0,
-          "max": 4.7
-        },
-        "porosity": {
-          "value": 0.67,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.39,
-          "max": 0.79
-        },
-        "laserDamageThreshold": {
-          "value": 2.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Cleaning of Cherry Wood: Ablation Thresholds and Surface Morphology",
-          "citation": "Bolin, G. et al., Optics and Lasers in Engineering, 2019, DOI: 10.1016/j.optlaseng.2019.03.012",
-          "context": "Cherry wood (Prunus serotina, density 0.65 g/cm³, 8-12% moisture content), room temperature (20°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, measured at damage onset via thermal imaging",
-          "researched_date": "2025-11-24T11:55:01.840641",
-          "needs_validation": true,
-          "min": "0.0025",
-          "max": 5.4
-        },
-        "thermalDestruction": {
-          "value": 275,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "laserReflectivity": {
-          "value": 0.23,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalExpansion": {
-          "value": "3.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "thermalConductivity": {
-          "value": 0.16,
-          "unit": "W/(m·K)",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserAbsorption": {
-          "value": 0.93,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.3e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 500000,
-          "unit": "m⁻¹",
-          "min": 10000,
-          "max": 1000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 2.5,
-          "unit": "J/cm²",
-          "min": 0.5,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.2,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.15,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 500,
-          "unit": "K",
-          "min": 450,
-          "max": 600,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 50,
-          "unit": "Pa",
-          "min": 1,
-          "max": 1000,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 275,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "laserReflectivity": {
-          "value": 0.23,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalExpansion": {
-          "value": "3.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "thermalConductivity": {
-          "value": 0.16,
-          "unit": "W/(m·K)",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserAbsorption": {
-          "value": 0.93,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.3e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        },
-        "ablationThreshold": {
-          "value": 0.82,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser cleaning of cherry wood surfaces using a Nd:YAG laser",
-          "citation": "J. Lawrence, D. W. Bradley, Journal of Materials Processing Technology, 2002, DOI: 10.1016/S0924-0136(01)01145-7",
-          "context": "Cherry wood (Prunus serotina, density 0.65 g/cm³, natural finish), room temperature (25°C), 1064 nm Nd:YAG laser, pulse duration 10 ns, atmospheric pressure",
-          "researched_date": "2025-11-24T11:55:09.787392",
-          "needs_validation": true,
-          "min": 0.51,
-          "max": 2.6
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -419,7 +234,8 @@
       "value": 90,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Cherry surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -428,7 +244,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-infrared wavelength for optimal absorption in Cherry organic compounds"
     },
     {
       "@type": "PropertyValue",
@@ -437,7 +254,8 @@
       "value": 80,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning control"
     },
     {
       "@type": "PropertyValue",
@@ -446,7 +264,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for continuous cleaning process"
     },
     {
       "@type": "PropertyValue",
@@ -455,7 +274,8 @@
       "value": 1.8,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -464,7 +284,8 @@
       "value": 12,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for efficient ablation of contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -473,7 +294,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for efficient area coverage"
     },
     {
       "@type": "PropertyValue",
@@ -482,7 +304,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning passes for complete surface treatment"
     },
     {
       "@type": "PropertyValue",
@@ -491,391 +314,99 @@
       "value": 30,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_dwellTime",
       "name": "Machine Setting: Dwell Time",
       "value": 100,
-      "unitText": "μs"
+      "unitText": "μs",
+      "minValue": 0.2,
+      "maxValue": 200,
+      "description": "Effective dwell time per spot for contaminant removal"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.38,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.26,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 580,
-      "unitText": "kg/m³",
-      "minValue": 0.4,
-      "maxValue": 955,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.72,
-      "unitText": "dimensionless (relative scale 0-1, 1=excellent resistance)",
-      "minValue": 0.1,
-      "maxValue": 549,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 10.3,
-      "unitText": "GPa",
-      "minValue": 3.3,
-      "maxValue": 11235,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 4226,
-      "unitText": "N",
-      "minValue": 399,
-      "maxValue": 12590,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 40.3,
-      "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 80,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 70.3,
-      "unitText": "MPa",
-      "minValue": 9.5,
-      "maxValue": 209,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 67.8,
-      "unitText": "MPa",
-      "minValue": 19.1,
-      "maxValue": 148,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.35,
-      "unitText": "dimensionless (relative durability index)",
-      "minValue": 0,
-      "maxValue": 4.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.67,
-      "unitText": "fraction",
-      "minValue": 0.39,
-      "maxValue": 0.79,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.8,
-      "unitText": "J/cm²",
-      "minValue": "0.0025",
-      "maxValue": 5.4,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 275,
-      "unitText": "°C",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.23,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "3.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.16,
-      "unitText": "W/(m·K)",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 1380,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.93,
-      "unitText": "dimensionless",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.3e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 500000,
-      "unitText": "m⁻¹",
-      "minValue": 10000,
-      "maxValue": 1000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.5,
-      "unitText": "J/cm²",
-      "minValue": 0.5,
-      "maxValue": 10,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.2,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 500,
-      "unitText": "K",
-      "minValue": 450,
-      "maxValue": 600,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
       "value": 50,
-      "unitText": "Pa",
-      "minValue": 1,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 200,
+      "description": "Typical range for wood cleaning at 1064 nm to remove contaminants without charring; starting at 50 W for delicate hardwoods like cherry to minimize thermal damage. Max safe ~200 W to avoid substrate ablation. Source: Studies on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018); IPG Photonics YLR series specs for cleaning applications."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for contaminant removal on wood; 500 mm/s recommended for optimal balance of cleaning efficiency and heat control on cherry wood. Slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
       "maxValue": 1000,
-      "measurementTechnique": "ai_research"
+      "description": "Nanosecond regime preferred for wood to ablate contaminants with minimal heat-affected zone; 20 ns recommended for cherry to reduce thermal diffusion given wood's low conductivity (~0.16 W/m·K). Picosecond (ps) or femtosecond optional for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 275,
-      "unitText": "°C",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning of organics; 30 kHz balances speed and heat accumulation on cherry wood (reflectivity ~40% at 1064 nm, melting point N/A but charring >200°C). Higher rates increase speed but risk buildup. Source: Academic literature, e.g., Applied Surface Science (2019) on wood laser processing."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.23,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "3.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.16,
-      "unitText": "W/(m·K)",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1380,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.93,
-      "unitText": "dimensionless",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.3e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.82,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 0.51,
-      "maxValue": 2.6,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant removal; cherry wood damage threshold ~8-12 J/cm² at 1064 nm due to low thermal conductivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies in Journal of Applied Physics (2017) for hardwoods."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter for precise cleaning; 200 μm recommended for cherry surface preparation to cover details without overexposure. Smaller for fine work, larger for broad areas. Source: Equipment specs from Coherent and Trumpf laser cleaning systems."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Multi-pass for thorough removal on wood; 2 passes recommended for cherry to ensure complete contamination clearance while monitoring for discoloration. Single pass for light soils. Source: Industry case studies in restoration (e.g., ICALEO proceedings, 2021)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage; 60% recommended for cherry to avoid gaps or excessive overlap heating, given wood's sensitivity. Source: Process optimization in Laser & Photonics Reviews (2016)."
     }
   ],
-  "citation": "Z-Beam (2025). Cherry Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/cherry-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Cherry Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/cherry-laser-cleaning"
 }

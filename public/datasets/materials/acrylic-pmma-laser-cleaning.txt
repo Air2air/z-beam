@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Acrylic (PMMA) Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,162 +38,103 @@ powerRange:
   Value:  30 W
   Min:    1 W
   Max:    120 W
+  Note:   Low power for thermal-sensitive polymer cleaning
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength for controlled absorption
 
 spotSize:
   Value:  100 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Larger spot for gentle surface treatment
 
 repetitionRate:
   Value:  20 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Lower frequency to prevent thermal damage
 
 energyDensity:
   Value:  0.5 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Low energy density to avoid melting
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Short pulses for minimal thermal impact
 
 scanSpeed:
   Value:  800 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Fast scanning to reduce heat accumulation
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Multiple gentle passes for gradual cleaning
 
 overlapRatio:
   Value:  30 %
   Min:    10 %
   Max:    90 %
+  Note:   Lower overlap to prevent overheating
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  30 W
+  Min:    10 W
+  Max:    100 W
+  Note:   Typical range for pulsed Nd:YAG lasers in polymer cleaning to avoid thermal damage; starting at 30W for PMMA surface preparation. Max safe ~100W before melting (PMMA melting point ~160°C). Source: Manufacturer specs from IPG Photonics and Adapt Laser Systems for delicate substrates.
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  density:
-    Value:  1.2 g/cm³
-    Min:    0.84 g/cm³
-    Max:    2.2 g/cm³
+scan_speed:
+  Value:  2000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective range for contaminant removal; slower (500-1500 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light. Recommended 2000 mm/s balances speed and control for PMMA's low thermal conductivity. Source: Industry standards from Laserax equipment manuals.
 
-  porosity:
-    Value:  0 %
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime typical for industrial 1064 nm cleaning; picosecond (ps) or femtosecond preferred for minimal HAZ but less common. 20 ns recommended to reduce heat accumulation in PMMA. Source: Laser physics research in Optics & Laser Technology (e.g., studies on polymer ablation thresholds).
 
-  surfaceRoughness:
-    Value:  0.5 μm
+repetition_rate:
+  Value:  20 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Standard for cleaning applications; 20 kHz recommended for PMMA to enable fast processing while minimizing heat buildup (higher rates increase accumulation risk). Trade-off: higher freq speeds cleaning but risks substrate damage. Source: Academic literature from Journal of Applied Physics on pulsed laser interactions with polymers.
 
-  tensileStrength:
-    Value:  72 MPa
-    Min:    10 MPa
-    Max:    400 MPa
+energy_density:
+  Value:  0.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence below PMMA damage threshold (~1.5-2 J/cm² at 1064 nm for ns pulses) for safe contaminant removal; 0.5 J/cm² optimal to ablate surface layers without substrate melting. Source: Ablation threshold studies in Applied Surface Science (e.g., PMMA IR laser interactions).
 
-  youngsModulus:
-    Value:  3.3 GPa
-    Min:    0.01 GPa
-    Max:    5000 GPa
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for broad areas; 200 μm recommended for uniform PMMA surface prep considering beam reflectivity. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.
 
-  hardness:
-    Value:  0.1 GPa
-    Min:    51.8 GPa
-    Max:    123 GPa
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PMMA cleaning without excessive exposure. Source: Industry case studies from laser cleaning applications in plastics processing (e.g., SPIE proceedings).
 
-  flexuralStrength:
-    Value:  90 MPa
-    Min:    20.7 MPa
-    Max:    96.4 MPa
-
-  oxidationResistance:
-    Value:  2.5 μm/year
-    Min:    0.76 μm/year
-    Max:    1575 μm/year
-
-  corrosionResistance:
-    Value:  0.92 mm/year
-    Min:    0 mm/year
-    Max:    105 mm/year
-
-  compressiveStrength:
-    Value:  72 MPa
-    Min:    20 MPa
-    Max:    200 MPa
-
-  fractureToughness:
-    Value:  3.5 MPa m^{1/2}
-    Min:    0.7 MPa m^{1/2}
-    Max:    2.9 MPa m^{1/2}
-
-  electricalResistivity:
-    Value:  100000000000000 Ω·m
-    Min:    9.5e+12 Ω·m
-    Max:    100000000000000000 Ω·m
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  thermalDestruction:
-    Value:  433 K
-    Min:    228 K
-    Max:    715 K
-
-  laserAbsorption:
-    Value:  0.15 dimensionless
-    Min:    0.28 dimensionless
-    Max:    126000 dimensionless
-
-  laserDamageThreshold:
-    Value:  1.8 J/cm²
-    Min:    0.71 J/cm²
-    Max:    2.6 J/cm²
-    Source: scientific_literature
-
-  ablationThreshold:
-    Value:  0.7 J/cm²
-    Min:    0.39 J/cm²
-    Max:    2.8 J/cm²
-    Source: scientific_literature
-
-  thermalDiffusivity:
-    Value:  1.1e-07 m²/s
-    Min:    0 m²/s
-    Max:    0 m²/s
-    Source: scientific_literature
-
-  thermalExpansion:
-    Value:  0.00008 1/K
-    Min:    5.9e-05 1/K
-    Max:    0.0002 1/K
-    Source: scientific_literature
-
-  specificHeat:
-    Value:  1460 J/(kg·K)
-    Min:    1 J/(kg·K)
-    Max:    2500 J/(kg·K)
-    Source: scientific_literature
-
-  thermalConductivity:
-    Value:  0.19 W/m·K
-    Min:    0.02 W/m·K
-    Max:    3 W/m·K
-    Source: scientific_literature
-
-  laserReflectivity:
-    Value:  0.04 
-    Min:    0.02 
-    Max:    0.05 
-    Source: scientific_literature
+overlap_ratio:
+  Value:  70 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage; 70% recommended for even energy distribution on PMMA to prevent uneven heating or missed spots. Source: Process optimization studies in Laser Cleaning Handbook and academic papers on scan strategies.
 
 ================================================================================
 CITATION & USAGE
@@ -214,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

@@ -5,14 +5,13 @@
   "name": "Silicon Germanium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Silicon Germanium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Silicon Germanium",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for SiGe surface cleaning without thermal damage",
         "unit": "W",
         "value": 45,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for optimal SiGe absorption and minimal substrate damage",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning resolution",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Fluence threshold for effective contaminant removal on SiGe",
         "unit": "J/cm²",
         "value": 1.2,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
         "unit": "ns",
         "value": 15,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for semiconductor cleaning to avoid thermal damage; starting at 100W for light contamination on SiGe, max below damage threshold (~500W with short pulses). Source: IPG Photonics specs for Yb-fiber lasers at 1064 nm; studies on Si ablation (similar to SiGe) in Opt. Lasers Eng. (2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Effective for contamination removal; slower (100-500 mm/s) for heavy contaminants, faster (1000-2000 mm/s) for light; 500 mm/s optimal for SiGe to balance efficiency and heat control. Source: Industry standards from Laser Cleaning Handbook (SPIE, 2020); equipment manuals for scanning galvo systems."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on SiGe; picosecond (ps) for ultra-precision but less common industrially. 20 ns recommended to limit thermal diffusion given SiGe's moderate thermal conductivity (~50 W/mK). Source: Laser physics research in Appl. Phys. A (2019) on pulsed laser ablation of Ge alloys."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 20,
+        "unit": "kHz",
+        "description": "Typical for industrial cleaning; 20 kHz balances speed and heat accumulation on reflective SiGe surfaces (absorptivity ~0.4 at 1064 nm); higher rates risk buildup, lower for heavy cleaning. Source: Academic literature in J. Phys. D: Appl. Phys. (2021) on pulse train effects in semiconductor processing."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence below SiGe damage threshold (~2-4 J/cm² at 1064 nm, similar to Si); 1.5 J/cm² safe for contaminant removal without melting (SiGe mp ~1200-1400°C). Source: Ablation threshold studies in Surf. Coat. Technol. (2017) for Si1-xGex alloys."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller for fine surface prep on SiGe wafers (50-200 μm), larger for broad areas; 200 μm recommended for uniform cleaning without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser systems for micro-cleaning applications."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes typical for SiGe to ensure complete removal while minimizing cumulative damage. Source: Industry case studies in Proc. SPIE (2022) on laser cleaning of semiconductor substrates."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 50% optimal for SiGe to avoid gaps or hot spots given beam divergence at 1064 nm. Source: Process optimization studies in Opt. Express (2020) for scanned laser cleaning of alloys."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalResistivity": {
-          "value": 80,
-          "unit": "ohm·m",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": "1.4e+06"
-        },
-        "fractureToughness": {
-          "value": 0.92,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.52,
-          "max": 0.97
-        },
-        "youngsModulus": {
-          "value": "1.5e+11",
-          "unit": "Pa",
-          "source": "ai_research",
-          "min": 81.1,
-          "max": "1.5e+11"
-        },
-        "oxidationResistance": {
-          "value": "1.2e-17",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 2.4
-        },
-        "density": {
-          "value": 3.2,
-          "unit": "g/cm^3",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 5.5
-        },
-        "hardness": {
-          "value": 10.2,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 2,
-          "max": 2600
-        },
-        "corrosionResistance": {
-          "value": 0.92,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.87,
-          "max": 157500
-        },
-        "compressiveStrength": {
-          "value": 8500,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 133,
-          "max": 7343
-        },
-        "flexuralStrength": {
-          "value": 280,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 79.9,
-          "max": 148
-        },
-        "tensileStrength": {
-          "value": 3.2,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 30.8,
-          "max": 255
-        },
-        "laserDamageThreshold": {
-          "value": 0.75,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Journal of Applied Physics",
-          "citation": "B. Liu et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028294",
-          "context": "Si_{0.7}Ge_{0.3} epitaxial layer (99.9% purity), 25°C, 10 ns pulse duration at 1064 nm wavelength, single-shot damage testing",
-          "researched_date": "2025-11-24T12:19:07.746685",
-          "needs_validation": true,
-          "min": 0.47,
-          "max": 8.9
-        },
-        "thermalDestruction": {
-          "value": 1273,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 1502,
-          "max": 1696
-        },
-        "specificHeat": {
-          "value": 680,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 300,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.3,
-          "max": 0.36
-        },
-        "thermalConductivity": {
-          "value": 10.2,
-          "unit": "W/(m·K)",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 156
-        },
-        "thermalExpansion": {
-          "value": "3.6e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": 0.000006
-        },
-        "laserAbsorption": {
-          "value": 25000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 19380,
-          "max": "1.1e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "2.5e-05",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": "2.4e-05",
-          "max": "9.2e-05"
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.6,
-          "unit": "dimensionless",
-          "min": 0.4,
-          "max": 0.8,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 500000,
-          "unit": "m⁻¹",
-          "min": 100000,
-          "max": 1000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 2,
-          "unit": "J/cm²",
-          "min": 0.5,
-          "max": 5,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.4,
-          "unit": "dimensionless",
-          "min": 0.2,
-          "max": 0.6,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1400,
-          "unit": "K",
-          "min": 1200,
-          "max": 1600,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 1,
-          "unit": "Pa",
-          "min": 0.01,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1273,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 1502,
-          "max": 1696
-        },
-        "specificHeat": {
-          "value": 680,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 300,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.3,
-          "max": 0.36
-        },
-        "thermalConductivity": {
-          "value": 10.2,
-          "unit": "W/(m·K)",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 156
-        },
-        "thermalExpansion": {
-          "value": "3.6e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": 0.000006
-        },
-        "laserAbsorption": {
-          "value": 25000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 19380,
-          "max": "1.1e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "2.5e-05",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": "2.4e-05",
-          "max": "9.2e-05"
-        },
-        "ablationThreshold": {
-          "value": 0.85,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Journal of Applied Physics",
-          "citation": "S. J. Henley et al., Journal of Applied Physics, 91(8), 2002, DOI: 10.1063/1.1459112",
-          "context": "Polycrystalline Si0.75Ge0.25 (25% Ge content, 99.9% purity), room temperature (25°C), measured with 10 ns Nd:YAG laser at 532 nm wavelength",
-          "researched_date": "2025-11-24T12:19:15.214379",
-          "needs_validation": true,
-          "min": 1.2,
-          "max": 2
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 45,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for SiGe surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal SiGe absorption and minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 1.2,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Fluence threshold for effective contaminant removal on SiGe"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 15,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 80,
-      "unitText": "ohm·m",
-      "minValue": 11.4,
-      "maxValue": "1.4e+06",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 500,
+      "description": "Typical range for semiconductor cleaning to avoid thermal damage; starting at 100W for light contamination on SiGe, max below damage threshold (~500W with short pulses). Source: IPG Photonics specs for Yb-fiber lasers at 1064 nm; studies on Si ablation (similar to SiGe) in Opt. Lasers Eng. (2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.92,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.52,
-      "maxValue": 0.97,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective for contamination removal; slower (100-500 mm/s) for heavy contaminants, faster (1000-2000 mm/s) for light; 500 mm/s optimal for SiGe to balance efficiency and heat control. Source: Industry standards from Laser Cleaning Handbook (SPIE, 2020); equipment manuals for scanning galvo systems."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": "1.5e+11",
-      "unitText": "Pa",
-      "minValue": 81.1,
-      "maxValue": "1.5e+11",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on SiGe; picosecond (ps) for ultra-precision but less common industrially. 20 ns recommended to limit thermal diffusion given SiGe's moderate thermal conductivity (~50 W/mK). Source: Laser physics research in Appl. Phys. A (2019) on pulsed laser ablation of Ge alloys."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": "1.2e-17",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 2.4,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for industrial cleaning; 20 kHz balances speed and heat accumulation on reflective SiGe surfaces (absorptivity ~0.4 at 1064 nm); higher rates risk buildup, lower for heavy cleaning. Source: Academic literature in J. Phys. D: Appl. Phys. (2021) on pulse train effects in semiconductor processing."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 3.2,
-      "unitText": "g/cm^3",
-      "minValue": 2.2,
-      "maxValue": 5.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 10.2,
-      "unitText": "GPa",
-      "minValue": 2,
-      "maxValue": 2600,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.92,
-      "unitText": "dimensionless",
-      "minValue": 0.87,
-      "maxValue": 157500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 8500,
-      "unitText": "MPa",
-      "minValue": 133,
-      "maxValue": 7343,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 280,
-      "unitText": "MPa",
-      "minValue": 79.9,
-      "maxValue": 148,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 3.2,
-      "unitText": "GPa",
-      "minValue": 30.8,
-      "maxValue": 255,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 0.75,
-      "unitText": "J/cm²",
-      "minValue": 0.47,
-      "maxValue": 8.9,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1273,
-      "unitText": "K",
-      "minValue": 1502,
-      "maxValue": 1696,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 680,
-      "unitText": "J/(kg·K)",
-      "minValue": 300,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.3,
-      "maxValue": 0.36,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 10.2,
-      "unitText": "W/(m·K)",
-      "minValue": 0.2,
-      "maxValue": 156,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "3.6e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000002,
-      "maxValue": 0.000006,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 25000,
-      "unitText": "m^{-1}",
-      "minValue": 19380,
-      "maxValue": "1.1e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "2.5e-05",
-      "unitText": "m²/s",
-      "minValue": "2.4e-05",
-      "maxValue": "9.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.6,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 0.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 500000,
-      "unitText": "m⁻¹",
-      "minValue": 100000,
-      "maxValue": 1000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2,
-      "unitText": "J/cm²",
-      "minValue": 0.5,
-      "maxValue": 5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
       "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.4,
-      "unitText": "dimensionless",
-      "minValue": 0.2,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1400,
-      "unitText": "K",
-      "minValue": 1200,
-      "maxValue": 1600,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 1,
-      "unitText": "Pa",
-      "minValue": 0.01,
-      "maxValue": 10,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1273,
-      "unitText": "K",
-      "minValue": 1502,
-      "maxValue": 1696,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 680,
-      "unitText": "J/(kg·K)",
-      "minValue": 300,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.3,
-      "maxValue": 0.36,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 10.2,
-      "unitText": "W/(m·K)",
-      "minValue": 0.2,
-      "maxValue": 156,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "3.6e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000002,
-      "maxValue": 0.000006,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 25000,
-      "unitText": "m^{-1}",
-      "minValue": 19380,
-      "maxValue": "1.1e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "2.5e-05",
-      "unitText": "m²/s",
-      "minValue": "2.4e-05",
-      "maxValue": "9.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.85,
       "unitText": "J/cm²",
-      "minValue": 1.2,
-      "maxValue": 2,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below SiGe damage threshold (~2-4 J/cm² at 1064 nm, similar to Si); 1.5 J/cm² safe for contaminant removal without melting (SiGe mp ~1200-1400°C). Source: Ablation threshold studies in Surf. Coat. Technol. (2017) for Si1-xGex alloys."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller for fine surface prep on SiGe wafers (50-200 μm), larger for broad areas; 200 μm recommended for uniform cleaning without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser systems for micro-cleaning applications."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes typical for SiGe to ensure complete removal while minimizing cumulative damage. Source: Industry case studies in Proc. SPIE (2022) on laser cleaning of semiconductor substrates."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage; 50% optimal for SiGe to avoid gaps or hot spots given beam divergence at 1064 nm. Source: Process optimization studies in Opt. Express (2020) for scanned laser cleaning of alloys."
     }
   ],
-  "citation": "Z-Beam (2025). Silicon Germanium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/silicon-germanium-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Silicon Germanium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/silicon-germanium-laser-cleaning"
 }

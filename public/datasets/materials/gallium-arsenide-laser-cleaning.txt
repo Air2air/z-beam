@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Gallium Arsenide Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,246 +38,103 @@ powerRange:
   Value:  8 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for GaAs surface cleaning without thermal damage
 
 wavelength:
   Value:  532 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Green wavelength optimized for GaAs absorption characteristics
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning resolution
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for efficient cleaning with thermal management
 
 fluenceThreshold:
   Value:  0.8 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Fluence threshold for GaAs surface cleaning without substrate damage
 
 pulseWidth:
   Value:  15 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for controlled ablation of contaminants
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform cleaning coverage
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Number of cleaning passes for complete contaminant removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform cleaning coverage
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  20 W
+  Min:    5 W
+  Max:    50 W
+  Note:   Typical range for 532 nm pulsed lasers in semiconductor cleaning to avoid thermal damage to GaAs (melting point ~1238°C, high reflectivity at green wavelengths). Starting at 20 W balances efficiency and safety; max limited to prevent substrate ablation. Source: Studies on laser cleaning of III-V semiconductors (e.g., J. Appl. Phys. 2018 on GaAs thresholds).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  electricalResistivity:
-    Value:  3.3e+06 Ω m
-    Min:    11.4 Ω m
-    Max:    1.4e+06 Ω m
-    Source: ai_research
+scan_speed:
+  Value:  500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds for contamination removal without excessive heat buildup on GaAs; slower for heavy contamination (e.g., oxides), faster for light particles. Recommended 500 mm/s for optimal balance in industrial setups. Source: Industry manuals from IPG Photonics and Adapt Laser Systems for precision cleaning.
 
-  density:
-    Value:  5.3 g/cm³
-    Min:    2.2 g/cm³
-    Max:    5.5 g/cm³
-    Source: ai_research
+pulse_width:
+  Value:  10 ps
+  Min:    0.1 ps
+  Max:    1000 ps
+  Note:   Picosecond regime preferred over nanoseconds (5-100 ns) for GaAs to minimize heat-affected zone due to its moderate thermal conductivity (~50 W/m·K); femtoseconds (<1 ps) possible but less common for industrial cleaning. Recommended 10 ps for precise contaminant ablation. Source: Laser physics research in Opt. Express (2020) on ultrafast cleaning of semiconductors.
 
-  oxidationResistance:
-    Value:  0.008 nm/min
-    Min:    0 nm/min
-    Max:    2.4 nm/min
-    Source: ai_research
+repetition_rate:
+  Value:  10 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Low to moderate rates for GaAs to limit heat accumulation while enabling fast cleaning; higher rates (>20 kHz) increase speed but risk thermal damage. Recommended 10 kHz for balanced throughput. Source: Academic literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019, trade-offs in semiconductor applications).
 
-  youngsModulus:
-    Value:  85.4 GPa
-    Min:    81.1 GPa
-    Max:    1.5e+11 GPa
-    Source: ai_research
+energy_density:
+  Value:  0.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence below GaAs damage threshold (~1.5 J/cm² at 532 nm) for safe cleaning; typical for removing contaminants like particles or oxides. Recommended 0.5 J/cm² to ablate surface layers without substrate harm. Source: Ablation threshold studies in Phys. Rev. B (2017) for GaAs at visible wavelengths.
 
-  hardness:
-    Value:  7.5 GPa
-    Min:    2 GPa
-    Max:    2600 GPa
-    Source: ai_research
+spot_size:
+  Value:  100 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Small spots for fine detail on GaAs wafers (e.g., surface prep), larger for broad areas; 100 μm balances resolution and coverage in industrial cleaning. Source: Equipment specs from Coherent and Trumpf lasers for micro-cleaning applications.
 
-  compressiveStrength:
-    Value:  1170 MPa
-    Min:    133 MPa
-    Max:    7343 MPa
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass for heavy layers on GaAs to ensure complete removal without overexposure. Recommended 2 passes for uniform results in semiconductor processing. Source: Industry case studies (e.g., SPIE Proc. 2021 on laser cleaning protocols for GaAs devices).
 
-  tensileStrength:
-    Value:  41 MPa
-    Min:    30.8 MPa
-    Max:    255 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  140 MPa
-    Min:    79.9 MPa
-    Max:    148 MPa
-    Source: ai_research
-
-  corrosionResistance:
-    Value:  0.85 dimensionless (normalized resistance scale 0-1)
-    Min:    0.87 dimensionless (normalized resistance scale 0-1)
-    Max:    157500 dimensionless (normalized resistance scale 0-1)
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  10.5 J/cm²
-    Min:    0.47 J/cm²
-    Max:    8.9 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  1511 K
-    Min:    1502 K
-    Max:    1696 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.3 1
-    Min:    0.3 1
-    Max:    0.36 1
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  5.7e-06 1/K
-    Min:    0.000002 1/K
-    Max:    0.000006 1/K
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  55 W/m·K
-    Min:    0.2 W/m·K
-    Max:    156 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  322 J/(kg·K)
-    Min:    300 J/(kg·K)
-    Max:    900 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.68 dimensionless
-    Min:    19380 dimensionless
-    Max:    1.1e+06 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  3.2e-05 m²/s
-    Min:    2.4e-05 m²/s
-    Max:    9.2e-05 m²/s
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.68 dimensionless
-    Min:    0.5 dimensionless
-    Max:    0.9 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  10000000 m⁻¹
-    Min:    1000000 m⁻¹
-    Max:    100000000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  4.5 J/cm²
-    Min:    1 J/cm²
-    Max:    10 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  1.5 MW/m
-    Min:    0.8 MW/m
-    Max:    2.5 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.32 dimensionless
-    Min:    0.3 dimensionless
-    Max:    0.35 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1511 K
-    Min:    1400 K
-    Max:    1600 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  5 Pa
-    Min:    0.1 Pa
-    Max:    50 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1511 K
-    Min:    1502 K
-    Max:    1696 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.3 1
-    Min:    0.3 1
-    Max:    0.36 1
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  5.7e-06 1/K
-    Min:    0.000002 1/K
-    Max:    0.000006 1/K
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  55 W/m·K
-    Min:    0.2 W/m·K
-    Max:    156 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  322 J/(kg·K)
-    Min:    300 J/(kg·K)
-    Max:    900 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.68 dimensionless
-    Min:    19380 dimensionless
-    Max:    1.1e+06 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  3.2e-05 m²/s
-    Min:    2.4e-05 m²/s
-    Max:    9.2e-05 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.85 J/cm²
-    Min:    1.2 J/cm²
-    Max:    2 J/cm²
-    Source: scientific_literature
+overlap_ratio:
+  Value:  50 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser cleaning.
 
 ================================================================================
 CITATION & USAGE
@@ -298,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

@@ -23,12 +23,12 @@ description: PCB-contamination arises from polychlorinated biphenyls leaking in 
   it penetrates pores so removal challenges include deep embedding and environmental risks, yet laser cleaning ablates layers
   precisely without damaging substrates.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: PCB oil on ceramic surfaces appears as dark, greasy stains that may bead up or soak in slightly, often
@@ -121,7 +121,7 @@ relationships:
           to inconsistent coverage.
         pattern: It often spreads in blotchy patches or along the wood grain, following the porous structure and absorption
           pathways.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -214,7 +214,7 @@ relationships:
   - Transformer Housings
   prohibited_materials:
   - Food Areas
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -312,8 +312,8 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: industrial
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   concrete:
     laser_parameters:
       wavelength:

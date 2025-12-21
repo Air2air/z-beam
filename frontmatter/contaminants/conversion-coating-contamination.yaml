@@ -23,12 +23,12 @@ description: Conversion coatings, they form through chemical reactions on metal 
   occurs more readily; removal challenges arise from this bonding, yet laser cleaning effectively vaporizes it without substrate
   damage, influenced from precise energy control.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Presents as a glossy or matte coating in colors such as yellow or black, altering the ceramic's smooth,
@@ -102,7 +102,7 @@ relationships:
           wood's natural grain and texture.
         coverage: Typically partial and uneven, with significant variation due to wood's porous and absorbent nature.
         pattern: Forms irregular patches or streaks where the coating adheres poorly, often pooling in grooves or along edges.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: gaussian
       fluence_range:
@@ -193,7 +193,7 @@ relationships:
   prohibited_materials:
   - Stainless Steel
   - Plastics
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -279,8 +279,8 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: coating
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   aluminum:
     laser_parameters:
       wavelength:

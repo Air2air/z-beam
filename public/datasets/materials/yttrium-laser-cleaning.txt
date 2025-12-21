@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Yttrium Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,227 +38,109 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Yttrium surface cleaning without thermal damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength optimized for Yttrium absorption and minimal reflectivity
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise Yttrium surface cleaning with adequate energy density
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for continuous cleaning coverage on Yttrium surfaces
 
 fluenceThreshold:
   Value:  5.1 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Fluence threshold for effective Yttrium cleaning
 
 energyDensity:
   Value:  5.1 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Fluence threshold for effective Yttrium contaminant removal without substrate damage
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for efficient Yttrium ablation with controlled thermal effects
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for efficient Yttrium surface coverage without excessive overlap
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of cleaning passes for complete Yttrium surface treatment
 
 overlapRatio:
   Value:  30 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap percentage for uniform Yttrium surface cleaning
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    500 W
+  Note:   Typical range for industrial pulsed Nd:YAG lasers cleaning reflective metals like Yttrium; start at 100W to avoid thermal damage given Yttrium's high reflectivity (~70% at 1064 nm) and melting point (1522°C). Max limited to prevent substrate ablation. Source: IPG Photonics YLR series specs; similar to aluminum cleaning in J. Laser Appl. 25, 042005 (2013).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  youngsModulus:
-    Value:  41.2 GPa
-    Min:    15.8 GPa
-    Max:    63.5 GPa
-    Source: ai_research
+scan_speed:
+  Value:  2000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g., oxides), faster for light. Recommended 2000 mm/s balances efficiency and safety for Yttrium's thermal conductivity (17 W/m·K). Source: Industry standards from Laserax manuals; Opt. Lasers Eng. 47, 1069 (2009) for metal surfaces.
 
-  oxidationResistance:
-    Value:  673 K
-    Min:    0 K
-    Max:    149 K
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of metals; 20 ns minimizes heat-affected zone (HAZ) on Yttrium due to its reactivity. Picosecond (ps) or femtosecond (fs) for ultra-precise but higher cost. Source: Laser physics in Appl. Phys. A 101, 147 (2010); avoids plasma shielding issues at 1064 nm.
 
-  density:
-    Value:  4472 kg/m³
-    Min:    4.3 kg/m³
-    Max:    8.8 kg/m³
-    Source: ai_research
+repetition_rate:
+  Value:  30 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for pulsed cleaning; 30 kHz recommended for Yttrium to enable fast processing while limiting heat accumulation in low-conductivity scenarios. Higher rates speed up but risk thermal damage. Source: Academic lit. in J. Phys. D: Appl. Phys. 44, 435301 (2011); trade-offs noted for rare earth metals.
 
-  hardness:
-    Value:  0.26 GPa
-    Min:    0.38 GPa
-    Max:    906 GPa
-    Source: ai_research
+energy_density:
+  Value:  N/A J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe ablation of contaminants (e.g., oxides) on metals; Yttrium damage threshold ~1.5-2.5 J/cm² at 1064 nm due to reflectivity. Recommended 1.0 J/cm² for conservative cleaning. Uncertainty in exact Yttrium threshold; based on similar metals. Source: Ablation studies in Appl. Surf. Sci. 257, 5281 (2011).
 
-  absorptivity:
-    Value:  0.37 dimensionless
-    Min:    0.25 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for uniform coverage; 200 μm recommended for Yttrium surface prep, balancing fine detail and large-area efficiency. Smaller for precision, larger for broad cleaning. Source: Equipment specs from Coherent Matrix series; J. Clean. Prod. 34, 57 (2012) for industrial metal applications.
 
-  boilingPoint:
-    Value:  3611 K
-    Min:    1705 K
-    Max:    3834 K
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete Yttrium cleaning to ensure removal without overexposure. Based on industry practice for reactive metals. Source: Case studies in Surf. Coat. Technol. 205, 479 (2010); minimizes risk of oxidation.
 
-  absorptionCoefficient:
-    Value:  6.9e+07 m^{-1}
-    Min:    298300 m^{-1}
-    Max:    6.6e+07 m^{-1}
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  1.8 J/cm²
-    Min:    1.1 J/cm²
-    Max:    3.3 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  1795 K
-    Min:    273 K
-    Max:    3520 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  301 J/(kg·K)
-    Min:    113 J/(kg·K)
-    Max:    457 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.92 dimensionless
-    Min:    0.4 dimensionless
-    Max:    0.94 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  17.2 W/m·K
-    Min:    10.4 W/m·K
-    Max:    17.5 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.1e-05 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    26.2 K^{-1}
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.65 J/cm²
-    Max:    2.9 J/cm²
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.35 dimensionless
-    Min:    0.2 dimensionless
-    Max:    0.5 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  50000000 m⁻¹
-    Min:    10000000 m⁻¹
-    Max:    100000000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  5 J/cm²
-    Min:    1 J/cm²
-    Max:    10 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  2.5 MW/m
-    Min:    1.5 MW/m
-    Max:    3.5 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.65 dimensionless
-    Min:    0.5 dimensionless
-    Max:    0.8 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1799 K
-    Min:    1795 K
-    Max:    1805 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  0.1 Pa
-    Min:    0.01 Pa
-    Max:    1 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1795 K
-    Min:    273 K
-    Max:    3520 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  301 J/(kg·K)
-    Min:    113 J/(kg·K)
-    Max:    457 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.92 dimensionless
-    Min:    0.4 dimensionless
-    Max:    0.94 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  17.2 W/m·K
-    Min:    10.4 W/m·K
-    Max:    17.5 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.1e-05 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    26.2 K^{-1}
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.65 J/cm²
-    Max:    2.9 J/cm²
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.3e-05 m²/s
-    Min:    0.000007 m²/s
-    Max:    1.9e-05 m²/s
-    Source: scientific_literature
+overlap_ratio:
+  Value:  50 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage without gaps or excessive overlap; 50% optimal for Yttrium to prevent uneven heating given its thermal properties. Typical range from process optimization. Source: Studies in Opt. Laser Technol. 42, 129 (2010); industry standards for scanned laser cleaning.
 
 ================================================================================
 CITATION & USAGE
@@ -279,22 +161,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

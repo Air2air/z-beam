@@ -5,14 +5,13 @@
   "name": "Silicon Carbide (SiC) Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Silicon Carbide (SiC). Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Silicon Carbide (SiC)",
@@ -95,217 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for SiC surface cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for optimal SiC absorption and minimal substrate damage",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning with adequate energy density",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Minimum fluence required for effective contaminant removal from SiC surface",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for efficient contaminant removal with controlled thermal effects",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 2000,
+        "value": 300,
+        "unit": "W",
+        "description": "Typical range for industrial 1064 nm fiber lasers used in ceramic cleaning; starting at 300 W balances efficiency and safety for SiC's high thermal conductivity (~120 W/m·K) to prevent overheating. Max avoids substrate ablation. Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on SiC surface preparation."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective range for contaminant removal without excessive heat buildup; 2000 mm/s recommended for light oils/greases on SiC, slower (500-1000 mm/s) for heavy rust. Higher speeds for large areas. Source: Industry standards from Laserax cleaning systems manuals and Journal of Cleaner Production (2020) case study on ceramics."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning of SiC; 20 ns minimizes heat-affected zone (HAZ <10 μm) due to SiC's high melting point (~2700°C) and reflectivity (~40% at 1064 nm). Picosecond (ps) for ultra-precision but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on pulsed laser ablation of SiC."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Standard for 1064 nm cleaning to achieve uniform energy delivery; 50 kHz recommended for SiC to balance speed and limit heat accumulation (trade-off: higher rates increase throughput but risk thermal stress). Source: Academic literature in Optics Express (2017) on repetition rate effects in ceramic laser processing."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 2,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe contaminant ablation; SiC damage threshold ~6-10 J/cm² at 1064 nm, so 2 J/cm² recommended for removal of oxides/particles without substrate etching. Conservative for SiC's robustness. Source: Ablation threshold studies in Journal of Applied Physics (2021) and SPIE Proceedings on laser cleaning of semiconductors."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for focused cleaning; 200 μm recommended for SiC surface preparation to ensure precision on fine features while covering larger areas efficiently. Smaller for detail work, larger for broad decontamination. Source: Equipment specs from Coherent and Trumpf laser cleaning heads."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Typically 1-3 passes for complete removal of light contaminants on SiC; multi-pass (2 recommended) for layered/heavy buildup to avoid single-pass overload and damage. Single pass viable for thin films. Source: Industry practice in Laser Cleaning Handbook (2022) and case studies on ceramic substrates in Materials Science and Engineering: A (2016)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or over-ablation; 60% recommended for SiC to optimize energy distribution and minimize uneven heating given its thermal properties. Higher (70-80%) for heavy contamination. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2019) on scan strategies for laser cleaning."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 60,
-        "electricalResistivity": {
-          "value": "0.0003",
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": 0,
-          "max": 100000000000000
-        },
-        "fractureToughness": {
-          "value": 4.6,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.56,
-          "max": 5.7
-        },
-        "youngsModulus": {
-          "value": 450,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 40,
-          "max": 679
-        },
-        "oxidationResistance": {
-          "value": 1600,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 0,
-          "max": 2310
-        },
-        "density": {
-          "value": 3.2,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 1.7,
-          "max": 16.3
-        },
-        "hardness": {
-          "value": 27.5,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 6.7,
-          "max": 3150
-        },
-        "corrosionResistance": {
-          "value": 1000000,
-          "unit": "Ω·cm²",
-          "source": "ai_research",
-          "min": "0.00047",
-          "max": 262
-        },
-        "compressiveStrength": {
-          "value": 3900,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 95,
-          "max": 4090
-        },
-        "flexuralStrength": {
-          "value": 450,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 45.6,
-          "max": 1153
-        },
-        "tensileStrength": {
-          "value": 414,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 5,
-          "max": 600
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "porosity": {
-          "value": "0.005",
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.05
-        },
-        "ablationThreshold": {
-          "value": 3,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 2,
-          "max": 5
-        },
-        "thermalDestruction": {
-          "value": 3103,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 3900
-        },
-        "specificHeat": {
-          "value": 671,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 250,
-          "max": 2500
-        },
-        "laserReflectivity": {
-          "value": 0.2,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.05,
-          "max": 0.4
-        },
-        "thermalConductivity": {
-          "value": 370,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 1.4,
-          "max": 127
-        },
-        "thermalExpansion": {
-          "value": 0.000004,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000003,
-          "max": "1.1e-05"
-        },
-        "laserAbsorption": {
-          "value": 0.8,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.35,
-          "max": 2625
-        },
-        "thermalDiffusivity": {
-          "value": "0.00012",
-          "unit": "m^2/s",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "7.3e-05"
-        },
-        "laserDamageThreshold": {
-          "value": 25.3,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Optics",
-          "citation": "C. Pfaffenroth et al., Applied Optics 54(16), D94-D100 (2015), DOI: 10.1364/AO.54.000D94",
-          "context": "Polycrystalline 6H-SiC (99.9% purity), room temperature (25°C), 1064 nm wavelength, 8 ns pulse duration, measured in vacuum using single-shot method",
-          "researched_date": "2025-11-24T12:19:00.169331",
-          "needs_validation": true,
-          "min": 1.6,
-          "max": 20.9
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -318,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for SiC surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -327,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal SiC absorption and minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -336,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning with adequate energy density"
     },
     {
       "@type": "PropertyValue",
@@ -345,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage and thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -354,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Minimum fluence required for effective contaminant removal from SiC surface"
     },
     {
       "@type": "PropertyValue",
@@ -363,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for efficient contaminant removal with controlled thermal effects"
     },
     {
       "@type": "PropertyValue",
@@ -372,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -381,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -390,241 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "0.0003",
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 100000000000000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 300,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 2000,
+      "description": "Typical range for industrial 1064 nm fiber lasers used in ceramic cleaning; starting at 300 W balances efficiency and safety for SiC's high thermal conductivity (~120 W/m·K) to prevent overheating. Max avoids substrate ablation. Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on SiC surface preparation."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 4.6,
-      "unitText": "MPa√m",
-      "minValue": 0.56,
-      "maxValue": 5.7,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 2000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contaminant removal without excessive heat buildup; 2000 mm/s recommended for light oils/greases on SiC, slower (500-1000 mm/s) for heavy rust. Higher speeds for large areas. Source: Industry standards from Laserax cleaning systems manuals and Journal of Cleaner Production (2020) case study on ceramics."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 450,
-      "unitText": "GPa",
-      "minValue": 40,
-      "maxValue": 679,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective cleaning of SiC; 20 ns minimizes heat-affected zone (HAZ <10 μm) due to SiC's high melting point (~2700°C) and reflectivity (~40% at 1064 nm). Picosecond (ps) for ultra-precision but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on pulsed laser ablation of SiC."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 1600,
-      "unitText": "°C",
-      "minValue": 0,
-      "maxValue": 2310,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Standard for 1064 nm cleaning to achieve uniform energy delivery; 50 kHz recommended for SiC to balance speed and limit heat accumulation (trade-off: higher rates increase throughput but risk thermal stress). Source: Academic literature in Optics Express (2017) on repetition rate effects in ceramic laser processing."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 3.2,
-      "unitText": "g/cm³",
-      "minValue": 1.7,
-      "maxValue": 16.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 27.5,
-      "unitText": "GPa",
-      "minValue": 6.7,
-      "maxValue": 3150,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 1000000,
-      "unitText": "Ω·cm²",
-      "minValue": "0.00047",
-      "maxValue": 262,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 3900,
-      "unitText": "MPa",
-      "minValue": 95,
-      "maxValue": 4090,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 450,
-      "unitText": "MPa",
-      "minValue": 45.6,
-      "maxValue": 1153,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 414,
-      "unitText": "MPa",
-      "minValue": 5,
-      "maxValue": 600,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - laser material interaction",
-      "value": "0.005",
-      "unitText": "dimensionless",
-      "minValue": 0,
-      "maxValue": 0.05,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 3,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 2,
       "unitText": "J/cm²",
-      "minValue": 2,
-      "maxValue": 5,
-      "measurementTechnique": "ai_research"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant ablation; SiC damage threshold ~6-10 J/cm² at 1064 nm, so 2 J/cm² recommended for removal of oxides/particles without substrate etching. Conservative for SiC's robustness. Source: Ablation threshold studies in Journal of Applied Physics (2021) and SPIE Proceedings on laser cleaning of semiconductors."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 3103,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 3900,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for focused cleaning; 200 μm recommended for SiC surface preparation to ensure precision on fine features while covering larger areas efficiently. Smaller for detail work, larger for broad decontamination. Source: Equipment specs from Coherent and Trumpf laser cleaning heads."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 671,
-      "unitText": "J/(kg·K)",
-      "minValue": 250,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Typically 1-3 passes for complete removal of light contaminants on SiC; multi-pass (2 recommended) for layered/heavy buildup to avoid single-pass overload and damage. Single pass viable for thin films. Source: Industry practice in Laser Cleaning Handbook (2022) and case studies on ceramic substrates in Materials Science and Engineering: A (2016)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.2,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 370,
-      "unitText": "W/m·K",
-      "minValue": 1.4,
-      "maxValue": 127,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.000004,
-      "unitText": "K^{-1}",
-      "minValue": 0.000003,
-      "maxValue": "1.1e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.8,
-      "unitText": "dimensionless",
-      "minValue": 0.35,
-      "maxValue": 2625,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "0.00012",
-      "unitText": "m^2/s",
-      "minValue": 0.000001,
-      "maxValue": "7.3e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 25.3,
-      "unitText": "J/cm²",
-      "minValue": 1.6,
-      "maxValue": 20.9,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage without gaps or over-ablation; 60% recommended for SiC to optimize energy distribution and minimize uneven heating given its thermal properties. Higher (70-80%) for heavy contamination. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2019) on scan strategies for laser cleaning."
     }
   ],
-  "citation": "Z-Beam (2025). Silicon Carbide (SiC) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/carbide/silicon-carbide-sic-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Silicon Carbide (SiC) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/carbide/silicon-carbide-sic-laser-cleaning"
 }

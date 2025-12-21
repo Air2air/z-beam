@@ -82,6 +82,10 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const canonical = 'canonical' in metadata ? (metadata as any).canonical : undefined;
   const meta_description = 'meta_description' in metadata ? (metadata as any).meta_description : undefined;
   const subtitle = 'subtitle' in metadata ? (metadata as any).subtitle : undefined;
+  
+  // Determine content type first (needed for contamination_description)
+  const contentType = 'content_type' in metadata ? (metadata as any).content_type : undefined;
+  
   // For contaminants, use description field as contamination_description
   const contamination_description = 'description' in metadata && contentType === 'contaminants' 
     ? (metadata as any).description 
@@ -135,7 +139,6 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   };
   
   const authorName = getAuthorName(metadata.author);
-  const contentType = 'content_type' in metadata ? (metadata as any).content_type : undefined;
   
   // SEO-optimized title and description for material/settings pages
   let seoTitle = title || '';

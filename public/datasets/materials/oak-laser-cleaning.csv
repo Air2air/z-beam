@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/wood/hardwood/oak-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Oak Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/oak-laser-cleaning
 #
@@ -13,51 +13,21 @@ Basic,Info,Name,Oak,,,,,Material name
 Basic,Info,Category,wood,,,,,Material category
 Basic,Info,Subcategory,hardwood,,,,,Material subcategory
 Basic,Info,Slug,oak-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Machine,Settings,dwellTime,100,μs,,,,Machine setting: dwellTime
-Property,material_characteristics,fractureToughness,0.35,MPa m^{1/2},0.26,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,12.4,GPa,3.3,11235,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,0.85,J/cm²,0.1,549,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,720,kg/m³,0.4,955,ai_research,Material property: density
-Property,material_characteristics,hardness,5738,N,399,12590,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.75,dimensionless,0,4.7,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,50.3,MPa,20,80,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,95.1,MPa,19.1,148,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,99,MPa,9.5,209,ai_research,Material property: tensileStrength
-Property,material_characteristics,porosity,0.55,fraction,0.39,0.79,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,1.2,J/cm²,0.0025,5.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,280,°C,226,642,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,1380,J/kg·K,1.3,1554,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.12,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,0.17,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,0.000004,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,28000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.2e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.88,dimensionless,0.8,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,450000,m⁻¹,100000,1000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,2,J/cm²,1,5,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,1,2,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.12,dimensionless,0.05,0.2,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,650,K,600,700,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,100,Pa,10,500,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,280,°C,226,642,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,1380,J/kg·K,1.3,1554,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.12,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,0.17,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,0.000004,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,28000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.2e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,2.5,J/cm²,0.51,2.6,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for Oak surface cleaning without charring
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for optimal absorption in Oak cellulose and lignin
+Machine,Settings,spotSize,100,μm,0.1,500,,Beam spot diameter for precise cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Fluence threshold for effective contaminant removal without wood damage
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for complete surface cleaning
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning pattern
+Machine,Settings,dwellTime,100,μs,0.2,200,,Optimal dwell time per cleaning spot
+Machine,Settings,power,50,W,20,200,,"Typical range for pulsed Nd:YAG lasers in wood cleaning to remove contaminants without charring; starting at 50 W for light soiling on oak, max limited by oak's low thermal conductivity (~0.17 W/m·K) to avoid substrate damage. Source: Studies on laser cleaning of wooden artifacts (e.g., Journal of Cultural Heritage, 2015)."
+Machine,Settings,scan_speed,500,mm/s,10,5000,,"Effective speeds for 1064 nm cleaning of oak; slower for heavy contamination (e.g., mold or grease) to ensure removal, faster for light dust; 500 mm/s optimal for balancing efficiency and heat control. Source: Industry manuals from IPG Photonics and Adapt Laser Systems."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred for industrial cleaning of oak to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; 20 ns balances ablation of contaminants with oak's sensitivity to thermal damage. Source: Laser physics research in Optics & Lasers in Engineering (2018).
+Machine,Settings,repetition_rate,30,kHz,1,200,,"Typical for 1064 nm cleaning; 30 kHz recommended for oak to achieve fast coverage without excessive heat accumulation, as higher rates (>50 kHz) risk charring due to oak's low reflectivity (~10-20% at 1064 nm). Trade-off: higher freq speeds process but increases thermal load. Source: Academic literature, Applied Surface Science (2020)."
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Fluence range for contaminant removal on wood; oak damage threshold ~3-5 J/cm² (ablation starts at ~1 J/cm² for organics); 1.5 J/cm² safe for cleaning without degrading cellulose structure. Conservative due to oak's melting/decomposition point ~200-300°C. Source: Ablation threshold studies in Journal of Applied Physics (2017).
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for precise industrial cleaning; smaller for fine details on oak surfaces (e.g., engravings), larger for broad areas; 200 μm recommended for uniform contaminant removal without excessive overlap heating. Source: Equipment specs from Coherent and Trumpf lasers."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for oak to ensure complete removal while monitoring for discoloration. Source: Industry case studies on wood restoration (e.g., Laser Cleaning Conference proceedings, 2019)."
+Machine,Settings,overlap_ratio,50,%,10,90,,Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021).

@@ -100,7 +100,20 @@ export default async function HomePage() {
             '@type': 'ReadAction',
             target: [SITE_CONFIG.url]
           }
-        }
+        },
+        // VideoObject - Homepage video
+        ...(homeConfig.video?.id ? [{
+          '@type': 'VideoObject',
+          '@id': `${SITE_CONFIG.url}/#video`,
+          name: homeConfig.video.title || `${SITE_CONFIG.name} - Laser Cleaning Solutions`,
+          description: homeConfig.video.description || homeConfig.description || SITE_CONFIG.description,
+          thumbnailUrl: `https://img.youtube.com/vi/${homeConfig.video.id}/maxresdefault.jpg`,
+          uploadDate: homeConfig.datePublished || new Date().toISOString().split('T')[0],
+          contentUrl: `https://www.youtube.com/watch?v=${homeConfig.video.id}`,
+          embedUrl: `https://www.youtube.com/embed/${homeConfig.video.id}`,
+          duration: homeConfig.video.duration || 'PT2M30S',
+          inLanguage: 'en-US'
+        }] : [])
       ]
     };
 

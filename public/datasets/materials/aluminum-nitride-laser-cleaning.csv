@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/ceramic/technical/aluminum-nitride-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Aluminum Nitride Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/technical/aluminum-nitride-laser-cleaning
 #
@@ -13,38 +13,20 @@ Basic,Info,Name,Aluminum Nitride,,,,,Material name
 Basic,Info,Category,ceramic,,,,,Material category
 Basic,Info,Subcategory,technical,,,,,Material subcategory
 Basic,Info,Slug,aluminum-nitride-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,80,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,2,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,3.3,g/cm³,1.7,16.3,,Material property: density
-Property,material_characteristics,porosity,0,%,0,30,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,0.5,μm,,,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,300,MPa,5,600,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,310,GPa,40,679,,Material property: youngsModulus
-Property,material_characteristics,hardness,12,GPa,6.7,3150,,Material property: hardness
-Property,material_characteristics,flexuralStrength,350,MPa,45.6,1153,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,20,μm/year,0,2310,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,0.78,mm/year,0.00047,262,,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,300,MPa,95,4090,,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,18,MPa m^{1/2},0.56,5.7,,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,10000000000000,Ω·m,0,100000000000000,,Material property: electricalResistivity
-Property,laser_material_interaction,thermalDestruction,2473,K,273,3900,,Material property: thermalDestruction
-Property,laser_material_interaction,laserAbsorption,0.15,dimensionless,0.35,2625,,Material property: laserAbsorption
-Property,laser_material_interaction,laserDamageThreshold,12.5,J/cm²,1.6,20.9,scientific_literature,Material property: laserDamageThreshold
-Property,laser_material_interaction,ablationThreshold,2.1,J/cm²,0.57,4,scientific_literature,Material property: ablationThreshold
-Property,laser_material_interaction,thermalDiffusivity,8.5e-05,m²/s,0.000001,7.3e-05,scientific_literature,Material property: thermalDiffusivity
-Property,laser_material_interaction,thermalExpansion,4.5e-06,K^{-1},0.000003,1.1e-05,scientific_literature,Material property: thermalExpansion
-Property,laser_material_interaction,specificHeat,740,J/(kg·K),250,2500,scientific_literature,Material property: specificHeat
-Property,laser_material_interaction,thermalConductivity,170,W/m·K,1.4,127,scientific_literature,Material property: thermalConductivity
-Property,laser_material_interaction,laserReflectivity,0.23,,0.05,0.4,scientific_literature,Material property: laserReflectivity
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,80,W,1,120,,Optimal average power for ceramic cleaning
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for optimal absorption
+Machine,Settings,spotSize,50,μm,0.1,500,,Beam spot diameter for effective cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Pulse frequency for controlled material removal
+Machine,Settings,energyDensity,2,J/cm²,0.1,20,,Energy per unit area for surface cleaning
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Pulse duration for minimal thermal penetration
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Beam travel speed for uniform coverage
+Machine,Settings,passCount,3,passes,1,10,,Number of cleaning cycles for complete removal
+Machine,Settings,overlapRatio,50,%,10,90,,Beam overlap for consistent surface treatment
+Machine,Settings,power,100,W,20,200,,Typical range for industrial cleaning of ceramics like AlN to avoid thermal damage; starting at 100 W balances efficiency and safety. Max ~200 W before risking substrate ablation. Source: IPG Photonics laser cleaning systems specs for delicate materials.
+Machine,Settings,scan_speed,2000,mm/s,10,5000,,"Effective speeds for contaminant removal on AlN; slower for heavy contamination (500-1000 mm/s), faster for light (2000-5000 mm/s). Recommended 2000 mm/s for optimal balance. Source: Industry standards from Laserax equipment manuals."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred for AlN cleaning to minimize heat-affected zone (HAZ) due to high thermal conductivity; picosecond (ps) or femtosecond for ultra-precision but less common industrially. 20 ns recommended for low HAZ. Source: Laser physics studies in Optics & Laser Technology (e.g., ns pulses for ceramics)."
+Machine,Settings,repetition_rate,50,kHz,1,200,,"Typical for 1064 nm cleaning; 50 kHz recommended for AlN to achieve fast cleaning without excessive heat accumulation, trading off speed vs. thermal load. Higher rates (>80 kHz) increase heat on reflective AlN. Source: Academic literature in Applied Surface Science on pulse repetition effects."
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Fluence range for safe contaminant ablation on AlN; damage threshold ~2-3 J/cm² at 1064 nm due to AlN's high melting point and reflectivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies in Journal of Applied Physics for nitrides.
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for uniform cleaning; smaller (50-100 μm) for fine details, larger (200-500 μm) for area prep on AlN. 200 μm recommended for industrial surface preparation. Source: Manufacturer specs from Coherent and Trumpf laser systems."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete AlN cleaning to ensure uniformity without overexposure. Source: Industry case studies in laser cleaning of ceramics (e.g., SPIE proceedings)."
+Machine,Settings,overlap_ratio,60,%,10,90,,"Ensures uniform coverage; 60% recommended for AlN to avoid gaps or overheating, typical range 30-80% based on contamination. Source: Process optimization in Journal of Laser Applications."

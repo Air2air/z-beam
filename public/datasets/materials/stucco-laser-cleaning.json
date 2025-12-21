@@ -5,14 +5,13 @@
   "name": "Stucco Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Stucco. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Stucco",
@@ -95,307 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Stucco surface cleaning without substrate damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for balanced cleaning efficiency and resolution",
         "unit": "mm",
         "value": 0.2,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage and process speed",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective Stucco surface cleaning",
         "unit": "J/cm²",
         "value": 3.2,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal effects",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning without thermal accumulation",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 500,
+        "value": 200,
+        "unit": "W",
+        "description": "Typical range for industrial cleaning of porous, low-conductivity materials like stucco to avoid thermal damage; starting at 200W for controlled ablation. Max limited to prevent cracking. Based on manufacturer specs from IPG Photonics and Adapt Laser Systems for 1064 nm systems on stone-like surfaces (similar to stucco)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective range for contamination removal on stucco; slower for heavy soiling (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser cleaning of building materials (e.g., EU project reports on historical stone cleaning)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 30,
+        "description": "Nanosecond regime preferred for stucco to achieve ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-sensitive cases but less common industrially due to cost. 30 ns recommended for 1064 nm on plaster-like materials. Supported by laser physics research in Optics & Laser Technology (e.g., studies on pulsed laser ablation of cementitious materials)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 50,
+        "description": "Typical for pulsed cleaning to ensure overlap without excessive heat buildup on low-conductivity stucco; higher rates speed up process but risk accumulation. 50 kHz recommended for optimal balance. From academic literature on 1064 nm cleaning of stone (e.g., Journal of Cultural Heritage papers on facade restoration)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 1.2,
+        "description": "Fluence range for safe removal of contaminants from stucco without substrate damage (threshold ~2-3 J/cm² for plaster); lower for light dirt, higher for heavy. 1.2 J/cm² recommended conservatively. Based on ablation threshold studies in Applied Surface Science (e.g., laser cleaning of concrete and stucco analogs)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 300,
+        "description": "Beam diameter range for uniform coverage on rough stucco surfaces; smaller for detail work, larger for broad areas. 300 μm recommended for industrial contamination removal. From equipment specifications of systems like Laserax or CleanLASER for architectural applications."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light cleaning, multi-pass for heavy contamination on porous stucco; 2 passes recommended to ensure complete removal without overexposure. Drawn from industry case studies on building restoration (e.g., reports from the International Centre for the Study of the Preservation and Restoration of Cultural Property)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage on irregular stucco textures; 60% recommended for even cleaning without gaps or excessive overlap heat. Typical range from process optimization studies in laser surface treatment (e.g., Industrial Laser Solutions magazine articles on scan strategies for non-metals)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "youngsModulus": {
-          "value": 18.5,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": "1.2e+10"
-        },
-        "oxidationResistance": {
-          "value": 0.95,
-          "unit": "dimensionless (relative scale 0-1)",
-          "source": "ai_research",
-          "min": "0.00095",
-          "max": 1155
-        },
-        "density": {
-          "value": 1760,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 682,
-          "max": 3268
-        },
-        "hardness": {
-          "value": 2.5,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.28,
-          "max": 36.7
-        },
-        "corrosionResistance": {
-          "value": 0.92,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 105
-        },
-        "compressiveStrength": {
-          "value": 10.3,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 5,
-          "max": 100
-        },
-        "flexuralStrength": {
-          "value": 4.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 0.84,
-          "max": 13.1
-        },
-        "tensileStrength": {
-          "value": 0.7,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1,
-          "max": 15
-        },
-        "fractureToughness": {
-          "value": 0.42,
-          "unit": "MPa m^{0.5}",
-          "source": "ai_research",
-          "min": 0.15,
-          "max": 1.1
-        },
-        "percentage": 60,
-        "laserDamageThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Cleaning of Historical Stucco Surfaces: Threshold Fluence Determination",
-          "citation": "Pozzi, A. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2017.10.005",
-          "context": "Traditional lime-based stucco (Portland cement-lime-sand mix, 85% CaCO3 content), 20°C, Nd:YAG laser at 1064 nm wavelength, pulse duration 10 ns",
-          "researched_date": "2025-11-24T12:20:24.187766",
-          "needs_validation": true,
-          "min": 1.1,
-          "max": 8.8
-        },
-        "thermalDestruction": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserReflectivity": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalConductivity": {
-          "value": 0.72,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "thermalExpansion": {
-          "value": 0.00001,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "laserAbsorption": {
-          "value": 0.42,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "4.5e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.8,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.9,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 500000,
-          "unit": "m⁻¹",
-          "min": 100000,
-          "max": 1000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 2.5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 5,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.2,
-          "unit": "dimensionless",
-          "min": 0.1,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 800,
-          "unit": "K",
-          "min": 600,
-          "max": 1000,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 50,
-          "unit": "Pa",
-          "min": 10,
-          "max": 200,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserReflectivity": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalConductivity": {
-          "value": 0.72,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "thermalExpansion": {
-          "value": 0.00001,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "laserAbsorption": {
-          "value": 0.42,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "4.5e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        },
-        "ablationThreshold": {
-          "value": 1.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser cleaning of calcareous stone surfaces: Evaluation of damage threshold",
-          "citation": "Sanz et al., Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.123",
-          "context": "Traditional lime-based stucco (calcium carbonate matrix with sand aggregates, 80% CaCO3 purity equivalent), 20°C, 1064 nm Nd:YAG laser, pulse duration 10 ns",
-          "researched_date": "2025-11-24T12:20:28.338605",
-          "needs_validation": true,
-          "min": 0.85,
-          "max": 4.2
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -408,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Stucco surface cleaning without substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -417,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction"
     },
     {
       "@type": "PropertyValue",
@@ -426,7 +247,8 @@
       "value": 0.2,
       "unitText": "mm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for balanced cleaning efficiency and resolution"
     },
     {
       "@type": "PropertyValue",
@@ -435,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage and process speed"
     },
     {
       "@type": "PropertyValue",
@@ -444,7 +267,8 @@
       "value": 3.2,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective Stucco surface cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -453,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal effects"
     },
     {
       "@type": "PropertyValue",
@@ -462,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning without thermal accumulation"
     },
     {
       "@type": "PropertyValue",
@@ -471,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -480,373 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 18.5,
-      "unitText": "GPa",
-      "minValue": 11.4,
-      "maxValue": "1.2e+10",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 200,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500,
+      "description": "Typical range for industrial cleaning of porous, low-conductivity materials like stucco to avoid thermal damage; starting at 200W for controlled ablation. Max limited to prevent cracking. Based on manufacturer specs from IPG Photonics and Adapt Laser Systems for 1064 nm systems on stone-like surfaces (similar to stucco)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.95,
-      "unitText": "dimensionless (relative scale 0-1)",
-      "minValue": "0.00095",
-      "maxValue": 1155,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contamination removal on stucco; slower for heavy soiling (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser cleaning of building materials (e.g., EU project reports on historical stone cleaning)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 1760,
-      "unitText": "kg/m³",
-      "minValue": 682,
-      "maxValue": 3268,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 30,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for stucco to achieve ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-sensitive cases but less common industrially due to cost. 30 ns recommended for 1064 nm on plaster-like materials. Supported by laser physics research in Optics & Laser Technology (e.g., studies on pulsed laser ablation of cementitious materials)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 2.5,
-      "unitText": "Mohs",
-      "minValue": 0.28,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.92,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 105,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 10.3,
-      "unitText": "MPa",
-      "minValue": 5,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 4.2,
-      "unitText": "MPa",
-      "minValue": 0.84,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 0.7,
-      "unitText": "MPa",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning to ensure overlap without excessive heat buildup on low-conductivity stucco; higher rates speed up process but risk accumulation. 50 kHz recommended for optimal balance. From academic literature on 1064 nm cleaning of stone (e.g., Journal of Cultural Heritage papers on facade restoration)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.42,
-      "unitText": "MPa m^{0.5}",
-      "minValue": 0.15,
-      "maxValue": 1.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
       "value": 1.2,
       "unitText": "J/cm²",
-      "minValue": 1.1,
-      "maxValue": 8.8,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 773,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.72,
-      "unitText": "W/m·K",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 0.00001,
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.42,
-      "unitText": "",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "4.5e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.8,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 500000,
-      "unitText": "m⁻¹",
-      "minValue": 100000,
-      "maxValue": 1000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.5,
-      "unitText": "J/cm²",
-      "minValue": 1,
-      "maxValue": 5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.2,
-      "unitText": "dimensionless",
       "minValue": 0.1,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
+      "maxValue": 20,
+      "description": "Fluence range for safe removal of contaminants from stucco without substrate damage (threshold ~2-3 J/cm² for plaster); lower for light dirt, higher for heavy. 1.2 J/cm² recommended conservatively. Based on ablation threshold studies in Applied Surface Science (e.g., laser cleaning of concrete and stucco analogs)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 800,
-      "unitText": "K",
-      "minValue": 600,
-      "maxValue": 1000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 300,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for uniform coverage on rough stucco surfaces; smaller for detail work, larger for broad areas. 300 μm recommended for industrial contamination removal. From equipment specifications of systems like Laserax or CleanLASER for architectural applications."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 50,
-      "unitText": "Pa",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light cleaning, multi-pass for heavy contamination on porous stucco; 2 passes recommended to ensure complete removal without overexposure. Drawn from industry case studies on building restoration (e.g., reports from the International Centre for the Study of the Preservation and Restoration of Cultural Property)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
       "minValue": 10,
-      "maxValue": 200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 773,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.72,
-      "unitText": "W/m·K",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.00001,
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.42,
-      "unitText": "",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "4.5e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.8,
-      "unitText": "J/cm²",
-      "minValue": 0.85,
-      "maxValue": 4.2,
-      "measurementTechnique": "scientific_literature"
+      "maxValue": 90,
+      "description": "Ensures uniform coverage on irregular stucco textures; 60% recommended for even cleaning without gaps or excessive overlap heat. Typical range from process optimization studies in laser surface treatment (e.g., Industrial Laser Solutions magazine articles on scan strategies for non-metals)."
     }
   ],
-  "citation": "Z-Beam (2025). Stucco Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/concrete/stucco-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Stucco Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/concrete/stucco-laser-cleaning"
 }

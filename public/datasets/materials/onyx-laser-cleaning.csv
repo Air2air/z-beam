@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/stone/sedimentary/onyx-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Onyx Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/onyx-laser-cleaning
 #
@@ -13,51 +13,21 @@ Basic,Info,Name,Onyx,,,,,Material name
 Basic,Info,Category,stone,,,,,Material category
 Basic,Info,Subcategory,sedimentary,,,,,Material subcategory
 Basic,Info,Slug,onyx-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Machine,Settings,dwellTime,200,μs,,,,Machine setting: dwellTime
-Property,material_characteristics,fractureToughness,0.78,MPa m^{1/2},0.13,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,78,GPa,9.8,7.9e+10,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,1,dimensionless (resistance index),9.5e-05,1547,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,2.6,g/cm³,2.2,3045,ai_research,Material property: density
-Property,material_characteristics,hardness,7,Mohs,0.7,7.3,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.96,dimensionless,6.6e-05,21,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,85,MPa,2.1,220,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,12.5,MPa,2.2,36.6,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,12.5,MPa,1.4,15.7,ai_research,Material property: tensileStrength
-Property,material_characteristics,porosity,0.4,%,0,19.4,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,0.75,J/cm²,0.42,13.1,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,1983,K,273,2300,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,740,J/(kg·K),400,1200,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.04,dimensionless,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,2,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,1.2e-05,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,0.32,,0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,0.000001,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.2,dimensionless,0.1,0.3,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,100,m⁻¹,10,1000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,8,J/cm²,5,15,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,1,2,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.1,dimensionless,0.05,0.2,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,1983,K,1500,2000,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,0.001,Pa,0.001,0.1,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,1983,K,273,2300,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,740,J/(kg·K),400,1200,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.04,dimensionless,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,2,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,1.2e-05,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,0.32,,0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,0.000001,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,4.2,J/cm²,0.65,6.3,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for Onyx surface cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength optimized for Onyx absorption and minimal subsurface damage
+Machine,Settings,spotSize,50,μm,0.1,500,,Beam spot diameter for precise cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Fluence threshold for effective contaminant removal without substrate damage
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of surface contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning without excessive thermal buildup
+Machine,Settings,dwellTime,200,μs,0.2,200,,Optimal dwell time per spot for effective cleaning
+Machine,Settings,power,100,W,50,500,,"Typical range for Nd:YAG lasers in stone cleaning to avoid thermal damage; starting at 100W for light contamination on Onyx (chalcedony-based, low thermal conductivity); max safe below 500W to prevent cracking (based on IPG Photonics specs and studies in J. Cult. Herit. 2018)."
+Machine,Settings,scan_speed,500,mm/s,10,5000,,"Effective speeds for contamination removal; 500 mm/s recommended for optimal balance on Onyx; slower (100-500 mm/s) for heavy contamination, faster (500-2000 mm/s) for light; from industry manuals like those from Adapt Laser Systems."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime typical for industrial cleaning to minimize heat-affected zone (HAZ) on heat-sensitive Onyx; 20 ns recommended over ps/fs for cost-effectiveness while reducing thermal accumulation (laser physics in Opt. Lasers Eng. 2020).
+Machine,Settings,repetition_rate,30,kHz,1,200,,Common for 1064 nm cleaning; 30 kHz recommended for Onyx to balance speed and heat buildup (high freq risks accumulation on low-conductivity substrates); trade-off noted in Appl. Surf. Sci. 2019.
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Fluence range for safe contaminant ablation; Onyx damage threshold ~6-8 J/cm² (SiO2-based); 1.5 J/cm² recommended for cleaning without substrate etching (ablation studies in J. Appl. Phys. 2017).
+Machine,Settings,spot_size,300,μm,0.1,500,,"Beam diameter for uniform coverage; 300 μm recommended for Onyx surface preparation (fine detail vs. large area); from equipment specs like Coherent lasers, suitable for stone texturing."
+Machine,Settings,pass_count,2,passes,1,10,,"Typically 1-3 passes for complete removal on stones; 2 passes recommended for Onyx to ensure uniformity without overexposure; based on case studies in industrial cleaning (Laser Cleaning Handbook, 2021)."
+Machine,Settings,overlap_ratio,50,%,10,90,,Ensures uniform coverage; 50% recommended for Onyx to avoid gaps or excessive overlap-induced damage; typical range from process optimization in Opt. Express 2016.

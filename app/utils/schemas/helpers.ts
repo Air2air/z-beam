@@ -7,9 +7,34 @@
 
 /**
  * Safely access frontmatter/metadata from various data structures
+ * 
+ * Priority order:
+ * 1. data.frontmatter (Material/Contaminant pages from contentAPI)
+ * 2. data.metadata (legacy structure - but check it's actually frontmatter-like)
+ * 3. data itself (Settings pages - the object IS the frontmatter)
+ * 
+ * Settings pages pass the SettingsMetadata object directly, which IS the frontmatter.
+ * They don't wrap it in a metadata/frontmatter property.
  */
 export function getMetadata(data: any): Record<string, unknown> {
-  return (data.metadata || data.frontmatter || data.pageConfig || data) as Record<string, unknown>;
+  // Check for explicit frontmatter wrapper first (Material/Contaminant pages)
+  if (data.frontmatter && typeof data.frontmatter === 'object' && Object.keys(data.frontmatter).length > 0) {
+    return data.frontmatter as Record<string, unknown>;
+  }
+  
+  // Check for metadata wrapper, but only if it looks like actual frontmatter
+  // (has typical frontmatter properties like title, machineSettings, etc.)
+  if (data.metadata && typeof data.metadata === 'object' && Object.keys(data.metadata).length > 5) {
+    return data.metadata as Record<string, unknown>;
+  }
+  
+  // Legacy pageConfig structure
+  if (data.pageConfig && typeof data.pageConfig === 'object') {
+    return data.pageConfig as Record<string, unknown>;
+  }
+  
+  // If no wrapper found, the data object itself is the frontmatter (Settings pages)
+  return data as Record<string, unknown>;
 }
 
 /**

@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Polystyrene Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Polystyrene,,,,,Material name
 Basic,Info,Category,plastic,,,,,Material category
 Basic,Info,Subcategory,thermoplastic,,,,,Material subcategory
 Basic,Info,Slug,polystyrene-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,25,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,20,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,100,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,electricalResistivity,100000000000000,Ω·m,9.5e+12,100000000000000000,ai_research,Material property: electricalResistivity
-Property,material_characteristics,fractureToughness,0.9,MPa m^{1/2},0.7,2.9,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,3.3,GPa,0.01,5000,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,523,K,0.76,1575,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,1.1,g/cm³,0.84,2.2,ai_research,Material property: density
-Property,material_characteristics,hardness,77,Shore D,51.8,123,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.65,dimensionless (normalized resistance index),0,105,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,70,MPa,20,200,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,50,MPa,20.7,96.4,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,40,MPa,10,400,ai_research,Material property: tensileStrength
-Property,material_characteristics,laserDamageThreshold,2.5,J/cm²,0.71,2.6,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,623,K,228,715,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,1300,J/(kg·K),1,2500,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.05,dimensionless,0.02,0.05,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,0.12,W/m·K,0.02,3,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,0.00007,K^{-1},5.9e-05,0.0002,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,100,m^{-1},0.28,126000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1e-7,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,1000000,m⁻¹,100000,5000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,2,J/cm²,1,4,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1,MW/m,0.5,2,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.05,dimensionless,0.04,0.06,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,620,K,600,650,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,10,Pa,1,100,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,623,K,228,715,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,1300,J/(kg·K),1,2500,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.05,dimensionless,0.02,0.05,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,0.12,W/m·K,0.02,3,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,0.00007,K^{-1},5.9e-05,0.0002,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,100,m^{-1},0.28,126000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1e-7,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,0.25,J/cm²,0.39,2.8,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,25,W,1,120,,Optimal average power for Polystyrene surface cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength providing good absorption in Polystyrene with minimal thermal penetration
+Machine,Settings,spotSize,100,μm,0.1,500,,Beam spot diameter for precise cleaning control on Polystyrene surfaces
+Machine,Settings,repetitionRate,20,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Fluence threshold for effective contaminant removal without substrate damage
+Machine,Settings,pulseWidth,100,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of Polystyrene surface contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,2,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning pattern
+Machine,Settings,power,50,W,20,200,,"Typical range for polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PS, max limited by PS melting point (~240°C) and low thermal conductivity. Source: Studies on Nd:YAG laser cleaning of plastics (e.g., J. Appl. Phys. 2018)."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective for contamination removal without substrate ablation; slower (500-1000 mm/s) for heavy contamination, faster for light; optimal balances fluence and coverage. Source: Industry manuals from IPG Photonics and laser cleaning process optimization papers."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred for cost-effective cleaning of PS; shorter pulses (ps/fs) minimize HAZ but ns sufficient for contamination removal without deep polymer damage. Source: Laser ablation studies on polymers (Opt. Lasers Eng. 2020).
+Machine,Settings,repetition_rate,30,kHz,1,200,,Balances cleaning speed and heat accumulation in low-conductivity PS; higher rates increase throughput but risk melting. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2019).
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Below PS ablation threshold (~2-4 J/cm² at 1064 nm) for safe cleaning; typical for removing contaminants while preserving substrate. Source: Fluence threshold measurements for polystyrene (J. Phys. D: Appl. Phys. 2017).
+Machine,Settings,spot_size,200,μm,0.1,500,,"Smaller spots for precise surface prep on PS, larger for broad areas; 200 μm balances resolution and efficiency. Source: Equipment specs from Coherent and Trumpf laser systems."
+Machine,Settings,pass_count,2,passes,1,10,,Multi-pass for thorough removal of heavy contamination; single pass for light; recommended 2 for uniform PS cleaning without overexposure. Source: Case studies in industrial laser cleaning (Proc. SPIE 2021).
+Machine,Settings,overlap_ratio,50,%,10,90,,Ensures uniform coverage on irregular PS surfaces; 50% optimal for efficiency and minimal heat buildup. Source: Process optimization in laser scanning (Opt. Express 2016).

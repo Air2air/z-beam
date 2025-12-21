@@ -5,14 +5,13 @@
   "name": "Quartz Glass Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Quartz Glass. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Quartz Glass",
@@ -95,315 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Quartz Glass cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength with good transmission through Quartz Glass for selective contaminant removal",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning with adequate energy density",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with controlled thermal accumulation",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Energy density threshold for effective contaminant removal without damaging Quartz Glass substrate",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate heating",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Number of cleaning passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap percentage for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for industrial laser cleaning systems (e.g., CleanLaser CL 50-500 models) on delicate substrates like quartz glass to avoid thermal damage; starting at 100W for controlled ablation of contaminants. Max safe ~300-500W depending on fluence to prevent cracking (source: IPG Photonics specs and J. Laser Appl. 2018 study on glass cleaning)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; 500 mm/s recommended for optimal balance on quartz to minimize heat input (source: Industry standards from Laserax manuals and Opt. Lasers Eng. 2020 on scan optimization)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime typical for cost-effective cleaning of quartz glass; 5-50 ns for ns lasers, ps (10-100 ps) for minimal HAZ but higher cost; 20 ns recommended to reduce thermal effects given quartz's low absorption at 1064 nm (source: Laser physics in Appl. Phys. A 2019 on pulse regimes for dielectrics)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Standard for pulsed cleaning; 20-50 kHz for controlled energy delivery, up to 100 kHz for faster processing but risk of heat accumulation on low-conductivity quartz; 50 kHz balances speed and safety (source: Academic lit. in J. Appl. Phys. 2021 on rep rate trade-offs for transparent substrates)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence for contaminant ablation without substrate damage; damage threshold for quartz ~10-15 J/cm² at 1064 nm ns pulses; 1.5 J/cm² recommended for safe cleaning of organics/metals on glass (source: Ablation studies in Opt. Express 2017 on fused silica thresholds)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for precision vs. area coverage; 50-200 μm for fine detail on quartz surfaces, 200-500 μm for larger areas; 200 μm recommended for uniform cleaning without hotspots (source: Equipment specs from Coherent and Trumpf laser systems)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on quartz while staying below damage threshold (source: Industry case studies in Surf. Coat. Technol. 2022 on multi-pass laser cleaning of glass)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 30-50% for speed, 50-80% for thorough cleaning; 50% recommended for quartz to avoid uneven heating given its thermal properties (source: Process optimization in Lasers Manuf. Mater. Process. 2019)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalResistivity": {
-          "value": 10000000000000000,
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": "9.5e+09",
-          "max": 10000000000000000
-        },
-        "fractureToughness": {
-          "value": 0.75,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.56,
-          "max": 2.6
-        },
-        "youngsModulus": {
-          "value": 73,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 60.8,
-          "max": "6.1e+10"
-        },
-        "oxidationResistance": {
-          "value": 1473,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 0,
-          "max": 2177
-        },
-        "density": {
-          "value": 2.2,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 2625
-        },
-        "hardness": {
-          "value": 6,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 4,
-          "max": 2310
-        },
-        "corrosionResistance": {
-          "value": 1,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": "4.8e-05",
-          "max": 1.6
-        },
-        "compressiveStrength": {
-          "value": 1100,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 620,
-          "max": 2170
-        },
-        "flexuralStrength": {
-          "value": 70,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 10,
-          "max": 780
-        },
-        "tensileStrength": {
-          "value": 48,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 7,
-          "max": 733
-        },
-        "laserDamageThreshold": {
-          "value": 20,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Optics",
-          "citation": "H. K. Sun, T. F. Bencala, S. J. J. Kwok, and M. D. Feit, Applied Optics, Vol. 34, Issue 21, pp. 4690-4694, 1995, DOI: 10.1364/AO.34.004690",
-          "context": "High-purity fused silica (equivalent to quartz glass, >99.99% SiO2), room temperature (25°C), 1064 nm wavelength, 1 ns pulse duration, single-shot (1-on-1) damage testing",
-          "researched_date": "2025-11-24T12:09:14.517605",
-          "needs_validation": true,
-          "min": 2.4,
-          "max": 15.6
-        },
-        "thermalDestruction": {
-          "value": 1986,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 638,
-          "max": 2426
-        },
-        "specificHeat": {
-          "value": 740,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 120,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.04,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 3.8
-        },
-        "thermalConductivity": {
-          "value": 1.4,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.77,
-          "max": 36.7
-        },
-        "thermalExpansion": {
-          "value": "5.5e-07",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": 9.7
-        },
-        "laserAbsorption": {
-          "value": 0.2,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.01,
-          "max": 73500
-        },
-        "thermalDiffusivity": {
-          "value": "8.6e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.00001
-        },
-        "ablationThreshold": {
-          "value": 20,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.64,
-          "max": 13.1
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.02,
-          "unit": "dimensionless",
-          "min": 0.01,
-          "max": 0.05,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 10,
-          "unit": "m⁻¹",
-          "min": 1,
-          "max": 100,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 20,
-          "unit": "J/cm²",
-          "min": 10,
-          "max": 40,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 2.5,
-          "unit": "MW/m",
-          "min": 1,
-          "max": 4,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.04,
-          "unit": "dimensionless",
-          "min": 0.04,
-          "max": 0.04,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 2000,
-          "unit": "K",
-          "min": 1900,
-          "max": 2100,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 0.01,
-          "unit": "Pa",
-          "min": "0.001",
-          "max": 0.1,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1986,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 638,
-          "max": 2426
-        },
-        "specificHeat": {
-          "value": 740,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 120,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.04,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 3.8
-        },
-        "thermalConductivity": {
-          "value": 1.4,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.77,
-          "max": 36.7
-        },
-        "thermalExpansion": {
-          "value": "5.5e-07",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": 9.7
-        },
-        "laserAbsorption": {
-          "value": 0.2,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.01,
-          "max": 73500
-        },
-        "thermalDiffusivity": {
-          "value": "8.6e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.00001
-        },
-        "ablationThreshold": {
-          "value": 20,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.64,
-          "max": 13.1
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -416,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Quartz Glass cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -425,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength with good transmission through Quartz Glass for selective contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -434,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning with adequate energy density"
     },
     {
       "@type": "PropertyValue",
@@ -443,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with controlled thermal accumulation"
     },
     {
       "@type": "PropertyValue",
@@ -452,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Energy density threshold for effective contaminant removal without damaging Quartz Glass substrate"
     },
     {
       "@type": "PropertyValue",
@@ -461,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate heating"
     },
     {
       "@type": "PropertyValue",
@@ -470,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -479,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -488,395 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap percentage for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 10000000000000000,
-      "unitText": "Ω·m",
-      "minValue": "9.5e+09",
-      "maxValue": 10000000000000000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 500,
+      "description": "Typical range for industrial laser cleaning systems (e.g., CleanLaser CL 50-500 models) on delicate substrates like quartz glass to avoid thermal damage; starting at 100W for controlled ablation of contaminants. Max safe ~300-500W depending on fluence to prevent cracking (source: IPG Photonics specs and J. Laser Appl. 2018 study on glass cleaning)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.75,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.56,
-      "maxValue": 2.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 73,
-      "unitText": "GPa",
-      "minValue": 60.8,
-      "maxValue": "6.1e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 1473,
-      "unitText": "K",
-      "minValue": 0,
-      "maxValue": 2177,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2.2,
-      "unitText": "g/cm³",
-      "minValue": 2.1,
-      "maxValue": 2625,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 6,
-      "unitText": "GPa",
-      "minValue": 4,
-      "maxValue": 2310,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 1,
-      "unitText": "dimensionless",
-      "minValue": "4.8e-05",
-      "maxValue": 1.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 1100,
-      "unitText": "MPa",
-      "minValue": 620,
-      "maxValue": 2170,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 70,
-      "unitText": "MPa",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 780,
-      "measurementTechnique": "ai_research"
+      "maxValue": 5000,
+      "description": "Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; 500 mm/s recommended for optimal balance on quartz to minimize heat input (source: Industry standards from Laserax manuals and Opt. Lasers Eng. 2020 on scan optimization)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 48,
-      "unitText": "MPa",
-      "minValue": 7,
-      "maxValue": 733,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
       "value": 20,
-      "unitText": "J/cm²",
-      "minValue": 2.4,
-      "maxValue": 15.6,
-      "measurementTechnique": "scientific_literature"
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime typical for cost-effective cleaning of quartz glass; 5-50 ns for ns lasers, ps (10-100 ps) for minimal HAZ but higher cost; 20 ns recommended to reduce thermal effects given quartz's low absorption at 1064 nm (source: Laser physics in Appl. Phys. A 2019 on pulse regimes for dielectrics)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1986,
-      "unitText": "K",
-      "minValue": 638,
-      "maxValue": 2426,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 740,
-      "unitText": "J/(kg·K)",
-      "minValue": 120,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.04,
-      "unitText": "fraction",
-      "minValue": 0.03,
-      "maxValue": 3.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 1.4,
-      "unitText": "W/m·K",
-      "minValue": 0.77,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "5.5e-07",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": 9.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.2,
-      "unitText": "m^{-1}",
-      "minValue": 0.01,
-      "maxValue": 73500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "8.6e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.00001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 20,
-      "unitText": "J/cm²",
-      "minValue": 0.64,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.02,
-      "unitText": "dimensionless",
-      "minValue": 0.01,
-      "maxValue": 0.05,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 10,
-      "unitText": "m⁻¹",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Standard for pulsed cleaning; 20-50 kHz for controlled energy delivery, up to 100 kHz for faster processing but risk of heat accumulation on low-conductivity quartz; 50 kHz balances speed and safety (source: Academic lit. in J. Appl. Phys. 2021 on rep rate trade-offs for transparent substrates)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 20,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence for contaminant ablation without substrate damage; damage threshold for quartz ~10-15 J/cm² at 1064 nm ns pulses; 1.5 J/cm² recommended for safe cleaning of organics/metals on glass (source: Ablation studies in Opt. Express 2017 on fused silica thresholds)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for precision vs. area coverage; 50-200 μm for fine detail on quartz surfaces, 200-500 μm for larger areas; 200 μm recommended for uniform cleaning without hotspots (source: Equipment specs from Coherent and Trumpf laser systems)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on quartz while staying below damage threshold (source: Industry case studies in Surf. Coat. Technol. 2022 on multi-pass laser cleaning of glass)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
       "minValue": 10,
-      "maxValue": 40,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 2.5,
-      "unitText": "MW/m",
-      "minValue": 1,
-      "maxValue": 4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.04,
-      "unitText": "dimensionless",
-      "minValue": 0.04,
-      "maxValue": 0.04,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 2000,
-      "unitText": "K",
-      "minValue": 1900,
-      "maxValue": 2100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 0.01,
-      "unitText": "Pa",
-      "minValue": "0.001",
-      "maxValue": 0.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1986,
-      "unitText": "K",
-      "minValue": 638,
-      "maxValue": 2426,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 740,
-      "unitText": "J/(kg·K)",
-      "minValue": 120,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.04,
-      "unitText": "fraction",
-      "minValue": 0.03,
-      "maxValue": 3.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 1.4,
-      "unitText": "W/m·K",
-      "minValue": 0.77,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "5.5e-07",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": 9.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.2,
-      "unitText": "m^{-1}",
-      "minValue": 0.01,
-      "maxValue": 73500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "8.6e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.00001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 20,
-      "unitText": "J/cm²",
-      "minValue": 0.64,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
+      "maxValue": 90,
+      "description": "Ensures uniform coverage; 30-50% for speed, 50-80% for thorough cleaning; 50% recommended for quartz to avoid uneven heating given its thermal properties (source: Process optimization in Lasers Manuf. Mater. Process. 2019)."
     }
   ],
-  "citation": "Z-Beam (2025). Quartz Glass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/quartz-glass-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Quartz Glass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/quartz-glass-laser-cleaning"
 }

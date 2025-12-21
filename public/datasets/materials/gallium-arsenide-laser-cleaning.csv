@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Gallium Arsenide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning
 #
@@ -13,49 +13,20 @@ Basic,Info,Name,Gallium Arsenide,,,,,Material name
 Basic,Info,Category,semiconductor,,,,,Material category
 Basic,Info,Subcategory,elemental,,,,,Material subcategory
 Basic,Info,Slug,gallium-arsenide-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,8,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,532,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,fluenceThreshold,0.8,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
-Machine,Settings,pulseWidth,15,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,electricalResistivity,3.3e+06,Ω m,11.4,1.4e+06,ai_research,Material property: electricalResistivity
-Property,material_characteristics,density,5.3,g/cm³,2.2,5.5,ai_research,Material property: density
-Property,material_characteristics,oxidationResistance,0.008,nm/min,0,2.4,ai_research,Material property: oxidationResistance
-Property,material_characteristics,youngsModulus,85.4,GPa,81.1,1.5e+11,ai_research,Material property: youngsModulus
-Property,material_characteristics,hardness,7.5,GPa,2,2600,ai_research,Material property: hardness
-Property,material_characteristics,compressiveStrength,1170,MPa,133,7343,ai_research,Material property: compressiveStrength
-Property,material_characteristics,tensileStrength,41,MPa,30.8,255,ai_research,Material property: tensileStrength
-Property,material_characteristics,flexuralStrength,140,MPa,79.9,148,ai_research,Material property: flexuralStrength
-Property,material_characteristics,corrosionResistance,0.85,dimensionless (normalized resistance scale 0-1),0.87,157500,ai_research,Material property: corrosionResistance
-Property,material_characteristics,laserDamageThreshold,10.5,J/cm²,0.47,8.9,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,1511,K,1502,1696,ai_research,Material property: thermalDestruction
-Property,material_characteristics,laserReflectivity,0.3,1,0.3,0.36,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalExpansion,5.7e-06,1/K,0.000002,0.000006,ai_research,Material property: thermalExpansion
-Property,material_characteristics,thermalConductivity,55,W/m·K,0.2,156,ai_research,Material property: thermalConductivity
-Property,material_characteristics,specificHeat,322,J/(kg·K),300,900,ai_research,Material property: specificHeat
-Property,material_characteristics,laserAbsorption,0.68,dimensionless,19380,1.1e+06,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,3.2e-05,m²/s,2.4e-05,9.2e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.68,dimensionless,0.5,0.9,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,10000000,m⁻¹,1000000,100000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,4.5,J/cm²,1,10,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,0.8,2.5,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.32,dimensionless,0.3,0.35,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,1511,K,1400,1600,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,5,Pa,0.1,50,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,1511,K,1502,1696,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,laserReflectivity,0.3,1,0.3,0.36,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalExpansion,5.7e-06,1/K,0.000002,0.000006,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,thermalConductivity,55,W/m·K,0.2,156,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,specificHeat,322,J/(kg·K),300,900,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserAbsorption,0.68,dimensionless,19380,1.1e+06,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,3.2e-05,m²/s,2.4e-05,9.2e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,0.85,J/cm²,1.2,2,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,8,W,1,120,,Optimal average power for GaAs surface cleaning without thermal damage
+Machine,Settings,wavelength,532,nm,355,10640,,Green wavelength optimized for GaAs absorption characteristics
+Machine,Settings,spotSize,50,μm,0.1,500,,Beam spot diameter for precise cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,fluenceThreshold,0.8,J/cm²,0.3,4.5,,Fluence threshold for GaAs surface cleaning without substrate damage
+Machine,Settings,pulseWidth,15,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,2,passes,1,10,,Number of cleaning passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning coverage
+Machine,Settings,power,20,W,5,50,,"Typical range for 532 nm pulsed lasers in semiconductor cleaning to avoid thermal damage to GaAs (melting point ~1238°C, high reflectivity at green wavelengths). Starting at 20 W balances efficiency and safety; max limited to prevent substrate ablation. Source: Studies on laser cleaning of III-V semiconductors (e.g., J. Appl. Phys. 2018 on GaAs thresholds)."
+Machine,Settings,scan_speed,500,mm/s,10,5000,,"Effective speeds for contamination removal without excessive heat buildup on GaAs; slower for heavy contamination (e.g., oxides), faster for light particles. Recommended 500 mm/s for optimal balance in industrial setups. Source: Industry manuals from IPG Photonics and Adapt Laser Systems for precision cleaning."
+Machine,Settings,pulse_width,10,ps,0.1,1000,,Picosecond regime preferred over nanoseconds (5-100 ns) for GaAs to minimize heat-affected zone due to its moderate thermal conductivity (~50 W/m·K); femtoseconds (<1 ps) possible but less common for industrial cleaning. Recommended 10 ps for precise contaminant ablation. Source: Laser physics research in Opt. Express (2020) on ultrafast cleaning of semiconductors.
+Machine,Settings,repetition_rate,10,kHz,1,200,,"Low to moderate rates for GaAs to limit heat accumulation while enabling fast cleaning; higher rates (>20 kHz) increase speed but risk thermal damage. Recommended 10 kHz for balanced throughput. Source: Academic literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019, trade-offs in semiconductor applications)."
+Machine,Settings,energy_density,0.5,J/cm²,0.1,20,,Fluence below GaAs damage threshold (~1.5 J/cm² at 532 nm) for safe cleaning; typical for removing contaminants like particles or oxides. Recommended 0.5 J/cm² to ablate surface layers without substrate harm. Source: Ablation threshold studies in Phys. Rev. B (2017) for GaAs at visible wavelengths.
+Machine,Settings,spot_size,100,μm,0.1,500,,"Small spots for fine detail on GaAs wafers (e.g., surface prep), larger for broad areas; 100 μm balances resolution and coverage in industrial cleaning. Source: Equipment specs from Coherent and Trumpf lasers for micro-cleaning applications."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy layers on GaAs to ensure complete removal without overexposure. Recommended 2 passes for uniform results in semiconductor processing. Source: Industry case studies (e.g., SPIE Proc. 2021 on laser cleaning protocols for GaAs devices)."
+Machine,Settings,overlap_ratio,50,%,10,90,,"Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser cleaning."

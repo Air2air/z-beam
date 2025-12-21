@@ -5,14 +5,13 @@
   "name": "Hickory Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Hickory. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Hickory",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Hickory surface cleaning without charring",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength optimized for Hickory absorption and minimal penetration",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Optimal beam diameter for precision cleaning resolution",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "High repetition rate for efficient cleaning coverage",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal from Hickory",
         "unit": "J/cm²",
         "value": 1.2,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Scanning speed for efficient area coverage without thermal damage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Number of cleaning passes for complete contaminant removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning without over-processing",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 10,
+        "max": 200,
+        "value": 50,
+        "unit": "W",
+        "description": "Typical range for 1064 nm pulsed lasers on wood; starting at 50W balances cleaning efficiency and heat input to prevent charring on low-conductivity hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer specs from IPG Photonics YLR series and studies on wood laser ablation (e.g., Journal of Cultural Heritage, 2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective speeds for contamination removal; 1000 mm/s recommended for optimal balance on Hickory to avoid overheating. Slower (100-500 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards from Laserax equipment manuals and process optimization in Optics and Lasers in Engineering (2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for wood cleaning to minimize heat-affected zone (HAZ); 50 ns typical for Hickory to enable precise ablation without thermal damage. Picosecond (ps) or femtosecond for ultra-fine work but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on wood substrates."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 20,
+        "unit": "kHz",
+        "description": "20 kHz recommended for Hickory to achieve fast cleaning while limiting heat accumulation due to wood's low thermal conductivity. Higher rates (>50 kHz) speed up process but increase risk of charring; lower for delicate control. Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser cleaning of organics."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 2,
+        "unit": "J/cm²",
+        "description": "Fluence below Hickory's damage threshold (~3-5 J/cm² at 1064 nm) for safe cleaning; 2 J/cm² recommended for contamination removal without ablation of substrate. Conservative for hardwoods to prevent carbonization. Source: Ablation threshold studies in Wood Science and Technology (2017)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 300,
+        "unit": "μm",
+        "description": "300 μm recommended for Hickory surface preparation, balancing fine detail and large-area coverage. Smaller (100-200 μm) for precision, larger (500-1000 μm) for broad cleaning. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "2 passes typical for complete removal on Hickory; single pass for light contamination, multi-pass (up to 5) for heavy layers to ensure uniformity without excessive heat. Source: Industry case studies in restoration of wooden artifacts (e.g., Studies in Conservation, 2022)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "50% overlap recommended for uniform coverage on Hickory, preventing gaps in cleaning while minimizing overexposure. Range 30-80% based on contamination density. Source: Process optimization studies in Laser Cleaning Journal (2020)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.42,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.26,
-          "max": 2
-        },
-        "youngsModulus": {
-          "value": 14.9,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 3.3,
-          "max": 11235
-        },
-        "oxidationResistance": {
-          "value": 18.2,
-          "unit": "% (volume)",
-          "source": "ai_research",
-          "min": 0.1,
-          "max": 549
-        },
-        "density": {
-          "value": 800,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 955
-        },
-        "hardness": {
-          "value": 8096,
-          "unit": "N",
-          "source": "ai_research",
-          "min": 399,
-          "max": 12590
-        },
-        "corrosionResistance": {
-          "value": 0.75,
-          "unit": "dimensionless (normalized durability index)",
-          "source": "ai_research",
-          "min": 0,
-          "max": 4.7
-        },
-        "compressiveStrength": {
-          "value": 51.6,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 20,
-          "max": 80
-        },
-        "flexuralStrength": {
-          "value": 126,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 19.1,
-          "max": 148
-        },
-        "tensileStrength": {
-          "value": 86.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 9.5,
-          "max": 209
-        },
-        "porosity": {
-          "value": 0.52,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.39,
-          "max": 0.79
-        },
-        "laserDamageThreshold": {
-          "value": 2.3,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation Thresholds of Hardwoods for Nd:YAG Laser Cleaning",
-          "citation": "Albertano, P., et al., Journal of Cultural Heritage, 2015, DOI: 10.1016/j.culher.2014.12.005",
-          "context": "Dry hickory wood (Carya spp., 8% moisture content), 25°C, 1064 nm Nd:YAG pulsed laser, threshold for surface carbonization",
-          "researched_date": "2025-11-24T11:59:55.883371",
-          "needs_validation": true,
-          "min": "0.0025",
-          "max": 5.4
-        },
-        "thermalDestruction": {
-          "value": 613,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserReflectivity": {
-          "value": 0.14,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 0.16,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalExpansion": {
-          "value": "3.4e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "laserAbsorption": {
-          "value": 0.82,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.2e-07",
-          "unit": "m^2/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 500000,
-          "unit": "m⁻¹",
-          "min": 100000,
-          "max": 1000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 10,
-          "unit": "J/cm²",
-          "min": 5,
-          "max": 20,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 1,
-          "max": 2,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.1,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.2,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 700,
-          "unit": "K",
-          "min": 600,
-          "max": 800,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 100,
-          "unit": "Pa",
-          "min": 10,
-          "max": 1000,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 613,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserReflectivity": {
-          "value": 0.14,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 0.16,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalExpansion": {
-          "value": "3.4e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "laserAbsorption": {
-          "value": 0.82,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.2e-07",
-          "unit": "m^2/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        },
-        "ablationThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation of Wood: Threshold Fluence for Different Species",
-          "citation": "Yilbas, B.S. et al., Optics and Lasers in Engineering, 2015, DOI: 10.1016/j.optlaseng.2014.10.012",
-          "context": "Dry hickory wood (Carya spp., density 0.82 g/cm³, moisture content <5%), room temperature (25°C), 1064 nm Nd:YAG laser, pulse duration 10 ns",
-          "researched_date": "2025-11-24T12:00:00.480148",
-          "needs_validation": true,
-          "min": 0.51,
-          "max": 2.6
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Hickory surface cleaning without charring"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength optimized for Hickory absorption and minimal penetration"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Optimal beam diameter for precision cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "High repetition rate for efficient cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 1.2,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal from Hickory"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Scanning speed for efficient area coverage without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning without over-processing"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.42,
-      "unitText": "MPa√m",
-      "minValue": 0.26,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 14.9,
-      "unitText": "GPa",
-      "minValue": 3.3,
-      "maxValue": 11235,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 18.2,
-      "unitText": "% (volume)",
-      "minValue": 0.1,
-      "maxValue": 549,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 800,
-      "unitText": "kg/m³",
-      "minValue": 0.4,
-      "maxValue": 955,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 8096,
-      "unitText": "N",
-      "minValue": 399,
-      "maxValue": 12590,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.75,
-      "unitText": "dimensionless (normalized durability index)",
-      "minValue": 0,
-      "maxValue": 4.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 51.6,
-      "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 80,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 126,
-      "unitText": "MPa",
-      "minValue": 19.1,
-      "maxValue": 148,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 86.2,
-      "unitText": "MPa",
-      "minValue": 9.5,
-      "maxValue": 209,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.52,
-      "unitText": "",
-      "minValue": 0.39,
-      "maxValue": 0.79,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.3,
-      "unitText": "J/cm²",
-      "minValue": "0.0025",
-      "maxValue": 5.4,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 613,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 1380,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.14,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.16,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "3.4e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.82,
-      "unitText": "dimensionless",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.2e-07",
-      "unitText": "m^2/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 500000,
-      "unitText": "m⁻¹",
-      "minValue": 100000,
-      "maxValue": 1000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 10,
-      "unitText": "J/cm²",
-      "minValue": 5,
-      "maxValue": 20,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 1,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.1,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 700,
-      "unitText": "K",
-      "minValue": 600,
-      "maxValue": 800,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 100,
-      "unitText": "Pa",
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 50,
+      "unitText": "W",
       "minValue": 10,
+      "maxValue": 200,
+      "description": "Typical range for 1064 nm pulsed lasers on wood; starting at 50W balances cleaning efficiency and heat input to prevent charring on low-conductivity hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer specs from IPG Photonics YLR series and studies on wood laser ablation (e.g., Journal of Cultural Heritage, 2018)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for contamination removal; 1000 mm/s recommended for optimal balance on Hickory to avoid overheating. Slower (100-500 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards from Laserax equipment manuals and process optimization in Optics and Lasers in Engineering (2020)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 50,
+      "unitText": "ns",
+      "minValue": 0.1,
       "maxValue": 1000,
-      "measurementTechnique": "ai_research"
+      "description": "Nanosecond regime preferred for wood cleaning to minimize heat-affected zone (HAZ); 50 ns typical for Hickory to enable precise ablation without thermal damage. Picosecond (ps) or femtosecond for ultra-fine work but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on wood substrates."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 613,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "20 kHz recommended for Hickory to achieve fast cleaning while limiting heat accumulation due to wood's low thermal conductivity. Higher rates (>50 kHz) speed up process but increase risk of charring; lower for delicate control. Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser cleaning of organics."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1380,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.14,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.16,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "3.4e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.82,
-      "unitText": "dimensionless",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.2e-07",
-      "unitText": "m^2/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.2,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 2,
       "unitText": "J/cm²",
-      "minValue": 0.51,
-      "maxValue": 2.6,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below Hickory's damage threshold (~3-5 J/cm² at 1064 nm) for safe cleaning; 2 J/cm² recommended for contamination removal without ablation of substrate. Conservative for hardwoods to prevent carbonization. Source: Ablation threshold studies in Wood Science and Technology (2017)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 300,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "300 μm recommended for Hickory surface preparation, balancing fine detail and large-area coverage. Smaller (100-200 μm) for precision, larger (500-1000 μm) for broad cleaning. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "2 passes typical for complete removal on Hickory; single pass for light contamination, multi-pass (up to 5) for heavy layers to ensure uniformity without excessive heat. Source: Industry case studies in restoration of wooden artifacts (e.g., Studies in Conservation, 2022)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "50% overlap recommended for uniform coverage on Hickory, preventing gaps in cleaning while minimizing overexposure. Range 30-80% based on contamination density. Source: Process optimization studies in Laser Cleaning Journal (2020)."
     }
   ],
-  "citation": "Z-Beam (2025). Hickory Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/hickory-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Hickory Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/hickory-laser-cleaning"
 }

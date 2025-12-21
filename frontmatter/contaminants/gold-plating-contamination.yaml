@@ -23,12 +23,12 @@ description: Gold-plating contamination hits when thin gold layers flake off or 
   it bonds deep and resists solvents, while on copper it loosens faster but still demands care to avoid base damage—laser
   cleaning nails this by zapping the gold precisely, clearing it clean without harming the substrate underneath.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Gold electroplating manifests as a bright, gold layer that may look glossy or slightly textured, adhering
@@ -102,7 +102,7 @@ relationships:
         coverage: Coverage is generally sparse and uneven, with significant variation due to wood's absorbent nature.
         pattern: It tends to form irregular patches or spots, concentrating in grooves or damaged areas where the wood is
           more receptive.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -187,7 +187,7 @@ relationships:
   prohibited_materials:
   - Steel
   - Aluminum
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -272,8 +272,8 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: plating
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   brass:
     laser_parameters:
       wavelength:

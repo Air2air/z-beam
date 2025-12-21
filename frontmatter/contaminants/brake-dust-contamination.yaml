@@ -24,12 +24,12 @@ description: 'Brake-dust contamination, it emerges from frictional wear of steel
   in mechanical removal. Laser cleaning addresses these effectively, as the process vaporizes the particles selectively through
   targeted ablation, which preserves substrate integrity without residue recurrence.'
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Dark gray dust that adheres to smooth, glazed surfaces, appearing as a dull film over the ceramic's usual
@@ -107,7 +107,7 @@ relationships:
           easily.
         pattern: Forms irregular spots or patches, with distribution influenced by surface texture and environmental factors
           like wind.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -198,7 +198,7 @@ relationships:
   prohibited_materials:
   - Plastics
   - Glass
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -300,8 +300,8 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: mineral
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   aluminum:
     laser_parameters:
       wavelength:

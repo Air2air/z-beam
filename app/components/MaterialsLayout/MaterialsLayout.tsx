@@ -32,7 +32,7 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
   // Configure sections for BaseContentLayout
   // Access data from relationships
   const relationships = (metadata as any)?.relationships || {};
-  const materialProperties = relationships?.material_properties || relationships?.materialProperties;
+  const materialProperties = relationships?.materialProperties;
   const regulatoryStandards = relationships?.regulatory_standards;
 
   const sections: SectionConfig[] = [
@@ -114,7 +114,7 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         category,
         subcategory,
         machineSettings: (metadata as any)?.machine_settings || relationships?.machine_settings || {},
-        materialProperties: (metadata as any)?.properties || relationships?.material_properties || relationships?.materialProperties || {},
+        materialProperties: (metadata as any)?.properties || relationships?.materialProperties || {},
         faq: metadata?.faq,
         regulatoryStandards: relationships?.regulatory_standards || (metadata as any)?.regulatoryStandards || [],
         showFullDataset: true,

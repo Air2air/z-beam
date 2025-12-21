@@ -5,14 +5,13 @@
   "name": "Tungsten Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Tungsten. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Tungsten",
@@ -95,386 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Tungsten oxide and contaminant removal",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength optimized for Tungsten absorption and thermal processing",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Focused spot size for precise cleaning resolution",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "High repetition rate for efficient cleaning coverage",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Minimum fluence required for effective Tungsten oxide removal",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning without thermal damage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 2000,
+        "value": 200,
+        "unit": "W",
+        "description": "Typical range for industrial 1064 nm fiber lasers used in metal cleaning; starting at 200 W balances efficiency and safety for reflective Tungsten to avoid excessive reflection losses. Max safe below substrate melting threshold (~3422°C). Source: IPG Photonics YLR series specs and studies on laser cleaning of refractory metals (e.g., J. Laser Appl. 2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 2000,
+        "unit": "mm/s",
+        "description": "Effective range for contamination removal on high-conductivity metals like Tungsten; 2000 mm/s recommended for optimal balance of cleaning rate and fluence control. Slower for heavy contamination (e.g., oxides), faster for light surface prep. Source: Industry standards from Laserax and Adapt Laser Systems manuals."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 50,
+        "description": "Nanosecond regime typical for industrial cleaning to ablate contaminants without deep penetration; 50 ns recommended for minimal heat-affected zone (HAZ) on Tungsten due to its high thermal conductivity. Picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially. Source: Laser physics research in Opt. Express (2015) on pulse duration effects in metal ablation."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Standard for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for Tungsten to achieve fast processing while limiting heat accumulation from its reflectivity. Higher rates increase speed but risk thermal buildup. Source: Academic literature, e.g., Appl. Surf. Sci. (2020) on repetition rate optimization for refractory metals."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for contaminant ablation on Tungsten; damage threshold ~2-4 J/cm² at 1064 nm due to high reflectivity (~60%). 1.5 J/cm² recommended for safe oxide/carbon removal without substrate damage. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017) and fusion reactor cleaning papers (e.g., Nucl. Fusion 2019)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Typical beam diameter for precise industrial cleaning; 200 μm recommended for Tungsten to focus energy on contaminants while covering large areas efficiently. Smaller for fine details, larger for broad prep. Source: Equipment specs from Coherent and Trumpf laser cleaning systems."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Usually 1-3 passes for complete removal on metals; 2 passes recommended for Tungsten to ensure uniform cleaning of stubborn contaminants like tungsten oxides without overexposure. Multi-pass preferred over single high-fluence pass to minimize damage. Source: Industry case studies in laser cleaning of fusion components (e.g., J. Nucl. Mater. 2021)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Standard for uniform coverage in scanned laser cleaning; 50% recommended for Tungsten to avoid gaps in high-reflectivity surfaces while preventing excessive heat overlap. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surf. Coat. Technol. (2019)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "youngsModulus": {
-          "value": 411,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 10.4,
-          "max": 200000000000
-        },
-        "oxidationResistance": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": -554,
-          "max": 1762
-        },
-        "density": {
-          "value": 19.2,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 1.7,
-          "max": 9408
-        },
-        "hardness": {
-          "value": 370,
-          "unit": "HV",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 3500
-        },
-        "corrosionResistance": {
-          "value": 0.96,
-          "unit": "dimensionless (normalized resistance index)",
-          "source": "ai_research",
-          "min": -1.1,
-          "max": "1.1e+06"
-        },
-        "compressiveStrength": {
-          "value": 2760,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 8,
-          "max": 2625
-        },
-        "flexuralStrength": {
-          "value": 1200,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": 2897
-        },
-        "tensileStrength": {
-          "value": 1510,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 3,
-          "max": 3000
-        },
-        "fractureToughness": {
-          "value": 5.2,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.67,
-          "max": 157
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 15
-        },
-        "electricalResistivity": {
-          "value": "5.6e-08",
-          "unit": "Ω m",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "absorptivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.6
-        },
-        "boilingPoint": {
-          "value": 6203,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 929,
-          "max": 6454
-        },
-        "absorptionCoefficient": {
-          "value": "6.5e+07",
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "electricalConductivity": {
-          "value": "1.8e+07",
-          "unit": "S/m",
-          "source": "ai_research",
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "meltingPoint": {
-          "value": 3695,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 133,
-          "max": 3865
-        },
-        "vaporPressure": {
-          "value": 0,
-          "unit": "Pa",
-          "source": "ai_research",
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestructionPoint": {
-          "value": 3695,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 133,
-          "max": 3865
-        },
-        "reflectivity": {
-          "value": 0.84,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.35,
-          "max": 1
-        },
-        "thermalShockResistance": {
-          "value": 392,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 6.7,
-          "max": 379050
-        },
-        "surfaceRoughness": {
-          "value": 0.8,
-          "unit": "μm",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 6.6
-        },
-        "laserDamageThreshold": {
-          "value": 2.1,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.27,
-          "max": 15750
-        },
-        "percentage": 60,
-        "thermalDestruction": {
-          "value": 3695,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 256,
-          "max": 3859
-        },
-        "specificHeat": {
-          "value": 132,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 43.4,
-          "max": 1905
-        },
-        "laserReflectivity": {
-          "value": 0.6,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 73.5
-        },
-        "thermalConductivity": {
-          "value": 174,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 7.4,
-          "max": 450
-        },
-        "thermalExpansion": {
-          "value": "4.5e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "laserAbsorption": {
-          "value": 0.4,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "thermalDiffusivity": {
-          "value": "6.8e-05",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "ablationThreshold": {
-          "value": 1.8,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.09,
-          "max": 4.3
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "absorptivity": {
-          "value": 0.4,
-          "unit": "dimensionless",
-          "min": 0.35,
-          "max": 0.45,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 60000000,
-          "unit": "m⁻¹",
-          "min": 50000000,
-          "max": 70000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 8,
-          "unit": "J/cm²",
-          "min": 5,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 3,
-          "unit": "MW/m",
-          "min": 2.5,
-          "max": 3.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.6,
-          "unit": "dimensionless",
-          "min": 0.55,
-          "max": 0.65,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 3695,
-          "unit": "K",
-          "min": 3650,
-          "max": 3750,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 10,
-          "unit": "Pa",
-          "min": 5,
-          "max": 20,
-          "source": "ai_research"
-        },
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 3695,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 256,
-          "max": 3859
-        },
-        "specificHeat": {
-          "value": 132,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 43.4,
-          "max": 1905
-        },
-        "laserReflectivity": {
-          "value": 0.6,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 73.5
-        },
-        "thermalConductivity": {
-          "value": 174,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 7.4,
-          "max": 450
-        },
-        "thermalExpansion": {
-          "value": "4.5e-06",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "laserAbsorption": {
-          "value": 0.4,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "thermalDiffusivity": {
-          "value": "6.8e-05",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "ablationThreshold": {
-          "value": 1.8,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.09,
-          "max": 4.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -487,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Tungsten oxide and contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -496,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength optimized for Tungsten absorption and thermal processing"
     },
     {
       "@type": "PropertyValue",
@@ -505,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Focused spot size for precise cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -514,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "High repetition rate for efficient cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -523,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Minimum fluence required for effective Tungsten oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -532,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of surface contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -541,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -550,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -559,516 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 411,
-      "unitText": "GPa",
-      "minValue": 10.4,
-      "maxValue": 200000000000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 200,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 2000,
+      "description": "Typical range for industrial 1064 nm fiber lasers used in metal cleaning; starting at 200 W balances efficiency and safety for reflective Tungsten to avoid excessive reflection losses. Max safe below substrate melting threshold (~3422°C). Source: IPG Photonics YLR series specs and studies on laser cleaning of refractory metals (e.g., J. Laser Appl. 2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 773,
-      "unitText": "K",
-      "minValue": -554,
-      "maxValue": 1762,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 2000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contamination removal on high-conductivity metals like Tungsten; 2000 mm/s recommended for optimal balance of cleaning rate and fluence control. Slower for heavy contamination (e.g., oxides), faster for light surface prep. Source: Industry standards from Laserax and Adapt Laser Systems manuals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 19.2,
-      "unitText": "g/cm³",
-      "minValue": 1.7,
-      "maxValue": 9408,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 50,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime typical for industrial cleaning to ablate contaminants without deep penetration; 50 ns recommended for minimal heat-affected zone (HAZ) on Tungsten due to its high thermal conductivity. Picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially. Source: Laser physics research in Opt. Express (2015) on pulse duration effects in metal ablation."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 370,
-      "unitText": "HV",
-      "minValue": 0.2,
-      "maxValue": 3500,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Standard for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for Tungsten to achieve fast processing while limiting heat accumulation from its reflectivity. Higher rates increase speed but risk thermal buildup. Source: Academic literature, e.g., Appl. Surf. Sci. (2020) on repetition rate optimization for refractory metals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.96,
-      "unitText": "dimensionless (normalized resistance index)",
-      "minValue": -1.1,
-      "maxValue": "1.1e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 2760,
-      "unitText": "MPa",
-      "minValue": 8,
-      "maxValue": 2625,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 1200,
-      "unitText": "MPa",
-      "minValue": 11.4,
-      "maxValue": 2897,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 1510,
-      "unitText": "MPa",
-      "minValue": 3,
-      "maxValue": 3000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 5.2,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.67,
-      "maxValue": 157,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "5.6e-08",
-      "unitText": "Ω m",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 6203,
-      "unitText": "K",
-      "minValue": 929,
-      "maxValue": 6454,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": "6.5e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalConductivity",
-      "name": "Electrical Conductivity",
-      "description": "Electrical Conductivity - material characteristics",
-      "value": "1.8e+07",
-      "unitText": "S/m",
-      "minValue": 659300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 3695,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - material characteristics",
-      "value": 0,
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - material characteristics",
-      "value": 3695,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - material characteristics",
-      "value": 0.84,
-      "unitText": "fraction",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - material characteristics",
-      "value": 392,
-      "unitText": "K",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 0.8,
-      "unitText": "μm",
-      "minValue": 0.02,
-      "maxValue": 6.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.1,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 3695,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 132,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.6,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 174,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "4.5e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.4,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "6.8e-05",
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 1.8,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.4,
-      "unitText": "dimensionless",
-      "minValue": 0.35,
-      "maxValue": 0.45,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 60000000,
-      "unitText": "m⁻¹",
-      "minValue": 50000000,
-      "maxValue": 70000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 8,
-      "unitText": "J/cm²",
-      "minValue": 5,
-      "maxValue": 10,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 3,
-      "unitText": "MW/m",
-      "minValue": 2.5,
-      "maxValue": 3.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.6,
-      "unitText": "dimensionless",
-      "minValue": 0.55,
-      "maxValue": 0.65,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 3695,
-      "unitText": "K",
-      "minValue": 3650,
-      "maxValue": 3750,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 10,
-      "unitText": "Pa",
-      "minValue": 5,
+      "minValue": 0.1,
       "maxValue": 20,
-      "measurementTechnique": "ai_research"
+      "description": "Fluence range for contaminant ablation on Tungsten; damage threshold ~2-4 J/cm² at 1064 nm due to high reflectivity (~60%). 1.5 J/cm² recommended for safe oxide/carbon removal without substrate damage. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017) and fusion reactor cleaning papers (e.g., Nucl. Fusion 2019)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 3695,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Typical beam diameter for precise industrial cleaning; 200 μm recommended for Tungsten to focus energy on contaminants while covering large areas efficiently. Smaller for fine details, larger for broad prep. Source: Equipment specs from Coherent and Trumpf laser cleaning systems."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 132,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Usually 1-3 passes for complete removal on metals; 2 passes recommended for Tungsten to ensure uniform cleaning of stubborn contaminants like tungsten oxides without overexposure. Multi-pass preferred over single high-fluence pass to minimize damage. Source: Industry case studies in laser cleaning of fusion components (e.g., J. Nucl. Mater. 2021)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.6,
-      "unitText": "dimensionless",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 174,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "4.5e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.4,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "6.8e-05",
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.8,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Standard for uniform coverage in scanned laser cleaning; 50% recommended for Tungsten to avoid gaps in high-reflectivity surfaces while preventing excessive heat overlap. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surf. Coat. Technol. (2019)."
     }
   ],
-  "citation": "Z-Beam (2025). Tungsten Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/tungsten-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Tungsten Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/tungsten-laser-cleaning"
 }

@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Breccia Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,252 +38,103 @@ powerRange:
   Value:  90 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Breccia surface cleaning without thermal damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength optimized for Breccia mineral absorption characteristics
 
 spotSize:
   Value:  80 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning control
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for continuous cleaning coverage
 
 energyDensity:
   Value:  3.5 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Fluence threshold for effective contaminant removal
 
 pulseWidth:
   Value:  12 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Short pulse duration for efficient ablation of surface contaminants
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for efficient area coverage
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of cleaning passes for complete surface treatment
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform cleaning results
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    300 W
+  Note:   Typical range for industrial cleaning of stone materials like Breccia (carbonate-based rock similar to marble) using 1064 nm lasers to remove contaminants without substrate damage; starting at 100 W allows controlled ablation. Max safe ~300 W to avoid cracking due to low thermal conductivity (~2 W/m·K). Source: Manufacturer specs from IPG Photonics fiber lasers for stone cleaning; academic papers on marble ablation (e.g., Pouli et al., Applied Physics A, 2010).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  fractureToughness:
-    Value:  0.85 MPa·m^{1/2}
-    Min:    0.13 MPa·m^{1/2}
-    Max:    2 MPa·m^{1/2}
-    Source: ai_research
+scan_speed:
+  Value:  500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective range for contaminant removal on Breccia; slower speeds (200-500 mm/s) for heavy contamination (e.g., rust or oils), faster (up to 2000 mm/s) for light dust. Recommended 500 mm/s balances efficiency and uniformity. Source: Industry standards from laser cleaning equipment manuals (e.g., Adapt Laser Systems); case studies on stone surface preparation.
 
-  density:
-    Value:  2710 kg/m³
-    Min:    2.2 kg/m³
-    Max:    3045 kg/m³
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for 1064 nm cleaning of Breccia to achieve photothermal ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost—ns sufficient for industrial use. Avoid fs for porous stones to prevent micro-cracking. Source: Laser physics research on stone ablation (e.g., Marczak et al., Journal of Cultural Heritage, 2008).
 
-  oxidationResistance:
-    Value:  0.87 dimensionless (resistance index)
-    Min:    9.5e-05 dimensionless (resistance index)
-    Max:    1547 dimensionless (resistance index)
-    Source: ai_research
+repetition_rate:
+  Value:  20 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for pulsed 1064 nm lasers in stone cleaning; 20 kHz recommended for Breccia to enable fast processing while limiting heat accumulation (Breccia melting point ~800-1200°C, reflectivity ~0.3-0.5 at 1064 nm). Higher rates (>50 kHz) risk thermal buildup in low-conductivity materials. Source: Academic literature on Nd:YAG cleaning of marbles (e.g., Verges-Belmin, Studies in Conservation, 2005).
 
-  youngsModulus:
-    Value:  32.5 GPa
-    Min:    9.8 GPa
-    Max:    7.9e+10 GPa
-    Source: ai_research
+energy_density:
+  Value:  1 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe contaminant removal on Breccia; damage threshold ~3 J/cm² (based on carbonate stone studies), so stay below 2.5 J/cm² to avoid surface pitting. Recommended 1 J/cm² for effective cleaning with low risk. Source: Ablation threshold studies for limestones/marble at 1064 nm (e.g., Gross et al., Applied Surface Science, 2001). Conservative estimate due to Breccia's variable composition.
 
-  hardness:
-    Value:  3.5 Mohs
-    Min:    0.7 Mohs
-    Max:    7.3 Mohs
-    Source: ai_research
+spot_size:
+  Value:  500 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter range for industrial cleaning; smaller (200 μm) for fine details on Breccia surfaces, larger (800 μm) for broad areas. 500 μm recommended for uniform coverage on porous stone without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser systems for surface preparation.
 
-  compressiveStrength:
-    Value:  125 MPa
-    Min:    2.1 MPa
-    Max:    220 MPa
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (up to 5) for heavy layers on Breccia; 2 passes recommended for complete removal while minimizing thermal stress. Multi-pass allows lower fluence per pass. Source: Industry practice and case studies on stone restoration (e.g., European Laser Cleaning Network reports).
 
-  tensileStrength:
-    Value:  3.2 MPa
-    Min:    1.4 MPa
-    Max:    15.7 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  11.2 MPa
-    Min:    2.2 MPa
-    Max:    36.6 MPa
-    Source: ai_research
-
-  corrosionResistance:
-    Value:  0.85 dimensionless (resistance index)
-    Min:    6.6e-05 dimensionless (resistance index)
-    Max:    21 dimensionless (resistance index)
-    Source: ai_research
-
-  porosity:
-    Value:  0.15 fraction
-    Min:    0 fraction
-    Max:    19.4 fraction
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  1.1 J/cm²
-    Min:    0.42 J/cm²
-    Max:    13.1 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  1673 K
-    Min:    273 K
-    Max:    2300 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.22 
-    Min:    0.03 
-    Max:    0.44 
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  8.2e-06 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    12 K^{-1}
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  2.3 W/m·K
-    Min:    0.2 W/m·K
-    Max:    8 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  880 J/(kg·K)
-    Min:    400 J/(kg·K)
-    Max:    1200 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  4500 cm^{-1}
-    Min:    0.06 cm^{-1}
-    Max:    1.3e+06 cm^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  0.000001 m²/s
-    Min:    0 m²/s
-    Max:    0.000002 m²/s
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.75 dimensionless
-    Min:    0.6 dimensionless
-    Max:    0.9 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  5000000 m⁻¹
-    Min:    1000000 m⁻¹
-    Max:    10000000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  2.5 J/cm²
-    Min:    1 J/cm²
-    Max:    5 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  1.5 MW/m
-    Min:    0.8 MW/m
-    Max:    2.5 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.25 dimensionless
-    Min:    0.1 dimensionless
-    Max:    0.4 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1073 K
-    Min:    900 K
-    Max:    1300 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  10 Pa
-    Min:    0.1 Pa
-    Max:    100 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1673 K
-    Min:    273 K
-    Max:    2300 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.22 
-    Min:    0.03 
-    Max:    0.44 
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  8.2e-06 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    12 K^{-1}
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  2.3 W/m·K
-    Min:    0.2 W/m·K
-    Max:    8 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  880 J/(kg·K)
-    Min:    400 J/(kg·K)
-    Max:    1200 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  4500 cm^{-1}
-    Min:    0.06 cm^{-1}
-    Max:    1.3e+06 cm^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  0.000001 m²/s
-    Min:    0 m²/s
-    Max:    0.000002 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.4 J/cm²
-    Min:    0.65 J/cm²
-    Max:    6.3 J/cm²
-    Source: scientific_literature
+overlap_ratio:
+  Value:  50 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Standard range for uniform scan coverage in laser cleaning; 50% recommended for Breccia to ensure no gaps in porous surfaces while avoiding over-heating. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in industrial laser applications (e.g., LaserNet guidelines; research in Optics and Lasers in Engineering, 2015).
 
 ================================================================================
 CITATION & USAGE
@@ -304,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

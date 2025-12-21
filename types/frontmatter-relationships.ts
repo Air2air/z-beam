@@ -404,7 +404,7 @@ export interface FrontmatterRelationships {
 
   // Chemical data
   physical_properties?: any;
-  chemical_properties?: ChemicalProperties;
+  chemical_properties?: any; // TODO: Define proper ChemicalProperties type
   reactivity?: Reactivity;
   environmental_impact?: EnvironmentalImpact;
 

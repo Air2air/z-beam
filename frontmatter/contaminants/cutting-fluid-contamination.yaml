@@ -24,12 +24,12 @@ description: Cutting fluids lubricate and cool metal machining operations, yet t
   from scrubbing, but laser cleaning addresses this effectively by vaporizing layers without contact to achieve clean, tight
   tolerances overall.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: On ceramic, machining coolant residue shows up as a greasy, translucent film that may darken or dull the
@@ -122,7 +122,7 @@ relationships:
           on exposure and wood porosity.
         pattern: It tends to form irregular patches or streaks, spreading along the wood grain and accumulating in porous
           areas, with no uniform distribution.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -214,7 +214,7 @@ relationships:
   prohibited_materials:
   - Plastics
   - Wood
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -310,8 +310,8 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: lubricant
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   aluminum:
     laser_parameters:
       wavelength:

@@ -5,14 +5,13 @@
   "name": "Indium Phosphide Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Indium Phosphide. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Indium Phosphide",
@@ -97,240 +96,125 @@
       "powerRange": {
         "value": 60,
         "unit": "W",
+        "description": "Controlled power for precision semiconductor cleaning",
         "min": 1,
         "max": 120
       },
       "wavelength": {
         "value": 1064,
         "unit": "nm",
+        "description": "Near-IR for minimal lattice damage",
         "min": 355,
         "max": 10640
       },
       "spotSize": {
         "value": 30,
         "unit": "μm",
+        "description": "Small spot for high-precision cleaning",
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
         "value": 30,
         "unit": "kHz",
+        "description": "Moderate frequency for controlled removal",
         "min": 1,
         "max": 200
       },
       "energyDensity": {
         "value": 1.5,
         "unit": "J/cm²",
+        "description": "Precision energy for contamination removal",
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
         "value": 10,
         "unit": "ns",
+        "description": "Ultra-short pulses for minimal thermal damage",
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
         "value": 300,
         "unit": "mm/s",
+        "description": "Careful scanning for uniform treatment",
         "min": 10,
         "max": 5000
       },
       "passCount": {
         "value": 3,
         "unit": "passes",
+        "description": "Multiple passes for complete cleaning",
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
         "value": 60,
         "unit": "%",
+        "description": "High overlap for thorough coverage",
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 10,
+        "max": 100,
+        "value": 30,
+        "unit": "W",
+        "description": "Typical range for ns-pulsed Nd:YAG lasers in semiconductor cleaning to balance efficiency and avoid thermal damage to InP (melting point ~1062°C, moderate reflectivity at 1064 nm). Recommended starting at 30W for light contamination; max safe below 100W to prevent substrate ablation. Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; ablation studies in J. Appl. Phys. (e.g., InP thresholds imply power limits)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Range for effective contaminant removal without excessive heat accumulation on InP's thermally conductive surface. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for optimal balance. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., CleanLaser systems); case studies on III-V semiconductors."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 10,
+        "description": "Nanosecond regime preferred for industrial cleaning of InP to achieve ablation of contaminants with minimal heat-affected zone (HAZ <10 μm due to InP's properties). Picosecond (ps) or femtosecond (fs) for ultra-precision but costlier; ns sufficient and common. Recommended 10 ns for low HAZ. Source: Laser physics research in Appl. Surf. Sci. (e.g., ns pulses at 1064 nm for InP show effective cleaning thresholds)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 20,
+        "description": "Typical for pulsed cleaning to ensure overlap without excessive heat buildup on InP (high rep rate increases speed but risks thermal accumulation). Recommended 20 kHz for InP to optimize fluence delivery. Trade-off: higher rates (>50 kHz) faster but monitor temperature. Source: Academic literature in Opt. Lasers Eng. (studies on rep rate effects in semiconductor laser processing)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 0.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe removal of contaminants (e.g., oxides, particles) on InP without exceeding damage threshold (~2 J/cm² at 1064 nm ns pulses). Recommended 0.5 J/cm² for cleaning; conservative to account for InP's absorption and low thermal conductivity limits. Source: Ablation threshold studies in Phys. Rev. B and Surf. Coat. Technol. (InP single-pulse threshold ~1.8-2.5 J/cm² at 1064 nm)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter range for cleaning: smaller (50-100 μm) for fine surface prep on InP, larger (300-500 μm) for broad areas. Recommended 200 μm for uniform coverage on delicate InP wafers. Source: Equipment specifications from Trumpf and SPI Lasers for 1064 nm systems; optimized for semiconductor applications in industry reports."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on InP to avoid damage in one go. Recommended 2 passes for complete cleaning with fluence control. Source: Industry practice in laser cleaning case studies (e.g., SPIE proceedings on III-V material processing); conservative for InP sensitivity."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Standard range for uniform scan coverage in laser cleaning; 30-50% for large areas, 60-80% for detailed InP surface prep to ensure no gaps while minimizing overexposure. Recommended 50% for balanced uniformity on InP. Source: Process optimization studies in J. Laser Appl. (overlap effects on cleaning efficiency for reflective materials like InP)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "density": {
-          "value": 4.8,
-          "unit": "g/cm³",
-          "min": 2.2,
-          "max": 5.5
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%"
-        },
-        "surfaceRoughness": {
-          "value": 0.2,
-          "unit": "μm"
-        },
-        "tensileStrength": {
-          "value": 41,
-          "unit": "MPa",
-          "min": 30.8,
-          "max": 255
-        },
-        "youngsModulus": {
-          "value": 61,
-          "unit": "GPa",
-          "min": 81.1,
-          "max": "1.5e+11"
-        },
-        "hardness": {
-          "value": 0.8,
-          "unit": "GPa",
-          "min": 2,
-          "max": 2600
-        },
-        "flexuralStrength": {
-          "value": 95,
-          "unit": "MPa",
-          "min": 79.9,
-          "max": 148
-        },
-        "oxidationResistance": {
-          "value": 5,
-          "unit": "μm/year",
-          "min": 0,
-          "max": 2.4
-        },
-        "corrosionResistance": {
-          "value": 0.65,
-          "unit": "mm/year",
-          "min": 0.87,
-          "max": 157500
-        },
-        "compressiveStrength": {
-          "value": 41,
-          "unit": "MPa",
-          "min": 133,
-          "max": 7343
-        },
-        "fractureToughness": {
-          "value": 4.5,
-          "unit": "MPa m^{1/2}",
-          "min": 0.52,
-          "max": 0.97
-        },
-        "electricalResistivity": {
-          "value": 10000000,
-          "unit": "Ω·m",
-          "min": 11.4,
-          "max": "1.4e+06"
-        },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 1335,
-          "unit": "K",
-          "min": 1502,
-          "max": 1696
-        },
-        "laserAbsorption": {
-          "value": 0.3,
-          "unit": "dimensionless",
-          "min": 19380,
-          "max": "1.1e+06"
-        },
-        "laserDamageThreshold": {
-          "value": 1.5,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Optics",
-          "citation": "Stolz, C. J. et al., Applied Optics, Vol. 24, Issue 15, pp. 2479-2483, 1985, DOI: 10.1364/AO.24.002479",
-          "context": "Undoped single-crystal InP (purity >99.99%), room temperature (25°C), measured with 8 ns pulses from Nd:YAG laser at 1064 nm wavelength, 1-on-1 damage testing",
-          "researched_date": "2025-11-24T12:40:31.120837",
-          "needs_validation": true,
-          "min": 0.47,
-          "max": 8.9
-        },
-        "ablationThreshold": {
-          "value": 0.72,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Physics A: Materials Science & Processing",
-          "citation": "B. Hopp, T. Smausz, N. Barna, Cs. Vass, Zs. Divós, F. Ignácz, Femtosecond laser ablation of indium phosphide, Applied Physics A, Volume 77, Issue 7, pp 1017-1020, 2003, DOI: 10.1007/s00339-003-2290-3",
-          "context": "Polycrystalline InP (99.99% purity), room temperature (25°C), femtosecond Ti:sapphire laser at 800 nm wavelength, 500 fs pulse duration, measured in air",
-          "researched_date": "2025-11-24T12:40:39.006291",
-          "needs_validation": true,
-          "min": 1.2,
-          "max": 2
-        },
-        "thermalDiffusivity": {
-          "value": "4.5e-05",
-          "unit": "m²/s",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Thermal Diffusivity of Indium Phosphide Measured by the Laser Flash Method",
-          "citation": "V. G. Tyurina et al., Journal of Applied Physics, 1995, Vol. 78, No. 5, pp. 3400-3403, DOI: 10.1063/1.360592",
-          "context": "Single crystal InP (undoped, 99.999% purity), 300 K, measured under vacuum conditions",
-          "researched_date": "2025-11-24T12:41:02.454313",
-          "needs_validation": true,
-          "min": "2.4e-05",
-          "max": "9.2e-05"
-        },
-        "thermalExpansion": {
-          "value": "4.6e-06",
-          "unit": "K^{-1}",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Single-crystal Indium Phosphide (InP, 99.99% purity), 300 K, measured along <110> direction via X-ray dilatometry",
-          "researched_date": "2025-11-24T12:41:07.983289",
-          "needs_validation": true,
-          "min": 0.000002,
-          "max": 0.000006
-        },
-        "specificHeat": {
-          "value": 310,
-          "unit": "J/(kg·K)",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Pure single-crystal Indium Phosphide (InP, 99.99% purity), 298 K, measured under standard atmospheric pressure",
-          "researched_date": "2025-11-24T12:41:12.490136",
-          "needs_validation": true,
-          "min": 300,
-          "max": 900
-        },
-        "thermalConductivity": {
-          "value": 68,
-          "unit": "W/m·K",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Undoped single-crystal Indium Phosphide (InP), 300 K, measured via steady-state or laser flash techniques",
-          "researched_date": "2025-11-24T12:41:17.748728",
-          "needs_validation": true,
-          "min": 0.2,
-          "max": 156
-        },
-        "laserReflectivity": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "Handbook of Optical Constants of Solids",
-          "citation": "Edward D. Palik (Editor), Academic Press, 1985, ISBN 0-12-544415-X",
-          "context": "Undoped InP (99.99% purity), 300 K, normal incidence reflectivity at 1.06 μm wavelength (Nd:YAG laser), vacuum conditions",
-          "researched_date": "2025-11-24T12:41:25.596681",
-          "needs_validation": true,
-          "min": 0.3,
-          "max": 0.36
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -343,7 +227,8 @@
       "value": 60,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Controlled power for precision semiconductor cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -352,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR for minimal lattice damage"
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +247,8 @@
       "value": 30,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Small spot for high-precision cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -370,7 +257,8 @@
       "value": 30,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Moderate frequency for controlled removal"
     },
     {
       "@type": "PropertyValue",
@@ -379,7 +267,8 @@
       "value": 1.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Precision energy for contamination removal"
     },
     {
       "@type": "PropertyValue",
@@ -388,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Ultra-short pulses for minimal thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -397,7 +287,8 @@
       "value": 300,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Careful scanning for uniform treatment"
     },
     {
       "@type": "PropertyValue",
@@ -406,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Multiple passes for complete cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -415,234 +307,89 @@
       "value": 60,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "High overlap for thorough coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 4.8,
-      "unitText": "g/cm³",
-      "minValue": 2.2,
-      "maxValue": 5.5
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 30,
+      "unitText": "W",
+      "minValue": 10,
+      "maxValue": 100,
+      "description": "Typical range for ns-pulsed Nd:YAG lasers in semiconductor cleaning to balance efficiency and avoid thermal damage to InP (melting point ~1062°C, moderate reflectivity at 1064 nm). Recommended starting at 30W for light contamination; max safe below 100W to prevent substrate ablation. Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; ablation studies in J. Appl. Phys. (e.g., InP thresholds imply power limits)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Range for effective contaminant removal without excessive heat accumulation on InP's thermally conductive surface. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for optimal balance. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., CleanLaser systems); case studies on III-V semiconductors."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 0.2,
-      "unitText": "μm"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 10,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for industrial cleaning of InP to achieve ablation of contaminants with minimal heat-affected zone (HAZ <10 μm due to InP's properties). Picosecond (ps) or femtosecond (fs) for ultra-precision but costlier; ns sufficient and common. Recommended 10 ns for low HAZ. Source: Laser physics research in Appl. Surf. Sci. (e.g., ns pulses at 1064 nm for InP show effective cleaning thresholds)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 41,
-      "unitText": "MPa",
-      "minValue": 30.8,
-      "maxValue": 255
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning to ensure overlap without excessive heat buildup on InP (high rep rate increases speed but risks thermal accumulation). Recommended 20 kHz for InP to optimize fluence delivery. Trade-off: higher rates (>50 kHz) faster but monitor temperature. Source: Academic literature in Opt. Lasers Eng. (studies on rep rate effects in semiconductor laser processing)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 61,
-      "unitText": "GPa",
-      "minValue": 81.1,
-      "maxValue": "1.5e+11"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 0.8,
-      "unitText": "GPa",
-      "minValue": 2,
-      "maxValue": 2600
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 95,
-      "unitText": "MPa",
-      "minValue": 79.9,
-      "maxValue": 148
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 5,
-      "unitText": "μm/year",
-      "minValue": 0,
-      "maxValue": 2.4
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.65,
-      "unitText": "mm/year",
-      "minValue": 0.87,
-      "maxValue": 157500
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 41,
-      "unitText": "MPa",
-      "minValue": 133,
-      "maxValue": 7343
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 4.5,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.52,
-      "maxValue": 0.97
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 10000000,
-      "unitText": "Ω·m",
-      "minValue": 11.4,
-      "maxValue": "1.4e+06"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1335,
-      "unitText": "K",
-      "minValue": 1502,
-      "maxValue": 1696
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.3,
-      "unitText": "dimensionless",
-      "minValue": 19380,
-      "maxValue": "1.1e+06"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 1.5,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 0.5,
       "unitText": "J/cm²",
-      "minValue": 0.47,
-      "maxValue": 8.9,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe removal of contaminants (e.g., oxides, particles) on InP without exceeding damage threshold (~2 J/cm² at 1064 nm ns pulses). Recommended 0.5 J/cm² for cleaning; conservative to account for InP's absorption and low thermal conductivity limits. Source: Ablation threshold studies in Phys. Rev. B and Surf. Coat. Technol. (InP single-pulse threshold ~1.8-2.5 J/cm² at 1064 nm)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.72,
-      "unitText": "J/cm²",
-      "minValue": 1.2,
-      "maxValue": 2,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for cleaning: smaller (50-100 μm) for fine surface prep on InP, larger (300-500 μm) for broad areas. Recommended 200 μm for uniform coverage on delicate InP wafers. Source: Equipment specifications from Trumpf and SPI Lasers for 1064 nm systems; optimized for semiconductor applications in industry reports."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "4.5e-05",
-      "unitText": "m²/s",
-      "minValue": "2.4e-05",
-      "maxValue": "9.2e-05",
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on InP to avoid damage in one go. Recommended 2 passes for complete cleaning with fluence control. Source: Industry practice in laser cleaning case studies (e.g., SPIE proceedings on III-V material processing); conservative for InP sensitivity."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "4.6e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000002,
-      "maxValue": 0.000006,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 310,
-      "unitText": "J/(kg·K)",
-      "minValue": 300,
-      "maxValue": 900,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 68,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 156,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.3,
-      "maxValue": 0.36,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Standard range for uniform scan coverage in laser cleaning; 30-50% for large areas, 60-80% for detailed InP surface prep to ensure no gaps while minimizing overexposure. Recommended 50% for balanced uniformity on InP. Source: Process optimization studies in J. Laser Appl. (overlap effects on cleaning efficiency for reflective materials like InP)."
     }
   ],
-  "citation": "Z-Beam (2025). Indium Phosphide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/compound/indium-phosphide-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Indium Phosphide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/compound/indium-phosphide-laser-cleaning"
 }

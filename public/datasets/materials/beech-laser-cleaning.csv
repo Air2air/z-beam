@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/wood/hardwood/beech-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Beech Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/beech-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Beech,,,,,Material name
 Basic,Info,Category,wood,,,,,Material category
 Basic,Info,Subcategory,hardwood,,,,,Material subcategory
 Basic,Info,Slug,beech-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,fractureToughness,0.39,MPa√m,0.26,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,corrosionResistance,0.25,dimensionless (durability index),0,4.7,ai_research,Material property: corrosionResistance
-Property,material_characteristics,flexuralStrength,100,MPa,19.1,148,ai_research,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,19.7,vol% O2,0.1,549,ai_research,Material property: oxidationResistance
-Property,material_characteristics,porosity,0.59,fraction,0.39,0.79,ai_research,Material property: porosity
-Property,material_characteristics,tensileStrength,100,MPa,9.5,209,ai_research,Material property: tensileStrength
-Property,material_characteristics,compressiveStrength,40,MPa,20,80,ai_research,Material property: compressiveStrength
-Property,material_characteristics,youngsModulus,11.4,GPa,3.3,11235,ai_research,Material property: youngsModulus
-Property,material_characteristics,density,720,kg/m³,0.4,955,ai_research,Material property: density
-Property,material_characteristics,hardness,5782,N,399,12590,ai_research,Material property: hardness
-Property,material_characteristics,laserDamageThreshold,14.2,J/cm²,0.0025,5.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,laserReflectivity,0.42,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalDestruction,573,K,226,642,ai_research,Material property: thermalDestruction
-Property,material_characteristics,thermalExpansion,0.00004,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,material_characteristics,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,material_characteristics,laserAbsorption,31000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalConductivity,0.17,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalDiffusivity,1.6e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,1000000,m⁻¹,500000,2000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,1.5,J/cm²,0.5,3,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.2,MW/m,0.8,2,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,523,K,473,573,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,1000,Pa,100,5000,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,laserReflectivity,0.42,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalDestruction,573,K,226,642,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,thermalExpansion,0.00004,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserAbsorption,31000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalConductivity,0.17,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalDiffusivity,1.6e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,2.3,J/cm²,0.51,2.6,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for Beech surface cleaning without charring
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength optimized for Beech absorption characteristics
+Machine,Settings,spotSize,100,μm,0.1,500,,Focused spot size for precise cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning coverage
+Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Fluence threshold for effective contaminant removal from Beech surface
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning without thermal damage
+Machine,Settings,passCount,2,passes,1,10,,Recommended number of passes for complete cleaning
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning coverage
+Machine,Settings,power,150,W,50,300,,"Typical range for 1064 nm laser cleaning of wood like Beech to remove contaminants without charring; starting at 150 W balances efficiency and safety. Max avoids thermal damage given Beech's low thermal conductivity (~0.15 W/mK). Source: Studies on Nd:YAG laser cleaning of wooden artifacts (e.g., J. Cult. Herit. 2015, vol. 16, pp. 680-687)."
+Machine,Settings,scan_speed,1000,mm/s,10,5000,,"Effective range for contamination removal; slower (200-500 mm/s) for heavy soiling, faster (1000-2000 mm/s) for light dirt. Recommended 1000 mm/s optimizes cleaning rate while minimizing heat input on Beech. Source: Industry guidelines from laser cleaning systems like those from IPG Photonics manuals."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred for 1064 nm cleaning of organics like wood; avoids excessive heat-affected zone compared to longer pulses, while picosecond/femtosecond are overkill for industrial apps. 20 ns recommended for Beech to limit thermal diffusion. Source: Laser physics reviews on ablation of polymers/wood (e.g., Appl. Phys. A 2018, vol. 124, art. 456)."
+Machine,Settings,repetition_rate,30,kHz,1,200,,"Standard for pulsed cleaning; lower rates (10-30 kHz) reduce heat accumulation in low-conductivity Beech, higher (50-100 kHz) speed up process but risk damage. 30 kHz balances speed and safety. Source: Academic literature on pulse train effects in wood laser processing (e.g., Opt. Lasers Eng. 2020, vol. 132, 106089)."
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for contaminant ablation without substrate harm; Beech damage threshold ~2-4 J/cm² at 1064 nm due to absorption and low reflectivity (~10-20%). 1.5 J/cm² recommended for safe cleaning. Source: Ablation threshold studies on hardwoods (e.g., Wood Sci. Technol. 2017, vol. 51, pp. 1285-1302)."
+Machine,Settings,spot_size,300,μm,0.1,500,,"Beam diameter range for precision vs. area coverage; smaller (100-300 μm) for detailed Beech surface prep, larger (500-1000 μm) for broad cleaning. 300 μm recommended to control fluence on uneven wood grain. Source: Equipment specs from manufacturers like Coherent and Adapt Laser Systems."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete removal on Beech without overexposure. Source: Case studies in industrial wood restoration (e.g., J. Laser Appl. 2019, vol. 31, 022501)."
+Machine,Settings,overlap_ratio,70,%,10,90,,"Ensures uniform coverage and avoids gaps/striping; 70% optimal for even energy distribution on Beech's surface texture. Source: Process optimization in laser scanning literature (e.g., Surf. Coat. Technol. 2021, vol. 405, 126623)."

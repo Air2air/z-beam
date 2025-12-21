@@ -25,12 +25,12 @@ description: 'Nickel-plating contamination, it manifests as thin metallic deposi
   persistent adhesion, influenced from environmental factors like humidity, yet laser cleaning proves effective, as the beam
   selectively ablates the nickel through precise vaporization, preserving underlying integrity without mechanical stress.'
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Appears as a metallic, grayish deposit that may have a matte finish, contrasting with the ceramic's smooth
@@ -105,7 +105,7 @@ relationships:
         coverage: Coverage is typically partial and uneven, with significant variation due to poor adhesion and absorption
           into the wood.
         pattern: Tends to form irregular patches or spots, as the non-conductive surface resists uniform deposition.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: gaussian
       fluence_range:
@@ -195,7 +195,7 @@ relationships:
   - Copper
   prohibited_materials:
   - Plastics
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -287,8 +287,8 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: plating
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   aluminum:
     laser_parameters:
       wavelength:

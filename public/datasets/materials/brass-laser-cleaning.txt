@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Brass Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,324 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Brass oxide removal without substrate damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength for optimal Brass absorption and minimal reflectivity
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning resolution
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for efficient cleaning with thermal management
 
 energyDensity:
   Value:  5.1 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Fluence threshold for effective contaminant removal on Brass
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for controlled ablation of surface contaminants
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform cleaning coverage
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete oxide layer removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform cleaning without excessive heat accumulation
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    300 W
+  Note:   Typical range for industrial 1064 nm laser cleaning of reflective metals like brass to avoid thermal damage; starting at 100W for light contamination. Max limited by brass's high reflectivity and melting point (~900°C). Source: CleanLaser and IPG Photonics specs for metal cleaning systems.
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  electricalConductivity:
-    Value:  1.6e+07 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: ai_research
+scan_speed:
+  Value:  1500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (e.g., oxides), faster for light rust/oil. Recommended 1500 mm/s for uniform brass surface prep. Source: Industry standards from Laserax and academic studies on scan optimization (e.g., J. Laser Appl. 2018).
 
-  electricalResistivity:
-    Value:  6.2e-08 Ω·m
-    Min:    0 Ω·m
-    Max:    0.000002 Ω·m
-    Source: ai_research
+pulse_width:
+  Value:  10 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of brass; 10 ns minimizes heat-affected zone (HAZ) due to brass's thermal conductivity (~120 W/mK). Picosecond (<1 ns) for ultra-fine work but less common industrially. Source: Laser physics research in Opt. Lasers Eng. (2015) on metal ablation thresholds.
 
-  fractureToughness:
-    Value:  52 MPa√m
-    Min:    0.67 MPa√m
-    Max:    157 MPa√m
-    Source: ai_research
+repetition_rate:
+  Value:  30 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   20-50 kHz balances speed and heat accumulation on reflective brass; higher rates (>50 kHz) risk overheating despite good conductivity. Source: Academic literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019), noting trade-offs for Cu-based alloys.
 
-  surfaceRoughness:
-    Value:  1.6 μm
-    Min:    0.02 μm
-    Max:    6.6 μm
-    Source: ai_research
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence below brass damage threshold (~2-4 J/cm² at 1064 nm) for contaminant removal without substrate ablation; 1.5 J/cm² safe for oils/rust. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017) for brass and similar alloys.
 
-  density:
-    Value:  8530 kg/m³
-    Min:    1.7 kg/m³
-    Max:    9408 kg/m³
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   200-300 μm ideal for brass to achieve uniform cleaning on detailed surfaces; smaller for precision, larger for broad areas. Accounts for beam divergence on reflective surfaces. Source: Equipment specs from Coherent and Trumpf laser cleaning heads.
 
-  oxidationResistance:
-    Value:  478 K
-    Min:    -554 K
-    Max:    1762 K
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   1-3 passes typical for complete removal of contaminants on brass; multi-pass for layered dirt to stay below damage threshold. Single pass sufficient for light prep. Source: Industry case studies (e.g., Laser Cleaning Technol. reports) and practical optimization.
 
-  youngsModulus:
-    Value:  110 GPa
-    Min:    10.4 GPa
-    Max:    200000000000 GPa
-    Source: ai_research
-
-  hardness:
-    Value:  65 HB
-    Min:    0.2 HB
-    Max:    3500 HB
-    Source: ai_research
-
-  compressiveStrength:
-    Value:  345 MPa
-    Min:    8 MPa
-    Max:    2625 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  315 MPa
-    Min:    3 MPa
-    Max:    3000 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  379 MPa
-    Min:    11.4 MPa
-    Max:    2897 MPa
-    Source: ai_research
-
-  corrosionResistance:
-    Value:  0.75 dimensionless (0-1 scale)
-    Min:    -1.1 dimensionless (0-1 scale)
-    Max:    1.1e+06 dimensionless (0-1 scale)
-    Source: ai_research
-
-  porosity:
-    Value:  0 %
-    Min:    0 %
-    Max:    15 %
-    Source: ai_research
-
-  boilingPoint:
-    Value:  2013 K
-    Min:    929 K
-    Max:    6454 K
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.34 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  80000000 m^{-1}
-    Min:    589000 m^{-1}
-    Max:    9.9e+07 m^{-1}
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.92 dimensionless
-    Min:    0.35 dimensionless
-    Max:    1 dimensionless
-    Source: ai_research
-
-  vaporPressure:
-    Value:  25.3 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  meltingPoint:
-    Value:  930 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1193 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  150 K
-    Min:    6.7 K
-    Max:    379050 K
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  1.1 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1194 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.94 dimensionless
-    Min:    0.4 dimensionless
-    Max:    73.5 dimensionless
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.9e-05 10^{-6}/K
-    Min:    0.000004 10^{-6}/K
-    Max:    31.7 10^{-6}/K
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  109 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  385 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.12 dimensionless
-    Min:    0.02 dimensionless
-    Max:    4.2e+08 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  3.3e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  2.1 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptionCoefficient:
-    Value:  6.7e+06 m⁻¹
-    Min:    589000 m⁻¹
-    Max:    9.9e+07 m⁻¹
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.38 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  0.45 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.62 dimensionless (ratio)
-    Min:    0.35 dimensionless (ratio)
-    Max:    1 dimensionless (ratio)
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  920 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  180 °C
-    Min:    6.7 °C
-    Max:    379050 °C
-    Source: ai_research
-
-  vaporPressure:
-    Value:  1.3 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1194 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.94 dimensionless
-    Min:    0.4 dimensionless
-    Max:    73.5 dimensionless
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.9e-05 10^{-6}/K
-    Min:    0.000004 10^{-6}/K
-    Max:    31.7 10^{-6}/K
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  109 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  385 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.12 dimensionless
-    Min:    0.02 dimensionless
-    Max:    4.2e+08 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  3.3e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  2.1 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
+overlap_ratio:
+  Value:  70 %
+  Min:    10 %
+  Max:    90 %
+  Note:   70% overlap ensures uniform coverage without excessive heat buildup on brass; higher for fine contaminants, lower for speed. Source: Process optimization studies in Surf. Coat. Technol. (2020) for scanned laser cleaning of metals.
 
 ================================================================================
 CITATION & USAGE
@@ -376,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

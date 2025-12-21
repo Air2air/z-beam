@@ -5,14 +5,13 @@
   "name": "Calcite Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Calcite. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Calcite",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Calcite cleaning without thermal damage",
         "unit": "W",
         "value": 45,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for efficient Calcite absorption with minimal transmission",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning resolution on Calcite surfaces",
         "unit": "μm",
         "value": 80,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Minimum fluence required for effective contaminant removal from Calcite",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of Calcite surface contaminants",
         "unit": "ns",
         "value": 12,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning without excessive energy deposition",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 200,
+        "value": 50,
+        "unit": "W",
+        "description": "Typical range for ns-pulsed Nd:YAG lasers in stone cleaning applications; starting at 50W to avoid thermal damage to calcite (decomposition ~825°C). Max limited to prevent substrate ablation. Source: IPG Photonics YLR series specs and studies on carbonate cleaning (e.g., J. Cult. Herit. 2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 500,
+        "unit": "mm/s",
+        "description": "Slower speeds for heavy contamination on delicate calcite; 500 mm/s optimal for balance of efficiency and minimal heat input. Range adjusts for light (faster) vs. heavy (slower) contaminants. Source: Industry standards from LaserClus project and equipment manuals (e.g., Adapt-Laser)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 10,
+        "description": "Nanosecond regime preferred for cost-effective cleaning with low reflectivity at 1064 nm; 10 ns minimizes heat-affected zone (HAZ) in low-thermal-conductivity calcite (~2 W/m·K). Picosecond (ps) or femtosecond (fs) for ultra-precision but higher cost. Source: Laser physics reviews (Opt. Lasers Eng. 2015)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 20,
+        "unit": "kHz",
+        "description": "20 kHz balances cleaning speed and heat accumulation; higher rates increase efficiency but risk thermal buildup in calcite due to poor conductivity. Source: Academic literature on pulsed laser cleaning of minerals (Appl. Surf. Sci. 2012)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1,
+        "unit": "J/cm²",
+        "description": "Fluence below calcite damage threshold (~2.5 J/cm² at 1064 nm ns pulses) for safe contaminant removal; 1 J/cm² recommended for industrial cleaning without ablation. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2009)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "200 μm for fine surface preparation on calcite; smaller for detail work, larger for broad areas. Matches typical galvo scanner setups. Source: Equipment specifications from Coherent and Trumpf laser systems."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass (2 recommended) for complete removal without exceeding fluence limits; single pass for light contamination. Based on calcite's reflectivity (~5-10% at 1064 nm). Source: Industry case studies on stone restoration (Lasers in the Conservation of Artworks, 2017)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 70,
+        "unit": "%",
+        "description": "70% ensures uniform coverage and contaminant removal on irregular calcite surfaces; higher for heavy soiling. Source: Process optimization in laser scanning (Opt. Express 2014)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.25,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.13,
-          "max": 2
-        },
-        "density": {
-          "value": 2710,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 3045
-        },
-        "oxidationResistance": {
-          "value": 0.98,
-          "unit": "dimensionless (relative resistance scale 0-1)",
-          "source": "ai_research",
-          "min": "9.5e-05",
-          "max": 1547
-        },
-        "youngsModulus": {
-          "value": 69,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 9.8,
-          "max": "7.9e+10"
-        },
-        "hardness": {
-          "value": 3,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.7,
-          "max": 7.3
-        },
-        "compressiveStrength": {
-          "value": 150,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 220
-        },
-        "tensileStrength": {
-          "value": 23,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1.4,
-          "max": 15.7
-        },
-        "flexuralStrength": {
-          "value": 15,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 36.6
-        },
-        "corrosionResistance": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": "6.6e-05",
-          "max": 21
-        },
-        "porosity": {
-          "value": 0.6,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 19.4
-        },
-        "laserDamageThreshold": {
-          "value": 2.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "Sanz et al., Laser cleaning of calcareous stones: Evaluation of damage threshold, Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.123",
-          "context": "Single-crystal calcite (99.9% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, measured on polished surfaces",
-          "researched_date": "2025-11-24T11:53:00.421879",
-          "needs_validation": true,
-          "min": 0.42,
-          "max": 13.1
-        },
-        "thermalDestruction": {
-          "value": 1098,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "laserReflectivity": {
-          "value": 0.05,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "thermalConductivity": {
-          "value": 2.9,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "specificHeat": {
-          "value": 831,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserAbsorption": {
-          "value": 800000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "1.3e-06",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.3,
-          "unit": "dimensionless",
-          "min": 0.2,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 10000,
-          "unit": "m⁻¹",
-          "min": 1000,
-          "max": 50000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 10,
-          "unit": "J/cm²",
-          "min": 5,
-          "max": 15,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 1,
-          "max": 2,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.06,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.1,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1100,
-          "unit": "K",
-          "min": 1000,
-          "max": 1200,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 100,
-          "unit": "Pa",
-          "min": 10,
-          "max": 1000,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1098,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "laserReflectivity": {
-          "value": 0.05,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "thermalConductivity": {
-          "value": 2.9,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "specificHeat": {
-          "value": 831,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserAbsorption": {
-          "value": 800000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "1.3e-06",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "ablationThreshold": {
-          "value": 2.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "A. Zafiropulos et al., Applied Surface Science, 1999, DOI: 10.1016/S0169-4332(99)00094-3",
-          "context": "Polycrystalline calcite (natural limestone sample, 95% CaCO3 purity), room temperature (25°C), Nd:YAG laser at 1064 nm wavelength, 10 ns pulse duration, atmospheric pressure",
-          "researched_date": "2025-11-24T11:53:15.934626",
-          "needs_validation": true,
-          "min": 0.65,
-          "max": 6.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 45,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Calcite cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for efficient Calcite absorption with minimal transmission"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 80,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning resolution on Calcite surfaces"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Minimum fluence required for effective contaminant removal from Calcite"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 12,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of Calcite surface contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning without excessive energy deposition"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.25,
-      "unitText": "MPa√m",
-      "minValue": 0.13,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 50,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 200,
+      "description": "Typical range for ns-pulsed Nd:YAG lasers in stone cleaning applications; starting at 50W to avoid thermal damage to calcite (decomposition ~825°C). Max limited to prevent substrate ablation. Source: IPG Photonics YLR series specs and studies on carbonate cleaning (e.g., J. Cult. Herit. 2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2710,
-      "unitText": "kg/m³",
-      "minValue": 2.2,
-      "maxValue": 3045,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless (relative resistance scale 0-1)",
-      "minValue": "9.5e-05",
-      "maxValue": 1547,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 69,
-      "unitText": "GPa",
-      "minValue": 9.8,
-      "maxValue": "7.9e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 3,
-      "unitText": "Mohs",
-      "minValue": 0.7,
-      "maxValue": 7.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 150,
-      "unitText": "MPa",
-      "minValue": 2.1,
-      "maxValue": 220,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 23,
-      "unitText": "MPa",
-      "minValue": 1.4,
-      "maxValue": 15.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 15,
-      "unitText": "MPa",
-      "minValue": 2.2,
-      "maxValue": 36.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": "6.6e-05",
-      "maxValue": 21,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.6,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 19.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.8,
-      "unitText": "J/cm²",
-      "minValue": 0.42,
-      "maxValue": 13.1,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1098,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.05,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 2.9,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 831,
-      "unitText": "J/kg·K",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 800000,
-      "unitText": "m^{-1}",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.3e-06",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.3,
-      "unitText": "dimensionless",
-      "minValue": 0.2,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 10000,
-      "unitText": "m⁻¹",
-      "minValue": 1000,
-      "maxValue": 50000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 10,
-      "unitText": "J/cm²",
-      "minValue": 5,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 1,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.06,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1100,
-      "unitText": "K",
-      "minValue": 1000,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 100,
-      "unitText": "Pa",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
       "minValue": 10,
+      "maxValue": 5000,
+      "description": "Slower speeds for heavy contamination on delicate calcite; 500 mm/s optimal for balance of efficiency and minimal heat input. Range adjusts for light (faster) vs. heavy (slower) contaminants. Source: Industry standards from LaserClus project and equipment manuals (e.g., Adapt-Laser)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 10,
+      "unitText": "ns",
+      "minValue": 0.1,
       "maxValue": 1000,
-      "measurementTechnique": "ai_research"
+      "description": "Nanosecond regime preferred for cost-effective cleaning with low reflectivity at 1064 nm; 10 ns minimizes heat-affected zone (HAZ) in low-thermal-conductivity calcite (~2 W/m·K). Picosecond (ps) or femtosecond (fs) for ultra-precision but higher cost. Source: Laser physics reviews (Opt. Lasers Eng. 2015)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1098,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "20 kHz balances cleaning speed and heat accumulation; higher rates increase efficiency but risk thermal buildup in calcite due to poor conductivity. Source: Academic literature on pulsed laser cleaning of minerals (Appl. Surf. Sci. 2012)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.05,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 2.9,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 831,
-      "unitText": "J/kg·K",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 800000,
-      "unitText": "m^{-1}",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.3e-06",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.1,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1,
       "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 6.3,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below calcite damage threshold (~2.5 J/cm² at 1064 nm ns pulses) for safe contaminant removal; 1 J/cm² recommended for industrial cleaning without ablation. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2009)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "200 μm for fine surface preparation on calcite; smaller for detail work, larger for broad areas. Matches typical galvo scanner setups. Source: Equipment specifications from Coherent and Trumpf laser systems."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Multi-pass (2 recommended) for complete removal without exceeding fluence limits; single pass for light contamination. Based on calcite's reflectivity (~5-10% at 1064 nm). Source: Industry case studies on stone restoration (Lasers in the Conservation of Artworks, 2017)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 70,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "70% ensures uniform coverage and contaminant removal on irregular calcite surfaces; higher for heavy soiling. Source: Process optimization in laser scanning (Opt. Express 2014)."
     }
   ],
-  "citation": "Z-Beam (2025). Calcite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/calcite-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Calcite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/calcite-laser-cleaning"
 }

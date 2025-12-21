@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/rare-earth/lanthanide/dysprosium-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Dysprosium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/dysprosium-laser-cleaning
 #
@@ -13,40 +13,20 @@ Basic,Info,Name,Dysprosium,,,,,Material name
 Basic,Info,Category,rare-earth,,,,,Material category
 Basic,Info,Subcategory,lanthanide,,,,,Material subcategory
 Basic,Info,Slug,dysprosium-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,95,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,80,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
-Machine,Settings,pulseWidth,12,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,8550,kg/m³,4.3,8.8,ai_research,Material property: density
-Property,material_characteristics,oxidationResistance,-2.3,V,0,149,ai_research,Material property: oxidationResistance
-Property,material_characteristics,youngsModulus,28,GPa,15.8,63.5,ai_research,Material property: youngsModulus
-Property,material_characteristics,hardness,0.41,GPa,0.38,906,ai_research,Material property: hardness
-Property,material_characteristics,boilingPoint,2840,K,1705,3834,ai_research,Material property: boilingPoint
-Property,material_characteristics,absorptivity,0.28,dimensionless,0.25,0.6,ai_research,Material property: absorptivity
-Property,material_characteristics,thermalDestruction,1685,K,273,3520,ai_research,Material property: thermalDestruction
-Property,material_characteristics,laserReflectivity,0.93,dimensionless,0.4,0.94,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalExpansion,2.5e-05,K^{-1},0.000006,26.2,ai_research,Material property: thermalExpansion
-Property,material_characteristics,thermalConductivity,10.7,W/m·K,10.4,17.5,ai_research,Material property: thermalConductivity
-Property,material_characteristics,specificHeat,172,J/(kg·K),113,457,ai_research,Material property: specificHeat
-Property,material_characteristics,ablationThreshold,0.82,J/cm²,0.65,2.9,ai_research,Material property: ablationThreshold
-Property,material_characteristics,absorptionCoefficient,1.2e+06,cm^{-1},298300,6.6e+07,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,absorptivity,0.72,dimensionless,0.25,0.6,ai_research,Material property: absorptivity
-Property,laser_material_interaction,thermalDestruction,1685,K,273,3520,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,laserReflectivity,0.93,dimensionless,0.4,0.94,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalExpansion,2.5e-05,K^{-1},0.000006,26.2,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,thermalConductivity,10.7,W/m·K,10.4,17.5,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,specificHeat,172,J/(kg·K),113,457,ai_research,Material property: specificHeat
-Property,laser_material_interaction,ablationThreshold,0.82,J/cm²,0.65,2.9,ai_research,Material property: ablationThreshold
-Property,laser_material_interaction,absorptionCoefficient,1.2e+06,cm^{-1},298300,6.6e+07,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,thermalDiffusivity,7.4e-06,m²/s,0.000007,1.9e-05,scientific_literature,Material property: thermalDiffusivity
-Property,laser_material_interaction,laserDamageThreshold,0.42,J/cm²,1.1,3.3,scientific_literature,Material property: laserDamageThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,95,W,1,120,,Optimal average power for Dysprosium oxide removal without substrate damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength optimized for Dysprosium's absorption characteristics
+Machine,Settings,spotSize,80,μm,0.1,500,,Beam spot diameter for precise cleaning control
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for continuous cleaning coverage
+Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Minimum fluence required for effective Dysprosium oxide removal
+Machine,Settings,pulseWidth,12,ns,0.1,1000,,Nanosecond pulse duration for efficient oxide layer ablation
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for thorough cleaning
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for complete surface coverage
+Machine,Settings,power,200,W,50,500,,"Typical range for industrial laser cleaning of reflective metals like Dysprosium at 1064 nm to ablate contaminants without substrate melting (melting point ~1412°C). Starting at 200 W balances efficiency and safety; higher risks thermal damage due to moderate thermal conductivity (~10.7 W/m·K). Source: General Nd:YAG laser specs from IPG Photonics and studies on rare earth metal processing (e.g., J. Appl. Phys. on lanthanide ablation)."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective speeds for contaminant removal on Dysprosium; slower for heavy contamination (e.g., oxides), faster for light. Recommended 1500 mm/s optimizes fluence delivery without excessive heat buildup. Conservative for uniform coverage on soft, reflective surfaces. Source: Industry standards from laser cleaning manuals (e.g., Adapt Laser Systems) and process optimization in Opt. Lasers Eng."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred for cost-effective cleaning of Dysprosium; picosecond (ps) or femtosecond reduces HAZ but increases cost. 20 ns minimizes thermal diffusion in low-conductivity metal while ablating surface layers. Source: Laser physics research on metal ablation thresholds (e.g., Appl. Surf. Sci. reviews on ns vs. ps for rare earths)."
+Machine,Settings,repetition_rate,50,kHz,1,200,,"Standard for pulsed cleaning to achieve high throughput; 50 kHz recommended for Dysprosium to balance speed and avoid heat accumulation on reflective surfaces (high reflectivity ~70% at 1064 nm). Higher rates increase efficiency but risk subsurface heating. Source: Academic literature on pulse train effects (e.g., J. Phys. D: Appl. Phys. on metal cleaning)."
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for safe contaminant removal; Dysprosium damage threshold estimated ~2-4 J/cm² based on similar lanthanides. Recommended 1.5 J/cm² for cleaning without ablation of base metal, considering reflectivity and thermal properties. Conservative due to limited specific data. Source: Ablation threshold studies (e.g., Phys. Rev. B on rare earth metals; general metal cleaning in Laser Ablation and Its Applications)."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for precise industrial cleaning; smaller for fine details on Dysprosium components, larger for broad areas. 200 μm recommended for balanced energy distribution and minimal distortion on soft metal. Source: Equipment specifications from Coherent and Trumpf lasers for metal surface prep."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete Dysprosium cleaning to ensure uniformity without over-processing reflective surfaces. Source: Industry case studies on iterative laser cleaning (e.g., Proc. SPIE on multi-pass optimization for metals)."
+Machine,Settings,overlap_ratio,60,%,10,90,,Ensures uniform coverage; 60% recommended for Dysprosium to avoid gaps or streaks on large areas while preventing excessive overlap heating. Typical range from process studies. Source: Optimization studies in J. Laser Appl. and laser scanning guidelines from scanning head manufacturers like Scanlab.

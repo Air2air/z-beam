@@ -155,6 +155,49 @@ export function normalizeNumericValue(value: unknown): number | null {
 }
 
 /**
+ * Normalize property names from snake_case to camelCase
+ * This bridges the gap between legacy YAML frontmatter (snake_case) and application code (camelCase)
+ * 
+ * NOTE: As of December 2025, all YAML files have been converted to camelCase.
+ * This normalizer is kept for backward compatibility with any remaining snake_case files.
+ * 
+ * Converts specific top-level property names:
+ * - machine_settings → machineSettings
+ * - material_properties → materialProperties
+ * - laser_properties → laserProperties
+ * - safety_data → safetyData
+ * - removal_by_material → removalByMaterial
+ * - visual_characteristics → visualCharacteristics
+ * - regulatory_standards → regulatoryStandards
+ */
+export function normalizePropertyNames<T>(data: T | null | undefined): T | null | undefined {
+  if (!data || typeof data !== 'object') return data;
+  
+  const propertyMap: Record<string, string> = {
+    'machine_settings': 'machineSettings',
+    'material_properties': 'materialProperties',
+    'laser_properties': 'laserProperties',
+    'safety_data': 'safetyData',
+    'removal_by_material': 'removalByMaterial',
+    'visual_characteristics': 'visualCharacteristics',
+    'regulatory_standards': 'regulatoryStandards'
+  };
+  
+  const result = { ...data } as Record<string, unknown>;
+  
+  for (const [snakeCase, camelCase] of Object.entries(propertyMap)) {
+    if (snakeCase in result) {
+      // Move snake_case to camelCase
+      result[camelCase] = result[snakeCase];
+      // Remove snake_case version (no longer needed after E2E normalization)
+      delete result[snakeCase];
+    }
+  }
+  
+  return result as T;
+}
+
+/**
  * Recursively normalize all numeric values in nested property objects
  * Commonly used for materialProperties, machineSettings, etc.
  */

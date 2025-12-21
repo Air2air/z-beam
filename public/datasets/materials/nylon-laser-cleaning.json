@@ -5,14 +5,13 @@
   "name": "Nylon Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Nylon. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Nylon",
@@ -97,240 +96,125 @@
       "powerRange": {
         "value": 30,
         "unit": "W",
+        "description": "Low power for thermal-sensitive polymer cleaning",
         "min": 1,
         "max": 120
       },
       "wavelength": {
         "value": 1064,
         "unit": "nm",
+        "description": "Near-IR wavelength for controlled absorption",
         "min": 355,
         "max": 10640
       },
       "spotSize": {
         "value": 100,
         "unit": "μm",
+        "description": "Larger spot for gentle surface treatment",
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
         "value": 20,
         "unit": "kHz",
+        "description": "Lower frequency to prevent thermal damage",
         "min": 1,
         "max": 200
       },
       "energyDensity": {
         "value": 0.5,
         "unit": "J/cm²",
+        "description": "Low energy density to avoid melting",
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
         "value": 10,
         "unit": "ns",
+        "description": "Short pulses for minimal thermal impact",
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
         "value": 800,
         "unit": "mm/s",
+        "description": "Fast scanning to reduce heat accumulation",
         "min": 10,
         "max": 5000
       },
       "passCount": {
         "value": 2,
         "unit": "passes",
+        "description": "Multiple gentle passes for gradual cleaning",
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
         "value": 30,
         "unit": "%",
+        "description": "Lower overlap to prevent overheating",
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 10,
+        "max": 100,
+        "value": 30,
+        "unit": "W",
+        "description": "Low to moderate power range for heat-sensitive polymers like Nylon to prevent melting (melting point ~220°C); typical for 1064 nm fiber lasers in industrial cleaning. Recommended starting value balances efficiency and safety. Source: Manufacturer specs from IPG Photonics and Coherent for polymer surface preparation; academic review in 'Journal of Laser Applications' (2020)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Slower speeds ensure controlled energy delivery on low thermal conductivity Nylon (~0.25 W/mK) to avoid heat accumulation; higher speeds (up to 2000 mm/s) for light contamination, lower (100-500 mm/s) for heavy. Recommended for optimal contaminant removal without substrate damage. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred over picosecond/femtosecond for cost-effective 1064 nm cleaning of Nylon, minimizing heat-affected zone (HAZ) via rapid ablation of contaminants; shorter pulses (<20 ns) reduce thermal diffusion in polymers. Picosecond (10-100 ps) for ultra-precise applications but less common at this wavelength. Source: Laser physics research in 'Applied Surface Science' (2018) on polymer ablation thresholds."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Moderate rates for Nylon cleaning to achieve fast processing while limiting heat buildup; higher rates (>50 kHz) increase speed but risk thermal accumulation on low-conductivity substrates, lower for heavy contamination. Trade-off: efficiency vs. HAZ control. Source: Academic literature in 'Optics and Lasers in Engineering' (2019) on pulsed laser cleaning of polymers."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 0.5,
+        "unit": "J/cm²",
+        "description": "Fluence below Nylon's damage threshold (~1.2-1.5 J/cm² at 1064 nm due to moderate IR absorption) for safe contaminant removal; lower for light soils (0.1-0.3 J/cm²), higher for heavy (0.5-1.0 J/cm²). Recommended value ensures photothermal cleaning without ablation. Source: Ablation threshold studies in 'Polymer Degradation and Stability' (2017) and 'Lasers in Manufacturing' conference proceedings (2021)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 100,
+        "unit": "μm",
+        "description": "Smaller spots (50-100 μm) for fine detail cleaning on Nylon surfaces, larger (100-300 μm) for broad area preparation; balances resolution and coverage while controlling fluence on reflective polymers. Recommended for industrial contamination removal. Source: Equipment specifications from SPI Lasers and research in 'Journal of Applied Physics' (2022) on beam profiling for polymers."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass approach preferred for Nylon to gradually remove contaminants without exceeding thermal limits; single pass for light cleaning, up to 5 for heavy or uneven surfaces. Recommended minimizes risk of melting. Source: Industry practice from case studies in 'Surface and Coatings Technology' (2020) and manufacturer application notes (e.g., CleanLaser)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 70,
+        "unit": "%",
+        "description": "Higher overlap ensures uniform coverage on irregular Nylon surfaces, preventing gaps in cleaning; 30-50% for large areas, 70-80% for precision. Recommended for even energy distribution and minimal HAZ. Source: Process optimization studies in 'Procedia Manufacturing' (2019) on scan strategies for laser cleaning of polymers."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "density": {
-          "value": 1.1,
-          "unit": "g/cm³",
-          "min": 0.84,
-          "max": 2.2
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%"
-        },
-        "surfaceRoughness": {
-          "value": 1.2,
-          "unit": "μm"
-        },
-        "tensileStrength": {
-          "value": 75,
-          "unit": "MPa",
-          "min": 10,
-          "max": 400
-        },
-        "youngsModulus": {
-          "value": 2.7,
-          "unit": "GPa",
-          "min": 0.01,
-          "max": 5000
-        },
-        "hardness": {
-          "value": 0.08,
-          "unit": "GPa",
-          "min": 51.8,
-          "max": 123
-        },
-        "flexuralStrength": {
-          "value": 85,
-          "unit": "MPa",
-          "min": 20.7,
-          "max": 96.4
-        },
-        "oxidationResistance": {
-          "value": 2,
-          "unit": "μm/year",
-          "min": 0.76,
-          "max": 1575
-        },
-        "corrosionResistance": {
-          "value": 0.9,
-          "unit": "mm/year",
-          "min": 0,
-          "max": 105
-        },
-        "compressiveStrength": {
-          "value": 75,
-          "unit": "MPa",
-          "min": 20,
-          "max": 200
-        },
-        "fractureToughness": {
-          "value": 7,
-          "unit": "MPa m^{1/2}",
-          "min": 0.7,
-          "max": 2.9
-        },
-        "electricalResistivity": {
-          "value": 10000000000000,
-          "unit": "Ω·m",
-          "min": "9.5e+12",
-          "max": 100000000000000000
-        },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 533,
-          "unit": "K",
-          "min": 228,
-          "max": 715
-        },
-        "laserAbsorption": {
-          "value": 0.65,
-          "unit": "dimensionless",
-          "min": 0.28,
-          "max": 126000
-        },
-        "laserDamageThreshold": {
-          "value": 1.8,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser damage thresholds of common polymers for nanosecond pulses",
-          "citation": "J. Bonse et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-7",
-          "context": "Nylon 6,6 (commercial grade, 99% purity), 25°C, 532 nm wavelength, 10 ns pulse duration, measured via optical microscopy of ablation craters",
-          "researched_date": "2025-11-24T12:44:40.097061",
-          "needs_validation": true,
-          "min": 0.71,
-          "max": 2.6
-        },
-        "ablationThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Threshold fluences for the laser ablation of nylon 6,6",
-          "citation": "B. Hopp, T. Smausz, N. Barna, Cs. Vass, L. Juhász, et al., Journal of Physics D: Applied Physics, 2001, DOI: 10.1088/0022-3727/34/5/307",
-          "context": "Nylon 6,6 (commercial grade, ~99% purity), room temperature (25°C), measured using 193 nm ArF excimer laser pulses in vacuum",
-          "researched_date": "2025-11-24T12:44:46.495689",
-          "needs_validation": true,
-          "min": 0.39,
-          "max": 2.8
-        },
-        "thermalDiffusivity": {
-          "value": "1.3e-07",
-          "unit": "m²/s",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "Polymer Handbook, Fourth Edition",
-          "citation": "Brandrup, J., Immergut, E.H., Grulke, E.A. (eds.), Polymer Handbook, 4th ed., John Wiley & Sons, Inc., 1999, ISBN 978-0-471-53857-1",
-          "context": "Nylon 6,6 (commercial grade, unfilled), 25°C, calculated from thermal conductivity, density, and specific heat capacity",
-          "researched_date": "2025-11-24T12:44:56.468435",
-          "needs_validation": true,
-          "min": 0,
-          "max": 0
-        },
-        "thermalExpansion": {
-          "value": 0.00008,
-          "unit": "K^{-1}",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb Materials Database, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b7e5b5b0b4a4b0e9a5e5b5b0b4a4b0e, accessed 2024",
-          "context": "Nylon 6,6 (polyhexamethylene adipamide), unfilled, dry as molded, 23°C, linear coefficient",
-          "researched_date": "2025-11-24T12:45:02.798000",
-          "needs_validation": true,
-          "min": "5.9e-05",
-          "max": "0.0002"
-        },
-        "specificHeat": {
-          "value": 1700,
-          "unit": "J/(kg·K)",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC., DuPont Zytel® 101L NC010 Nylon 66, http://www.matweb.com/search/DataSheet.aspx?MatGUID=9f1a4b5b0d4a4b0e9c5e4a5b0d4a4b0e, accessed 2024",
-          "context": "Nylon 6,6 (polyhexamethylene adipamide), unfilled, dry as molded, 23°C, measured by differential scanning calorimetry (DSC)",
-          "researched_date": "2025-11-24T12:45:13.528675",
-          "needs_validation": true,
-          "min": 1,
-          "max": 2500
-        },
-        "thermalConductivity": {
-          "value": 0.25,
-          "unit": "W/m·K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, DuPont Zytel® 101L NC010 Nylon 66, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1e3d4a5b0a4a4b0e9a5b0a4a4b0e9a5b, accessed 2023",
-          "context": "Unreinforced Nylon 6,6 (polyhexamethylene adipamide), 23°C, dry as molded, isotropic measurement via guarded hot plate method",
-          "researched_date": "2025-11-24T12:45:19.011403",
-          "needs_validation": true,
-          "min": 0.02,
-          "max": 3
-        },
-        "laserReflectivity": {
-          "value": 0.04,
-          "unit": "dimensionless (fraction)",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
-          "context": "Nylon 6,6 (commercial grade, 99% purity), 25°C, normal incidence, calculated for 1064 nm wavelength based on refractive index n=1.53",
-          "researched_date": "2025-11-24T12:45:27.402183",
-          "needs_validation": true,
-          "min": 0.02,
-          "max": 0.05
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -343,7 +227,8 @@
       "value": 30,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Low power for thermal-sensitive polymer cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -352,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for controlled absorption"
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +247,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Larger spot for gentle surface treatment"
     },
     {
       "@type": "PropertyValue",
@@ -370,7 +257,8 @@
       "value": 20,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Lower frequency to prevent thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -379,7 +267,8 @@
       "value": 0.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Low energy density to avoid melting"
     },
     {
       "@type": "PropertyValue",
@@ -388,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Short pulses for minimal thermal impact"
     },
     {
       "@type": "PropertyValue",
@@ -397,7 +287,8 @@
       "value": 800,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Fast scanning to reduce heat accumulation"
     },
     {
       "@type": "PropertyValue",
@@ -406,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Multiple gentle passes for gradual cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -415,234 +307,89 @@
       "value": 30,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Lower overlap to prevent overheating"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 1.1,
-      "unitText": "g/cm³",
-      "minValue": 0.84,
-      "maxValue": 2.2
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 1.2,
-      "unitText": "μm"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 75,
-      "unitText": "MPa",
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 30,
+      "unitText": "W",
       "minValue": 10,
-      "maxValue": 400
+      "maxValue": 100,
+      "description": "Low to moderate power range for heat-sensitive polymers like Nylon to prevent melting (melting point ~220°C); typical for 1064 nm fiber lasers in industrial cleaning. Recommended starting value balances efficiency and safety. Source: Manufacturer specs from IPG Photonics and Coherent for polymer surface preparation; academic review in 'Journal of Laser Applications' (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 2.7,
-      "unitText": "GPa",
-      "minValue": 0.01,
-      "maxValue": 5000
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Slower speeds ensure controlled energy delivery on low thermal conductivity Nylon (~0.25 W/mK) to avoid heat accumulation; higher speeds (up to 2000 mm/s) for light contamination, lower (100-500 mm/s) for heavy. Recommended for optimal contaminant removal without substrate damage. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 0.08,
-      "unitText": "GPa",
-      "minValue": 51.8,
-      "maxValue": 123
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred over picosecond/femtosecond for cost-effective 1064 nm cleaning of Nylon, minimizing heat-affected zone (HAZ) via rapid ablation of contaminants; shorter pulses (<20 ns) reduce thermal diffusion in polymers. Picosecond (10-100 ps) for ultra-precise applications but less common at this wavelength. Source: Laser physics research in 'Applied Surface Science' (2018) on polymer ablation thresholds."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 85,
-      "unitText": "MPa",
-      "minValue": 20.7,
-      "maxValue": 96.4
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 2,
-      "unitText": "μm/year",
-      "minValue": 0.76,
-      "maxValue": 1575
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.9,
-      "unitText": "mm/year",
-      "minValue": 0,
-      "maxValue": 105
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 75,
-      "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 7,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.7,
-      "maxValue": 2.9
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 10000000000000,
-      "unitText": "Ω·m",
-      "minValue": "9.5e+12",
-      "maxValue": 100000000000000000
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 533,
-      "unitText": "K",
-      "minValue": 228,
-      "maxValue": 715
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.65,
-      "unitText": "dimensionless",
-      "minValue": 0.28,
-      "maxValue": 126000
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 1.8,
-      "unitText": "J/cm²",
-      "minValue": 0.71,
-      "maxValue": 2.6,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.2,
-      "unitText": "J/cm²",
-      "minValue": 0.39,
-      "maxValue": 2.8,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.3e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.00008,
-      "unitText": "K^{-1}",
-      "minValue": "5.9e-05",
-      "maxValue": "0.0002",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1700,
-      "unitText": "J/(kg·K)",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 2500,
-      "measurementTechnique": "scientific_literature"
+      "maxValue": 200,
+      "description": "Moderate rates for Nylon cleaning to achieve fast processing while limiting heat buildup; higher rates (>50 kHz) increase speed but risk thermal accumulation on low-conductivity substrates, lower for heavy contamination. Trade-off: efficiency vs. HAZ control. Source: Academic literature in 'Optics and Lasers in Engineering' (2019) on pulsed laser cleaning of polymers."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.25,
-      "unitText": "W/m·K",
-      "minValue": 0.02,
-      "maxValue": 3,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 0.5,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below Nylon's damage threshold (~1.2-1.5 J/cm² at 1064 nm due to moderate IR absorption) for safe contaminant removal; lower for light soils (0.1-0.3 J/cm²), higher for heavy (0.5-1.0 J/cm²). Recommended value ensures photothermal cleaning without ablation. Source: Ablation threshold studies in 'Polymer Degradation and Stability' (2017) and 'Lasers in Manufacturing' conference proceedings (2021)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.04,
-      "unitText": "dimensionless (fraction)",
-      "minValue": 0.02,
-      "maxValue": 0.05,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 100,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller spots (50-100 μm) for fine detail cleaning on Nylon surfaces, larger (100-300 μm) for broad area preparation; balances resolution and coverage while controlling fluence on reflective polymers. Recommended for industrial contamination removal. Source: Equipment specifications from SPI Lasers and research in 'Journal of Applied Physics' (2022) on beam profiling for polymers."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Multi-pass approach preferred for Nylon to gradually remove contaminants without exceeding thermal limits; single pass for light cleaning, up to 5 for heavy or uneven surfaces. Recommended minimizes risk of melting. Source: Industry practice from case studies in 'Surface and Coatings Technology' (2020) and manufacturer application notes (e.g., CleanLaser)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 70,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Higher overlap ensures uniform coverage on irregular Nylon surfaces, preventing gaps in cleaning; 30-50% for large areas, 70-80% for precision. Recommended for even energy distribution and minimal HAZ. Source: Process optimization studies in 'Procedia Manufacturing' (2019) on scan strategies for laser cleaning of polymers."
     }
   ],
-  "citation": "Z-Beam (2025). Nylon Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/nylon-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Alessandro Moretti",
-    "jobTitle": "Materials Engineer",
-    "knowsAbout": [
-      "Laser-Based Additive Manufacturing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Nylon Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/nylon-laser-cleaning"
 }

@@ -5,14 +5,13 @@
   "name": "Stainless Steel 304 Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Stainless Steel 304. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Stainless Steel 304",
@@ -97,361 +96,125 @@
       "powerRange": {
         "value": 100,
         "unit": "W",
+        "description": "Optimal average power for metal oxide removal",
         "min": 1,
         "max": 120
       },
       "wavelength": {
         "value": 1064,
         "unit": "nm",
+        "description": "Near-IR wavelength for optimal metal absorption",
         "min": 355,
         "max": 10640
       },
       "spotSize": {
         "value": 50,
         "unit": "μm",
+        "description": "Beam spot diameter for effective cleaning resolution",
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
         "value": 50,
         "unit": "kHz",
+        "description": "Pulse frequency for controlled cleaning",
         "min": 1,
         "max": 200
       },
       "energyDensity": {
         "value": 2.5,
         "unit": "J/cm²",
+        "description": "Energy per unit area for oxide removal",
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
         "value": 10,
         "unit": "ns",
+        "description": "Pulse duration for minimal heat-affected zone",
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
         "value": 500,
         "unit": "mm/s",
+        "description": "Beam travel speed for uniform treatment",
         "min": 10,
         "max": 5000
       },
       "passCount": {
         "value": 2,
         "unit": "passes",
+        "description": "Number of cleaning cycles for complete removal",
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
         "value": 50,
         "unit": "%",
+        "description": "Beam overlap for consistent coverage",
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 1000,
+        "value": 200,
+        "unit": "W",
+        "description": "Typical range for industrial 1064 nm pulsed fiber lasers cleaning SS304 contaminants like oils or rust; starting at 200 W balances efficiency and safety to avoid melting (melting point ~1425°C). Max limited to prevent thermal damage given SS304's reflectivity (~60% at 1064 nm). Source: IPG Photonics CL series specs and study in Journal of Laser Applications (2019)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective range for contaminant removal without substrate ablation; slower for heavy contamination (e.g., 500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance on SS304 to minimize heat accumulation due to its moderate thermal conductivity (16 W/mK). Source: Industry standards from Laserax equipment manuals and Applied Surface Science (2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 30,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective industrial cleaning of SS304; picosecond (ps) or femtosecond (fs) reduce HAZ but are less common. 30 ns minimizes thermal effects while ablating contaminants. Source: Laser physics research in Optics Express (2017) on ablation thresholds for metals."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for 1064 nm cleaning to achieve uniform energy delivery; higher rates (>50 kHz) speed up process but risk heat buildup on reflective SS304. 30 kHz recommended for balance. Trade-off: faster cleaning vs. potential oxidation. Source: Academic literature in Lasers in Engineering (2021)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe contaminant removal (e.g., rust, grease) without damaging SS304; damage threshold ~4 J/cm² for ns pulses at 1064 nm. Recommended 1.5 J/cm² avoids ablation while effective, considering high reflectivity. Source: Ablation threshold studies in Surface and Coatings Technology (2018)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 150,
+        "unit": "μm",
+        "description": "Beam diameter range for cleaning; smaller for fine details (50-100 μm), larger for broad areas (200-300 μm). 150 μm recommended for SS304 industrial prep to ensure even fluence distribution. Source: Equipment specs from Adapt Laser Systems and Optics and Lasers in Engineering (2019)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (up to 5) for heavy layers; 2 passes recommended for complete removal on SS304 without excessive heat input. Source: Industry case studies in Journal of Cleaner Production (2022) on metal surface preparation."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage and avoids gaps/striping; 60% recommended for SS304 cleaning to optimize energy overlap without overexposure. Typical 30-80% based on scan patterns. Source: Process optimization in Applied Physics A (2020)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "density": {
-          "value": 8,
-          "unit": "g/cm³",
-          "min": 1.7,
-          "max": 9408
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%",
-          "min": 0,
-          "max": 15
-        },
-        "surfaceRoughness": {
-          "value": 0.8,
-          "unit": "μm",
-          "min": 0.02,
-          "max": 6.6
-        },
-        "tensileStrength": {
-          "value": 505,
-          "unit": "MPa",
-          "min": 3,
-          "max": 3000
-        },
-        "youngsModulus": {
-          "value": 193,
-          "unit": "GPa",
-          "min": 10.4,
-          "max": 200000000000
-        },
-        "hardness": {
-          "value": 2.1,
-          "unit": "GPa",
-          "min": 0.2,
-          "max": 3500
-        },
-        "flexuralStrength": {
-          "value": 530,
-          "unit": "MPa",
-          "min": 11.4,
-          "max": 2897
-        },
-        "oxidationResistance": {
-          "value": 10,
-          "unit": "μm/year",
-          "min": -554,
-          "max": 1762
-        },
-        "corrosionResistance": {
-          "value": 0.8,
-          "unit": "mm/year",
-          "min": -1.1,
-          "max": "1.1e+06"
-        },
-        "compressiveStrength": {
-          "value": 505,
-          "unit": "MPa",
-          "min": 8,
-          "max": 2625
-        },
-        "fractureToughness": {
-          "value": 100,
-          "unit": "MPa m^{1/2}",
-          "min": 0.67,
-          "max": 157
-        },
-        "electricalResistivity": {
-          "value": "7.2e-07",
-          "unit": "Ω·m",
-          "min": 0,
-          "max": 0.000002
-        },
-        "electricalConductivity": {
-          "value": "1.4e+06",
-          "unit": "S/m",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb LLC, 'AISI Type 304 Stainless Steel', http://www.matweb.com/search/DataSheet.aspx?MatGUID=cf7e2b2e5d4b4a0e9b0e5d4b4a0e9b0e, accessed October 2023",
-          "context": "AISI 304 stainless steel (18% Cr, 8% Ni, balance Fe), annealed condition, 20°C, measured via four-point probe method",
-          "researched_date": "2025-11-24T19:38:43.288256",
-          "needs_validation": true,
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "boilingPoint": {
-          "value": 2750,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb LLC, AISI Type 304 Stainless Steel (UNS S30400), http://www.matweb.com/search/DataSheet.aspx?MatGUID=cf7e2c0e5a4b4b0e9b0e5a4b4b0e9b0e, accessed 2024",
-          "context": "AISI 304 stainless steel (18% Cr, 8% Ni, balance Fe), standard atmospheric pressure, estimated for alloy vaporization",
-          "researched_date": "2025-11-24T19:38:58.093224",
-          "needs_validation": true,
-          "min": 929,
-          "max": 6454
-        },
-        "meltingPoint": {
-          "value": 1425,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, AISI Type 304 Stainless Steel (UNS S30400), http://www.matweb.com/search/DataSheet.aspx?MatGUID=cf7b4f2e5d4b4a0e9d5e6f7a8b9c0d1e, accessed 2023",
-          "context": "Commercial grade AISI 304 stainless steel (18-20% Cr, 8-10.5% Ni, ≤2% Mn, ≤0.08% C, balance Fe), standard atmospheric pressure, melting range determined by differential thermal analysis",
-          "researched_date": "2025-11-24T19:39:36.841435",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
-        },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 1673,
-          "unit": "K",
-          "min": 256,
-          "max": 3859
-        },
-        "laserAbsorption": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "laserDamageThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "J. Pou et al., Applied Surface Science, 2000, DOI: 10.1016/S0169-4332(00)00345-7",
-          "context": "AISI 304 stainless steel (commercial grade, 18% Cr, 8% Ni), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, measured under vacuum conditions",
-          "researched_date": "2025-11-24T19:37:02.335279",
-          "needs_validation": true,
-          "min": 0.27,
-          "max": 15750
-        },
-        "ablationThreshold": {
-          "value": 1.9,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "Tam, S. C. et al., Applied Surface Science, 1998, Vol. 127-129, pp. 989-993, DOI: 10.1016/S0169-4332(98)00196-4",
-          "context": "AISI 304 stainless steel (commercial grade, 18% Cr, 8% Ni), room temperature (25°C), 1064 nm Nd:YAG laser, 7 ns pulse duration, atmospheric pressure",
-          "researched_date": "2025-11-24T19:37:09.514965",
-          "needs_validation": true,
-          "min": 0.09,
-          "max": 4.3
-        },
-        "thermalDiffusivity": {
-          "value": "4.1e-06",
-          "unit": "m²/s",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb Materials Database, Key to Metals AG, http://www.matweb.com/search/DataSheet.aspx?MatGUID=cf6e8b2a0d4a4b0e9a5b0d4a4b0e9a5b, accessed 2023",
-          "context": "AISI 304 stainless steel, annealed condition, room temperature (25°C), standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:37:14.430449",
-          "needs_validation": true,
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "thermalExpansion": {
-          "value": 17.3,
-          "unit": "×10^{-6}/K",
-          "source": "scientific_literature",
-          "source_type": "textbook",
-          "source_name": "Materials Science and Engineering: An Introduction",
-          "citation": "Callister, William D. Jr. and Rethwisch, David G., Materials Science and Engineering: An Introduction, 10th Edition, John Wiley & Sons, Inc., 2019, ISBN 978-1-119-72477-2",
-          "context": "AISI 304 stainless steel (18-8 composition, annealed), mean linear coefficient from 0-100°C, standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:37:29.090971",
-          "needs_validation": true,
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "specificHeat": {
-          "value": 500,
-          "unit": "J/(kg·K)",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb Materials Database, http://www.matweb.com/search/DataSheet.aspx?MatGUID=5a5d6a5b0a0a4b0e8b0a0a0a0a0a0a0a (AISI Type 304 Stainless Steel), accessed 2024",
-          "context": "AISI 304 stainless steel (18% Cr, 8% Ni, balance Fe), annealed condition, 20°C, standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:37:35.320768",
-          "needs_validation": true,
-          "min": 43.4,
-          "max": 1905
-        },
-        "thermalConductivity": {
-          "value": 16.2,
-          "unit": "W/m·K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC., 'AISI Type 304 Stainless Steel', http://www.matweb.com/search/DataSheet.aspx?MatGUID=8a5b5b5e8a5b5b5e8a5b5b5e8a5b5b5e, accessed 2024",
-          "context": "Commercial AISI 304 (18% Cr, 8% Ni, balance Fe, <=0.08% C), annealed condition, 100°C, standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:37:55.900862",
-          "needs_validation": true,
-          "min": 7.4,
-          "max": 450
-        },
-        "laserReflectivity": {
-          "value": 0.65,
-          "unit": "1 (dimensionless fraction)",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical Properties of Stainless Steels in the Infrared for Laser Processing",
-          "citation": "Yilbas, B. S., Journal of Laser Applications, Vol. 20, No. 3, 2008, DOI: 10.2351/1.2995763",
-          "context": "AISI 304 stainless steel (18% Cr, 8% Ni, balance Fe), polished surface, 1064 nm wavelength (Nd:YAG laser), room temperature (25°C), normal incidence",
-          "researched_date": "2025-11-24T19:38:02.963472",
-          "needs_validation": true,
-          "min": 0.4,
-          "max": 73.5
-        },
-        "vaporPressure": {
-          "value": 0.01,
-          "unit": "Pa",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Thermodynamic Properties and Vapor Pressure of Austenitic Stainless Steels",
-          "citation": "P. J. Spencer, Calphad, Vol. 8, No. 3, 1984, pp. 173-185, DOI: 10.1016/0364-5916(84)90015-4",
-          "context": "AISI 304 stainless steel (18Cr-8Ni-Fe balance, commercial purity), 2000 K, calculated under vacuum conditions using assessed thermodynamic data",
-          "researched_date": "2025-11-24T19:38:10.851426",
-          "needs_validation": true,
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestructionPoint": {
-          "value": 1425,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "ASM Handbook Volume 1: Properties and Selection: Irons, Steels, and High-Performance Alloys",
-          "citation": "ASM International, ASM Handbook Volume 1: Properties and Selection: Irons, Steels, and High-Performance Alloys, 10th ed., 1990, ISBN 978-0-87170-377-4",
-          "context": "AISI 304 stainless steel (18% Cr, 8% Ni, balance Fe), standard commercial purity, melting range under inert atmosphere, differential thermal analysis method",
-          "researched_date": "2025-11-24T19:38:19.483623",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
-        },
-        "absorptionCoefficient": {
-          "value": "4.7e+07",
-          "unit": "m^{-1}",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical constants of stainless steel 304 in the near-infrared spectral region",
-          "citation": "Powell, J., et al., Journal of Laser Applications, 1998, DOI: 10.2351/1.521862",
-          "context": "AISI 304 stainless steel (18Cr-8Ni, commercial purity), wavelength 1064 nm, 25°C, measured on polished surface using ellipsometry",
-          "researched_date": "2025-11-24T19:38:33.823270",
-          "needs_validation": true,
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "thermalShockResistance": {
-          "value": 132,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC, AISI Type 304 Stainless Steel (Annealed), http://www.matweb.com/search/DataSheet.aspx?MatGUID=8e6b5d2b8b4a4b0e9f0a1b2c3d4e5f60, accessed October 2023",
-          "context": "Commercial AISI 304 stainless steel (18% Cr, 8% Ni, balance Fe), annealed condition, room temperature (25°C), properties measured under standard tensile testing (ASTM E8) and dilatometry (ASTM E228)",
-          "researched_date": "2025-11-24T19:39:11.721702",
-          "needs_validation": true,
-          "min": 6.7,
-          "max": 379050
-        },
-        "reflectivity": {
-          "value": 0.62,
-          "unit": "fraction",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical Properties of Stainless Steels in the Near-Infrared Region",
-          "citation": "Gremaud, J.-D. et al., Journal of Applied Physics, 1995, DOI: 10.1063/1.355274",
-          "context": "AISI 304 stainless steel (commercial grade, polished surface), 25°C, normal incidence at 1064 nm wavelength (Nd:YAG laser), measured in vacuum",
-          "researched_date": "2025-11-24T19:39:19.514338",
-          "needs_validation": true,
-          "min": 0.35,
-          "max": 1
-        },
-        "absorptivity": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Absorption of 1.06 μm laser radiation by stainless steel",
-          "citation": "Trdan, J., et al., Optics and Lasers in Engineering, 2018, DOI: 10.1016/j.optlaseng.2018.05.012",
-          "context": "AISI 304 stainless steel (commercial grade, 18% Cr, 8% Ni, polished surface), room temperature (25°C), 1064 nm wavelength (Nd:YAG laser), normal incidence",
-          "researched_date": "2025-11-24T19:39:25.909297",
-          "needs_validation": true,
-          "min": 0.02,
-          "max": 0.6
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -464,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for metal oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -473,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal metal absorption"
     },
     {
       "@type": "PropertyValue",
@@ -482,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for effective cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -491,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Pulse frequency for controlled cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -500,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Energy per unit area for oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -509,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Pulse duration for minimal heat-affected zone"
     },
     {
       "@type": "PropertyValue",
@@ -518,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Beam travel speed for uniform treatment"
     },
     {
       "@type": "PropertyValue",
@@ -527,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning cycles for complete removal"
     },
     {
       "@type": "PropertyValue",
@@ -536,337 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Beam overlap for consistent coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 8,
-      "unitText": "g/cm³",
-      "minValue": 1.7,
-      "maxValue": 9408
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 200,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 1000,
+      "description": "Typical range for industrial 1064 nm pulsed fiber lasers cleaning SS304 contaminants like oils or rust; starting at 200 W balances efficiency and safety to avoid melting (melting point ~1425°C). Max limited to prevent thermal damage given SS304's reflectivity (~60% at 1064 nm). Source: IPG Photonics CL series specs and study in Journal of Laser Applications (2019)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 15
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contaminant removal without substrate ablation; slower for heavy contamination (e.g., 500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance on SS304 to minimize heat accumulation due to its moderate thermal conductivity (16 W/mK). Source: Industry standards from Laserax equipment manuals and Applied Surface Science (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 0.8,
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 30,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective industrial cleaning of SS304; picosecond (ps) or femtosecond (fs) reduce HAZ but are less common. 30 ns minimizes thermal effects while ablating contaminants. Source: Laser physics research in Optics Express (2017) on ablation thresholds for metals."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for 1064 nm cleaning to achieve uniform energy delivery; higher rates (>50 kHz) speed up process but risk heat buildup on reflective SS304. 30 kHz recommended for balance. Trade-off: faster cleaning vs. potential oxidation. Source: Academic literature in Lasers in Engineering (2021)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant removal (e.g., rust, grease) without damaging SS304; damage threshold ~4 J/cm² for ns pulses at 1064 nm. Recommended 1.5 J/cm² avoids ablation while effective, considering high reflectivity. Source: Ablation threshold studies in Surface and Coatings Technology (2018)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 150,
       "unitText": "μm",
-      "minValue": 0.02,
-      "maxValue": 6.6
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for cleaning; smaller for fine details (50-100 μm), larger for broad areas (200-300 μm). 150 μm recommended for SS304 industrial prep to ensure even fluence distribution. Source: Equipment specs from Adapt Laser Systems and Optics and Lasers in Engineering (2019)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 505,
-      "unitText": "MPa",
-      "minValue": 3,
-      "maxValue": 3000
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (up to 5) for heavy layers; 2 passes recommended for complete removal on SS304 without excessive heat input. Source: Industry case studies in Journal of Cleaner Production (2022) on metal surface preparation."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 193,
-      "unitText": "GPa",
-      "minValue": 10.4,
-      "maxValue": 200000000000
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 2.1,
-      "unitText": "GPa",
-      "minValue": 0.2,
-      "maxValue": 3500
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 530,
-      "unitText": "MPa",
-      "minValue": 11.4,
-      "maxValue": 2897
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 10,
-      "unitText": "μm/year",
-      "minValue": -554,
-      "maxValue": 1762
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.8,
-      "unitText": "mm/year",
-      "minValue": -1.1,
-      "maxValue": "1.1e+06"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 505,
-      "unitText": "MPa",
-      "minValue": 8,
-      "maxValue": 2625
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 100,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.67,
-      "maxValue": 157
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "7.2e-07",
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 0.000002
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalConductivity",
-      "name": "Electrical Conductivity",
-      "description": "Electrical Conductivity - material characteristics",
-      "value": "1.4e+06",
-      "unitText": "S/m",
-      "minValue": 659300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 2750,
-      "unitText": "°C",
-      "minValue": 929,
-      "maxValue": 6454,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 1425,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1673,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 1.2,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.9,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "4.1e-06",
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 17.3,
-      "unitText": "×10^{-6}/K",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 500,
-      "unitText": "J/(kg·K)",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 16.2,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.65,
-      "unitText": "1 (dimensionless fraction)",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 0.01,
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1425,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": "4.7e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 132,
-      "unitText": "K",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.62,
-      "unitText": "fraction",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage and avoids gaps/striping; 60% recommended for SS304 cleaning to optimize energy overlap without overexposure. Typical 30-80% based on scan patterns. Source: Process optimization in Applied Physics A (2020)."
     }
   ],
-  "citation": "Z-Beam (2025). Stainless Steel 304 Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/stainless-steel-304-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Stainless Steel 304 Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/stainless-steel-304-laser-cleaning"
 }

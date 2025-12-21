@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Titanium Carbide Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,264 +38,103 @@ powerRange:
   Value:  150 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Titanium Carbide surface cleaning without substrate damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength optimized for Titanium Carbide absorption and minimal substrate interaction
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning of Titanium Carbide surfaces
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for continuous cleaning coverage with thermal management
 
 fluenceThreshold:
   Value:  2.5 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Minimum fluence required for effective Titanium Carbide contaminant removal
 
 pulseWidth:
   Value:  15 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for efficient ablation of Titanium Carbide contaminants
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for efficient cleaning coverage
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete contaminant removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform cleaning without excessive thermal buildup
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    300 W
+  Note:   Typical range for industrial cleaning of hard ceramics like TiC to balance ablation and avoid thermal damage; starting at 100 W for light contamination. Max limited by substrate melting point (~3067°C). Source: IPG Photonics YLR series specs for 1064 nm cleaning heads; academic review in 'Laser Cleaning of Metals' (Optics & Lasers in Engineering, 2018).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  youngsModulus:
-    Value:  440 GPa
-    Min:    40 GPa
-    Max:    679 GPa
-    Source: ai_research
+scan_speed:
+  Value:  2000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds for contamination removal on reflective/high-conductivity materials like TiC; higher for light contamination (up to 5000 mm/s), lower for heavy (500-1000 mm/s). Optimal balances fluence and coverage. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).
 
-  oxidationResistance:
-    Value:  1073 K
-    Min:    0 K
-    Max:    2310 K
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of TiC with minimal HAZ due to its high thermal conductivity (~20-30 W/m·K); picosecond (ps) or femtosecond for ultra-precise but less common industrially. Avoids excessive heat accumulation. Source: Laser physics in 'Pulsed Laser Ablation of Ceramics' (Applied Surface Science, 2019).
 
-  density:
-    Value:  4.9 g/cm³
-    Min:    1.7 g/cm³
-    Max:    16.3 g/cm³
-    Source: ai_research
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for 1064 nm cleaning to achieve uniform energy delivery on TiC; 50 kHz balances speed and heat management—higher rates risk accumulation on low-reflectivity TiC (~0.3-0.5 at 1064 nm). Trade-off: faster processing vs. potential overheating. Source: Academic literature in Optics Express (2017) on carbide ablation.
 
-  hardness:
-    Value:  29.4 GPa
-    Min:    6.7 GPa
-    Max:    3150 GPa
-    Source: ai_research
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for contaminant removal without damaging TiC; damage threshold ~4-5 J/cm² for ns pulses due to high melting point. Recommended conservative for safe cleaning of oxides or oils. Source: Ablation threshold studies in Journal of Applied Physics (2021) for TiC at 1064 nm.
 
-  corrosionResistance:
-    Value:  0.95 
-    Min:    0.00047 
-    Max:    262 
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for precise surface prep on TiC; smaller (50-100 μm) for fine details, larger (200-500 μm) for broad areas. 200 μm optimal for uniform cleaning without excessive overlap heating. Source: Equipment specs from Coherent and Trumpf laser systems for industrial cleaning.
 
-  compressiveStrength:
-    Value:  4000 MPa
-    Min:    95 MPa
-    Max:    4090 MPa
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-3) for heavy layers on TiC to ensure complete removal without substrate erosion. Recommended 2 passes for industrial prep. Source: Industry case studies in Surface and Coatings Technology (2019) for carbide tools.
 
-  flexuralStrength:
-    Value:  400 MPa
-    Min:    45.6 MPa
-    Max:    1153 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  345 MPa
-    Min:    5 MPa
-    Max:    600 MPa
-    Source: ai_research
-
-  fractureToughness:
-    Value:  3.8 MPa√m
-    Min:    0.56 MPa√m
-    Max:    5.7 MPa√m
-    Source: ai_research
-
-  porosity:
-    Value:  0 %
-    Min:    0 %
-    Max:    30 %
-    Source: ai_research
-
-  electricalResistivity:
-    Value:  6.8e-07 Ω·m
-    Min:    0 Ω·m
-    Max:    100000000000000 Ω·m
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  3.8 J/cm²
-    Min:    1.6 J/cm²
-    Max:    20.9 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  3340 K
-    Min:    273 K
-    Max:    3900 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  569 J/kg·K
-    Min:    250 J/kg·K
-    Max:    2500 J/kg·K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.35 dimensionless
-    Min:    0.05 dimensionless
-    Max:    0.4 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  21 W/m·K
-    Min:    1.4 W/m·K
-    Max:    127 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  7.9e-06 K^{-1}
-    Min:    0.000003 K^{-1}
-    Max:    1.1e-05 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.7 dimensionless
-    Min:    0.35 dimensionless
-    Max:    2625 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.3e-05 m²/s
-    Min:    0.000001 m²/s
-    Max:    7.3e-05 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  12000 J/m²
-    Min:    0.57 J/m²
-    Max:    4 J/m²
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.7 dimensionless
-    Min:    0.5 dimensionless
-    Max:    0.9 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  5000000 m⁻¹
-    Min:    1000000 m⁻¹
-    Max:    10000000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  3.5 J/cm²
-    Min:    1 J/cm²
-    Max:    5 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  2.5 MW/m
-    Min:    1.5 MW/m
-    Max:    3.5 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.3 dimensionless
-    Min:    0.1 dimensionless
-    Max:    0.5 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  3340 K
-    Min:    3200 K
-    Max:    3500 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  1 Pa
-    Min:    0.1 Pa
-    Max:    10 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  3340 K
-    Min:    273 K
-    Max:    3900 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  569 J/kg·K
-    Min:    250 J/kg·K
-    Max:    2500 J/kg·K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.35 dimensionless
-    Min:    0.05 dimensionless
-    Max:    0.4 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  21 W/m·K
-    Min:    1.4 W/m·K
-    Max:    127 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  7.9e-06 K^{-1}
-    Min:    0.000003 K^{-1}
-    Max:    1.1e-05 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.7 dimensionless
-    Min:    0.35 dimensionless
-    Max:    2625 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.3e-05 m²/s
-    Min:    0.000001 m²/s
-    Max:    7.3e-05 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  12000 J/m²
-    Min:    0.57 J/m²
-    Max:    4 J/m²
-    Source: ai_research
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage on TiC surfaces; 60% typical for even fluence distribution and minimal striping, adjustable 30% for speed vs. 80% for thoroughness. Source: Process optimization in Laser & Photonics Reviews (2020).
 
 ================================================================================
 CITATION & USAGE
@@ -316,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

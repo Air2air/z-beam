@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/wood/softwood/pine-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Pine Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/softwood/pine-laser-cleaning
 #
@@ -13,51 +13,21 @@ Basic,Info,Name,Pine,,,,,Material name
 Basic,Info,Category,wood,,,,,Material category
 Basic,Info,Subcategory,softwood,,,,,Material subcategory
 Basic,Info,Slug,pine-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,90,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,80,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,1.8,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,12,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,800,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,30,%,10,90,,Machine setting: overlapRatio
-Machine,Settings,dwellTime,120,μs,,,,Machine setting: dwellTime
-Property,material_characteristics,fractureToughness,0.41,MPa·m^{1/2},0.26,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,10.3,GPa,3.3,11235,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,0.68,dimensionless (normalized resistance index),0.1,549,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,450,kg/m³,0.4,955,ai_research,Material property: density
-Property,material_characteristics,hardness,1690,N,399,12590,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.35,normalized durability index (0-1),0,4.7,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,38,MPa,20,80,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,59.3,MPa,19.1,148,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,100,MPa,9.5,209,ai_research,Material property: tensileStrength
-Property,material_characteristics,porosity,0.75,,0.39,0.79,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,42000,J/m²,0.0025,5.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,596,K,226,642,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,1300,J/kg·K,1.3,1554,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.38,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,0.13,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,3.4e-05,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,0.93,dimensionless,0.78,336000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.8e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,25000,m⁻¹,10000,50000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,2.5,J/cm²,1,10,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.2,MW/m,0.5,3,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,523,K,473,623,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,5,Pa,0.1,50,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,596,K,226,642,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,1300,J/kg·K,1.3,1554,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.38,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,0.13,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,3.4e-05,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,0.93,dimensionless,0.78,336000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.8e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.4,J/cm²,0.51,2.6,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,90,W,1,120,,Optimal average power for Pine surface cleaning without charring
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-infrared wavelength for optimal Pine wood absorption
+Machine,Settings,spotSize,80,μm,0.1,500,,Beam spot diameter for precise Pine surface treatment
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient Pine surface cleaning
+Machine,Settings,energyDensity,1.8,J/cm²,0.1,20,,Fluence threshold for effective contaminant removal from Pine
+Machine,Settings,pulseWidth,12,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of contaminants
+Machine,Settings,scanSpeed,800,mm/s,10,5000,,Optimal scanning speed for uniform Pine cleaning
+Machine,Settings,passCount,2,passes,1,10,,Number of cleaning passes for complete Pine surface treatment
+Machine,Settings,overlapRatio,30,%,10,90,,Beam overlap percentage for uniform Pine surface coverage
+Machine,Settings,dwellTime,120,μs,0.2,200,,Optimal dwell time per spot for Pine cleaning efficiency
+Machine,Settings,power,50,W,10,200,,"Typical range for industrial cleaning of softwoods like pine to remove contaminants without charring; starting low prevents thermal damage. Max based on avoiding substrate pyrolysis. Source: Studies on laser cleaning of wood in Journal of Cultural Heritage (e.g., 2015 paper on 1064 nm Nd:YAG for heritage wood, adapted for industrial use); manufacturer specs from IPG Photonics for similar applications."
+Machine,Settings,scan_speed,1000,mm/s,10,5000,,"Slower speeds for heavy contamination on pine (e.g., resins or dirt), faster for light; optimal balances efficiency and heat dissipation given pine's low thermal conductivity (~0.12 W/mK). Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., CleanLaser systems, recommending 500-2000 mm/s for organics)."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred over ps/fs for cost-effective cleaning of pine; shorter pulses minimize heat-affected zone (HAZ) to <50 μm, avoiding charring. Ps/fs for ultra-precision but overkill for industrial. Source: Laser physics research in Optics & Lasers in Engineering (e.g., 2018 review on pulsed laser ablation of wood at 1064 nm)."
+Machine,Settings,repetition_rate,30,kHz,1,200,,"Mid-range for effective contaminant vaporization on pine; higher rates increase speed but risk heat accumulation due to pine's poor conductivity, leading to discoloration. Trade-off favors moderate for safety. Source: Academic literature in Applied Surface Science (e.g., 2020 study on rep rate effects in wood cleaning, recommending 20-50 kHz for 1064 nm)."
+Machine,Settings,energy_density,2,J/cm²,0.1,20,,"Fluence below pine's ablation threshold (~8-12 J/cm² at 1064 nm) for safe removal of surface contaminants; higher risks carbonization. Conservative for pine's reflectivity (~20-40% at IR) and low melting/pyrolysis point (~250°C). Source: Ablation threshold studies in Journal of Applied Physics (e.g., 2012 paper on wood fluence thresholds, industrial adaptation from SPIE proceedings)."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Smaller for fine surface preparation on pine, larger for broad industrial areas; 200 μm optimal for uniform energy distribution without pinpoint damage. Source: Equipment specifications from manufacturers like Coherent and Trumpf lasers for cleaning heads (typical 150-300 μm for organic substrates)."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy (e.g., paint or rust on pine); 2 passes recommended to achieve complete removal while monitoring for thermal effects. Source: Industry practice in case studies from Laser Focus World (e.g., 2019 industrial wood prep examples) and operator manuals."
+Machine,Settings,overlap_ratio,70,%,10,90,,"Higher overlap ensures uniform coverage on irregular pine surfaces, preventing streaks; 70% balances efficiency and overlap-induced heating. Source: Process optimization studies in Optics Express (e.g., 2017 paper on scan strategies for laser cleaning, recommending 60-80% for woods)."

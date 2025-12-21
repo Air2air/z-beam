@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Bronze Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,252 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Bronze oxide removal without substrate damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength with good absorption in Bronze oxides and moderate substrate absorption
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Optimal spot diameter for balancing cleaning efficiency and processing speed
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   High repetition rate for efficient cleaning coverage while maintaining pulse energy
 
 energyDensity:
   Value:  5.1 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Fluence threshold for effective Bronze oxide removal while preserving substrate
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for efficient oxide layer ablation with minimal thermal diffusion
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform oxide removal without substrate damage
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete oxide removal with safety margin
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal pulse overlap for uniform cleaning coverage without excessive thermal buildup
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  200 W
+  Min:    50 W
+  Max:    1000 W
+  Note:   Typical range for industrial 1064 nm fiber lasers cleaning metals like bronze; starting at 200W balances efficiency and safety to avoid overheating due to bronze's high reflectivity and thermal conductivity (~100-300 W/m·K). Max limited to prevent substrate melting (~950°C). Source: IPG Photonics YLR series specs and studies on copper alloys (e.g., J. Laser Appl. 2018).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  density:
-    Value:  8.8 g/cm³
-    Min:    0.53 g/cm³
-    Max:    22.6 g/cm³
+scan_speed:
+  Value:  2000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective range for contaminant removal without excessive heat buildup; slower (500-1500 mm/s) for heavy oxidation, faster (2000-5000 mm/s) for light dirt. Recommended 2000 mm/s for optimal bronze cleaning to ensure uniform ablation of contaminants. Source: Industry standards from Laserax and Adapt Laser Systems manuals.
 
-  porosity:
-    Value:  0.5 %
-    Min:    0 %
-    Max:    15 %
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of reflective metals; 5-20 ns minimizes heat-affected zone (HAZ <10 μm) compared to longer pulses, while picosecond (ps) or femtosecond (fs) reduce thermal damage further but increase cost. 20 ns typical for 1064 nm Nd:YAG on bronze. Source: Laser physics research (Opt. Lasers Eng. 2015; ablation studies on Cu-Sn alloys).
 
-  surfaceRoughness:
-    Value:  0.8 μm
-    Min:    0.4 μm
-    Max:    150 μm
+repetition_rate:
+  Value:  30 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Standard for pulsed cleaning to achieve high throughput; 10-50 kHz for bronze to balance speed and heat accumulation (higher rates risk melting due to poor IR absorption). Trade-off: higher freq accelerates cleaning but requires faster scans. Recommended 30 kHz. Source: Academic literature (Appl. Surf. Sci. 2019; metal cleaning optimization).
 
-  tensileStrength:
-    Value:  400 MPa
-    Min:    3 MPa
-    Max:    3000 MPa
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for removing contaminants (e.g., oxides, oils) below bronze damage threshold (~2-4 J/cm² for ablation onset); conservative 0.5-1.5 J/cm² for light cleaning, up to 3 J/cm² for heavy. Recommended 1.5 J/cm² safe for surface prep. Accounts for bronze's reflectivity (~60-70% at 1064 nm). Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2017; Cu alloys).
 
-  youngsModulus:
-    Value:  110 GPa
-    Min:    5 GPa
-    Max:    600 GPa
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter range for precise control; smaller (100-200 μm) for detailed bronze artifacts, larger (200-500 μm) for industrial surfaces. Recommended 200 μm for uniform energy distribution on bronze without pinpoint damage. Source: Equipment specs from Coherent and Trumpf laser cleaners.
 
-  hardness:
-    Value:  100 HB
-    Min:    0.5 HB
-    Max:    3500 HB
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-5) for stubborn layers like patina on bronze; recommended 2 passes ensures complete removal with minimal risk to substrate integrity. Source: Industry case studies (e.g., heritage cleaning in Stud. Conserv. 2020; industrial reports from Laser Cleaning Inc.).
 
-  flexuralStrength:
-    Value:  450 MPa
-    Min:    2.5 MPa
-    Max:    1050 MPa
-
-  oxidationResistance:
-    Value:  8 scale 1-10
-    Min:    200 scale 1-10
-    Max:    1200 scale 1-10
-
-  corrosionResistance:
-    Value:  7 scale 1-10
-    Min:    1 scale 1-10
-    Max:    10 scale 1-10
-
-  compressiveStrength:
-    Value:  345 MPa
-    Min:    8 MPa
-    Max:    2625 MPa
-    Source: ai_research
-
-  fractureToughness:
-    Value:  52 MPa m^{0.5}
-    Min:    0.67 MPa m^{0.5}
-    Max:    157 MPa m^{0.5}
-    Source: ai_research
-
-  electricalResistivity:
-    Value:  2e-7 Ω·m
-    Min:    0 Ω·m
-    Max:    0.000002 Ω·m
-    Source: ai_research
-
-  boilingPoint:
-    Value:  2840 K
-    Min:    929 K
-    Max:    6454 K
-    Source: ai_research
-
-  electricalConductivity:
-    Value:  7000000 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: ai_research
-
-  meltingPoint:
-    Value:  950 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1223 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  7.8e+07 m^{-1}
-    Min:    0.02 m^{-1}
-    Max:    4.2e+08 m^{-1}
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.35 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.65 
-    Min:    0.35 
-    Max:    1 
-    Source: ai_research
-
-  vaporPressure:
-    Value:  0.14 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  950 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  thermalConductivity:
-    Value:  60 W/(m·K)
-    Min:    7 W/(m·K)
-    Max:    430 W/(m·K)
-
-  thermalExpansion:
-    Value:  18 ×10^{-6}/K
-    Min:    0.5 ×10^{-6}/K
-    Max:    33 ×10^{-6}/K
-
-  thermalDiffusivity:
-    Value:  22 mm²/s
-    Min:    0.06 mm²/s
-    Max:    174 mm²/s
-
-  specificHeat:
-    Value:  380 J/(kg·K)
-    Min:    100 J/(kg·K)
-    Max:    2000 J/(kg·K)
-
-  thermalShockResistance:
-    Value:  150 W/m·K
-    Min:    50 W/m·K
-    Max:    400 W/m·K
-
-  laserReflectivity:
-    Value:  0.65 
-    Min:    5 
-    Max:    99.9 
-
-  absorptionCoefficient:
-    Value:  5.5 ×10^6 /m
-    Min:    100000 ×10^6 /m
-    Max:    50000000 ×10^6 /m
-
-  ablationThreshold:
-    Value:  2.5 J/cm²
-    Min:    2 J/cm²
-    Max:    8 J/cm²
-
-  laserDamageThreshold:
-    Value:  1.8 J/cm²
-    Min:    0.1 J/cm²
-    Max:    20 J/cm²
-
-  thermalDestruction:
-    Value:  1223 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  7.8e+07 m^{-1}
-    Min:    0.02 m^{-1}
-    Max:    4.2e+08 m^{-1}
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.35 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.65 
-    Min:    0.35 
-    Max:    1 
-    Source: ai_research
-
-  vaporPressure:
-    Value:  0.14 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  950 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: ai_research
+overlap_ratio:
+  Value:  50 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage without gaps or over-ablation; 30-50% for large areas, 50-80% for fine uniformity on bronze to prevent uneven heating. Recommended 50% for balanced process efficiency. Source: Process optimization studies (Opt. Laser Technol. 2016; scanning parameter effects on metals).
 
 ================================================================================
 CITATION & USAGE
@@ -304,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

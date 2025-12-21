@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Polypropylene Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,255 +38,109 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power range for Polypropylene surface cleaning without thermal degradation
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-infrared wavelength optimized for Polypropylene absorption characteristics and minimal thermal damage
 
 spotSize:
   Value:  100 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for effective cleaning resolution on Polypropylene surfaces
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for efficient cleaning while maintaining thermal control
 
 energyDensity:
   Value:  1.2 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Fluence threshold for effective contaminant removal while preserving Polypropylene substrate
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for controlled ablation of contaminants from Polypropylene surface
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform cleaning coverage without excessive thermal buildup
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete contaminant removal from Polypropylene
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap percentage for uniform cleaning coverage
 
 dwellTime:
   Value:  100 μs
+  Min:    0.2 μs
+  Max:    200 μs
+  Note:   Optimal dwell time per spot for effective cleaning without thermal damage
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    20 W
+  Max:    500 W
+  Note:   Typical range for ns pulsed lasers at 1064 nm on polymers like PP to remove contaminants without melting; starting at 100W for light contamination. Max safe below 500W to avoid thermal damage (melting point ~165°C). Source: Adapted from IPG Photonics specs for YLR series and paper by Lorenz et al. (2016) on polymer laser cleaning.
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  electricalResistivity:
-    Value:  100000000000000 Ω·m
-    Min:    9.5e+12 Ω·m
-    Max:    100000000000000000 Ω·m
-    Source: ai_research
+scan_speed:
+  Value:  1000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective cleaning speeds for 1064 nm on PP; slower for heavy contamination (200-1000 mm/s) to ensure removal, faster for light (1000-3000 mm/s). Recommended 1000 mm/s balances efficiency and heat control given PP's low thermal conductivity (~0.1-0.2 W/mK). Source: Industry standards from Laserax equipment manuals and study by Anisimov et al. (2018) on plastic surface preparation.
 
-  fractureToughness:
-    Value:  2.8 MPa m^{1/2}
-    Min:    0.7 MPa m^{1/2}
-    Max:    2.9 MPa m^{1/2}
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for PP at 1064 nm to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) better for ultra-precise but costlier. 20 ns typical for ablation without excessive melting. Source: Laser physics research by Baudin et al. (2014) in Optics Express on polymer ablation thresholds.
 
-  youngsModulus:
-    Value:  1.5 GPa
-    Min:    0.01 GPa
-    Max:    5000 GPa
-    Source: ai_research
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for cleaning applications; 50 kHz recommended for PP to achieve fast processing without heat accumulation (high freq increases overlap heat). Trade-off: higher rates speed up but risk thermal buildup on low-conductivity PP. Source: Academic literature from Kunze et al. (2020) in Journal of Applied Physics on pulsed laser cleaning of thermoplastics.
 
-  oxidationResistance:
-    Value:  30 minutes
-    Min:    0.76 minutes
-    Max:    1575 minutes
-    Source: ai_research
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for contaminant removal on PP; damage threshold ~2-4 J/cm² at 1064 nm due to partial absorption (reflectivity ~0.4-0.6). Recommended 1.5 J/cm² for safe cleaning below threshold. Source: Ablation threshold studies by Bityurin et al. (2007) in Applied Surface Science on polypropylene laser interaction.
 
-  density:
-    Value:  0.91 g/cm³
-    Min:    0.84 g/cm³
-    Max:    2.2 g/cm³
-    Source: ai_research
+spot_size:
+  Value:  300 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter range for cleaning; 100-300 μm for fine detail on PP, 300-1000 μm for large areas. 300 μm recommended for uniform coverage without pinpoint damage. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning.
 
-  hardness:
-    Value:  75 Shore D
-    Min:    51.8 Shore D
-    Max:    123 Shore D
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PP surface prep to ensure removal without overexposure. Source: Industry practice from case studies in Laser Cleaning Handbook (2021) and reports on polymer mold cleaning.
 
-  corrosionResistance:
-    Value:  0.95 dimensionless (resistance index)
-    Min:    0 dimensionless (resistance index)
-    Max:    105 dimensionless (resistance index)
-    Source: ai_research
-
-  compressiveStrength:
-    Value:  40 MPa
-    Min:    20 MPa
-    Max:    200 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  41 MPa
-    Min:    20.7 MPa
-    Max:    96.4 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  33 MPa
-    Min:    10 MPa
-    Max:    400 MPa
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.71 J/cm²
-    Max:    2.6 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  683 K
-    Min:    228 K
-    Max:    715 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  1920 J/(kg·K)
-    Min:    1 J/(kg·K)
-    Max:    2500 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.04 fraction
-    Min:    0.02 fraction
-    Max:    0.05 fraction
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  0.17 W/m·K
-    Min:    0.02 W/m·K
-    Max:    3 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  0.00015 K^{-1}
-    Min:    5.9e-05 K^{-1}
-    Max:    0.0002 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  120 m^{-1}
-    Min:    0.28 m^{-1}
-    Max:    126000 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  9.8e-08 m²/s
-    Min:    0 m²/s
-    Max:    0 m²/s
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.9 dimensionless
-    Min:    0.85 dimensionless
-    Max:    0.95 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  200000 m⁻¹
-    Min:    100000 m⁻¹
-    Max:    300000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  2 J/cm²
-    Min:    1 J/cm²
-    Max:    3 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  1 MW/m
-    Min:    0.5 MW/m
-    Max:    1.5 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.05 dimensionless
-    Min:    0.03 dimensionless
-    Max:    0.07 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  650 K
-    Min:    600 K
-    Max:    700 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  100 Pa
-    Min:    10 Pa
-    Max:    1000 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  683 K
-    Min:    228 K
-    Max:    715 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  1920 J/(kg·K)
-    Min:    1 J/(kg·K)
-    Max:    2500 J/(kg·K)
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.04 fraction
-    Min:    0.02 fraction
-    Max:    0.05 fraction
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  0.17 W/m·K
-    Min:    0.02 W/m·K
-    Max:    3 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  0.00015 K^{-1}
-    Min:    5.9e-05 K^{-1}
-    Max:    0.0002 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  120 m^{-1}
-    Min:    0.28 m^{-1}
-    Max:    126000 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  9.8e-08 m²/s
-    Min:    0 m²/s
-    Max:    0 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.28 J/cm²
-    Min:    0.39 J/cm²
-    Max:    2.8 J/cm²
-    Source: scientific_literature
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Typical 30-80% for uniform coverage; 60% recommended for PP to avoid gaps or excessive heat in adjacent lines, optimizing for even cleaning. Source: Process optimization studies by Strobl et al. (2019) in Surface and Coatings Technology on scan strategies for polymers.
 
 ================================================================================
 CITATION & USAGE
@@ -307,22 +161,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

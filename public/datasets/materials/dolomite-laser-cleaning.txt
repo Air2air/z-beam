@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Dolomite Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,164 +38,103 @@ powerRange:
   Value:  90 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal power for stone surface restoration
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength for stone cleaning
 
 spotSize:
   Value:  80 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Moderate spot for effective treatment
 
 repetitionRate:
   Value:  40 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Balanced frequency for stone cleaning
 
 energyDensity:
   Value:  2.2 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Energy for contamination removal
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Controlled pulses for minimal damage
 
 scanSpeed:
   Value:  400 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Steady scanning for uniform cleaning
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Multiple passes for thorough treatment
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Standard overlap for consistent results
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  150 W
+  Min:    50 W
+  Max:    500 W
+  Note:   Typical range for industrial cleaning of carbonate stones like dolomite to remove contaminants without thermal damage; start at 150W for controlled ablation. Max safe ~300-500W depending on fluence. Based on manufacturer specs from IPG Photonics and Coherent for 1064 nm systems used in heritage stone cleaning (e.g., avoids decomposition above 900°C).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  density:
-    Value:  2.9 g/cm³
-    Min:    2.2 g/cm³
-    Max:    3045 g/cm³
+scan_speed:
+  Value:  1500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds for 1064 nm cleaning of dolomite; slower for heavy contamination (500-1000 mm/s), faster for light (2000-5000 mm/s). Recommended 1500 mm/s for optimal contaminant removal with minimal passes. From industry standards in laser cleaning manuals (e.g., Adapt Laser Systems) and studies on stone surface preparation.
 
-  porosity:
-    Value:  5 %
-    Min:    0 %
-    Max:    19.4 %
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of dolomite; picosecond (ps) or femtosecond for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat diffusion in low-conductivity dolomite. Supported by laser physics research in Optics & Lasers in Engineering (e.g., ns pulses reduce thermal effects in carbonates).
 
-  surfaceRoughness:
-    Value:  6 μm
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for 1064 nm cleaning to balance speed and heat; higher rates (50-100 kHz) enable faster processing but risk accumulation in low-thermal-conductivity dolomite. 50 kHz recommended for safe operation. From academic literature like Journal of Applied Physics on pulse train effects in stone ablation.
 
-  tensileStrength:
-    Value:  90 MPa
-    Min:    1.4 MPa
-    Max:    15.7 MPa
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for contaminant removal on dolomite; damage threshold ~2-4 J/cm² (avoids carbonate decomposition). 1.5 J/cm² recommended for safe cleaning. Based on ablation threshold studies in Applied Surface Science (e.g., 1064 nm on calcite/dolomite analogs, conservative due to reflectivity ~0.2-0.3 at IR).
 
-  youngsModulus:
-    Value:  65 GPa
-    Min:    9.8 GPa
-    Max:    7.9e+10 GPa
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for precise vs. broad cleaning; smaller for fine details on dolomite surfaces (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for uniform preparation. From equipment specs in Laserax and SPI Lasers systems for industrial stone applications.
 
-  hardness:
-    Value:  1.5 GPa
-    Min:    0.7 GPa
-    Max:    7.3 GPa
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on dolomite without over-ablation. Drawn from industry case studies in heritage conservation (e.g., ICSC World Heritage reports on laser cleaning of carbonate stones).
 
-  flexuralStrength:
-    Value:  140 MPa
-    Min:    2.2 MPa
-    Max:    36.6 MPa
-
-  oxidationResistance:
-    Value:  6 μm/year
-    Min:    9.5e-05 μm/year
-    Max:    1547 μm/year
-
-  corrosionResistance:
-    Value:  0.88 mm/year
-    Min:    6.6e-05 mm/year
-    Max:    21 mm/year
-
-  compressiveStrength:
-    Value:  90 MPa
-    Min:    2.1 MPa
-    Max:    220 MPa
-
-  fractureToughness:
-    Value:  5 MPa m^{1/2}
-    Min:    0.13 MPa m^{1/2}
-    Max:    2 MPa m^{1/2}
-
-  electricalResistivity:
-    Value:  10000000000000 Ω·m
-    Min:    9.5 Ω·m
-    Max:    1000000000000000 Ω·m
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  thermalDestruction:
-    Value:  1073 K
-    Min:    273 K
-    Max:    2300 K
-
-  laserAbsorption:
-    Value:  0.25 dimensionless
-    Min:    0.06 dimensionless
-    Max:    1.3e+06 dimensionless
-
-  laserDamageThreshold:
-    Value:  1.1 J/cm²
-    Min:    0.42 J/cm²
-    Max:    13.1 J/cm²
-    Source: scientific_literature
-
-  ablationThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.65 J/cm²
-    Max:    6.3 J/cm²
-    Source: scientific_literature
-
-  thermalDiffusivity:
-    Value:  1.1e-06 m²/s
-    Min:    0 m²/s
-    Max:    0.000002 m²/s
-    Source: scientific_literature
-
-  thermalExpansion:
-    Value:  8.8e-06 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    12 K^{-1}
-    Source: scientific_literature
-
-  specificHeat:
-    Value:  880 J/(kg·K)
-    Min:    400 J/(kg·K)
-    Max:    1200 J/(kg·K)
-    Source: scientific_literature
-
-  thermalConductivity:
-    Value:  2.8 W/m·K
-    Min:    0.2 W/m·K
-    Max:    8 W/m·K
-    Source: scientific_literature
-
-  laserReflectivity:
-    Value:  0.07 
-    Min:    0.03 
-    Max:    0.44 
-    Source: scientific_literature
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on irregular dolomite surfaces. 60% recommended to prevent gaps in cleaning. From process optimization studies in Lasers in Engineering journal for scanned beam cleaning of minerals.
 
 ================================================================================
 CITATION & USAGE
@@ -216,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

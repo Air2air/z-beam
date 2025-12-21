@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Dysprosium Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,192 +38,103 @@ powerRange:
   Value:  95 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Dysprosium oxide removal without substrate damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength optimized for Dysprosium's absorption characteristics
 
 spotSize:
   Value:  80 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning control
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for continuous cleaning coverage
 
 fluenceThreshold:
   Value:  2.5 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Minimum fluence required for effective Dysprosium oxide removal
 
 pulseWidth:
   Value:  12 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for efficient oxide layer ablation
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform cleaning
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for thorough cleaning
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for complete surface coverage
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  200 W
+  Min:    50 W
+  Max:    500 W
+  Note:   Typical range for industrial laser cleaning of reflective metals like Dysprosium at 1064 nm to ablate contaminants without substrate melting (melting point ~1412°C). Starting at 200 W balances efficiency and safety; higher risks thermal damage due to moderate thermal conductivity (~10.7 W/m·K). Source: General Nd:YAG laser specs from IPG Photonics and studies on rare earth metal processing (e.g., J. Appl. Phys. on lanthanide ablation).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  density:
-    Value:  8550 kg/m³
-    Min:    4.3 kg/m³
-    Max:    8.8 kg/m³
-    Source: ai_research
+scan_speed:
+  Value:  1500 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds for contaminant removal on Dysprosium; slower for heavy contamination (e.g., oxides), faster for light. Recommended 1500 mm/s optimizes fluence delivery without excessive heat buildup. Conservative for uniform coverage on soft, reflective surfaces. Source: Industry standards from laser cleaning manuals (e.g., Adapt Laser Systems) and process optimization in Opt. Lasers Eng.
 
-  oxidationResistance:
-    Value:  -2.3 V
-    Min:    0 V
-    Max:    149 V
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning of Dysprosium; picosecond (ps) or femtosecond reduces HAZ but increases cost. 20 ns minimizes thermal diffusion in low-conductivity metal while ablating surface layers. Source: Laser physics research on metal ablation thresholds (e.g., Appl. Surf. Sci. reviews on ns vs. ps for rare earths).
 
-  youngsModulus:
-    Value:  28 GPa
-    Min:    15.8 GPa
-    Max:    63.5 GPa
-    Source: ai_research
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Standard for pulsed cleaning to achieve high throughput; 50 kHz recommended for Dysprosium to balance speed and avoid heat accumulation on reflective surfaces (high reflectivity ~70% at 1064 nm). Higher rates increase efficiency but risk subsurface heating. Source: Academic literature on pulse train effects (e.g., J. Phys. D: Appl. Phys. on metal cleaning).
 
-  hardness:
-    Value:  0.41 GPa
-    Min:    0.38 GPa
-    Max:    906 GPa
-    Source: ai_research
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe contaminant removal; Dysprosium damage threshold estimated ~2-4 J/cm² based on similar lanthanides. Recommended 1.5 J/cm² for cleaning without ablation of base metal, considering reflectivity and thermal properties. Conservative due to limited specific data. Source: Ablation threshold studies (e.g., Phys. Rev. B on rare earth metals; general metal cleaning in Laser Ablation and Its Applications).
 
-  boilingPoint:
-    Value:  2840 K
-    Min:    1705 K
-    Max:    3834 K
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for precise industrial cleaning; smaller for fine details on Dysprosium components, larger for broad areas. 200 μm recommended for balanced energy distribution and minimal distortion on soft metal. Source: Equipment specifications from Coherent and Trumpf lasers for metal surface prep.
 
-  absorptivity:
-    Value:  0.28 dimensionless
-    Min:    0.25 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete Dysprosium cleaning to ensure uniformity without over-processing reflective surfaces. Source: Industry case studies on iterative laser cleaning (e.g., Proc. SPIE on multi-pass optimization for metals).
 
-  thermalDestruction:
-    Value:  1685 K
-    Min:    273 K
-    Max:    3520 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.93 dimensionless
-    Min:    0.4 dimensionless
-    Max:    0.94 dimensionless
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  2.5e-05 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    26.2 K^{-1}
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  10.7 W/m·K
-    Min:    10.4 W/m·K
-    Max:    17.5 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  172 J/(kg·K)
-    Min:    113 J/(kg·K)
-    Max:    457 J/(kg·K)
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.82 J/cm²
-    Min:    0.65 J/cm²
-    Max:    2.9 J/cm²
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  1.2e+06 cm^{-1}
-    Min:    298300 cm^{-1}
-    Max:    6.6e+07 cm^{-1}
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.72 dimensionless
-    Min:    0.25 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  1685 K
-    Min:    273 K
-    Max:    3520 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.93 dimensionless
-    Min:    0.4 dimensionless
-    Max:    0.94 dimensionless
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  2.5e-05 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    26.2 K^{-1}
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  10.7 W/m·K
-    Min:    10.4 W/m·K
-    Max:    17.5 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  172 J/(kg·K)
-    Min:    113 J/(kg·K)
-    Max:    457 J/(kg·K)
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.82 J/cm²
-    Min:    0.65 J/cm²
-    Max:    2.9 J/cm²
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  1.2e+06 cm^{-1}
-    Min:    298300 cm^{-1}
-    Max:    6.6e+07 cm^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  7.4e-06 m²/s
-    Min:    0.000007 m²/s
-    Max:    1.9e-05 m²/s
-    Source: scientific_literature
-
-  laserDamageThreshold:
-    Value:  0.42 J/cm²
-    Min:    1.1 J/cm²
-    Max:    3.3 J/cm²
-    Source: scientific_literature
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage; 60% recommended for Dysprosium to avoid gaps or streaks on large areas while preventing excessive overlap heating. Typical range from process studies. Source: Optimization studies in J. Laser Appl. and laser scanning guidelines from scanning head manufacturers like Scanlab.
 
 ================================================================================
 CITATION & USAGE
@@ -244,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

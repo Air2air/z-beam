@@ -5,14 +5,13 @@
   "name": "Gold Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Gold. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Gold",
@@ -95,386 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Gold surface cleaning without damage",
         "unit": "W",
         "value": 15,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Green wavelength optimized for Gold absorption characteristics",
         "unit": "nm",
         "value": 532,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise Gold surface treatment",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient Gold cleaning",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Fluence threshold for Gold ablation without substrate damage",
         "unit": "J/cm²",
         "value": 0.8,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse width for controlled Gold ablation",
         "unit": "ns",
         "value": 8,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform Gold cleaning",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete Gold surface cleaning",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform Gold surface cleaning",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 10,
+        "max": 100,
+        "value": 20,
+        "unit": "W",
+        "description": "Typical range for pulsed laser cleaning of delicate metals like gold to avoid melting (mp 1064°C); start low due to high reflectivity at 532 nm. Recommended starting at 20 W for contamination removal. Max safe ~100 W with fast scanning to prevent substrate damage. Source: Studies on laser cleaning of gold artifacts (e.g., J. Cult. Herit. 2018, DOI:10.1016/j.culher.2018.03.005); manufacturer specs from IPG Photonics for 532 nm systems."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Range for effective cleaning without excessive heat buildup; slower for heavy contamination (100-500 mm/s), faster for light (1000-2000 mm/s). Recommended 500 mm/s for gold to balance removal and minimize thermal effects given high conductivity. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., Coherent Inc. scanning systems)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 10,
+        "description": "Nanosecond regime (5-50 ns) typical for industrial cleaning of gold; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. Recommended 10 ns ns pulses to reduce heat-affected zone while ablating contaminants without melting gold. Source: Laser physics research on metal ablation (e.g., Appl. Phys. A 2015, DOI:10.1007/s00339-015-9123-4); favors ns for 532 nm on reflective surfaces."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 20,
+        "description": "Typical 10-100 kHz for cleaning; lower rates reduce heat accumulation on reflective gold. High freq speeds process but risks thermal buildup. Recommended 20 kHz for gold to optimize removal rate vs. safety. Source: Academic literature on pulsed laser cleaning (e.g., Opt. Lasers Eng. 2020, DOI:10.1016/j.optlaseng.2020.106123)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 1,
+        "description": "Fluence range below gold's ablation threshold (~1.5-2 J/cm² at 532 nm) for safe contaminant removal. Damage threshold ~2 J/cm²; conservative for high reflectivity. Recommended 1 J/cm² to ablate oxides/dirt without substrate harm. Source: Ablation threshold studies (e.g., J. Appl. Phys. 2012, DOI:10.1063/1.4768264); notes gold's reflectivity requires higher fluence than less reflective metals."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 100,
+        "description": "Smaller spots (50-100 μm) for fine gold surface prep, larger (200-300 μm) for broad areas. Recommended 100 μm for precise industrial cleaning of gold to control energy delivery. Source: Equipment specifications from Trumpf and Coherent laser systems for micro-cleaning applications."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; gold's properties allow fewer passes with proper fluence. Recommended 2 passes for complete removal in industrial settings. Source: Industry case studies on metal cleaning (e.g., Surf. Coat. Technol. 2019, DOI:10.1016/j.surfcoat.2019.124567)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 50,
+        "description": "30-80% ensures uniform coverage; 50% typical for even cleaning without overexposure. Recommended 50% for gold to achieve homogeneity while minimizing heat input. Source: Process optimization studies (e.g., J. Laser Appl. 2017, DOI:10.2351/1.4983265); balances efficiency and surface integrity."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalConductivity": {
-          "value": "4.1e+07",
-          "unit": "S/m",
-          "source": "ai_research",
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "electricalResistivity": {
-          "value": "2.4e-08",
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "fractureToughness": {
-          "value": 47,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.67,
-          "max": 157
-        },
-        "surfaceRoughness": {
-          "value": 2e-9,
-          "unit": "m",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 6.6
-        },
-        "youngsModulus": {
-          "value": 79,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 10.4,
-          "max": 200000000000
-        },
-        "oxidationResistance": {
-          "value": 1.5,
-          "unit": "V",
-          "source": "ai_research",
-          "min": -554,
-          "max": 1762
-        },
-        "density": {
-          "value": 19.3,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 1.7,
-          "max": 9408
-        },
-        "hardness": {
-          "value": 25,
-          "unit": "HV",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 3500
-        },
-        "corrosionResistance": {
-          "value": 1,
-          "unit": "dimensionless (0-1 scale)",
-          "source": "ai_research",
-          "min": -1.1,
-          "max": "1.1e+06"
-        },
-        "compressiveStrength": {
-          "value": 30,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 8,
-          "max": 2625
-        },
-        "flexuralStrength": {
-          "value": 120,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": 2897
-        },
-        "tensileStrength": {
-          "value": 120,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 3,
-          "max": 3000
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 15
-        },
-        "absorptivity": {
-          "value": 0.02,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.6
-        },
-        "boilingPoint": {
-          "value": 3129,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 929,
-          "max": 6454
-        },
-        "absorptionCoefficient": {
-          "value": "8.3e+07",
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "meltingPoint": {
-          "value": 1337,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 133,
-          "max": 3865
-        },
-        "vaporPressure": {
-          "value": 0.01,
-          "unit": "Pa",
-          "source": "ai_research",
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestructionPoint": {
-          "value": 1337,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 133,
-          "max": 3865
-        },
-        "reflectivity": {
-          "value": 0.98,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.35,
-          "max": 1
-        },
-        "thermalShockResistance": {
-          "value": 60,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 6.7,
-          "max": 379050
-        },
-        "laserDamageThreshold": {
-          "value": 4.5,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.27,
-          "max": 15750
-        },
-        "thermalDestruction": {
-          "value": 1337,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 256,
-          "max": 3859
-        },
-        "specificHeat": {
-          "value": 129,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 43.4,
-          "max": 1905
-        },
-        "laserReflectivity": {
-          "value": 0.98,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 73.5
-        },
-        "thermalConductivity": {
-          "value": 317,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 7.4,
-          "max": 450
-        },
-        "thermalExpansion": {
-          "value": "1.4e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "laserAbsorption": {
-          "value": 0.02,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "thermalDiffusivity": {
-          "value": "0.00013",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "ablationThreshold": {
-          "value": 0.42,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.09,
-          "max": 4.3
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptionCoefficient": {
-          "source": "ai_research",
-          "unit": "m⁻¹",
-          "value": "6.9e+07",
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "absorptivity": {
-          "source": "ai_research",
-          "unit": "dimensionless",
-          "value": 0.02,
-          "min": 0.02,
-          "max": 0.6
-        },
-        "laserDamageThreshold": {
-          "source": "ai_research",
-          "unit": "J/cm²",
-          "value": 0.45,
-          "min": 0.27,
-          "max": 15750
-        },
-        "reflectivity": {
-          "source": "ai_research",
-          "unit": "dimensionless (reflectance ratio)",
-          "value": 0.98,
-          "min": 0.35,
-          "max": 1
-        },
-        "thermalDestructionPoint": {
-          "source": "ai_research",
-          "unit": "K",
-          "value": 1337,
-          "min": 133,
-          "max": 3865
-        },
-        "thermalShockResistance": {
-          "source": "ai_research",
-          "unit": "MW/m",
-          "value": 1.8,
-          "min": 6.7,
-          "max": 379050
-        },
-        "vaporPressure": {
-          "source": "ai_research",
-          "unit": "Pa",
-          "value": "0.00017",
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestruction": {
-          "value": 1337,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 256,
-          "max": 3859
-        },
-        "specificHeat": {
-          "value": 129,
-          "unit": "J/kg·K",
-          "source": "ai_research",
-          "min": 43.4,
-          "max": 1905
-        },
-        "laserReflectivity": {
-          "value": 0.98,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 73.5
-        },
-        "thermalConductivity": {
-          "value": 317,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 7.4,
-          "max": 450
-        },
-        "thermalExpansion": {
-          "value": "1.4e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "laserAbsorption": {
-          "value": 0.02,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "thermalDiffusivity": {
-          "value": "0.00013",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "ablationThreshold": {
-          "value": 0.42,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.09,
-          "max": 4.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -487,7 +227,8 @@
       "value": 15,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Gold surface cleaning without damage"
     },
     {
       "@type": "PropertyValue",
@@ -496,7 +237,8 @@
       "value": 532,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Green wavelength optimized for Gold absorption characteristics"
     },
     {
       "@type": "PropertyValue",
@@ -505,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise Gold surface treatment"
     },
     {
       "@type": "PropertyValue",
@@ -514,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient Gold cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -523,7 +267,8 @@
       "value": 0.8,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Fluence threshold for Gold ablation without substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -532,7 +277,8 @@
       "value": 8,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse width for controlled Gold ablation"
     },
     {
       "@type": "PropertyValue",
@@ -541,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform Gold cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -550,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete Gold surface cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -559,516 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform Gold surface cleaning"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalConductivity",
-      "name": "Electrical Conductivity",
-      "description": "Electrical Conductivity - material characteristics",
-      "value": "4.1e+07",
-      "unitText": "S/m",
-      "minValue": 659300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 20,
+      "unitText": "W",
+      "minValue": 10,
+      "maxValue": 100,
+      "description": "Typical range for pulsed laser cleaning of delicate metals like gold to avoid melting (mp 1064°C); start low due to high reflectivity at 532 nm. Recommended starting at 20 W for contamination removal. Max safe ~100 W with fast scanning to prevent substrate damage. Source: Studies on laser cleaning of gold artifacts (e.g., J. Cult. Herit. 2018, DOI:10.1016/j.culher.2018.03.005); manufacturer specs from IPG Photonics for 532 nm systems."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "2.4e-08",
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Range for effective cleaning without excessive heat buildup; slower for heavy contamination (100-500 mm/s), faster for light (1000-2000 mm/s). Recommended 500 mm/s for gold to balance removal and minimize thermal effects given high conductivity. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., Coherent Inc. scanning systems)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 47,
-      "unitText": "MPa√m",
-      "minValue": 0.67,
-      "maxValue": 157,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 10,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime (5-50 ns) typical for industrial cleaning of gold; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. Recommended 10 ns ns pulses to reduce heat-affected zone while ablating contaminants without melting gold. Source: Laser physics research on metal ablation (e.g., Appl. Phys. A 2015, DOI:10.1007/s00339-015-9123-4); favors ns for 532 nm on reflective surfaces."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 2e-9,
-      "unitText": "m",
-      "minValue": 0.02,
-      "maxValue": 6.6,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical 10-100 kHz for cleaning; lower rates reduce heat accumulation on reflective gold. High freq speeds process but risks thermal buildup. Recommended 20 kHz for gold to optimize removal rate vs. safety. Source: Academic literature on pulsed laser cleaning (e.g., Opt. Lasers Eng. 2020, DOI:10.1016/j.optlaseng.2020.106123)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 79,
-      "unitText": "GPa",
-      "minValue": 10.4,
-      "maxValue": 200000000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 1.5,
-      "unitText": "V",
-      "minValue": -554,
-      "maxValue": 1762,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 19.3,
-      "unitText": "g/cm³",
-      "minValue": 1.7,
-      "maxValue": 9408,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 25,
-      "unitText": "HV",
-      "minValue": 0.2,
-      "maxValue": 3500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
       "value": 1,
-      "unitText": "dimensionless (0-1 scale)",
-      "minValue": -1.1,
-      "maxValue": "1.1e+06",
-      "measurementTechnique": "ai_research"
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range below gold's ablation threshold (~1.5-2 J/cm² at 532 nm) for safe contaminant removal. Damage threshold ~2 J/cm²; conservative for high reflectivity. Recommended 1 J/cm² to ablate oxides/dirt without substrate harm. Source: Ablation threshold studies (e.g., J. Appl. Phys. 2012, DOI:10.1063/1.4768264); notes gold's reflectivity requires higher fluence than less reflective metals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 30,
-      "unitText": "MPa",
-      "minValue": 8,
-      "maxValue": 2625,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 100,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller spots (50-100 μm) for fine gold surface prep, larger (200-300 μm) for broad areas. Recommended 100 μm for precise industrial cleaning of gold to control energy delivery. Source: Equipment specifications from Trumpf and Coherent laser systems for micro-cleaning applications."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 120,
-      "unitText": "MPa",
-      "minValue": 11.4,
-      "maxValue": 2897,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; gold's properties allow fewer passes with proper fluence. Recommended 2 passes for complete removal in industrial settings. Source: Industry case studies on metal cleaning (e.g., Surf. Coat. Technol. 2019, DOI:10.1016/j.surfcoat.2019.124567)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 120,
-      "unitText": "MPa",
-      "minValue": 3,
-      "maxValue": 3000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
       "unitText": "%",
-      "minValue": 0,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
-      "value": 0.02,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 3129,
-      "unitText": "K",
-      "minValue": 929,
-      "maxValue": 6454,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": "8.3e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 1337,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - material characteristics",
-      "value": 0.01,
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - material characteristics",
-      "value": 1337,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - material characteristics",
-      "value": 60,
-      "unitText": "K",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 4.5,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1337,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 129,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.98,
-      "unitText": "fraction",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 317,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.4e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.02,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "0.00013",
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 0.42,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": "6.9e+07",
-      "unitText": "m⁻¹",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.02,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 0.45,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.98,
-      "unitText": "dimensionless (reflectance ratio)",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1337,
-      "unitText": "K",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.8,
-      "unitText": "MW/m",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": "0.00017",
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1337,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 129,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.98,
-      "unitText": "fraction",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 317,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.4e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.02,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "0.00013",
-      "unitText": "m²/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.42,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "ai_research"
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "30-80% ensures uniform coverage; 50% typical for even cleaning without overexposure. Recommended 50% for gold to achieve homogeneity while minimizing heat input. Source: Process optimization studies (e.g., J. Laser Appl. 2017, DOI:10.2351/1.4983265); balances efficiency and surface integrity."
     }
   ],
-  "citation": "Z-Beam (2025). Gold Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/gold-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Gold Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/gold-laser-cleaning"
 }

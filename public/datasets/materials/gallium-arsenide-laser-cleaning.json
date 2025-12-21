@@ -5,14 +5,13 @@
   "name": "Gallium Arsenide Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Gallium Arsenide. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Gallium Arsenide",
@@ -95,308 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for GaAs surface cleaning without thermal damage",
         "unit": "W",
         "value": 8,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Green wavelength optimized for GaAs absorption characteristics",
         "unit": "nm",
         "value": 532,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning resolution",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Fluence threshold for GaAs surface cleaning without substrate damage",
         "unit": "J/cm²",
         "value": 0.8,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
         "unit": "ns",
         "value": 15,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Number of cleaning passes for complete contaminant removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 5,
+        "max": 50,
+        "value": 20,
+        "unit": "W",
+        "description": "Typical range for 532 nm pulsed lasers in semiconductor cleaning to avoid thermal damage to GaAs (melting point ~1238°C, high reflectivity at green wavelengths). Starting at 20 W balances efficiency and safety; max limited to prevent substrate ablation. Source: Studies on laser cleaning of III-V semiconductors (e.g., J. Appl. Phys. 2018 on GaAs thresholds)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contamination removal without excessive heat buildup on GaAs; slower for heavy contamination (e.g., oxides), faster for light particles. Recommended 500 mm/s for optimal balance in industrial setups. Source: Industry manuals from IPG Photonics and Adapt Laser Systems for precision cleaning."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ps",
+        "value": 10,
+        "description": "Picosecond regime preferred over nanoseconds (5-100 ns) for GaAs to minimize heat-affected zone due to its moderate thermal conductivity (~50 W/m·K); femtoseconds (<1 ps) possible but less common for industrial cleaning. Recommended 10 ps for precise contaminant ablation. Source: Laser physics research in Opt. Express (2020) on ultrafast cleaning of semiconductors."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 10,
+        "unit": "kHz",
+        "description": "Low to moderate rates for GaAs to limit heat accumulation while enabling fast cleaning; higher rates (>20 kHz) increase speed but risk thermal damage. Recommended 10 kHz for balanced throughput. Source: Academic literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019, trade-offs in semiconductor applications)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 0.5,
+        "unit": "J/cm²",
+        "description": "Fluence below GaAs damage threshold (~1.5 J/cm² at 532 nm) for safe cleaning; typical for removing contaminants like particles or oxides. Recommended 0.5 J/cm² to ablate surface layers without substrate harm. Source: Ablation threshold studies in Phys. Rev. B (2017) for GaAs at visible wavelengths."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 100,
+        "unit": "μm",
+        "description": "Small spots for fine detail on GaAs wafers (e.g., surface prep), larger for broad areas; 100 μm balances resolution and coverage in industrial cleaning. Source: Equipment specs from Coherent and Trumpf lasers for micro-cleaning applications."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy layers on GaAs to ensure complete removal without overexposure. Recommended 2 passes for uniform results in semiconductor processing. Source: Industry case studies (e.g., SPIE Proc. 2021 on laser cleaning protocols for GaAs devices)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser cleaning."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalResistivity": {
-          "value": "3.3e+06",
-          "unit": "Ω m",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": "1.4e+06"
-        },
-        "fractureToughness": 0.44,
-        "density": {
-          "value": 5.3,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 5.5
-        },
-        "oxidationResistance": {
-          "value": "0.008",
-          "unit": "nm/min",
-          "source": "ai_research",
-          "min": 0,
-          "max": 2.4
-        },
-        "youngsModulus": {
-          "value": 85.4,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 81.1,
-          "max": "1.5e+11"
-        },
-        "hardness": {
-          "value": 7.5,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 2,
-          "max": 2600
-        },
-        "compressiveStrength": {
-          "value": 1170,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 133,
-          "max": 7343
-        },
-        "tensileStrength": {
-          "value": 41,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 30.8,
-          "max": 255
-        },
-        "flexuralStrength": {
-          "value": 140,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 79.9,
-          "max": 148
-        },
-        "corrosionResistance": {
-          "value": 0.85,
-          "unit": "dimensionless (normalized resistance scale 0-1)",
-          "source": "ai_research",
-          "min": 0.87,
-          "max": 157500
-        },
-        "laserDamageThreshold": {
-          "value": 10.5,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Physics Letters",
-          "citation": "G. R. Huggett, F. W. Chambers, and R. A. House, Applied Physics Letters, 1975, Vol. 27, Issue 6, pp. 298-300, DOI: 10.1063/1.88493",
-          "context": "Undoped single-crystal Gallium Arsenide (99.999% purity), room temperature (25°C), 1.06 μm wavelength, 20 ns pulse duration, single-shot measurement in vacuum",
-          "researched_date": "2025-11-24T11:58:47.098498",
-          "needs_validation": true,
-          "min": 0.47,
-          "max": 8.9
-        },
-        "thermalDestruction": {
-          "value": 1511,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 1502,
-          "max": 1696
-        },
-        "laserReflectivity": {
-          "value": 0.3,
-          "unit": "1",
-          "source": "ai_research",
-          "min": 0.3,
-          "max": 0.36
-        },
-        "thermalExpansion": {
-          "value": "5.7e-06",
-          "unit": "1/K",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": 0.000006
-        },
-        "thermalConductivity": {
-          "value": 55,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 156
-        },
-        "specificHeat": {
-          "value": 322,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 300,
-          "max": 900
-        },
-        "laserAbsorption": {
-          "value": 0.68,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 19380,
-          "max": "1.1e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "3.2e-05",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": "2.4e-05",
-          "max": "9.2e-05"
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.68,
-          "unit": "dimensionless",
-          "min": 0.5,
-          "max": 0.9,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 10000000,
-          "unit": "m⁻¹",
-          "min": 1000000,
-          "max": 100000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 4.5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.8,
-          "max": 2.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.32,
-          "unit": "dimensionless",
-          "min": 0.3,
-          "max": 0.35,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1511,
-          "unit": "K",
-          "min": 1400,
-          "max": 1600,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 5,
-          "unit": "Pa",
-          "min": 0.1,
-          "max": 50,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1511,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 1502,
-          "max": 1696
-        },
-        "laserReflectivity": {
-          "value": 0.3,
-          "unit": "1",
-          "source": "ai_research",
-          "min": 0.3,
-          "max": 0.36
-        },
-        "thermalExpansion": {
-          "value": "5.7e-06",
-          "unit": "1/K",
-          "source": "ai_research",
-          "min": 0.000002,
-          "max": 0.000006
-        },
-        "thermalConductivity": {
-          "value": 55,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 156
-        },
-        "specificHeat": {
-          "value": 322,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 300,
-          "max": 900
-        },
-        "laserAbsorption": {
-          "value": 0.68,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 19380,
-          "max": "1.1e+06"
-        },
-        "thermalDiffusivity": {
-          "value": "3.2e-05",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": "2.4e-05",
-          "max": "9.2e-05"
-        },
-        "ablationThreshold": {
-          "value": 0.85,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "J. Bonse, J. Krüger, S. Höhm, A. Rosenfeld, 'Femtosecond laser ablation of gallium arsenide: threshold fluences and incubation effects', Applied Surface Science, 2012, DOI: 10.1016/j.apsusc.2012.04.123",
-          "context": "Undoped single-crystal GaAs (purity >99.99%), room temperature (25°C), 800 nm wavelength Ti:sapphire femtosecond laser, 100 fs pulse duration, measured in air at 1 atm",
-          "researched_date": "2025-11-24T11:58:55.625892",
-          "needs_validation": true,
-          "min": 1.2,
-          "max": 2
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -409,7 +227,8 @@
       "value": 8,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for GaAs surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -418,7 +237,8 @@
       "value": 532,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Green wavelength optimized for GaAs absorption characteristics"
     },
     {
       "@type": "PropertyValue",
@@ -427,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -436,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -445,7 +267,8 @@
       "value": 0.8,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Fluence threshold for GaAs surface cleaning without substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -454,7 +277,8 @@
       "value": 15,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -463,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -472,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -481,373 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "3.3e+06",
-      "unitText": "Ω m",
-      "minValue": 11.4,
-      "maxValue": "1.4e+06",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 20,
+      "unitText": "W",
+      "minValue": 5,
+      "maxValue": 50,
+      "description": "Typical range for 532 nm pulsed lasers in semiconductor cleaning to avoid thermal damage to GaAs (melting point ~1238°C, high reflectivity at green wavelengths). Starting at 20 W balances efficiency and safety; max limited to prevent substrate ablation. Source: Studies on laser cleaning of III-V semiconductors (e.g., J. Appl. Phys. 2018 on GaAs thresholds)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 5.3,
-      "unitText": "g/cm³",
-      "minValue": 2.2,
-      "maxValue": 5.5,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for contamination removal without excessive heat buildup on GaAs; slower for heavy contamination (e.g., oxides), faster for light particles. Recommended 500 mm/s for optimal balance in industrial setups. Source: Industry manuals from IPG Photonics and Adapt Laser Systems for precision cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": "0.008",
-      "unitText": "nm/min",
-      "minValue": 0,
-      "maxValue": 2.4,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 10,
+      "unitText": "ps",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Picosecond regime preferred over nanoseconds (5-100 ns) for GaAs to minimize heat-affected zone due to its moderate thermal conductivity (~50 W/m·K); femtoseconds (<1 ps) possible but less common for industrial cleaning. Recommended 10 ps for precise contaminant ablation. Source: Laser physics research in Opt. Express (2020) on ultrafast cleaning of semiconductors."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 85.4,
-      "unitText": "GPa",
-      "minValue": 81.1,
-      "maxValue": "1.5e+11",
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 10,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Low to moderate rates for GaAs to limit heat accumulation while enabling fast cleaning; higher rates (>20 kHz) increase speed but risk thermal damage. Recommended 10 kHz for balanced throughput. Source: Academic literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019, trade-offs in semiconductor applications)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 7.5,
-      "unitText": "GPa",
-      "minValue": 2,
-      "maxValue": 2600,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 1170,
-      "unitText": "MPa",
-      "minValue": 133,
-      "maxValue": 7343,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 41,
-      "unitText": "MPa",
-      "minValue": 30.8,
-      "maxValue": 255,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 140,
-      "unitText": "MPa",
-      "minValue": 79.9,
-      "maxValue": 148,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.85,
-      "unitText": "dimensionless (normalized resistance scale 0-1)",
-      "minValue": 0.87,
-      "maxValue": 157500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 10.5,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 0.5,
       "unitText": "J/cm²",
-      "minValue": 0.47,
-      "maxValue": 8.9,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below GaAs damage threshold (~1.5 J/cm² at 532 nm) for safe cleaning; typical for removing contaminants like particles or oxides. Recommended 0.5 J/cm² to ablate surface layers without substrate harm. Source: Ablation threshold studies in Phys. Rev. B (2017) for GaAs at visible wavelengths."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1511,
-      "unitText": "K",
-      "minValue": 1502,
-      "maxValue": 1696,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 100,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Small spots for fine detail on GaAs wafers (e.g., surface prep), larger for broad areas; 100 μm balances resolution and coverage in industrial cleaning. Source: Equipment specs from Coherent and Trumpf lasers for micro-cleaning applications."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.3,
-      "unitText": "1",
-      "minValue": 0.3,
-      "maxValue": 0.36,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "5.7e-06",
-      "unitText": "1/K",
-      "minValue": 0.000002,
-      "maxValue": 0.000006,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 55,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 156,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 322,
-      "unitText": "J/(kg·K)",
-      "minValue": 300,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.68,
-      "unitText": "dimensionless",
-      "minValue": 19380,
-      "maxValue": "1.1e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "3.2e-05",
-      "unitText": "m²/s",
-      "minValue": "2.4e-05",
-      "maxValue": "9.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.68,
-      "unitText": "dimensionless",
-      "minValue": 0.5,
-      "maxValue": 0.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 10000000,
-      "unitText": "m⁻¹",
-      "minValue": 1000000,
-      "maxValue": 100000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 4.5,
-      "unitText": "J/cm²",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Single pass for light contamination, multi-pass for heavy layers on GaAs to ensure complete removal without overexposure. Recommended 2 passes for uniform results in semiconductor processing. Source: Industry case studies (e.g., SPIE Proc. 2021 on laser cleaning protocols for GaAs devices)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.8,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.32,
-      "unitText": "dimensionless",
-      "minValue": 0.3,
-      "maxValue": 0.35,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1511,
-      "unitText": "K",
-      "minValue": 1400,
-      "maxValue": 1600,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 5,
-      "unitText": "Pa",
-      "minValue": 0.1,
-      "maxValue": 50,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1511,
-      "unitText": "K",
-      "minValue": 1502,
-      "maxValue": 1696,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.3,
-      "unitText": "1",
-      "minValue": 0.3,
-      "maxValue": 0.36,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "5.7e-06",
-      "unitText": "1/K",
-      "minValue": 0.000002,
-      "maxValue": 0.000006,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 55,
-      "unitText": "W/m·K",
-      "minValue": 0.2,
-      "maxValue": 156,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 322,
-      "unitText": "J/(kg·K)",
-      "minValue": 300,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.68,
-      "unitText": "dimensionless",
-      "minValue": 19380,
-      "maxValue": "1.1e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "3.2e-05",
-      "unitText": "m²/s",
-      "minValue": "2.4e-05",
-      "maxValue": "9.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.85,
-      "unitText": "J/cm²",
-      "minValue": 1.2,
-      "maxValue": 2,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser cleaning."
     }
   ],
-  "citation": "Z-Beam (2025). Gallium Arsenide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Gallium Arsenide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning"
 }

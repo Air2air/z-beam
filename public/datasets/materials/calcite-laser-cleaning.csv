@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/stone/sedimentary/calcite-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Calcite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/calcite-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Calcite,,,,,Material name
 Basic,Info,Category,stone,,,,,Material category
 Basic,Info,Subcategory,sedimentary,,,,,Material subcategory
 Basic,Info,Slug,calcite-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,45,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,80,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
-Machine,Settings,pulseWidth,12,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,fractureToughness,0.25,MPa√m,0.13,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,density,2710,kg/m³,2.2,3045,ai_research,Material property: density
-Property,material_characteristics,oxidationResistance,0.98,dimensionless (relative resistance scale 0-1),9.5e-05,1547,ai_research,Material property: oxidationResistance
-Property,material_characteristics,youngsModulus,69,GPa,9.8,7.9e+10,ai_research,Material property: youngsModulus
-Property,material_characteristics,hardness,3,Mohs,0.7,7.3,ai_research,Material property: hardness
-Property,material_characteristics,compressiveStrength,150,MPa,2.1,220,ai_research,Material property: compressiveStrength
-Property,material_characteristics,tensileStrength,23,MPa,1.4,15.7,ai_research,Material property: tensileStrength
-Property,material_characteristics,flexuralStrength,15,MPa,2.2,36.6,ai_research,Material property: flexuralStrength
-Property,material_characteristics,corrosionResistance,0.25,dimensionless,6.6e-05,21,ai_research,Material property: corrosionResistance
-Property,material_characteristics,porosity,0.6,%,0,19.4,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,2.8,J/cm²,0.42,13.1,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,1098,K,273,2300,ai_research,Material property: thermalDestruction
-Property,material_characteristics,laserReflectivity,0.05,,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalExpansion,1.2e-05,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,material_characteristics,thermalConductivity,2.9,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,material_characteristics,specificHeat,831,J/kg·K,400,1200,ai_research,Material property: specificHeat
-Property,material_characteristics,laserAbsorption,800000,m^{-1},0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.3e-06,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.3,dimensionless,0.2,0.4,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,10000,m⁻¹,1000,50000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,10,J/cm²,5,15,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,1,2,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.06,dimensionless,0.05,0.1,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,1100,K,1000,1200,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,100,Pa,10,1000,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,1098,K,273,2300,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,laserReflectivity,0.05,,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalExpansion,1.2e-05,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,thermalConductivity,2.9,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,specificHeat,831,J/kg·K,400,1200,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserAbsorption,800000,m^{-1},0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.3e-06,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,2.1,J/cm²,0.65,6.3,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,45,W,1,120,,Optimal average power for Calcite cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for efficient Calcite absorption with minimal transmission
+Machine,Settings,spotSize,80,μm,0.1,500,,Beam spot diameter for precise cleaning resolution on Calcite surfaces
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Minimum fluence required for effective contaminant removal from Calcite
+Machine,Settings,pulseWidth,12,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of Calcite surface contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning without excessive energy deposition
+Machine,Settings,power,50,W,20,200,,"Typical range for ns-pulsed Nd:YAG lasers in stone cleaning applications; starting at 50W to avoid thermal damage to calcite (decomposition ~825°C). Max limited to prevent substrate ablation. Source: IPG Photonics YLR series specs and studies on carbonate cleaning (e.g., J. Cult. Herit. 2018)."
+Machine,Settings,scan_speed,500,mm/s,10,5000,,"Slower speeds for heavy contamination on delicate calcite; 500 mm/s optimal for balance of efficiency and minimal heat input. Range adjusts for light (faster) vs. heavy (slower) contaminants. Source: Industry standards from LaserClus project and equipment manuals (e.g., Adapt-Laser)."
+Machine,Settings,pulse_width,10,ns,0.1,1000,,Nanosecond regime preferred for cost-effective cleaning with low reflectivity at 1064 nm; 10 ns minimizes heat-affected zone (HAZ) in low-thermal-conductivity calcite (~2 W/m·K). Picosecond (ps) or femtosecond (fs) for ultra-precision but higher cost. Source: Laser physics reviews (Opt. Lasers Eng. 2015).
+Machine,Settings,repetition_rate,20,kHz,1,200,,20 kHz balances cleaning speed and heat accumulation; higher rates increase efficiency but risk thermal buildup in calcite due to poor conductivity. Source: Academic literature on pulsed laser cleaning of minerals (Appl. Surf. Sci. 2012).
+Machine,Settings,energy_density,1,J/cm²,0.1,20,,Fluence below calcite damage threshold (~2.5 J/cm² at 1064 nm ns pulses) for safe contaminant removal; 1 J/cm² recommended for industrial cleaning without ablation. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2009).
+Machine,Settings,spot_size,200,μm,0.1,500,,"200 μm for fine surface preparation on calcite; smaller for detail work, larger for broad areas. Matches typical galvo scanner setups. Source: Equipment specifications from Coherent and Trumpf laser systems."
+Machine,Settings,pass_count,2,passes,1,10,,"Multi-pass (2 recommended) for complete removal without exceeding fluence limits; single pass for light contamination. Based on calcite's reflectivity (~5-10% at 1064 nm). Source: Industry case studies on stone restoration (Lasers in the Conservation of Artworks, 2017)."
+Machine,Settings,overlap_ratio,70,%,10,90,,70% ensures uniform coverage and contaminant removal on irregular calcite surfaces; higher for heavy soiling. Source: Process optimization in laser scanning (Opt. Express 2014).

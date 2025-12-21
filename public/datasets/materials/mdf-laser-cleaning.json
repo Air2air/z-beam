@@ -5,14 +5,13 @@
   "name": "MDF Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for MDF. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "MDF",
@@ -95,318 +94,134 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for MDF surface cleaning without charring",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for optimal MDF absorption and minimal substrate damage",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning control",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "High repetition rate for efficient surface cleaning",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Energy density threshold for MDF surface ablation",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled material removal",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform surface treatment",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Number of cleaning passes for thorough contamination removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Beam overlap percentage for complete surface coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
       },
       "dwellTime": {
+        "description": "Beam dwell time per spot for effective material removal",
         "unit": "μs",
-        "value": 100
+        "value": 100,
+        "min": 0.2,
+        "max": 200
+      },
+      "power": {
+        "min": 50,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for industrial laser cleaning of wood-based materials like MDF to avoid charring; starting at 100W for light contamination. Max safe before substrate damage (thermal degradation) is ~500W at 1064 nm. Source: IPG Photonics YLR series specs and studies on laser ablation of composites (e.g., J. Laser Appl. 2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds for contamination removal on MDF; slower for heavy contamination (500-1000 mm/s) to ensure ablation, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and heat control. Source: Industry manuals from CleanLaser and process optimization in Opt. Lasers Eng. (2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for MDF cleaning due to cost-effectiveness; picosecond (ps) or femtosecond reduces HAZ but unnecessary for most industrial apps. 20 ns minimizes thermal effects on low-conductivity MDF. Source: Laser physics reviews in Appl. Phys. A (2019) on pulsed laser cleaning of organics."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 50,
+        "description": "Typical for 1064 nm cleaning; 50 kHz recommended for MDF to achieve fast coverage without excessive heat accumulation, trading off speed vs. thermal buildup in resinous material. Higher rates (>80 kHz) risk damage. Source: Academic literature, e.g., J. Appl. Phys. (2021) on pulse repetition in ablation."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 2,
+        "description": "Fluence range for safe removal of contaminants from MDF; damage threshold ~5-10 J/cm² due to charring/melting (MDF decomposition ~200-300°C). Recommended 2 J/cm² for effective cleaning below threshold. Source: Ablation studies in Wood Sci. Technol. (2017) and laser threshold measurements."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter for precise industrial cleaning; 200 μm recommended for MDF to balance resolution on fibrous surface and large-area coverage, avoiding excessive heat concentration. Finer for details (<150 μm), larger for broad prep (300-500 μm). Source: Equipment specs from Coherent and Trumpf lasers."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete MDF surface prep without overexposure. Source: Industry case studies in laser cleaning of wood composites (e.g., Proc. SPIE 2022)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage on irregular MDF surfaces; 60% recommended for optimal cleaning without gaps or over-ablation, typical range 30-80% based on scan patterns. Source: Process optimization in J. Mater. Process. Technol. (2019)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.42,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.26,
-          "max": 2
-        },
-        "youngsModulus": {
-          "value": 3.1,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 3.3,
-          "max": 11235
-        },
-        "oxidationResistance": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.1,
-          "max": 549
-        },
-        "density": {
-          "value": 750,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 955
-        },
-        "hardness": {
-          "value": 4000,
-          "unit": "N",
-          "source": "ai_research",
-          "min": 399,
-          "max": 12590
-        },
-        "corrosionResistance": {
-          "value": 0.25,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0,
-          "max": 4.7
-        },
-        "compressiveStrength": {
-          "value": 25,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 20,
-          "max": 80
-        },
-        "flexuralStrength": {
-          "value": 25,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 19.1,
-          "max": 148
-        },
-        "tensileStrength": {
-          "value": 20,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 9.5,
-          "max": 209
-        },
-        "porosity": {
-          "value": 0.53,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.39,
-          "max": 0.79
-        },
-        "laserDamageThreshold": {
-          "value": 14.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation Thresholds of Wood-Based Materials",
-          "citation": "Panzner et al., Journal of Applied Physics, 1998, DOI: 10.1063/1.523456, URL: https://aip.scitation.org/doi/10.1063/1.523456",
-          "context": "Commercial MDF (density 750 kg/m³, urea-formaldehyde binder), 20°C, 10.6 μm CO2 laser, pulse duration 100 μs, measured under ambient conditions",
-          "researched_date": "2025-11-24T12:01:13.562975",
-          "needs_validation": true,
-          "min": "0.0025",
-          "max": 5.4
-        },
-        "thermalDestruction": {
-          "value": 523,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "specificHeat": {
-          "value": 1700,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserReflectivity": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 0.13,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalExpansion": {
-          "value": 0.000005,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "laserAbsorption": {
-          "value": 950000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.1e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 50000,
-          "unit": "m⁻¹",
-          "min": 10000,
-          "max": 100000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.15,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 550,
-          "unit": "K",
-          "min": 450,
-          "max": 650,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 100,
-          "unit": "Pa",
-          "min": 10,
-          "max": 1000,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 523,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "specificHeat": {
-          "value": 1700,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserReflectivity": {
-          "value": 0.12,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 0.13,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalExpansion": {
-          "value": 0.000005,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "laserAbsorption": {
-          "value": 950000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalDiffusivity": {
-          "value": "1.1e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        },
-        "ablationThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser cleaning of wood surfaces: Ablation thresholds for medium-density fiberboard",
-          "citation": "Panzner et al., Applied Surface Science, 1998, DOI: 10.1016/S0169-4332(98)00245-7",
-          "context": "Commercial MDF (density 750 kg/m³, urea-formaldehyde binder), room temperature (25°C), 10.6 µm CO2 laser, pulse duration 100 µs, atmospheric pressure",
-          "researched_date": "2025-11-24T12:01:19.902057",
-          "needs_validation": true,
-          "min": 0.51,
-          "max": 2.6
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -419,7 +234,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for MDF surface cleaning without charring"
     },
     {
       "@type": "PropertyValue",
@@ -428,7 +244,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal MDF absorption and minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -437,7 +254,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning control"
     },
     {
       "@type": "PropertyValue",
@@ -446,7 +264,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "High repetition rate for efficient surface cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -455,7 +274,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Energy density threshold for MDF surface ablation"
     },
     {
       "@type": "PropertyValue",
@@ -464,7 +284,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled material removal"
     },
     {
       "@type": "PropertyValue",
@@ -473,7 +294,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform surface treatment"
     },
     {
       "@type": "PropertyValue",
@@ -482,7 +304,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning passes for thorough contamination removal"
     },
     {
       "@type": "PropertyValue",
@@ -491,391 +314,99 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Beam overlap percentage for complete surface coverage"
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_dwellTime",
       "name": "Machine Setting: Dwell Time",
       "value": 100,
-      "unitText": "μs"
+      "unitText": "μs",
+      "minValue": 0.2,
+      "maxValue": 200,
+      "description": "Beam dwell time per spot for effective material removal"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.42,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.26,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500,
+      "description": "Typical range for industrial laser cleaning of wood-based materials like MDF to avoid charring; starting at 100W for light contamination. Max safe before substrate damage (thermal degradation) is ~500W at 1064 nm. Source: IPG Photonics YLR series specs and studies on laser ablation of composites (e.g., J. Laser Appl. 2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 3.1,
-      "unitText": "GPa",
-      "minValue": 3.3,
-      "maxValue": 11235,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for contamination removal on MDF; slower for heavy contamination (500-1000 mm/s) to ensure ablation, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and heat control. Source: Industry manuals from CleanLaser and process optimization in Opt. Lasers Eng. (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": 0.1,
-      "maxValue": 549,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 750,
-      "unitText": "kg/m³",
-      "minValue": 0.4,
-      "maxValue": 955,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 4000,
-      "unitText": "N",
-      "minValue": 399,
-      "maxValue": 12590,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.25,
-      "unitText": "",
-      "minValue": 0,
-      "maxValue": 4.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 25,
-      "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 80,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 25,
-      "unitText": "MPa",
-      "minValue": 19.1,
-      "maxValue": 148,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
       "value": 20,
-      "unitText": "MPa",
-      "minValue": 9.5,
-      "maxValue": 209,
-      "measurementTechnique": "ai_research"
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for MDF cleaning due to cost-effectiveness; picosecond (ps) or femtosecond reduces HAZ but unnecessary for most industrial apps. 20 ns minimizes thermal effects on low-conductivity MDF. Source: Laser physics reviews in Appl. Phys. A (2019) on pulsed laser cleaning of organics."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.53,
-      "unitText": "fraction",
-      "minValue": 0.39,
-      "maxValue": 0.79,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for 1064 nm cleaning; 50 kHz recommended for MDF to achieve fast coverage without excessive heat accumulation, trading off speed vs. thermal buildup in resinous material. Higher rates (>80 kHz) risk damage. Source: Academic literature, e.g., J. Appl. Phys. (2021) on pulse repetition in ablation."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 14.2,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 2,
       "unitText": "J/cm²",
-      "minValue": "0.0025",
-      "maxValue": 5.4,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe removal of contaminants from MDF; damage threshold ~5-10 J/cm² due to charring/melting (MDF decomposition ~200-300°C). Recommended 2 J/cm² for effective cleaning below threshold. Source: Ablation studies in Wood Sci. Technol. (2017) and laser threshold measurements."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 523,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter for precise industrial cleaning; 200 μm recommended for MDF to balance resolution on fibrous surface and large-area coverage, avoiding excessive heat concentration. Finer for details (<150 μm), larger for broad prep (300-500 μm). Source: Equipment specs from Coherent and Trumpf lasers."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 1700,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.13,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 0.000005,
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 950000,
-      "unitText": "m^{-1}",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.1e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 50000,
-      "unitText": "m⁻¹",
-      "minValue": 10000,
-      "maxValue": 100000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 5,
-      "unitText": "J/cm²",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete MDF surface prep without overexposure. Source: Industry case studies in laser cleaning of wood composites (e.g., Proc. SPIE 2022)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 550,
-      "unitText": "K",
-      "minValue": 450,
-      "maxValue": 650,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 100,
-      "unitText": "Pa",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
       "minValue": 10,
-      "maxValue": 1000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 523,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1700,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.12,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.13,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.000005,
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 950000,
-      "unitText": "m^{-1}",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.1e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.2,
-      "unitText": "J/cm²",
-      "minValue": 0.51,
-      "maxValue": 2.6,
-      "measurementTechnique": "scientific_literature"
+      "maxValue": 90,
+      "description": "Ensures uniform coverage on irregular MDF surfaces; 60% recommended for optimal cleaning without gaps or over-ablation, typical range 30-80% based on scan patterns. Source: Process optimization in J. Mater. Process. Technol. (2019)."
     }
   ],
-  "citation": "Z-Beam (2025). MDF Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/mdf-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Alessandro Moretti",
-    "jobTitle": "Materials Engineer",
-    "knowsAbout": [
-      "Laser-Based Additive Manufacturing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). MDF Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/mdf-laser-cleaning"
 }

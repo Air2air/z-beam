@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/plastic/thermoplastic/peek-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). PEEK Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/peek-laser-cleaning
 #
@@ -13,38 +13,20 @@ Basic,Info,Name,PEEK,,,,,Material name
 Basic,Info,Category,plastic,,,,,Material category
 Basic,Info,Subcategory,thermoplastic,,,,,Material subcategory
 Basic,Info,Slug,peek-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,30,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,20,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,0.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,800,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,30,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,1.3,g/cm³,0.84,2.2,,Material property: density
-Property,material_characteristics,porosity,0,%,,,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,0.6,μm,,,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,100,MPa,10,400,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,3.6,GPa,0.01,5000,,Material property: youngsModulus
-Property,material_characteristics,hardness,0.11,GPa,51.8,123,,Material property: hardness
-Property,material_characteristics,flexuralStrength,170,MPa,20.7,96.4,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,5,μm/year,0.76,1575,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,0.95,mm/year,0,105,,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,100,MPa,20,200,,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,8,MPa m^{1/2},0.7,2.9,,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,10000000000000000,Ω·m,9.5e+12,100000000000000000,,Material property: electricalResistivity
-Property,laser_material_interaction,thermalDestruction,616,K,228,715,,Material property: thermalDestruction
-Property,laser_material_interaction,laserAbsorption,0.25,dimensionless,0.28,126000,,Material property: laserAbsorption
-Property,laser_material_interaction,laserDamageThreshold,1.2,J/cm²,0.71,2.6,scientific_literature,Material property: laserDamageThreshold
-Property,laser_material_interaction,ablationThreshold,0.58,J/cm²,0.39,2.8,scientific_literature,Material property: ablationThreshold
-Property,laser_material_interaction,thermalDiffusivity,1.5e-07,m²/s,0,0,scientific_literature,Material property: thermalDiffusivity
-Property,laser_material_interaction,thermalExpansion,4.7e-05,10^{-6} K^{-1},5.9e-05,0.0002,scientific_literature,Material property: thermalExpansion
-Property,laser_material_interaction,specificHeat,1170,J/(kg·K),1,2500,scientific_literature,Material property: specificHeat
-Property,laser_material_interaction,thermalConductivity,0.25,W/m·K,0.02,3,scientific_literature,Material property: thermalConductivity
-Property,laser_material_interaction,laserReflectivity,0.06,,0.02,0.05,scientific_literature,Material property: laserReflectivity
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,30,W,1,120,,Low power for thermal-sensitive polymer cleaning
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for controlled absorption
+Machine,Settings,spotSize,100,μm,0.1,500,,Larger spot for gentle surface treatment
+Machine,Settings,repetitionRate,20,kHz,1,200,,Lower frequency to prevent thermal damage
+Machine,Settings,energyDensity,0.5,J/cm²,0.1,20,,Low energy density to avoid melting
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Short pulses for minimal thermal impact
+Machine,Settings,scanSpeed,800,mm/s,10,5000,,Fast scanning to reduce heat accumulation
+Machine,Settings,passCount,2,passes,1,10,,Multiple gentle passes for gradual cleaning
+Machine,Settings,overlapRatio,30,%,10,90,,Lower overlap to prevent overheating
+Machine,Settings,power,50,W,10,200,,"Typical range for polymer cleaning at 1064 nm to avoid thermal damage to PEEK (melting point ~343°C); starting at 50 W for light contamination. Max safe ~200 W based on low thermal conductivity. Source: IPG Photonics laser cleaning guidelines and studies on polymer ablation (e.g., J. Laser Appl. 2018)."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective speeds for contamination removal; slower (500-1000 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light. Recommended 1500 mm/s for PEEK to balance cleaning efficiency and heat minimization. Source: CleanLaser equipment manuals and industry standards (ISO 11553)."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred for PEEK to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. Typical 10-50 ns avoids excessive melting. Source: Laser physics research on polymer ablation (Opt. Express 2015); ns pulses reduce thermal diffusion in low-conductivity PEEK.
+Machine,Settings,repetition_rate,30,kHz,1,200,,Common for cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation in PEEK due to poor thermal dissipation. Recommended 30 kHz for balance. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2020); trade-off noted for polymers.
+Machine,Settings,energy_density,0.5,J/cm²,0.1,20,,Fluence for contaminant removal without substrate damage; PEEK damage threshold ~1-2 J/cm² at 1064 nm due to reflectivity (~0.9) and absorption. Recommended 0.5 J/cm² for safe cleaning. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2017); conservative for PEEK's sensitivity.
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for precision vs. area coverage; smaller (100-200 μm) for fine surface prep on PEEK, larger for broad cleaning. Recommended 200 μm to control energy delivery. Source: Manufacturer specs (e.g., Coherent lasers) and equipment for polymer applications."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for heavy; recommended 2 passes for complete PEEK cleaning without overexposure. Source: Industry case studies on polymer surface preparation (Laser Tech. J. 2019); minimizes cumulative heat."
+Machine,Settings,overlap_ratio,50,%,10,90,,"Ensures uniform coverage; 30-50% for speed, 50-80% for thoroughness on irregular PEEK surfaces. Recommended 50% to avoid gaps while preventing overheating. Source: Process optimization studies (Opt. Lasers Eng. 2021); standard for scanned laser cleaning."

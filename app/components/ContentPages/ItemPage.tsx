@@ -58,7 +58,7 @@ export async function ItemPage({
           />
           <SettingsLayout 
             metadata={settings}
-            materialProperties={(settings as any)?.relationships?.material_properties || (settings as any)?.relationships?.materialProperties}
+            materialProperties={(settings as any)?.relationships?.materialProperties}
             category={categorySlug}
             subcategory={subcategorySlug}
             slug={itemSlug}
@@ -88,17 +88,16 @@ export async function ItemPage({
       try {
         const baseMaterialSlug = itemSlug.replace(/-laser-cleaning$/, '');
         const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
-        const machineSettings = (settings as any)?.machine_settings;
+        // Use camelCase property (normalizer ensures this exists)
+        const machineSettings = (settings as any)?.machineSettings;
         
         if (machineSettings) {
-          // Merge machineSettings into article.metadata for Dataset schema
+          // Merge machineSettings at TOP LEVEL of article.metadata for Dataset schema
+          // SchemaFactory checks frontmatter.machineSettings, not nested in relationships
           if (!article.metadata) {
             article.metadata = {};
           }
-          if (!(article.metadata as any).relationships) {
-            (article.metadata as any).relationships = {};
-          }
-          (article.metadata as any).relationships.machine_settings = machineSettings;
+          (article.metadata as any).machineSettings = machineSettings;
         }
       } catch (_error) {
         // Settings file doesn't exist - continue without machine settings

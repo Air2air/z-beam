@@ -5,14 +5,13 @@
   "name": "Aluminum Bronze Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Aluminum Bronze. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Aluminum Bronze",
@@ -97,361 +96,125 @@
       "powerRange": {
         "value": 100,
         "unit": "W",
+        "description": "Optimal average power for metal oxide removal",
         "min": 1,
         "max": 120
       },
       "wavelength": {
         "value": 1064,
         "unit": "nm",
+        "description": "Near-IR wavelength for optimal metal absorption",
         "min": 355,
         "max": 10640
       },
       "spotSize": {
         "value": 50,
         "unit": "μm",
+        "description": "Beam spot diameter for effective cleaning resolution",
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
         "value": 50,
         "unit": "kHz",
+        "description": "Pulse frequency for controlled cleaning",
         "min": 1,
         "max": 200
       },
       "energyDensity": {
         "value": 2.5,
         "unit": "J/cm²",
+        "description": "Energy per unit area for oxide removal",
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
         "value": 10,
         "unit": "ns",
+        "description": "Pulse duration for minimal heat-affected zone",
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
         "value": 500,
         "unit": "mm/s",
+        "description": "Beam travel speed for uniform treatment",
         "min": 10,
         "max": 5000
       },
       "passCount": {
         "value": 2,
         "unit": "passes",
+        "description": "Number of cleaning cycles for complete removal",
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
         "value": 50,
         "unit": "%",
+        "description": "Beam overlap for consistent coverage",
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 1000,
+        "value": 200,
+        "unit": "W",
+        "description": "Typical range for industrial cleaning of copper alloys like Aluminum Bronze to ablate contaminants without melting; starting at 200W balances efficiency and safety. Max limited to avoid thermal damage given alloy's ~1040°C melting point. Source: IPG Photonics YLR series specs and studies in Optics and Lasers in Engineering (2018) on metal surface cleaning."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective speeds for 1064 nm cleaning; lower for heavy contamination (e.g., oxide layers on Aluminum Bronze), higher for light rust/oil. 1500 mm/s recommended for optimal contaminant removal without excessive heat buildup. Source: Industry standards from Laserax manuals and Journal of Laser Applications (2020) case studies on bronze alloys."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 50,
+        "description": "Nanosecond regime dominant for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs) reduce HAZ but are less common for Aluminum Bronze due to high reflectivity. 50 ns recommended for minimal thermal effects on conductive alloys. Source: Laser physics research in Applied Surface Science (2019) comparing pulse regimes for Cu-Al alloys."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical for pulsed fiber lasers in cleaning; higher rates speed up process but risk heat accumulation in reflective Aluminum Bronze. 50 kHz balances speed and thermal management. Trade-off: >80 kHz may require cooling. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on repetition rate effects."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe contaminant ablation; Aluminum Bronze damage threshold ~8-12 J/cm² at 1064 nm due to reflectivity (~40-60%). 1.5 J/cm² recommended for cleaning without substrate etching. Source: Ablation threshold studies in Journal of Applied Physics (2017) and SPIE proceedings on metal cleaning."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter for precise industrial cleaning; smaller for fine details on Aluminum Bronze parts, larger for broad surfaces. 200 μm recommended for uniform energy distribution and efficiency. Source: Equipment specs from Coherent and Trumpf laser systems, optimized for alloy surface prep."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy layers like marine corrosion on Aluminum Bronze. 2 passes recommended for complete removal with minimal risk. Source: Industry practice in case studies from Surface and Coatings Technology (2022) on bronze cleaning applications."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or over-ablation; 60% typical for Aluminum Bronze to account for reflectivity variations. Range adjusted for contamination thickness. Source: Process optimization studies in Optics & Laser Technology (2020) on scan strategies for metals."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "density": {
-          "value": 7.8,
-          "unit": "g/cm³",
-          "min": 1.7,
-          "max": 9408
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%",
-          "min": 0,
-          "max": 15
-        },
-        "surfaceRoughness": {
-          "value": 1.2,
-          "unit": "μm",
-          "min": 0.02,
-          "max": 6.6
-        },
-        "tensileStrength": {
-          "value": 655,
-          "unit": "MPa",
-          "min": 3,
-          "max": 3000
-        },
-        "youngsModulus": {
-          "value": 120,
-          "unit": "GPa",
-          "min": 10.4,
-          "max": 200000000000
-        },
-        "hardness": {
-          "value": 2.5,
-          "unit": "GPa",
-          "min": 0.2,
-          "max": 3500
-        },
-        "flexuralStrength": {
-          "value": 680,
-          "unit": "MPa",
-          "min": 11.4,
-          "max": 2897
-        },
-        "oxidationResistance": {
-          "value": 6,
-          "unit": "μm/year",
-          "min": -554,
-          "max": 1762
-        },
-        "corrosionResistance": {
-          "value": 0.65,
-          "unit": "mm/year",
-          "min": -1.1,
-          "max": "1.1e+06"
-        },
-        "compressiveStrength": {
-          "value": 655,
-          "unit": "MPa",
-          "min": 8,
-          "max": 2625
-        },
-        "fractureToughness": {
-          "value": 90,
-          "unit": "MPa m^{1/2}",
-          "min": 0.67,
-          "max": 157
-        },
-        "electricalResistivity": {
-          "value": "1.2e-07",
-          "unit": "Ω·m",
-          "min": 0,
-          "max": 0.000002
-        },
-        "electricalConductivity": {
-          "value": "4.1e+06",
-          "unit": "S/m",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb: Aluminum Bronze (UNS C95400), Sand Cast, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5a4d2b0a4a4b0e9f0b0a4b0a4b0a4b, accessed October 2023",
-          "context": "UNS C95400 Aluminum Bronze (9% Al, 4% Fe, balance Cu), as-cast condition, 20°C, standard DC measurement",
-          "researched_date": "2025-11-24T19:43:26.848136",
-          "needs_validation": true,
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "boilingPoint": {
-          "value": 2673,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC., Aluminum Bronze UNS C95400, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f3b6d5e4a2b1c8d9e7f0a5b2c4d6e8f, accessed 2024",
-          "context": "Commercial grade Aluminum Bronze (UNS C95400: 83% Cu, 11% Al, 4% Fe, 2% Ni), 99.5% purity, standard atmospheric pressure (1 atm), extrapolated from vapor pressure data",
-          "researched_date": "2025-11-24T19:43:41.388292",
-          "needs_validation": true,
-          "min": 929,
-          "max": 6454
-        },
-        "meltingPoint": {
-          "value": 1045,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, Aluminum Bronze (9-11% Al), http://www.matweb.com/search/DataSheet.aspx?MatGUID=8f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c, accessed 2023",
-          "context": "Commercial Aluminum Bronze alloy (UNS C95400 equivalent, ~9% Al, 4% Fe, balance Cu), standard atmospheric pressure, differential scanning calorimetry measurement",
-          "researched_date": "2025-11-24T19:44:12.517394",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
-        },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 1323,
-          "unit": "K",
-          "min": 256,
-          "max": 3859
-        },
-        "laserAbsorption": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "laserDamageThreshold": {
-          "value": 2.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Ablation Thresholds of Copper-Aluminum Alloys for Nanosecond Pulses",
-          "citation": "K. J. Grant et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028334",
-          "context": "C95400 aluminum bronze (85% Cu, 11% Al, 4% Fe), room temperature (25°C), 10 ns pulse duration at 1064 nm wavelength, single-shot fluence measurement",
-          "researched_date": "2025-11-24T19:41:56.436013",
-          "needs_validation": true,
-          "min": 0.27,
-          "max": 15750
-        },
-        "ablationThreshold": {
-          "value": 2.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "A. A. C. Gomes et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.123",
-          "context": "Aluminum Bronze (UNS C95400, 85% Cu, 9% Al, 4% Fe, 2% Ni), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, atmospheric pressure",
-          "researched_date": "2025-11-24T19:42:02.018655",
-          "needs_validation": true,
-          "min": 0.09,
-          "max": 4.3
-        },
-        "thermalDiffusivity": {
-          "value": "1.8e-05",
-          "unit": "m^2/s",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb - Online Materials Information Resource",
-          "citation": "MatWeb, Aluminum Bronze UNS C95400, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3b5b0d4d6f4d4e4a8c5d7e6f0a1b2c3d, ASM International (data sourced from), accessed October 2024",
-          "context": "UNS C95400 Aluminum Bronze (85Cu-11Al-4Fe-3Ni, as-cast), 25°C, standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:42:22.135717",
-          "needs_validation": true,
-          "min": 0.000002,
-          "max": "0.00017"
-        },
-        "thermalExpansion": {
-          "value": "1.6e-05",
-          "unit": "10^{-6}/K",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "ASM Specialty Handbook: Copper and Copper Alloys",
-          "citation": "Davis, J.R. (Ed.), ASM Specialty Handbook: Copper and Copper Alloys, ASM International, Materials Park, OH, 2001, ISBN 978-0-87170-721-7",
-          "context": "Aluminum Bronze UNS C95400 (85% Cu, 11% Al, 4% Fe), 20-100°C, linear coefficient measured by dilatometry under standard atmospheric conditions",
-          "researched_date": "2025-11-24T19:42:30.395035",
-          "needs_validation": true,
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "specificHeat": {
-          "value": 380,
-          "unit": "J/kg·K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb LLC, Aluminum Bronze, UNS C95400, MatWeb: The Online Materials Information Resource, http://www.matweb.com/search/DataSheet.aspx?MatGUID=8a5a4b5e5f5e4b5a8b5a4b5e5f5e4b5a, accessed 2023",
-          "context": "UNS C95400 (9.0-11.0 wt.% Al, 3.0-5.0 wt.% Fe, balance Cu), as-cast condition, 20-25°C, standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:42:40.358770",
-          "needs_validation": true,
-          "min": 43.4,
-          "max": 1905
-        },
-        "thermalConductivity": {
-          "value": 59,
-          "unit": "W/m·K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb - Online Materials Information Resource, Key to Metals AG, Aluminum Bronze, UNS C95400, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4e4b5a5e1b4a4b0e9f0a1b2c3d4e5f6g, accessed 2023",
-          "context": "Aluminum Bronze UNS C95400 (88% Cu, 9% Al, 3% Fe), 25°C, as-cast condition, steady-state method",
-          "researched_date": "2025-11-24T19:42:50.315312",
-          "needs_validation": true,
-          "min": 7.4,
-          "max": 450
-        },
-        "laserReflectivity": {
-          "value": 0.88,
-          "unit": "",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical Properties of Copper-Aluminum Alloys for Laser Processing",
-          "citation": "Trapp, J., et al., Journal of Laser Applications, Vol. 27, No. 2, 2015, DOI: 10.2351/1.4906789",
-          "context": "Aluminum bronze (UNS C95400, 85% Cu, 11% Al, 4% Fe), 1064 nm wavelength (Nd:YAG laser), 25°C, polished surface, normal incidence",
-          "researched_date": "2025-11-24T19:42:58.279854",
-          "needs_validation": true,
-          "min": 0.4,
-          "max": 73.5
-        },
-        "vaporPressure": {
-          "value": "1.2e-08",
-          "unit": "Pa",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Vapor Pressure Measurements of Copper-Aluminum Alloys",
-          "citation": "Okamoto, H., et al., Journal of Phase Equilibria and Diffusion, 2005, DOI: 10.1361/154770605X56789",
-          "context": "Aluminum Bronze (Cu-9wt%Al-4wt%Fe, UNS C95400), 298 K (25°C), equilibrium vapor pressure over solid alloy, measured using Knudsen effusion mass spectrometry",
-          "researched_date": "2025-11-24T19:43:03.782041",
-          "needs_validation": true,
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestructionPoint": {
-          "value": 1038,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC., Aluminum Bronze UNS C95400, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8d5c5b0a4a4b0e9a5e5b0a4a4b0e9a, accessed October 2023",
-          "context": "UNS C95400 Aluminum Bronze (81% Cu, 9% Al, 3% Fe, 4% Ni), sand cast condition, standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:43:10.259020",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
-        },
-        "absorptionCoefficient": {
-          "value": "4.8e+07",
-          "unit": "m^{-1}",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical Properties and Laser Interaction with Copper-Aluminum Alloys",
-          "citation": "Johnson, R. et al., Optics and Lasers in Engineering, 2019, DOI: 10.1016/j.optlaseng.2019.03.012",
-          "context": "Aluminum Bronze UNS C95400 (85% Cu, 11% Al, 4% Fe), room temperature (25°C), 1064 nm wavelength (Nd:YAG laser), measured via spectroscopic ellipsometry",
-          "researched_date": "2025-11-24T19:43:17.938349",
-          "needs_validation": true,
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "thermalShockResistance": {
-          "value": 210,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials",
-          "citation": "ASM International, 1990, ISBN 978-0-87170-376-7",
-          "context": "Aluminum Bronze UNS C95400 (85% Cu, 11% Al, 4% Fe, sand cast), room temperature, calculated via thermal shock parameter R = σ(1-ν)/(Eα) using standard tensile test and dilatometry methods",
-          "researched_date": "2025-11-24T19:43:48.981571",
-          "needs_validation": true,
-          "min": 6.7,
-          "max": 379050
-        },
-        "reflectivity": {
-          "value": 0.68,
-          "unit": "",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, LLC, Aluminum Bronze (UNS C95400), http://www.matweb.com/search/DataSheet.aspx?MatGUID=ab0b8a3e7a4a4b0e9f0e4b0e9f0e4b0e, accessed 2023",
-          "context": "UNS C95400 Aluminum Bronze alloy (81% Cu, 11% Al, 4% Fe, 4% Ni), polished surface, room temperature (25°C), normal incidence reflectivity at 500 nm wavelength (visible spectrum, relevant for laser cleaning applications)",
-          "researched_date": "2025-11-24T19:43:56.234962",
-          "needs_validation": true,
-          "min": 0.35,
-          "max": 1
-        },
-        "absorptivity": {
-          "value": 0.07,
-          "unit": "dimensionless",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Absorptivity of Copper Alloys in the Infrared for Laser Processing",
-          "citation": "Trapp, J., et al., Journal of Laser Applications, Vol. 27, No. 3, 2015, DOI: 10.2351/1.4927583",
-          "context": "UNS C95400 aluminum bronze (81% Cu, 11% Al, 4% Fe, 4% Ni), polished surface, 25°C, 1064 nm wavelength (Nd:YAG laser), hemispherical absorptivity",
-          "researched_date": "2025-11-24T19:44:02.583469",
-          "needs_validation": true,
-          "min": 0.02,
-          "max": 0.6
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -464,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for metal oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -473,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal metal absorption"
     },
     {
       "@type": "PropertyValue",
@@ -482,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for effective cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -491,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Pulse frequency for controlled cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -500,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Energy per unit area for oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -509,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Pulse duration for minimal heat-affected zone"
     },
     {
       "@type": "PropertyValue",
@@ -518,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Beam travel speed for uniform treatment"
     },
     {
       "@type": "PropertyValue",
@@ -527,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning cycles for complete removal"
     },
     {
       "@type": "PropertyValue",
@@ -536,337 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Beam overlap for consistent coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 7.8,
-      "unitText": "g/cm³",
-      "minValue": 1.7,
-      "maxValue": 9408
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 200,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 1000,
+      "description": "Typical range for industrial cleaning of copper alloys like Aluminum Bronze to ablate contaminants without melting; starting at 200W balances efficiency and safety. Max limited to avoid thermal damage given alloy's ~1040°C melting point. Source: IPG Photonics YLR series specs and studies in Optics and Lasers in Engineering (2018) on metal surface cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 15
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for 1064 nm cleaning; lower for heavy contamination (e.g., oxide layers on Aluminum Bronze), higher for light rust/oil. 1500 mm/s recommended for optimal contaminant removal without excessive heat buildup. Source: Industry standards from Laserax manuals and Journal of Laser Applications (2020) case studies on bronze alloys."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 1.2,
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 50,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime dominant for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs) reduce HAZ but are less common for Aluminum Bronze due to high reflectivity. 50 ns recommended for minimal thermal effects on conductive alloys. Source: Laser physics research in Applied Surface Science (2019) comparing pulse regimes for Cu-Al alloys."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed fiber lasers in cleaning; higher rates speed up process but risk heat accumulation in reflective Aluminum Bronze. 50 kHz balances speed and thermal management. Trade-off: >80 kHz may require cooling. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on repetition rate effects."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant ablation; Aluminum Bronze damage threshold ~8-12 J/cm² at 1064 nm due to reflectivity (~40-60%). 1.5 J/cm² recommended for cleaning without substrate etching. Source: Ablation threshold studies in Journal of Applied Physics (2017) and SPIE proceedings on metal cleaning."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
       "unitText": "μm",
-      "minValue": 0.02,
-      "maxValue": 6.6
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter for precise industrial cleaning; smaller for fine details on Aluminum Bronze parts, larger for broad surfaces. 200 μm recommended for uniform energy distribution and efficiency. Source: Equipment specs from Coherent and Trumpf laser systems, optimized for alloy surface prep."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 655,
-      "unitText": "MPa",
-      "minValue": 3,
-      "maxValue": 3000
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass for heavy layers like marine corrosion on Aluminum Bronze. 2 passes recommended for complete removal with minimal risk. Source: Industry practice in case studies from Surface and Coatings Technology (2022) on bronze cleaning applications."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 120,
-      "unitText": "GPa",
-      "minValue": 10.4,
-      "maxValue": 200000000000
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 2.5,
-      "unitText": "GPa",
-      "minValue": 0.2,
-      "maxValue": 3500
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 680,
-      "unitText": "MPa",
-      "minValue": 11.4,
-      "maxValue": 2897
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 6,
-      "unitText": "μm/year",
-      "minValue": -554,
-      "maxValue": 1762
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.65,
-      "unitText": "mm/year",
-      "minValue": -1.1,
-      "maxValue": "1.1e+06"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 655,
-      "unitText": "MPa",
-      "minValue": 8,
-      "maxValue": 2625
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 90,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.67,
-      "maxValue": 157
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "1.2e-07",
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 0.000002
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalConductivity",
-      "name": "Electrical Conductivity",
-      "description": "Electrical Conductivity - material characteristics",
-      "value": "4.1e+06",
-      "unitText": "S/m",
-      "minValue": 659300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 2673,
-      "unitText": "K",
-      "minValue": 929,
-      "maxValue": 6454,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 1045,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1323,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.1,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.8e-05",
-      "unitText": "m^2/s",
-      "minValue": 0.000002,
-      "maxValue": "0.00017",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.6e-05",
-      "unitText": "10^{-6}/K",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 380,
-      "unitText": "J/kg·K",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 59,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.88,
-      "unitText": "",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": "1.2e-08",
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1038,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": "4.8e+07",
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 210,
-      "unitText": "°C",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.68,
-      "unitText": "",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.07,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage without gaps or over-ablation; 60% typical for Aluminum Bronze to account for reflectivity variations. Range adjusted for contamination thickness. Source: Process optimization studies in Optics & Laser Technology (2020) on scan strategies for metals."
     }
   ],
-  "citation": "Z-Beam (2025). Aluminum Bronze Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/aluminum-bronze-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Aluminum Bronze Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/aluminum-bronze-laser-cleaning"
 }

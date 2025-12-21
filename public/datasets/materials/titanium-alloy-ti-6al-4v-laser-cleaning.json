@@ -5,14 +5,13 @@
   "name": "Titanium Alloy (Ti-6Al-4V) Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Titanium Alloy (Ti-6Al-4V). Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Titanium Alloy (Ti-6Al-4V)",
@@ -97,359 +96,125 @@
       "powerRange": {
         "value": 100,
         "unit": "W",
+        "description": "Optimal average power for metal oxide removal",
         "min": 1,
         "max": 120
       },
       "wavelength": {
         "value": 1064,
         "unit": "nm",
+        "description": "Near-IR wavelength for optimal metal absorption",
         "min": 355,
         "max": 10640
       },
       "spotSize": {
         "value": 50,
         "unit": "μm",
+        "description": "Beam spot diameter for effective cleaning resolution",
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
         "value": 50,
         "unit": "kHz",
+        "description": "Pulse frequency for controlled cleaning",
         "min": 1,
         "max": 200
       },
       "energyDensity": {
         "value": 2.5,
         "unit": "J/cm²",
+        "description": "Energy per unit area for oxide removal",
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
         "value": 10,
         "unit": "ns",
+        "description": "Pulse duration for minimal heat-affected zone",
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
         "value": 500,
         "unit": "mm/s",
+        "description": "Beam travel speed for uniform treatment",
         "min": 10,
         "max": 5000
       },
       "passCount": {
         "value": 2,
         "unit": "passes",
+        "description": "Number of cleaning cycles for complete removal",
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
         "value": 50,
         "unit": "%",
+        "description": "Beam overlap for consistent coverage",
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 300,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for 1064 nm ns-pulsed lasers in industrial cleaning of Ti-6Al-4V to remove contaminants without excessive heating; starting at 100 W for light oxidation, max limited by low thermal conductivity (6.7 W/m·K) to avoid melting (1660°C); source: CleanLaser CL 1000 manual and study in Optics and Lasers in Engineering (2018) on Ti alloys."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective range for ablation of surface contaminants; 2000 mm/s recommended for optimal balance of removal efficiency and minimal HAZ on reflective Ti-6Al-4V; slower (500-1000 mm/s) for heavy contamination like oxides, faster for light residues; source: Industry standards from Laserax equipment guidelines and Journal of Laser Applications (2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for cost-effective cleaning; 20 ns recommended to minimize heat-affected zone (HAZ <10 μm) on heat-sensitive Ti-6Al-4V, avoiding picosecond/femtosecond unless precision required (which increase cost); ns sufficient for contamination removal without plasma shielding issues; source: Laser physics in Applied Surface Science (2019) on ablation thresholds for Ti alloys."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for Ti-6Al-4V to achieve fast processing while limiting heat accumulation due to moderate reflectivity (0.4 at 1064 nm); higher rates (>50 kHz) speed up but risk thermal buildup; source: Academic literature in Lasers in Manufacturing and Materials Processing (2021)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 1,
+        "description": "Fluence range for safe contaminant ablation; damage threshold ~1.5-2 J/cm² for ns pulses on Ti-6Al-4V, recommended 1.0 J/cm² for cleaning without substrate melting or oxidation; conservative due to low thermal diffusivity; source: Ablation threshold studies in Journal of Applied Physics (2017) and Optik (2022)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter range for focused cleaning; 200 μm recommended for Ti-6Al-4V surface preparation to balance resolution and coverage, smaller for fine details, larger for broad areas; ensures uniform fluence on reflective surfaces; source: Equipment specs from IPG Photonics YLR series and Surface and Coatings Technology (2019)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass often sufficient for light contamination, multi-pass for heavy layers; 2 passes recommended for complete removal on Ti-6Al-4V without over-ablation, allowing cooling between passes; source: Industry case studies in Proceedings of SPIE (2020) on laser cleaning of aerospace Ti alloys."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage without gaps or excessive overlap heating; 60% recommended for Ti-6Al-4V to achieve even cleaning on curved or irregular surfaces, higher (70-80%) for heavy contamination; source: Process optimization in International Journal of Advanced Manufacturing Technology (2018)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "density": {
-          "value": 4.4,
-          "unit": "g/cm³",
-          "min": 1.7,
-          "max": 9408
-        },
-        "porosity": {
-          "value": 0,
-          "unit": "%",
-          "min": 0,
-          "max": 15
-        },
-        "surfaceRoughness": {
-          "value": 0.8,
-          "unit": "μm",
-          "min": 0.02,
-          "max": 6.6
-        },
-        "tensileStrength": {
-          "value": 900,
-          "unit": "MPa",
-          "min": 3,
-          "max": 3000
-        },
-        "youngsModulus": {
-          "value": 114,
-          "unit": "GPa",
-          "min": 10.4,
-          "max": 200000000000
-        },
-        "hardness": {
-          "value": 3.5,
-          "unit": "GPa",
-          "min": 0.2,
-          "max": 3500
-        },
-        "flexuralStrength": {
-          "value": 950,
-          "unit": "MPa",
-          "min": 11.4,
-          "max": 2897
-        },
-        "oxidationResistance": {
-          "value": 7,
-          "unit": "μm/year",
-          "min": -554,
-          "max": 1762
-        },
-        "corrosionResistance": {
-          "value": 0.85,
-          "unit": "mm/year",
-          "min": -1.1,
-          "max": "1.1e+06"
-        },
-        "compressiveStrength": {
-          "value": 900,
-          "unit": "MPa",
-          "min": 8,
-          "max": 2625
-        },
-        "fractureToughness": {
-          "value": 110,
-          "unit": "MPa m^{1/2}",
-          "min": 0.67,
-          "max": 157
-        },
-        "electricalResistivity": {
-          "value": "1.7e-07",
-          "unit": "Ω·m",
-          "min": 0,
-          "max": 0.000002
-        },
-        "electricalConductivity": {
-          "value": 581000,
-          "unit": "S/m",
-          "source": "scientific_literature",
-          "source_type": "textbook",
-          "source_name": "Titanium: A Technical Guide",
-          "citation": "Donachie, M.J., Titanium: A Technical Guide, 2nd Edition, ASM International, 2000, ISBN 978-0-87170-686-7",
-          "context": "Annealed Ti-6Al-4V (6% Al, 4% V, balance Ti), 20°C, four-point probe DC measurement",
-          "researched_date": "2025-11-24T19:32:30.595133",
-          "needs_validation": true,
-          "min": 659300,
-          "max": "6.6e+07"
-        },
-        "boilingPoint": {
-          "value": 3588,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, Titanium Alloy Ti-6Al-4V (Grade 5 / UNS R56400), http://www.matweb.com/search/DataSheet.aspx?MatGUID=5673f1004d8b4a0a9e0e0c0d0e0f0a0b, accessed 2023",
-          "context": "Ti-6Al-4V alloy (6% Al, 4% V, balance Ti; ASTM Grade 5), standard atmospheric pressure, extrapolated from pure Ti adjusted for alloy composition",
-          "researched_date": "2025-11-24T19:32:39.404655",
-          "needs_validation": true,
-          "min": 929,
-          "max": 6454
-        },
-        "meltingPoint": {
-          "value": 1632,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "ASM Specialty Handbook: Titanium and Titanium Alloys",
-          "citation": "Matthew J. Donachie, ASM International, 1993, ISBN 0-87170-393-8",
-          "context": "Nominal composition Ti-6 wt% Al-4 wt% V (balance Ti), annealed condition, standard atmospheric pressure, determined for wrought or cast forms",
-          "researched_date": "2025-11-24T19:33:45.444061",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
-        },
-        "percentage": 60
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "thermalDiffusivity": {
-          "value": 0.29,
-          "unit": "×10^{-5} m²/s",
-          "min": 0.06,
-          "max": 174,
-          "source": "calculated",
-          "source_type": "derived_value",
-          "calculation": "thermalConductivity / (density * specificHeat)",
-          "context": "Calculated from measured thermal conductivity (6.7 W/(m·K)), density (4.43 g/cm³), and specific heat (523 J/(kg·K)) for annealed Ti-6Al-4V at 20°C",
-          "researched_date": "2025-11-24T21:15:00Z"
-        },
-        "thermalDestruction": {
-          "value": 1933,
-          "unit": "K",
-          "min": 256,
-          "max": 3859
-        },
-        "laserAbsorption": {
-          "value": 0.45,
-          "unit": "dimensionless",
-          "min": 0.02,
-          "max": "4.2e+08"
-        },
-        "laserDamageThreshold": {
-          "value": 2.5,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser ablation thresholds of Ti-6Al-4V for nanosecond pulsed laser",
-          "citation": "J. D. Williams et al., Journal of Applied Physics, 2006, DOI: 10.1063/1.2208279",
-          "context": "Ti-6Al-4V (annealed, 6% Al, 4% V, balance Ti), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, vacuum environment",
-          "researched_date": "2025-11-24T19:29:58.894091",
-          "needs_validation": true,
-          "min": 0.27,
-          "max": 15750
-        },
-        "ablationThreshold": {
-          "value": 1.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "Semerok, A. et al., Applied Surface Science, 139-140, 311-314 (1999), DOI: 10.1016/S0169-4332(98)00376-5",
-          "context": "Ti-6Al-4V alloy (standard aerospace grade, 90% Ti, 6% Al, 4% V), room temperature (25°C), nanosecond pulsed Nd:YAG laser at 1064 nm wavelength, atmospheric pressure",
-          "researched_date": "2025-11-24T19:30:06.515703",
-          "needs_validation": true,
-          "min": 0.09,
-          "max": 4.3
-        },
-        "thermalExpansion": {
-          "value": "8.6e-06",
-          "unit": "K^{-1}",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, Titanium Ti-6Al-4V (Grade 5), Annealed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1a49a5b5b5b04a0a9f7b5b5b5b5b5b5b, accessed 2023",
-          "context": "Ti-6Al-4V alloy (6% Al, 4% V, balance Ti), annealed condition, 20-100°C, measured by dilatometry",
-          "researched_date": "2025-11-24T19:30:31.454281",
-          "needs_validation": true,
-          "min": 0.000004,
-          "max": 31.7
-        },
-        "specificHeat": {
-          "value": 523,
-          "unit": "J/(kg·K)",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials",
-          "citation": "ASM International, 1990, ISBN 0-87170-378-5",
-          "context": "Annealed Ti-6Al-4V (6 wt% Al, 4 wt% V, balance Ti; AMS 4928 grade), 20°C, standard atmospheric pressure",
-          "researched_date": "2025-11-24T19:30:41.226131",
-          "needs_validation": true,
-          "min": 43.4,
-          "max": 1905
-        },
-        "thermalConductivity": {
-          "value": 6.7,
-          "unit": "W/m·K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb: UNS R56400 Titanium Ti-6Al-4V (Grade 5), Annealed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=8a5f2e7a1b4a4e4e9b4e4e4e4e4e4e4e, accessed 2023",
-          "context": "Ti-6Al-4V alloy (6% Al, 4% V balance Ti), annealed condition, 20°C, steady-state method",
-          "researched_date": "2025-11-24T19:30:46.109604",
-          "needs_validation": true,
-          "min": 7.4,
-          "max": 450
-        },
-        "laserReflectivity": {
-          "value": 0.65,
-          "unit": "dimensionless (fraction)",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Absorptivity measurements of Ti-6Al-4V alloy during laser processing",
-          "citation": "Kaplan, A. F. H., Journal of Laser Applications, Vol. 20, No. 3, 2008, DOI: 10.2351/1.2995763",
-          "context": "Ti-6Al-4V (grade 5, 90% Ti, 6% Al, 4% V), 1064 nm wavelength (Nd:YAG laser), room temperature (25°C), normal incidence, polished surface finish",
-          "researched_date": "2025-11-24T19:30:54.470449",
-          "needs_validation": true,
-          "min": 0.4,
-          "max": 73.5
-        },
-        "vaporPressure": {
-          "value": 3.8,
-          "unit": "Pa",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2",
-          "context": "Ti-6Al-4V alloy (90Ti-6Al-4V wt%, commercial purity >99%), 2000°C (2273 K), equilibrium total vapor pressure",
-          "researched_date": "2025-11-24T19:31:43.785364",
-          "needs_validation": true,
-          "min": 0,
-          "max": 106391
-        },
-        "thermalDestructionPoint": {
-          "value": 1660,
-          "unit": "°C",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb, Titanium Ti-6Al-4V (Grade 5), Annealed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=8b03ea3f8a8a4d8a9b5e4d5e4d5e4d5e, accessed October 2023",
-          "context": "Standard Ti-6Al-4V alloy (5.5-6.75% Al, 3.5-4.5% V, balance Ti, max 0.4% O, 0.25% Fe), vacuum arc remelted, per AMS 4928 specification, measured under standard atmospheric conditions",
-          "researched_date": "2025-11-24T19:31:58.543905",
-          "needs_validation": true,
-          "min": 133,
-          "max": 3865
-        },
-        "absorptionCoefficient": {
-          "value": 50000000,
-          "unit": "m^{-1}",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical absorption coefficients of titanium alloys for laser processing",
-          "citation": "Krivtsun, I. V. et al., Journal of Physics D: Applied Physics, 2018, DOI: 10.1088/1361-6463/aac123",
-          "context": "Ti-6Al-4V (grade 5, 90% Ti, 6% Al, 4% V), room temperature (25°C), 1064 nm wavelength (Nd:YAG laser), measured via spectroscopic ellipsometry on polished samples",
-          "researched_date": "2025-11-24T19:32:08.704830",
-          "needs_validation": true,
-          "min": 589000,
-          "max": "9.9e+07"
-        },
-        "thermalShockResistance": {
-          "value": 637,
-          "unit": "K",
-          "source": "scientific_literature",
-          "source_type": "materials_database",
-          "source_name": "MatWeb Materials Database",
-          "citation": "MatWeb Materials Database, Titanium Alloy Ti-6Al-4V, http://www.matweb.com/search/DataSheet.aspx?MatGUID=5673f50a3d424eef9171d5e74f3f1b7b, accessed 2023",
-          "context": "Annealed Ti-6Al-4V (90% Ti, 6% Al, 4% V, balance trace elements), room temperature (20-25°C), calculated under quasi-static conditions assuming linear elastic behavior",
-          "researched_date": "2025-11-24T19:32:53.113972",
-          "needs_validation": true,
-          "min": 6.7,
-          "max": 379050
-        },
-        "reflectivity": {
-          "value": 0.4,
-          "unit": "fraction",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Absorptance and reflectance of Ti-6Al-4V alloy under laser irradiation",
-          "citation": "Trdan, J., et al., Applied Surface Science, 2014, DOI: 10.1016/j.apsusc.2013.11.089",
-          "context": "Polished Ti-6Al-4V (6% Al, 4% V, balance Ti, AMS 4928 grade), 25°C, normal incidence reflectivity at 1064 nm wavelength (Nd:YAG laser), surface roughness Ra < 0.1 μm",
-          "researched_date": "2025-11-24T19:33:15.482679",
-          "needs_validation": true,
-          "min": 0.35,
-          "max": 1
-        },
-        "absorptivity": {
-          "value": 0.36,
-          "unit": "dimensionless",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Absorptivity of Ti-6Al-4V alloy for laser cleaning applications",
-          "citation": "Trdan, J., et al., Optics and Lasers in Engineering, 2015, DOI: 10.1016/j.optlaseng.2015.03.006",
-          "context": "Ti-6Al-4V (grade 5, 90% Ti, 6% Al, 4% V), room temperature (25°C), 1064 nm wavelength (Nd:YAG laser), polished surface, measured in air",
-          "researched_date": "2025-11-24T19:33:21.399545",
-          "needs_validation": true,
-          "min": 0.02,
-          "max": 0.6
-        },
-        "percentage": 40
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -462,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for metal oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -471,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal metal absorption"
     },
     {
       "@type": "PropertyValue",
@@ -480,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for effective cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -489,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Pulse frequency for controlled cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -498,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Energy per unit area for oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -507,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Pulse duration for minimal heat-affected zone"
     },
     {
       "@type": "PropertyValue",
@@ -516,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Beam travel speed for uniform treatment"
     },
     {
       "@type": "PropertyValue",
@@ -525,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning cycles for complete removal"
     },
     {
       "@type": "PropertyValue",
@@ -534,337 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Beam overlap for consistent coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 4.4,
-      "unitText": "g/cm³",
-      "minValue": 1.7,
-      "maxValue": 9408
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 300,
+      "description": "Typical range for 1064 nm ns-pulsed lasers in industrial cleaning of Ti-6Al-4V to remove contaminants without excessive heating; starting at 100 W for light oxidation, max limited by low thermal conductivity (6.7 W/m·K) to avoid melting (1660°C); source: CleanLaser CL 1000 manual and study in Optics and Lasers in Engineering (2018) on Ti alloys."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 15
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 2000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for ablation of surface contaminants; 2000 mm/s recommended for optimal balance of removal efficiency and minimal HAZ on reflective Ti-6Al-4V; slower (500-1000 mm/s) for heavy contamination like oxides, faster for light residues; source: Industry standards from Laserax equipment guidelines and Journal of Laser Applications (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "surfaceRoughness",
-      "name": "Surface Roughness",
-      "description": "Surface Roughness - material characteristics",
-      "value": 0.8,
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective cleaning; 20 ns recommended to minimize heat-affected zone (HAZ <10 μm) on heat-sensitive Ti-6Al-4V, avoiding picosecond/femtosecond unless precision required (which increase cost); ns sufficient for contamination removal without plasma shielding issues; source: Laser physics in Applied Surface Science (2019) on ablation thresholds for Ti alloys."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for Ti-6Al-4V to achieve fast processing while limiting heat accumulation due to moderate reflectivity (0.4 at 1064 nm); higher rates (>50 kHz) speed up but risk thermal buildup; source: Academic literature in Lasers in Manufacturing and Materials Processing (2021)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant ablation; damage threshold ~1.5-2 J/cm² for ns pulses on Ti-6Al-4V, recommended 1.0 J/cm² for cleaning without substrate melting or oxidation; conservative due to low thermal diffusivity; source: Ablation threshold studies in Journal of Applied Physics (2017) and Optik (2022)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
       "unitText": "μm",
-      "minValue": 0.02,
-      "maxValue": 6.6
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for focused cleaning; 200 μm recommended for Ti-6Al-4V surface preparation to balance resolution and coverage, smaller for fine details, larger for broad areas; ensures uniform fluence on reflective surfaces; source: Equipment specs from IPG Photonics YLR series and Surface and Coatings Technology (2019)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 900,
-      "unitText": "MPa",
-      "minValue": 3,
-      "maxValue": 3000
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass often sufficient for light contamination, multi-pass for heavy layers; 2 passes recommended for complete removal on Ti-6Al-4V without over-ablation, allowing cooling between passes; source: Industry case studies in Proceedings of SPIE (2020) on laser cleaning of aerospace Ti alloys."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 114,
-      "unitText": "GPa",
-      "minValue": 10.4,
-      "maxValue": 200000000000
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 3.5,
-      "unitText": "GPa",
-      "minValue": 0.2,
-      "maxValue": 3500
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 950,
-      "unitText": "MPa",
-      "minValue": 11.4,
-      "maxValue": 2897
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 7,
-      "unitText": "μm/year",
-      "minValue": -554,
-      "maxValue": 1762
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.85,
-      "unitText": "mm/year",
-      "minValue": -1.1,
-      "maxValue": "1.1e+06"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 900,
-      "unitText": "MPa",
-      "minValue": 8,
-      "maxValue": 2625
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 110,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.67,
-      "maxValue": 157
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": "1.7e-07",
-      "unitText": "Ω·m",
-      "minValue": 0,
-      "maxValue": 0.000002
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "electricalConductivity",
-      "name": "Electrical Conductivity",
-      "description": "Electrical Conductivity - material characteristics",
-      "value": 581000,
-      "unitText": "S/m",
-      "minValue": 659300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 3588,
-      "unitText": "K",
-      "minValue": 929,
-      "maxValue": 6454,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "meltingPoint",
-      "name": "Melting Point",
-      "description": "Melting Point - material characteristics",
-      "value": 1632,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": 0.29,
-      "unitText": "×10^{-5} m²/s",
-      "minValue": 0.06,
-      "maxValue": 174,
-      "measurementTechnique": "calculated"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1933,
-      "unitText": "K",
-      "minValue": 256,
-      "maxValue": 3859
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.45,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": "4.2e+08"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.5,
-      "unitText": "J/cm²",
-      "minValue": 0.27,
-      "maxValue": 15750,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.1,
-      "unitText": "J/cm²",
-      "minValue": 0.09,
-      "maxValue": 4.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "8.6e-06",
-      "unitText": "K^{-1}",
-      "minValue": 0.000004,
-      "maxValue": 31.7,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 523,
-      "unitText": "J/(kg·K)",
-      "minValue": 43.4,
-      "maxValue": 1905,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 6.7,
-      "unitText": "W/m·K",
-      "minValue": 7.4,
-      "maxValue": 450,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.65,
-      "unitText": "dimensionless (fraction)",
-      "minValue": 0.4,
-      "maxValue": 73.5,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 3.8,
-      "unitText": "Pa",
-      "minValue": 0,
-      "maxValue": 106391,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1660,
-      "unitText": "°C",
-      "minValue": 133,
-      "maxValue": 3865,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 50000000,
-      "unitText": "m^{-1}",
-      "minValue": 589000,
-      "maxValue": "9.9e+07",
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 637,
-      "unitText": "K",
-      "minValue": 6.7,
-      "maxValue": 379050,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.4,
-      "unitText": "fraction",
-      "minValue": 0.35,
-      "maxValue": 1,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.36,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.6,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage without gaps or excessive overlap heating; 60% recommended for Ti-6Al-4V to achieve even cleaning on curved or irregular surfaces, higher (70-80%) for heavy contamination; source: Process optimization in International Journal of Advanced Manufacturing Technology (2018)."
     }
   ],
-  "citation": "Z-Beam (2025). Titanium Alloy (Ti-6Al-4V) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Titanium Alloy (Ti-6Al-4V) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning"
 }

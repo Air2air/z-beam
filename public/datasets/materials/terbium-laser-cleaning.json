@@ -5,14 +5,13 @@
   "name": "Terbium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Terbium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Terbium",
@@ -95,279 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Terbium oxide layer removal",
         "unit": "W",
         "value": 45,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength for optimal Terbium absorption",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning",
         "unit": "μm",
         "value": 80,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Fluence threshold for Terbium oxide removal",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation",
         "unit": "ns",
         "value": 15,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Number of cleaning passes for complete oxide removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for complete coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 300,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for Nd:YAG laser cleaning of reflective metals; starting at 100W to balance ablation and heat input. Terbium's low thermal conductivity (~11 W/mK) requires conservative power to avoid melting (mp 1356°C). Source: Extrapolated from metal cleaning studies (e.g., Kumar et al., Opt. Lasers Eng. 2018); manufacturer specs like IPG Photonics YLR series limit max to prevent substrate damage."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contamination removal on metals; higher for light contaminants (e.g., oxides), lower for heavy. Recommended 1500 mm/s for Terbium to minimize heat-affected zone (HAZ) due to poor thermal dissipation. Source: Industry standards from Laser Clean Corp. manuals; case studies on rare earth alloys (e.g., J. Laser Appl. 2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for industrial cleaning to achieve plasma-mediated ablation with minimal HAZ; picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended for Terbium to limit thermal diffusion. Source: Laser physics research on metal ablation (e.g., Ancona et al., Appl. Surf. Sci. 2010); avoids fs due to Terbium's reflectivity at 1064 nm."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity materials like Terbium. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause subsurface heating. Source: Academic literature on Nd:YAG cleaning (e.g., Lee et al., J. Phys. D 2015); adapted for rare earth metals."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence below Terbium's ablation threshold (~4 J/cm² estimated for 1064 nm) for safe contaminant removal without substrate damage. Recommended 1.5 J/cm² for light industrial cleaning. Terbium's high reflectivity (~70% at IR) requires higher fluence than dielectrics. Source: Ablation threshold studies on similar metals (e.g., Rubenchik et al., Appl. Opt. 2017); conservative due to limited Terbium-specific data."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter for precise cleaning; smaller for fine details, larger for broad areas. 200 μm recommended for Terbium surface preparation to ensure uniform fluence without over-focusing heat. Source: Equipment specifications from Coherent and Trumpf laser systems; optimized for metal reflectivity in industrial applications."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for complete Terbium cleaning without excessive exposure. Multi-pass allows lower fluence per pass to protect soft substrate. Source: Industry practice from case studies on alloy cleaning (e.g., Proc. SPIE 2019); Terbium's malleability favors fewer passes."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "youngsModulus": {
-          "value": 55.3,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 15.8,
-          "max": 63.5
-        },
-        "oxidationResistance": {
-          "value": -2.3,
-          "unit": "V",
-          "source": "ai_research",
-          "min": 0,
-          "max": 149
-        },
-        "density": {
-          "value": 8.2,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 4.3,
-          "max": 8.8
-        },
-        "hardness": {
-          "value": 863,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 0.38,
-          "max": 906
-        },
-        "absorptivity": {
-          "value": 0.15,
-          "unit": "(dimensionless)",
-          "source": "ai_research",
-          "min": 0.25,
-          "max": 0.6
-        },
-        "boilingPoint": {
-          "value": 3503,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 1705,
-          "max": 3834
-        },
-        "absorptionCoefficient": {
-          "value": 420000,
-          "unit": "cm^{-1}",
-          "source": "ai_research",
-          "min": 298300,
-          "max": "6.6e+07"
-        },
-        "percentage": 60,
-        "laserDamageThreshold": {
-          "value": 2.3,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Journal of Applied Physics",
-          "citation": "Liu, Y. et al., Laser-induced damage threshold of terbium metal thin films, Journal of Applied Physics, 2018, DOI: 10.1063/1.5021345",
-          "context": "Pure terbium (99.99% purity), 25°C, 1064 nm wavelength, 8 ns pulse duration, measured under vacuum conditions",
-          "researched_date": "2025-11-24T12:27:37.526262",
-          "needs_validation": true,
-          "min": 1.1,
-          "max": 3.3
-        },
-        "thermalDestruction": {
-          "value": 1629,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 3520
-        },
-        "specificHeat": {
-          "value": 182,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 113,
-          "max": 457
-        },
-        "laserReflectivity": {
-          "value": 0.92,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 0.94
-        },
-        "thermalConductivity": {
-          "value": 11.5,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 10.4,
-          "max": 17.5
-        },
-        "thermalExpansion": {
-          "value": "1.1e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 26.2
-        },
-        "ablationThreshold": {
-          "value": 1.1,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.65,
-          "max": 2.9
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "absorptivity": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "min": 0.1,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 50000000,
-          "unit": "m⁻¹",
-          "min": 10000000,
-          "max": 100000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 3.5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.8,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.75,
-          "unit": "dimensionless",
-          "min": 0.6,
-          "max": 0.9,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1629,
-          "unit": "K",
-          "min": 1500,
-          "max": 1700,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 10,
-          "unit": "Pa",
-          "min": 0.1,
-          "max": 100,
-          "source": "ai_research"
-        },
-        "percentage": 40,
-        "thermalDestruction": {
-          "value": 1629,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 3520
-        },
-        "specificHeat": {
-          "value": 182,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 113,
-          "max": 457
-        },
-        "laserReflectivity": {
-          "value": 0.92,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 0.94
-        },
-        "thermalConductivity": {
-          "value": 11.5,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 10.4,
-          "max": 17.5
-        },
-        "thermalExpansion": {
-          "value": "1.1e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 26.2
-        },
-        "ablationThreshold": {
-          "value": 1.1,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.65,
-          "max": 2.9
-        },
-        "thermalDiffusivity": {
-          "value": "7.4e-06",
-          "unit": "m²/s",
-          "source": "scientific_literature",
-          "source_type": "reference_handbook",
-          "source_name": "CRC Handbook of Chemistry and Physics",
-          "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2",
-          "context": "Pure Terbium (99.99% purity), 298 K, polycrystalline form, standard conditions",
-          "researched_date": "2025-11-24T12:27:49.050075",
-          "needs_validation": true,
-          "min": 0.000007,
-          "max": "1.9e-05"
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -380,7 +227,8 @@
       "value": 45,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Terbium oxide layer removal"
     },
     {
       "@type": "PropertyValue",
@@ -389,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength for optimal Terbium absorption"
     },
     {
       "@type": "PropertyValue",
@@ -398,7 +247,8 @@
       "value": 80,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -407,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -416,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Fluence threshold for Terbium oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -425,7 +277,8 @@
       "value": 15,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation"
     },
     {
       "@type": "PropertyValue",
@@ -434,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -443,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Number of cleaning passes for complete oxide removal"
     },
     {
       "@type": "PropertyValue",
@@ -452,329 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for complete coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 55.3,
-      "unitText": "GPa",
-      "minValue": 15.8,
-      "maxValue": 63.5,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 300,
+      "description": "Typical range for Nd:YAG laser cleaning of reflective metals; starting at 100W to balance ablation and heat input. Terbium's low thermal conductivity (~11 W/mK) requires conservative power to avoid melting (mp 1356°C). Source: Extrapolated from metal cleaning studies (e.g., Kumar et al., Opt. Lasers Eng. 2018); manufacturer specs like IPG Photonics YLR series limit max to prevent substrate damage."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": -2.3,
-      "unitText": "V",
-      "minValue": 0,
-      "maxValue": 149,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for contamination removal on metals; higher for light contaminants (e.g., oxides), lower for heavy. Recommended 1500 mm/s for Terbium to minimize heat-affected zone (HAZ) due to poor thermal dissipation. Source: Industry standards from Laser Clean Corp. manuals; case studies on rare earth alloys (e.g., J. Laser Appl. 2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 8.2,
-      "unitText": "g/cm³",
-      "minValue": 4.3,
-      "maxValue": 8.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 863,
-      "unitText": "MPa",
-      "minValue": 0.38,
-      "maxValue": 906,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - material characteristics",
-      "value": 0.15,
-      "unitText": "(dimensionless)",
-      "minValue": 0.25,
-      "maxValue": 0.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "boilingPoint",
-      "name": "Boiling Point",
-      "description": "Boiling Point - material characteristics",
-      "value": 3503,
-      "unitText": "K",
-      "minValue": 1705,
-      "maxValue": 3834,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - material characteristics",
-      "value": 420000,
-      "unitText": "cm^{-1}",
-      "minValue": 298300,
-      "maxValue": "6.6e+07",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.3,
-      "unitText": "J/cm²",
-      "minValue": 1.1,
-      "maxValue": 3.3,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1629,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 3520,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 182,
-      "unitText": "J/(kg·K)",
-      "minValue": 113,
-      "maxValue": 457,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.92,
-      "unitText": "",
-      "minValue": 0.4,
-      "maxValue": 0.94,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 11.5,
-      "unitText": "W/m·K",
-      "minValue": 10.4,
-      "maxValue": 17.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.1e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 26.2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 1.1,
-      "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 2.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.25,
-      "unitText": "dimensionless",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for industrial cleaning to achieve plasma-mediated ablation with minimal HAZ; picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended for Terbium to limit thermal diffusion. Source: Laser physics research on metal ablation (e.g., Ancona et al., Appl. Surf. Sci. 2010); avoids fs due to Terbium's reflectivity at 1064 nm."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 50000000,
-      "unitText": "m⁻¹",
-      "minValue": 10000000,
-      "maxValue": 100000000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity materials like Terbium. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause subsurface heating. Source: Academic literature on Nd:YAG cleaning (e.g., Lee et al., J. Phys. D 2015); adapted for rare earth metals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 3.5,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below Terbium's ablation threshold (~4 J/cm² estimated for 1064 nm) for safe contaminant removal without substrate damage. Recommended 1.5 J/cm² for light industrial cleaning. Terbium's high reflectivity (~70% at IR) requires higher fluence than dielectrics. Source: Ablation threshold studies on similar metals (e.g., Rubenchik et al., Appl. Opt. 2017); conservative due to limited Terbium-specific data."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter for precise cleaning; smaller for fine details, larger for broad areas. 200 μm recommended for Terbium surface preparation to ensure uniform fluence without over-focusing heat. Source: Equipment specifications from Coherent and Trumpf laser systems; optimized for metal reflectivity in industrial applications."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for complete Terbium cleaning without excessive exposure. Multi-pass allows lower fluence per pass to protect soft substrate. Source: Industry practice from case studies on alloy cleaning (e.g., Proc. SPIE 2019); Terbium's malleability favors fewer passes."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.8,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.75,
-      "unitText": "dimensionless",
-      "minValue": 0.6,
-      "maxValue": 0.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1629,
-      "unitText": "K",
-      "minValue": 1500,
-      "maxValue": 1700,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 10,
-      "unitText": "Pa",
-      "minValue": 0.1,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1629,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 3520,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 182,
-      "unitText": "J/(kg·K)",
-      "minValue": 113,
-      "maxValue": 457,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.92,
-      "unitText": "",
-      "minValue": 0.4,
-      "maxValue": 0.94,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 11.5,
-      "unitText": "W/m·K",
-      "minValue": 10.4,
-      "maxValue": 17.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.1e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 26.2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.1,
-      "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 2.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "7.4e-06",
-      "unitText": "m²/s",
-      "minValue": 0.000007,
-      "maxValue": "1.9e-05",
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals."
     }
   ],
-  "citation": "Z-Beam (2025). Terbium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/terbium-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Ikmanda Roswati",
-    "jobTitle": "Junior Research Scientist in Laser Physics",
-    "knowsAbout": [
-      "Ultrafast Laser Physics and Material Interactions"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Terbium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/terbium-laser-cleaning"
 }

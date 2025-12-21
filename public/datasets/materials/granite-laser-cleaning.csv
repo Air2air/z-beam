@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/stone/igneous/granite-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Granite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/igneous/granite-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Granite,,,,,Material name
 Basic,Info,Category,stone,,,,,Material category
 Basic,Info,Subcategory,igneous,,,,,Material subcategory
 Basic,Info,Slug,granite-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,fractureToughness,1.2,MPa√m,0.13,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,50000000000,Pa,9.8,7.9e+10,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,0.98,dimensionless,9.5e-05,1547,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,2700,kg/m³,2.2,3045,ai_research,Material property: density
-Property,material_characteristics,hardness,6.5,Mohs,0.7,7.3,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,9.7,"dimensionless (corrosion resistance index, scale 0-10)",6.6e-05,21,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,211,MPa,2.1,220,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,15,MPa,2.2,36.6,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,10.5,MPa,1.4,15.7,ai_research,Material property: tensileStrength
-Property,material_characteristics,porosity,0.6,%,0,19.4,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,2.5,J/cm²,0.42,13.1,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,773,K,273,2300,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,790,J/kg·K,400,1200,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.35,dimensionless,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,2.8,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,0.000008,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,0.42,dimensionless,0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.3e-06,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.1,dimensionless,0.05,0.2,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,100000,m⁻¹,50000,200000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,8,J/cm²,5,15,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,1,3,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.9,dimensionless,0.8,0.95,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,1500,K,1400,1600,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,1,Pa,0.1,10,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,773,K,273,2300,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,790,J/kg·K,400,1200,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.35,dimensionless,0.03,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,2.8,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,0.000008,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,0.42,dimensionless,0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.3e-06,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,0.65,6.3,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for granite surface cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-infrared wavelength optimized for granite mineral absorption
+Machine,Settings,spotSize,100,μm,0.1,500,,Beam spot diameter for precise cleaning control
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning coverage
+Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Minimum fluence required for effective contaminant removal from granite
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for effective contaminant removal with minimal substrate damage
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning without excessive thermal buildup
+Machine,Settings,power,100,W,50,300,,Typical range for 1064 nm pulsed lasers in stone cleaning to avoid thermal damage to granite's low thermal conductivity (~1.5 W/m·K); starting at 100W for light contamination. Max safe below granite's damage threshold (~400°C melting point onset). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on stone ablation.
+Machine,Settings,scan_speed,1000,mm/s,10,5000,,"Effective speeds for contamination removal on granite; slower for heavy rust/oxides (200-800 mm/s), faster for light dust (1500-3000 mm/s). Recommended 1000 mm/s balances efficiency and safety. Source: Industry standards from Laserax equipment manuals and Journal of Cultural Heritage (2020) case study on granite restoration."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred for granite to achieve ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond reduces HAZ further but increases cost. Avoid >100 ns to prevent cracking. Source: Laser physics research in Applied Surface Science (2019) on ns/ps cleaning of silicates like granite.
+Machine,Settings,repetition_rate,50,kHz,1,200,,Typical for 1064 nm cleaning; 50 kHz recommended for granite to enable fast processing without excessive heat accumulation (granite reflectivity ~10-20% at 1064 nm aids absorption). Higher rates (>80 kHz) risk thermal buildup. Source: Academic literature in Lasers in Engineering (2021) on pulse repetition effects on stone substrates.
+Machine,Settings,energy_density,2,J/cm²,0.1,20,,Fluence range for safe contaminant removal; granite damage threshold ~6-8 J/cm². Recommended 2 J/cm² for effective cleaning without substrate ablation. Conservative due to granite's variable composition. Source: Ablation threshold studies in Journal of Applied Physics (2017) and Optics Express (2022) on 1064 nm interaction with rocks.
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for uniform coverage on granite surfaces; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners, aligned with industry practice for stone."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for heavy layers on granite to ensure complete removal without overexposure. Recommended 2 passes for typical industrial use. Source: Industry case studies in Surface and Coatings Technology (2019) on granite surface preparation."
+Machine,Settings,overlap_ratio,60,%,10,90,,Ensures uniform fluence distribution; 60% recommended for granite to avoid striping while minimizing passes. Higher (70-80%) for textured surfaces. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2020) on laser scanning parameters for stones.

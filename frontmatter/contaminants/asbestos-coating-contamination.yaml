@@ -22,12 +22,12 @@ description: Asbestos-coating contamination creates removal difficulties because
   On steel pipes, boilers, and concrete, it clings tightly and resists scraping, but laser cleaning works effectively by ablating
   fibers precisely without harming bases.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Asbestos can be embedded as fine, white or gray fibers in ceramic tiles or adhesives, giving a slightly
@@ -107,7 +107,7 @@ relationships:
           wear or damage.
         pattern: It often appears in streaks or patches, especially in older wood-based products like siding or insulation
           boards.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -196,7 +196,7 @@ relationships:
   - Boilers
   - Concrete
   prohibited_materials: []
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -287,8 +287,8 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 subcategory: hazardous
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   concrete:
     laser_parameters:
       wavelength:

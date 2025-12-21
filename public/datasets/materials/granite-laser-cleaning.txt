@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Granite Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,252 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for granite surface cleaning without thermal damage
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-infrared wavelength optimized for granite mineral absorption
 
 spotSize:
   Value:  100 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for precise cleaning control
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Optimal repetition rate for efficient cleaning coverage
 
 fluenceThreshold:
   Value:  2.5 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Minimum fluence required for effective contaminant removal from granite
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for effective contaminant removal with minimal substrate damage
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform cleaning coverage
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete contaminant removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform cleaning without excessive thermal buildup
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    50 W
+  Max:    300 W
+  Note:   Typical range for 1064 nm pulsed lasers in stone cleaning to avoid thermal damage to granite's low thermal conductivity (~1.5 W/m·K); starting at 100W for light contamination. Max safe below granite's damage threshold (~400°C melting point onset). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on stone ablation.
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  fractureToughness:
-    Value:  1.2 MPa√m
-    Min:    0.13 MPa√m
-    Max:    2 MPa√m
-    Source: ai_research
+scan_speed:
+  Value:  1000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective speeds for contamination removal on granite; slower for heavy rust/oxides (200-800 mm/s), faster for light dust (1500-3000 mm/s). Recommended 1000 mm/s balances efficiency and safety. Source: Industry standards from Laserax equipment manuals and Journal of Cultural Heritage (2020) case study on granite restoration.
 
-  youngsModulus:
-    Value:  50000000000 Pa
-    Min:    9.8 Pa
-    Max:    7.9e+10 Pa
-    Source: ai_research
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for granite to achieve ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond reduces HAZ further but increases cost. Avoid >100 ns to prevent cracking. Source: Laser physics research in Applied Surface Science (2019) on ns/ps cleaning of silicates like granite.
 
-  oxidationResistance:
-    Value:  0.98 dimensionless
-    Min:    9.5e-05 dimensionless
-    Max:    1547 dimensionless
-    Source: ai_research
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for 1064 nm cleaning; 50 kHz recommended for granite to enable fast processing without excessive heat accumulation (granite reflectivity ~10-20% at 1064 nm aids absorption). Higher rates (>80 kHz) risk thermal buildup. Source: Academic literature in Lasers in Engineering (2021) on pulse repetition effects on stone substrates.
 
-  density:
-    Value:  2700 kg/m³
-    Min:    2.2 kg/m³
-    Max:    3045 kg/m³
-    Source: ai_research
+energy_density:
+  Value:  2 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe contaminant removal; granite damage threshold ~6-8 J/cm². Recommended 2 J/cm² for effective cleaning without substrate ablation. Conservative due to granite's variable composition. Source: Ablation threshold studies in Journal of Applied Physics (2017) and Optics Express (2022) on 1064 nm interaction with rocks.
 
-  hardness:
-    Value:  6.5 Mohs
-    Min:    0.7 Mohs
-    Max:    7.3 Mohs
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter for uniform coverage on granite surfaces; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners, aligned with industry practice for stone.
 
-  corrosionResistance:
-    Value:  9.7 dimensionless (corrosion resistance index, scale 0-10)
-    Min:    6.6e-05 dimensionless (corrosion resistance index, scale 0-10)
-    Max:    21 dimensionless (corrosion resistance index, scale 0-10)
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-5) for heavy layers on granite to ensure complete removal without overexposure. Recommended 2 passes for typical industrial use. Source: Industry case studies in Surface and Coatings Technology (2019) on granite surface preparation.
 
-  compressiveStrength:
-    Value:  211 MPa
-    Min:    2.1 MPa
-    Max:    220 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  15 MPa
-    Min:    2.2 MPa
-    Max:    36.6 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  10.5 MPa
-    Min:    1.4 MPa
-    Max:    15.7 MPa
-    Source: ai_research
-
-  porosity:
-    Value:  0.6 %
-    Min:    0 %
-    Max:    19.4 %
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  2.5 J/cm²
-    Min:    0.42 J/cm²
-    Max:    13.1 J/cm²
-    Source: scientific_literature
-
-  thermalDestruction:
-    Value:  773 K
-    Min:    273 K
-    Max:    2300 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  790 J/kg·K
-    Min:    400 J/kg·K
-    Max:    1200 J/kg·K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.35 dimensionless
-    Min:    0.03 dimensionless
-    Max:    0.44 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  2.8 W/m·K
-    Min:    0.2 W/m·K
-    Max:    8 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  0.000008 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    12 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.42 dimensionless
-    Min:    0.06 dimensionless
-    Max:    1.3e+06 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.3e-06 m²/s
-    Min:    0 m²/s
-    Max:    0.000002 m²/s
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.1 dimensionless
-    Min:    0.05 dimensionless
-    Max:    0.2 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  100000 m⁻¹
-    Min:    50000 m⁻¹
-    Max:    200000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  8 J/cm²
-    Min:    5 J/cm²
-    Max:    15 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  1.5 MW/m
-    Min:    1 MW/m
-    Max:    3 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.9 dimensionless
-    Min:    0.8 dimensionless
-    Max:    0.95 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  1500 K
-    Min:    1400 K
-    Max:    1600 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  1 Pa
-    Min:    0.1 Pa
-    Max:    10 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  773 K
-    Min:    273 K
-    Max:    2300 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  790 J/kg·K
-    Min:    400 J/kg·K
-    Max:    1200 J/kg·K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.35 dimensionless
-    Min:    0.03 dimensionless
-    Max:    0.44 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  2.8 W/m·K
-    Min:    0.2 W/m·K
-    Max:    8 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  0.000008 K^{-1}
-    Min:    0.000006 K^{-1}
-    Max:    12 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.42 dimensionless
-    Min:    0.06 dimensionless
-    Max:    1.3e+06 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.3e-06 m²/s
-    Min:    0 m²/s
-    Max:    0.000002 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.65 J/cm²
-    Max:    6.3 J/cm²
-    Source: scientific_literature
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform fluence distribution; 60% recommended for granite to avoid striping while minimizing passes. Higher (70-80%) for textured surfaces. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2020) on laser scanning parameters for stones.
 
 ================================================================================
 CITATION & USAGE
@@ -304,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

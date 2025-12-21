@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/wood/hardwood/birch-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Birch Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/birch-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Birch,,,,,Material name
 Basic,Info,Category,wood,,,,,Material category
 Basic,Info,Subcategory,hardwood,,,,,Material subcategory
 Basic,Info,Slug,birch-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,45,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,80,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,4.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,12,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,fractureToughness,0.35,MPa m^{0.5},0.26,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,density,650,kg/m³,0.4,955,ai_research,Material property: density
-Property,material_characteristics,oxidationResistance,0.72,1,0.1,549,ai_research,Material property: oxidationResistance
-Property,material_characteristics,youngsModulus,13.9,GPa,3.3,11235,ai_research,Material property: youngsModulus
-Property,material_characteristics,hardness,1260,lbf,399,12590,ai_research,Material property: hardness
-Property,material_characteristics,compressiveStrength,42.1,MPa,20,80,ai_research,Material property: compressiveStrength
-Property,material_characteristics,tensileStrength,130,MPa,9.5,209,ai_research,Material property: tensileStrength
-Property,material_characteristics,flexuralStrength,96,MPa,19.1,148,ai_research,Material property: flexuralStrength
-Property,material_characteristics,corrosionResistance,0.25,dimensionless (normalized durability index 0-1),0,4.7,ai_research,Material property: corrosionResistance
-Property,material_characteristics,porosity,0.59,,0.39,0.79,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,1.8,J/cm²,0.0025,5.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,563,K,226,642,ai_research,Material property: thermalDestruction
-Property,material_characteristics,laserReflectivity,0.12,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalExpansion,2.7e-05,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,material_characteristics,thermalConductivity,0.16,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,material_characteristics,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,material_characteristics,laserAbsorption,35000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.3e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.8,0.92,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,400000,m⁻¹,300000,500000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,2.5,J/cm²,1.5,4,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,0.8,MW/m,0.5,1.2,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.12,dimensionless,0.08,0.18,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,573,K,523,623,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,500,Pa,100,1000,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,563,K,226,642,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,laserReflectivity,0.12,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalExpansion,2.7e-05,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,thermalConductivity,0.16,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserAbsorption,35000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.3e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,0.51,2.6,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,45,W,1,120,,Optimal average power for Birch surface cleaning without charring
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for optimal Birch wood absorption and minimal subsurface damage
+Machine,Settings,spotSize,80,μm,0.1,500,,Beam spot diameter for precise cleaning resolution on Birch surface features
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning coverage while maintaining thermal control
+Machine,Settings,energyDensity,4.5,J/cm²,0.1,20,,Fluence threshold for effective contaminant removal without damaging Birch substrate
+Machine,Settings,pulseWidth,12,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of contaminants without excessive heat diffusion
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage without excessive dwell time
+Machine,Settings,passCount,2,passes,1,10,,Recommended number of cleaning passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap percentage for uniform cleaning coverage
+Machine,Settings,power,50,W,20,200,,"Typical range for wood cleaning at 1064 nm to avoid charring; start at 50 W for light contamination on birch (low thermal conductivity ~0.16 W/mK limits heat dissipation). Max safe below substrate damage threshold. Source: Studies on Nd:YAG laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018)."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective speeds for contaminant removal without excessive heat buildup; recommended 1500 mm/s for optimal balance on birch. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Source: Industry manuals from IPG Photonics and laser cleaning equipment standards."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime typical for industrial cleaning of organics like birch contaminants; 20 ns recommended for minimal heat-affected zone (HAZ) due to birch's low melting point (~200-300°C for lignin). Picosecond (ps) or femtosecond better for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering (2020).
+Machine,Settings,repetition_rate,30,kHz,1,200,,"Standard for pulsed cleaning to balance speed and heat; 30 kHz recommended for birch to prevent accumulation (high freq increases speed but risks thermal damage on low-conductivity wood). Trade-off: >50 kHz faster but monitor for charring. Source: Academic literature on wood surface treatment (Applied Surface Science, 2019)."
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for safe contaminant ablation; birch damage threshold ~2-4 J/cm² at 1064 nm due to moderate reflectivity (~20-30%). Recommended 1.5 J/cm² for cleaning without substrate harm. Source: Ablation threshold studies on hardwoods (Journal of Laser Applications, 2017)."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for precise industrial cleaning; 200 μm recommended for birch surface preparation (fine detail for contamination removal). Smaller (100-200 μm) for detailed work, larger (300-500 μm) for broad areas. Source: Equipment specs from Coherent and Trumpf laser systems."
+Machine,Settings,pass_count,2,passes,1,10,,"Typically 1-3 passes for light to moderate contamination on birch; multi-pass (2 recommended) ensures complete removal without single-pass overheating. Single pass for very light dirt. Source: Industry case studies on wood restoration (Laser Cleaning Conference proceedings, 2021)."
+Machine,Settings,overlap_ratio,60,%,10,90,,"Ensures uniform coverage in scan patterns; 60% recommended for birch to avoid gaps or overexposure (higher overlap for heavy contamination, lower for efficiency). Typical range 30-80% in optimization. Source: Process studies in International Journal of Advanced Manufacturing Technology (2016)."

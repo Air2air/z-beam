@@ -105,14 +105,19 @@ export default function MaterialBrowser({
 
         {/* Results Section */}
         <SectionContainer title="Materials" bgColor="transparent" radius={false}>
-          <div className={getGridClasses('cards')}>
+          <div className={getGridClasses({ columns: 3, gap: 'md' })}>
             {filteredMaterials.map((material: any) => (
               <DatasetCard
                 key={material.slug}
-                name={material.name}
-                slug={material.slug}
+                frontmatter={{ 
+                  title: material.name,
+                  name: material.name,
+                  slug: material.slug 
+                } as any}
+                href={`/datasets/materials/${material.slug}`}
                 category={formatCategoryName(material.category)}
                 subcategory={formatCategoryName(material.subcategory)}
+                formats={[{ format: 'JSON', url: `/datasets/materials/${material.slug}.json` }]}
                 onQuickDownload={(format: string, url: string) => {
                   triggerDownload(url, `${material.slug}.${format.toLowerCase()}`);
                 }}

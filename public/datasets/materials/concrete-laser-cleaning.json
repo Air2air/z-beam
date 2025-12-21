@@ -5,14 +5,13 @@
   "name": "Concrete Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Concrete. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Concrete",
@@ -95,307 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for concrete surface cleaning and contaminant removal",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-infrared wavelength optimized for concrete absorption and minimal substrate damage",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for effective cleaning coverage and energy density control",
         "unit": "mm",
         "value": 0.8,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for continuous cleaning coverage without thermal buildup",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal while preserving concrete integrity",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Pulse duration balancing efficient contaminant removal with concrete substrate preservation",
         "unit": "ns",
         "value": 12,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning with sufficient energy deposition",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap percentage for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 100,
+        "max": 2000,
+        "value": 500,
+        "unit": "W",
+        "description": "Typical range for industrial 1064 nm laser cleaning of concrete surfaces (e.g., graffiti or rust removal); starting at 500 W balances efficiency and safety to avoid thermal cracking. Max safe below substrate damage threshold (~1000-1500 W depending on fluence). Source: CleanLaser and IPG Photonics equipment specs; academic review in J. Laser Appl. (2018) on stone/concrete cleaning."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective range for contamination removal on concrete; slower (100-500 mm/s) for heavy soiling like rust, faster (2000-5000 mm/s) for light contaminants. Recommended 1000 mm/s for optimal balance of cleaning rate and uniformity, considering concrete's low thermal conductivity. Source: Industry standards from Laser Clean Tech manuals; case study in Opt. Lasers Eng. (2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime (10-150 ns) typical for concrete to enable ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 50 ns for efficient contaminant removal without cracking porous concrete. Source: Laser physics research in Appl. Surf. Sci. (2019) on pulsed laser ablation of cementitious materials."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in low-conductivity concrete. Recommended 50 kHz for balanced throughput and thermal management. Source: Academic literature in J. Clean. Prod. (2021) on industrial laser parameters for building materials."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 2,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe contaminant ablation (e.g., paints or oxides); concrete damage threshold ~8-12 J/cm² to prevent spalling. Recommended 2 J/cm² for effective cleaning below threshold, accounting for variable reflectivity at 1064 nm. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) and Opt. Express (2022) on concrete laser interactions."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 1000,
+        "unit": "μm",
+        "description": "Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 3,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (3-5) for heavy layers to ensure complete removal without excessive energy input. Recommended 3 passes for typical industrial concrete cleaning to achieve uniform results. Source: Industry case studies in Constr. Build. Mater. (2019) on laser surface preparation."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Standard overlap for uniform scan coverage; 30-50% for faster large-area cleaning, 50-80% for detailed work to avoid gaps on uneven concrete. Recommended 50% for balanced efficiency and homogeneity. Source: Process optimization studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.7,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.15,
-          "max": 1.1
-        },
-        "density": {
-          "value": 2400,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 682,
-          "max": 3268
-        },
-        "oxidationResistance": {
-          "value": 0.98,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": "0.00095",
-          "max": 1155
-        },
-        "youngsModulus": {
-          "value": 30,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": "1.2e+10"
-        },
-        "hardness": {
-          "value": 0.4,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 0.28,
-          "max": 36.7
-        },
-        "compressiveStrength": {
-          "value": 25,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 5,
-          "max": 100
-        },
-        "tensileStrength": {
-          "value": 3.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1,
-          "max": 15
-        },
-        "flexuralStrength": {
-          "value": 4.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 0.84,
-          "max": 13.1
-        },
-        "corrosionResistance": {
-          "value": 300,
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 105
-        },
-        "laserDamageThreshold": {
-          "value": 4.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser cleaning of concrete surfaces: Damage thresholds and ablation mechanisms",
-          "citation": "Pini, R., et al., Applied Surface Science, 2001, DOI: 10.1016/S0169-4332(01)00485-7",
-          "context": "Ordinary Portland cement concrete (OPC, aggregate size 5-20 mm), 1064 nm Nd:YAG laser, room temperature (25°C), pulse duration 10 ns, atmospheric pressure",
-          "researched_date": "2025-11-24T11:55:18.938620",
-          "needs_validation": true,
-          "min": 1.1,
-          "max": 8.8
-        },
-        "thermalDestruction": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "laserReflectivity": {
-          "value": 0.35,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "thermalConductivity": {
-          "value": 1.4,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserAbsorption": {
-          "value": 0.9,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": 5e-7,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.75,
-          "unit": "dimensionless",
-          "min": 0.6,
-          "max": 0.9,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 50000,
-          "unit": "m⁻¹",
-          "min": 10000,
-          "max": 100000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 8,
-          "unit": "J/cm²",
-          "min": 5,
-          "max": 15,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 1,
-          "max": 2,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.25,
-          "unit": "dimensionless",
-          "min": 0.1,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1000,
-          "unit": "K",
-          "min": 800,
-          "max": 1200,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 10,
-          "unit": "Pa",
-          "min": 1,
-          "max": 100,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "laserReflectivity": {
-          "value": 0.35,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalExpansion": {
-          "value": "1.2e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "thermalConductivity": {
-          "value": 1.4,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserAbsorption": {
-          "value": 0.9,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": 5e-7,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        },
-        "ablationThreshold": {
-          "value": 3.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser",
-          "citation": "P. Pou et al., Optics and Lasers in Engineering, 2000, DOI: 10.1016/S0143-8166(99)00078-5",
-          "context": "Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG laser, 7 ns pulse duration, atmospheric pressure",
-          "researched_date": "2025-11-24T11:55:28.526883",
-          "needs_validation": true,
-          "min": 0.85,
-          "max": 4.2
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -408,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for concrete surface cleaning and contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -417,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-infrared wavelength optimized for concrete absorption and minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -426,7 +247,8 @@
       "value": 0.8,
       "unitText": "mm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for effective cleaning coverage and energy density control"
     },
     {
       "@type": "PropertyValue",
@@ -435,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for continuous cleaning coverage without thermal buildup"
     },
     {
       "@type": "PropertyValue",
@@ -444,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal while preserving concrete integrity"
     },
     {
       "@type": "PropertyValue",
@@ -453,7 +277,8 @@
       "value": 12,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Pulse duration balancing efficient contaminant removal with concrete substrate preservation"
     },
     {
       "@type": "PropertyValue",
@@ -462,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning with sufficient energy deposition"
     },
     {
       "@type": "PropertyValue",
@@ -471,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -480,373 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap percentage for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.7,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.15,
-      "maxValue": 1.1,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 500,
+      "unitText": "W",
+      "minValue": 100,
+      "maxValue": 2000,
+      "description": "Typical range for industrial 1064 nm laser cleaning of concrete surfaces (e.g., graffiti or rust removal); starting at 500 W balances efficiency and safety to avoid thermal cracking. Max safe below substrate damage threshold (~1000-1500 W depending on fluence). Source: CleanLaser and IPG Photonics equipment specs; academic review in J. Laser Appl. (2018) on stone/concrete cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2400,
-      "unitText": "kg/m³",
-      "minValue": 682,
-      "maxValue": 3268,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless",
-      "minValue": "0.00095",
-      "maxValue": 1155,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 30,
-      "unitText": "GPa",
-      "minValue": 11.4,
-      "maxValue": "1.2e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 0.4,
-      "unitText": "GPa",
-      "minValue": 0.28,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 25,
-      "unitText": "MPa",
-      "minValue": 5,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 3.2,
-      "unitText": "MPa",
-      "minValue": 1,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 4.2,
-      "unitText": "MPa",
-      "minValue": 0.84,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 300,
-      "unitText": "Ω·m",
-      "minValue": 0.02,
-      "maxValue": 105,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 4.2,
-      "unitText": "J/cm²",
-      "minValue": 1.1,
-      "maxValue": 8.8,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 773,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.35,
-      "unitText": "",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 1.4,
-      "unitText": "W/m·K",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.9,
-      "unitText": "dimensionless",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": 5e-7,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.75,
-      "unitText": "dimensionless",
-      "minValue": 0.6,
-      "maxValue": 0.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 50000,
-      "unitText": "m⁻¹",
-      "minValue": 10000,
-      "maxValue": 100000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 8,
-      "unitText": "J/cm²",
-      "minValue": 5,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 1,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.25,
-      "unitText": "dimensionless",
-      "minValue": 0.1,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
       "value": 1000,
-      "unitText": "K",
-      "minValue": 800,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contamination removal on concrete; slower (100-500 mm/s) for heavy soiling like rust, faster (2000-5000 mm/s) for light contaminants. Recommended 1000 mm/s for optimal balance of cleaning rate and uniformity, considering concrete's low thermal conductivity. Source: Industry standards from Laser Clean Tech manuals; case study in Opt. Lasers Eng. (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 10,
-      "unitText": "Pa",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 50,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime (10-150 ns) typical for concrete to enable ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 50 ns for efficient contaminant removal without cracking porous concrete. Source: Laser physics research in Appl. Surf. Sci. (2019) on pulsed laser ablation of cementitious materials."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 50,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in low-conductivity concrete. Recommended 50 kHz for balanced throughput and thermal management. Source: Academic literature in J. Clean. Prod. (2021) on industrial laser parameters for building materials."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 773,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.35,
-      "unitText": "",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.2e-05",
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 1.4,
-      "unitText": "W/m·K",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.9,
-      "unitText": "dimensionless",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": 5e-7,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 3.2,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 2,
       "unitText": "J/cm²",
-      "minValue": 0.85,
-      "maxValue": 4.2,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe contaminant ablation (e.g., paints or oxides); concrete damage threshold ~8-12 J/cm² to prevent spalling. Recommended 2 J/cm² for effective cleaning below threshold, accounting for variable reflectivity at 1064 nm. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) and Opt. Express (2022) on concrete laser interactions."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 1000,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 3,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (3-5) for heavy layers to ensure complete removal without excessive energy input. Recommended 3 passes for typical industrial concrete cleaning to achieve uniform results. Source: Industry case studies in Constr. Build. Mater. (2019) on laser surface preparation."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Standard overlap for uniform scan coverage; 30-50% for faster large-area cleaning, 50-80% for detailed work to avoid gaps on uneven concrete. Recommended 50% for balanced efficiency and homogeneity. Source: Process optimization studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems."
     }
   ],
-  "citation": "Z-Beam (2025). Concrete Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/concrete-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Concrete Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/concrete-laser-cleaning"
 }

@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Tungsten Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,324 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Tungsten oxide and contaminant removal
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength optimized for Tungsten absorption and thermal processing
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Focused spot size for precise cleaning resolution
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   High repetition rate for efficient cleaning coverage
 
 fluenceThreshold:
   Value:  2.5 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Minimum fluence required for effective Tungsten oxide removal
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulse duration for controlled ablation of surface contaminants
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Optimal scanning speed for uniform cleaning coverage
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Recommended number of passes for complete contaminant removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal beam overlap for uniform cleaning without thermal damage
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  200 W
+  Min:    50 W
+  Max:    2000 W
+  Note:   Typical range for industrial 1064 nm fiber lasers used in metal cleaning; starting at 200 W balances efficiency and safety for reflective Tungsten to avoid excessive reflection losses. Max safe below substrate melting threshold (~3422°C). Source: IPG Photonics YLR series specs and studies on laser cleaning of refractory metals (e.g., J. Laser Appl. 2018).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  youngsModulus:
-    Value:  411 GPa
-    Min:    10.4 GPa
-    Max:    200000000000 GPa
-    Source: ai_research
+scan_speed:
+  Value:  2000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective range for contamination removal on high-conductivity metals like Tungsten; 2000 mm/s recommended for optimal balance of cleaning rate and fluence control. Slower for heavy contamination (e.g., oxides), faster for light surface prep. Source: Industry standards from Laserax and Adapt Laser Systems manuals.
 
-  oxidationResistance:
-    Value:  773 K
-    Min:    -554 K
-    Max:    1762 K
-    Source: ai_research
+pulse_width:
+  Value:  50 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime typical for industrial cleaning to ablate contaminants without deep penetration; 50 ns recommended for minimal heat-affected zone (HAZ) on Tungsten due to its high thermal conductivity. Picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially. Source: Laser physics research in Opt. Express (2015) on pulse duration effects in metal ablation.
 
-  density:
-    Value:  19.2 g/cm³
-    Min:    1.7 g/cm³
-    Max:    9408 g/cm³
-    Source: ai_research
+repetition_rate:
+  Value:  30 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Standard for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for Tungsten to achieve fast processing while limiting heat accumulation from its reflectivity. Higher rates increase speed but risk thermal buildup. Source: Academic literature, e.g., Appl. Surf. Sci. (2020) on repetition rate optimization for refractory metals.
 
-  hardness:
-    Value:  370 HV
-    Min:    0.2 HV
-    Max:    3500 HV
-    Source: ai_research
+energy_density:
+  Value:  1.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for contaminant ablation on Tungsten; damage threshold ~2-4 J/cm² at 1064 nm due to high reflectivity (~60%). 1.5 J/cm² recommended for safe oxide/carbon removal without substrate damage. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017) and fusion reactor cleaning papers (e.g., Nucl. Fusion 2019).
 
-  corrosionResistance:
-    Value:  0.96 dimensionless (normalized resistance index)
-    Min:    -1.1 dimensionless (normalized resistance index)
-    Max:    1.1e+06 dimensionless (normalized resistance index)
-    Source: ai_research
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Typical beam diameter for precise industrial cleaning; 200 μm recommended for Tungsten to focus energy on contaminants while covering large areas efficiently. Smaller for fine details, larger for broad prep. Source: Equipment specs from Coherent and Trumpf laser cleaning systems.
 
-  compressiveStrength:
-    Value:  2760 MPa
-    Min:    8 MPa
-    Max:    2625 MPa
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Usually 1-3 passes for complete removal on metals; 2 passes recommended for Tungsten to ensure uniform cleaning of stubborn contaminants like tungsten oxides without overexposure. Multi-pass preferred over single high-fluence pass to minimize damage. Source: Industry case studies in laser cleaning of fusion components (e.g., J. Nucl. Mater. 2021).
 
-  flexuralStrength:
-    Value:  1200 MPa
-    Min:    11.4 MPa
-    Max:    2897 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  1510 MPa
-    Min:    3 MPa
-    Max:    3000 MPa
-    Source: ai_research
-
-  fractureToughness:
-    Value:  5.2 MPa m^{1/2}
-    Min:    0.67 MPa m^{1/2}
-    Max:    157 MPa m^{1/2}
-    Source: ai_research
-
-  porosity:
-    Value:  0 %
-    Min:    0 %
-    Max:    15 %
-    Source: ai_research
-
-  electricalResistivity:
-    Value:  5.6e-08 Ω m
-    Min:    0 Ω m
-    Max:    0.000002 Ω m
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.42 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  boilingPoint:
-    Value:  6203 K
-    Min:    929 K
-    Max:    6454 K
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  6.5e+07 m^{-1}
-    Min:    589000 m^{-1}
-    Max:    9.9e+07 m^{-1}
-    Source: ai_research
-
-  electricalConductivity:
-    Value:  1.8e+07 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: ai_research
-
-  meltingPoint:
-    Value:  3695 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  0 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  3695 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.84 fraction
-    Min:    0.35 fraction
-    Max:    1 fraction
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  392 K
-    Min:    6.7 K
-    Max:    379050 K
-    Source: ai_research
-
-  surfaceRoughness:
-    Value:  0.8 μm
-    Min:    0.02 μm
-    Max:    6.6 μm
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  2.1 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  3695 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  132 J/kg·K
-    Min:    43.4 J/kg·K
-    Max:    1905 J/kg·K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.6 dimensionless
-    Min:    0.4 dimensionless
-    Max:    73.5 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  174 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  4.5e-06 K^{-1}
-    Min:    0.000004 K^{-1}
-    Max:    31.7 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.4 dimensionless
-    Min:    0.02 dimensionless
-    Max:    4.2e+08 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  6.8e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.8 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptivity:
-    Value:  0.4 dimensionless
-    Min:    0.35 dimensionless
-    Max:    0.45 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  60000000 m⁻¹
-    Min:    50000000 m⁻¹
-    Max:    70000000 m⁻¹
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  8 J/cm²
-    Min:    5 J/cm²
-    Max:    10 J/cm²
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  3 MW/m
-    Min:    2.5 MW/m
-    Max:    3.5 MW/m
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.6 dimensionless
-    Min:    0.55 dimensionless
-    Max:    0.65 dimensionless
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  3695 K
-    Min:    3650 K
-    Max:    3750 K
-    Source: ai_research
-
-  vaporPressure:
-    Value:  10 Pa
-    Min:    5 Pa
-    Max:    20 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  3695 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  specificHeat:
-    Value:  132 J/kg·K
-    Min:    43.4 J/kg·K
-    Max:    1905 J/kg·K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.6 dimensionless
-    Min:    0.4 dimensionless
-    Max:    73.5 dimensionless
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  174 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  4.5e-06 K^{-1}
-    Min:    0.000004 K^{-1}
-    Max:    31.7 K^{-1}
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  0.4 dimensionless
-    Min:    0.02 dimensionless
-    Max:    4.2e+08 dimensionless
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  6.8e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  1.8 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
+overlap_ratio:
+  Value:  50 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Standard for uniform coverage in scanned laser cleaning; 50% recommended for Tungsten to avoid gaps in high-reflectivity surfaces while preventing excessive heat overlap. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surf. Coat. Technol. (2019).
 
 ================================================================================
 CITATION & USAGE
@@ -376,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

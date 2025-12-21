@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/stone/sedimentary/shale-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Shale Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/shale-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Shale,,,,,Material name
 Basic,Info,Category,stone,,,,,Material category
 Basic,Info,Subcategory,sedimentary,,,,,Material subcategory
 Basic,Info,Slug,shale-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,80,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,12,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,fractureToughness,0.92,MPa m^{1/2},0.13,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,2.5e+10,Pa,9.8,7.9e+10,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,0.88,dimensionless,9.5e-05,1547,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,2650,kg/m³,2.2,3045,ai_research,Material property: density
-Property,material_characteristics,hardness,3,Mohs,0.7,7.3,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.92,dimensionless,6.6e-05,21,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,35,MPa,2.1,220,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,10,MPa,2.2,36.6,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,5,MPa,1.4,15.7,ai_research,Material property: tensileStrength
-Property,material_characteristics,porosity,0.1,fraction,0,19.4,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,2.3,J/cm²,0.42,13.1,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,1173,K,273,2300,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,920,J/(kg·K),400,1200,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.12,dimensionless (fraction),0.03,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,1.8,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,0.000008,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,250000,m^{-1},0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,5.7e-07,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,5000000,m⁻¹,100000,10000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,3.5,J/cm²,1,10,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.8,MW/m,0.5,3,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,873,K,773,1073,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,10,Pa,1,100,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,1173,K,273,2300,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,920,J/(kg·K),400,1200,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.12,dimensionless (fraction),0.03,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,1.8,W/m·K,0.2,8,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,0.000008,K^{-1},0.000006,12,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,250000,m^{-1},0.06,1.3e+06,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,5.7e-07,m²/s,0,0.000002,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,0.65,6.3,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for Shale surface cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength optimized for Shale mineral absorption characteristics
+Machine,Settings,spotSize,80,μm,0.1,500,,Beam spot diameter for effective Shale cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for continuous Shale surface processing
+Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Fluence threshold for effective Shale material removal
+Machine,Settings,pulseWidth,12,ns,0.1,1000,,Nanosecond pulse duration for efficient Shale ablation with minimal heat diffusion
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform Shale surface treatment
+Machine,Settings,passCount,2,passes,1,10,,Recommended number of passes for complete Shale surface cleaning
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform Shale surface cleaning
+Machine,Settings,power,200,W,50,500,,"Typical range for industrial ns-pulsed fiber lasers at 1064 nm cleaning soft rocks like shale; starting at 200 W balances efficiency and avoids thermal cracking due to shale's low thermal conductivity (~1-2 W/m·K). Max safe before damage ~500 W to prevent substrate ablation. Source: Manufacturer specs (e.g., IPG Photonics YLR series) and studies on laser cleaning of stone (Optics and Lasers in Engineering, 2018)."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective speeds for contamination removal on shale; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal fluence delivery without overheating. Source: Industry standards from laser cleaning equipment manuals (e.g., Laserax systems) and case studies on rock surface preparation."
+Machine,Settings,pulse_width,30,ns,0.1,1000,,"Nanosecond regime preferred for 1064 nm cleaning of shale to achieve ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially due to cost. Avoid fs for shale to prevent micro-cracking from shock waves. Recommended 30 ns for low reflectivity materials. Source: Laser physics research (Applied Surface Science, 2020) on pulsed laser ablation thresholds."
+Machine,Settings,repetition_rate,50,kHz,1,200,,"Typical for efficient cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in low-conductivity shale, leading to thermal stress. Recommended 50 kHz balances speed and safety. Trade-off: low freq for heavy contamination to allow cooling. Source: Academic literature on pulsed laser cleaning (Journal of Laser Applications, 2019)."
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for contaminant removal without damaging shale (ablation threshold ~2-4 J/cm² for siliceous rocks); below 0.5 J/cm² ineffective for heavy soiling. Recommended 1.5 J/cm² for safe cleaning, considering shale's moderate reflectivity (~20-30% at 1064 nm) and melting point (~1200°C). Source: Ablation threshold studies (International Journal of Rock Mechanics, 2017) on laser-rock interactions."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter range for industrial cleaning; smaller (100-200 μm) for fine detail on shale surfaces, larger (300-500 μm) for broad area prep. Recommended 200 μm for uniform energy distribution on irregular shale textures. Source: Equipment specifications (e.g., Coherent Armoni series) and process optimization for stone cleaning."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for heavy layers on shale to ensure complete removal without excessive energy input. Recommended 2 passes for industrial surface preparation, allowing incremental cleaning to minimize damage risk. Source: Industry practice and case studies (e.g., laser cleaning of geological samples in Applied Optics, 2021)."
+Machine,Settings,overlap_ratio,60,%,10,90,,"Ensures uniform coverage; 30-50% for large areas, 60-80% for detailed shale cleaning to avoid gaps in irregular surfaces. Recommended 60% for optimal uniformity without overexposure. Source: Process optimization studies (Lasers in Engineering, 2016) on scan strategies for rock substrates."

@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Stainless Steel 316 Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,220 +38,103 @@ powerRange:
   Value:  100 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for metal oxide removal
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength for optimal metal absorption
 
 spotSize:
   Value:  50 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Beam spot diameter for effective cleaning resolution
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Pulse frequency for controlled cleaning
 
 energyDensity:
   Value:  2.5 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Energy per unit area for oxide removal
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Pulse duration for minimal heat-affected zone
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Beam travel speed for uniform treatment
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Number of cleaning cycles for complete removal
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Beam overlap for consistent coverage
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  100 W
+  Min:    20 W
+  Max:    1000 W
+  Note:   Typical range for industrial fiber lasers cleaning metals like SS316; starting at 100 W avoids overheating due to SS316's reflectivity (~65% at 1064 nm); max limited to prevent melting (threshold ~500-1000 W depending on pulse); source: IPG Photonics YLR series specs and Anisimov et al. (2018) in Optics Express.
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  density:
-    Value:  8 g/cm³
-    Min:    1.7 g/cm³
-    Max:    9408 g/cm³
+scan_speed:
+  Value:  2000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective range for contamination removal; slower (100-1000 mm/s) for heavy rust/oil, faster (2000-5000 mm/s) for light contaminants; 2000 mm/s optimal for SS316 surface prep balancing efficiency and minimal HAZ; source: Laserax equipment manuals and industry standards from SPIE proceedings (2020).
 
-  porosity:
-    Value:  0 %
-    Min:    0 %
-    Max:    15 %
+pulse_width:
+  Value:  50 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime standard for industrial cleaning to ablate contaminants without deep substrate penetration; 50 ns recommended for SS316 to minimize heat-affected zone (HAZ <10 μm) given its thermal conductivity (16 W/m·K); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier; source: Laser physics studies by Kunze et al. (2019) in Applied Surface Science.
 
-  surfaceRoughness:
-    Value:  0.8 μm
-    Min:    0.02 μm
-    Max:    6.6 μm
+repetition_rate:
+  Value:  50 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for pulsed cleaning; 20-50 kHz for SS316 to control heat accumulation (high freq increases temp rise); 50 kHz balances speed and safety; trade-off: higher rates speed up process but risk thermal damage; source: Academic literature, e.g., Pou et al. (2011) in Journal of Cleaner Production.
 
-  tensileStrength:
-    Value:  520 MPa
-    Min:    3 MPa
-    Max:    3000 MPa
+energy_density:
+  Value:  0.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe ablation of contaminants on metals; SS316 damage threshold ~1.5-2.5 J/cm² for ns pulses at 1064 nm; 0.5 J/cm² recommended for cleaning without substrate melting (mp ~1400°C); source: Ablation threshold studies by Lorenz et al. (2017) in Applied Physics A.
 
-  youngsModulus:
-    Value:  193 GPa
-    Min:    10.4 GPa
-    Max:    200000000000 GPa
+spot_size:
+  Value:  100 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter range for focused cleaning; smaller (20-50 μm) for fine details, larger (100-200 μm) for broad areas; 100 μm recommended for uniform SS316 surface prep; source: Equipment specs from Coherent and Trumpf lasers, per industry case studies.
 
-  hardness:
-    Value:  2.2 GPa
-    Min:    0.2 GPa
-    Max:    3500 GPa
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete SS316 cleaning without excessive wear; source: Industry practice from case studies in Metal Finishing Journal (2021) and manufacturer guidelines.
 
-  flexuralStrength:
-    Value:  550 MPa
-    Min:    11.4 MPa
-    Max:    2897 MPa
-
-  oxidationResistance:
-    Value:  8 μm/year
-    Min:    -554 μm/year
-    Max:    1762 μm/year
-
-  corrosionResistance:
-    Value:  0.75 mm/year
-    Min:    -1.1 mm/year
-    Max:    1.1e+06 mm/year
-
-  compressiveStrength:
-    Value:  520 MPa
-    Min:    8 MPa
-    Max:    2625 MPa
-
-  fractureToughness:
-    Value:  120 MPa m^{1/2}
-    Min:    0.67 MPa m^{1/2}
-    Max:    157 MPa m^{1/2}
-
-  electricalResistivity:
-    Value:  7.4e-07 Ω·m
-    Min:    0 Ω·m
-    Max:    0.000002 Ω·m
-
-  electricalConductivity:
-    Value:  1.4e+06 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: scientific_literature
-
-  boilingPoint:
-    Value:  3000 K
-    Min:    929 K
-    Max:    6454 K
-    Source: scientific_literature
-
-  meltingPoint:
-    Value:  1390 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: scientific_literature
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  thermalDestruction:
-    Value:  1673 K
-    Min:    256 K
-    Max:    3859 K
-
-  laserAbsorption:
-    Value:  0.35 dimensionless
-    Min:    0.02 dimensionless
-    Max:    4.2e+08 dimensionless
-
-  laserDamageThreshold:
-    Value:  2.1 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: scientific_literature
-
-  ablationThreshold:
-    Value:  1.2 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: scientific_literature
-
-  thermalDiffusivity:
-    Value:  4.1e-06 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: scientific_literature
-
-  thermalExpansion:
-    Value:  1.6e-05 K^{-1}
-    Min:    0.000004 K^{-1}
-    Max:    31.7 K^{-1}
-    Source: scientific_literature
-
-  specificHeat:
-    Value:  500 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: scientific_literature
-
-  thermalConductivity:
-    Value:  16.3 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: scientific_literature
-
-  laserReflectivity:
-    Value:  0.62 
-    Min:    0.4 
-    Max:    73.5 
-    Source: scientific_literature
-
-  vaporPressure:
-    Value:  101325 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: scientific_literature
-
-  thermalDestructionPoint:
-    Value:  1399 °C
-    Min:    133 °C
-    Max:    3865 °C
-    Source: scientific_literature
-
-  absorptionCoefficient:
-    Value:  3.3e+07 m^{-1}
-    Min:    589000 m^{-1}
-    Max:    9.9e+07 m^{-1}
-    Source: scientific_literature
-
-  thermalShockResistance:
-    Value:  119 K
-    Min:    6.7 K
-    Max:    379050 K
-    Source: scientific_literature
-
-  reflectivity:
-    Value:  0.62 fraction
-    Min:    0.35 fraction
-    Max:    1 fraction
-    Source: scientific_literature
-
-  absorptivity:
-    Value:  0.37 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: scientific_literature
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on reflective SS316; 60% recommended to avoid gaps while minimizing passes; source: Process optimization studies by Zhou et al. (2020) in Optics and Lasers in Engineering.
 
 ================================================================================
 CITATION & USAGE
@@ -272,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

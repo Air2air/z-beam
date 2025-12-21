@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/wood/hardwood/ash-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Ash Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/ash-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Ash,,,,,Material name
 Basic,Info,Category,wood,,,,,Material category
 Basic,Info,Subcategory,hardwood,,,,,Material subcategory
 Basic,Info,Slug,ash-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,fractureToughness,0.36,MPa√m,0.26,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,density,670,kg/m³,0.4,955,ai_research,Material property: density
-Property,material_characteristics,oxidationResistance,290,°C,0.1,549,ai_research,Material property: oxidationResistance
-Property,material_characteristics,youngsModulus,12.8,GPa,3.3,11235,ai_research,Material property: youngsModulus
-Property,material_characteristics,hardness,5870,N,399,12590,ai_research,Material property: hardness
-Property,material_characteristics,compressiveStrength,69,MPa,20,80,ai_research,Material property: compressiveStrength
-Property,material_characteristics,tensileStrength,115,MPa,9.5,209,ai_research,Material property: tensileStrength
-Property,material_characteristics,flexuralStrength,96.5,MPa,19.1,148,ai_research,Material property: flexuralStrength
-Property,material_characteristics,corrosionResistance,0.75,dimensionless,0,4.7,ai_research,Material property: corrosionResistance
-Property,material_characteristics,porosity,0.6,fraction,0.39,0.79,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,24.7,J/cm²,0.0025,5.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,573,K,226,642,ai_research,Material property: thermalDestruction
-Property,material_characteristics,laserReflectivity,0.08,dimensionless (fraction),0.02,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalExpansion,3.2e-05,1/°C,0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,material_characteristics,thermalConductivity,0.15,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,material_characteristics,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,material_characteristics,laserAbsorption,0.82,dimensionless,0.78,336000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.4e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,500000,m⁻¹,100000,1000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,10,J/cm²,5,20,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,0.5,3,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.1,dimensionless,0.05,0.2,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,550,K,500,600,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,100,Pa,10,1000,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,573,K,226,642,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,laserReflectivity,0.08,dimensionless (fraction),0.02,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalExpansion,3.2e-05,1/°C,0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,thermalConductivity,0.15,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserAbsorption,0.82,dimensionless,0.78,336000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.4e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.1,J/cm²,0.51,2.6,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for efficient Ash removal without substrate damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-infrared wavelength optimized for Ash absorption and minimal substrate interaction
+Machine,Settings,spotSize,50,μm,0.1,500,,Beam spot diameter for effective Ash removal resolution and processing efficiency
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for continuous cleaning coverage with thermal recovery
+Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Fluence level sufficient for Ash ablation while preserving underlying substrate
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for controlled Ash ablation and thermal management
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform Ash removal and process throughput
+Machine,Settings,passCount,2,passes,1,10,,Recommended number of passes for complete Ash removal with process control
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning coverage without excessive thermal buildup
+Machine,Settings,power,200,W,50,1000,,"Typical range for 1064 nm industrial cleaning of light powdery contaminants like ash on metals or stone; start at 200 W to balance efficiency and avoid thermal damage to low-conductivity substrates; max limited by substrate melting point (e.g., ~1000 W for steel); based on IPG Photonics and Laserax manufacturer specs for contamination removal."
+Machine,Settings,scan_speed,500,mm/s,10,5000,,"Slower speeds (100-500 mm/s) for heavy ash layers to ensure complete removal, faster (1000-2000 mm/s) for light surface ash; 500 mm/s recommended for optimal energy delivery without overheating; from industry standards and equipment manuals like those from Adapt Laser Systems."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime (10-100 ns) preferred over picosecond/femtosecond for cost-effective ash cleaning due to sufficient ablation of low-thermal-conductivity particulates; 20 ns minimizes heat-affected zone (HAZ) on reflective or heat-sensitive substrates; supported by laser physics research in Optics & Laser Technology journal.
+Machine,Settings,repetition_rate,50,kHz,1,200,,10-100 kHz typical for pulsed cleaning to control pulse overlap; 50 kHz recommended for ash to achieve fast processing while limiting heat accumulation in low-conductivity materials; higher rates speed up cleaning but risk substrate damage; from academic literature like studies in Applied Surface Science.
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"0.5-3 J/cm² range for effective vaporization/ablation of ash without exceeding substrate damage thresholds (e.g., ~4 J/cm² for metals); 1.5 J/cm² safe and recommended for powdery ash with high reflectivity at 1064 nm; based on ablation threshold studies in Journal of Laser Applications; conservative for uncertain ash composition."
+Machine,Settings,spot_size,200,μm,0.1,500,,"100-500 μm for precise control in industrial applications; 200 μm recommended for ash removal on detailed surfaces to balance fluence and coverage; smaller for fine details, larger for broad areas; from equipment specifications by manufacturers like Coherent Inc."
+Machine,Settings,pass_count,2,passes,1,10,,"1 pass for light ash contamination, up to 5 for heavy buildup; 2 passes recommended for complete, uniform removal of ash while minimizing risk to underlying substrate; drawn from industry case studies on particulate cleaning in heritage and industrial contexts (e.g., ICOMOS guidelines adapted for laser use)."
+Machine,Settings,overlap_ratio,50,%,10,90,,30-80% ensures uniform fluence distribution; 50% recommended for ash cleaning to achieve even coverage without excessive heat buildup on low-melting-point residues; typical in process optimization studies from Lasers in Engineering journal.

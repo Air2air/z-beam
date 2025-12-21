@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Phenolic Resin Composites Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Phenolic Resin Composites,,,,,Material name
 Basic,Info,Category,composite,,,,,Material category
 Basic,Info,Subcategory,fiber-reinforced,,,,,Material subcategory
 Basic,Info,Slug,phenolic-resin-composites-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,electricalResistivity,1000000000000,Ω·m,0,100000000000000,ai_research,Material property: electricalResistivity
-Property,material_characteristics,fractureToughness,1.8,MPa m^{1/2},0.01,26.2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,10,GPa,0.0047,1.4e+11,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,723,K,0,1668,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,1.9,g/cm³,1,2520,ai_research,Material property: density
-Property,material_characteristics,hardness,95,Rockwell M,5,120,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.95,dimensionless (normalized resistance index),0,4725,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,241,MPa,6.6,1260,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,140,MPa,4.6,1197,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,69,MPa,16.1,1627,ai_research,Material property: tensileStrength
-Property,material_characteristics,laserDamageThreshold,2.1,J/cm²,0.44,8.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,653,K,206,1952,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,1200,J/(kg·K),500,2500,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.12,dimensionless,0.0043,0.92,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,0.28,W/m·K,0.03,400,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,2.2e-05,K^{-1},-1,250,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,25000,m^{-1},0.14,525000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.5e-07,m²/s,0,7.6e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,5000000,m⁻¹,1000000,10000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,2.5,J/cm²,1,5,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,0.8,3,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.1,dimensionless,0.05,0.2,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,723,K,573,873,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,100,Pa,10,1000,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,653,K,206,1952,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,1200,J/(kg·K),500,2500,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.12,dimensionless,0.0043,0.92,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,0.28,W/m·K,0.03,400,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,2.2e-05,K^{-1},-1,250,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,25000,m^{-1},0.14,525000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.5e-07,m²/s,0,7.6e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,2.3,J/cm²,0.49,2.9,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for phenolic resin composite cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength optimized for phenolic resin absorption and minimal substrate damage
+Machine,Settings,spotSize,50,μm,0.1,500,,Beam spot diameter for precise cleaning control on composite surfaces
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Fluence threshold for effective phenolic resin removal
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of phenolic resin matrix
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning without excessive heat accumulation
+Machine,Settings,power,100,W,50,500,,"Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage; starting at 100W for light contamination on phenolics, which have low thermal conductivity (~0.2 W/m·K). Max safe ~300W to prevent charring (melting point ~200-300°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018) on polymer composites."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective range for 1064 nm cleaning of contaminants; slower (500-1000 mm/s) for heavy soiling, faster (2000-3000 mm/s) for light; 1500 mm/s optimal for uniform removal without substrate heating on low-reflectivity phenolics (~10-20% at 1064 nm). Source: Industry standards from Laserax manuals and J. Cleaner Production (2020) case studies."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ <50 μm); 20 ns balances ablation efficiency and reduced thermal diffusion in phenolics. Ps (10-100 ps) for ultra-precise work but higher cost. Source: Laser physics in Applied Surface Science (2019) on polymer ablation thresholds.
+Machine,Settings,repetition_rate,30,kHz,1,200,,Typical for industrial cleaning; 30 kHz recommended for phenolics to achieve fast processing while limiting heat accumulation (high freq >50 kHz risks cumulative heating due to low conductivity). Trade-off: higher rates speed up cleaning but increase HAZ. Source: Academic literature in Journal of Laser Applications (2021).
+Machine,Settings,energy_density,1,J/cm²,0.1,20,,Fluence range for contaminant removal; damage threshold for phenolics ~1.5-2.5 J/cm² at 1064 nm due to moderate absorption; 1.0 J/cm² safe for cleaning without ablation of substrate. Conservative for thermal sensitivity. Source: Ablation studies in Composites Part B (2017) and Optics Express (2022).
+Machine,Settings,spot_size,300,μm,0.1,500,,"Beam diameter range for precision vs. area coverage; 300 μm recommended for phenolic composites in surface prep to focus energy and minimize overshoot on irregular surfaces. Smaller for fine details, larger for broad areas. Source: Equipment specs from Coherent Inc. and process optimization in Industrial Laser Solutions (2020)."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes typical for complete removal on phenolics without excessive heat buildup. Source: Industry practice in aerospace case studies (e.g., AIAA Journal, 2019) and manufacturer guidelines."
+Machine,Settings,overlap_ratio,50,%,10,90,,"Ensures uniform coverage; 50% recommended for phenolic composites to avoid gaps or overexposure, balancing efficiency and even fluence distribution. Higher (60-80%) for heavy contamination. Source: Process optimization in Surface and Coatings Technology (2021)."

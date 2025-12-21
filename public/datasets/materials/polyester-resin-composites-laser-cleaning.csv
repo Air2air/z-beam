@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Polyester Resin Composites Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Polyester Resin Composites,,,,,Material name
 Basic,Info,Category,composite,,,,,Material category
 Basic,Info,Subcategory,fiber-reinforced,,,,,Material subcategory
 Basic,Info,Slug,polyester-resin-composites-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,90,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,80,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,pulseWidth,15,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,800,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Machine,Settings,fluence,3,J/cm²,,,,Machine setting: fluence
-Property,material_characteristics,electricalResistivity,10000000000,Ω·m,0,100000000000000,ai_research,Material property: electricalResistivity
-Property,material_characteristics,fractureToughness,2.4,MPa√m,0.01,26.2,ai_research,Material property: fractureToughness
-Property,material_characteristics,youngsModulus,18.5,GPa,0.0047,1.4e+11,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,210,°C,0,1668,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,1.5,g/cm³,1,2520,ai_research,Material property: density
-Property,material_characteristics,hardness,50,Barcol,5,120,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.92,dimensionless,0,4725,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,250,MPa,6.6,1260,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,220,MPa,4.6,1197,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,70,MPa,16.1,1627,ai_research,Material property: tensileStrength
-Property,material_characteristics,laserDamageThreshold,1.8,J/cm²,0.44,8.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,673,K,206,1952,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,1170,J/(kg·K),500,2500,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.06,fraction,0.0043,0.92,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,0.35,W/m·K,0.03,400,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,2.5e-05,K^{-1},-1,250,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,0.12,,0.14,525000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.1e-07,m²/s,0,7.6e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.25,dimensionless,0.05,0.5,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,500000,m⁻¹,10000,1000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,3,J/cm²,0.5,10,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,0.5,3,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.7,dimensionless,0.4,0.9,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,673,K,600,750,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,50,Pa,0.1,1000,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,673,K,206,1952,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,1170,J/(kg·K),500,2500,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.06,fraction,0.0043,0.92,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,0.35,W/m·K,0.03,400,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,2.5e-05,K^{-1},-1,250,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,0.12,,0.14,525000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.1e-07,m²/s,0,7.6e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,0.49,2.9,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,90,W,1,120,,Optimal average power for polyester resin composite cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-infrared wavelength optimal for polyester resin composite processing
+Machine,Settings,spotSize,80,μm,0.1,500,,Optimal beam spot diameter for precision cleaning
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for continuous cleaning process
+Machine,Settings,pulseWidth,15,ns,0.1,1000,,Optimal pulse duration for efficient material removal with minimal heat affected zone
+Machine,Settings,scanSpeed,800,mm/s,10,5000,,Optimal scanning speed for efficient coverage and material removal
+Machine,Settings,passCount,3,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap percentage for uniform cleaning
+Machine,Settings,fluence,3,J/cm²,3,5,,Energy density threshold for effective Polyester Resin Composites cleaning - Energy density threshold for composite material cleaning considering matrix and reinforcement properties
+Machine,Settings,power,100,W,20,500,,Typical range for industrial 1064 nm laser cleaning of polymer composites to balance efficiency and heat input; starting at 100 W avoids thermal damage to polyester's low melting point (~260°C). Max safe ~300 W at high speeds to prevent substrate ablation. Source: Laserax manufacturer specs and studies in Optics and Lasers in Engineering (2018) on composite surface prep.
+Machine,Settings,scan_speed,2000,mm/s,10,5000,,"Effective range for contamination removal; slower (500-1000 mm/s) for heavy contaminants like oils, faster (2000-5000 mm/s) for light dust. Recommended 2000 mm/s for optimal cleaning without overheating polyester's low thermal conductivity (~0.2 W/m·K). Source: IPG Photonics equipment manuals and Journal of Cleaner Production (2020) case studies on polymer composites."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime (5-100 ns) preferred over ps/fs for cost-effective 1064 nm cleaning of composites; 20 ns minimizes heat-affected zone (HAZ <50 μm) by reducing thermal diffusion in polyester. Ps/fs (e.g., <1 ps) for ultra-precise but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds."
+Machine,Settings,repetition_rate,30,kHz,1,200,,Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for polyester composites to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk melting if >50 kHz without high speed). Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on fiber-reinforced polymers.
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Fluence range for safe ablation of contaminants; damage threshold for polyester composites ~3-5 J/cm² due to reflectivity (~5-10% at 1064 nm) and low thermal conductivity. Recommended 1.5 J/cm² for effective cleaning without substrate damage. Source: Ablation threshold studies in Composites Part B: Engineering (2017) and SPIE proceedings on laser cleaning.
+Machine,Settings,spot_size,200,μm,0.1,500,,"Typical beam diameter for industrial cleaning; 100-200 μm for fine surface prep on composites, 300-500 μm for large areas. 200 μm recommended for polyester to ensure uniform energy distribution and avoid localized overheating. Source: Coherent Inc. equipment specifications and industry standards from Laser Institute of America."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on polyester composites without excessive heat buildup. Source: Industry practice in case studies from Journal of Materials Processing Technology (2022) on resin composite cleaning."
+Machine,Settings,overlap_ratio,50,%,10,90,,30-80% ensures uniform coverage; 50% recommended for polyester to balance efficiency and avoid uneven heating or missed spots during scan. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in Optics & Laser Technology (2019) on polymer surface treatment.

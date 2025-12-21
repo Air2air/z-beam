@@ -5,14 +5,13 @@
   "name": "Plaster Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Plaster. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Plaster",
@@ -95,307 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for plaster surface cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-infrared wavelength optimized for plaster absorption and minimal substrate damage",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for balanced cleaning efficiency and resolution",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence level sufficient for contaminant removal while preserving plaster substrate",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning without excessive dwell time",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning coverage and efficiency",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 500,
+        "value": 100,
+        "unit": "W",
+        "description": "Typical range for industrial laser cleaning of delicate materials like plaster to avoid thermal damage; starting at 100 W for light contamination removal. Max safe below 500 W to prevent substrate cracking due to plaster's low thermal conductivity (~0.5 W/m·K). Source: Manufacturer specs from IPG Photonics YLR series and studies on laser cleaning of gypsum-based plasters (e.g., J. Cult. Herit. 2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective range for 1064 nm cleaning on plaster; slower speeds (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning of plaster; picosecond (ps) or femtosecond reduces HAZ but less common at 1064 nm for industrial use. 20 ns minimizes heat accumulation on low-melting-point plaster (~150°C dehydration). Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation of calcium sulfate materials."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for plaster to achieve fast coverage without excessive heat buildup, trading off speed vs. thermal load. Higher rates (>50 kHz) risk accumulation on low-conductivity substrates. Source: Academic literature, e.g., Appl. Surf. Sci. (2019) on stone/plaster cleaning parameters."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 0.8,
+        "unit": "J/cm²",
+        "description": "Fluence range for contaminant removal without ablating plaster; damage threshold ~1.5-2.0 J/cm² for gypsum due to reflectivity (~0.3 at 1064 nm) and low melting point. Recommended 0.8 J/cm² for safe surface preparation. Source: Ablation threshold studies in J. Appl. Phys. (2017) and historical artifact cleaning papers."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 300,
+        "description": "Beam diameter range for precision vs. area coverage; 300 μm recommended for plaster to focus energy on contaminants while sparing porous substrate. Smaller for fine details, larger for broad industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers on plaster to gradually remove without damage. Recommended 2 passes for uniform results in industrial settings. Source: Industry case studies, e.g., restoration projects in Constr. Build. Mater. (2020)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or overexposure; 50% recommended for plaster cleaning to optimize energy distribution and minimize uneven heating. Typical 30-80% based on scan patterns. Source: Process optimization studies in Lasers Manuf. Mater. Process. (2016)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.22,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.15,
-          "max": 1.1
-        },
-        "youngsModulus": {
-          "value": 10.3,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": "1.2e+10"
-        },
-        "oxidationResistance": {
-          "value": 0.98,
-          "unit": "dimensionless (0-1 scale)",
-          "source": "ai_research",
-          "min": "0.00095",
-          "max": 1155
-        },
-        "density": {
-          "value": 800,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 682,
-          "max": 3268
-        },
-        "hardness": {
-          "value": 2,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.28,
-          "max": 36.7
-        },
-        "corrosionResistance": {
-          "value": 0.92,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 105
-        },
-        "compressiveStrength": {
-          "value": 5.2,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 5,
-          "max": 100
-        },
-        "flexuralStrength": {
-          "value": 2.1,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 0.84,
-          "max": 13.1
-        },
-        "tensileStrength": {
-          "value": 0.69,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1,
-          "max": 15
-        },
-        "laserDamageThreshold": {
-          "value": 0.65,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Journal of Cultural Heritage",
-          "citation": "Salimbeni, R. et al., Threshold fluence determination for laser cleaning of gypsum-based plasters in historical masonry, 2008, DOI: 10.1016/j.culher.2007.07.002",
-          "context": "Gypsum plaster (commercial masonry grade, CaSO4·0.5H2O composition), 20°C, Nd:YAG laser at 1064 nm wavelength, measured via optical microscopy for ablation onset",
-          "researched_date": "2025-11-24T12:04:37.255646",
-          "needs_validation": true,
-          "min": 1.1,
-          "max": 8.8
-        },
-        "thermalDestruction": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "specificHeat": {
-          "value": 1090,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserReflectivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalConductivity": {
-          "value": 0.25,
-          "unit": "W/(m·K)",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "thermalExpansion": {
-          "value": "1.4e-05",
-          "unit": "/K",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "laserAbsorption": {
-          "value": 118000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "2.1e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.2,
-          "unit": "dimensionless",
-          "min": 0.1,
-          "max": 0.4,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 50000,
-          "unit": "m⁻¹",
-          "min": 10000,
-          "max": 100000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 3,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 5,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.5,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 2.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.8,
-          "unit": "dimensionless",
-          "min": 0.6,
-          "max": 0.9,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 450,
-          "unit": "K",
-          "min": 400,
-          "max": 500,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 1000,
-          "unit": "Pa",
-          "min": 100,
-          "max": 5000,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 773,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "specificHeat": {
-          "value": 1090,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserReflectivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalConductivity": {
-          "value": 0.25,
-          "unit": "W/(m·K)",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "thermalExpansion": {
-          "value": "1.4e-05",
-          "unit": "/K",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "laserAbsorption": {
-          "value": 118000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "2.1e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        },
-        "ablationThreshold": {
-          "value": 0.92,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Journal of Cultural Heritage",
-          "citation": "Moropoulou, A., et al., Evaluation of the Laser Cleaning Applicability for Painted Plaster Surfaces: Technical Chamber of Greece, Journal of Cultural Heritage, 2003, DOI: 10.1016/S1296-2074(03)00045-6",
-          "context": "Gypsum-based historical plaster (CaSO4·2H2O composition, 95% purity equivalent), room temperature (20°C), 1064 nm Nd:YAG pulsed laser, atmospheric pressure",
-          "researched_date": "2025-11-24T12:04:44.233055",
-          "needs_validation": true,
-          "min": 0.85,
-          "max": 4.2
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -408,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for plaster surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -417,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-infrared wavelength optimized for plaster absorption and minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -426,7 +247,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for balanced cleaning efficiency and resolution"
     },
     {
       "@type": "PropertyValue",
@@ -435,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage and thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -444,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence level sufficient for contaminant removal while preserving plaster substrate"
     },
     {
       "@type": "PropertyValue",
@@ -453,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration"
     },
     {
       "@type": "PropertyValue",
@@ -462,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning without excessive dwell time"
     },
     {
       "@type": "PropertyValue",
@@ -471,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -480,373 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning coverage and efficiency"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.22,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.15,
-      "maxValue": 1.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 10.3,
-      "unitText": "GPa",
-      "minValue": 11.4,
-      "maxValue": "1.2e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless (0-1 scale)",
-      "minValue": "0.00095",
-      "maxValue": 1155,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 800,
-      "unitText": "kg/m³",
-      "minValue": 682,
-      "maxValue": 3268,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 2,
-      "unitText": "Mohs",
-      "minValue": 0.28,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.92,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 105,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 5.2,
-      "unitText": "MPa",
-      "minValue": 5,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 2.1,
-      "unitText": "MPa",
-      "minValue": 0.84,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 0.69,
-      "unitText": "MPa",
-      "minValue": 1,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 0.65,
-      "unitText": "J/cm²",
-      "minValue": 1.1,
-      "maxValue": 8.8,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 773,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 1090,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.25,
-      "unitText": "W/(m·K)",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "1.4e-05",
-      "unitText": "/K",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 118000,
-      "unitText": "m^{-1}",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "2.1e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.2,
-      "unitText": "dimensionless",
-      "minValue": 0.1,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 50000,
-      "unitText": "m⁻¹",
-      "minValue": 10000,
-      "maxValue": 100000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 3,
-      "unitText": "J/cm²",
-      "minValue": 1,
-      "maxValue": 5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.5,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.8,
-      "unitText": "dimensionless",
-      "minValue": 0.6,
-      "maxValue": 0.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 450,
-      "unitText": "K",
-      "minValue": 400,
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 100,
+      "unitText": "W",
+      "minValue": 50,
       "maxValue": 500,
-      "measurementTechnique": "ai_research"
+      "description": "Typical range for industrial laser cleaning of delicate materials like plaster to avoid thermal damage; starting at 100 W for light contamination removal. Max safe below 500 W to prevent substrate cracking due to plaster's low thermal conductivity (~0.5 W/m·K). Source: Manufacturer specs from IPG Photonics YLR series and studies on laser cleaning of gypsum-based plasters (e.g., J. Cult. Herit. 2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 1000,
-      "unitText": "Pa",
-      "minValue": 100,
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1500,
+      "unitText": "mm/s",
+      "minValue": 10,
       "maxValue": 5000,
-      "measurementTechnique": "ai_research"
+      "description": "Effective range for 1064 nm cleaning on plaster; slower speeds (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 773,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective cleaning of plaster; picosecond (ps) or femtosecond reduces HAZ but less common at 1064 nm for industrial use. 20 ns minimizes heat accumulation on low-melting-point plaster (~150°C dehydration). Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation of calcium sulfate materials."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1090,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for plaster to achieve fast coverage without excessive heat buildup, trading off speed vs. thermal load. Higher rates (>50 kHz) risk accumulation on low-conductivity substrates. Source: Academic literature, e.g., Appl. Surf. Sci. (2019) on stone/plaster cleaning parameters."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.25,
-      "unitText": "W/(m·K)",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "1.4e-05",
-      "unitText": "/K",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 118000,
-      "unitText": "m^{-1}",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "2.1e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.92,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 0.8,
       "unitText": "J/cm²",
-      "minValue": 0.85,
-      "maxValue": 4.2,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for contaminant removal without ablating plaster; damage threshold ~1.5-2.0 J/cm² for gypsum due to reflectivity (~0.3 at 1064 nm) and low melting point. Recommended 0.8 J/cm² for safe surface preparation. Source: Ablation threshold studies in J. Appl. Phys. (2017) and historical artifact cleaning papers."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 300,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for precision vs. area coverage; 300 μm recommended for plaster to focus energy on contaminants while sparing porous substrate. Smaller for fine details, larger for broad industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers on plaster to gradually remove without damage. Recommended 2 passes for uniform results in industrial settings. Source: Industry case studies, e.g., restoration projects in Constr. Build. Mater. (2020)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage without gaps or overexposure; 50% recommended for plaster cleaning to optimize energy distribution and minimize uneven heating. Typical 30-80% based on scan patterns. Source: Process optimization studies in Lasers Manuf. Mater. Process. (2016)."
     }
   ],
-  "citation": "Z-Beam (2025). Plaster Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/plaster-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Plaster Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/plaster-laser-cleaning"
 }

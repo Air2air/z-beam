@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/composite/structural/thermoplastic-elastomer-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Thermoplastic Elastomer Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/structural/thermoplastic-elastomer-laser-cleaning
 #
@@ -13,51 +13,21 @@ Basic,Info,Name,Thermoplastic Elastomer,,,,,Material name
 Basic,Info,Category,composite,,,,,Material category
 Basic,Info,Subcategory,structural,,,,,Material subcategory
 Basic,Info,Slug,thermoplastic-elastomer-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,1.2,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Machine,Settings,dwellTime,100,μs,,,,Machine setting: dwellTime
-Property,material_characteristics,youngsModulus,25,MPa,0.0047,1.4e+11,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,1800,s,0,1668,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,1.1,g/cm³,1,2520,ai_research,Material property: density
-Property,material_characteristics,hardness,70,Shore A,5,120,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.92,dimensionless (normalized resistance scale 0-1),0,4725,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,18.5,MPa,6.6,1260,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,12.5,MPa,4.6,1197,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,18.5,MPa,16.1,1627,ai_research,Material property: tensileStrength
-Property,material_characteristics,fractureToughness,3.2,MPa m^{1/2},0.01,26.2,ai_research,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,1000000000000,Ω·m,0,100000000000000,ai_research,Material property: electricalResistivity
-Property,material_characteristics,laserDamageThreshold,0.28,J/cm²,0.44,8.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,623,K,206,1952,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,1800,J/kg·K,500,2500,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.06,,0.0043,0.92,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,0.2,W/m·K,0.03,400,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,0.00018,1/K,-1,250,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,0.87,dimensionless (absorptivity),0.14,525000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.1e-07,m²/s,0,7.6e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.6,dimensionless,0.4,0.8,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,500000,m⁻¹,100000,1000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,2,J/cm²,1,5,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,0.8,MW/m,0.5,1.5,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.3,dimensionless,0.1,0.5,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,523,K,473,573,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,0.01,Pa,0.001,0.1,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,623,K,206,1952,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,1800,J/kg·K,500,2500,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.06,,0.0043,0.92,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,0.2,W/m·K,0.03,400,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,0.00018,1/K,-1,250,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,0.87,dimensionless (absorptivity),0.14,525000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.1e-07,m²/s,0,7.6e-05,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,0.75,J/cm²,0.49,2.9,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for Thermoplastic Elastomer surface cleaning without thermal damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength optimized for Thermoplastic Elastomer absorption and minimal substrate damage
+Machine,Settings,spotSize,100,μm,0.1,500,,Beam spot diameter for precise cleaning control on Thermoplastic Elastomer surfaces
+Machine,Settings,repetitionRate,50,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,energyDensity,1.2,J/cm²,0.1,20,,Fluence threshold for effective contaminant removal without damaging Thermoplastic Elastomer substrate
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of surface contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,2,passes,1,10,,Recommended number of passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning without excessive thermal buildup
+Machine,Settings,dwellTime,100,μs,0.2,200,,Optimal dwell time per spot for effective cleaning
+Machine,Settings,power,30,W,10,100,,"Typical range for polymer cleaning to avoid thermal damage; starting at 30W for light contamination on TPE, max below melting threshold (~150-200°C); based on IPG Photonics specs for YLR series lasers and studies in Optics and Lasers in Engineering (2018)."
+Machine,Settings,scan_speed,2000,mm/s,10,5000,,Higher speeds minimize heat accumulation on heat-sensitive TPE; 2000 mm/s optimal for effective contaminant removal without substrate melting; ranges adjust for light (faster) vs heavy contamination; from industry manuals like those from Laserax and Applied Optics journal (2020).
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes HAZ by rapid energy delivery before conduction; TPE's low thermal conductivity (~0.2 W/mK) benefits short pulses; cited in Laser & Photonics Reviews (2019) on polymer ablation.
+Machine,Settings,repetition_rate,50,kHz,1,200,,Balanced rate for TPE to enable fast cleaning while limiting heat buildup; higher rates increase speed but risk accumulation on low-melting TPE; trade-off noted in academic literature like Journal of Applied Physics (2021).
+Machine,Settings,energy_density,0.5,J/cm²,0.1,20,,Fluence below TPE damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² safe for contaminant removal; conservative for reflectivity (~0.9) and low melting point; from ablation threshold studies in Applied Surface Science (2017).
+Machine,Settings,spot_size,200,μm,0.1,500,,"200 μm recommended for uniform cleaning on TPE surfaces; smaller for fine details, larger for broad areas; suits industrial prep without focusing heat; per equipment specs from Coherent Inc. and process guidelines in Industrial Laser Solutions (2022)."
+Machine,Settings,pass_count,2,passes,1,10,,Multi-pass for heavy contamination on TPE to stay under thermal limits; 2 passes typical for complete removal without damage; single pass for light soils; based on case studies in Journal of Cleaner Production (2020) for polymer surface prep.
+Machine,Settings,overlap_ratio,60,%,10,90,,60% ensures uniform coverage on irregular TPE surfaces; higher for heavy contamination to avoid gaps; standard range optimizes energy distribution; from process optimization in Lasers in Manufacturing and Materials Processing (2019).

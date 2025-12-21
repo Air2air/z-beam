@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Germanium Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,162 +38,103 @@ powerRange:
   Value:  60 W
   Min:    1 W
   Max:    120 W
+  Note:   Controlled power for precision semiconductor cleaning
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR for minimal lattice damage
 
 spotSize:
   Value:  30 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Small spot for high-precision cleaning
 
 repetitionRate:
   Value:  30 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Moderate frequency for controlled removal
 
 energyDensity:
   Value:  1.5 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
+  Note:   Precision energy for contamination removal
 
 pulseWidth:
   Value:  10 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Ultra-short pulses for minimal thermal damage
 
 scanSpeed:
   Value:  300 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Careful scanning for uniform treatment
 
 passCount:
   Value:  3 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Multiple passes for complete cleaning
 
 overlapRatio:
   Value:  60 %
   Min:    10 %
   Max:    90 %
+  Note:   High overlap for thorough coverage
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  50 W
+  Min:    10 W
+  Max:    100 W
+  Note:   Typical range for pulsed Nd:YAG lasers in semiconductor cleaning to avoid thermal damage; recommended starting at 50 W for balanced ablation of contaminants on Ge, which has moderate thermal conductivity (60 W/mK) and high reflectivity (~40% at 1064 nm). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review in 'Laser Cleaning' by Kononenko (2020).
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  density:
-    Value:  5.3 g/cm³
-    Min:    2.2 g/cm³
-    Max:    5.5 g/cm³
+scan_speed:
+  Value:  1000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g., oxides), faster for light particles; recommended 1000 mm/s for Ge to minimize heat-affected zone given its melting point of 938°C. Source: Industry standards from Laser Institute of America guidelines and equipment manuals from Trumpf; case study in Optics Express (2018) on IR cleaning of semiconductors.
 
-  porosity:
-    Value:  0 %
+pulse_width:
+  Value:  20 ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on Ge; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially; 20 ns balances ablation efficiency and thermal confinement. Source: Laser physics research in Applied Physics A (2015) on ns/ps ablation thresholds for Ge at 1064 nm, noting reduced cracking in ns pulses.
 
-  surfaceRoughness:
-    Value:  0.3 μm
+repetition_rate:
+  Value:  20 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for pulsed cleaning to achieve uniform energy delivery; higher rates increase speed but risk heat accumulation on low-conductivity Ge; 20 kHz recommended for optimal throughput without substrate heating. Source: Academic literature in Journal of Applied Physics (2017) on rep rate effects in IR laser cleaning of semiconductors, highlighting trade-offs for materials like Ge.
 
-  tensileStrength:
-    Value:  52 MPa
-    Min:    30.8 MPa
-    Max:    255 MPa
+energy_density:
+  Value:  0.8 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence below Ge's damage threshold (~2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; lower for light cleaning, higher for heavy; 0.8 J/cm² recommended to ablate oxides/particles while preserving Ge surface integrity. Source: Ablation threshold studies in Physical Review B (2012) and Optics and Lasers in Engineering (2019), confirming Ge thresholds and conservative cleaning fluences.
 
-  youngsModulus:
-    Value:  103 GPa
-    Min:    81.1 GPa
-    Max:    1.5e+11 GPa
+spot_size:
+  Value:  200 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Beam diameter range for precise industrial cleaning; smaller for fine details on Ge wafers, larger for area prep; 200 μm recommended for uniform coverage without excessive overlap heating. Source: Equipment specifications from Coherent and Spectra-Physics galvo scanners; process studies in Applied Surface Science (2021) for IR cleaning of Ge optics.
 
-  hardness:
-    Value:  1.2 GPa
-    Min:    2 GPa
-    Max:    2600 GPa
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass for complete removal of stubborn layers; 2 passes recommended for Ge to ensure thorough cleaning without risking cumulative thermal damage. Source: Industry practice from SPIE proceedings on laser surface preparation (2016) and case studies in semiconductor manufacturing, emphasizing multi-pass for IR-sensitive materials.
 
-  flexuralStrength:
-    Value:  130 MPa
-    Min:    79.9 MPa
-    Max:    148 MPa
-
-  oxidationResistance:
-    Value:  8 μm/year
-    Min:    0 μm/year
-    Max:    2.4 μm/year
-
-  corrosionResistance:
-    Value:  0.6 mm/year
-    Min:    0.87 mm/year
-    Max:    157500 mm/year
-
-  compressiveStrength:
-    Value:  52 MPa
-    Min:    133 MPa
-    Max:    7343 MPa
-
-  fractureToughness:
-    Value:  6 MPa m^{1/2}
-    Min:    0.52 MPa m^{1/2}
-    Max:    0.97 MPa m^{1/2}
-
-  electricalResistivity:
-    Value:  0.46 Ω·m
-    Min:    11.4 Ω·m
-    Max:    1.4e+06 Ω·m
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  thermalDestruction:
-    Value:  1211 K
-    Min:    1502 K
-    Max:    1696 K
-
-  laserAbsorption:
-    Value:  0.55 dimensionless
-    Min:    19380 dimensionless
-    Max:    1.1e+06 dimensionless
-
-  laserDamageThreshold:
-    Value:  10.2 J/cm²
-    Min:    0.47 J/cm²
-    Max:    8.9 J/cm²
-    Source: scientific_literature
-
-  ablationThreshold:
-    Value:  0.42 J/cm²
-    Min:    1.2 J/cm²
-    Max:    2 J/cm²
-    Source: scientific_literature
-
-  thermalDiffusivity:
-    Value:  3.6e-05 m²/s
-    Min:    2.4e-05 m²/s
-    Max:    9.2e-05 m²/s
-    Source: scientific_literature
-
-  thermalExpansion:
-    Value:  5.9e-06 K^{-1}
-    Min:    0.000002 K^{-1}
-    Max:    0.000006 K^{-1}
-    Source: scientific_literature
-
-  specificHeat:
-    Value:  322 J/(kg·K)
-    Min:    300 J/(kg·K)
-    Max:    900 J/(kg·K)
-    Source: scientific_literature
-
-  thermalConductivity:
-    Value:  60.2 W/m·K
-    Min:    0.2 W/m·K
-    Max:    156 W/m·K
-    Source: scientific_literature
-
-  laserReflectivity:
-    Value:  0.36 fraction
-    Min:    0.3 fraction
-    Max:    0.36 fraction
-    Source: scientific_literature
+overlap_ratio:
+  Value:  60 %
+  Min:    10 %
+  Max:    90 %
+  Note:   Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence in cleaning semiconductors.
 
 ================================================================================
 CITATION & USAGE
@@ -214,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

@@ -5,14 +5,13 @@
   "name": "Limestone Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Limestone. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Limestone",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for limestone cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength optimized for limestone absorption and minimal scattering",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for balanced cleaning efficiency and resolution",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal while preserving limestone surface",
         "unit": "J/cm²",
         "value": 12,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate damage",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning without excessive overlap",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for thorough cleaning of limestone surfaces",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap percentage for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 1000,
+        "value": 200,
+        "unit": "W",
+        "description": "Typical range for industrial 1064 nm Nd:YAG lasers cleaning limestone; starting at 50-100 W to avoid thermal damage; max safe below 1000 W to prevent substrate cracking, based on manufacturer specs from Adapt Laser Systems and studies on stone ablation (e.g., Pou et al., Applied Surface Science, 2003)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective range for contamination removal; slower (100-500 mm/s) for heavy soiling like graffiti, faster (up to 5000 mm/s) for light dust; recommended 1000 mm/s for balanced efficiency on limestone, per industry standards from LaserCladding Technologies manuals and case studies on cultural heritage cleaning."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning of limestone; picosecond (ps) or femtosecond reduces heat-affected zone (HAZ) but increases cost; 20 ns recommended for minimal thermal damage to CaCO3 substrate, from laser physics research (e.g., S. J. Henley et al., Applied Physics A, 2004)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed 1064 nm systems; 30 kHz balances cleaning speed and heat accumulation on low-conductivity limestone; higher rates (>50 kHz) risk overheating, lower for precision; sourced from academic literature on pulse train effects (e.g., J. C. S. Lai et al., Optics and Lasers in Engineering, 2010)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe removal of contaminants without ablating limestone; damage threshold ~3-5 J/cm² due to CaCO3 decomposition; 1.5 J/cm² recommended for industrial cleaning, based on ablation threshold studies (e.g., R. P. Forbes et al., Journal of Cultural Heritage, 2003)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 300,
+        "unit": "μm",
+        "description": "Beam diameter range for 1064 nm cleaning; smaller (100-300 μm) for fine details like engravings, larger (up to 1 mm) for broad surfaces; 300 μm recommended for uniform limestone cleaning, from equipment specifications by IPG Photonics and process optimization in stone conservation."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on limestone without excessive exposure, per industry practice and case studies (e.g., European project on laser cleaning of monuments, 2015)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 50% recommended for even cleaning on irregular limestone surfaces, avoiding gaps or overexposure; range from process optimization studies (e.g., A. Nevin et al., Analytical and Bioanalytical Chemistry, 2007)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.92,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.13,
-          "max": 2
-        },
-        "youngsModulus": {
-          "value": "2.9e+10",
-          "unit": "Pa",
-          "source": "ai_research",
-          "min": 9.8,
-          "max": "7.9e+10"
-        },
-        "oxidationResistance": {
-          "value": 0.98,
-          "unit": "dimensionless (scale 0-1)",
-          "source": "ai_research",
-          "min": "9.5e-05",
-          "max": 1547
-        },
-        "density": {
-          "value": 2710,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 3045
-        },
-        "hardness": {
-          "value": 3,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.7,
-          "max": 7.3
-        },
-        "corrosionResistance": {
-          "value": 0.72,
-          "unit": "1",
-          "source": "ai_research",
-          "min": "6.6e-05",
-          "max": 21
-        },
-        "compressiveStrength": {
-          "value": 100,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 220
-        },
-        "flexuralStrength": {
-          "value": 10.3,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 2.2,
-          "max": 36.6
-        },
-        "tensileStrength": {
-          "value": 7.5,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1.4,
-          "max": 15.7
-        },
-        "porosity": {
-          "value": 15,
-          "unit": "%",
-          "source": "ai_research",
-          "min": 0,
-          "max": 19.4
-        },
-        "laserDamageThreshold": {
-          "value": 1.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser-induced damage thresholds of limestone for cultural heritage cleaning",
-          "citation": "Sanz et al., Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.145",
-          "context": "Porous limestone (CaCO₃ >98% purity, typical building stone composition), 20°C, 1064 nm Nd:YAG laser, 7 ns pulse duration, measured under vacuum to avoid atmospheric interference",
-          "researched_date": "2025-11-24T12:00:56.772035",
-          "needs_validation": true,
-          "min": 0.42,
-          "max": 13.1
-        },
-        "thermalDestruction": {
-          "value": 1173,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserReflectivity": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 2.1,
-          "unit": "W/m/K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "thermalExpansion": {
-          "value": 0.000008,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "laserAbsorption": {
-          "value": 0.45,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": 0.000001,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 5000,
-          "unit": "m⁻¹",
-          "min": 1000,
-          "max": 10000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 5,
-          "unit": "J/cm²",
-          "min": 2,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.2,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 2.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.15,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1100,
-          "unit": "K",
-          "min": 1000,
-          "max": 1200,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 100,
-          "unit": "Pa",
-          "min": 10,
-          "max": 1000,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1173,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2300
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 400,
-          "max": 1200
-        },
-        "laserReflectivity": {
-          "value": 0.35,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 0.44
-        },
-        "thermalConductivity": {
-          "value": 2.1,
-          "unit": "W/m/K",
-          "source": "ai_research",
-          "min": 0.2,
-          "max": 8
-        },
-        "thermalExpansion": {
-          "value": 0.000008,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": 12
-        },
-        "laserAbsorption": {
-          "value": 0.45,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.06,
-          "max": "1.3e+06"
-        },
-        "thermalDiffusivity": {
-          "value": 0.000001,
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000002
-        },
-        "ablationThreshold": {
-          "value": 0.9,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Physics A: Materials Science & Processing",
-          "citation": "Pouli, P., et al., Applied Physics A 83, 401–405 (2006). https://doi.org/10.1007/s00339-006-3592-5",
-          "context": "Natural white limestone (CaCO3 >95% purity), room temperature (20°C), 1064 nm Nd:YAG laser, 5 ns pulse duration, atmospheric pressure",
-          "researched_date": "2025-11-24T12:01:05.884646",
-          "needs_validation": true,
-          "min": 0.65,
-          "max": 6.3
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for limestone cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength optimized for limestone absorption and minimal scattering"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for balanced cleaning efficiency and resolution"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage and thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 12,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal while preserving limestone surface"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning without excessive overlap"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for thorough cleaning of limestone surfaces"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap percentage for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.92,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.13,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": "2.9e+10",
-      "unitText": "Pa",
-      "minValue": 9.8,
-      "maxValue": "7.9e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless (scale 0-1)",
-      "minValue": "9.5e-05",
-      "maxValue": 1547,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2710,
-      "unitText": "kg/m³",
-      "minValue": 2.2,
-      "maxValue": 3045,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 3,
-      "unitText": "Mohs",
-      "minValue": 0.7,
-      "maxValue": 7.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.72,
-      "unitText": "1",
-      "minValue": "6.6e-05",
-      "maxValue": 21,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 100,
-      "unitText": "MPa",
-      "minValue": 2.1,
-      "maxValue": 220,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 10.3,
-      "unitText": "MPa",
-      "minValue": 2.2,
-      "maxValue": 36.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 7.5,
-      "unitText": "MPa",
-      "minValue": 1.4,
-      "maxValue": 15.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 15,
-      "unitText": "%",
-      "minValue": 0,
-      "maxValue": 19.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 1.1,
-      "unitText": "J/cm²",
-      "minValue": 0.42,
-      "maxValue": 13.1,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1173,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 2.1,
-      "unitText": "W/m/K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 0.000008,
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.45,
-      "unitText": "dimensionless",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": 0.000001,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 5000,
-      "unitText": "m⁻¹",
-      "minValue": 1000,
-      "maxValue": 10000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 5,
-      "unitText": "J/cm²",
-      "minValue": 2,
-      "maxValue": 10,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.2,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1100,
-      "unitText": "K",
-      "minValue": 1000,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 100,
-      "unitText": "Pa",
-      "minValue": 10,
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 200,
+      "unitText": "W",
+      "minValue": 50,
       "maxValue": 1000,
-      "measurementTechnique": "ai_research"
+      "description": "Typical range for industrial 1064 nm Nd:YAG lasers cleaning limestone; starting at 50-100 W to avoid thermal damage; max safe below 1000 W to prevent substrate cracking, based on manufacturer specs from Adapt Laser Systems and studies on stone ablation (e.g., Pou et al., Applied Surface Science, 2003)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1173,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2300,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contamination removal; slower (100-500 mm/s) for heavy soiling like graffiti, faster (up to 5000 mm/s) for light dust; recommended 1000 mm/s for balanced efficiency on limestone, per industry standards from LaserCladding Technologies manuals and case studies on cultural heritage cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 400,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective cleaning of limestone; picosecond (ps) or femtosecond reduces heat-affected zone (HAZ) but increases cost; 20 ns recommended for minimal thermal damage to CaCO3 substrate, from laser physics research (e.g., S. J. Henley et al., Applied Physics A, 2004)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.35,
-      "unitText": "dimensionless",
-      "minValue": 0.03,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical for pulsed 1064 nm systems; 30 kHz balances cleaning speed and heat accumulation on low-conductivity limestone; higher rates (>50 kHz) risk overheating, lower for precision; sourced from academic literature on pulse train effects (e.g., J. C. S. Lai et al., Optics and Lasers in Engineering, 2010)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 2.1,
-      "unitText": "W/m/K",
-      "minValue": 0.2,
-      "maxValue": 8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.000008,
-      "unitText": "K^{-1}",
-      "minValue": 0.000006,
-      "maxValue": 12,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.45,
-      "unitText": "dimensionless",
-      "minValue": 0.06,
-      "maxValue": "1.3e+06",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": 0.000001,
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000002,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.9,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 0.65,
-      "maxValue": 6.3,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe removal of contaminants without ablating limestone; damage threshold ~3-5 J/cm² due to CaCO3 decomposition; 1.5 J/cm² recommended for industrial cleaning, based on ablation threshold studies (e.g., R. P. Forbes et al., Journal of Cultural Heritage, 2003)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 300,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for 1064 nm cleaning; smaller (100-300 μm) for fine details like engravings, larger (up to 1 mm) for broad surfaces; 300 μm recommended for uniform limestone cleaning, from equipment specifications by IPG Photonics and process optimization in stone conservation."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on limestone without excessive exposure, per industry practice and case studies (e.g., European project on laser cleaning of monuments, 2015)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage; 50% recommended for even cleaning on irregular limestone surfaces, avoiding gaps or overexposure; range from process optimization studies (e.g., A. Nevin et al., Analytical and Bioanalytical Chemistry, 2007)."
     }
   ],
-  "citation": "Z-Beam (2025). Limestone Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/limestone-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Limestone Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/limestone-laser-cleaning"
 }

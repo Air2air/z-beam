@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/wood/hardwood/walnut-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Walnut Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/walnut-laser-cleaning
 #
@@ -13,50 +13,20 @@ Basic,Info,Name,Walnut,,,,,Material name
 Basic,Info,Category,wood,,,,,Material category
 Basic,Info,Subcategory,hardwood,,,,,Material subcategory
 Basic,Info,Slug,walnut-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,40,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,100,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,20,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Machine setting: fluenceThreshold
-Machine,Settings,pulseWidth,100,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,youngsModulus,10.1,GPa,3.3,11235,ai_research,Material property: youngsModulus
-Property,material_characteristics,oxidationResistance,573,K,0.1,549,ai_research,Material property: oxidationResistance
-Property,material_characteristics,density,610,kg/m³,0.4,955,ai_research,Material property: density
-Property,material_characteristics,hardness,4494,N,399,12590,ai_research,Material property: hardness
-Property,material_characteristics,corrosionResistance,0.72,dimensionless,0,4.7,ai_research,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,52.2,MPa,20,80,ai_research,Material property: compressiveStrength
-Property,material_characteristics,flexuralStrength,96.5,MPa,19.1,148,ai_research,Material property: flexuralStrength
-Property,material_characteristics,tensileStrength,82.3,MPa,9.5,209,ai_research,Material property: tensileStrength
-Property,material_characteristics,fractureToughness,0.38,MPa m^{1/2},0.26,2,ai_research,Material property: fractureToughness
-Property,material_characteristics,porosity,0.63,,0.39,0.79,ai_research,Material property: porosity
-Property,material_characteristics,laserDamageThreshold,4.8,J/cm²,0.0025,5.4,scientific_literature,Material property: laserDamageThreshold
-Property,material_characteristics,thermalDestruction,623,K,226,642,ai_research,Material property: thermalDestruction
-Property,material_characteristics,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,material_characteristics,laserReflectivity,0.09,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,material_characteristics,thermalConductivity,0.15,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,material_characteristics,thermalExpansion,3.5e-05,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,material_characteristics,laserAbsorption,420000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,material_characteristics,thermalDiffusivity,1.3e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
-Property,laser_material_interaction,absorptionCoefficient,500000,m⁻¹,100000,1000000,ai_research,Material property: absorptionCoefficient
-Property,laser_material_interaction,laserDamageThreshold,3.5,J/cm²,1,10,ai_research,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalShockResistance,1.2,MW/m,0.5,2.5,ai_research,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: reflectivity
-Property,laser_material_interaction,thermalDestructionPoint,523,K,473,673,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,vaporPressure,500,Pa,100,2000,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestruction,623,K,226,642,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,specificHeat,1380,J/(kg·K),1.3,1554,ai_research,Material property: specificHeat
-Property,laser_material_interaction,laserReflectivity,0.09,dimensionless,0.02,0.44,ai_research,Material property: laserReflectivity
-Property,laser_material_interaction,thermalConductivity,0.15,W/m·K,0.04,0.4,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,3.5e-05,K^{-1},0.000001,5.8e-05,ai_research,Material property: thermalExpansion
-Property,laser_material_interaction,laserAbsorption,420000,m^{-1},0.78,336000,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,thermalDiffusivity,1.3e-07,m²/s,0,0,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.1,J/cm²,0.51,2.6,scientific_literature,Material property: ablationThreshold
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,40,W,1,120,,Optimal average power for walnut surface cleaning without charring
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-infrared wavelength for optimal absorption in walnut lignin and contaminants
+Machine,Settings,spotSize,100,μm,0.1,500,,Beam spot diameter for precise cleaning control on walnut surface
+Machine,Settings,repetitionRate,20,kHz,1,200,,Optimal repetition rate for efficient cleaning with thermal management
+Machine,Settings,fluenceThreshold,2.5,J/cm²,0.3,4.5,,Fluence threshold for effective contaminant removal without wood damage
+Machine,Settings,pulseWidth,100,ns,0.1,1000,,Nanosecond pulse duration for controlled ablation of surface contaminants
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform cleaning coverage
+Machine,Settings,passCount,2,passes,1,10,,Number of cleaning passes for complete contaminant removal
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal beam overlap for uniform cleaning without excessive thermal buildup
+Machine,Settings,power,50,W,20,150,,"Typical range for delicate wood cleaning to avoid thermal damage; starting at 50 W for light contamination on walnut, max 150 W before charring risk. Based on manufacturer specs from CleanLaser systems for organic materials and studies on wood ablation (e.g., Ancona et al., 2010, Optics Express)."
+Machine,Settings,scan_speed,1500,mm/s,10,5000,,"Effective speeds for contamination removal; 1500 mm/s recommended for optimal balance on walnut to prevent overheating. Lower for heavy contamination (500-1000 mm/s), higher for light (2000-3000 mm/s). From industry standards in laser cleaning manuals (e.g., IPG Photonics guidelines) and case studies on wood surface prep."
+Machine,Settings,pulse_width,30,ns,0.1,1000,,"Nanosecond regime preferred for cost-effective cleaning of walnut; 30 ns recommended to minimize heat-affected zone (HAZ) due to walnut's low thermal conductivity (~0.17 W/mK). Picosecond (ps) or femtosecond (fs) for ultra-precise but less common industrially. Supported by laser physics research (e.g., Jaeschke et al., 2016, Journal of Laser Applications)."
+Machine,Settings,repetition_rate,40,kHz,1,200,,"Typical for pulsed cleaning; 40 kHz recommended for walnut to balance speed and heat accumulation—higher rates (>50 kHz) risk buildup on low-conductivity wood. Trade-off: faster cleaning but potential charring. From academic literature on wood laser processing (e.g., Pouli et al., 2015, Applied Physics A)."
+Machine,Settings,energy_density,0.5,J/cm²,0.1,20,,"Fluence range for safe ablation of contaminants; 0.5 J/cm² recommended for walnut to remove surface layers without damage (threshold ~1.5-2 J/cm² for charring at 1064 nm). Conservative due to walnut's moderate reflectivity (~40% at IR). From ablation threshold studies (e.g., Batani et al., 2006, Applied Surface Science)."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for controlled cleaning; 200 μm recommended for walnut to allow fine surface preparation without excessive heat spread. Smaller (100-200 μm) for detail, larger (300-500 μm) for broad areas. Per equipment specs from Adapt Laser Systems and industry standards for wood applications."
+Machine,Settings,pass_count,2,passes,1,10,,"Typically 1-3 passes for complete removal on wood; 2 passes recommended for walnut to ensure uniform cleaning of contaminants without substrate damage. Multi-pass for heavy soiling. Based on industry practice and case studies (e.g., laser cleaning of wooden artifacts, Vergés-Belmin, 2005, Studies in Conservation)."
+Machine,Settings,overlap_ratio,60,%,10,90,,"Ensures uniform coverage; 60% recommended for walnut to avoid gaps or overexposure, considering its density and low thermal diffusion. Typical 30-80% range from process optimization. From studies on scan strategies (e.g., Kumar et al., 2018, Optics and Lasers in Engineering)."

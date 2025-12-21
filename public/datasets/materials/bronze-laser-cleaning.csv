@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/metal/non-ferrous/bronze-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Bronze Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/bronze-laser-cleaning
 #
@@ -13,53 +13,20 @@ Basic,Info,Name,Bronze,,,,,Material name
 Basic,Info,Category,metal,,,,,Material category
 Basic,Info,Subcategory,non-ferrous,,,,,Material subcategory
 Basic,Info,Slug,bronze-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,8.8,g/cm³,0.53,22.6,,Material property: density
-Property,material_characteristics,porosity,0.5,%,0,15,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,0.8,μm,0.4,150,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,400,MPa,3,3000,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,110,GPa,5,600,,Material property: youngsModulus
-Property,material_characteristics,hardness,100,HB,0.5,3500,,Material property: hardness
-Property,material_characteristics,flexuralStrength,450,MPa,2.5,1050,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,8,scale 1-10,200,1200,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,7,scale 1-10,1,10,,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,345,MPa,8,2625,ai_research,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,52,MPa m^{0.5},0.67,157,ai_research,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,2e-7,Ω·m,0,0.000002,ai_research,Material property: electricalResistivity
-Property,material_characteristics,boilingPoint,2840,K,929,6454,ai_research,Material property: boilingPoint
-Property,material_characteristics,electricalConductivity,7000000,S/m,659300,6.6e+07,ai_research,Material property: electricalConductivity
-Property,material_characteristics,meltingPoint,950,°C,133,3865,ai_research,Material property: meltingPoint
-Property,material_characteristics,thermalDestruction,1223,K,256,3859,ai_research,Material property: thermalDestruction
-Property,material_characteristics,laserAbsorption,7.8e+07,m^{-1},0.02,4.2e+08,ai_research,Material property: laserAbsorption
-Property,material_characteristics,absorptivity,0.35,dimensionless,0.02,0.6,ai_research,Material property: absorptivity
-Property,material_characteristics,reflectivity,0.65,,0.35,1,ai_research,Material property: reflectivity
-Property,material_characteristics,vaporPressure,0.14,Pa,0,106391,ai_research,Material property: vaporPressure
-Property,material_characteristics,thermalDestructionPoint,950,°C,133,3865,ai_research,Material property: thermalDestructionPoint
-Property,laser_material_interaction,thermalConductivity,60,W/(m·K),7,430,,Material property: thermalConductivity
-Property,laser_material_interaction,thermalExpansion,18,×10^{-6}/K,0.5,33,,Material property: thermalExpansion
-Property,laser_material_interaction,thermalDiffusivity,22,mm²/s,0.06,174,,Material property: thermalDiffusivity
-Property,laser_material_interaction,specificHeat,380,J/(kg·K),100,2000,,Material property: specificHeat
-Property,laser_material_interaction,thermalShockResistance,150,W/m·K,50,400,,Material property: thermalShockResistance
-Property,laser_material_interaction,laserReflectivity,0.65,,5,99.9,,Material property: laserReflectivity
-Property,laser_material_interaction,absorptionCoefficient,5.5,×10^6 /m,100000,50000000,,Material property: absorptionCoefficient
-Property,laser_material_interaction,ablationThreshold,2.5,J/cm²,2,8,,Material property: ablationThreshold
-Property,laser_material_interaction,laserDamageThreshold,1.8,J/cm²,0.1,20,,Material property: laserDamageThreshold
-Property,laser_material_interaction,thermalDestruction,1223,K,256,3859,ai_research,Material property: thermalDestruction
-Property,laser_material_interaction,laserAbsorption,7.8e+07,m^{-1},0.02,4.2e+08,ai_research,Material property: laserAbsorption
-Property,laser_material_interaction,absorptivity,0.35,dimensionless,0.02,0.6,ai_research,Material property: absorptivity
-Property,laser_material_interaction,reflectivity,0.65,,0.35,1,ai_research,Material property: reflectivity
-Property,laser_material_interaction,vaporPressure,0.14,Pa,0,106391,ai_research,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestructionPoint,950,°C,133,3865,ai_research,Material property: thermalDestructionPoint
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for Bronze oxide removal without substrate damage
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength with good absorption in Bronze oxides and moderate substrate absorption
+Machine,Settings,spotSize,50,μm,0.1,500,,Optimal spot diameter for balancing cleaning efficiency and processing speed
+Machine,Settings,repetitionRate,50,kHz,1,200,,High repetition rate for efficient cleaning coverage while maintaining pulse energy
+Machine,Settings,energyDensity,5.1,J/cm²,0.1,20,,Fluence threshold for effective Bronze oxide removal while preserving substrate
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Nanosecond pulse duration for efficient oxide layer ablation with minimal thermal diffusion
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Optimal scanning speed for uniform oxide removal without substrate damage
+Machine,Settings,passCount,2,passes,1,10,,Recommended number of passes for complete oxide removal with safety margin
+Machine,Settings,overlapRatio,50,%,10,90,,Optimal pulse overlap for uniform cleaning coverage without excessive thermal buildup
+Machine,Settings,power,200,W,50,1000,,"Typical range for industrial 1064 nm fiber lasers cleaning metals like bronze; starting at 200W balances efficiency and safety to avoid overheating due to bronze's high reflectivity and thermal conductivity (~100-300 W/m·K). Max limited to prevent substrate melting (~950°C). Source: IPG Photonics YLR series specs and studies on copper alloys (e.g., J. Laser Appl. 2018)."
+Machine,Settings,scan_speed,2000,mm/s,10,5000,,"Effective range for contaminant removal without excessive heat buildup; slower (500-1500 mm/s) for heavy oxidation, faster (2000-5000 mm/s) for light dirt. Recommended 2000 mm/s for optimal bronze cleaning to ensure uniform ablation of contaminants. Source: Industry standards from Laserax and Adapt Laser Systems manuals."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred for cost-effective cleaning of reflective metals; 5-20 ns minimizes heat-affected zone (HAZ <10 μm) compared to longer pulses, while picosecond (ps) or femtosecond (fs) reduce thermal damage further but increase cost. 20 ns typical for 1064 nm Nd:YAG on bronze. Source: Laser physics research (Opt. Lasers Eng. 2015; ablation studies on Cu-Sn alloys)."
+Machine,Settings,repetition_rate,30,kHz,1,200,,Standard for pulsed cleaning to achieve high throughput; 10-50 kHz for bronze to balance speed and heat accumulation (higher rates risk melting due to poor IR absorption). Trade-off: higher freq accelerates cleaning but requires faster scans. Recommended 30 kHz. Source: Academic literature (Appl. Surf. Sci. 2019; metal cleaning optimization).
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for removing contaminants (e.g., oxides, oils) below bronze damage threshold (~2-4 J/cm² for ablation onset); conservative 0.5-1.5 J/cm² for light cleaning, up to 3 J/cm² for heavy. Recommended 1.5 J/cm² safe for surface prep. Accounts for bronze's reflectivity (~60-70% at 1064 nm). Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2017; Cu alloys)."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter range for precise control; smaller (100-200 μm) for detailed bronze artifacts, larger (200-500 μm) for industrial surfaces. Recommended 200 μm for uniform energy distribution on bronze without pinpoint damage. Source: Equipment specs from Coherent and Trumpf laser cleaners."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for stubborn layers like patina on bronze; recommended 2 passes ensures complete removal with minimal risk to substrate integrity. Source: Industry case studies (e.g., heritage cleaning in Stud. Conserv. 2020; industrial reports from Laser Cleaning Inc.)."
+Machine,Settings,overlap_ratio,50,%,10,90,,"Ensures uniform coverage without gaps or over-ablation; 30-50% for large areas, 50-80% for fine uniformity on bronze to prevent uneven heating. Recommended 50% for balanced process efficiency. Source: Process optimization studies (Opt. Laser Technol. 2016; scanning parameter effects on metals)."

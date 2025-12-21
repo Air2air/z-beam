@@ -23,12 +23,12 @@ description: Solder-flux contamination forms during electronics soldering operat
   strong bonding dependent from humidity, posing removal challenges like chemical resistance, yet laser cleaning effectively
   ablates it precisely, without damaging the underlying materials.
 relationships:
-  regulatory_standards:
+  regulatoryStandards:
   - type: regulatory_standards
     id: osha-ppe-requirements
   - type: regulatory_standards
     id: ansi-z136-1-laser-safety
-  visual_characteristics:
+  visualCharacteristics:
     appearance_on_categories:
       ceramic:
         appearance: Flux residue appears as a crusty, dull coating in white, yellow, or brown, often masking the ceramic's
@@ -99,7 +99,7 @@ relationships:
           appear stained or waxy.
         coverage: Coverage is generally sparse and spotty, limited to contact points, with high variation due to wood absorption.
         pattern: It tends to form irregular patches or streaks where flux was accidentally applied, with no uniform distribution.
-  laser_properties:
+  laserProperties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -190,7 +190,7 @@ relationships:
   prohibited_materials:
   - Plastics
   - Optical Components
-  safety_data: &id001
+  safetyData: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -283,8 +283,8 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: lubricant
-safety_data: *id001
-removal_by_material:
+safetyData: *id001
+removalByMaterial:
   brass:
     laser_parameters:
       wavelength:

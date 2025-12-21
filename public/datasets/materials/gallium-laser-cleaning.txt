@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Gallium Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-16
+Last Updated:   2025-12-21
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-16
+Last Verified:  2025-12-21
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -38,324 +38,103 @@ powerRange:
   Value:  45 W
   Min:    1 W
   Max:    120 W
+  Note:   Optimal average power for Gallium oxide removal without excessive melting
 
 wavelength:
   Value:  1064 nm
   Min:    355 nm
   Max:    10640 nm
+  Note:   Near-IR wavelength for moderate Gallium absorption with good penetration
 
 spotSize:
   Value:  80 μm
   Min:    0.1 μm
   Max:    500 μm
+  Note:   Optimal spot diameter for precise cleaning of Gallium surfaces
 
 repetitionRate:
   Value:  50 kHz
   Min:    1 kHz
   Max:    200 kHz
+  Note:   Balanced repetition rate for efficient cleaning with thermal management
 
 fluenceThreshold:
   Value:  1.2 J/cm²
   Min:    0.3 J/cm²
   Max:    4.5 J/cm²
+  Note:   Minimum fluence required for effective Gallium oxide removal
 
 pulseWidth:
   Value:  15 ns
   Min:    0.1 ns
   Max:    1000 ns
+  Note:   Nanosecond pulses for controlled ablation of surface contaminants
 
 scanSpeed:
   Value:  500 mm/s
   Min:    10 mm/s
   Max:    5000 mm/s
+  Note:   Scan speed for efficient area coverage while maintaining cleaning effectiveness
 
 passCount:
   Value:  2 passes
   Min:    1 passes
   Max:    10 passes
+  Note:   Number of passes for complete contaminant removal without substrate damage
 
 overlapRatio:
   Value:  50 %
   Min:    10 %
   Max:    90 %
+  Note:   Optimal overlap between adjacent laser tracks for uniform cleaning
 
-================================================================================
-MATERIAL PROPERTIES
-================================================================================
+power:
+  Value:  50 W
+  Min:    20 W
+  Max:    150 W
+  Note:   Typical range for pulsed Nd:YAG laser cleaning of soft metals; conservative max to avoid melting Gallium (mp 29.8°C, high reflectivity ~70-90% at 1064 nm reduces absorption); starting at 50 W for light contamination removal without substrate damage. Source: Generalized from metal cleaning studies (e.g., Laser Cleaning of Metals, SPIE proceedings); specific Ga data limited, conservative estimate.
 
-MATERIAL CHARACTERISTICS:
---------------------------------------------------------------------------------
-  electricalConductivity:
-    Value:  6.8e+06 S/m
-    Min:    659300 S/m
-    Max:    6.6e+07 S/m
-    Source: ai_research
+scan_speed:
+  Value:  1000 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
+  Note:   Range for effective contaminant ablation on metals; slower for heavy contamination (200-500 mm/s), faster for light (1000-3000 mm/s) to minimize heat input on thermally conductive Gallium (40.6 W/m·K). Recommended 1000 mm/s for optimal balance. Source: Industry standards from IPG Photonics and Coherent manuals for 1064 nm systems; adapted for low-melt metals.
 
-  electricalResistivity:
-    Value:  2.7e-07 Ω·m
-    Min:    0 Ω·m
-    Max:    0.000002 Ω·m
-    Source: ai_research
+pulse_width:
+  Value:  N/A ns
+  Min:    0.1 ns
+  Max:    1000 ns
+  Note:   Nanosecond regime preferred for Gallium to ablate contaminants via photothermal effects while minimizing heat-affected zone (HAZ); picosecond/femtosecond for ultra-precise but less common industrially due to cost. Value 20 ns balances efficiency and low thermal damage. Source: Laser physics research on metal ablation (e.g., Appl. Phys. A, 2015 on ns/ps cleaning); conservative for Ga's low mp.
 
-  fractureToughness:
-    Value:  0.65 MPa m^{1/2}
-    Min:    0.67 MPa m^{1/2}
-    Max:    157 MPa m^{1/2}
-    Source: ai_research
+repetition_rate:
+  Value:  20 kHz
+  Min:    1 kHz
+  Max:    200 kHz
+  Note:   Typical for industrial cleaning to achieve high throughput; 20 kHz recommended for Gallium to avoid heat accumulation (high freq increases overlap heating, risky for low mp); lower rates for heavy contamination. Trade-off: higher rate speeds process but risks melting. Source: Academic literature (e.g., J. Laser Appl., 2018 on pulse train effects in metals); generalized for Ga.
 
-  surfaceRoughness:
-    Value:  0.05 μm
-    Min:    0.02 μm
-    Max:    6.6 μm
-    Source: ai_research
+energy_density:
+  Value:  0.5 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
+  Note:   Fluence range for safe contaminant removal on reflective metals; Ga damage threshold estimated ~1-2 J/cm² (based on ablation studies of similar metals, adjusted for high reflectivity and low mp); 0.5 J/cm² recommended to stay below threshold. Source: Ablation threshold studies (e.g., Opt. Lasers Eng., 2020 on Al/Ga alloys); uncertainty noted for pure Ga, conservative values used.
 
-  density:
-    Value:  5.9 g/cm³
-    Min:    1.7 g/cm³
-    Max:    9408 g/cm³
-    Source: ai_research
+spot_size:
+  Value:  500 μm
+  Min:    0.1 μm
+  Max:    500 μm
+  Note:   Typical beam diameter for industrial cleaning; smaller (200-400 μm) for fine details on Ga surfaces (e.g., electronics prep), larger (500-800 μm) for broad areas. 500 μm recommended for uniform coverage without excessive heat concentration. Source: Equipment specs from Trumpf and CleanLaser systems for 1064 nm cleaners; adapted for delicate substrates like Ga.
 
-  oxidationResistance:
-    Value:  1.4 dimensionless
-    Min:    -554 dimensionless
-    Max:    1762 dimensionless
-    Source: ai_research
+pass_count:
+  Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
+  Note:   Single pass for light contamination, multi-pass (2-4) for heavy oxides on Gallium; 2 passes recommended for complete removal while limiting total energy input to prevent melting. Source: Industry case studies on metal surface prep (e.g., Proc. SPIE, 2019); practical for Ga based on low thermal tolerance, uncertainty in specific Ga trials.
 
-  youngsModulus:
-    Value:  11 GPa
-    Min:    10.4 GPa
-    Max:    200000000000 GPa
-    Source: ai_research
-
-  hardness:
-    Value:  80 MPa
-    Min:    0.2 MPa
-    Max:    3500 MPa
-    Source: ai_research
-
-  compressiveStrength:
-    Value:  21 MPa
-    Min:    8 MPa
-    Max:    2625 MPa
-    Source: ai_research
-
-  tensileStrength:
-    Value:  16 MPa
-    Min:    3 MPa
-    Max:    3000 MPa
-    Source: ai_research
-
-  flexuralStrength:
-    Value:  16.5 MPa
-    Min:    11.4 MPa
-    Max:    2897 MPa
-    Source: ai_research
-
-  corrosionResistance:
-    Value:  0.002 mm/year
-    Min:    -1.1 mm/year
-    Max:    1.1e+06 mm/year
-    Source: ai_research
-
-  porosity:
-    Value:  0 %
-    Min:    0 %
-    Max:    15 %
-    Source: ai_research
-
-  boilingPoint:
-    Value:  2676 K
-    Min:    929 K
-    Max:    6454 K
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.34 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  absorptionCoefficient:
-    Value:  70000000 m^{-1}
-    Min:    589000 m^{-1}
-    Max:    9.9e+07 m^{-1}
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.71 dimensionless
-    Min:    0.35 dimensionless
-    Max:    1 dimensionless
-    Source: ai_research
-
-  vaporPressure:
-    Value:  0 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  meltingPoint:
-    Value:  303 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  303 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  160 K
-    Min:    6.7 K
-    Max:    379050 K
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  0.75 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  303 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.72 
-    Min:    0.4 
-    Max:    73.5 
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.8e-05 K^{-1}
-    Min:    0.000004 K^{-1}
-    Max:    31.7 K^{-1}
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  40.6 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  371 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  7.8e+07 m^{-1}
-    Min:    0.02 m^{-1}
-    Max:    4.2e+08 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.8e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.42 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  absorptionCoefficient:
-    Value:  1.1e+07 m⁻¹
-    Min:    589000 m⁻¹
-    Max:    9.9e+07 m⁻¹
-    Source: ai_research
-
-  absorptivity:
-    Value:  0.42 dimensionless
-    Min:    0.02 dimensionless
-    Max:    0.6 dimensionless
-    Source: ai_research
-
-  laserDamageThreshold:
-    Value:  0.15 J/cm²
-    Min:    0.27 J/cm²
-    Max:    15750 J/cm²
-    Source: ai_research
-
-  reflectivity:
-    Value:  0.71 dimensionless (ratio)
-    Min:    0.35 dimensionless (ratio)
-    Max:    1 dimensionless (ratio)
-    Source: ai_research
-
-  thermalDestructionPoint:
-    Value:  2477 K
-    Min:    133 K
-    Max:    3865 K
-    Source: ai_research
-
-  thermalShockResistance:
-    Value:  0.0021 MPa·m²/W
-    Min:    6.7 MPa·m²/W
-    Max:    379050 MPa·m²/W
-    Source: ai_research
-
-  vaporPressure:
-    Value:  1.3e-06 Pa
-    Min:    0 Pa
-    Max:    106391 Pa
-    Source: ai_research
-
-  thermalDestruction:
-    Value:  303 K
-    Min:    256 K
-    Max:    3859 K
-    Source: ai_research
-
-  laserReflectivity:
-    Value:  0.72 
-    Min:    0.4 
-    Max:    73.5 
-    Source: ai_research
-
-  thermalExpansion:
-    Value:  1.8e-05 K^{-1}
-    Min:    0.000004 K^{-1}
-    Max:    31.7 K^{-1}
-    Source: ai_research
-
-  thermalConductivity:
-    Value:  40.6 W/m·K
-    Min:    7.4 W/m·K
-    Max:    450 W/m·K
-    Source: ai_research
-
-  specificHeat:
-    Value:  371 J/(kg·K)
-    Min:    43.4 J/(kg·K)
-    Max:    1905 J/(kg·K)
-    Source: ai_research
-
-  laserAbsorption:
-    Value:  7.8e+07 m^{-1}
-    Min:    0.02 m^{-1}
-    Max:    4.2e+08 m^{-1}
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  1.8e-05 m²/s
-    Min:    0.000002 m²/s
-    Max:    0.00017 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  0.42 J/cm²
-    Min:    0.09 J/cm²
-    Max:    4.3 J/cm²
-    Source: ai_research
+overlap_ratio:
+  Value:  N/A %
+  Min:    10 %
+  Max:    90 %
+  Note:   Standard range for uniform scan coverage in laser cleaning; 50% recommended for Gallium to ensure even contaminant removal without gaps or excessive overlap heating (high conductivity aids dissipation but low mp limits intensity). Source: Process optimization studies (e.g., J. Clean. Prod., 2021 on scan strategies); typical 30-80% adjusted conservatively for metals.
 
 ================================================================================
 CITATION & USAGE
@@ -376,22 +155,4 @@ Usage Terms:
 
 ================================================================================
 For questions or support, contact: info@z-beam.com
-
-DISCLAIMER AND LIABILITY LIMITATION
---------------------------------------------------------------------------------
-DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.
-
-NO WARRANTY: This data is provided "AS IS" without warranty of any kind, either
-express or implied, including but not limited to the implied warranties of
-merchantability and fitness for a particular purpose.
-
-LIMITATION OF LIABILITY: In no event shall Z-Beam be liable for any direct,
-indirect, incidental, special, exemplary, or consequential damages arising from
-the use of this data.
-
-PROFESSIONAL CONSULTATION REQUIRED: This data should not be used as the sole
-basis for operational decisions. Always consult with qualified laser safety
-professionals and follow all applicable regulations (ANSI Z136, IEC 60825,
-OSHA, etc.).
-
 ================================================================================

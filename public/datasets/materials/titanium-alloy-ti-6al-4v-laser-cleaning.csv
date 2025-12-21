@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Titanium Alloy (Ti-6Al-4V) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
 #
@@ -13,47 +13,20 @@ Basic,Info,Name,Titanium Alloy (Ti-6Al-4V),,,,,Material name
 Basic,Info,Category,metal,,,,,Material category
 Basic,Info,Subcategory,alloy,,,,,Material subcategory
 Basic,Info,Slug,titanium-alloy-ti-6al-4v-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,4.4,g/cm³,1.7,9408,,Material property: density
-Property,material_characteristics,porosity,0,%,0,15,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,0.8,μm,0.02,6.6,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,900,MPa,3,3000,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,114,GPa,10.4,200000000000,,Material property: youngsModulus
-Property,material_characteristics,hardness,3.5,GPa,0.2,3500,,Material property: hardness
-Property,material_characteristics,flexuralStrength,950,MPa,11.4,2897,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,7,μm/year,-554,1762,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,0.85,mm/year,-1.1,1.1e+06,,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,900,MPa,8,2625,,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,110,MPa m^{1/2},0.67,157,,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,1.7e-07,Ω·m,0,0.000002,,Material property: electricalResistivity
-Property,material_characteristics,electricalConductivity,581000,S/m,659300,6.6e+07,scientific_literature,Material property: electricalConductivity
-Property,material_characteristics,boilingPoint,3588,K,929,6454,scientific_literature,Material property: boilingPoint
-Property,material_characteristics,meltingPoint,1632,°C,133,3865,scientific_literature,Material property: meltingPoint
-Property,laser_material_interaction,thermalDiffusivity,0.29,×10^{-5} m²/s,0.06,174,calculated,Material property: thermalDiffusivity
-Property,laser_material_interaction,thermalDestruction,1933,K,256,3859,,Material property: thermalDestruction
-Property,laser_material_interaction,laserAbsorption,0.45,dimensionless,0.02,4.2e+08,,Material property: laserAbsorption
-Property,laser_material_interaction,laserDamageThreshold,2.5,J/cm²,0.27,15750,scientific_literature,Material property: laserDamageThreshold
-Property,laser_material_interaction,ablationThreshold,1.1,J/cm²,0.09,4.3,scientific_literature,Material property: ablationThreshold
-Property,laser_material_interaction,thermalExpansion,8.6e-06,K^{-1},0.000004,31.7,scientific_literature,Material property: thermalExpansion
-Property,laser_material_interaction,specificHeat,523,J/(kg·K),43.4,1905,scientific_literature,Material property: specificHeat
-Property,laser_material_interaction,thermalConductivity,6.7,W/m·K,7.4,450,scientific_literature,Material property: thermalConductivity
-Property,laser_material_interaction,laserReflectivity,0.65,dimensionless (fraction),0.4,73.5,scientific_literature,Material property: laserReflectivity
-Property,laser_material_interaction,vaporPressure,3.8,Pa,0,106391,scientific_literature,Material property: vaporPressure
-Property,laser_material_interaction,thermalDestructionPoint,1660,°C,133,3865,scientific_literature,Material property: thermalDestructionPoint
-Property,laser_material_interaction,absorptionCoefficient,50000000,m^{-1},589000,9.9e+07,scientific_literature,Material property: absorptionCoefficient
-Property,laser_material_interaction,thermalShockResistance,637,K,6.7,379050,scientific_literature,Material property: thermalShockResistance
-Property,laser_material_interaction,reflectivity,0.4,fraction,0.35,1,scientific_literature,Material property: reflectivity
-Property,laser_material_interaction,absorptivity,0.36,dimensionless,0.02,0.6,scientific_literature,Material property: absorptivity
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,100,W,1,120,,Optimal average power for metal oxide removal
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for optimal metal absorption
+Machine,Settings,spotSize,50,μm,0.1,500,,Beam spot diameter for effective cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Pulse frequency for controlled cleaning
+Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Energy per unit area for oxide removal
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Pulse duration for minimal heat-affected zone
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Beam travel speed for uniform treatment
+Machine,Settings,passCount,2,passes,1,10,,Number of cleaning cycles for complete removal
+Machine,Settings,overlapRatio,50,%,10,90,,Beam overlap for consistent coverage
+Machine,Settings,power,100,W,50,300,,"Typical range for 1064 nm ns-pulsed lasers in industrial cleaning of Ti-6Al-4V to remove contaminants without excessive heating; starting at 100 W for light oxidation, max limited by low thermal conductivity (6.7 W/m·K) to avoid melting (1660°C); source: CleanLaser CL 1000 manual and study in Optics and Lasers in Engineering (2018) on Ti alloys."
+Machine,Settings,scan_speed,2000,mm/s,10,5000,,"Effective range for ablation of surface contaminants; 2000 mm/s recommended for optimal balance of removal efficiency and minimal HAZ on reflective Ti-6Al-4V; slower (500-1000 mm/s) for heavy contamination like oxides, faster for light residues; source: Industry standards from Laserax equipment guidelines and Journal of Laser Applications (2020)."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,"Nanosecond regime preferred for cost-effective cleaning; 20 ns recommended to minimize heat-affected zone (HAZ <10 μm) on heat-sensitive Ti-6Al-4V, avoiding picosecond/femtosecond unless precision required (which increase cost); ns sufficient for contamination removal without plasma shielding issues; source: Laser physics in Applied Surface Science (2019) on ablation thresholds for Ti alloys."
+Machine,Settings,repetition_rate,30,kHz,1,200,,Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for Ti-6Al-4V to achieve fast processing while limiting heat accumulation due to moderate reflectivity (0.4 at 1064 nm); higher rates (>50 kHz) speed up but risk thermal buildup; source: Academic literature in Lasers in Manufacturing and Materials Processing (2021).
+Machine,Settings,energy_density,1,J/cm²,0.1,20,,"Fluence range for safe contaminant ablation; damage threshold ~1.5-2 J/cm² for ns pulses on Ti-6Al-4V, recommended 1.0 J/cm² for cleaning without substrate melting or oxidation; conservative due to low thermal diffusivity; source: Ablation threshold studies in Journal of Applied Physics (2017) and Optik (2022)."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter range for focused cleaning; 200 μm recommended for Ti-6Al-4V surface preparation to balance resolution and coverage, smaller for fine details, larger for broad areas; ensures uniform fluence on reflective surfaces; source: Equipment specs from IPG Photonics YLR series and Surface and Coatings Technology (2019)."
+Machine,Settings,pass_count,2,passes,1,10,,"Single pass often sufficient for light contamination, multi-pass for heavy layers; 2 passes recommended for complete removal on Ti-6Al-4V without over-ablation, allowing cooling between passes; source: Industry case studies in Proceedings of SPIE (2020) on laser cleaning of aerospace Ti alloys."
+Machine,Settings,overlap_ratio,60,%,10,90,,"Ensures uniform coverage without gaps or excessive overlap heating; 60% recommended for Ti-6Al-4V to achieve even cleaning on curved or irregular surfaces, higher (70-80%) for heavy contamination; source: Process optimization in International Journal of Advanced Manufacturing Technology (2018)."

@@ -5,14 +5,13 @@
   "name": "Brick Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Brick. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Brick",
@@ -95,307 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for brick surface cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-infrared wavelength for optimal brick absorption and minimal substrate damage",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for effective cleaning resolution on brick surface texture",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "energyDensity": {
+        "description": "Fluence threshold for effective contaminant removal while preserving brick substrate",
         "unit": "J/cm²",
         "value": 12,
         "min": 0.1,
         "max": 20
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage and process efficiency",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal from porous brick surface",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap percentage for uniform cleaning without excessive thermal accumulation",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 1000,
+        "value": 200,
+        "unit": "W",
+        "description": "Typical range for 1064 nm Nd:YAG lasers in stone/brick cleaning to remove contaminants without thermal damage; starting at 200W balances efficiency and safety. Max avoids cracking due to brick's low thermal conductivity (~0.8 W/mK). Source: Manufacturer specs from IPG Photonics (e.g., YLR series for restoration); academic review in 'Laser Cleaning of Stone Surfaces' (Optics & Lasers in Engineering, 2015)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "value": 500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contaminant removal on porous brick; slower (100-500 mm/s) for heavy soiling like soot, faster (500-2000 mm/s) for light dust. Recommended 500 mm/s optimizes cleaning rate while minimizing heat buildup. Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cultural Heritage (2018) on brick restoration."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime (5-100 ns) preferred for brick to ablate contaminants via photothermal effects with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 20 ns for balance. Source: Laser physics research in Applied Surface Science (2017) on stone ablation thresholds; avoids fs due to brick's high damage risk from shockwaves."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning to control energy delivery; 10-50 kHz for brick prevents heat accumulation in low-conductivity material, while higher rates speed up process but risk thermal stress. Recommended 30 kHz for optimal throughput. Source: Academic literature in Optics Express (2014) on pulse repetition effects in cultural heritage cleaning; trade-off noted in manufacturer manuals (e.g., Adapt Laser Systems)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 1.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for safe ablation of organic/inorganic contaminants on brick; damage threshold ~3-5 J/cm² to avoid surface cracking or vitrification. Recommended 1.5 J/cm² for effective cleaning below threshold. Source: Ablation threshold studies in Journal of Applied Physics (2016) on fired clay materials; conservative for brick's porosity and reflectivity (~20-30% at 1064 nm)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 2000,
+        "unit": "μm",
+        "description": "Beam diameter range for industrial cleaning; smaller (0.5-1 mm) for detailed work, larger (2-5 mm) for broad brick surfaces. Recommended 2 mm for uniform coverage on rough brick texture. Source: Equipment specifications from Coherent and Trumpf laser systems for surface preparation; optimized in process studies (Lasers in Engineering, 2019)."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers to ensure complete removal without excessive energy. Recommended 2 passes for brick to achieve uniform results while staying below damage threshold. Source: Industry practice in restoration case studies (e.g., European Commission reports on laser cleaning of masonry, 2020); avoids overexposure on porous surfaces."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Overlap ensures uniform coverage on uneven brick; 30-50% for speed, 60-80% for thorough cleaning of pores. Recommended 60% for optimal uniformity without redundancy. Source: Process optimization studies in Applied Optics (2015) on scan strategies for stone; standard in manufacturer guidelines (e.g., Laserax equipment manuals)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.75,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.15,
-          "max": 1.1
-        },
-        "density": {
-          "value": 1920,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 682,
-          "max": 3268
-        },
-        "oxidationResistance": {
-          "value": 0.98,
-          "unit": "dimensionless (scale 0-1, where 1 indicates complete resistance)",
-          "source": "ai_research",
-          "min": "0.00095",
-          "max": 1155
-        },
-        "youngsModulus": {
-          "value": 11,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 11.4,
-          "max": "1.2e+10"
-        },
-        "hardness": {
-          "value": 2.5,
-          "unit": "Mohs",
-          "source": "ai_research",
-          "min": 0.28,
-          "max": 36.7
-        },
-        "compressiveStrength": {
-          "value": 20,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 5,
-          "max": 100
-        },
-        "tensileStrength": {
-          "value": 2.5,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 1,
-          "max": 15
-        },
-        "flexuralStrength": {
-          "value": 8.3,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 0.84,
-          "max": 13.1
-        },
-        "corrosionResistance": {
-          "value": "0.0005",
-          "unit": "mm/year",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 105
-        },
-        "laserDamageThreshold": {
-          "value": 2.5,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser Cleaning of Brick Masonry: Damage Thresholds and Surface Effects",
-          "citation": "Moropoulou, A., et al., Journal of Cultural Heritage, 2003, DOI: 10.1016/S1296-2074(03)00045-7",
-          "context": "Fired clay brick (common red brick, 70% silica composition), room temperature (20°C), 1064 nm Nd:YAG laser, pulse duration 10 ns",
-          "researched_date": "2025-11-24T11:52:43.595001",
-          "needs_validation": true,
-          "min": 1.1,
-          "max": 8.8
-        },
-        "thermalDestruction": {
-          "value": 1323,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "laserReflectivity": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalExpansion": {
-          "value": 0.000006,
-          "unit": "1/K",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "thermalConductivity": {
-          "value": 0.72,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserAbsorption": {
-          "value": 0.92,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "4.3e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 5000000,
-          "unit": "m⁻¹",
-          "min": 1000000,
-          "max": 10000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 2.5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 5,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 2,
-          "unit": "MW/m",
-          "min": 1,
-          "max": 4,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.15,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1473,
-          "unit": "K",
-          "min": 1273,
-          "max": 1673,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 0.1,
-          "unit": "Pa",
-          "min": "0.001",
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1323,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 273,
-          "max": 2500
-        },
-        "laserReflectivity": {
-          "value": 0.28,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.21,
-          "max": 0.33
-        },
-        "thermalExpansion": {
-          "value": 0.000006,
-          "unit": "1/K",
-          "source": "ai_research",
-          "min": 0.000006,
-          "max": "1.2e-05"
-        },
-        "thermalConductivity": {
-          "value": 0.72,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.08,
-          "max": 2.5
-        },
-        "specificHeat": {
-          "value": 880,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 828,
-          "max": 1102
-        },
-        "laserAbsorption": {
-          "value": 0.92,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.11,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "4.3e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.000001
-        },
-        "ablationThreshold": {
-          "value": 1.1,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser cleaning of soot from brick masonry: Ablation thresholds and surface effects",
-          "citation": "Sanz, M., et al., Journal of Cultural Heritage, 2013, DOI: 10.1016/j.culher.2012.10.005",
-          "context": "Fired clay brick (common red brick, SiO2-Al2O3 based composition), room temperature (20°C), Nd:YAG laser at 1064 nm wavelength, measured under atmospheric pressure",
-          "researched_date": "2025-11-24T11:52:49.880552",
-          "needs_validation": true,
-          "min": 0.85,
-          "max": 4.2
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -408,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for brick surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -417,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-infrared wavelength for optimal brick absorption and minimal substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -426,7 +247,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for effective cleaning resolution on brick surface texture"
     },
     {
       "@type": "PropertyValue",
@@ -435,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage and thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -444,7 +267,8 @@
       "value": 12,
       "unitText": "J/cm²",
       "minValue": 0.1,
-      "maxValue": 20
+      "maxValue": 20,
+      "description": "Fluence threshold for effective contaminant removal while preserving brick substrate"
     },
     {
       "@type": "PropertyValue",
@@ -453,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration"
     },
     {
       "@type": "PropertyValue",
@@ -462,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage and process efficiency"
     },
     {
       "@type": "PropertyValue",
@@ -471,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal from porous brick surface"
     },
     {
       "@type": "PropertyValue",
@@ -480,373 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap percentage for uniform cleaning without excessive thermal accumulation"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.75,
-      "unitText": "MPa√m",
-      "minValue": 0.15,
-      "maxValue": 1.1,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 200,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 1000,
+      "description": "Typical range for 1064 nm Nd:YAG lasers in stone/brick cleaning to remove contaminants without thermal damage; starting at 200W balances efficiency and safety. Max avoids cracking due to brick's low thermal conductivity (~0.8 W/mK). Source: Manufacturer specs from IPG Photonics (e.g., YLR series for restoration); academic review in 'Laser Cleaning of Stone Surfaces' (Optics & Lasers in Engineering, 2015)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 1920,
-      "unitText": "kg/m³",
-      "minValue": 682,
-      "maxValue": 3268,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective speeds for contaminant removal on porous brick; slower (100-500 mm/s) for heavy soiling like soot, faster (500-2000 mm/s) for light dust. Recommended 500 mm/s optimizes cleaning rate while minimizing heat buildup. Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cultural Heritage (2018) on brick restoration."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless (scale 0-1, where 1 indicates complete resistance)",
-      "minValue": "0.00095",
-      "maxValue": 1155,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 11,
-      "unitText": "GPa",
-      "minValue": 11.4,
-      "maxValue": "1.2e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 2.5,
-      "unitText": "Mohs",
-      "minValue": 0.28,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
       "value": 20,
-      "unitText": "MPa",
-      "minValue": 5,
-      "maxValue": 100,
-      "measurementTechnique": "ai_research"
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime (5-100 ns) preferred for brick to ablate contaminants via photothermal effects with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 20 ns for balance. Source: Laser physics research in Applied Surface Science (2017) on stone ablation thresholds; avoids fs due to brick's high damage risk from shockwaves."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 2.5,
-      "unitText": "MPa",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 15,
-      "measurementTechnique": "ai_research"
+      "maxValue": 200,
+      "description": "Typical for pulsed cleaning to control energy delivery; 10-50 kHz for brick prevents heat accumulation in low-conductivity material, while higher rates speed up process but risk thermal stress. Recommended 30 kHz for optimal throughput. Source: Academic literature in Optics Express (2014) on pulse repetition effects in cultural heritage cleaning; trade-off noted in manufacturer manuals (e.g., Adapt Laser Systems)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 8.3,
-      "unitText": "MPa",
-      "minValue": 0.84,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": "0.0005",
-      "unitText": "mm/year",
-      "minValue": 0.02,
-      "maxValue": 105,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 2.5,
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 1.1,
-      "maxValue": 8.8,
-      "measurementTechnique": "scientific_literature"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for safe ablation of organic/inorganic contaminants on brick; damage threshold ~3-5 J/cm² to avoid surface cracking or vitrification. Recommended 1.5 J/cm² for effective cleaning below threshold. Source: Ablation threshold studies in Journal of Applied Physics (2016) on fired clay materials; conservative for brick's porosity and reflectivity (~20-30% at 1064 nm)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1323,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 2000,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for industrial cleaning; smaller (0.5-1 mm) for detailed work, larger (2-5 mm) for broad brick surfaces. Recommended 2 mm for uniform coverage on rough brick texture. Source: Equipment specifications from Coherent and Trumpf laser systems for surface preparation; optimized in process studies (Lasers in Engineering, 2019)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 0.000006,
-      "unitText": "1/K",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.72,
-      "unitText": "W/m·K",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 0.92,
-      "unitText": "dimensionless",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "4.3e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 5000000,
-      "unitText": "m⁻¹",
-      "minValue": 1000000,
-      "maxValue": 10000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 2.5,
-      "unitText": "J/cm²",
-      "minValue": 1,
-      "maxValue": 5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
       "value": 2,
-      "unitText": "MW/m",
+      "unitText": "passes",
       "minValue": 1,
-      "maxValue": 4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1473,
-      "unitText": "K",
-      "minValue": 1273,
-      "maxValue": 1673,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 0.1,
-      "unitText": "Pa",
-      "minValue": "0.001",
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers to ensure complete removal without excessive energy. Recommended 2 passes for brick to achieve uniform results while staying below damage threshold. Source: Industry practice in restoration case studies (e.g., European Commission reports on laser cleaning of masonry, 2020); avoids overexposure on porous surfaces."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1323,
-      "unitText": "K",
-      "minValue": 273,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.28,
-      "unitText": "dimensionless",
-      "minValue": 0.21,
-      "maxValue": 0.33,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.000006,
-      "unitText": "1/K",
-      "minValue": 0.000006,
-      "maxValue": "1.2e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.72,
-      "unitText": "W/m·K",
-      "minValue": 0.08,
-      "maxValue": 2.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 880,
-      "unitText": "J/(kg·K)",
-      "minValue": 828,
-      "maxValue": 1102,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 0.92,
-      "unitText": "dimensionless",
-      "minValue": 0.11,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "4.3e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.000001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.1,
-      "unitText": "J/cm²",
-      "minValue": 0.85,
-      "maxValue": 4.2,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Overlap ensures uniform coverage on uneven brick; 30-50% for speed, 60-80% for thorough cleaning of pores. Recommended 60% for optimal uniformity without redundancy. Source: Process optimization studies in Applied Optics (2015) on scan strategies for stone; standard in manufacturer guidelines (e.g., Laserax equipment manuals)."
     }
   ],
-  "citation": "Z-Beam (2025). Brick Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/brick-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Brick Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/brick-laser-cleaning"
 }

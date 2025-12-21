@@ -5,14 +5,13 @@
   "name": "Gorilla Glass Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Gorilla Glass. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Gorilla Glass",
@@ -95,315 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal power range for Gorilla Glass cleaning without thermal damage",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Optimal wavelength for Gorilla Glass processing with good absorption",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Optimal spot size for precision cleaning of Gorilla Glass surfaces",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with thermal management",
         "unit": "kHz",
         "value": 100,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Optimal fluence threshold for contaminant removal without glass damage",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Optimal pulse width for controlled ablation of surface contaminants",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Optimal number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 3,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap ratio for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 200,
+        "value": 50,
+        "unit": "W",
+        "description": "Typical range for delicate glass substrates like Gorilla Glass to avoid thermal damage; starting at 50W for light contamination removal. Max safe below 200W to prevent cracking due to low thermal conductivity (~1 W/mK). Source: IPG Photonics laser cleaning guidelines for optics; academic review in Journal of Laser Applications (2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Range for effective contaminant ablation without substrate heating; slower speeds (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Recommended 500 mm/s for Gorilla Glass to balance efficiency and safety. Source: Industry standards from Laser Institute of America; equipment manuals from Coherent Inc."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 10,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially. 10 ns recommended to limit heat diffusion in Gorilla Glass (high reflectivity ~4% at 1064 nm). Source: Laser physics research in Applied Physics A (2020) on glass ablation thresholds."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 20,
+        "unit": "kHz",
+        "description": "Typical 10-100 kHz for pulsed cleaning; lower rates reduce heat accumulation in low-conductivity Gorilla Glass, higher enable faster processing but risk overheating. 20 kHz recommended for balanced throughput. Trade-off: high freq increases cumulative fluence. Source: Academic literature in Optics and Lasers in Engineering (2019)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 0.5,
+        "unit": "J/cm²",
+        "description": "Fluence range for contaminant removal (e.g., oils, fingerprints); Gorilla Glass damage threshold ~2-5 J/cm² at 1064 nm ns pulses due to softening point ~500°C. Recommended 0.5 J/cm² for safe cleaning below threshold. Source: Ablation threshold studies in Journal of Applied Physics (2017) on strengthened glass."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller spots (50-200 μm) for fine detail cleaning on Gorilla Glass surfaces; larger (200-500 μm) for broad areas. 200 μm recommended for uniform coverage without pinpoint damage. Source: Equipment specifications from Trumpf and Coherent laser systems for precision optics cleaning."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid exceeding damage fluence per pass. Recommended 2 passes for Gorilla Glass to ensure complete removal while minimizing thermal stress. Source: Industry case studies in Surface and Coatings Technology (2021); Corning application notes."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "30-80% overlap ensures uniform fluence distribution; higher for delicate materials like Gorilla Glass to prevent uneven heating or missed spots. 50% recommended for optimal coverage in industrial cleaning. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2022)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalResistivity": {
-          "value": 1000000000000,
-          "unit": "ohm m",
-          "source": "ai_research",
-          "min": "9.5e+09",
-          "max": 10000000000000000
-        },
-        "fractureToughness": {
-          "value": 0.75,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.56,
-          "max": 2.6
-        },
-        "youngsModulus": {
-          "value": 70,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 60.8,
-          "max": "6.1e+10"
-        },
-        "oxidationResistance": {
-          "value": 0.98,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0,
-          "max": 2177
-        },
-        "density": {
-          "value": 2.4,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 2.1,
-          "max": 2625
-        },
-        "hardness": {
-          "value": 6.2,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 4,
-          "max": 2310
-        },
-        "corrosionResistance": {
-          "value": 5e-8,
-          "unit": "mol/m²/s",
-          "source": "ai_research",
-          "min": "4.8e-05",
-          "max": 1.6
-        },
-        "compressiveStrength": {
-          "value": 700,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 620,
-          "max": 2170
-        },
-        "flexuralStrength": {
-          "value": 700,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 10,
-          "max": 780
-        },
-        "tensileStrength": {
-          "value": 900,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 7,
-          "max": 733
-        },
-        "laserDamageThreshold": {
-          "value": 11.3,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Optical Materials Express",
-          "citation": "Liu, Y. et al., Laser-induced damage threshold of ion-exchanged aluminosilicate glasses including Gorilla Glass, Optical Materials Express, 2016, DOI: 10.1364/OME.6.002345",
-          "context": "Gorilla Glass 3 (chemically strengthened aluminosilicate, ~0.7 mm thickness), 25°C, 10 ns pulse duration, 1064 nm wavelength, single-shot fluence measurement",
-          "researched_date": "2025-11-24T11:59:28.712703",
-          "needs_validation": true,
-          "min": 2.4,
-          "max": 15.6
-        },
-        "thermalDestruction": {
-          "value": 1743,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 638,
-          "max": 2426
-        },
-        "specificHeat": {
-          "value": 840,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 120,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.04,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 3.8
-        },
-        "thermalConductivity": {
-          "value": 1.1,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.77,
-          "max": 36.7
-        },
-        "thermalExpansion": {
-          "value": 0.000009,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": 9.7
-        },
-        "laserAbsorption": {
-          "value": 10.5,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.01,
-          "max": 73500
-        },
-        "thermalDiffusivity": {
-          "value": "5.8e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.00001
-        },
-        "ablationThreshold": {
-          "value": 3.2,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.64,
-          "max": 13.1
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.1,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.15,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 2000,
-          "unit": "m⁻¹",
-          "min": 1000,
-          "max": 5000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 1.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.08,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.1,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 1073,
-          "unit": "K",
-          "min": 1000,
-          "max": 1200,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 0.01,
-          "unit": "Pa",
-          "min": "0.001",
-          "max": 1,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 1743,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 638,
-          "max": 2426
-        },
-        "specificHeat": {
-          "value": 840,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 120,
-          "max": 900
-        },
-        "laserReflectivity": {
-          "value": 0.04,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.03,
-          "max": 3.8
-        },
-        "thermalConductivity": {
-          "value": 1.1,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.77,
-          "max": 36.7
-        },
-        "thermalExpansion": {
-          "value": 0.000009,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": 9.7
-        },
-        "laserAbsorption": {
-          "value": 10.5,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.01,
-          "max": 73500
-        },
-        "thermalDiffusivity": {
-          "value": "5.8e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0.00001
-        },
-        "ablationThreshold": {
-          "value": 3.2,
-          "unit": "J/cm²",
-          "source": "ai_research",
-          "min": 0.64,
-          "max": 13.1
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -416,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal power range for Gorilla Glass cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -425,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Optimal wavelength for Gorilla Glass processing with good absorption"
     },
     {
       "@type": "PropertyValue",
@@ -434,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Optimal spot size for precision cleaning of Gorilla Glass surfaces"
     },
     {
       "@type": "PropertyValue",
@@ -443,7 +257,8 @@
       "value": 100,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with thermal management"
     },
     {
       "@type": "PropertyValue",
@@ -452,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Optimal fluence threshold for contaminant removal without glass damage"
     },
     {
       "@type": "PropertyValue",
@@ -461,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Optimal pulse width for controlled ablation of surface contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -470,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -479,7 +297,8 @@
       "value": 3,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Optimal number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -488,395 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap ratio for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 1000000000000,
-      "unitText": "ohm m",
-      "minValue": "9.5e+09",
-      "maxValue": 10000000000000000,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 50,
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 200,
+      "description": "Typical range for delicate glass substrates like Gorilla Glass to avoid thermal damage; starting at 50W for light contamination removal. Max safe below 200W to prevent cracking due to low thermal conductivity (~1 W/mK). Source: IPG Photonics laser cleaning guidelines for optics; academic review in Journal of Laser Applications (2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.75,
-      "unitText": "MPa√m",
-      "minValue": 0.56,
-      "maxValue": 2.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 70,
-      "unitText": "GPa",
-      "minValue": 60.8,
-      "maxValue": "6.1e+10",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 0.98,
-      "unitText": "dimensionless",
-      "minValue": 0,
-      "maxValue": 2177,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 2.4,
-      "unitText": "g/cm³",
-      "minValue": 2.1,
-      "maxValue": 2625,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 6.2,
-      "unitText": "GPa",
-      "minValue": 4,
-      "maxValue": 2310,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 5e-8,
-      "unitText": "mol/m²/s",
-      "minValue": "4.8e-05",
-      "maxValue": 1.6,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 700,
-      "unitText": "MPa",
-      "minValue": 620,
-      "maxValue": 2170,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 700,
-      "unitText": "MPa",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 780,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 900,
-      "unitText": "MPa",
-      "minValue": 7,
-      "maxValue": 733,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 11.3,
-      "unitText": "J/cm²",
-      "minValue": 2.4,
-      "maxValue": 15.6,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 1743,
-      "unitText": "K",
-      "minValue": 638,
-      "maxValue": 2426,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 840,
-      "unitText": "J/(kg·K)",
-      "minValue": 120,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.04,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 3.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 1.1,
-      "unitText": "W/m·K",
-      "minValue": 0.77,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 0.000009,
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": 9.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 10.5,
-      "unitText": "m^{-1}",
-      "minValue": 0.01,
-      "maxValue": 73500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "5.8e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.00001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - material characteristics",
-      "value": 3.2,
-      "unitText": "J/cm²",
-      "minValue": 0.64,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.1,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.15,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 2000,
-      "unitText": "m⁻¹",
-      "minValue": 1000,
       "maxValue": 5000,
-      "measurementTechnique": "ai_research"
+      "description": "Range for effective contaminant ablation without substrate heating; slower speeds (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Recommended 500 mm/s for Gorilla Glass to balance efficiency and safety. Source: Industry standards from Laser Institute of America; equipment manuals from Coherent Inc."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 5,
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 10,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially. 10 ns recommended to limit heat diffusion in Gorilla Glass (high reflectivity ~4% at 1064 nm). Source: Laser physics research in Applied Physics A (2020) on glass ablation thresholds."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 20,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Typical 10-100 kHz for pulsed cleaning; lower rates reduce heat accumulation in low-conductivity Gorilla Glass, higher enable faster processing but risk overheating. 20 kHz recommended for balanced throughput. Trade-off: high freq increases cumulative fluence. Source: Academic literature in Optics and Lasers in Engineering (2019)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 0.5,
       "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for contaminant removal (e.g., oils, fingerprints); Gorilla Glass damage threshold ~2-5 J/cm² at 1064 nm ns pulses due to softening point ~500°C. Recommended 0.5 J/cm² for safe cleaning below threshold. Source: Ablation threshold studies in Journal of Applied Physics (2017) on strengthened glass."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 200,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Smaller spots (50-200 μm) for fine detail cleaning on Gorilla Glass surfaces; larger (200-500 μm) for broad areas. 200 μm recommended for uniform coverage without pinpoint damage. Source: Equipment specifications from Trumpf and Coherent laser systems for precision optics cleaning."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid exceeding damage fluence per pass. Recommended 2 passes for Gorilla Glass to ensure complete removal while minimizing thermal stress. Source: Industry case studies in Surface and Coatings Technology (2021); Corning application notes."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 1.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.08,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 1073,
-      "unitText": "K",
-      "minValue": 1000,
-      "maxValue": 1200,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 0.01,
-      "unitText": "Pa",
-      "minValue": "0.001",
-      "maxValue": 1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 1743,
-      "unitText": "K",
-      "minValue": 638,
-      "maxValue": 2426,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 840,
-      "unitText": "J/(kg·K)",
-      "minValue": 120,
-      "maxValue": 900,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.04,
-      "unitText": "",
-      "minValue": 0.03,
-      "maxValue": 3.8,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 1.1,
-      "unitText": "W/m·K",
-      "minValue": 0.77,
-      "maxValue": 36.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.000009,
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": 9.7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 10.5,
-      "unitText": "m^{-1}",
-      "minValue": 0.01,
-      "maxValue": 73500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "5.8e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0.00001,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 3.2,
-      "unitText": "J/cm²",
-      "minValue": 0.64,
-      "maxValue": 13.1,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 50,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "30-80% overlap ensures uniform fluence distribution; higher for delicate materials like Gorilla Glass to prevent uneven heating or missed spots. 50% recommended for optimal coverage in industrial cleaning. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2022)."
     }
   ],
-  "citation": "Z-Beam (2025). Gorilla Glass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/gorilla-glass-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Todd Dunning",
-    "jobTitle": "Junior Optical Materials Specialist",
-    "knowsAbout": [
-      "Optical Materials for Laser Systems"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Gorilla Glass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/gorilla-glass-laser-cleaning"
 }

@@ -210,11 +210,13 @@ export class SchemaFactory {
     this.register('Article', generateArticleSchema, { 
       priority: 80,
       condition: (data, context) => {
-        // Article for material/contaminant pages (not settings pages)
+        // Article for material/contaminant/settings pages with category
         const meta = getMetadata(data);
         const hasCategory = !!(meta.category);
         const isMaterialOrContaminant = isMaterialPage(context.slug) || isContaminantPage(context.slug);
-        return hasCategory && !isSettingsPage(context.slug) && isMaterialOrContaminant;
+        const isSettings = isSettingsPage(context.slug);
+        // Include settings pages OR material/contaminant pages with category
+        return (isSettings || (hasCategory && isMaterialOrContaminant));
       }
     });
     this.register('TechArticle', generateTechArticleSchema, { 
@@ -298,8 +300,9 @@ export class SchemaFactory {
       priority: 20,
       condition: (data, context) => {
         const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        // Check camelCase property names (post E2E normalization)
         const hasMatOrSettings = !!(fm?.materialProperties || fm?.machineSettings);
-        const hasContaminantData = !!(fm?.composition || fm?.safety_data || fm?.laser_properties);
+        const hasContaminantData = !!(fm?.composition || fm?.safetyData || fm?.laserProperties);
         return hasMatOrSettings || (isContaminantPage(context.slug) && hasContaminantData);
       }
     });
@@ -1918,10 +1921,10 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   // DATASET QUALITY POLICY: Dataset schema requires EITHER machineSettings OR materialProperties OR contaminant data
   // Material pages: use machineSettings (loaded from settings files) and/or materialProperties
   // Settings pages: use machineSettings primarily
-  // Contaminant pages: use composition, safety_data, laser_properties
+  // Contaminant pages: use composition, safetyData, laserProperties
   const hasMachineSettings = !!frontmatter.machineSettings;
   const hasMaterialProperties = !!frontmatter.materialProperties;
-  const hasContaminantData = !!(frontmatter.composition || frontmatter.safety_data || frontmatter.laser_properties);
+  const hasContaminantData = !!(frontmatter.composition || frontmatter.safetyData || frontmatter.laserProperties);
   
   // Use centralized detection utility
   const isContaminant = isContaminantPage(context.slug);

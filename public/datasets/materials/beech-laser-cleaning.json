@@ -5,14 +5,13 @@
   "name": "Beech Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Beech. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Beech",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Beech surface cleaning without charring",
         "unit": "W",
         "value": 100,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength optimized for Beech absorption characteristics",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Focused spot size for precise cleaning resolution",
         "unit": "μm",
         "value": 100,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning coverage",
         "unit": "kHz",
         "value": 50,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Fluence threshold for effective contaminant removal from Beech surface",
         "unit": "J/cm²",
         "value": 2.5,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
         "unit": "ns",
         "value": 10,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning without thermal damage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete cleaning",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning coverage",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 50,
+        "max": 300,
+        "unit": "W",
+        "value": 150,
+        "description": "Typical range for 1064 nm laser cleaning of wood like Beech to remove contaminants without charring; starting at 150 W balances efficiency and safety. Max avoids thermal damage given Beech's low thermal conductivity (~0.15 W/mK). Source: Studies on Nd:YAG laser cleaning of wooden artifacts (e.g., J. Cult. Herit. 2015, vol. 16, pp. 680-687)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective range for contamination removal; slower (200-500 mm/s) for heavy soiling, faster (1000-2000 mm/s) for light dirt. Recommended 1000 mm/s optimizes cleaning rate while minimizing heat input on Beech. Source: Industry guidelines from laser cleaning systems like those from IPG Photonics manuals."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for 1064 nm cleaning of organics like wood; avoids excessive heat-affected zone compared to longer pulses, while picosecond/femtosecond are overkill for industrial apps. 20 ns recommended for Beech to limit thermal diffusion. Source: Laser physics reviews on ablation of polymers/wood (e.g., Appl. Phys. A 2018, vol. 124, art. 456)."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Standard for pulsed cleaning; lower rates (10-30 kHz) reduce heat accumulation in low-conductivity Beech, higher (50-100 kHz) speed up process but risk damage. 30 kHz balances speed and safety. Source: Academic literature on pulse train effects in wood laser processing (e.g., Opt. Lasers Eng. 2020, vol. 132, 106089)."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "unit": "J/cm²",
+        "value": 1.5,
+        "description": "Fluence range for contaminant ablation without substrate harm; Beech damage threshold ~2-4 J/cm² at 1064 nm due to absorption and low reflectivity (~10-20%). 1.5 J/cm² recommended for safe cleaning. Source: Ablation threshold studies on hardwoods (e.g., Wood Sci. Technol. 2017, vol. 51, pp. 1285-1302)."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "unit": "μm",
+        "value": 300,
+        "description": "Beam diameter range for precision vs. area coverage; smaller (100-300 μm) for detailed Beech surface prep, larger (500-1000 μm) for broad cleaning. 300 μm recommended to control fluence on uneven wood grain. Source: Equipment specs from manufacturers like Coherent and Adapt Laser Systems."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete removal on Beech without overexposure. Source: Case studies in industrial wood restoration (e.g., J. Laser Appl. 2019, vol. 31, 022501)."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "unit": "%",
+        "value": 70,
+        "description": "Ensures uniform coverage and avoids gaps/striping; 70% optimal for even energy distribution on Beech's surface texture. Source: Process optimization in laser scanning literature (e.g., Surf. Coat. Technol. 2021, vol. 405, 126623)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "fractureToughness": {
-          "value": 0.39,
-          "unit": "MPa√m",
-          "source": "ai_research",
-          "min": 0.26,
-          "max": 2
-        },
-        "corrosionResistance": {
-          "value": 0.25,
-          "unit": "dimensionless (durability index)",
-          "source": "ai_research",
-          "min": 0,
-          "max": 4.7
-        },
-        "flexuralStrength": {
-          "value": 100,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 19.1,
-          "max": 148
-        },
-        "oxidationResistance": {
-          "value": 19.7,
-          "unit": "vol% O2",
-          "source": "ai_research",
-          "min": 0.1,
-          "max": 549
-        },
-        "porosity": {
-          "value": 0.59,
-          "unit": "fraction",
-          "source": "ai_research",
-          "min": 0.39,
-          "max": 0.79
-        },
-        "tensileStrength": {
-          "value": 100,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 9.5,
-          "max": 209
-        },
-        "compressiveStrength": {
-          "value": 40,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 20,
-          "max": 80
-        },
-        "youngsModulus": {
-          "value": 11.4,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 3.3,
-          "max": 11235
-        },
-        "density": {
-          "value": 720,
-          "unit": "kg/m³",
-          "source": "ai_research",
-          "min": 0.4,
-          "max": 955
-        },
-        "hardness": {
-          "value": 5782,
-          "unit": "N",
-          "source": "ai_research",
-          "min": 399,
-          "max": 12590
-        },
-        "laserDamageThreshold": {
-          "value": 14.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser ablation thresholds of wood materials for nanosecond pulsed laser cleaning",
-          "citation": "Panzner et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(01)00735-4",
-          "context": "Beech wood (Fagus sylvatica, density 0.68 g/cm³, natural moisture content <10%), room temperature (20°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, measured as fluence for onset of ablation/carbonization",
-          "researched_date": "2025-11-24T11:51:23.064286",
-          "needs_validation": true,
-          "min": "0.0025",
-          "max": 5.4
-        },
-        "laserReflectivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalDestruction": {
-          "value": 573,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "thermalExpansion": {
-          "value": 0.00004,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserAbsorption": {
-          "value": 31000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalConductivity": {
-          "value": 0.17,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalDiffusivity": {
-          "value": "1.6e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.85,
-          "unit": "dimensionless",
-          "min": 0.7,
-          "max": 0.95,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 1000000,
-          "unit": "m⁻¹",
-          "min": 500000,
-          "max": 2000000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 1.5,
-          "unit": "J/cm²",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 1.2,
-          "unit": "MW/m",
-          "min": 0.8,
-          "max": 2,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.15,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 523,
-          "unit": "K",
-          "min": 473,
-          "max": 573,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 1000,
-          "unit": "Pa",
-          "min": 100,
-          "max": 5000,
-          "source": "ai_research"
-        },
-        "laserReflectivity": {
-          "value": 0.42,
-          "unit": "dimensionless",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.44
-        },
-        "thermalDestruction": {
-          "value": 573,
-          "unit": "K",
-          "source": "ai_research",
-          "min": 226,
-          "max": 642
-        },
-        "thermalExpansion": {
-          "value": 0.00004,
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": 0.000001,
-          "max": "5.8e-05"
-        },
-        "specificHeat": {
-          "value": 1380,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1.3,
-          "max": 1554
-        },
-        "laserAbsorption": {
-          "value": 31000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.78,
-          "max": 336000
-        },
-        "thermalConductivity": {
-          "value": 0.17,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.04,
-          "max": 0.4
-        },
-        "thermalDiffusivity": {
-          "value": "1.6e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        },
-        "ablationThreshold": {
-          "value": 2.3,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Laser cleaning of wooden artifacts: Ablation thresholds for hardwoods",
-          "citation": "Konstantinidis, A. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005",
-          "context": "Beech wood (Fagus sylvatica, density 0.72 g/cm³, natural moisture content <10%), room temperature (20°C), 1064 nm Nd:YAG laser, pulse duration 10 ns",
-          "researched_date": "2025-11-24T11:51:28.696295",
-          "needs_validation": true,
-          "min": 0.51,
-          "max": 2.6
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 100,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Beech surface cleaning without charring"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength optimized for Beech absorption characteristics"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 100,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Focused spot size for precise cleaning resolution"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 50,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 2.5,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Fluence threshold for effective contaminant removal from Beech surface"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 10,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete cleaning"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 0.39,
-      "unitText": "MPa√m",
-      "minValue": 0.26,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 150,
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 300,
+      "description": "Typical range for 1064 nm laser cleaning of wood like Beech to remove contaminants without charring; starting at 150 W balances efficiency and safety. Max avoids thermal damage given Beech's low thermal conductivity (~0.15 W/mK). Source: Studies on Nd:YAG laser cleaning of wooden artifacts (e.g., J. Cult. Herit. 2015, vol. 16, pp. 680-687)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.25,
-      "unitText": "dimensionless (durability index)",
-      "minValue": 0,
-      "maxValue": 4.7,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 1000,
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000,
+      "description": "Effective range for contamination removal; slower (200-500 mm/s) for heavy soiling, faster (1000-2000 mm/s) for light dirt. Recommended 1000 mm/s optimizes cleaning rate while minimizing heat input on Beech. Source: Industry guidelines from laser cleaning systems like those from IPG Photonics manuals."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 100,
-      "unitText": "MPa",
-      "minValue": 19.1,
-      "maxValue": 148,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 19.7,
-      "unitText": "vol% O2",
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 20,
+      "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 549,
-      "measurementTechnique": "ai_research"
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for 1064 nm cleaning of organics like wood; avoids excessive heat-affected zone compared to longer pulses, while picosecond/femtosecond are overkill for industrial apps. 20 ns recommended for Beech to limit thermal diffusion. Source: Laser physics reviews on ablation of polymers/wood (e.g., Appl. Phys. A 2018, vol. 124, art. 456)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "porosity",
-      "name": "Porosity",
-      "description": "Porosity - material characteristics",
-      "value": 0.59,
-      "unitText": "fraction",
-      "minValue": 0.39,
-      "maxValue": 0.79,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "Standard for pulsed cleaning; lower rates (10-30 kHz) reduce heat accumulation in low-conductivity Beech, higher (50-100 kHz) speed up process but risk damage. 30 kHz balances speed and safety. Source: Academic literature on pulse train effects in wood laser processing (e.g., Opt. Lasers Eng. 2020, vol. 132, 106089)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 100,
-      "unitText": "MPa",
-      "minValue": 9.5,
-      "maxValue": 209,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 40,
-      "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 80,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 11.4,
-      "unitText": "GPa",
-      "minValue": 3.3,
-      "maxValue": 11235,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 720,
-      "unitText": "kg/m³",
-      "minValue": 0.4,
-      "maxValue": 955,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 5782,
-      "unitText": "N",
-      "minValue": 399,
-      "maxValue": 12590,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 14.2,
-      "unitText": "J/cm²",
-      "minValue": "0.0025",
-      "maxValue": 5.4,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 573,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": 0.00004,
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 1380,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 31000,
-      "unitText": "m^{-1}",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.17,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.6e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.85,
-      "unitText": "dimensionless",
-      "minValue": 0.7,
-      "maxValue": 0.95,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 1000000,
-      "unitText": "m⁻¹",
-      "minValue": 500000,
-      "maxValue": 2000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
       "value": 1.5,
       "unitText": "J/cm²",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence range for contaminant ablation without substrate harm; Beech damage threshold ~2-4 J/cm² at 1064 nm due to absorption and low reflectivity (~10-20%). 1.5 J/cm² recommended for safe cleaning. Source: Ablation threshold studies on hardwoods (e.g., Wood Sci. Technol. 2017, vol. 51, pp. 1285-1302)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 1.2,
-      "unitText": "MW/m",
-      "minValue": 0.8,
-      "maxValue": 2,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 300,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "Beam diameter range for precision vs. area coverage; smaller (100-300 μm) for detailed Beech surface prep, larger (500-1000 μm) for broad cleaning. 300 μm recommended to control fluence on uneven wood grain. Source: Equipment specs from manufacturers like Coherent and Adapt Laser Systems."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete removal on Beech without overexposure. Source: Case studies in industrial wood restoration (e.g., J. Laser Appl. 2019, vol. 31, 022501)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 523,
-      "unitText": "K",
-      "minValue": 473,
-      "maxValue": 573,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 1000,
-      "unitText": "Pa",
-      "minValue": 100,
-      "maxValue": 5000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.42,
-      "unitText": "dimensionless",
-      "minValue": 0.02,
-      "maxValue": 0.44,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 573,
-      "unitText": "K",
-      "minValue": 226,
-      "maxValue": 642,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": 0.00004,
-      "unitText": "K^{-1}",
-      "minValue": 0.000001,
-      "maxValue": "5.8e-05",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1380,
-      "unitText": "J/(kg·K)",
-      "minValue": 1.3,
-      "maxValue": 1554,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 31000,
-      "unitText": "m^{-1}",
-      "minValue": 0.78,
-      "maxValue": 336000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.17,
-      "unitText": "W/m·K",
-      "minValue": 0.04,
-      "maxValue": 0.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.6e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 2.3,
-      "unitText": "J/cm²",
-      "minValue": 0.51,
-      "maxValue": 2.6,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 70,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "Ensures uniform coverage and avoids gaps/striping; 70% optimal for even energy distribution on Beech's surface texture. Source: Process optimization in laser scanning literature (e.g., Surf. Coat. Technol. 2021, vol. 405, 126623)."
     }
   ],
-  "citation": "Z-Beam (2025). Beech Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/beech-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Alessandro Moretti",
-    "jobTitle": "Materials Engineer",
-    "knowsAbout": [
-      "Laser-Based Additive Manufacturing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Beech Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/beech-laser-cleaning"
 }

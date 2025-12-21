@@ -4,7 +4,7 @@
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
 # Dataset: https://www.z-beam.com/materials/ceramic/carbide/boron-carbide-laser-cleaning
-# Updated: 2025-12-16 | Version: 1.0
+# Updated: 2025-12-21 | Version: 1.0
 #
 # Citation: Z-Beam (2025). Boron Carbide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/carbide/boron-carbide-laser-cleaning
 #
@@ -13,38 +13,20 @@ Basic,Info,Name,Boron Carbide,,,,,Material name
 Basic,Info,Category,ceramic,,,,,Material category
 Basic,Info,Subcategory,carbide,,,,,Material subcategory
 Basic,Info,Slug,boron-carbide-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,80,W,1,120,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,2,J/cm²,0.1,20,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
-Machine,Settings,passCount,3,passes,1,10,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
-Property,material_characteristics,density,2.5,g/cm³,1.7,16.3,,Material property: density
-Property,material_characteristics,porosity,0,%,0,30,,Material property: porosity
-Property,material_characteristics,surfaceRoughness,0.4,μm,,,,Material property: surfaceRoughness
-Property,material_characteristics,tensileStrength,350,MPa,5,600,,Material property: tensileStrength
-Property,material_characteristics,youngsModulus,450,GPa,40,679,,Material property: youngsModulus
-Property,material_characteristics,hardness,38,GPa,6.7,3150,,Material property: hardness
-Property,material_characteristics,flexuralStrength,400,MPa,45.6,1153,,Material property: flexuralStrength
-Property,material_characteristics,oxidationResistance,30,μm/year,0,2310,,Material property: oxidationResistance
-Property,material_characteristics,corrosionResistance,0.75,mm/year,0.00047,262,,Material property: corrosionResistance
-Property,material_characteristics,compressiveStrength,350,MPa,95,4090,,Material property: compressiveStrength
-Property,material_characteristics,fractureToughness,28,MPa m^{1/2},0.56,5.7,,Material property: fractureToughness
-Property,material_characteristics,electricalResistivity,10,Ω·m,0,100000000000000,,Material property: electricalResistivity
-Property,laser_material_interaction,thermalDestruction,2723,K,273,3900,,Material property: thermalDestruction
-Property,laser_material_interaction,laserAbsorption,0.18,dimensionless,0.35,2625,,Material property: laserAbsorption
-Property,laser_material_interaction,laserDamageThreshold,5.2,J/cm²,1.6,20.9,scientific_literature,Material property: laserDamageThreshold
-Property,laser_material_interaction,ablationThreshold,2.8,J/cm²,0.57,4,scientific_literature,Material property: ablationThreshold
-Property,laser_material_interaction,thermalDiffusivity,1.2e-05,m²/s,0.000001,7.3e-05,scientific_literature,Material property: thermalDiffusivity
-Property,laser_material_interaction,thermalExpansion,5.6e-06,K^{-1},0.000003,1.1e-05,scientific_literature,Material property: thermalExpansion
-Property,laser_material_interaction,specificHeat,1076,J/(kg·K),250,2500,scientific_literature,Material property: specificHeat
-Property,laser_material_interaction,thermalConductivity,30,W/m·K,1.4,127,scientific_literature,Material property: thermalConductivity
-Property,laser_material_interaction,laserReflectivity,0.32,dimensionless,0.05,0.4,scientific_literature,Material property: laserReflectivity
-LEGAL NOTICE,
-DISCLAIMER,"Provided for informational purposes only, without warranties. Use at your own risk. Z-Beam assumes no liability for damages arising from its application."
-NO WARRANTY,"This data is provided AS IS without warranty of any kind"
-NO LIABILITY,"Z-Beam assumes no liability for damages arising from use of this data"
-PROFESSIONAL CONSULTATION,"Always consult qualified professionals and follow safety regulations"
+Machine,Settings,powerRange,80,W,1,120,,Optimal average power for ceramic cleaning
+Machine,Settings,wavelength,1064,nm,355,10640,,Near-IR wavelength for optimal absorption
+Machine,Settings,spotSize,50,μm,0.1,500,,Beam spot diameter for effective cleaning resolution
+Machine,Settings,repetitionRate,50,kHz,1,200,,Pulse frequency for controlled material removal
+Machine,Settings,energyDensity,2,J/cm²,0.1,20,,Energy per unit area for surface cleaning
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Pulse duration for minimal thermal penetration
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Beam travel speed for uniform coverage
+Machine,Settings,passCount,3,passes,1,10,,Number of cleaning cycles for complete removal
+Machine,Settings,overlapRatio,50,%,10,90,,Beam overlap for consistent surface treatment
+Machine,Settings,power,100,W,50,300,,"Typical range for industrial 1064 nm fiber lasers cleaning hard ceramics like B4C; starting at 100 W balances efficiency and safety to avoid thermal damage given B4C's low thermal conductivity (~30 W/m·K); max limited to prevent melting (mp ~2450°C). Source: IPG Photonics YLR series specs and laser cleaning studies on ceramics (e.g., J. Laser Appl. 2018)."
+Machine,Settings,scan_speed,1000,mm/s,10,5000,,"Effective range for contaminant removal without substrate ablation; recommended 1000 mm/s for optimal balance on B4C surfaces; slower (200-800 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light oxides/dust. Source: Industry standards from Adapt Laser Systems manuals and process optimization in Opt. Lasers Eng. (2020)."
+Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred for B4C to enable shockwave-based cleaning with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce thermal effects but increase cost; 20 ns recommended for reflectivity (~0.3 at 1064 nm) and hardness. Source: Laser physics research on ceramic ablation (Appl. Surf. Sci. 2019); ns avoids excessive melting.
+Machine,Settings,repetition_rate,50,kHz,1,200,,Standard for pulsed cleaning to control energy delivery; 50 kHz recommended for B4C to achieve fast processing while limiting heat accumulation due to poor thermal diffusivity; higher rates (>80 kHz) speed up but risk subsurface heating. Source: Academic literature on pulse train effects (J. Appl. Phys. 2021).
+Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for safe contaminant ablation; B4C damage threshold ~2-3 J/cm² at 1064 nm ns pulses; 1.5 J/cm² recommended for cleaning without substrate damage, considering high absorption. Source: Ablation threshold studies on B4C (Opt. Express 2017); conservative to account for variability in surface reflectivity."
+Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter range for precision vs. area coverage; 200 μm recommended for B4C surface preparation to focus energy on contaminants while minimizing edge effects; smaller for fine details, larger for broad areas. Source: Equipment specs from Coherent Armonia series and industrial cleaning guidelines."
+Machine,Settings,pass_count,2,passes,1,10,,"Typically 1-3 passes for complete removal of industrial contaminants; multi-pass (2 recommended) for B4C to ensure uniformity without overexposure, especially for layered oxides. Source: Industry case studies on ceramic cleaning (Laser Tech. J. 2022); single pass viable for light contamination."
+Machine,Settings,overlap_ratio,70,%,10,90,,"Ensures uniform coverage without gaps or excessive overlap heating; 70% recommended for B4C to achieve even cleaning on irregular surfaces, balancing speed and efficacy. Source: Process optimization studies (Procedia Manuf. 2019); higher for heavy contamination to prevent streaks."

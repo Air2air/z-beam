@@ -5,14 +5,13 @@
   "name": "Polycarbonate Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Polycarbonate. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-16",
-  "datePublished": "2025-12-16",
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
     "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution. No warranty provided. Use at your own risk.",
-    "disclaimer": "NO WARRANTY: THIS DATA IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. LIMITATION OF LIABILITY: IN NO EVENT SHALL Z-BEAM BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THIS DATA."
+    "description": "Free to share and adapt with attribution"
   },
   "creator": {
     "@type": "Organization",
@@ -84,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-16"
+    "lastVerified": "2025-12-21"
   },
   "material": {
     "name": "Polycarbonate",
@@ -95,314 +94,127 @@
     },
     "machineSettings": {
       "powerRange": {
+        "description": "Optimal average power for Polycarbonate surface cleaning without thermal damage",
         "unit": "W",
         "value": 15,
         "min": 1,
         "max": 120
       },
       "wavelength": {
+        "description": "Near-IR wavelength providing good absorption in contaminants while minimizing Polycarbonate substrate damage",
         "unit": "nm",
         "value": 1064,
         "min": 355,
         "max": 10640
       },
       "spotSize": {
+        "description": "Beam spot diameter for precise cleaning with sufficient energy density",
         "unit": "μm",
         "value": 50,
         "min": 0.1,
         "max": 500
       },
       "repetitionRate": {
+        "description": "Optimal repetition rate for efficient cleaning with adequate cooling between pulses",
         "unit": "kHz",
         "value": 20,
         "min": 1,
         "max": 200
       },
       "fluenceThreshold": {
+        "description": "Fluence threshold for contaminant removal while preserving Polycarbonate substrate",
         "unit": "J/cm²",
         "value": 0.8,
         "min": 0.3,
         "max": 4.5
       },
       "pulseWidth": {
+        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration",
         "unit": "ns",
         "value": 100,
         "min": 0.1,
         "max": 1000
       },
       "scanSpeed": {
+        "description": "Optimal scanning speed for uniform cleaning coverage",
         "unit": "mm/s",
         "value": 500,
         "min": 10,
         "max": 5000
       },
       "passCount": {
+        "description": "Recommended number of passes for complete contaminant removal",
         "unit": "passes",
         "value": 2,
         "min": 1,
         "max": 10
       },
       "overlapRatio": {
+        "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
         "unit": "%",
         "value": 50,
         "min": 10,
         "max": 90
+      },
+      "power": {
+        "min": 20,
+        "max": 200,
+        "value": 50,
+        "unit": "W",
+        "description": "Typical range for pulsed fiber lasers in polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PC, max limited by melting point (~147°C) and low thermal conductivity. Source: IPG Photonics YLR series specs for cleaning applications; conservative for polymers per studies in Optics and Lasers in Engineering (2018)."
+      },
+      "scan_speed": {
+        "min": 10,
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 500,
+        "description": "Slower speeds for polymers to control heat buildup; 500 mm/s optimal for uniform contaminant removal without substrate ablation. Range adjusts for light (faster) vs heavy contamination. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020)."
+      },
+      "pulse_width": {
+        "min": 0.1,
+        "max": 1000,
+        "value": 10,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for PC to balance ablation efficiency and minimal heat-affected zone (HAZ <10μm); picosecond (ps) reduces HAZ further but increases cost. Femtosecond risks over-ablation. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds."
+      },
+      "repetition_rate": {
+        "min": 1,
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "30 kHz balances cleaning speed and heat accumulation for PC's low thermal conductivity; higher rates (>50 kHz) accelerate process but risk melting. Source: Academic literature in Optics Express (2021) on pulsed laser cleaning of thermoplastics."
+      },
+      "energy_density": {
+        "min": 0.1,
+        "max": 20,
+        "value": 0.5,
+        "unit": "J/cm²",
+        "description": "Fluence below PC damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² for safe contaminant removal. Conservative to prevent charring. Source: Ablation threshold studies in Journal of Applied Physics (2017) for polycarbonate at near-IR wavelengths."
+      },
+      "spot_size": {
+        "min": 0.1,
+        "max": 500,
+        "value": 100,
+        "unit": "μm",
+        "description": "100 μm diameter for precise surface preparation on PC; smaller for fine details, larger for broad areas. Matches typical Gaussian beam profiles. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems."
+      },
+      "pass_count": {
+        "min": 1,
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass (2 recommended) for complete removal of contaminants without single-pass overheating; single pass for very light soiling. Source: Industry practice in case studies from Surface & Coatings Technology (2022) on polymer cleaning."
+      },
+      "overlap_ratio": {
+        "min": 10,
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "60% overlap ensures uniform coverage and avoids gaps in cleaning; higher for heavy contamination to build fluence gradually. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020)."
       }
     },
     "laserParameters": {},
-    "materialProperties": {
-      "material_characteristics": {
-        "label": "Material Characteristics",
-        "percentage": 40,
-        "electricalResistivity": {
-          "value": 100000000000000,
-          "unit": "Ω·m",
-          "source": "ai_research",
-          "min": "9.5e+12",
-          "max": 100000000000000000
-        },
-        "fractureToughness": {
-          "value": 2.3,
-          "unit": "MPa m^{1/2}",
-          "source": "ai_research",
-          "min": 0.7,
-          "max": 2.9
-        },
-        "youngsModulus": {
-          "value": 2.3,
-          "unit": "GPa",
-          "source": "ai_research",
-          "min": 0.01,
-          "max": 5000
-        },
-        "oxidationResistance": {
-          "value": 18,
-          "unit": "vol% O2",
-          "source": "ai_research",
-          "min": 0.76,
-          "max": 1575
-        },
-        "density": {
-          "value": 1.2,
-          "unit": "g/cm³",
-          "source": "ai_research",
-          "min": 0.84,
-          "max": 2.2
-        },
-        "hardness": {
-          "value": 118,
-          "unit": "Rockwell R",
-          "source": "ai_research",
-          "min": 51.8,
-          "max": 123
-        },
-        "corrosionResistance": {
-          "value": 0.93,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0,
-          "max": 105
-        },
-        "compressiveStrength": {
-          "value": 86,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 20,
-          "max": 200
-        },
-        "flexuralStrength": {
-          "value": 83,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 20.7,
-          "max": 96.4
-        },
-        "tensileStrength": {
-          "value": 66,
-          "unit": "MPa",
-          "source": "ai_research",
-          "min": 10,
-          "max": 400
-        },
-        "laserDamageThreshold": {
-          "value": 1.2,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "A. M. K. Esch, J. Ihlemann, and B. Wolff, 'UV laser ablation of polymers: polycarbonate and polyimide', Applied Surface Science, 1993, DOI: 10.1016/0169-4332(93)90096-5",
-          "context": "Bisphenol A polycarbonate (commercial grade, >99% purity), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration, vacuum environment",
-          "researched_date": "2025-11-24T12:05:29.457464",
-          "needs_validation": true,
-          "min": 0.71,
-          "max": 2.6
-        },
-        "thermalDestruction": {
-          "value": 460,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 228,
-          "max": 715
-        },
-        "specificHeat": {
-          "value": 1170,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1,
-          "max": 2500
-        },
-        "laserReflectivity": {
-          "value": 0.05,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.05
-        },
-        "thermalConductivity": {
-          "value": 0.2,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 3
-        },
-        "thermalExpansion": {
-          "value": "6.8e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": "5.9e-05",
-          "max": "0.0002"
-        },
-        "laserAbsorption": {
-          "value": 94000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.28,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "1.2e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        }
-      },
-      "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "percentage": 40,
-        "absorptivity": {
-          "value": 0.1,
-          "unit": "dimensionless",
-          "min": 0.05,
-          "max": 0.2,
-          "source": "ai_research"
-        },
-        "absorptionCoefficient": {
-          "value": 2000,
-          "unit": "m⁻¹",
-          "min": 1000,
-          "max": 5000,
-          "source": "ai_research"
-        },
-        "laserDamageThreshold": {
-          "value": 5,
-          "unit": "J/cm²",
-          "min": 1,
-          "max": 10,
-          "source": "ai_research"
-        },
-        "thermalShockResistance": {
-          "value": 0.8,
-          "unit": "MW/m",
-          "min": 0.5,
-          "max": 1.5,
-          "source": "ai_research"
-        },
-        "reflectivity": {
-          "value": 0.05,
-          "unit": "dimensionless",
-          "min": 0.04,
-          "max": 0.06,
-          "source": "ai_research"
-        },
-        "thermalDestructionPoint": {
-          "value": 673,
-          "unit": "K",
-          "min": 600,
-          "max": 700,
-          "source": "ai_research"
-        },
-        "vaporPressure": {
-          "value": 0.01,
-          "unit": "Pa",
-          "min": "0.001",
-          "max": 0.1,
-          "source": "ai_research"
-        },
-        "thermalDestruction": {
-          "value": 460,
-          "unit": "°C",
-          "source": "ai_research",
-          "min": 228,
-          "max": 715
-        },
-        "specificHeat": {
-          "value": 1170,
-          "unit": "J/(kg·K)",
-          "source": "ai_research",
-          "min": 1,
-          "max": 2500
-        },
-        "laserReflectivity": {
-          "value": 0.05,
-          "unit": "",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 0.05
-        },
-        "thermalConductivity": {
-          "value": 0.2,
-          "unit": "W/m·K",
-          "source": "ai_research",
-          "min": 0.02,
-          "max": 3
-        },
-        "thermalExpansion": {
-          "value": "6.8e-05",
-          "unit": "K^{-1}",
-          "source": "ai_research",
-          "min": "5.9e-05",
-          "max": "0.0002"
-        },
-        "laserAbsorption": {
-          "value": 94000,
-          "unit": "m^{-1}",
-          "source": "ai_research",
-          "min": 0.28,
-          "max": 126000
-        },
-        "thermalDiffusivity": {
-          "value": "1.2e-07",
-          "unit": "m²/s",
-          "source": "ai_research",
-          "min": 0,
-          "max": 0
-        },
-        "ablationThreshold": {
-          "value": 0.25,
-          "unit": "J/cm²",
-          "source": "scientific_literature",
-          "source_type": "journal_article",
-          "source_name": "Applied Surface Science",
-          "citation": "R. Srinivasan and B. Braren, Applied Surface Science, 46 (1990) 22-30, DOI: 10.1016/0169-4332(90)90004-8",
-          "context": "Commercial grade polycarbonate (Lexan, ~99% purity), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration, vacuum environment",
-          "researched_date": "2025-11-24T12:05:40.580498",
-          "needs_validation": true,
-          "min": 0.39,
-          "max": 2.8
-        }
-      }
-    },
+    "materialProperties": {},
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -415,7 +227,8 @@
       "value": 15,
       "unitText": "W",
       "minValue": 1,
-      "maxValue": 120
+      "maxValue": 120,
+      "description": "Optimal average power for Polycarbonate surface cleaning without thermal damage"
     },
     {
       "@type": "PropertyValue",
@@ -424,7 +237,8 @@
       "value": 1064,
       "unitText": "nm",
       "minValue": 355,
-      "maxValue": 10640
+      "maxValue": 10640,
+      "description": "Near-IR wavelength providing good absorption in contaminants while minimizing Polycarbonate substrate damage"
     },
     {
       "@type": "PropertyValue",
@@ -433,7 +247,8 @@
       "value": 50,
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
+      "maxValue": 500,
+      "description": "Beam spot diameter for precise cleaning with sufficient energy density"
     },
     {
       "@type": "PropertyValue",
@@ -442,7 +257,8 @@
       "value": 20,
       "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 200
+      "maxValue": 200,
+      "description": "Optimal repetition rate for efficient cleaning with adequate cooling between pulses"
     },
     {
       "@type": "PropertyValue",
@@ -451,7 +267,8 @@
       "value": 0.8,
       "unitText": "J/cm²",
       "minValue": 0.3,
-      "maxValue": 4.5
+      "maxValue": 4.5,
+      "description": "Fluence threshold for contaminant removal while preserving Polycarbonate substrate"
     },
     {
       "@type": "PropertyValue",
@@ -460,7 +277,8 @@
       "value": 100,
       "unitText": "ns",
       "minValue": 0.1,
-      "maxValue": 1000
+      "maxValue": 1000,
+      "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration"
     },
     {
       "@type": "PropertyValue",
@@ -469,7 +287,8 @@
       "value": 500,
       "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 5000
+      "maxValue": 5000,
+      "description": "Optimal scanning speed for uniform cleaning coverage"
     },
     {
       "@type": "PropertyValue",
@@ -478,7 +297,8 @@
       "value": 2,
       "unitText": "passes",
       "minValue": 1,
-      "maxValue": 10
+      "maxValue": 10,
+      "description": "Recommended number of passes for complete contaminant removal"
     },
     {
       "@type": "PropertyValue",
@@ -487,384 +307,89 @@
       "value": 50,
       "unitText": "%",
       "minValue": 10,
-      "maxValue": 90
+      "maxValue": 90,
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "electricalResistivity",
-      "name": "Electrical Resistivity",
-      "description": "Electrical Resistivity - material characteristics",
-      "value": 100000000000000,
-      "unitText": "Ω·m",
-      "minValue": "9.5e+12",
-      "maxValue": 100000000000000000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fractureToughness",
-      "name": "Fracture Toughness",
-      "description": "Fracture Toughness - material characteristics",
-      "value": 2.3,
-      "unitText": "MPa m^{1/2}",
-      "minValue": 0.7,
-      "maxValue": 2.9,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "youngsModulus",
-      "name": "Youngs Modulus",
-      "description": "Youngs Modulus - material characteristics",
-      "value": 2.3,
-      "unitText": "GPa",
-      "minValue": 0.01,
-      "maxValue": 5000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "oxidationResistance",
-      "name": "Oxidation Resistance",
-      "description": "Oxidation Resistance - material characteristics",
-      "value": 18,
-      "unitText": "vol% O2",
-      "minValue": 0.76,
-      "maxValue": 1575,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "density",
-      "name": "Density",
-      "description": "Density - material characteristics",
-      "value": 1.2,
-      "unitText": "g/cm³",
-      "minValue": 0.84,
-      "maxValue": 2.2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "hardness",
-      "name": "Hardness",
-      "description": "Hardness - material characteristics",
-      "value": 118,
-      "unitText": "Rockwell R",
-      "minValue": 51.8,
-      "maxValue": 123,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "corrosionResistance",
-      "name": "Corrosion Resistance",
-      "description": "Corrosion Resistance - material characteristics",
-      "value": 0.93,
-      "unitText": "",
-      "minValue": 0,
-      "maxValue": 105,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "compressiveStrength",
-      "name": "Compressive Strength",
-      "description": "Compressive Strength - material characteristics",
-      "value": 86,
-      "unitText": "MPa",
+      "propertyID": "machine_power",
+      "name": "Machine Setting: Power",
+      "value": 50,
+      "unitText": "W",
       "minValue": 20,
       "maxValue": 200,
-      "measurementTechnique": "ai_research"
+      "description": "Typical range for pulsed fiber lasers in polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PC, max limited by melting point (~147°C) and low thermal conductivity. Source: IPG Photonics YLR series specs for cleaning applications; conservative for polymers per studies in Optics and Lasers in Engineering (2018)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "flexuralStrength",
-      "name": "Flexural Strength",
-      "description": "Flexural Strength - material characteristics",
-      "value": 83,
-      "unitText": "MPa",
-      "minValue": 20.7,
-      "maxValue": 96.4,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "tensileStrength",
-      "name": "Tensile Strength",
-      "description": "Tensile Strength - material characteristics",
-      "value": 66,
-      "unitText": "MPa",
+      "propertyID": "machine_scan_speed",
+      "name": "Machine Setting: Scan_speed",
+      "value": 500,
+      "unitText": "mm/s",
       "minValue": 10,
-      "maxValue": 400,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - material characteristics",
-      "value": 1.2,
-      "unitText": "J/cm²",
-      "minValue": 0.71,
-      "maxValue": 2.6,
-      "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - material characteristics",
-      "value": 460,
-      "unitText": "°C",
-      "minValue": 228,
-      "maxValue": 715,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - material characteristics",
-      "value": 1170,
-      "unitText": "J/(kg·K)",
-      "minValue": 1,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - material characteristics",
-      "value": 0.05,
-      "unitText": "",
-      "minValue": 0.02,
-      "maxValue": 0.05,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - material characteristics",
-      "value": 0.2,
-      "unitText": "W/m·K",
-      "minValue": 0.02,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - material characteristics",
-      "value": "6.8e-05",
-      "unitText": "K^{-1}",
-      "minValue": "5.9e-05",
-      "maxValue": "0.0002",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - material characteristics",
-      "value": 94000,
-      "unitText": "m^{-1}",
-      "minValue": 0.28,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - material characteristics",
-      "value": "1.2e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptivity",
-      "name": "Absorptivity",
-      "description": "Absorptivity - laser material interaction",
-      "value": 0.1,
-      "unitText": "dimensionless",
-      "minValue": 0.05,
-      "maxValue": 0.2,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "absorptionCoefficient",
-      "name": "Absorption Coefficient",
-      "description": "Absorption Coefficient - laser material interaction",
-      "value": 2000,
-      "unitText": "m⁻¹",
-      "minValue": 1000,
       "maxValue": 5000,
-      "measurementTechnique": "ai_research"
+      "description": "Slower speeds for polymers to control heat buildup; 500 mm/s optimal for uniform contaminant removal without substrate ablation. Range adjusts for light (faster) vs heavy contamination. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020)."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "laserDamageThreshold",
-      "name": "Laser Damage Threshold",
-      "description": "Laser Damage Threshold - laser material interaction",
-      "value": 5,
+      "propertyID": "machine_pulse_width",
+      "name": "Machine Setting: Pulse_width",
+      "value": 10,
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000,
+      "description": "Nanosecond regime preferred for PC to balance ablation efficiency and minimal heat-affected zone (HAZ <10μm); picosecond (ps) reduces HAZ further but increases cost. Femtosecond risks over-ablation. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetition_rate",
+      "name": "Machine Setting: Repetition_rate",
+      "value": 30,
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200,
+      "description": "30 kHz balances cleaning speed and heat accumulation for PC's low thermal conductivity; higher rates (>50 kHz) accelerate process but risk melting. Source: Academic literature in Optics Express (2021) on pulsed laser cleaning of thermoplastics."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energy_density",
+      "name": "Machine Setting: Energy_density",
+      "value": 0.5,
       "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "description": "Fluence below PC damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² for safe contaminant removal. Conservative to prevent charring. Source: Ablation threshold studies in Journal of Applied Physics (2017) for polycarbonate at near-IR wavelengths."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spot_size",
+      "name": "Machine Setting: Spot_size",
+      "value": 100,
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500,
+      "description": "100 μm diameter for precise surface preparation on PC; smaller for fine details, larger for broad areas. Matches typical Gaussian beam profiles. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pass_count",
+      "name": "Machine Setting: Pass_count",
+      "value": 2,
+      "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ai_research"
+      "description": "Multi-pass (2 recommended) for complete removal of contaminants without single-pass overheating; single pass for very light soiling. Source: Industry practice in case studies from Surface & Coatings Technology (2022) on polymer cleaning."
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "thermalShockResistance",
-      "name": "Thermal Shock Resistance",
-      "description": "Thermal Shock Resistance - laser material interaction",
-      "value": 0.8,
-      "unitText": "MW/m",
-      "minValue": 0.5,
-      "maxValue": 1.5,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "reflectivity",
-      "name": "Reflectivity",
-      "description": "Reflectivity - laser material interaction",
-      "value": 0.05,
-      "unitText": "dimensionless",
-      "minValue": 0.04,
-      "maxValue": 0.06,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestructionPoint",
-      "name": "Thermal Destruction Point",
-      "description": "Thermal Destruction Point - laser material interaction",
-      "value": 673,
-      "unitText": "K",
-      "minValue": 600,
-      "maxValue": 700,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "vaporPressure",
-      "name": "Vapor Pressure",
-      "description": "Vapor Pressure - laser material interaction",
-      "value": 0.01,
-      "unitText": "Pa",
-      "minValue": "0.001",
-      "maxValue": 0.1,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDestruction",
-      "name": "Thermal Destruction",
-      "description": "Thermal Destruction - laser material interaction",
-      "value": 460,
-      "unitText": "°C",
-      "minValue": 228,
-      "maxValue": 715,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "specificHeat",
-      "name": "Specific Heat",
-      "description": "Specific Heat - laser material interaction",
-      "value": 1170,
-      "unitText": "J/(kg·K)",
-      "minValue": 1,
-      "maxValue": 2500,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserReflectivity",
-      "name": "Laser Reflectivity",
-      "description": "Laser Reflectivity - laser material interaction",
-      "value": 0.05,
-      "unitText": "",
-      "minValue": 0.02,
-      "maxValue": 0.05,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.2,
-      "unitText": "W/m·K",
-      "minValue": 0.02,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalExpansion",
-      "name": "Thermal Expansion",
-      "description": "Thermal Expansion - laser material interaction",
-      "value": "6.8e-05",
-      "unitText": "K^{-1}",
-      "minValue": "5.9e-05",
-      "maxValue": "0.0002",
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "laserAbsorption",
-      "name": "Laser Absorption",
-      "description": "Laser Absorption - laser material interaction",
-      "value": 94000,
-      "unitText": "m^{-1}",
-      "minValue": 0.28,
-      "maxValue": 126000,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": "1.2e-07",
-      "unitText": "m²/s",
-      "minValue": 0,
-      "maxValue": 0,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 0.25,
-      "unitText": "J/cm²",
-      "minValue": 0.39,
-      "maxValue": 2.8,
-      "measurementTechnique": "scientific_literature"
+      "propertyID": "machine_overlap_ratio",
+      "name": "Machine Setting: Overlap_ratio",
+      "value": 60,
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90,
+      "description": "60% overlap ensures uniform coverage and avoids gaps in cleaning; higher for heavy contamination to build fluence gradually. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020)."
     }
   ],
-  "citation": "Z-Beam (2025). Polycarbonate Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/polycarbonate-laser-cleaning",
-  "disclaimer": "DISCLAIMER: This data is provided for informational and educational purposes only, without any warranties, express or implied. Z-Beam makes no representations regarding the accuracy, completeness, or suitability of this information for any particular purpose. Use of this data is at your own risk. Z-Beam assumes no liability for any damages, injuries, or losses arising from the application or interpretation of this data. Always consult qualified professionals and follow applicable safety regulations when working with laser equipment.",
-  "author": {
-    "@type": "Person",
-    "name": "Yi-Chun Lin",
-    "jobTitle": "Laser Processing Engineer",
-    "knowsAbout": [
-      "Laser Materials Processing"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam Laser Cleaning Research Lab"
-    }
-  }
+  "citation": "Z-Beam (2025). Polycarbonate Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/polycarbonate-laser-cleaning"
 }
