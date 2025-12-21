@@ -82,7 +82,10 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const canonical = 'canonical' in metadata ? (metadata as any).canonical : undefined;
   const meta_description = 'meta_description' in metadata ? (metadata as any).meta_description : undefined;
   const subtitle = 'subtitle' in metadata ? (metadata as any).subtitle : undefined;
-  const contamination_description = 'contamination_description' in metadata ? (metadata as any).contamination_description : undefined;
+  // For contaminants, use description field as contamination_description
+  const contamination_description = 'description' in metadata && contentType === 'contaminants' 
+    ? (metadata as any).description 
+    : undefined;
   
   // Determine Open Graph type dynamically
   const ogType: 'article' | 'website' = (datePublished || category) ? 'article' : 'website';
@@ -107,6 +110,12 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   if (!heroImageUrl && ogImage) {
     const imgUrl = extractSafeValue(ogImage);
     heroImageUrl = imgUrl.startsWith('http') ? imgUrl : `${SITE_CONFIG.url}${imgUrl}`;
+  }
+  // Final fallback to default OG image
+  if (!heroImageUrl) {
+    heroImageUrl = `${SITE_CONFIG.url}/images/og-image.jpg`;
+    heroImageWidth = 1200;
+    heroImageHeight = 630;
   }
   
   // Get hero image alt text for accessibility (use rawTitle since title is derived later)
@@ -156,7 +165,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   }
   
   // Apply SEO formatting for settings pages
-  if (contentType === 'unified_settings') {
+  if (contentType === 'settings') {
     seoTitle = formatSettingsTitle({
       pageType: 'settings',
       materialName: materialName || title || '',
@@ -177,7 +186,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   }
   
   // Apply SEO formatting for contaminant pages
-  if (contentType === 'unified_contamination') {
+  if (contentType === 'contaminants') {
     seoTitle = formatContaminantTitle({
       pageType: 'contaminant',
       materialName: materialName || title || '',
