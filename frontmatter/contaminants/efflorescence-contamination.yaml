@@ -1,8 +1,8 @@
 id: efflorescence-contamination
 name: Concrete Efflorescence
 category: inorganic-coating
-datePublished: '2025-12-21T01:02:18.546703Z'
-dateModified: '2025-12-21T01:02:18.546703Z'
+datePublished: '2025-12-21T02:51:36.789198Z'
+dateModified: '2025-12-21T02:51:36.789198Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/mineral/efflorescence-contamination
@@ -306,6 +306,1351 @@ author:
   formatting_file: usa_formatting.yaml
 subcategory: mineral
 safety_data: *id001
+removal_by_material:
+  basalt:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 200
+        recommended: 200
+        range:
+        - 50
+        - 500
+      scan_speed:
+        unit: mm/s
+        value: 500
+        recommended: 500
+        range:
+        - 100
+        - 2000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 100
+      repetition_rate:
+        unit: kHz
+        value: 50
+        recommended: 50
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1.5
+        recommended: 1.5
+        range:
+        - 0.5
+        - 3.0
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 60
+        recommended: 60
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  bluestone:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 100
+        recommended: 100
+        range:
+        - 50
+        - 300
+      scan_speed:
+        unit: mm/s
+        value: 1500
+        recommended: 1500
+        range:
+        - 500
+        - 3000
+      pulse_width:
+        unit: ns
+        value: 50
+        recommended: 50
+        range:
+        - 10
+        - 200
+      repetition_rate:
+        unit: kHz
+        value: 50
+        recommended: 50
+        range:
+        - 20
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1.5
+        recommended: 1.5
+        range:
+        - 0.5
+        - 3.0
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 60
+        recommended: 60
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  brick:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 200
+        recommended: 200
+        range:
+        - 50
+        - 1000
+      scan_speed:
+        unit: mm/s
+        value: 500
+        recommended: 500
+        range:
+        - 100
+        - 2000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 100
+      repetition_rate:
+        unit: kHz
+        value: 30
+        recommended: 30
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1.5
+        recommended: 1.5
+        range:
+        - 0.5
+        - 3
+      spot_size:
+        unit: μm
+        value: 2000
+        recommended: 2000
+        range:
+        - 500
+        - 5000
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 60
+        recommended: 60
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  concrete:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 500
+        recommended: 500
+        range:
+        - 100
+        - 2000
+      scan_speed:
+        unit: mm/s
+        value: 1000
+        recommended: 1000
+        range:
+        - 100
+        - 5000
+      pulse_width:
+        unit: ns
+        value: 50
+        recommended: 50
+        range:
+        - 10
+        - 150
+      repetition_rate:
+        unit: kHz
+        value: 50
+        recommended: 50
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 2
+        recommended: 2
+        range:
+        - 0.5
+        - 5
+      spot_size:
+        unit: μm
+        value: 1000
+        recommended: 1000
+        range:
+        - 100
+        - 5000
+      pass_count:
+        unit: passes
+        value: 3
+        recommended: 3
+        range:
+        - 1
+        - 10
+      overlap_ratio:
+        unit: '%'
+        value: 50
+        recommended: 50
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.6
+        optimal_passes: 3
+        diminishing_returns_after: 5
+        typical_time_per_cm2: 3.3
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.7
+      difficulty: difficult
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (100W) and increase gradually to avoid substrate damage
+    - Use 3 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  granite:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 100
+        recommended: 100
+        range:
+        - 50
+        - 300
+      scan_speed:
+        unit: mm/s
+        value: 1000
+        recommended: 1000
+        range:
+        - 200
+        - 3000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 100
+      repetition_rate:
+        unit: kHz
+        value: 50
+        recommended: 50
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 2
+        recommended: 2
+        range:
+        - 0.5
+        - 5
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 60
+        recommended: 60
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  limestone:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 200
+        recommended: 200
+        range:
+        - 50
+        - 1000
+      scan_speed:
+        unit: mm/s
+        value: 1000
+        recommended: 1000
+        range:
+        - 100
+        - 5000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 50
+      repetition_rate:
+        unit: kHz
+        value: 30
+        recommended: 30
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1.5
+        recommended: 1.5
+        range:
+        - 0.5
+        - 3
+      spot_size:
+        unit: μm
+        value: 300
+        recommended: 300
+        range:
+        - 100
+        - 1000
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 50
+        recommended: 50
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  marble:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 100
+        recommended: 100
+        range:
+        - 20
+        - 300
+      scan_speed:
+        unit: mm/s
+        value: 500
+        recommended: 500
+        range:
+        - 100
+        - 2000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 50
+      repetition_rate:
+        unit: kHz
+        value: 20
+        recommended: 20
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1
+        recommended: 1
+        range:
+        - 0.5
+        - 3
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 70
+        recommended: 70
+        range:
+        - 50
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (20W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  quartzite:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 200
+        recommended: 200
+        range:
+        - 50
+        - 500
+      scan_speed:
+        unit: mm/s
+        value: 1500
+        recommended: 1500
+        range:
+        - 500
+        - 3000
+      pulse_width:
+        unit: ns
+        value: 30
+        recommended: 30
+        range:
+        - 10
+        - 100
+      repetition_rate:
+        unit: kHz
+        value: 50
+        recommended: 50
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 2
+        recommended: 2
+        range:
+        - 0.5
+        - 5
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 60
+        recommended: 60
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  sandstone:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 200
+        recommended: 200
+        range:
+        - 50
+        - 1000
+      scan_speed:
+        unit: mm/s
+        value: 1000
+        recommended: 1000
+        range:
+        - 100
+        - 5000
+      pulse_width:
+        unit: ns
+        value: 15
+        recommended: 15
+        range:
+        - 5
+        - 50
+      repetition_rate:
+        unit: kHz
+        value: 30
+        recommended: 30
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1.5
+        recommended: 1.5
+        range:
+        - 0.5
+        - 5
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 50
+        recommended: 50
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  slate:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 200
+        recommended: 200
+        range:
+        - 50
+        - 500
+      scan_speed:
+        unit: mm/s
+        value: 1500
+        recommended: 1500
+        range:
+        - 500
+        - 3000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 100
+      repetition_rate:
+        unit: kHz
+        value: 50
+        recommended: 50
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1.5
+        recommended: 1.5
+        range:
+        - 0.5
+        - 3.0
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 60
+        recommended: 60
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  soapstone:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 100
+        recommended: 100
+        range:
+        - 50
+        - 300
+      scan_speed:
+        unit: mm/s
+        value: 1000
+        recommended: 1000
+        range:
+        - 500
+        - 2000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 50
+      repetition_rate:
+        unit: kHz
+        value: 50
+        recommended: 50
+        range:
+        - 20
+        - 80
+      energy_density:
+        unit: J/cm²
+        value: 1.5
+        recommended: 1.5
+        range:
+        - 0.5
+        - 3
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 70
+        recommended: 70
+        range:
+        - 50
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (50W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
+  travertine:
+    laser_parameters:
+      wavelength:
+        unit: nm
+        value: 1064
+        recommended: 1064
+      power:
+        unit: W
+        value: 50
+        recommended: 50
+        range:
+        - 20
+        - 200
+      scan_speed:
+        unit: mm/s
+        value: 1000
+        recommended: 1000
+        range:
+        - 500
+        - 3000
+      pulse_width:
+        unit: ns
+        value: 20
+        recommended: 20
+        range:
+        - 5
+        - 100
+      repetition_rate:
+        unit: kHz
+        value: 30
+        recommended: 30
+        range:
+        - 10
+        - 100
+      energy_density:
+        unit: J/cm²
+        value: 1.0
+        recommended: 1.0
+        range:
+        - 0.5
+        - 3.0
+      spot_size:
+        unit: μm
+        value: 200
+        recommended: 200
+        range:
+        - 100
+        - 500
+      pass_count:
+        unit: passes
+        value: 2
+        recommended: 2
+        range:
+        - 1
+        - 5
+      overlap_ratio:
+        unit: '%'
+        value: 70
+        recommended: 70
+        range:
+        - 30
+        - 80
+    removal_characteristics:
+      primary_mechanism: thermal_ablation
+      secondary_mechanisms:
+      - photochemical
+      removal_efficiency:
+        single_pass: 0.75
+        optimal_passes: 2
+        diminishing_returns_after: 4
+        typical_time_per_cm2: 2.7
+      surface_quality_after_removal:
+        roughness_change: minimal
+        discoloration_risk: low
+        substrate_damage_risk: low
+        residual_contamination: trace
+    compatibility:
+      recommended: true
+      success_rate: 0.85
+      difficulty: moderate
+      substrate_warnings:
+      - Standard precautions apply
+      process_limitations:
+      - None identified
+    safety_considerations:
+      material_specific_hazards:
+      - Standard laser cleaning hazards apply
+      recommended_ppe:
+        respiratory: P100
+        eye_protection: OD7+ at operating wavelength
+        skin_protection: Heat-resistant gloves
+      ventilation_requirements:
+        minimum_air_changes_per_hour: 10
+        extraction_velocity_m_s: 0.5
+        filtration_notes: HEPA filtration recommended for particulate capture
+      fume_warnings:
+      - Standard fume precautions
+    optimization_tips:
+    - Start at lower power (20W) and increase gradually to avoid substrate damage
+    - Use 2 passes rather than single high-energy pass for better control
+    - Allow 2-3 seconds between passes for substrate cooling
+    success_indicators:
+      visual:
+      - Clean, uniform surface
+      - No visible residue
+      - Original substrate texture visible
+      measurement:
+      - Surface roughness increase <2.0 μm Ra
+      failure_signs:
+      - Discoloration (indicates overheating)
+      - Surface pitting or roughness (excessive energy)
+      - Incomplete removal after optimal pass count (insufficient energy)
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

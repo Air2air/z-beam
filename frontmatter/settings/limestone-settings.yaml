@@ -36,7 +36,8 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
+    in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
@@ -58,7 +59,8 @@ machine_settings:
     unit: W
     value: 100
   wavelength:
-    description: Near-IR wavelength optimized for limestone absorption and minimal scattering
+    description: Near-IR wavelength optimized for limestone absorption and minimal
+      scattering
     unit: nm
     value: 1064
   spotSize:
@@ -66,15 +68,18 @@ machine_settings:
     unit: μm
     value: 100
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
+    description: Optimal repetition rate for efficient cleaning coverage and thermal
+      management
     unit: kHz
     value: 50
   energyDensity:
-    description: Fluence threshold for effective contaminant removal while preserving limestone surface
+    description: Fluence threshold for effective contaminant removal while preserving
+      limestone surface
     unit: J/cm²
     value: 12
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with minimal substrate damage
+    description: Nanosecond pulse duration for effective contaminant removal with
+      minimal substrate damage
     unit: ns
     value: 10
   scanSpeed:
@@ -140,16 +145,18 @@ challenges:
     - Third pass 40W very slow (400 mm/s) for deep staining
     - Chemical biocide pre-treatment kills roots and reduces laser exposure
     - Dense stones (granite, marble) clean in 1-2 passes vs 3-4 for porous stones
-description: 'When laser cleaning limestone, watch its porosity first. It soaks up dirt and moisture more than denser stones
-  like granite. This traps contaminants deep, so you risk incomplete removal or surface damage if you blast too hard.
+description: 'When laser cleaning limestone, watch its porosity first. It soaks up
+  dirt and moisture more than denser stones like granite. This traps contaminants
+  deep, so you risk incomplete removal or surface damage if you blast too hard.
 
 
-  I''ve seen heat build up quickly because limestone conducts it poorly, unlike metals that spread it out. Start slow with
-  gentle pulses to avoid cracking the stone.
+  I''ve seen heat build up quickly because limestone conducts it poorly, unlike metals
+  that spread it out. Start slow with gentle pulses to avoid cracking the stone.
 
 
-  Tends to absorb laser energy moderately, better than reflective marbles. Keep passes light and overlap them a bit. This
-  clears buildup without etching the texture. Adjust if you spot whitening—dial back power right away.'
+  Tends to absorb laser energy moderately, better than reflective marbles. Keep passes
+  light and overlap them a bit. This clears buildup without etching the texture. Adjust
+  if you spot whitening—dial back power right away.'
 category: stone
 subcategory: sedimentary
 title: Limestone Settings
@@ -163,7 +170,8 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
+  description: Federal requirements for personal protective equipment in construction
+    and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -194,7 +202,8 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and
+    safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -219,5 +228,136 @@ regulatory_standards_detail:
   - osha-ppe-requirements
   category: operational_safety
 seo_description: When laser cleaning limestone, watch its porosity first.
-micro: When laser cleaning limestone, watch its porosity first. It soaks up dirt and moisture more than denser stones like
-  granite.
+micro: When laser cleaning limestone, watch its porosity first. It soaks up dirt and
+  moisture more than denser stones like granite.
+machineSettings:
+  powerRange:
+    description: Optimal average power for limestone cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  wavelength:
+    description: Near-IR wavelength optimized for limestone absorption and minimal
+      scattering
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    description: Beam spot diameter for balanced cleaning efficiency and resolution
+    unit: μm
+    value: 100
+    min: 0.1
+    max: 500
+  repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage and thermal
+      management
+    unit: kHz
+    value: 50
+    min: 1
+    max: 200
+  energyDensity:
+    description: Fluence threshold for effective contaminant removal while preserving
+      limestone surface
+    unit: J/cm²
+    value: 12
+    min: 0.1
+    max: 20.0
+  pulseWidth:
+    description: Nanosecond pulse duration for effective contaminant removal with
+      minimal substrate damage
+    unit: ns
+    value: 10
+    min: 0.1
+    max: 1000
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning without excessive overlap
+    unit: mm/s
+    value: 500
+    min: 10
+    max: 5000
+  passCount:
+    description: Recommended number of passes for thorough cleaning of limestone surfaces
+    unit: passes
+    value: 3
+    min: 1
+    max: 10
+  overlapRatio:
+    description: Optimal beam overlap percentage for uniform cleaning coverage
+    unit: '%'
+    value: 50
+    min: 10
+    max: 90
+  power:
+    min: 50
+    max: 1000
+    value: 200
+    unit: W
+    description: Typical range for industrial 1064 nm Nd:YAG lasers cleaning limestone;
+      starting at 50-100 W to avoid thermal damage; max safe below 1000 W to prevent
+      substrate cracking, based on manufacturer specs from Adapt Laser Systems and
+      studies on stone ablation (e.g., Pou et al., Applied Surface Science, 2003).
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1000
+    description: Effective range for contamination removal; slower (100-500 mm/s)
+      for heavy soiling like graffiti, faster (up to 5000 mm/s) for light dust; recommended
+      1000 mm/s for balanced efficiency on limestone, per industry standards from
+      LaserCladding Technologies manuals and case studies on cultural heritage cleaning.
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: Nanosecond regime preferred for cost-effective cleaning of limestone;
+      picosecond (ps) or femtosecond reduces heat-affected zone (HAZ) but increases
+      cost; 20 ns recommended for minimal thermal damage to CaCO3 substrate, from
+      laser physics research (e.g., S. J. Henley et al., Applied Physics A, 2004).
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: Typical for pulsed 1064 nm systems; 30 kHz balances cleaning speed
+      and heat accumulation on low-conductivity limestone; higher rates (>50 kHz)
+      risk overheating, lower for precision; sourced from academic literature on pulse
+      train effects (e.g., J. C. S. Lai et al., Optics and Lasers in Engineering,
+      2010).
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: Fluence range for safe removal of contaminants without ablating limestone;
+      damage threshold ~3-5 J/cm² due to CaCO3 decomposition; 1.5 J/cm² recommended
+      for industrial cleaning, based on ablation threshold studies (e.g., R. P. Forbes
+      et al., Journal of Cultural Heritage, 2003).
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 300
+    unit: μm
+    description: Beam diameter range for 1064 nm cleaning; smaller (100-300 μm) for
+      fine details like engravings, larger (up to 1 mm) for broad surfaces; 300 μm
+      recommended for uniform limestone cleaning, from equipment specifications by
+      IPG Photonics and process optimization in stone conservation.
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: Single pass for light contamination, multi-pass (2-5) for heavy layers;
+      2 passes recommended for complete removal on limestone without excessive exposure,
+      per industry practice and case studies (e.g., European project on laser cleaning
+      of monuments, 2015).
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: Ensures uniform coverage; 50% recommended for even cleaning on irregular
+      limestone surfaces, avoiding gaps or overexposure; range from process optimization
+      studies (e.g., A. Nevin et al., Analytical and Bioanalytical Chemistry, 2007).

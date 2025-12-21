@@ -37,7 +37,8 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
+    with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
@@ -70,7 +71,8 @@ machine_settings:
     unit: kHz
     value: 50
   energyDensity:
-    description: Fluence threshold for effective contaminant removal without wood damage
+    description: Fluence threshold for effective contaminant removal without wood
+      damage
     unit: J/cm²
     value: 2.8
   pulseWidth:
@@ -138,13 +140,16 @@ challenges:
     - Second pass 60W slow (800 mm/s) for residue
     - Use fume extraction to prevent redeposition
     - Limit to 2-3 passes maximum to avoid substrate damage
-description: When laser cleaning teak, you'll want to start by focusing on its distinctive oil-rich structure, which sets
-  it apart from drier hardwoods like oak by enhancing laser absorption without rapid heat buildup. This property allows the
-  process to remove surface contaminants effectively while preserving the wood's natural grain and color. Make sure you maintain
-  a steady, controlled scan to avoid uneven charring, as teak's moderate density can lead to localized overheating if speeds
-  vary. Compared to softer woods, teak restores well under gentle passes that expose underlying layers cleanly, reducing the
-  risk of splintering. Adjust dwell times longer than for less absorbent materials to ensure thorough cleaning without compromising
-  its inherent durability.
+description: When laser cleaning teak, you'll want to start by focusing on its distinctive
+  oil-rich structure, which sets it apart from drier hardwoods like oak by enhancing
+  laser absorption without rapid heat buildup. This property allows the process to
+  remove surface contaminants effectively while preserving the wood's natural grain
+  and color. Make sure you maintain a steady, controlled scan to avoid uneven charring,
+  as teak's moderate density can lead to localized overheating if speeds vary. Compared
+  to softer woods, teak restores well under gentle passes that expose underlying layers
+  cleanly, reducing the risk of splintering. Adjust dwell times longer than for less
+  absorbent materials to ensure thorough cleaning without compromising its inherent
+  durability.
 category: wood
 subcategory: hardwood
 title: Teak Settings
@@ -158,7 +163,8 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
+  description: Federal requirements for personal protective equipment in construction
+    and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -189,7 +195,8 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and
+    safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -213,8 +220,148 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning teak, you'll want to start by focusing on its distinctive oil-rich structure, which sets
-  it apart from drier hardwoods like oak by...
-micro: When laser cleaning teak, you'll want to start by focusing on its distinctive oil-rich structure, which sets it apart
-  from drier hardwoods like oak by enhancing laser absorption without rapid heat buildup. This property allows the process
-  to remove surface contaminants effectively while preserving the wood's natural grain and color.
+seo_description: When laser cleaning teak, you'll want to start by focusing on its
+  distinctive oil-rich structure, which sets it apart from drier hardwoods like oak
+  by...
+micro: When laser cleaning teak, you'll want to start by focusing on its distinctive
+  oil-rich structure, which sets it apart from drier hardwoods like oak by enhancing
+  laser absorption without rapid heat buildup. This property allows the process to
+  remove surface contaminants effectively while preserving the wood's natural grain
+  and color.
+machineSettings:
+  powerRange:
+    description: Optimal average power for Teak surface cleaning without charring
+    unit: W
+    value: 45
+    min: 1.0
+    max: 120
+  wavelength:
+    description: Near-IR wavelength for optimal absorption in Teak lignin and contaminants
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    description: Beam spot diameter for precise cleaning resolution
+    unit: μm
+    value: 80
+    min: 0.1
+    max: 500
+  repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 50
+    min: 1
+    max: 200
+  energyDensity:
+    description: Fluence threshold for effective contaminant removal without wood
+      damage
+    unit: J/cm²
+    value: 2.8
+    min: 0.1
+    max: 20.0
+  pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of surface contaminants
+    unit: ns
+    value: 12
+    min: 0.1
+    max: 1000
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
+    min: 10
+    max: 5000
+  passCount:
+    description: Recommended number of passes for complete surface cleaning
+    unit: passes
+    value: 2
+    min: 1
+    max: 10
+  overlapRatio:
+    description: Optimal beam overlap for uniform cleaning pattern
+    unit: '%'
+    value: 40
+    min: 10
+    max: 90
+  dwellTime:
+    description: Effective dwell time per cleaning spot
+    unit: μs
+    value: 120
+    min: 0.2
+    max: 200
+  power:
+    min: 50
+    max: 300
+    unit: W
+    value: 100
+    description: Typical range for industrial Nd:YAG lasers cleaning organic contaminants
+      from wood; starting at 100 W balances efficiency and safety to avoid charring
+      Teak's low thermal conductivity surface (e.g., manufacturer specs from IPG Photonics
+      and studies in Optics and Lasers in Engineering, 2018). Maximum limited to prevent
+      substrate damage.
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: Effective speeds for 1064 nm cleaning of wood; recommended 2000 mm/s
+      for optimal contaminant removal without excessive heat buildup on Teak; lower
+      for heavy contamination (500-1000 mm/s), higher for light (3000-5000 mm/s) per
+      industry standards (e.g., Laserax equipment manuals and Journal of Applied Physics,
+      2020).
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: Nanosecond regime preferred for Teak to minimize heat-affected zone
+      (HAZ) while ablating contaminants; picosecond (ps) or femtosecond (fs) reduce
+      thermal damage further but are costlier; 20 ns typical for wood cleaning (e.g.,
+      laser physics research in Applied Surface Science, 2019). Avoid fs for industrial
+      scale due to complexity.
+  repetition_rate:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: Common for pulsed laser cleaning of organics; 50 kHz recommended
+      for Teak to achieve fast cleaning with controlled heat accumulation; higher
+      rates (>80 kHz) speed up process but risk thermal buildup on low-conductivity
+      wood (e.g., academic literature in Lasers in Engineering, 2021).
+  energy_density:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    value: 2
+    description: Fluence range for safe ablation of contaminants from wood; Teak damage
+      threshold ~3-5 J/cm² at 1064 nm due to reflectivity and charring risk; 2 J/cm²
+      recommended for effective cleaning without substrate harm (e.g., ablation threshold
+      studies in Journal of Laser Applications, 2017). Conservative for Teak's properties.
+  spot_size:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 500
+    description: Beam diameter for uniform cleaning; 500 μm recommended for Teak surface
+      preparation, balancing fine detail (smaller spots for precision) and large-area
+      efficiency (larger for broad coverage); per equipment specs (e.g., Coherent
+      Inc. lasers and industry standards).
+  pass_count:
+    min: 1
+    max: 10
+    unit: passes
+    value: 2
+    description: Typically 1-3 passes for light contaminants, up to 5 for heavy; 2
+      passes recommended for complete Teak cleaning to ensure removal without overexposure;
+      multi-pass preferred over single for uniform results (e.g., industry case studies
+      in Wood Science and Technology, 2022).
+  overlap_ratio:
+    min: 10
+    max: 90
+    unit: '%'
+    value: 50
+    description: Ensures uniform coverage in scan patterns; 50% recommended for Teak
+      to avoid gaps or over-etching while minimizing processing time; 30-50% for large
+      areas, 60-80% for detailed work (e.g., process optimization in Optics Express,
+      2016).

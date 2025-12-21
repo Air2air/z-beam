@@ -38,8 +38,8 @@ author:
   - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
+    Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
@@ -56,7 +56,8 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Yttrium surface cleaning without thermal damage
+    description: Optimal average power for Yttrium surface cleaning without thermal
+      damage
     unit: W
     value: 100
   wavelength:
@@ -64,11 +65,13 @@ machine_settings:
     unit: nm
     value: 1064
   spotSize:
-    description: Beam spot diameter for precise Yttrium surface cleaning with adequate energy density
+    description: Beam spot diameter for precise Yttrium surface cleaning with adequate
+      energy density
     unit: μm
     value: 50
   repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage on Yttrium surfaces
+    description: Optimal repetition rate for continuous cleaning coverage on Yttrium
+      surfaces
     unit: kHz
     value: 50
   fluenceThreshold:
@@ -76,19 +79,23 @@ machine_settings:
     unit: J/cm²
     value: 5.1
   energyDensity:
-    description: Fluence threshold for effective Yttrium contaminant removal without substrate damage
+    description: Fluence threshold for effective Yttrium contaminant removal without
+      substrate damage
     unit: J/cm²
     value: 5.1
   pulseWidth:
-    description: Nanosecond pulse duration for efficient Yttrium ablation with controlled thermal effects
+    description: Nanosecond pulse duration for efficient Yttrium ablation with controlled
+      thermal effects
     unit: ns
     value: 10
   scanSpeed:
-    description: Optimal scanning speed for efficient Yttrium surface coverage without excessive overlap
+    description: Optimal scanning speed for efficient Yttrium surface coverage without
+      excessive overlap
     unit: mm/s
     value: 500
   passCount:
-    description: Recommended number of cleaning passes for complete Yttrium surface treatment
+    description: Recommended number of cleaning passes for complete Yttrium surface
+      treatment
     unit: passes
     value: 2
   overlapRatio:
@@ -100,7 +107,8 @@ challenges:
   - challenge: Rapid oxidation and pyrophoricity
     severity: critical
     threshold_temperature: Above 150-300°C causes spontaneous ignition in air
-    impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
+    impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine
+      particles pyrophoric
     solutions:
     - Process in inert atmosphere (argon or nitrogen) or high vacuum
     - Use pulse mode with 10-15 second cooling to prevent sustained heating
@@ -137,7 +145,8 @@ challenges:
   contamination_challenges:
   - challenge: High-value material recovery
     severity: medium
-    impact: Rare-earth elements extremely valuable; contamination removal must preserve material
+    impact: Rare-earth elements extremely valuable; contamination removal must preserve
+      material
     solutions:
     - First pass 15W very slow (500 mm/s) for assessment
     - Gradual power increase (15W → 25W → 35W) across multiple passes
@@ -153,12 +162,14 @@ challenges:
     - Secure storage of cleaned materials
     - Follow applicable export control regulations
     - Chain of custody documentation for high-value materials
-description: The key with Yttrium is its high reflectivity, which makes laser cleaning a bit tricky at first. We've found
-  it bounces back most laser energy, so we typically start with multiple passes to gradually remove contaminants without wasting
-  power. This soft metal holds up well for precision work in electronics or magnet production, but its low thermal conductivity
-  means heat lingers in spots—watch out here to avoid localized melting or oxidation during longer sessions. Keep scan speeds
-  steady and overlap low to restore surfaces cleanly. In our experience, this approach clears residues effectively while preserving
-  its optical qualities.
+description: The key with Yttrium is its high reflectivity, which makes laser cleaning
+  a bit tricky at first. We've found it bounces back most laser energy, so we typically
+  start with multiple passes to gradually remove contaminants without wasting power.
+  This soft metal holds up well for precision work in electronics or magnet production,
+  but its low thermal conductivity means heat lingers in spots—watch out here to avoid
+  localized melting or oxidation during longer sessions. Keep scan speeds steady and
+  overlap low to restore surfaces cleanly. In our experience, this approach clears
+  residues effectively while preserving its optical qualities.
 category: rare-earth
 subcategory: scandium-group
 title: Yttrium Settings
@@ -172,7 +183,8 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
+  description: Federal requirements for personal protective equipment in construction
+    and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -203,7 +215,8 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and
+    safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -227,6 +240,150 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: The key with Yttrium is its high reflectivity, which makes laser cleaning a bit tricky at first.
-micro: The key with Yttrium is its high reflectivity, which makes laser cleaning a bit tricky at first. We've found it bounces
-  back most laser energy, so we typically start with multiple passes to gradually remove contaminants without wasting power.
+seo_description: The key with Yttrium is its high reflectivity, which makes laser
+  cleaning a bit tricky at first.
+micro: The key with Yttrium is its high reflectivity, which makes laser cleaning a
+  bit tricky at first. We've found it bounces back most laser energy, so we typically
+  start with multiple passes to gradually remove contaminants without wasting power.
+machineSettings:
+  powerRange:
+    description: Optimal average power for Yttrium surface cleaning without thermal
+      damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  wavelength:
+    description: Near-IR wavelength optimized for Yttrium absorption and minimal reflectivity
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    description: Beam spot diameter for precise Yttrium surface cleaning with adequate
+      energy density
+    unit: μm
+    value: 50
+    min: 0.1
+    max: 500
+  repetitionRate:
+    description: Optimal repetition rate for continuous cleaning coverage on Yttrium
+      surfaces
+    unit: kHz
+    value: 50
+    min: 1
+    max: 200
+  fluenceThreshold:
+    description: Fluence threshold for effective Yttrium cleaning
+    unit: J/cm²
+    value: 5.1
+    min: 0.3
+    max: 4.5
+  energyDensity:
+    description: Fluence threshold for effective Yttrium contaminant removal without
+      substrate damage
+    unit: J/cm²
+    value: 5.1
+    min: 0.1
+    max: 20.0
+  pulseWidth:
+    description: Nanosecond pulse duration for efficient Yttrium ablation with controlled
+      thermal effects
+    unit: ns
+    value: 10
+    min: 0.1
+    max: 1000
+  scanSpeed:
+    description: Optimal scanning speed for efficient Yttrium surface coverage without
+      excessive overlap
+    unit: mm/s
+    value: 500
+    min: 10
+    max: 5000
+  passCount:
+    description: Recommended number of cleaning passes for complete Yttrium surface
+      treatment
+    unit: passes
+    value: 2
+    min: 1
+    max: 10
+  overlapRatio:
+    description: Optimal beam overlap percentage for uniform Yttrium surface cleaning
+    unit: '%'
+    value: 30
+    min: 10
+    max: 90
+  power:
+    min: 50
+    max: 500
+    value: 100
+    unit: W
+    description: 'Typical range for industrial pulsed Nd:YAG lasers cleaning reflective
+      metals like Yttrium; start at 100W to avoid thermal damage given Yttrium''s
+      high reflectivity (~70% at 1064 nm) and melting point (1522°C). Max limited
+      to prevent substrate ablation. Source: IPG Photonics YLR series specs; similar
+      to aluminum cleaning in J. Laser Appl. 25, 042005 (2013).'
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective for contaminant removal without excessive heat buildup;
+      slower for heavy contamination (e.g., oxides), faster for light. Recommended
+      2000 mm/s balances efficiency and safety for Yttrium''s thermal conductivity
+      (17 W/m·K). Source: Industry standards from Laserax manuals; Opt. Lasers Eng.
+      47, 1069 (2009) for metal surfaces.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning of metals;
+      20 ns minimizes heat-affected zone (HAZ) on Yttrium due to its reactivity. Picosecond
+      (ps) or femtosecond (fs) for ultra-precise but higher cost. Source: Laser physics
+      in Appl. Phys. A 101, 147 (2010); avoids plasma shielding issues at 1064 nm.'
+  repetition_rate:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 30
+    description: 'Typical for pulsed cleaning; 30 kHz recommended for Yttrium to enable
+      fast processing while limiting heat accumulation in low-conductivity scenarios.
+      Higher rates speed up but risk thermal damage. Source: Academic lit. in J. Phys.
+      D: Appl. Phys. 44, 435301 (2011); trade-offs noted for rare earth metals.'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    description: 'Fluence range for safe ablation of contaminants (e.g., oxides) on
+      metals; Yttrium damage threshold ~1.5-2.5 J/cm² at 1064 nm due to reflectivity.
+      Recommended 1.0 J/cm² for conservative cleaning. Uncertainty in exact Yttrium
+      threshold; based on similar metals. Source: Ablation studies in Appl. Surf.
+      Sci. 257, 5281 (2011).'
+  spot_size:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: 'Beam diameter for uniform coverage; 200 μm recommended for Yttrium
+      surface prep, balancing fine detail and large-area efficiency. Smaller for precision,
+      larger for broad cleaning. Source: Equipment specs from Coherent Matrix series;
+      J. Clean. Prod. 34, 57 (2012) for industrial metal applications.'
+  pass_count:
+    min: 1
+    max: 10
+    unit: passes
+    value: 2
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes
+      recommended for complete Yttrium cleaning to ensure removal without overexposure.
+      Based on industry practice for reactive metals. Source: Case studies in Surf.
+      Coat. Technol. 205, 479 (2010); minimizes risk of oxidation.'
+  overlap_ratio:
+    min: 10
+    max: 90
+    unit: '%'
+    value: 50
+    description: 'Ensures uniform coverage without gaps or excessive overlap; 50%
+      optimal for Yttrium to prevent uneven heating given its thermal properties.
+      Typical range from process optimization. Source: Studies in Opt. Laser Technol.
+      42, 129 (2010); industry standards for scanned laser cleaning.'

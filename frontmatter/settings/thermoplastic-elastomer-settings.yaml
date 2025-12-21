@@ -37,7 +37,8 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
+    with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
@@ -54,15 +55,18 @@ relationships:
     id: ansi-z136-1-laser-safety
 machine_settings:
   powerRange:
-    description: Optimal average power for Thermoplastic Elastomer surface cleaning without thermal damage
+    description: Optimal average power for Thermoplastic Elastomer surface cleaning
+      without thermal damage
     unit: W
     value: 100
   wavelength:
-    description: Near-IR wavelength optimized for Thermoplastic Elastomer absorption and minimal substrate damage
+    description: Near-IR wavelength optimized for Thermoplastic Elastomer absorption
+      and minimal substrate damage
     unit: nm
     value: 1064
   spotSize:
-    description: Beam spot diameter for precise cleaning control on Thermoplastic Elastomer surfaces
+    description: Beam spot diameter for precise cleaning control on Thermoplastic
+      Elastomer surfaces
     unit: μm
     value: 100
   repetitionRate:
@@ -70,7 +74,8 @@ machine_settings:
     unit: kHz
     value: 50
   energyDensity:
-    description: Fluence threshold for effective contaminant removal without damaging Thermoplastic Elastomer substrate
+    description: Fluence threshold for effective contaminant removal without damaging
+      Thermoplastic Elastomer substrate
     unit: J/cm²
     value: 1.2
   pulseWidth:
@@ -86,7 +91,8 @@ machine_settings:
     unit: passes
     value: 2
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
+    description: Optimal beam overlap for uniform cleaning without excessive thermal
+      buildup
     unit: '%'
     value: 50
   dwellTime:
@@ -139,14 +145,17 @@ challenges:
     - Second pass 50W slow (800 mm/s) for residue
     - Chemical pre-treatment improves results for stubborn adhesives
     - Monitor for matrix damage; stop if surface texture changes
-description: We've found that laser cleaning Thermoplastic Elastomer works best when we start with conservative power levels
-  to leverage its good absorption of laser energy, which removes surface contaminants effectively without immediate heat buildup.
-  This approach restores the material's flexibility and surface integrity quickly, as its low thermal conductivity keeps heat
-  localized and prevents widespread softening. In our experience, the elastomer's rubber-like resilience sets it apart from
-  rigid plastics, allowing multiple passes that expose clean layers beneath residues from automotive or medical applications.
-  We adjust scan speeds to be moderate, ensuring the process reduces oxidation risks while maintaining the material's shape.
-  However, always monitor for excessive dwell time at the end, as prolonged exposure can cause deformation in this sensitive
-  composite.
+description: We've found that laser cleaning Thermoplastic Elastomer works best when
+  we start with conservative power levels to leverage its good absorption of laser
+  energy, which removes surface contaminants effectively without immediate heat buildup.
+  This approach restores the material's flexibility and surface integrity quickly,
+  as its low thermal conductivity keeps heat localized and prevents widespread softening.
+  In our experience, the elastomer's rubber-like resilience sets it apart from rigid
+  plastics, allowing multiple passes that expose clean layers beneath residues from
+  automotive or medical applications. We adjust scan speeds to be moderate, ensuring
+  the process reduces oxidation risks while maintaining the material's shape. However,
+  always monitor for excessive dwell time at the end, as prolonged exposure can cause
+  deformation in this sensitive composite.
 category: composite
 subcategory: structural
 title: Thermoplastic Elastomer Settings
@@ -160,7 +169,8 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
+  description: Federal requirements for personal protective equipment in construction
+    and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -191,7 +201,8 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and
+    safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -215,9 +226,148 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: We've found that laser cleaning Thermoplastic Elastomer works best when we start with conservative power
-  levels to leverage its good absorption of laser...
-micro: We've found that laser cleaning Thermoplastic Elastomer works best when we start with conservative power levels to
-  leverage its good absorption of laser energy, which removes surface contaminants effectively without immediate heat buildup.
-  This approach restores the material's flexibility and surface integrity quickly, as its low thermal conductivity keeps heat
-  localized and prevents widespread softening.
+seo_description: We've found that laser cleaning Thermoplastic Elastomer works best
+  when we start with conservative power levels to leverage its good absorption of
+  laser...
+micro: We've found that laser cleaning Thermoplastic Elastomer works best when we
+  start with conservative power levels to leverage its good absorption of laser energy,
+  which removes surface contaminants effectively without immediate heat buildup. This
+  approach restores the material's flexibility and surface integrity quickly, as its
+  low thermal conductivity keeps heat localized and prevents widespread softening.
+machineSettings:
+  powerRange:
+    description: Optimal average power for Thermoplastic Elastomer surface cleaning
+      without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  wavelength:
+    description: Near-IR wavelength optimized for Thermoplastic Elastomer absorption
+      and minimal substrate damage
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    description: Beam spot diameter for precise cleaning control on Thermoplastic
+      Elastomer surfaces
+    unit: μm
+    value: 100
+    min: 0.1
+    max: 500
+  repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 50
+    min: 1
+    max: 200
+  energyDensity:
+    description: Fluence threshold for effective contaminant removal without damaging
+      Thermoplastic Elastomer substrate
+    unit: J/cm²
+    value: 1.2
+    min: 0.1
+    max: 20.0
+  pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of surface contaminants
+    unit: ns
+    value: 10
+    min: 0.1
+    max: 1000
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
+    min: 10
+    max: 5000
+  passCount:
+    description: Recommended number of passes for complete contaminant removal
+    unit: passes
+    value: 2
+    min: 1
+    max: 10
+  overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal
+      buildup
+    unit: '%'
+    value: 50
+    min: 10
+    max: 90
+  dwellTime:
+    description: Optimal dwell time per spot for effective cleaning
+    unit: μs
+    value: 100
+    min: 0.2
+    max: 200
+  power:
+    min: 10
+    max: 100
+    value: 30
+    unit: W
+    description: Typical range for polymer cleaning to avoid thermal damage; starting
+      at 30W for light contamination on TPE, max below melting threshold (~150-200°C);
+      based on IPG Photonics specs for YLR series lasers and studies in Optics and
+      Lasers in Engineering (2018).
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: Higher speeds minimize heat accumulation on heat-sensitive TPE; 2000
+      mm/s optimal for effective contaminant removal without substrate melting; ranges
+      adjust for light (faster) vs heavy contamination; from industry manuals like
+      those from Laserax and Applied Optics journal (2020).
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning
+      of polymers; 20 ns minimizes HAZ by rapid energy delivery before conduction;
+      TPE's low thermal conductivity (~0.2 W/mK) benefits short pulses; cited in Laser
+      & Photonics Reviews (2019) on polymer ablation.
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: Balanced rate for TPE to enable fast cleaning while limiting heat
+      buildup; higher rates increase speed but risk accumulation on low-melting TPE;
+      trade-off noted in academic literature like Journal of Applied Physics (2021).
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: Fluence below TPE damage threshold (~1-2 J/cm² at 1064 nm due to
+      moderate absorption); 0.5 J/cm² safe for contaminant removal; conservative for
+      reflectivity (~0.9) and low melting point; from ablation threshold studies in
+      Applied Surface Science (2017).
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 200 μm recommended for uniform cleaning on TPE surfaces; smaller
+      for fine details, larger for broad areas; suits industrial prep without focusing
+      heat; per equipment specs from Coherent Inc. and process guidelines in Industrial
+      Laser Solutions (2022).
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: Multi-pass for heavy contamination on TPE to stay under thermal limits;
+      2 passes typical for complete removal without damage; single pass for light
+      soils; based on case studies in Journal of Cleaner Production (2020) for polymer
+      surface prep.
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 60% ensures uniform coverage on irregular TPE surfaces; higher for
+      heavy contamination to avoid gaps; standard range optimizes energy distribution;
+      from process optimization in Lasers in Manufacturing and Materials Processing
+      (2019).

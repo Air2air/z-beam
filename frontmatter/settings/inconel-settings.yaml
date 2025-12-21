@@ -38,7 +38,8 @@ author:
   - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's
+    Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
   - https://scholar.google.com/citations?user=def456
@@ -59,7 +60,8 @@ machine_settings:
     unit: W
     value: 100
   wavelength:
-    description: Near-IR wavelength optimized for Inconel absorption and minimal substrate damage
+    description: Near-IR wavelength optimized for Inconel absorption and minimal substrate
+      damage
     unit: nm
     value: 1064
   spotSize:
@@ -128,7 +130,8 @@ challenges:
   contamination_challenges:
   - challenge: Rust and oxide layer removal
     severity: medium
-    impact: Requires multiple passes; rust/oxide has different absorption than base metal
+    impact: Requires multiple passes; rust/oxide has different absorption than base
+      metal
     solutions:
     - First pass at higher power (100-120W) to remove bulk oxide
     - Second pass at lower power (60-80W) for final cleaning
@@ -140,14 +143,18 @@ challenges:
     - Use fume extraction to prevent redeposition
     - Higher scan speeds (3000-5000 mm/s) for thin films
     - Chemical pre-cleaning for heavy contamination
-description: When laser cleaning Inconel, its standout heat resistance sets it apart from everyday steels, allowing you to
-  push temperatures higher without warping the surface. I've found this property shines in aerospace parts, where the alloy
-  holds up under intense conditions that would melt lesser metals, so you can focus on stripping away oxidation or contaminants
-  effectively. Unlike more conductive alloys, Inconel's lower heat spread means the laser energy stays localized, which helps
-  preserve intricate details but requires careful control to avoid uneven heating. Watch out midway through passes for potential
-  surface cracking if power builds too quickly—dial back intensity and add overlaps to keep things steady. This approach brings
-  back the finish cleanly, especially in turbine blades, without compromising the material's corrosion-fighting edge. Tends
-  to work best with multiple light sweeps, restoring that tough, reliable surface for demanding applications.
+description: When laser cleaning Inconel, its standout heat resistance sets it apart
+  from everyday steels, allowing you to push temperatures higher without warping the
+  surface. I've found this property shines in aerospace parts, where the alloy holds
+  up under intense conditions that would melt lesser metals, so you can focus on stripping
+  away oxidation or contaminants effectively. Unlike more conductive alloys, Inconel's
+  lower heat spread means the laser energy stays localized, which helps preserve intricate
+  details but requires careful control to avoid uneven heating. Watch out midway through
+  passes for potential surface cracking if power builds too quickly—dial back intensity
+  and add overlaps to keep things steady. This approach brings back the finish cleanly,
+  especially in turbine blades, without compromising the material's corrosion-fighting
+  edge. Tends to work best with multiple light sweeps, restoring that tough, reliable
+  surface for demanding applications.
 category: metal
 subcategory: specialty
 title: Inconel Settings
@@ -161,7 +168,8 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
+  description: Federal requirements for personal protective equipment in construction
+    and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -192,7 +200,8 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and
+    safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -216,9 +225,143 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning Inconel, its standout heat resistance sets it apart from everyday steels, allowing you
-  to push temperatures higher without warping the...
-micro: When laser cleaning Inconel, its standout heat resistance sets it apart from everyday steels, allowing you to push
-  temperatures higher without warping the surface. I've found this property shines in aerospace parts, where the alloy holds
-  up under intense conditions that would melt lesser metals, so you can focus on stripping away oxidation or contaminants
-  effectively.
+seo_description: When laser cleaning Inconel, its standout heat resistance sets it
+  apart from everyday steels, allowing you to push temperatures higher without warping
+  the...
+micro: When laser cleaning Inconel, its standout heat resistance sets it apart from
+  everyday steels, allowing you to push temperatures higher without warping the surface.
+  I've found this property shines in aerospace parts, where the alloy holds up under
+  intense conditions that would melt lesser metals, so you can focus on stripping
+  away oxidation or contaminants effectively.
+machineSettings:
+  powerRange:
+    description: Optimal average power for Inconel oxide layer removal
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  wavelength:
+    description: Near-IR wavelength optimized for Inconel absorption and minimal substrate
+      damage
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    description: Beam spot diameter for precise cleaning control
+    unit: μm
+    value: 50
+    min: 0.1
+    max: 500
+  repetitionRate:
+    description: Optimal repetition rate for continuous cleaning coverage
+    unit: kHz
+    value: 50
+    min: 1
+    max: 200
+  fluenceThreshold:
+    description: Minimum fluence required for effective Inconel oxide removal
+    unit: J/cm²
+    value: 2.5
+    min: 0.3
+    max: 4.5
+  pulseWidth:
+    description: Nanosecond pulse duration for efficient oxide layer ablation
+    unit: ns
+    value: 10
+    min: 0.1
+    max: 1000
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning
+    unit: mm/s
+    value: 500
+    min: 10
+    max: 5000
+  passCount:
+    description: Number of cleaning passes for complete oxide removal
+    unit: passes
+    value: 3
+    min: 1
+    max: 10
+  overlapRatio:
+    description: Optimal beam overlap for uniform cleaning coverage
+    unit: '%'
+    value: 50
+    min: 10
+    max: 90
+  power:
+    min: 20
+    max: 500
+    value: 100
+    unit: W
+    description: 'Typical range for industrial pulsed fiber lasers cleaning metals
+      like Inconel; starting at 100 W balances efficiency and safety to avoid melting
+      (Inconel melting point ~1300-1400°C); max safe ~300-500 W with proper scanning
+      to prevent substrate damage. Source: IPG Photonics YLR series specs and study
+      in Optics and Lasers in Engineering (2018) on Ni-based alloys.'
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective cleaning at 1000-3000 mm/s for light contamination (e.g.,
+      oils), slower (500-1500 mm/s) for heavy oxides; 2000 mm/s recommended for optimal
+      balance on Inconel to minimize heat input given its high thermal conductivity
+      (~15 W/m·K). Source: Industry standards from Laserax equipment manuals and Journal
+      of Cleaner Production (2020) case study on superalloys.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 50
+    unit: ns
+    description: 'Nanosecond regime (10-200 ns) standard for 1064 nm cleaning of reflective
+      metals like Inconel to enable ablation without excessive plasma shielding; 50
+      ns recommended for minimal heat-affected zone (HAZ <10 μm), as picosecond/femtosecond
+      better for ultra-precision but costlier. Source: Laser physics research in Applied
+      Surface Science (2019) on pulse duration effects for Ni alloys.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 100
+    unit: kHz
+    description: '20-100 kHz typical for controlled energy delivery in cleaning; 100
+      kHz recommended for Inconel to achieve fast processing while limiting heat accumulation
+      (trade-off: higher rates speed up cleaning but risk thermal buildup on low-reflectivity
+      contaminants). Source: Academic literature in Journal of Laser Applications
+      (2021) reviewing rep rates for metal surface preparation.'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal without damaging Inconel (ablation
+      threshold ~2-4 J/cm² due to high reflectivity ~60% at 1064 nm); 1.5 J/cm² safe
+      for cleaning, below damage threshold of ~5 J/cm². Source: Ablation threshold
+      studies in Surface and Coatings Technology (2017) on Inconel 718.'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: '50-300 μm for fine detail cleaning, up to 500 μm for large areas;
+      200 μm recommended for Inconel to ensure uniform fluence distribution and avoid
+      hotspots on irregular surfaces. Source: Equipment specifications from Coherent
+      and Trumpf laser cleaning systems.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, 2-3 for moderate/heavy; 2 passes
+      recommended for complete removal on Inconel without excessive wear, allowing
+      residue assessment between passes. Source: Industry practice in Aerospace Manufacturing
+      and case studies from Laser Cleaning International (2022).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: '30-50% for speed on large areas, 60-80% for uniform coverage; 60%
+      recommended to ensure no gaps in cleaning Inconel surfaces while optimizing
+      process time. Source: Process optimization studies in Optics and Laser Technology
+      (2020) on scan strategies for alloys.'

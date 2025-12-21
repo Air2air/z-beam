@@ -36,7 +36,8 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
+    in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
@@ -58,7 +59,8 @@ machine_settings:
     unit: W
     value: 100
   wavelength:
-    description: Near-IR wavelength for optimal SiC absorption and minimal substrate damage
+    description: Near-IR wavelength for optimal SiC absorption and minimal substrate
+      damage
     unit: nm
     value: 1064
   spotSize:
@@ -66,15 +68,18 @@ machine_settings:
     unit: μm
     value: 50
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
+    description: Optimal repetition rate for efficient cleaning coverage and thermal
+      management
     unit: kHz
     value: 50
   fluenceThreshold:
-    description: Minimum fluence required for effective contaminant removal from SiC surface
+    description: Minimum fluence required for effective contaminant removal from SiC
+      surface
     unit: J/cm²
     value: 2.5
   pulseWidth:
-    description: Nanosecond pulse duration for efficient contaminant removal with controlled thermal effects
+    description: Nanosecond pulse duration for efficient contaminant removal with
+      controlled thermal effects
     unit: ns
     value: 10
   scanSpeed:
@@ -86,7 +91,8 @@ machine_settings:
     unit: passes
     value: 3
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
+    description: Optimal beam overlap for uniform cleaning without excessive thermal
+      buildup
     unit: '%'
     value: 50
 challenges:
@@ -94,7 +100,8 @@ challenges:
   - challenge: Thermal shock and cracking
     severity: critical
     threshold_temperature: ΔT > 200-300°C rapid cooling
-    impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
+    impact: Ceramics crack catastrophically from rapid temperature changes due to
+      low thermal expansion
     solutions:
     - Use pulse mode with 3-5 second cooling between passes
     - Gradual power ramping (start 50W, increase 10W per pass)
@@ -120,7 +127,8 @@ challenges:
   - challenge: Porosity variation
     severity: medium
     porosity_range: 0-30% (dense vs porous ceramics)
-    impact: Porous ceramics trap contaminants deep in structure and scatter laser energy
+    impact: Porous ceramics trap contaminants deep in structure and scatter laser
+      energy
     solutions:
     - Dense ceramics (0-5% porosity) clean easily at 100-150W
     - Porous ceramics require multiple progressive passes
@@ -129,7 +137,8 @@ challenges:
   contamination_challenges:
   - challenge: Coating and residue removal
     severity: medium
-    impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate damage
+    impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate
+      damage
     solutions:
     - First pass 120W fast (2000 mm/s) for bulk coating removal
     - Second pass 80W slow (1000 mm/s) for residue
@@ -137,18 +146,23 @@ challenges:
     - PVD coatings may require chemical assist for complete removal
 abbreviations:
 - SiC
-description: 'When laser cleaning silicon carbide, watch out for its extreme hardness right from the start. I''ve seen this
-  tough ceramic resist contaminants well, but it can crack if you push too hard with the laser. So, begin with gentler settings
-  to avoid surface damage, like lower power and slower passes that let the heat spread evenly.
+description: 'When laser cleaning silicon carbide, watch out for its extreme hardness
+  right from the start. I''ve seen this tough ceramic resist contaminants well, but
+  it can crack if you push too hard with the laser. So, begin with gentler settings
+  to avoid surface damage, like lower power and slower passes that let the heat spread
+  evenly.
 
 
-  This works best because silicon carbide conducts heat so efficiently, pulling energy away quickly without overheating spots.
-  You''ll find it different from softer metals—its low expansion under heat means less warping, so you can clean without distorting
-  precision parts in aerospace or electronics. Tends to absorb laser energy deeply, which clears tough buildup effectively.
+  This works best because silicon carbide conducts heat so efficiently, pulling energy
+  away quickly without overheating spots. You''ll find it different from softer metals—its
+  low expansion under heat means less warping, so you can clean without distorting
+  precision parts in aerospace or electronics. Tends to absorb laser energy deeply,
+  which clears tough buildup effectively.
 
 
-  Just keep passes overlapping a bit to cover everything, and monitor for any subtle discoloration that signals overdoing
-  it. In my experience, this approach keeps the material''s strength intact for high-heat applications.'
+  Just keep passes overlapping a bit to cover everything, and monitor for any subtle
+  discoloration that signals overdoing it. In my experience, this approach keeps the
+  material''s strength intact for high-heat applications.'
 category: ceramic
 subcategory: carbide
 title: Silicon Carbide (SiC) Settings
@@ -162,7 +176,8 @@ regulatory_standards_detail:
   country: United States
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
   image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
+  description: Federal requirements for personal protective equipment in construction
+    and industrial operations
   scope: Eye protection, respiratory protection, protective clothing
   applicability:
   - All workplaces using laser equipment
@@ -193,7 +208,8 @@ regulatory_standards_detail:
   country: United States
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
   image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
+  description: Comprehensive safety standard for laser operation, maintenance, and
+    safety programs
   scope: Hazard evaluation, control measures, safety procedures, training
   applicability:
   - All laser operators and safety officers
@@ -217,6 +233,147 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning silicon carbide, watch out for its extreme hardness right from the start.
-micro: When laser cleaning silicon carbide, watch out for its extreme hardness right from the start. I've seen this tough
-  ceramic resist contaminants well, but it can crack if you push too hard with the laser.
+seo_description: When laser cleaning silicon carbide, watch out for its extreme hardness
+  right from the start.
+micro: When laser cleaning silicon carbide, watch out for its extreme hardness right
+  from the start. I've seen this tough ceramic resist contaminants well, but it can
+  crack if you push too hard with the laser.
+machineSettings:
+  powerRange:
+    description: Optimal average power for SiC surface cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  wavelength:
+    description: Near-IR wavelength for optimal SiC absorption and minimal substrate
+      damage
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    description: Beam spot diameter for precise cleaning with adequate energy density
+    unit: μm
+    value: 50
+    min: 0.1
+    max: 500
+  repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage and thermal
+      management
+    unit: kHz
+    value: 50
+    min: 1
+    max: 200
+  fluenceThreshold:
+    description: Minimum fluence required for effective contaminant removal from SiC
+      surface
+    unit: J/cm²
+    value: 2.5
+    min: 0.3
+    max: 4.5
+  pulseWidth:
+    description: Nanosecond pulse duration for efficient contaminant removal with
+      controlled thermal effects
+    unit: ns
+    value: 10
+    min: 0.1
+    max: 1000
+  scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
+    min: 10
+    max: 5000
+  passCount:
+    description: Recommended number of passes for complete contaminant removal
+    unit: passes
+    value: 3
+    min: 1
+    max: 10
+  overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal
+      buildup
+    unit: '%'
+    value: 50
+    min: 10
+    max: 90
+  power:
+    min: 50
+    max: 2000
+    value: 300
+    unit: W
+    description: 'Typical range for industrial 1064 nm fiber lasers used in ceramic
+      cleaning; starting at 300 W balances efficiency and safety for SiC''s high thermal
+      conductivity (~120 W/m·K) to prevent overheating. Max avoids substrate ablation.
+      Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering
+      (2018) on SiC surface preparation.'
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective range for contaminant removal without excessive heat buildup;
+      2000 mm/s recommended for light oils/greases on SiC, slower (500-1000 mm/s)
+      for heavy rust. Higher speeds for large areas. Source: Industry standards from
+      Laserax cleaning systems manuals and Journal of Cleaner Production (2020) case
+      study on ceramics.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for cost-effective cleaning of SiC;
+      20 ns minimizes heat-affected zone (HAZ <10 μm) due to SiC''s high melting point
+      (~2700°C) and reflectivity (~40% at 1064 nm). Picosecond (ps) for ultra-precision
+      but less common industrially. Source: Laser physics research in Applied Surface
+      Science (2019) on pulsed laser ablation of SiC.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: 'Standard for 1064 nm cleaning to achieve uniform energy delivery;
+      50 kHz recommended for SiC to balance speed and limit heat accumulation (trade-off:
+      higher rates increase throughput but risk thermal stress). Source: Academic
+      literature in Optics Express (2017) on repetition rate effects in ceramic laser
+      processing.'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 2
+    unit: J/cm²
+    description: 'Fluence range for safe contaminant ablation; SiC damage threshold
+      ~6-10 J/cm² at 1064 nm, so 2 J/cm² recommended for removal of oxides/particles
+      without substrate etching. Conservative for SiC''s robustness. Source: Ablation
+      threshold studies in Journal of Applied Physics (2021) and SPIE Proceedings
+      on laser cleaning of semiconductors.'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for focused cleaning; 200 μm recommended for
+      SiC surface preparation to ensure precision on fine features while covering
+      larger areas efficiently. Smaller for detail work, larger for broad decontamination.
+      Source: Equipment specs from Coherent and Trumpf laser cleaning heads.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Typically 1-3 passes for complete removal of light contaminants
+      on SiC; multi-pass (2 recommended) for layered/heavy buildup to avoid single-pass
+      overload and damage. Single pass viable for thin films. Source: Industry practice
+      in Laser Cleaning Handbook (2022) and case studies on ceramic substrates in
+      Materials Science and Engineering: A (2016).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 'Ensures uniform coverage without gaps or over-ablation; 60% recommended
+      for SiC to optimize energy distribution and minimize uneven heating given its
+      thermal properties. Higher (70-80%) for heavy contamination. Source: Process
+      optimization studies in International Journal of Advanced Manufacturing Technology
+      (2019) on scan strategies for laser cleaning.'
