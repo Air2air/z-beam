@@ -4,7 +4,7 @@ import { loadAllArticles } from "../utils/contentAPI";
 import { loadComponent } from "../utils/contentAPI";
 import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types";
-import { SITE_CONFIG } from "@/config/site";
+import { SITE_CONFIG } from "@/app/config/site";
 
 export const dynamic = 'force-dynamic';
 

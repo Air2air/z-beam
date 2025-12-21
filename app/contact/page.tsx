@@ -6,7 +6,7 @@ import { ArticleMetadata } from "@/types";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { SITE_CONFIG } from "@/config/site";
+import { SITE_CONFIG } from "@/app/config/site";
 
 const ContactForm = dynamic(
   () =>
