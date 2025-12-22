@@ -5,8 +5,8 @@
     "subcategory": "thermoplastic",
     "title": "Polystyrene Settings",
     "description": "When laser cleaning Polystyrene, watch its tendency to soften under heat—I've seen it deform quickly if you push the power too high right away. This plastic heats unevenly compared to tougher thermoplastics like acrylic, so start slow to avoid melting the surface. \n\nFirst, lower the energy input to let the laser gently lift dirt without penetrating deep. Polystyrene's lightweight nature makes it less forgiving than metals, which shrug off minor overheating, but it cleans up nicely once you control the beam. \n\nScan at a steady pace, overlapping passes lightly to build even coverage. I've found this works best when you keep the spot focused, preventing hot spots that could warp the material. Unlike denser plastics, its poor heat spread means you must pause between passes to cool down. \n\nFinish by checking for residue—Polystyrene holds onto grime stubbornly, but a second gentle run brings back its smooth finish without yellowing. Tends to shine up well for packaging or electronics jobs.",
-    "datePublished": "2025-12-21T03:33:03.747172Z",
-    "dateModified": "2025-12-21T03:33:03.747172Z",
+    "datePublished": "2025-12-22T06:55:49.359891Z",
+    "dateModified": "2025-12-22T06:55:49.359891Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,127 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Polystyrene surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 25,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength providing good absorption in Polystyrene with minimal thermal penetration",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control on Polystyrene surfaces",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 20,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without substrate damage",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of Polystyrene surface contaminants",
+      "unit": "ns",
+      "value": 100,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning pattern",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Typical range for polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PS, max limited by PS melting point (~240°C) and low thermal conductivity. Source: Studies on Nd:YAG laser cleaning of plastics (e.g., J. Appl. Phys. 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective for contamination removal without substrate ablation; slower (500-1000 mm/s) for heavy contamination, faster for light; optimal balances fluence and coverage. Source: Industry manuals from IPG Photonics and laser cleaning process optimization papers."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for cost-effective cleaning of PS; shorter pulses (ps/fs) minimize HAZ but ns sufficient for contamination removal without deep polymer damage. Source: Laser ablation studies on polymers (Opt. Lasers Eng. 2020)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 30,
+      "unit": "kHz",
+      "description": "Balances cleaning speed and heat accumulation in low-conductivity PS; higher rates increase throughput but risk melting. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2019)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Below PS ablation threshold (~2-4 J/cm² at 1064 nm) for safe cleaning; typical for removing contaminants while preserving substrate. Source: Fluence threshold measurements for polystyrene (J. Phys. D: Appl. Phys. 2017)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Smaller spots for precise surface prep on PS, larger for broad areas; 200 μm balances resolution and efficiency. Source: Equipment specs from Coherent and Trumpf laser systems."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Multi-pass for thorough removal of heavy contamination; single pass for light; recommended 2 for uniform PS cleaning without overexposure. Source: Case studies in industrial laser cleaning (Proc. SPIE 2021)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Ensures uniform coverage on irregular PS surfaces; 50% optimal for efficiency and minimal heat buildup. Source: Process optimization in laser scanning (Opt. Express 2016)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

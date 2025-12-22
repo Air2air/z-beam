@@ -1,8 +1,8 @@
 id: uv-chalking-contamination
 name: UV Photodegradation / Polymer Chalking
 category: aging
-datePublished: '2025-12-21T02:51:40.424298Z'
-dateModified: '2025-12-21T02:51:40.424298Z'
+datePublished: '2025-12-22T23:36:16.944524Z'
+dateModified: '2025-12-22T23:36:16.944524Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/aging/photodegradation/uv-chalking-contamination
@@ -30,12 +30,136 @@ micro:
     laser ablation.
   before: Surface shows contamination from uv photodegradation / polymer chalking affecting material appearance and properties.
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: carbon-dioxide
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: water-vapor
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: carbon-particulates
+      phase: solid
+      hazard_level: moderate
+      presentation: card
+    - id: vocs
+      phase: gas
+      hazard_level: moderate
+      presentation: card
+  found_on_materials:
+  - id: aluminum-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+  - id: brass-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+  - id: brick-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/brick-laser-cleaning
+  - id: bronze-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+  - id: cast-iron-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+  - id: ceramic-matrix-composites-cmcs-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+  - id: concrete-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/concrete-laser-cleaning
+  - id: copper-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+  - id: granite-laser-cleaning
+    presentation: card
+    url: /materials/stone/igneous/granite-laser-cleaning
+  - id: iron-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/iron-laser-cleaning
+  - id: limestone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+  - id: magnesium-laser-cleaning
+    presentation: card
+    url: /materials/metal/specialty/magnesium-laser-cleaning
+  - id: marble-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+  - id: nickel-laser-cleaning
+    presentation: card
+    url: /materials/metal/specialty/nickel-laser-cleaning
+  - id: porcelain-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/oxide/porcelain-laser-cleaning
+  - id: sandstone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+  - id: slate-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+  - id: stainless-steel-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+  - id: steel-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/steel-laser-cleaning
+  - id: terracotta-laser-cleaning
+    presentation: card
+    url: /materials/masonry/concrete/terracotta-laser-cleaning
+  - id: titanium-laser-cleaning
+    presentation: card
+    url: /materials/metal/specialty/titanium-laser-cleaning
+  - id: titanium-carbide-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/carbide/titanium-carbide-laser-cleaning
+  - id: tool-steel-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/tool-steel-laser-cleaning
+  - id: zinc-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/zinc-laser-cleaning
+  - id: titanium-alloy-ti-6al-4v-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
+  - id: stainless-steel-316-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+  - id: stainless-steel-304-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
+  - id: aluminum-bronze-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+  - id: aluminum-nitride-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+  - id: titanium-nitride-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/coating/titanium-nitride-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         appearance: Glossy surfaces become dull with a chalky white or discolored film, and textures may roughen.
@@ -97,7 +221,7 @@ relationships:
     - faded original color
     texture: powdery, chalky, rough, crazed
     thickness: thin surface degradation
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -190,14 +314,21 @@ relationships:
       url: https://webstore.iec.ch/publication/3587
     reviewedBy: Z-Beam Quality Assurance Team
   valid_materials:
-  - ABS
-  - Acrylic (PMMA)
-  - Polycarbonate
-  - PVC
-  - Nylon
-  - Polyethylene
-  - Polypropylene
-  - Redwood
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - ABS
+    - Acrylic (PMMA)
+    - Nylon
+    - PVC
+    - Polycarbonate
+    - Polyethylene
+    - Polypropylene
+    - Redwood
   invalid_materials:
   - Metals
   - Ceramics
@@ -213,7 +344,7 @@ relationships:
   required_elements:
   - organic_polymer
   - carbon_chains
-  safetyData: &id001
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -272,6 +403,78 @@ relationships:
       source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      general:
+        title: General Materials
+        description: Materials in the general category
+        items:
+        - id: abs-laser-cleaning
+          title: Abs Laser Cleaning
+          url: /materials/general/misc/abs-laser-cleaning
+          image: /images/material/abs-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: acrylic-(pmma)-laser-cleaning
+          title: Acrylic (Pmma) Laser Cleaning
+          url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
+          image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: pvc-laser-cleaning
+          title: Pvc Laser Cleaning
+          url: /materials/general/misc/pvc-laser-cleaning
+          image: /images/material/pvc-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      plastics:
+        title: Plastic Materials
+        description: Thermoplastic and composite materials affected by this contamination
+        items:
+        - id: nylon-laser-cleaning
+          title: Nylon
+          url: /materials/plastic/thermoplastic/nylon-laser-cleaning
+          image: /images/material/nylon-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: polycarbonate-laser-cleaning
+          title: Polycarbonate
+          url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
+          image: /images/material/polycarbonate-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: polyethylene-laser-cleaning
+          title: Polyethylene
+          url: /materials/plastic/thermoplastic/polyethylene-laser-cleaning
+          image: /images/material/polyethylene-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: polypropylene-laser-cleaning
+          title: Polypropylene
+          url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
+          image: /images/material/polypropylene-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      woods:
+        title: Wood Products
+        description: Hardwood and softwood materials affected by this contamination
+        items:
+        - id: redwood-laser-cleaning
+          title: Redwood
+          url: /materials/wood/hardwood/redwood-laser-cleaning
+          image: /images/material/redwood-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 author:
   id: 3
   name: Ikmanda Roswati
@@ -308,126 +511,17 @@ valid_material_categories:
 - polymers_engineering
 - polymers_elastomer
 subcategory: photodegradation
-safetyData: *id001
-removalByMaterial:
-  acrylic-(pmma):
-    laser_parameters:
-      wavelength:
-        unit: nm
-        value: 1064
-        recommended: 1064
-      power:
-        unit: W
-        value: 30
-        recommended: 30
-        range:
-        - 10
-        - 100
-      scan_speed:
-        unit: mm/s
-        value: 2000
-        recommended: 2000
-        range:
-        - 500
-        - 5000
-      pulse_width:
-        unit: ns
-        value: 20
-        recommended: 20
-        range:
-        - 5
-        - 100
-      repetition_rate:
-        unit: kHz
-        value: 20
-        recommended: 20
-        range:
-        - 10
-        - 100
-      energy_density:
-        unit: J/cm²
-        value: 0.5
-        recommended: 0.5
-        range:
-        - 0.1
-        - 2
-      spot_size:
-        unit: μm
-        value: 200
-        recommended: 200
-        range:
-        - 50
-        - 500
-      pass_count:
-        unit: passes
-        value: 2
-        recommended: 2
-        range:
-        - 1
-        - 5
-      overlap_ratio:
-        unit: '%'
-        value: 70
-        recommended: 70
-        range:
-        - 50
-        - 80
-    removal_characteristics:
-      primary_mechanism: thermal_ablation
-      secondary_mechanisms:
-      - photochemical
-      removal_efficiency:
-        single_pass: 0.75
-        optimal_passes: 2
-        diminishing_returns_after: 4
-        typical_time_per_cm2: 2.7
-      surface_quality_after_removal:
-        roughness_change: minimal
-        discoloration_risk: low
-        substrate_damage_risk: low
-        residual_contamination: trace
-    compatibility:
-      recommended: true
-      success_rate: 0.85
-      difficulty: moderate
-      substrate_warnings:
-      - Standard precautions apply
-      process_limitations:
-      - None identified
-    safety_considerations:
-      material_specific_hazards:
-      - Standard laser cleaning hazards apply
-      recommended_ppe:
-        respiratory: P100
-        eye_protection: OD7+ at operating wavelength
-        skin_protection: Heat-resistant gloves
-      ventilation_requirements:
-        minimum_air_changes_per_hour: 10
-        extraction_velocity_m_s: 0.5
-        filtration_notes: HEPA filtration recommended for particulate capture
-      fume_warnings:
-      - Standard fume precautions
-    optimization_tips:
-    - Start at lower power (10W) and increase gradually to avoid substrate damage
-    - Use 2 passes rather than single high-energy pass for better control
-    - Allow 2-3 seconds between passes for substrate cooling
-    success_indicators:
-      visual:
-      - Clean, uniform surface
-      - No visible residue
-      - Original substrate texture visible
-      measurement:
-      - Surface roughness increase <2.0 μm Ra
-      failure_signs:
-      - Discoloration (indicates overheating)
-      - Surface pitting or roughness (excessive energy)
-      - Incomplete removal after optimal pass count (insufficient energy)
+safety_data: *id001
+removal_by_material:
   nylon:
     laser_parameters:
       wavelength:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 30
@@ -440,50 +534,50 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 20
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 0.5
         recommended: 0.5
         range:
         - 0.1
-        - 1.0
+        - 20.0
       spot_size:
         unit: μm
         value: 100
         recommended: 100
         range:
-        - 50
-        - 300
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -540,6 +634,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 50
@@ -552,50 +649,50 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 10
         recommended: 10
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 0.5
         recommended: 0.5
         range:
-        - 0.2
-        - 1.5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 100
         recommended: 100
         range:
-        - 50
-        - 300
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -652,6 +749,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 150
@@ -664,35 +764,35 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 0.5
         recommended: 0.5
         range:
         - 0.1
-        - 1.0
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 50
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -700,14 +800,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -764,6 +864,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -776,50 +879,50 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 200
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 200
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 300
         recommended: 300
         range:
-        - 100
-        - 1000
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -876,6 +979,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -888,35 +994,35 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 10
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -924,14 +1030,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:

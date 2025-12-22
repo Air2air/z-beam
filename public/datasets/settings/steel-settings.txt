@@ -11,6 +11,96 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Steel surface cleaning and 
 
-Generated: 2025-12-21T07:05:14.103Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength with good absorption in Steel 
+               oxides and contaminants
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for balanced cleaning efficiency and 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               and thermal management
+
+ENERGY DENSITY:
+  Value: 5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence level sufficient for contaminant ablation while 
+               preserving Steel substrate
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal without substrate damage
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning and process 
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning coverage 
+               without excessive heat accumulation
+
+POWER:
+  Value: 200 W
+  Range: 50-1000 W
+  Description: Typical range for industrial 1064 nm fiber lasers cleaning steel; starting at 200 W for light contamination to avoid overheating due to steel's high thermal conductivity. Max safe ~1000 W with high scan speeds to prevent substrate melting (steel melting point ~1370°C). Source: CleanLaser CL 1000 specs and IPG Photonics YLR series manuals.
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contamination removal; slower (100-500 mm/s) for heavy rust/oil, faster (2000-5000 mm/s) for light oxides. Recommended 1500 mm/s balances cleaning efficiency and heat dissipation on reflective steel surfaces. Source: Industry standards from Laserax equipment manuals and studies in Journal of Cleaner Production (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (5-200 ns) dominant for cost-effective cleaning; picosecond (ps) or femtosecond for ultra-low HAZ but less common industrially. Recommended 20 ns minimizes thermal effects on steel while ablating contaminants. Source: Laser physics research in Applied Surface Science (2018) on ablation thresholds.
+
+REPETITION_RATE:
+  Value: 80 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning; lower rates (20-50 kHz) reduce heat accumulation, higher (100-200 kHz) speed up process but risk overheating steel. Recommended 80 kHz for balanced throughput on metals. Trade-off: High freq increases fluence overlap. Source: Academic literature in Optics and Lasers in Engineering (2019).
+
+ENERGY_DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe cleaning; below 1 J/cm² ineffective for rust, above 5-8 J/cm² risks steel damage (ablation threshold ~4-6 J/cm² at 1064 nm). Recommended 2.5 J/cm² for contamination removal without melting. Steel's reflectivity (~50% at 1064 nm) requires higher values. Source: Ablation studies in Journal of Applied Physics (2017).
+
+SPOT_SIZE:
+  Value: 250 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range; smaller (100-300 μm) for precision surface prep, larger (500-1000 μm) for broad area cleaning. Recommended 250 μm for uniform steel cleaning, balancing resolution and coverage. Source: Equipment specs from Adapt Laser Systems and Coherent Inc. manuals.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers like mill scale. Recommended 2 passes for complete removal on steel without excessive heat input. Source: Industry case studies in Surface and Coatings Technology (2021) and practical guidelines from Laser Cleaning Europe.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 30-50% for speed, 70-80% for thorough cleaning. Recommended 60% prevents gaps on irregular steel surfaces while minimizing over-processing. Source: Process optimization in International Journal of Advanced Manufacturing Technology (2022).
+
+
+Generated: 2025-12-22T20:49:23.863Z
 License: CC BY 4.0

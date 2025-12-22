@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Platinum surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:14.024Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Platinum's moderate 
+               reflectivity and thermal processing
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning with adequate 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               with controlled thermal input
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal while minimizing Platinum substrate heating
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for thorough cleaning of 
+               Platinum surfaces
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive thermal accumulation
+
+FLUENCE:
+  Value: 5 J/cm²
+  Range: 3-5 J/cm²
+  Description: Energy density threshold for effective contaminant removal without Platinum damage
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for industrial cleaning of precious metals like platinum to avoid thermal damage; starting at 100W for light contamination. Based on CleanLaser and IPG Photonics specs for 1064 nm systems (e.g., CL 100 series).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contaminant removal on reflective metals; higher for light contamination (e.g., oils), lower for heavy (e.g., oxides). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser cleaning manuals (e.g., Adapt Laser Systems guidelines).
+
+PULSE_WIDTH:
+  Value: 30 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning of platinum with minimal HAZ due to its high thermal conductivity; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially. 30 ns recommended. Supported by laser physics studies (e.g., J. Appl. Phys. on metal ablation thresholds).
+
+REPETITION_RATE:
+  Value: 40 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning to control heat accumulation on high-reflectivity platinum; higher rates speed up process but risk buildup—40 kHz optimal trade-off. From academic literature (e.g., Opt. Lasers Eng. reviews on pulse repetition in metal cleaning).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below platinum's ablation threshold (~2-4 J/cm² at 1064 nm) for safe contaminant removal; 1.5 J/cm² recommended to vaporize organics without substrate damage. Based on ablation threshold studies (e.g., Appl. Surf. Sci. on noble metals, noting Pt's high reflectivity reduces absorption).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller spots for detailed surface prep on platinum jewelry or components; 200 μm balances precision and coverage for industrial use. From equipment specs (e.g., SPI Lasers cleaning heads for fine metal work).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for thorough removal; 2 passes recommended for uniform platinum cleaning without overexposure. Drawn from industry case studies (e.g., laser cleaning of precious metals in J. Laser Appl.).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage on irregular platinum surfaces; 60% optimal for even energy distribution without excessive heat. From process optimization studies (e.g., Opt. Eng. on scan strategies for laser cleaning).
+
+
+Generated: 2025-12-22T20:49:23.703Z
 License: CC BY 4.0

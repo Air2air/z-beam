@@ -719,3 +719,224 @@ describe('ImageObject Schema with License Metadata', () => {
     expect(imageObject?.copyrightNotice).toBe('© 2024 Custom Notice');
   });
 });
+
+describe('ImageObject Schema with Magnification Enhancement', () => {
+  it('adds magnification PropertyValue for micro images', () => {
+    const microImageData = {
+      frontmatter: {
+        title: 'Aluminum Surface Microscopy',
+        images: {
+          micro: {
+            url: '/images/material/aluminum-micro.jpg',
+            width: 1200,
+            height: 800,
+            alt: 'Microscopic view of aluminum surface',
+            isMicro: true
+          }
+        }
+      }
+    };
+    
+    const factory = new SchemaFactory(microImageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.additionalProperty).toBeDefined();
+    const magnificationProp = imageObject?.additionalProperty?.find(
+      (prop: any) => prop.propertyID === 'magnification'
+    );
+    
+    expect(magnificationProp).toBeDefined();
+    expect(magnificationProp?.['@type']).toBe('PropertyValue');
+    expect(magnificationProp?.name).toBe('Magnification Level');
+    expect(magnificationProp?.value).toBe('1000x');
+    expect(magnificationProp?.unitText).toBe('times');
+  });
+
+  it('does not add magnification for non-micro images', () => {
+    const heroImageData = {
+      frontmatter: {
+        title: 'Aluminum Laser Cleaning',
+        images: {
+          hero: {
+            url: '/images/material/aluminum-hero.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Aluminum being laser cleaned',
+            isMicro: false
+          }
+        }
+      }
+    };
+    
+    const factory = new SchemaFactory(heroImageData, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    // Should not have magnification property for non-micro images
+    const magnificationProp = imageObject?.additionalProperty?.find(
+      (prop: any) => prop.propertyID === 'magnification'
+    );
+    expect(magnificationProp).toBeUndefined();
+  });
+});
+
+describe('ImageObject Schema with VisualArtwork Enhancement', () => {
+  const contaminantWithVisualChars = {
+    frontmatter: {
+      title: 'Adhesive Residue Contamination',
+      description: 'Professional guide to adhesive residue removal',
+      images: {
+        hero: {
+          url: '/images/contaminants/adhesive-residue.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Adhesive residue on metal surface'
+        }
+      },
+      visual_characteristics: {
+        appearance_on_categories: {
+          metal: {
+            appearance: 'Translucent to opaque film, yellowish or grayish tint',
+            coverage: 'Usually partial, ranging from small spots to larger areas',
+            pattern: 'Forms streaks or patches with defined edges'
+          },
+          plastic: {
+            appearance: 'Clear to milky residue with glossy finish',
+            coverage: 'Often concentrated in application areas',
+            pattern: 'Irregular shapes following adhesive application'
+          },
+          glass: {
+            appearance: 'Transparent film with visible streaking',
+            coverage: 'Variable, from light haze to thick deposits',
+            pattern: 'Linear patterns from tape removal direction'
+          }
+        }
+      }
+    }
+  };
+
+  it('generates VisualArtwork schema for contaminants with appearance data', () => {
+    const factory = new SchemaFactory(contaminantWithVisualChars, 'contaminants/adhesive-residue');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.about).toBeDefined();
+    expect(imageObject?.about?.['@type']).toBe('VisualArtwork');
+    expect(imageObject?.about?.artform).toBe('Contamination Pattern');
+  });
+
+  it('includes surface type from appearance categories', () => {
+    const factory = new SchemaFactory(contaminantWithVisualChars, 'contaminants/adhesive-residue');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    // Should use first category as primary surface
+    expect(imageObject?.about?.surface).toBe('metal');
+  });
+
+  it('includes appearance description in VisualArtwork', () => {
+    const factory = new SchemaFactory(contaminantWithVisualChars, 'contaminants/adhesive-residue');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.about?.description).toContain('Translucent to opaque film');
+    expect(imageObject?.about?.description).toContain('yellowish or grayish');
+  });
+
+  it('includes pattern information in VisualArtwork', () => {
+    const factory = new SchemaFactory(contaminantWithVisualChars, 'contaminants/adhesive-residue');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.about?.pattern).toContain('Forms streaks or patches');
+  });
+
+  it('adds coverage as PropertyValue in additionalProperty', () => {
+    const factory = new SchemaFactory(contaminantWithVisualChars, 'contaminants/adhesive-residue');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.additionalProperty).toBeDefined();
+    const coverageProp = imageObject?.additionalProperty?.find(
+      (prop: any) => prop.name === 'Coverage Range'
+    );
+    
+    expect(coverageProp).toBeDefined();
+    expect(coverageProp?.['@type']).toBe('PropertyValue');
+    expect(coverageProp?.value).toContain('Usually partial');
+  });
+
+  it('notes surface variations across multiple material types', () => {
+    const factory = new SchemaFactory(contaminantWithVisualChars, 'contaminants/adhesive-residue');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    const variationsProp = imageObject?.additionalProperty?.find(
+      (prop: any) => prop.name === 'Surface Variations'
+    );
+    
+    expect(variationsProp).toBeDefined();
+    expect(variationsProp?.value).toContain('Appears differently on 3 material types');
+    expect(variationsProp?.value).toContain('metal, plastic, glass');
+  });
+
+  it('does not add VisualArtwork for pages without visual_characteristics', () => {
+    const dataWithoutVisualChars = {
+      frontmatter: {
+        title: 'Aluminum Laser Cleaning',
+        images: {
+          hero: {
+            url: '/images/material/aluminum-hero.jpg',
+            width: 1200,
+            height: 630,
+            alt: 'Aluminum being laser cleaned'
+          }
+        }
+      }
+    };
+    
+    const factory = new SchemaFactory(dataWithoutVisualChars, 'materials/aluminum');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    expect(imageObject?.about).toBeUndefined();
+  });
+
+  it('handles combined magnification and VisualArtwork for contaminant micro images', () => {
+    const combinedData = {
+      frontmatter: {
+        ...contaminantWithVisualChars.frontmatter,
+        images: {
+          micro: {
+            url: '/images/contaminants/adhesive-residue-micro.jpg',
+            width: 1200,
+            height: 800,
+            alt: 'Microscopic view of adhesive residue',
+            isMicro: true
+          }
+        }
+      }
+    };
+    
+    const factory = new SchemaFactory(combinedData, 'contaminants/adhesive-residue');
+    const result = factory.generate();
+    const imageObject = result['@graph'].find((s: any) => s['@type'] === 'ImageObject');
+    
+    // Should have both magnification and VisualArtwork
+    expect(imageObject?.about).toBeDefined();
+    expect(imageObject?.about?.['@type']).toBe('VisualArtwork');
+    
+    const magnificationProp = imageObject?.additionalProperty?.find(
+      (prop: any) => prop.propertyID === 'magnification'
+    );
+    expect(magnificationProp).toBeDefined();
+    expect(magnificationProp?.value).toBe('1000x');
+    
+    // Should also have coverage PropertyValue
+    const coverageProp = imageObject?.additionalProperty?.find(
+      (prop: any) => prop.name === 'Coverage Range'
+    );
+    expect(coverageProp).toBeDefined();
+  });
+});

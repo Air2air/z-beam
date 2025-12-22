@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Float Glass Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/glass/soda-lime/float-glass-laser-cleaning
+URL:            http://localhost:3000/materials/glass/soda-lime/float-glass-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -143,11 +143,152 @@ overlap_ratio:
   Note:   Ensures uniform coverage; 50% recommended for float glass to avoid gaps or overexposure, balancing efficiency and preventing thermal gradients. Typical 30-80% in optimization. Source: Process studies in Lasers in Manufacturing and Materials Processing (2019).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  electricalResistivity:
+    Value:  100000000000 Ω·m
+    Source: ai_research
+
+  fractureToughness:
+    Value:  0.75 MPa√m
+    Source: ai_research
+
+  density:
+    Value:  2500 kg/m³
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  1 dimensionless
+    Source: ai_research
+
+  youngsModulus:
+    Value:  70 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  5.5 GPa
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  1000 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  40 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  50 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.92 dimensionless
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  15 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.05 dimensionless
+    Min:    0.01 dimensionless
+    Max:    0.1 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  20 m⁻¹
+    Min:    10 m⁻¹
+    Max:    100 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  5 J/cm²
+    Min:    1 J/cm²
+    Max:    10 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1 MW/m
+    Min:    0.5 MW/m
+    Max:    2 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.08 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.1 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1700 K
+    Min:    1600 K
+    Max:    1800 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.01 Pa
+    Min:    0.001 Pa
+    Max:    1 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  719 °C
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.04 dimensionless (fraction)
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000009 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  1 W/m·K
+    Source: ai_research
+
+  specificHeat:
+    Value:  837 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  10 m^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  4.7e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  4.2 J/cm²
+    Source: ai_research
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Architectural Glass Manufacturing
+2. Solar Panel Manufacturing
+3. Automotive Glass Production
+4. Electronics Display Manufacturing
+5. Aerospace Canopy Maintenance
+6. Marine Window Systems
+7. Medical Device Manufacturing
+8. Cultural Heritage Conservation
+9. Food Processing Equipment
+10. Energy Sector Instrumentation
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Float Glass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/float-glass-laser-cleaning
+  Z-Beam (2025). Float Glass Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/glass/soda-lime/float-glass-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

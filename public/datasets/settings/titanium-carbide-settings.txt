@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 150 W
+  Range: 1-180 W
+  Description: Optimal average power for Titanium Carbide surface 
+               cleaning without substrate damage
 
-Generated: 2025-12-21T07:05:14.125Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Titanium Carbide 
+               absorption and minimal substrate interaction
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning of Titanium 
+               Carbide surfaces
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning 
+               coverage with thermal management
+
+PULSE WIDTH:
+  Value: 15 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient ablation of 
+               Titanium Carbide contaminants
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for efficient cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive thermal buildup
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Minimum fluence required for effective Titanium Carbide contaminant removal
+
+POWER:
+  Value: 100 W
+  Range: 50-300 W
+  Description: Typical range for industrial cleaning of hard ceramics like TiC to balance ablation and avoid thermal damage; starting at 100 W for light contamination. Max limited by substrate melting point (~3067°C). Source: IPG Photonics YLR series specs for 1064 nm cleaning heads; academic review in 'Laser Cleaning of Metals' (Optics & Lasers in Engineering, 2018).
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal on reflective/high-conductivity materials like TiC; higher for light contamination (up to 5000 mm/s), lower for heavy (500-1000 mm/s). Optimal balances fluence and coverage. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning of TiC with minimal HAZ due to its high thermal conductivity (~20-30 W/m·K); picosecond (ps) or femtosecond for ultra-precise but less common industrially. Avoids excessive heat accumulation. Source: Laser physics in 'Pulsed Laser Ablation of Ceramics' (Applied Surface Science, 2019).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for 1064 nm cleaning to achieve uniform energy delivery on TiC; 50 kHz balances speed and heat management—higher rates risk accumulation on low-reflectivity TiC (~0.3-0.5 at 1064 nm). Trade-off: faster processing vs. potential overheating. Source: Academic literature in Optics Express (2017) on carbide ablation.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal without damaging TiC; damage threshold ~4-5 J/cm² for ns pulses due to high melting point. Recommended conservative for safe cleaning of oxides or oils. Source: Ablation threshold studies in Journal of Applied Physics (2021) for TiC at 1064 nm.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise surface prep on TiC; smaller (50-100 μm) for fine details, larger (200-500 μm) for broad areas. 200 μm optimal for uniform cleaning without excessive overlap heating. Source: Equipment specs from Coherent and Trumpf laser systems for industrial cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-3) for heavy layers on TiC to ensure complete removal without substrate erosion. Recommended 2 passes for industrial prep. Source: Industry case studies in Surface and Coatings Technology (2019) for carbide tools.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage on TiC surfaces; 60% typical for even fluence distribution and minimal striping, adjustable 30% for speed vs. 80% for thoroughness. Source: Process optimization in Laser & Photonics Reviews (2020).
+
+
+Generated: 2025-12-22T20:49:23.900Z
 License: CC BY 4.0

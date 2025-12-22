@@ -118,22 +118,24 @@ export function mapMaterialLinkageToGrid(linkage: Relationship): GridItem {
 export function mapContaminantLinkageToGrid(linkage: Relationship): GridItem {
   return {
     slug: linkage.id,
-    href: linkage.url,
+    href: linkage.url || `/contaminants/${linkage.id}`,
     title: linkage.title,
     imageUrl: linkage.image,
     imageAlt: linkage.title,
     category: linkage.category,
     frontmatter: {
       title: linkage.title,
+      slug: linkage.id,
+      category: linkage.category,
+      description: linkage.typical_context,
       images: {
         hero: {
           url: linkage.image,
           alt: linkage.title
         }
       },
-      category: linkage.category,
       severity: linkage.severity,
-      subject: linkage.severity,  // Show severity as subject for relationship cards
+      subject: linkage.title,
     },
     metadata: {
       frequency: linkage.frequency,

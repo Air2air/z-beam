@@ -11,6 +11,103 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for MMCs cleaning considering 
+               thermal conductivity and matrix integrity
 
-Generated: 2025-12-21T07:05:13.994Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength providing good absorption in 
+               metallic matrix while minimizing damage to ceramic 
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter balancing cleaning efficiency and 
+               spatial resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: High repetition rate for efficient cleaning while 
+               maintaining thermal management
+
+ENERGY DENSITY:
+  Value: 5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence level sufficient for contaminant removal 
+               without damaging MMC substrate
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation 
+               without excessive thermal diffusion
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for thorough contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap percentage ensuring complete coverage 
+               without excessive energy deposition
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Effective interaction time per spot location
+
+POWER:
+  Value: 100 W
+  Range: 50-300 W
+  Description: Typical range for industrial cleaning of MMCs at 1064 nm to remove contaminants without delaminating reinforcements; starting at 100 W for light contamination, max below 300 W to avoid substrate damage due to thermal sensitivity of composite interfaces (source: studies in Journal of Laser Applications, e.g., on Al/SiC MMCs).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal on MMCs; higher for light oils/dusts (2000-3000 mm/s), lower for heavy oxides (500-1000 mm/s) to ensure ablation without excessive heat buildup; recommended 1500 mm/s for balanced efficiency (source: IPG Photonics laser cleaning manuals and industry standards for metallic composites).
+
+PULSE_WIDTH:
+  Value: 30 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for MMCs at 1064 nm to achieve effective cleaning with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond for ultra-precision but costlier; 30 ns recommended to limit thermal diffusion in high-conductivity matrices like Al-based MMCs (source: laser physics research in Optics Express on pulsed ablation of composites).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning applications; 50 kHz balances speed and heat management for MMCs, as higher rates (>80 kHz) risk accumulation in lower-conductivity reinforcements like SiC, while lower aids heavy contamination (source: academic literature in Applied Surface Science on fiber laser cleaning of MMCs).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant ablation on MMCs; damage threshold ~2-4 J/cm² for matrices like Ti or Al with ceramic particles, lower to prevent cracking; 1.5 J/cm² recommended for effective cleaning without exceeding ablation thresholds (source: ablation threshold studies in Journal of Materials Processing Technology).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for cleaning; smaller for fine surface prep on MMCs (100-200 μm), larger for broad areas (300-500 μm); 200 μm recommended to focus energy on contaminants while minimizing exposure to heterogeneous MMC structure (source: equipment specs from Coherent and Trumpf laser systems for composites).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-4) for heavy layers to avoid thermal damage in MMCs; 2 passes recommended for uniform removal and surface preparation without risking delamination (source: industry case studies in Laser Cleaning Handbook and practical applications on aerospace MMCs).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage in scan patterns; 60% typical for MMCs to prevent gaps in cleaning while avoiding overexposure that could heat sensitive interfaces; range adjusted for contamination density (source: process optimization studies in International Journal of Advanced Manufacturing Technology).
+
+
+Generated: 2025-12-22T20:49:23.646Z
 License: CC BY 4.0

@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Aluminum oxide layer removal
 
-Generated: 2025-12-21T07:05:13.855Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal Aluminum absorption and 
+               minimal substrate damage
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution 
+               and energy density
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning 
+               coverage with thermal management
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for Aluminum oxide removal without 
+               substrate damage
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient oxide removal 
+               without excessive thermal diffusion
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for efficient coverage and 
+               cleaning effectiveness
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal pulse overlap for uniform cleaning coverage
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for industrial cleaning of aluminum to remove contaminants without melting; starting at 100W balances efficiency and safety. Max limited by aluminum's high reflectivity and thermal conductivity to avoid substrate damage. Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on metal cleaning thresholds.
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for light to heavy contamination on aluminum; slower for heavy (e.g., oxide layers), faster for light oils. Recommended 1500 mm/s optimizes removal while minimizing heat buildup due to aluminum's conductivity. Source: Industry standards from Laserax equipment manuals and Journal of Cleaner Production (2020) case studies.
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective industrial cleaning; picosecond (ps) or femtosecond reduces HAZ but increases cost. 50 ns recommended for aluminum to ablate contaminants with minimal thermal diffusion. Source: Laser physics research in Applied Surface Science (2019) comparing pulse regimes for metals.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed fiber lasers at 1064 nm; higher rates speed up cleaning but risk heat accumulation on reflective aluminum. 50 kHz balances speed and safety. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on frequency effects for aluminum surface preparation.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal; aluminum damage threshold ~4-6 J/cm² at 1064 nm ns pulses. Recommended 1.5 J/cm² ensures safe cleaning below ablation threshold of substrate. Source: Ablation threshold studies in Physical Review B (2017) and Optics Express (2022) for IR laser on aluminum.
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for uniform coverage; smaller for fine details, larger for broad areas. 300 μm recommended for aluminum to achieve even fluence distribution without hotspots. Source: Equipment specifications from Coherent and Trumpf laser cleaners, with optimization in Surface and Coatings Technology (2019).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; aluminum's reflectivity often requires 2 passes for complete removal without damage. Source: Industry practice in case studies from Journal of Laser Applications (2020) on industrial aluminum cleaning.
+
+OVERLAP_RATIO:
+  Value: 70 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage and prevents gaps in cleaning; 70% recommended for aluminum to account for beam divergence and material reflectivity. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2018).
+
+
+Generated: 2025-12-22T20:49:23.390Z
 License: CC BY 4.0

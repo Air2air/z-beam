@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/rare-earth/lanthanide/lanthanum-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/rare-earth/lanthanide/lanthanum-laser-cleaning#dataset",
   "name": "Lanthanum Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Lanthanum. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/lanthanum-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/lanthanum-laser-cleaning.json",
       "name": "Lanthanum Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/lanthanum-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/lanthanum-laser-cleaning.csv",
       "name": "Lanthanum Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/lanthanum-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/lanthanum-laser-cleaning.txt",
       "name": "Lanthanum Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Lanthanum",
@@ -221,8 +221,133 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "youngsModulus": {
+          "value": 61.3,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 1.11,
+          "unit": "",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 6.162,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 0.35,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "absorptivity": {
+          "value": 0.12,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "boilingPoint": {
+          "value": 3737,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "source": "ai_research",
+          "unit": "dimensionless",
+          "value": 0.42
+        },
+        "thermalDestruction": {
+          "value": 1194,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 195,
+          "unit": "J/kg·K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.42,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 13.4,
+          "unit": "W/m·K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.0000121,
+          "unit": "K^{-1}",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 1.25,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 28000000,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 2.3,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of Applied Physics",
+          "citation": "Liu, Y. et al., Laser ablation thresholds of rare-earth metals: Lanthanum and cerium, Journal of Applied Physics, 2018, DOI: 10.1063/1.5028294",
+          "context": "Pure lanthanum (99.9% purity), 300 K, nanosecond pulsed Nd:YAG laser at 1064 nm wavelength, measured in vacuum",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:00:23.880524",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 0.00001115,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2",
+          "context": "Pure lanthanum (99.9% purity), 300 K, calculated from standard properties under ambient pressure",
+          "confidence": 98,
+          "researched_date": "2025-11-24T12:00:34.917113",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Electronics Manufacturing",
+      "Permanent Magnet Production",
+      "Optical Component Cleaning",
+      "Research Laboratory",
+      "Precision Manufacturing",
+      "Aerospace Components"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -406,7 +531,274 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage; 50% recommended for Lanthanum to avoid gaps or over-ablation on irregular surfaces. Lower (30%) for speed, higher (80%) for thoroughness. Source: Process optimization studies in J. Clean. Prod. (2021) on scan strategies for metallic substrates."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 61.3,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 1.11,
+      "unitText": "",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 6.162,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 0.35,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - material characteristics",
+      "value": 0.12,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 3737,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.42,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1194,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 195,
+      "unitText": "J/kg·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.42,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 13.4,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.0000121,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.25,
+      "unitText": "J/cm²",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 28000000,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 2.3,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.00001115,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Lanthanum Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/lanthanum-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Moretti",
+    "jobTitle": "Materials Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Politecnico di Milano's Materials Dept."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/alessandro-moretti-phd",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/alessandro-moretti.jpg",
+      "description": "Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/lanthanum-laser-cleaning-hero.jpg",
+      "description": "Lanthanum surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/lanthanum-laser-cleaning-micro.jpg",
+      "description": "Lanthanum microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Lanthanum Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Moretti",
+        "jobTitle": "Materials Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:14.034810Z",
+      "url": "http://localhost:3000/materials/rare-earth/lanthanide/lanthanum-laser-cleaning",
+      "citation": "Z-Beam (2025). Lanthanum Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/rare-earth/lanthanide/lanthanum-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

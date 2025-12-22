@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Rhenium Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/metal/non-ferrous/rhenium-laser-cleaning
+URL:            http://localhost:3000/materials/metal/non-ferrous/rhenium-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -37,7 +37,7 @@ MACHINE SETTINGS
 powerRange:
   Value:  150 W
   Min:    1 W
-  Max:    120 W
+  Max:    180 W
   Note:   Optimal average power for Rhenium oxide removal without substrate damage
 
 wavelength:
@@ -137,11 +137,182 @@ overlap_ratio:
   Note:   Ensures uniform coverage without gaps or over-ablation; higher overlap for fine Rhenium surface prep to account for reflectivity variations. Recommended 70% for optimal uniformity in industrial settings. Source: Process optimization studies in Opt. Laser Technol. 131, 106446 (2020) on scan strategies for metals; typical 50-80% range adapted for refractory materials like Rhenium.
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  electricalConductivity:
+    Value:  5180000 S/m
+    Source: ai_research
+
+  electricalResistivity:
+    Value:  1.93e-7 Ω·m
+    Source: ai_research
+
+  fractureToughness:
+    Value:  4.5 MPa√m
+    Source: ai_research
+
+  surfaceRoughness:
+    Value:  1.6 μm
+    Source: ai_research
+
+  youngsModulus:
+    Value:  463 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  773 K
+    Source: ai_research
+
+  density:
+    Value:  21.02 g/cm³
+    Source: ai_research
+
+  hardness:
+    Value:  245 HV
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.96 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  980 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  1034 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  1138 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0 %
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.35 dimensionless
+    Source: ai_research
+
+  boilingPoint:
+    Value:  5869 K
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  36200000 m^{-1}
+    Source: ai_research
+
+  meltingPoint:
+    Value:  3453 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.051 Pa
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  3459 K
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.68 
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  244 K
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  4.1 J/cm²
+    Source: ai_research
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptionCoefficient:
+    Value:  0.42 1
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.42 dimensionless
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.1 J/cm²
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.85 dimensionless (reflectance)
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  3453 K
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.8 MPa·m^0.5
+    Source: ai_research
+
+  vaporPressure:
+    Value:  1.33e-7 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  3459 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  133 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.62 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  48 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000045 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.38 dimensionless
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.0000172 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  2.8 J/cm²
+    Source: ai_research
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Aerospace
+2. Electronics
+3. Medical Device Manufacturing
+4. Nuclear Technology
+5. Research and Laboratory
+6. Automotive Racing
+7. Chemical Processing
+8. Jewelry and Luxury Goods
+9. Marine and Offshore
+10. Energy Generation
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Rhenium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/rhenium-laser-cleaning
+  Z-Beam (2025). Rhenium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/rhenium-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

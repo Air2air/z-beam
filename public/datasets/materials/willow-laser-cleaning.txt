@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Willow Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/wood/hardwood/willow-laser-cleaning
+URL:            http://localhost:3000/materials/wood/hardwood/willow-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -143,11 +143,152 @@ overlap_ratio:
   Note:   Ensures uniform coverage on irregular wood surfaces like willow; 30-50% for speed, 60-80% for thoroughness. 60% recommended to avoid gaps. Source: Process optimization in laser scanning studies (Procedia Manufacturing, 2019).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  youngsModulus:
+    Value:  10.2 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.72 dimensionless (relative resistance index)
+    Source: ai_research
+
+  density:
+    Value:  420 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  430 lbf
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.2 dimensionless (durability class normalized 0-1)
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  35 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  46.9 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  92.4 MPa
+    Source: ai_research
+
+  fractureToughness:
+    Value:  0.32 MPa·m^{1/2}
+    Source: ai_research
+
+  porosity:
+    Value:  0.75 fraction
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.42 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.9 dimensionless
+    Min:    0.8 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  50000 m⁻¹
+    Min:    10000 m⁻¹
+    Max:    100000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Min:    1 J/cm²
+    Max:    5 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.2 MW/m
+    Min:    0.5 MW/m
+    Max:    2 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.08 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.15 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  600 K
+    Min:    500 K
+    Max:    700 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  10 Pa
+    Min:    1 Pa
+    Max:    100 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  623 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  1460 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.12 fraction
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.14 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000045 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.92 dimensionless (absorptivity)
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  1.52e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.15 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Musical Instruments
+3. Furniture Restoration
+4. Sports Equipment
+5. Marine Applications
+6. Architectural Restoration
+7. Art Conservation
+8. Manufacturing
+9. Agricultural Equipment
+10. Craft and Artisanal
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Willow Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/willow-laser-cleaning
+  Z-Beam (2025). Willow Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/wood/hardwood/willow-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

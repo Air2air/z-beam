@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Stucco Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/masonry/concrete/stucco-laser-cleaning
+URL:            http://localhost:3000/materials/masonry/concrete/stucco-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,148 @@ overlap_ratio:
   Note:   Ensures uniform coverage on irregular stucco textures; 60% recommended for even cleaning without gaps or excessive overlap heat. Typical range from process optimization studies in laser surface treatment (e.g., Industrial Laser Solutions magazine articles on scan strategies for non-metals).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  youngsModulus:
+    Value:  18.5 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.95 dimensionless (relative scale 0-1)
+    Source: ai_research
+
+  density:
+    Value:  1760 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  2.5 Mohs
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.92 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  10.3 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  4.2 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  0.7 MPa
+    Source: ai_research
+
+  fractureToughness:
+    Value:  0.42 MPa m^{0.5}
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.8 dimensionless
+    Min:    0.7 dimensionless
+    Max:    0.9 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  500000 m⁻¹
+    Min:    100000 m⁻¹
+    Max:    1000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Min:    1 J/cm²
+    Max:    5 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.5 MW/m
+    Min:    0.5 MW/m
+    Max:    3 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.2 dimensionless
+    Min:    0.1 dimensionless
+    Max:    0.3 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  800 K
+    Min:    600 K
+    Max:    1000 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  50 Pa
+    Min:    10 Pa
+    Max:    200 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  773 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  880 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.28 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.72 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000104 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.42 
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  4.5e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.8 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Aerospace
+3. Marine
+4. Construction Restoration
+5. Manufacturing
+6. Energy Sector
+7. Automotive
+8. Electronics Manufacturing
+9. Food Processing
+10. Historical Monument Preservation
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Stucco Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/concrete/stucco-laser-cleaning
+  Z-Beam (2025). Stucco Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/masonry/concrete/stucco-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

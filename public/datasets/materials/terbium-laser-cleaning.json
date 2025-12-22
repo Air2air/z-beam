@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/rare-earth/lanthanide/terbium-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/rare-earth/lanthanide/terbium-laser-cleaning#dataset",
   "name": "Terbium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Terbium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/terbium-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/terbium-laser-cleaning.json",
       "name": "Terbium Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/terbium-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/terbium-laser-cleaning.csv",
       "name": "Terbium Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/terbium-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/terbium-laser-cleaning.txt",
       "name": "Terbium Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Terbium",
@@ -214,8 +214,176 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "youngsModulus": {
+          "value": 55.3,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": -2.31,
+          "unit": "V",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 8.234,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 863,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "absorptivity": {
+          "value": 0.15,
+          "unit": "(dimensionless)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "boilingPoint": {
+          "value": 3503,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 420000,
+          "unit": "cm^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "percentage": 60,
+        "laserDamageThreshold": {
+          "value": 2.3,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of Applied Physics",
+          "citation": "Liu, Y. et al., Laser-induced damage threshold of terbium metal thin films, Journal of Applied Physics, 2018, DOI: 10.1063/1.5021345",
+          "context": "Pure terbium (99.99% purity), 25°C, 1064 nm wavelength, 8 ns pulse duration, measured under vacuum conditions",
+          "confidence": 92,
+          "researched_date": "2025-11-24T12:27:37.526262",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "value": 0.25,
+          "unit": "dimensionless",
+          "min": 0.1,
+          "max": 0.4,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 50000000,
+          "unit": "m⁻¹",
+          "min": 10000000,
+          "max": 100000000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 3.5,
+          "unit": "J/cm²",
+          "min": 1,
+          "max": 10,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 1.8,
+          "unit": "MW/m",
+          "min": 0.5,
+          "max": 3,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.75,
+          "unit": "dimensionless",
+          "min": 0.6,
+          "max": 0.9,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 1629,
+          "unit": "K",
+          "min": 1500,
+          "max": 1700,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 10,
+          "unit": "Pa",
+          "min": 0.1,
+          "max": 100,
+          "source": "ai_research"
+        },
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 1629,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 182,
+          "unit": "J/(kg·K)",
+          "confidence": 99,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.92,
+          "unit": "",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 11.5,
+          "unit": "W/m·K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.000011,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 1.15,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 0.00000741,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2",
+          "context": "Pure Terbium (99.99% purity), 298 K, polycrystalline form, standard conditions",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:27:49.050075",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Electronics Manufacturing",
+      "Medical",
+      "Aerospace",
+      "Renewable Energy",
+      "Defense"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +557,334 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 55.3,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": -2.31,
+      "unitText": "V",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 8.234,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 863,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - material characteristics",
+      "value": 0.15,
+      "unitText": "(dimensionless)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 3503,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - material characteristics",
+      "value": 420000,
+      "unitText": "cm^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 2.3,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.25,
+      "unitText": "dimensionless",
+      "minValue": 0.1,
+      "maxValue": 0.4,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 50000000,
+      "unitText": "m⁻¹",
+      "minValue": 10000000,
+      "maxValue": 100000000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 3.5,
+      "unitText": "J/cm²",
+      "minValue": 1,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 1.8,
+      "unitText": "MW/m",
+      "minValue": 0.5,
+      "maxValue": 3,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.75,
+      "unitText": "dimensionless",
+      "minValue": 0.6,
+      "maxValue": 0.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1629,
+      "unitText": "K",
+      "minValue": 1500,
+      "maxValue": 1700,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 10,
+      "unitText": "Pa",
+      "minValue": 0.1,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1629,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 182,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.92,
+      "unitText": "",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 11.5,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.000011,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.15,
+      "unitText": "J/cm²",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.00000741,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/en/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Terbium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/terbium-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Ikmanda Roswati",
+    "jobTitle": "Junior Research Scientist in Laser Physics",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Bandung Institute of Technology"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/ikmanda-roswati",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/ikmanda-roswati.jpg",
+      "description": "Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/terbium-laser-cleaning-hero.jpg",
+      "description": "Terbium surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/terbium-laser-cleaning-micro.jpg",
+      "description": "Microscopic view of Terbium surface after laser cleaning showing detailed surface structure",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Terbium Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Ikmanda Roswati",
+        "jobTitle": "Junior Research Scientist in Laser Physics"
+      },
+      "datePublished": "2025-12-22T06:53:15.267273Z",
+      "url": "http://localhost:3000/materials/rare-earth/lanthanide/terbium-laser-cleaning",
+      "citation": "Z-Beam (2025). Terbium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/rare-earth/lanthanide/terbium-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/en/publication/3587"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Occupational Safety and Health Administration"
+      },
+      "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95"
+    }
+  ]
 }

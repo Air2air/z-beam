@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/stone/natural/travertine-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/stone/natural/travertine-laser-cleaning#dataset",
   "name": "Travertine Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Travertine. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/travertine-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/travertine-laser-cleaning.json",
       "name": "Travertine Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/travertine-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/travertine-laser-cleaning.csv",
       "name": "Travertine Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/travertine-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/travertine-laser-cleaning.txt",
       "name": "Travertine Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Travertine",
@@ -214,8 +214,205 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "youngsModulus": {
+          "value": 25.3,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 1,
+          "unit": "dimensionless (resistance index)",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 2.65,
+          "unit": "g/cm³",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 3.5,
+          "unit": "Mohs",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.42,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 30,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 9.2,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 5.2,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "fractureToughness": {
+          "value": 1.15,
+          "unit": "MPa m^{1/2}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "porosity": {
+          "value": 20,
+          "unit": "%",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "percentage": 60,
+        "laserDamageThreshold": {
+          "value": 12000,
+          "unit": "J/m²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser cleaning of calcareous stones: A comparative study of damage thresholds for travertine and marble",
+          "citation": "Sanz, M., et al., Journal of Cultural Heritage, 2014, DOI: 10.1016/j.culher.2013.10.005",
+          "context": "Natural travertine stone (porosity 15-20%, primarily CaCO3 composition), room temperature (20°C), 1064 nm Nd:YAG laser, pulse duration 10 ns",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:28:42.229485",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "percentage": 40,
+        "absorptivity": {
+          "value": 0.65,
+          "unit": "dimensionless",
+          "min": 0.4,
+          "max": 0.9,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 5000000,
+          "unit": "m⁻¹",
+          "min": 100000,
+          "max": 10000000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 8.5,
+          "unit": "J/cm²",
+          "min": 2,
+          "max": 15,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 1.8,
+          "unit": "MW/m",
+          "min": 0.8,
+          "max": 3.5,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.35,
+          "unit": "dimensionless",
+          "min": 0.1,
+          "max": 0.6,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 1098,
+          "unit": "K",
+          "min": 1000,
+          "max": 1200,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 0.1,
+          "unit": "Pa",
+          "min": 0.001,
+          "max": 10,
+          "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 850,
+          "unit": "°C",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 850,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.38,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 1.92,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.0000065,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 2800,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 0.00000112,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Cleaning of Architectural Surfaces: The Influence of Wavelength and Pulse Duration on the Ablation Threshold of Calcareous Stones",
+          "citation": "Pou et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2009.05.012",
+          "context": "Natural travertine (calcium carbonate dominant, porosity 15-20%), 1064 nm Nd:YAG laser, room temperature (20°C), ambient atmosphere, short pulse duration (10 ns)",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:28:49.641257",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Cultural Heritage",
+      "Aerospace",
+      "Architecture and Construction",
+      "Automotive",
+      "Medical",
+      "Marine",
+      "Electronics Manufacturing",
+      "Energy Sector",
+      "Food Processing",
+      "Art and Sculpture"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +586,626 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage and prevents stripe patterns on uneven travertine surfaces; 70% optimal for balance between efficiency and overlap-induced heating (source: Process optimization in laser scanning studies, e.g., Opt. Express 2016)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 25.3,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 1,
+      "unitText": "dimensionless (resistance index)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 2.65,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 3.5,
+      "unitText": "Mohs",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.42,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 30,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 9.2,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 5.2,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 1.15,
+      "unitText": "MPa m^{1/2}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 20,
+      "unitText": "%",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 12000,
+      "unitText": "J/m²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.65,
+      "unitText": "dimensionless",
+      "minValue": 0.4,
+      "maxValue": 0.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 5000000,
+      "unitText": "m⁻¹",
+      "minValue": 100000,
+      "maxValue": 10000000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 8.5,
+      "unitText": "J/cm²",
+      "minValue": 2,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 1.8,
+      "unitText": "MW/m",
+      "minValue": 0.8,
+      "maxValue": 3.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.35,
+      "unitText": "dimensionless",
+      "minValue": 0.1,
+      "maxValue": 0.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1098,
+      "unitText": "K",
+      "minValue": 1000,
+      "maxValue": 1200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 0.1,
+      "unitText": "Pa",
+      "minValue": 0.001,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 850,
+      "unitText": "°C",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 850,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.38,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 1.92,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.0000065,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 2800,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.00000112,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/en/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: algae-growth-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/growth/algae-growth-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: biological-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/biological-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: bitumen-tar-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/bitumen-tar-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-soot-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-soot-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ceramic-glaze-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: concrete-dust-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/concrete-dust-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: efflorescence-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/efflorescence-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: epoxy-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/epoxy-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fertilizer-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/fertilizer-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fire-damage-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/fire/fire-damage-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graffiti-paint-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/graffiti-paint-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graphite-marks-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/graphite-marks-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ink-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/ink-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: insect-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/insect-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mercury-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/mercury-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-stain-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/mineral-stain-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: paint-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/paint-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pesticide-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pesticide-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: plastic-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/plastic-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pollen-deposit-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/pollen-deposit-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: radioactive-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/radioactive-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: rubber-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/rubber-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: salt-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/salt-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: tree-sap-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/natural/tree-sap-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: water-stain-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/water-stain-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: wax-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/wax/wax-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Travertine Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/natural/travertine-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Chun Lin",
+    "jobTitle": "Laser Processing Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "National Taiwan University"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/yi-chun-lin",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/yi-chun-lin.jpg",
+      "description": "Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/travertine-laser-cleaning-hero.jpg",
+      "description": "Travertine surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/travertine-laser-cleaning-micro.jpg",
+      "description": "Microscopic view of Travertine surface after laser cleaning showing detailed surface structure",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Travertine Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Yi-Chun Lin",
+        "jobTitle": "Laser Processing Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:15.413311Z",
+      "url": "http://localhost:3000/materials/stone/natural/travertine-laser-cleaning",
+      "citation": "Z-Beam (2025). Travertine Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/natural/travertine-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/en/publication/3587"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Occupational Safety and Health Administration"
+      },
+      "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95"
+    }
+  ]
 }

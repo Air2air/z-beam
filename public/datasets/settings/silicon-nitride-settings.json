@@ -5,8 +5,8 @@
     "subcategory": "oxide",
     "title": "Silicon Nitride Settings",
     "description": "When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat. I've seen that happen when folks push too hard right away. This works best if you start with gentle pulses to warm the surface slowly, building up over a few passes. That way, you remove contaminants without risking fractures, keeping the material's tough, heat-resistant nature intact. Just avoid high speeds early on.",
-    "datePublished": "2025-12-21T03:33:04.282258Z",
-    "dateModified": "2025-12-21T03:33:04.282258Z",
+    "datePublished": "2025-12-22T06:55:49.764173Z",
+    "dateModified": "2025-12-22T06:55:49.764173Z",
     "author": {
       "id": 1,
       "name": "Yi-Chun Lin",
@@ -41,7 +41,134 @@
       "formatting_file": "taiwan_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Silicon Nitride surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength optimized for Silicon Nitride absorption characteristics",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning resolution",
+      "unit": "μm",
+      "value": 50,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without substrate damage",
+      "unit": "J/cm²",
+      "value": 5.1,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning pattern",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "dwellTime": {
+      "description": "Effective dwell time per cleaning spot",
+      "unit": "μs",
+      "value": 100,
+      "min": 0.2,
+      "max": 200
+    },
+    "power": {
+      "min": 20,
+      "max": 500,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for pulsed fiber lasers in industrial cleaning of ceramics like Si3N4 to remove contaminants without thermal damage; starting at 100W for controlled ablation. Max safe ~300-500W to avoid cracking due to low thermal conductivity (~25 W/mK). Source: IPG Photonics fiber laser specs for cleaning applications; academic review in 'Laser Cleaning of Ceramics' (Optics and Lasers in Engineering, 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 2000,
+      "description": "Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination (e.g., oxides), faster (2000-5000 mm/s) for light surface prep. Recommended 2000 mm/s balances efficiency and safety on Si3N4's brittle surface. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for Si3N4 cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns typical for contaminant removal without substrate melting (Si3N4 mp ~1900°C). Avoid fs for industrial scale. Source: Laser physics in 'Pulsed Laser Cleaning of Ceramics' (Applied Surface Science, 2019)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Typical 20-100 kHz for cleaning; 50 kHz recommended for Si3N4 to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk thermal buildup on low-conductivity material). Source: Academic literature in Optics Express (2017) on pulse train effects in ceramic ablation."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 0.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe contaminant removal; damage threshold for Si3N4 ~3-5 J/cm² at 1064 nm due to moderate reflectivity (~35%). Recommended 0.5 J/cm² for cleaning without ablation of substrate. Conservative for light contamination. Source: Ablation threshold studies in Journal of Applied Physics (2016); uncertainty noted for specific contaminants."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameter range: smaller (50-200 μm) for fine detail on Si3N4 components, larger (500-1000 μm) for broad area prep. 200 μm recommended for uniform cleaning balancing resolution and speed. Source: Equipment specs from Coherent and Trumpf laser systems for industrial cleaning."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-3) for heavy layers on Si3N4 to ensure complete removal without excessive energy input. Recommended 2 passes for industrial surface prep. Source: Industry case studies in 'Laser Surface Treatment of Ceramics' (Materials Science and Engineering A, 2021)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Typical 30-80% for uniform coverage; 50% recommended for Si3N4 to avoid uneven heating or missed spots while preventing overexposure on heat-sensitive ceramic. Higher overlap for heavy contamination. Source: Process optimization in Laser & Photonics Reviews (2019)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

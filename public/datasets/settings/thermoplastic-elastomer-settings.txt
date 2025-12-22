@@ -11,6 +11,103 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Thermoplastic Elastomer 
+               surface cleaning without thermal damage
 
-Generated: 2025-12-21T07:05:14.118Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Thermoplastic 
+               Elastomer absorption and minimal substrate damage
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control on 
+               Thermoplastic Elastomer surfaces
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 1.2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               without damaging Thermoplastic Elastomer substrate
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               surface contaminants
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive thermal buildup
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Optimal dwell time per spot for effective cleaning
+
+POWER:
+  Value: 30 W
+  Range: 10-100 W
+  Description: Typical range for polymer cleaning to avoid thermal damage; starting at 30W for light contamination on TPE, max below melting threshold (~150-200°C); based on IPG Photonics specs for YLR series lasers and studies in Optics and Lasers in Engineering (2018).
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Higher speeds minimize heat accumulation on heat-sensitive TPE; 2000 mm/s optimal for effective contaminant removal without substrate melting; ranges adjust for light (faster) vs heavy contamination; from industry manuals like those from Laserax and Applied Optics journal (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes HAZ by rapid energy delivery before conduction; TPE's low thermal conductivity (~0.2 W/mK) benefits short pulses; cited in Laser & Photonics Reviews (2019) on polymer ablation.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Balanced rate for TPE to enable fast cleaning while limiting heat buildup; higher rates increase speed but risk accumulation on low-melting TPE; trade-off noted in academic literature like Journal of Applied Physics (2021).
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below TPE damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² safe for contaminant removal; conservative for reflectivity (~0.9) and low melting point; from ablation threshold studies in Applied Surface Science (2017).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: 200 μm recommended for uniform cleaning on TPE surfaces; smaller for fine details, larger for broad areas; suits industrial prep without focusing heat; per equipment specs from Coherent Inc. and process guidelines in Industrial Laser Solutions (2022).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Multi-pass for heavy contamination on TPE to stay under thermal limits; 2 passes typical for complete removal without damage; single pass for light soils; based on case studies in Journal of Cleaner Production (2020) for polymer surface prep.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: 60% ensures uniform coverage on irregular TPE surfaces; higher for heavy contamination to avoid gaps; standard range optimizes energy distribution; from process optimization in Lasers in Manufacturing and Materials Processing (2019).
+
+
+Generated: 2025-12-22T20:49:23.889Z
 License: CC BY 4.0

@@ -5,14 +5,19 @@ import React from 'react';
 import { BaseContentLayout } from '../BaseContentLayout';
 import { CardGrid } from '../CardGrid';
 import { ScheduleCards } from '../Schedule/ScheduleCards';
+import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
+import { InfoCard } from '../InfoCard/InfoCard';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
+import { getContaminantArticle } from '@/app/utils/contentAPI';
+import { Beaker, Thermometer, Activity, FileText } from 'lucide-react';
 import type { LayoutProps, SectionConfig, CompoundsLayoutProps } from '@/types';
 
 // Re-export for convenience
 export type { CompoundsLayoutProps };
 
-export function CompoundsLayout(props: CompoundsLayoutProps) {
+export async function CompoundsLayout(props: CompoundsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
   
   // Access data from relationships
@@ -20,19 +25,145 @@ export function CompoundsLayout(props: CompoundsLayoutProps) {
   
   // Source contaminants that produce this compound
   // Handle both array format and object with items array
-  const sourceContaminantsRaw = relationships?.source_contaminants;
+  const sourceContaminantsRaw = relationships?.produced_by_contaminants || relationships?.source_contaminants;
   const sourceContaminants = Array.isArray(sourceContaminantsRaw) 
     ? sourceContaminantsRaw 
     : (sourceContaminantsRaw?.items || []);
 
+  // Enrich minimal references with full contaminant data
+  const enrichedContaminants = await Promise.all(
+    sourceContaminants.map(async (ref: any) => {
+      // Fetch full article data to get title and other metadata
+      const article = await getContaminantArticle(ref.id);
+      if (!article) return null;
+      
+      const metadata = article.metadata as any;
+      return {
+        id: ref.id,
+        title: metadata.name || metadata.title,
+        category: metadata.category || '',
+        subcategory: metadata.subcategory || '',
+        description: ref.typical_context || metadata.description || '',
+        url: ref.url || metadata.full_path || `/contaminants/${ref.id}`, // Prefer relationship URL
+        frequency: ref.frequency,
+        severity: ref.severity,
+        typical_context: ref.typical_context,
+        image: metadata.images?.hero?.url || '',
+      };
+    })
+  ).then(items => items.filter(Boolean));
+
+  // Prepare safety data from metadata
+  const safetyData = {
+    ppe_requirements: (metadata as any)?.ppe_requirements,
+    storage_requirements: (metadata as any)?.storage_requirements,
+    regulatory_classification: (metadata as any)?.regulatory_classification,
+    workplace_exposure: (metadata as any)?.workplace_exposure,
+    reactivity: (metadata as any)?.reactivity,
+    environmental_impact: (metadata as any)?.environmental_impact,
+    detection_monitoring: (metadata as any)?.detection_monitoring,
+  };
+
+  // Check if any safety data actually exists
+  const hasSafetyData = Object.values(safetyData).some(value => value !== undefined && value !== null);
+
+  // Extract additional compound data for new InfoCard sections
+  const physicalProperties = (metadata as any)?.physical_properties;
+  const exposureLimits = (metadata as any)?.exposure_limits;
+  const healthEffects = (metadata as any)?.health_effects_keywords;
+  const synonyms = (metadata as any)?.synonyms_identifiers;
+  const casNumber = (metadata as any)?.cas_number;
+  const molecularWeight = (metadata as any)?.molecular_weight;
+  const chemicalFormula = (metadata as any)?.chemical_formula;
+
   // Configure sections for BaseContentLayout
   const sections: SectionConfig[] = [
+    // Chemical Properties Section - NEW
+    {
+      component: () => (
+        <SectionContainer
+          title="Chemical Properties"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {(casNumber || molecularWeight || chemicalFormula) && (
+              <InfoCard
+                icon={Beaker}
+                title="Chemical Identity"
+                data={[
+                  casNumber && { label: 'CAS Number', value: casNumber },
+                  chemicalFormula && { label: 'Formula', value: chemicalFormula },
+                  molecularWeight && { label: 'Molecular Weight', value: `${molecularWeight} g/mol` },
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            )}
+            
+            {physicalProperties && (
+              <InfoCard
+                icon={Thermometer}
+                title="Physical Properties"
+                data={[
+                  physicalProperties.boiling_point && { label: 'Boiling Point', value: physicalProperties.boiling_point },
+                  physicalProperties.melting_point && { label: 'Melting Point', value: physicalProperties.melting_point },
+                  physicalProperties.flash_point && { label: 'Flash Point', value: physicalProperties.flash_point },
+                  physicalProperties.vapor_pressure && { label: 'Vapor Pressure', value: physicalProperties.vapor_pressure },
+                  physicalProperties.specific_gravity && { label: 'Specific Gravity', value: physicalProperties.specific_gravity },
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            )}
+
+            {exposureLimits && (
+              <InfoCard
+                icon={Activity}
+                title="Exposure Limits Comparison"
+                data={[
+                  exposureLimits.osha_pel_ppm && { label: 'OSHA PEL', value: `${exposureLimits.osha_pel_ppm} ppm` },
+                  exposureLimits.niosh_rel_ppm && { label: 'NIOSH REL', value: `${exposureLimits.niosh_rel_ppm} ppm` },
+                  exposureLimits.acgih_tlv_ppm && { label: 'ACGIH TLV', value: `${exposureLimits.acgih_tlv_ppm} ppm` },
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            )}
+
+            {healthEffects && healthEffects.length > 0 && (
+              <InfoCard
+                icon={Activity}
+                title="Health Effects"
+                data={healthEffects.slice(0, 5).map((effect: string) => ({
+                  label: effect.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                  value: 'Yes'
+                }))}
+              />
+            )}
+
+            {synonyms && synonyms.synonyms && synonyms.synonyms.length > 0 && (
+              <InfoCard
+                icon={FileText}
+                title="Also Known As"
+                data={synonyms.synonyms.slice(0, 4).map((syn: string, idx: number) => ({
+                  label: `Synonym ${idx + 1}`,
+                  value: syn
+                }))}
+              />
+            )}
+          </div>
+        </SectionContainer>
+      ),
+      condition: !!(casNumber || molecularWeight || chemicalFormula || physicalProperties || exposureLimits || healthEffects || synonyms),
+      props: {}
+    },
+    
+    // Existing SafetyDataPanel
+    {
+      component: SafetyDataPanel,
+      condition: hasSafetyData,
+      props: {
+        safetyData,
+      }
+    },
     {
       component: CardGrid,
-      condition: sourceContaminants.length > 0,
+      condition: enrichedContaminants.length > 0,
       props: {
-        items: sourceContaminants
-          .filter((item: any) => item && item.frequency)
+        items: enrichedContaminants
           .sort(sortByFrequency)
           .map(contaminantLinkageToGridItem),
         title: sourceContaminantsRaw?.title || 'Contaminant Sources',
@@ -40,6 +171,7 @@ export function CompoundsLayout(props: CompoundsLayoutProps) {
         variant: 'relationship' as const,
       }
     },
+    // ScheduleCards MUST be last section for all layouts
     {
       component: ScheduleCards,
       props: {}

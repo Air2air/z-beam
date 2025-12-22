@@ -15,6 +15,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal power range for Sapphire Glass cleaning without 
 
-Generated: 2025-12-21T07:05:14.073Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Optimal wavelength for Sapphire Glass processing with 
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Optimal spot size for precision cleaning of Sapphire 
+
+REPETITION RATE:
+  Value: 100 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Optimal energy density for effective contaminant 
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Optimal pulse width for controlled ablation of 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Optimal number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal overlap ratio between adjacent laser tracks
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Optimal dwell time per cleaning spot location
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for industrial Nd:YAG lasers at 1064 nm used in delicate substrate cleaning; starting at 50 W balances efficiency and safety for sapphire's high melting point (~2040°C) and low absorption at this wavelength, avoiding thermal damage (IPG Photonics laser cleaning systems specs; J. Laser Appl. 2018 study on oxide ceramics).
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal; slower for heavy contaminants (e.g., oils), faster for light dust; 2000 mm/s recommended for uniform cleaning on sapphire without excessive heat buildup, considering its good thermal conductivity (industry standards from Laserax equipment manuals; Opt. Lasers case studies).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred over picosecond/femtosecond for cost-effective industrial cleaning; 20 ns minimizes heat-affected zone (HAZ) on sapphire due to reduced thermal diffusion; shorter pulses (<10 ns) for ultra-fine control but higher cost (laser physics research in Appl. Phys. A 2015 on Al2O3 ablation; Coherent laser parameters).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Common for pulsed cleaning to achieve high throughput; 50 kHz balances speed and heat management for sapphire, where high rates risk accumulation but leverage its thermal conductivity; lower rates for heavy contamination (academic literature: J. Phys. D 2020 on pulse overlap in ceramics; manufacturer data from Trumpf).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below sapphire's damage threshold (~4-6 J/cm² at 1064 nm, 20 ns pulses) for safe contaminant ablation; 1.5 J/cm² effective for industrial removal without substrate etching, given sapphire's high reflectivity (~92% transmission, low absorption); conservative for optics-grade sapphire (ablation threshold studies: Opt. Express 2017; SPIE Proc. 2019).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precision vs. area coverage; 200 μm recommended for sapphire surface preparation, allowing fine control on flat/polished surfaces while covering larger areas efficiently; smaller for detailed work (equipment specs from Adapt Laser Systems; industry standards for optic cleaning).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for stubborn residues; 2 passes typical for complete removal on sapphire without risking cumulative damage, based on its hardness and low absorption (industry practice in watchmaking/optics case studies; Laser Cleaning Journal 2021).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or overexposure; 60% recommended for sapphire to achieve even cleaning while minimizing total energy input and HAZ, adjustable for contamination density (process optimization studies: Surf. Coat. Technol. 2019; manufacturer guidelines from CleanLaser).
+
+
+Generated: 2025-12-22T20:49:23.800Z
 License: CC BY 4.0

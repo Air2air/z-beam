@@ -53,6 +53,7 @@ export function CardGrid({
   filterBy = 'all',
   showBadgeSymbols = true,
   loadBadgeSymbolData: _loadBadgeSymbolData = false,
+  variant = 'default',
   className = ""
 }: CardGridProps) {
   
@@ -215,7 +216,7 @@ export function CardGrid({
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-2 pr-10 border rounded-md 
                                bg-secondary
-                               focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
+                               focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500"
                     aria-label="Search articles"
                   />
                   {searchTerm && (
@@ -242,7 +243,7 @@ export function CardGrid({
                   size="md"
                   onClick={() => setSelectedCategory('all')}
                   className={selectedCategory === 'all' 
-                    ? 'bg-blue-600 border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
+                    ? 'bg-orange-600 border-orange-600 shadow-md hover:bg-orange-700 hover:border-orange-700' 
                     : 'bg-primary hover:bg-gray-300:bg-tertiary'
                   }
                 >
@@ -255,7 +256,7 @@ export function CardGrid({
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     className={selectedCategory === category 
-                      ? 'bg-blue-600 border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
+                      ? 'bg-orange-600 border-orange-600 shadow-md hover:bg-orange-700 hover:border-orange-700' 
                       : 'bg-primary'
                     }
                   >
@@ -270,7 +271,7 @@ export function CardGrid({
               <div className="flex items-center gap-2 text-sm text-muted">
                 <span>Active filters:</span>
                 {searchTerm && (
-                  <span className="bg-blue-100 text-blue-800200 px-2 py-1 rounded">
+                  <span className="bg-orange-100 text-orange-800200 px-2 py-1 rounded">
                     Search: "{searchTerm}"
                   </span>
                 )}
@@ -283,7 +284,7 @@ export function CardGrid({
                   variant="minimal"
                   size="md"
                   onClick={clearFilters}
-                  className="text-blue-600400 hover:text-blue-700"
+                  className="text-orange-600400 hover:text-orange-700"
                 >
                   Clear all
                 </Button>
@@ -322,7 +323,7 @@ export function CardGrid({
                         <strong>{category}</strong>
                       </h3>
                       <meta itemProp="numberOfItems" content={String(categoryItems.length)} />
-                      <div className="w-12 h-1 bg-blue-400 rounded"></div>
+                      <div className="w-12 h-1 bg-orange-400 rounded"></div>
                       <p className="text-muted mt-2">
                         {categoryItems.length} {categoryItems.length === 1 ? 'article' : 'articles'}
                       </p>
@@ -343,8 +344,8 @@ export function CardGrid({
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                           </svg>
                         }
-                        className="flex items-center gap-2 text-blue-600400 
-                                   hover:bg-blue-50:bg-blue-900"
+                        className="flex items-center gap-2 text-orange-600400 
+                                   hover:bg-orange-50:bg-orange-900"
                       >
                         {isExpanded ? 'Show Less' : `View All ${categoryItems.length}`}
                       </Button>
@@ -372,6 +373,7 @@ export function CardGrid({
                         } as ArticleMetadata}
                         href={item.href || `/${item.slug}`}
                         badge={showBadgeSymbols ? item.badge : undefined}
+                        variant={variant}
                         className="h-full card-enhanced-hover"
                       />
                     ))}
@@ -416,6 +418,7 @@ export function CardGrid({
                     } as ArticleMetadata}
                     href={item.href || `/${item.slug}`}
                     badge={showBadgeSymbols ? item.badge : undefined}
+                    variant={variant}
                     className="h-full card-enhanced-hover"
                   />
                 ))}
@@ -429,7 +432,7 @@ export function CardGrid({
                   variant="minimal"
                   size="md"
                   onClick={clearFilters}
-                  className="text-blue-600400 hover:text-blue-700"
+                  className="text-orange-600400 hover:text-orange-700"
                 >
                   Clear filters and view all articles
                 </Button>
@@ -475,6 +478,7 @@ export function CardGrid({
             } as ArticleMetadata}
             href={item.href || `/${item.slug}`}
             badge={showBadgeSymbols ? item.badge : undefined}
+            variant={variant}
             className={`card-enhanced-hover`}
           />
         ))}

@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Epoxy Resin Composites Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+# Citation: Z-Beam (2025). Epoxy Resin Composites Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Epoxy Resin Composites,,,,,Material name
@@ -26,7 +26,43 @@ Machine,Settings,power,100,W,50,500,,Typical range for 1064 nm Nd:YAG lasers in 
 Machine,Settings,scan_speed,2000,mm/s,10,5000,,Effective speeds ensure fluence delivery without excessive dwell time; 2000 mm/s optimal for light contamination on epoxy composites to prevent charring. Slower (500-1000 mm/s) for heavy contaminants. Source: Industry guidelines from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for surface prep on composites.
 Machine,Settings,pulse_width,20,ns,0.1,1000,,Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes heat-affected zone (HAZ) in low-reflectivity epoxy (~5-10% at 1064 nm). Ps/fs (<1 ns) for ultra-precise but higher cost. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects in composite ablation.
 Machine,Settings,repetition_rate,30,kHz,1,200,,20-50 kHz balances cleaning speed and heat accumulation in epoxy (melting point ~150-200°C); higher rates (>50 kHz) risk thermal buildup leading to matrix degradation. Source: Academic literature in Proceedings of SPIE (2021) on pulsed laser cleaning of polymer composites; trade-offs noted in manufacturer data from Coherent Inc.
-Machine,Settings,energy_density,,J/cm²,0.1,20,,Fluence range for contaminant removal without substrate ablation; damage threshold for epoxy composites ~1.5-2.5 J/cm² at 1064 nm. Recommended <1.0 J/cm² for safe cleaning. Conservative due to variable fiber content. Source: Ablation threshold studies in Composites Part B (2017); Optics Express (2022).
-Machine,Settings,spot_size,,μm,0.1,500,,"Beam diameters for uniform coverage; 200-300 μm recommended for epoxy composites to achieve fine control over ablation on heterogeneous surfaces (e.g., carbon fiber reinforced). Smaller for detail work, larger for broad areas. Source: Equipment specs from Adapt Laser Systems; process optimization in Industrial Laser Solutions (2020)."
-Machine,Settings,pass_count,,passes,1,10,,Multi-pass (2-5) typical for layered contaminants on epoxy without single-pass overheating; 3 passes recommended for complete removal while preserving composite integrity. Single pass viable for light prep. Source: Industry case studies in Journal of Materials Processing Technology (2019); practical guidelines from laser cleaning service providers.
-Machine,Settings,overlap_ratio,,%,10,90,,50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60% recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety.
+Machine,Settings,energy_density,10.05,J/cm²,0.1,20,,Fluence range for contaminant removal without substrate ablation; damage threshold for epoxy composites ~1.5-2.5 J/cm² at 1064 nm. Recommended <1.0 J/cm² for safe cleaning. Conservative due to variable fiber content. Source: Ablation threshold studies in Composites Part B (2017); Optics Express (2022).
+Machine,Settings,spot_size,250,μm,0.1,500,,"Beam diameters for uniform coverage; 200-300 μm recommended for epoxy composites to achieve fine control over ablation on heterogeneous surfaces (e.g., carbon fiber reinforced). Smaller for detail work, larger for broad areas. Source: Equipment specs from Adapt Laser Systems; process optimization in Industrial Laser Solutions (2020)."
+Machine,Settings,pass_count,5.5,passes,1,10,,Multi-pass (2-5) typical for layered contaminants on epoxy without single-pass overheating; 3 passes recommended for complete removal while preserving composite integrity. Single pass viable for light prep. Source: Industry case studies in Journal of Materials Processing Technology (2019); practical guidelines from laser cleaning service providers.
+Machine,Settings,overlap_ratio,50,%,10,90,,50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60% recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety.
+Property,material_characteristics,electricalResistivity,100000000000000,ohm-m,,,ai_research,Material property: electricalResistivity
+Property,material_characteristics,fractureToughness,1.2,MPa√m,,,ai_research,Material property: fractureToughness
+Property,material_characteristics,density,1800,kg/m³,,,ai_research,Material property: density
+Property,material_characteristics,oxidationResistance,310,°C,,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,youngsModulus,25000000000,Pa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,hardness,85,Shore D,,,ai_research,Material property: hardness
+Property,material_characteristics,compressiveStrength,550,MPa,,,ai_research,Material property: compressiveStrength
+Property,material_characteristics,tensileStrength,450,MPa,,,ai_research,Material property: tensileStrength
+Property,material_characteristics,flexuralStrength,420,MPa,,,ai_research,Material property: flexuralStrength
+Property,material_characteristics,corrosionResistance,0.95,dimensionless,,,ai_research,Material property: corrosionResistance
+Property,material_characteristics,laserDamageThreshold,2.3,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,absorptivity,0.25,dimensionless,0.1,0.5,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptionCoefficient,50000,m⁻¹,10000,200000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,4.5,J/cm²,1,10,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalShockResistance,1.2,MW/m,0.5,2.5,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,reflectivity,0.05,dimensionless,0.03,0.1,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,600,K,500,700,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,vaporPressure,200,Pa,50,1000,ai_research,Material property: vaporPressure
+Property,laser_material_interaction,thermalDestruction,623,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,laserReflectivity,0.05,dimensionless,,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalExpansion,0.00002,K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,thermalConductivity,0.35,W/(m·K),,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,specificHeat,1100,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserAbsorption,35000,m^{-1},,,ai_research,Material property: laserAbsorption
+Property,laser_material_interaction,thermalDiffusivity,1.15e-7,m²/s,,,ai_research,Material property: thermalDiffusivity
+Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,,,scientific_literature,Material property: ablationThreshold
+Application,Industries,Application 1,Aerospace,,,,,Industry application
+Application,Industries,Application 2,Automotive,,,,,Industry application
+Application,Industries,Application 3,Wind Energy,,,,,Industry application
+Application,Industries,Application 4,Marine,,,,,Industry application
+Application,Industries,Application 5,Electronics,,,,,Industry application
+Application,Industries,Application 6,Medical Devices,,,,,Industry application
+Application,Industries,Application 7,Cultural Heritage,,,,,Industry application
+Application,Industries,Application 8,Sports Equipment,,,,,Industry application
+Application,Industries,Application 9,Construction,,,,,Industry application
+Application,Industries,Application 10,Rail Transportation,,,,,Industry application

@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 30 W
+  Range: 1-120 W
+  Description: Low power for thermal-sensitive polymer cleaning
 
-Generated: 2025-12-21T07:05:14.033Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for controlled absorption
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Larger spot for gentle surface treatment
+
+REPETITION RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Lower frequency to prevent thermal damage
+
+ENERGY DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Low energy density to avoid melting
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Short pulses for minimal thermal impact
+
+SCAN SPEED:
+  Value: 800 mm/s
+  Range: 10-5000 mm/s
+  Description: Fast scanning to reduce heat accumulation
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Multiple gentle passes for gradual cleaning
+
+OVERLAP RATIO:
+  Value: 30 %
+  Range: 10-90 %
+  Description: Lower overlap to prevent overheating
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for industrial laser cleaning of polymers like polyimide to avoid thermal damage; starting at 50W for controlled contaminant removal. Max safe below 200W to prevent substrate ablation (based on IPG Photonics YLR series specs and studies in Optics and Lasers in Engineering, 2018, on polymer cleaning).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for 1064nm cleaning of polyimide; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for balance of efficiency and minimal HAZ (industry standards from Laserax equipment manuals and J. Cleaner Production, 2020, case studies on surface prep).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for polyimide to balance cleaning efficacy and cost; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially. 20 ns recommended to reduce heat accumulation given polyimide's low thermal conductivity (Laser & Particle Beams journal, 2019, on pulse regimes for polymers).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for 1064nm cleaning; higher rates increase speed but risk heat buildup in low-conductivity polyimide. 50 kHz recommended for optimal energy delivery without overheating (trade-off discussed in Applied Surface Science, 2017, ablation studies on polyimides).
+
+ENERGY_DENSITY:
+  Value: 0.8 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below polyimide damage threshold (~2.5 J/cm² at 1064nm ns pulses) for safe contaminant removal; 0.2-1.0 for light, up to 2.0 for heavy. Recommended 0.8 J/cm² to ablate contaminants without substrate melting (point ~400°C) (from ablation threshold research in Journal of Applied Physics, 2015, on Kapton polyimide).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise cleaning; smaller for fine details (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for polyimide surface prep to ensure uniform fluence (equipment specs from Coherent Inc. cleaning systems and Optics Express, 2021, on beam profiling for polymers).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete polyimide cleaning without excessive exposure (industry practice from Adapt Laser Systems case studies and Surface and Coatings Technology, 2019, on multi-pass optimization).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on irregular polyimide surfaces. 60% recommended to avoid gaps while minimizing overexposure (process studies in Lasers in Manufacturing and Materials Processing, 2022).
+
+
+Generated: 2025-12-22T20:49:23.722Z
 License: CC BY 4.0

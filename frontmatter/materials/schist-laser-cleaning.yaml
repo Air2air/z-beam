@@ -2,8 +2,8 @@ id: schist-laser-cleaning
 name: Schist
 title: Schist Laser Cleaning
 category: stone
-datePublished: '2025-12-20T23:40:04.534002Z'
-dateModified: '2025-12-20T23:40:04.534002Z'
+datePublished: '2025-12-22T23:35:16.848848Z'
+dateModified: '2025-12-22T23:35:16.848848Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/stone/sedimentary/schist-laser-cleaning
@@ -122,19 +122,56 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 relationships:
+  contaminated_by:
+    _section:
+      title: Common Contaminants
+      description: Types of contamination typically found on this material
+      order: 1
+      variant: relationship
+      icon: droplet
+    items:
+    - id: industrial-oil-contamination
+      presentation: card
   regulatory:
-    title: Regulatory Standards
-    description: Safety, environmental, and industry standards applicable to laser cleaning this material
-    groups:
-      all_standards:
-        title: Applicable Standards
-        description: All regulatory standards and guidelines
-        items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this material
+      order: 2
+      variant: reference
+      icon: book
+    items:
+    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+      image: /images/logo/logo-org-fda.png
+      longName: Food and Drug Administration
+      name: FDA
+      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+    - description: ANSI Z136.1 - Safe Use of Lasers
+      image: /images/logo/logo-org-ansi.png
+      longName: American National Standards Institute
+      name: ANSI
+      url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    - description: IEC 60825 - Safety of Laser Products
+      image: /images/logo/logo-org-iec.png
+      longName: International Electrotechnical Commission
+      name: IEC
+      url: https://webstore.iec.ch/publication/3587
+    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+      image: /images/logo/logo-org-osha.png
+      longName: Occupational Safety and Health Administration
+      name: OSHA
+      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 subcategory: sedimentary
+applications:
+- Cultural Heritage
+- Construction and Architecture
+- Museum Conservation
+- Geological Research
+- Landscape Architecture
+- Monument Preservation
+- Interior Design
+- Archaeological Conservation
+- Stone Fabrication
+- Geotechnical Engineering
 characteristics:
   crystallineStructure:
     allowedValues:

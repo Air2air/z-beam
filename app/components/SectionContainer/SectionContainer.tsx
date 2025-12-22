@@ -20,16 +20,7 @@
  */
 import React from 'react';
 import { Button } from '../Button';
-import type { SectionContainerProps } from '@/types/centralized';
-
-export interface SectionContainerBaseProps {
-  title?: string;
-  icon?: React.ReactNode;
-  actionText?: string;
-  actionUrl?: string;
-  className?: string;
-  children: React.ReactNode;
-}
+import type { SectionContainerProps, SectionContainerBaseProps } from '@/types/centralized';
 
 interface SectionContainerInternalProps extends SectionContainerBaseProps {
   variant?: 'default' | 'dark';

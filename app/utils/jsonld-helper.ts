@@ -41,8 +41,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
       return null;
     }
     
-    const metadata = articleData.metadata || {};
-    const frontmatter = articleData.frontmatter || metadata;
+    const frontmatter = articleData.frontmatter || articleData;
     
     // Extract data
     const materialProperties = frontmatter.materialProperties || {};
@@ -54,15 +53,15 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
     const micro = frontmatter.micro || {};
     const faq = frontmatter.faq || [];
     
-    const title = frontmatter.title || metadata.title || 'Material Guide';
-    const description = frontmatter.description || metadata.description || '';
+    const title = frontmatter.title || 'Material Guide';
+    const description = frontmatter.description || '';
     const subtitle = frontmatter.subtitle || '';
     const materialName = frontmatter.name || title.replace(/\s*Laser Cleaning$/i, '');
-    const category = frontmatter.category || metadata.category || 'material';
+    const category = frontmatter.category || 'material';
     const subcategory = frontmatter.subcategory || '';
     
-    const publishDate = frontmatter.datePublished || metadata.datePublished;
-    const modifiedDate = frontmatter.dateModified || metadata.dateModified;
+    const publishDate = frontmatter.datePublished || frontmatter.lastModified;
+    const modifiedDate = frontmatter.dateModified || frontmatter.lastModified;
     
     // Create context
     const context = createContext(slug);

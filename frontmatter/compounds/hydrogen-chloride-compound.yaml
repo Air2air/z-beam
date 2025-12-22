@@ -3,8 +3,8 @@ name: Hydrogen Chloride
 display_name: Hydrogen Chloride (HCl)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2025-12-20T23:36:52.146946Z'
-dateModified: '2025-12-20T23:36:52.146946Z'
+datePublished: '2025-12-22T21:25:25.961453Z'
+dateModified: '2025-12-22T21:25:25.961453Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
@@ -22,7 +22,12 @@ breadcrumb:
 chemical_formula: HCl
 cas_number: 7647-01-0
 molecular_weight: 36.46
-description: null
+description: Hydrogen chloride stands out from milder gases—its sharp bite etches metals fast. This corrosive nature dissolves
+  rust without mercy. In factories, it powers chemical reactions for plastics and fertilizers. Workers handle it carefully;
+  fumes irritate skin and eyes. For laser cleaning, it boosts beam precision on grimy surfaces. The gas vaporizes contaminants
+  swiftly during zaps. Unlike water-based methods, it penetrates deep into alloys. Industries love its efficiency in stripping
+  old coatings. Yet, safety gear stays essential—leaks spell trouble quick. Overall, it transforms tough jobs into smooth
+  operations.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,37 +50,54 @@ sources_in_laser_cleaning:
 - chlorinated_polymer_pyrolysis
 - chlorinated_solvent_breakdown
 relationships:
-  produced_by_contaminants:
-  - id: plastic-residue-contamination
-    title: Degraded Polymer Deposits
-    url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-    image: /images/contaminants/plastic-residue.jpg
-    frequency: very_common
-    severity: high
-    typical_context: PVC thermal decomposition
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-    image: /images/contaminants/adhesive-residue.jpg
-    frequency: occasional
-    severity: moderate
-    typical_context: Chlorinated adhesive breakdown
   chemical_properties:
-  - type: chemical_properties
-    id: hydrogen-chloride-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: hydrogen-chloride-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: hydrogen-chloride-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: hydrogen-chloride-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: hydrogen-chloride-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: hydrogen-chloride-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: corrosive-liquid-moderate
-    overrides:
-      specific_compound: Hydrogen Chloride
-      pel_ppm: null
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: corrosive-liquid-moderate
+      overrides:
+        specific_compound: Hydrogen Chloride
+        pel_ppm: null
+      presentation: card
   emergency_response:
     fire_hazard: Non-flammable. Cylinders may explode when heated. Corrosive decomposition products.
     fire_suppression: Do not use water directly on HCl gas - forms corrosive hydrochloric acid mist. Cool cylinders with water
@@ -88,6 +110,52 @@ relationships:
     environmental_hazards: Toxic to aquatic life. Forms hydrochloric acid in water. Report releases >5000 lbs.
     special_hazards: Extremely corrosive to all tissues. Forms dense white corrosive mist in moist air. Reacts with metals
       producing flammable hydrogen gas. Causes severe burns, permanent eye damage, respiratory tract damage.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: plastic-residue-contamination
+      frequency: very_common
+      severity: high
+      typical_context: PVC thermal decomposition
+      presentation: card
+      url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+    - id: adhesive-residue-contamination
+      frequency: occasional
+      severity: moderate
+      typical_context: Chlorinated adhesive breakdown
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: ceramic-matrix-composites-cmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+    - id: epoxy-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+    - id: metal-matrix-composites-mmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
+    - id: phenolic-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
+    - id: polyester-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
+    - id: urethane-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/structural/urethane-composites-laser-cleaning
   physical_properties:
     boiling_point: -85.05°C (-121°F)
     melting_point: -114.17°C (-173.5°F)
@@ -252,72 +320,6 @@ detection_monitoring:
     detection_limit: 0.01 ppm
   odor_threshold: 0.8-5 ppm - provides adequate warning but close to toxic levels
 title: Hydrogen Chloride (HCl)
-ppe_requirements_detail:
-  id: corrosive-liquid-moderate
-  hazard_type: corrosive_liquid
-  hazard_level: moderate
-  minimum_protection_level: Level C
-  respiratory:
-    equipment: Half-face respirator with acid gas cartridge
-    standard: NIOSH 42 CFR 84
-    condition: If vapor exposure possible
-    cartridge_type: Acid gas/organic vapor combination
-    fit_test_required: true
-  skin:
-    gloves:
-      material: Neoprene or PVC gloves
-      length: Elbow-length for handling
-      standard: ASTM F739
-      breakthrough_time: '>8 hours'
-      thickness: '>18 mil'
-    apron:
-      equipment: Chemical-resistant apron
-      material: Neoprene, PVC, or rubber
-      length: Full-length coverage
-      condition: All handling operations
-    footwear:
-      equipment: Chemical-resistant boots
-      material: PVC or rubber
-      height: At least 8 inches
-  eye:
-    primary:
-      equipment: Chemical splash goggles
-      standard: ANSI Z87.1
-      type: Indirect vents, sealed to face
-    secondary:
-      equipment: Face shield (8-inch minimum)
-      condition: Over goggles for handling operations
-      use: Face shield does not replace goggles
-  special_requirements:
-  - Emergency shower and eyewash within 10 seconds travel time
-  - Flush eyes for 15 minutes if contact occurs
-  - Remove contaminated clothing immediately
-  - Work in ventilated area or use fume hood
-  - Have neutralizing agent available (appropriate for specific chemical)
-  decontamination:
-  - Flush contaminated areas with water immediately
-  - Remove contaminated clothing under water if possible
-  - Wash skin thoroughly with soap and water
-  - Launder contaminated clothing separately
-  - Inspect PPE for damage before reuse
-  training_required:
-  - Chemical hazard awareness (corrosives)
-  - Proper PPE selection and use
-  - Emergency response procedures
-  - First aid for chemical burns
-  first_aid:
-    eye_contact:
-    - Flush immediately with water for 15+ minutes
-    - Hold eyelids open during flushing
-    - Seek immediate medical attention
-    skin_contact:
-    - Remove contaminated clothing
-    - Flush with water for 15+ minutes
-    - Wash with soap and water
-    - Seek medical attention
-    inhalation:
-    - Move to fresh air
-    - Administer oxygen if available
-    - Seek medical attention
-  specific_compound: Hydrogen Chloride
-  pel_ppm: null
+seo_description: Hydrogen chloride stands out from milder gases—its sharp bite etches metals fast.
+micro: Hydrogen chloride stands out from milder gases—its sharp bite etches metals fast. This corrosive nature dissolves rust
+  without mercy.

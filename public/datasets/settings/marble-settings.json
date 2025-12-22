@@ -5,8 +5,8 @@
     "subcategory": "metamorphic",
     "title": "Marble Settings",
     "description": "When laser cleaning marble, the main challenge we face is its tendency to crack under uneven heating, unlike tougher granites that handle heat more evenly across their structure. This stems from marble's metamorphic layers, which expand differently than surrounding stones, so we adjust by using slower scan speeds and multiple gentle passes to distribute energy without stressing those seams. We've found this restores delicate heritage surfaces beautifully. Just watch for subsurface discoloration at the end—dial back power if you spot it.",
-    "datePublished": "2025-12-21T03:33:03.430248Z",
-    "dateModified": "2025-12-21T03:33:03.430248Z",
+    "datePublished": "2025-12-22T06:55:48.996437Z",
+    "dateModified": "2025-12-22T06:55:48.996437Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,127 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Marble surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-infrared wavelength optimized for Marble absorption and minimal subsurface damage",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control on Marble surfaces",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal while preserving Marble substrate",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal effects",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning without excessive thermal buildup",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for thorough cleaning with progressive contaminant removal",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning coverage and processing efficiency",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 300,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for Nd:YAG lasers in stone cleaning to balance efficiency and heat control; starting at 100 W avoids thermal cracking in marble (CaCO3, low thermal conductivity ~2.5 W/mK); max limited to prevent decomposition above 800°C. Source: Adapt Laser Systems specs and Verho et al. (2007) in J. Cult. Herit."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 500,
+      "description": "Slower speeds for heavy contamination (e.g., soot) ensure complete removal without residue; faster for light dirt; 500 mm/s optimal for uniform cleaning on porous marble surfaces. Source: Industry manuals from Laser Photonics and case studies in Opt. Lasers Eng. (2015)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 20,
+      "description": "Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ <10 μm) on heat-sensitive marble; avoids plasma shielding issues in fs. Source: Laser physics in Pouli et al. (2010), Appl. Phys. A."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 20,
+      "description": "20 kHz balances cleaning speed and heat accumulation (marble reflectivity ~0.3 at 1064 nm leads to ~70% absorption); higher rates risk cumulative heating/cracking. Source: Academic lit. in J. Appl. Phys. (2012) and IPG Photonics guidelines."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 1,
+      "description": "Fluence below marble damage threshold (~5-8 J/cm² for CaCO3 ablation) for safe contaminant removal; 1 J/cm² effective for organic/inorganic dirt without substrate etching. Source: Ablation studies in Sansonetti & Marchesi (2001), Stud. Conserv., and threshold data from ELZA laser research."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "description": "Smaller spots for fine details on marble sculptures; larger for industrial surface prep; 200 μm recommended for even energy distribution on irregular surfaces. Source: Equipment specs from Coherent Inc. and process opt. in Lasers Manuf. Mater. Process. (2018).",
+      "value": 200
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "value": 2,
+      "description": "Multi-pass for layered contamination (e.g., 2 passes for heavy industrial grime); single pass sufficient for light cleaning; minimizes total exposure time on thermally fragile marble. Source: Industry case studies in J. Cult. Herit. (2014) and practical guidelines from Laser Cleaning Europe."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "value": 70,
+      "description": "70% overlap ensures uniform fluence coverage without gaps on marble's textured surface; higher for heavy soiling to avoid streaking. Source: Process optimization in Opt. Express (2016) and scanning system manuals from scanning galvo providers like Scanlab."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

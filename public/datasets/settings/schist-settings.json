@@ -5,8 +5,8 @@
     "subcategory": "sedimentary",
     "title": "Schist Settings",
     "description": "When cleaning schist, watch its layered foliation that sets it apart from denser, more uniform stones like granite. I've seen this structure lead to delamination under uneven heat, so start with gentler passes to avoid cracking along those planes. Unlike smoother limestones, schist's moderate absorption pulls in laser energy well but traps heat due to low conductivity, which tends to build up quickly. This works best when you reduce power early on, allowing multiple light exposures to reveal surface grime without stressing the layers. Adjust overlap to keep things even, restoring the stone's natural sheen steadily.",
-    "datePublished": "2025-12-21T03:33:04.171637Z",
-    "dateModified": "2025-12-21T03:33:04.171637Z",
+    "datePublished": "2025-12-22T06:55:49.663948Z",
+    "dateModified": "2025-12-22T06:55:49.663948Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -41,7 +41,127 @@
       "formatting_file": "usa_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Schist surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 90,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength optimized for Schist mineral absorption characteristics",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control on Schist mineral layers",
+      "unit": "μm",
+      "value": 80,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage on Schist surfaces",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant ablation without damaging Schist substrate",
+      "unit": "J/cm²",
+      "value": 4.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate damage",
+      "unit": "ns",
+      "value": 12,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning across Schist surface variations",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for thorough cleaning of Schist mineral layers",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap percentage for complete coverage on uneven Schist surfaces",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 500,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for industrial laser cleaning of stones like schist to remove contaminants without excessive heat buildup; starting at 100W balances efficiency and safety. Max avoids ablation damage based on schist's low thermal conductivity (~1-2 W/m·K). Source: Adapted from IPG Photonics YLR series specs for stone applications and studies in J. Cult. Herit. (2018) on metamorphic rock cleaning."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 500,
+      "description": "Slower speeds (50-200 mm/s) for heavy contamination on schist to ensure thorough removal; faster (up to 2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal contaminant ejection without substrate etching, considering schist's heterogeneous structure. Source: Industry standards from Laserax equipment manuals and Opt. Lasers Eng. (2020) on scan optimization for rocks."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 10,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for schist cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-delicate work but less common industrially due to cost. 10 ns balances ablation of contaminants with schist's variable reflectivity (20-50% at 1064 nm). Source: Laser physics research in Appl. Surf. Sci. (2019) on pulse duration effects for siliceous stones."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 30,
+      "description": "Typical 10-50 kHz for efficient cleaning; higher rates (>50 kHz) increase speed but risk heat accumulation in low-conductivity schist, potentially causing micro-cracks. Recommended 30 kHz for steady energy delivery without thermal damage. Source: Academic literature in J. Appl. Phys. (2017) on repetition rate trade-offs for stone ablation thresholds."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence below schist's damage threshold (~3-4 J/cm² at 1064 nm) for safe contaminant removal; 0.5-1 J/cm² for light dirt, up to 3 J/cm² for heavy oxides. Recommended 1.5 J/cm² avoids melting (schist ~1200-1400°C) while effective. Source: Ablation threshold studies in Surf. Coat. Technol. (2021) for metamorphic rocks and conservative estimates from NIST laser-material interaction data."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 300,
+      "unit": "μm",
+      "description": "Smaller spots (100-300 μm) for fine surface prep on schist's foliated texture; larger (up to 1 mm) for broad industrial areas. Recommended 300 μm for uniform coverage without pinpoint damage. Source: Equipment specs from Coherent Armonia series and process studies in Lasers Manuf. Mater. Process. (2019) for stone cleaning applications."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination; multi-pass (2-5) for layered buildup on schist to gradually remove without aggressive fluence. Recommended 2 passes ensures complete removal while minimizing risk to underlying minerals. Source: Industry practice from case studies in Restor. Build. Monuments (2022) and general laser cleaning protocols for heterogeneous stones."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "30-50% for large-area speed; 60-80% for uniform contaminant removal on schist's uneven surface. Recommended 60% prevents gaps and ensures even fluence distribution. Source: Process optimization studies in Opt. Express (2016) on scan line overlap for laser surface treatment of rocks; typical range aligns with manufacturer guidelines."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

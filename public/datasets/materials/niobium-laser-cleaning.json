@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/metal/non-ferrous/niobium-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/metal/non-ferrous/niobium-laser-cleaning#dataset",
   "name": "Niobium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Niobium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/niobium-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/niobium-laser-cleaning.json",
       "name": "Niobium Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/niobium-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/niobium-laser-cleaning.csv",
       "name": "Niobium Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/niobium-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/niobium-laser-cleaning.txt",
       "name": "Niobium Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Niobium",
@@ -214,8 +214,245 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "electricalConductivity": {
+          "value": 6802721.088435374,
+          "unit": "S/m",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "electricalResistivity": {
+          "value": 1.52e-7,
+          "unit": "Ω·m",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "fractureToughness": {
+          "value": 59,
+          "unit": "MPa√m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "surfaceRoughness": {
+          "value": 0.4,
+          "unit": "μm",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "youngsModulus": {
+          "value": 105,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 573,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 8.57,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 60,
+          "unit": "HV",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.005,
+          "unit": "mm/year",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 240,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 310,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 275,
+          "unit": "MPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "absorptivity": {
+          "value": 0.42,
+          "unit": "dimensionless",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "boilingPoint": {
+          "value": 4912,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 610000,
+          "unit": "cm^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "meltingPoint": {
+          "value": 2741,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 0.025,
+          "unit": "Pa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 2750,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.55,
+          "unit": "dimensionless (fraction)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 133,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research"
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptionCoefficient": {
+          "source": "ai_research",
+          "unit": "m⁻¹",
+          "value": 4200000
+        },
+        "absorptivity": {
+          "source": "ai_research",
+          "unit": "dimensionless",
+          "value": 0.38
+        },
+        "laserDamageThreshold": {
+          "source": "ai_research",
+          "unit": "J/cm²",
+          "value": 0.45
+        },
+        "reflectivity": {
+          "source": "ai_research",
+          "unit": "dimensionless (ratio)",
+          "value": 0.58
+        },
+        "thermalDestructionPoint": {
+          "source": "ai_research",
+          "unit": "K",
+          "value": 2741
+        },
+        "thermalShockResistance": {
+          "source": "ai_research",
+          "unit": "W/m",
+          "value": 380
+        },
+        "vaporPressure": {
+          "source": "ai_research",
+          "unit": "Pa",
+          "value": 0.00133
+        },
+        "thermalDestruction": {
+          "value": 2750,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 265,
+          "unit": "J/(kg·K)",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.7,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 53.7,
+          "unit": "W/m·K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.0000071,
+          "unit": "K^{-1}",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 0.28,
+          "unit": "dimensionless",
+          "confidence": 92,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 0.00002364,
+          "unit": "m²/s",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 1.05,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research"
+        }
+      }
+    },
+    "applications": [
+      "Aerospace",
+      "Medical Implants",
+      "Superconducting Magnets",
+      "Chemical Processing",
+      "Nuclear Technology",
+      "Electronics Manufacturing",
+      "Jewelry and Art",
+      "Marine Engineering",
+      "Research Laboratories",
+      "Energy Storage"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +626,463 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "50-70% overlap ensures uniform coverage and prevents striping; higher for fine Niobium surfaces to avoid inconsistencies due to reflectivity. Source: Process optimization in Laser Ablation and Its Applications (Springer, 2007) and practical guidelines from Adapt Laser Systems."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalConductivity",
+      "name": "Electrical Conductivity",
+      "description": "Electrical Conductivity - material characteristics",
+      "value": 6802721.088435374,
+      "unitText": "S/m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 1.52e-7,
+      "unitText": "Ω·m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 59,
+      "unitText": "MPa√m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 0.4,
+      "unitText": "μm",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 105,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 573,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 8.57,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 60,
+      "unitText": "HV",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.005,
+      "unitText": "mm/year",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 240,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 310,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 275,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - material characteristics",
+      "value": 0.42,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 4912,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - material characteristics",
+      "value": 610000,
+      "unitText": "cm^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 2741,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - material characteristics",
+      "value": 0.025,
+      "unitText": "Pa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - material characteristics",
+      "value": 2750,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - material characteristics",
+      "value": 0.55,
+      "unitText": "dimensionless (fraction)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - material characteristics",
+      "value": 133,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 4200000,
+      "unitText": "m⁻¹",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.38,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 0.45,
+      "unitText": "J/cm²",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.58,
+      "unitText": "dimensionless (ratio)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 2741,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 380,
+      "unitText": "W/m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 0.00133,
+      "unitText": "Pa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 2750,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 265,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.7,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 53.7,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.0000071,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.28,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.00002364,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.05,
+      "unitText": "J/cm²",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Niobium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/niobium-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Moretti",
+    "jobTitle": "Materials Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Politecnico di Milano's Materials Dept."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/alessandro-moretti-phd",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/alessandro-moretti.jpg",
+      "description": "Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/niobium-laser-cleaning-hero.jpg",
+      "description": "Niobium surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/niobium-laser-cleaning-micro.jpg",
+      "description": "Niobium microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Niobium Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Moretti",
+        "jobTitle": "Materials Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:14.327839Z",
+      "url": "http://localhost:3000/materials/metal/non-ferrous/niobium-laser-cleaning",
+      "citation": "Z-Beam (2025). Niobium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/niobium-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

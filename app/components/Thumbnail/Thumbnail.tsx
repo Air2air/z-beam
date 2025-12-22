@@ -59,7 +59,8 @@ export function Thumbnail({
             alt="No image available"
             width={60}
             height={60}
-            className="object-contain opacity-50"
+            className="object-contain text-orange-500"
+            style={{ filter: 'brightness(0) saturate(100%) invert(53%) sepia(89%) saturate(2476%) hue-rotate(1deg) brightness(103%) contrast(101%)' }}
           />
         </div>
       )}

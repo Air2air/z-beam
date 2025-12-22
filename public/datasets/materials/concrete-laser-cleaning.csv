@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/masonry/general/concrete-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/masonry/general/concrete-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Concrete Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/concrete-laser-cleaning
+# Citation: Z-Beam (2025). Concrete Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/masonry/general/concrete-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Concrete,,,,,Material name
@@ -27,6 +27,41 @@ Machine,Settings,scan_speed,1000,mm/s,10,5000,,"Effective range for contaminatio
 Machine,Settings,pulse_width,50,ns,0.1,1000,,Nanosecond regime (10-150 ns) typical for concrete to enable ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 50 ns for efficient contaminant removal without cracking porous concrete. Source: Laser physics research in Appl. Surf. Sci. (2019) on pulsed laser ablation of cementitious materials.
 Machine,Settings,repetition_rate,50,kHz,1,200,,Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in low-conductivity concrete. Recommended 50 kHz for balanced throughput and thermal management. Source: Academic literature in J. Clean. Prod. (2021) on industrial laser parameters for building materials.
 Machine,Settings,energy_density,2,J/cm²,0.1,20,,"Fluence range for safe contaminant ablation (e.g., paints or oxides); concrete damage threshold ~8-12 J/cm² to prevent spalling. Recommended 2 J/cm² for effective cleaning below threshold, accounting for variable reflectivity at 1064 nm. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) and Opt. Express (2022) on concrete laser interactions."
-Machine,Settings,spot_size,1000,μm,0.1,500,,"Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020)."
+Machine,Settings,spot_size,1000,μm,0.1,1200,,"Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020)."
 Machine,Settings,pass_count,3,passes,1,10,,"Single pass for light contamination, multi-pass (3-5) for heavy layers to ensure complete removal without excessive energy input. Recommended 3 passes for typical industrial concrete cleaning to achieve uniform results. Source: Industry case studies in Constr. Build. Mater. (2019) on laser surface preparation."
 Machine,Settings,overlap_ratio,50,%,10,90,,"Standard overlap for uniform scan coverage; 30-50% for faster large-area cleaning, 50-80% for detailed work to avoid gaps on uneven concrete. Recommended 50% for balanced efficiency and homogeneity. Source: Process optimization studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems."
+Property,material_characteristics,fractureToughness,0.7,MPa m^{1/2},,,ai_research,Material property: fractureToughness
+Property,material_characteristics,density,2400,kg/m³,,,ai_research,Material property: density
+Property,material_characteristics,oxidationResistance,0.98,dimensionless,,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,youngsModulus,30,GPa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,hardness,0.4,GPa,,,ai_research,Material property: hardness
+Property,material_characteristics,compressiveStrength,25,MPa,,,ai_research,Material property: compressiveStrength
+Property,material_characteristics,tensileStrength,3.2,MPa,,,ai_research,Material property: tensileStrength
+Property,material_characteristics,flexuralStrength,4.2,MPa,,,ai_research,Material property: flexuralStrength
+Property,material_characteristics,corrosionResistance,300,Ω·m,,,ai_research,Material property: corrosionResistance
+Property,material_characteristics,laserDamageThreshold,4.2,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,absorptivity,0.75,dimensionless,0.6,0.9,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptionCoefficient,50000,m⁻¹,10000,100000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,8,J/cm²,5,15,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,1,2,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,reflectivity,0.25,dimensionless,0.1,0.4,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,1000,K,800,1200,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,vaporPressure,10,Pa,1,100,ai_research,Material property: vaporPressure
+Property,laser_material_interaction,thermalDestruction,773,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,laserReflectivity,0.35,,,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalExpansion,0.000012,K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,thermalConductivity,1.4,W/m·K,,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,specificHeat,880,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserAbsorption,0.9,dimensionless,,,ai_research,Material property: laserAbsorption
+Property,laser_material_interaction,thermalDiffusivity,5e-7,m²/s,,,ai_research,Material property: thermalDiffusivity
+Property,laser_material_interaction,ablationThreshold,3.2,J/cm²,,,scientific_literature,Material property: ablationThreshold
+Application,Industries,Application 1,Civil Infrastructure,,,,,Industry application
+Application,Industries,Application 2,Nuclear Decommissioning,,,,,Industry application
+Application,Industries,Application 3,Marine Structures,,,,,Industry application
+Application,Industries,Application 4,Historical Preservation,,,,,Industry application
+Application,Industries,Application 5,Industrial Flooring,,,,,Industry application
+Application,Industries,Application 6,Parking Structures,,,,,Industry application
+Application,Industries,Application 7,Food Processing,,,,,Industry application
+Application,Industries,Application 8,Transportation Infrastructure,,,,,Industry application
+Application,Industries,Application 9,Water Treatment Facilities,,,,,Industry application
+Application,Industries,Application 10,Power Generation,,,,,Industry application

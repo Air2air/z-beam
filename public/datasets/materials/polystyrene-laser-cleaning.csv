@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/plastic/thermoplastic/polystyrene-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Polystyrene Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene-laser-cleaning
+# Citation: Z-Beam (2025). Polystyrene Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/polystyrene-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Polystyrene,,,,,Material name
@@ -30,3 +30,39 @@ Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Below PS ablation threshold (
 Machine,Settings,spot_size,200,μm,0.1,500,,"Smaller spots for precise surface prep on PS, larger for broad areas; 200 μm balances resolution and efficiency. Source: Equipment specs from Coherent and Trumpf laser systems."
 Machine,Settings,pass_count,2,passes,1,10,,Multi-pass for thorough removal of heavy contamination; single pass for light; recommended 2 for uniform PS cleaning without overexposure. Source: Case studies in industrial laser cleaning (Proc. SPIE 2021).
 Machine,Settings,overlap_ratio,50,%,10,90,,Ensures uniform coverage on irregular PS surfaces; 50% optimal for efficiency and minimal heat buildup. Source: Process optimization in laser scanning (Opt. Express 2016).
+Property,material_characteristics,electricalResistivity,100000000000000,Ω·m,,,ai_research,Material property: electricalResistivity
+Property,material_characteristics,fractureToughness,0.9,MPa m^{1/2},,,ai_research,Material property: fractureToughness
+Property,material_characteristics,youngsModulus,3.3,GPa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,oxidationResistance,523,K,,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,density,1.05,g/cm³,,,ai_research,Material property: density
+Property,material_characteristics,hardness,77,Shore D,,,ai_research,Material property: hardness
+Property,material_characteristics,corrosionResistance,0.65,dimensionless (normalized resistance index),,,ai_research,Material property: corrosionResistance
+Property,material_characteristics,compressiveStrength,70,MPa,,,ai_research,Material property: compressiveStrength
+Property,material_characteristics,flexuralStrength,50,MPa,,,ai_research,Material property: flexuralStrength
+Property,material_characteristics,tensileStrength,40,MPa,,,ai_research,Material property: tensileStrength
+Property,material_characteristics,laserDamageThreshold,2.5,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,absorptivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptionCoefficient,1000000,m⁻¹,100000,5000000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,2,J/cm²,1,4,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalShockResistance,1,MW/m,0.5,2,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,reflectivity,0.05,dimensionless,0.04,0.06,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,620,K,600,650,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,vaporPressure,10,Pa,1,100,ai_research,Material property: vaporPressure
+Property,laser_material_interaction,thermalDestruction,623,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,specificHeat,1300,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserReflectivity,0.052,dimensionless,,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalConductivity,0.12,W/m·K,,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,thermalExpansion,0.00007,K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,laserAbsorption,100,m^{-1},,,ai_research,Material property: laserAbsorption
+Property,laser_material_interaction,thermalDiffusivity,1.02e-7,m²/s,,,ai_research,Material property: thermalDiffusivity
+Property,laser_material_interaction,ablationThreshold,0.25,J/cm²,,,scientific_literature,Material property: ablationThreshold
+Application,Industries,Application 1,Electronics Manufacturing,,,,,Industry application
+Application,Industries,Application 2,Medical Device Manufacturing,,,,,Industry application
+Application,Industries,Application 3,Aerospace,,,,,Industry application
+Application,Industries,Application 4,Automotive,,,,,Industry application
+Application,Industries,Application 5,Cultural Heritage,,,,,Industry application
+Application,Industries,Application 6,Packaging Manufacturing,,,,,Industry application
+Application,Industries,Application 7,Marine,,,,,Industry application
+Application,Industries,Application 8,Energy Sector,,,,,Industry application
+Application,Industries,Application 9,Consumer Products,,,,,Industry application
+Application,Industries,Application 10,Research and Laboratory,,,,,Industry application

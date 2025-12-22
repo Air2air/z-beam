@@ -40,6 +40,7 @@ import {
   hasVideoData,
   hasImageData
 } from './helpers';
+import { loadGeneratedDataset, extractEnhancedFields } from './datasetLoader';
 
 // ============================================================================
 // Types & Interfaces
@@ -210,13 +211,13 @@ export class SchemaFactory {
     this.register('Article', generateArticleSchema, { 
       priority: 80,
       condition: (data, context) => {
-        // Article for material/contaminant/settings pages with category
+        // Article for material/contaminant pages with category (NOT settings pages)
         const meta = getMetadata(data);
         const hasCategory = !!(meta.category);
         const isMaterialOrContaminant = isMaterialPage(context.slug) || isContaminantPage(context.slug);
         const isSettings = isSettingsPage(context.slug);
-        // Include settings pages OR material/contaminant pages with category
-        return (isSettings || (hasCategory && isMaterialOrContaminant));
+        // Include material/contaminant pages with category, but NOT settings pages
+        return !isSettings && hasCategory && isMaterialOrContaminant;
       }
     });
     this.register('TechArticle', generateTechArticleSchema, { 
@@ -247,7 +248,7 @@ export class SchemaFactory {
     this.register('HowTo', generateHowToSchema, {
       priority: 60,
       condition: (data) => {
-        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
         return !!(fm?.machineSettings || data.steps);
       }
     });
@@ -258,7 +259,7 @@ export class SchemaFactory {
     this.register('QAPage', generateQAPageSchema, {
       priority: 54,
       condition: (data) => {
-        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
         return !!(fm?.expertAnswers && Array.isArray(fm.expertAnswers) && fm.expertAnswers.length > 0);
       }
     });
@@ -282,7 +283,7 @@ export class SchemaFactory {
       priority: 32,
       condition: (data, context) => {
         // Only for settings pages with machine settings (they have interactive tools)
-        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
         return isSettingsPage(context.slug) && !!fm?.machineSettings;
       }
     });
@@ -299,7 +300,7 @@ export class SchemaFactory {
     this.register('Dataset', generateDatasetSchema, {
       priority: 20,
       condition: (data, context) => {
-        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        const fm = getMetadata(data);
         // Check camelCase property names (post E2E normalization)
         const hasMatOrSettings = !!(fm?.materialProperties || fm?.machineSettings);
         const hasContaminantData = !!(fm?.composition || fm?.safetyData || fm?.laserProperties);
@@ -310,7 +311,7 @@ export class SchemaFactory {
       priority: 17,
       condition: (data, context) => {
         // For compound pages OR contaminant pages with chemical composition
-        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
         const hasChemicalData = !!(fm?.chemical_formula || (fm as any)?.chemicalFormula || (fm as any)?.composition);
         return (isCompoundPage(context.slug) || isContaminantPage(context.slug)) && hasChemicalData;
       }
@@ -370,8 +371,8 @@ function hasOrganizations(data: any): boolean {
 function generateWebPageSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl, baseUrl } = context;
   
-  // Extract metadata from various possible locations with type guards
-  const metadata = (data.metadata || data.frontmatter || data.pageConfig || {}) as Record<string, unknown>;
+  // Extract frontmatter from various possible locations with type guards
+  const metadata = (data.frontmatter || data.pageConfig || {}) as Record<string, unknown>;
   const title = (metadata.title as string) || (typeof data.title === 'string' ? data.title : '') || 'Z-Beam';
   const description = (metadata.description as string) || (typeof data.description === 'string' ? data.description : '') || '';
   
@@ -412,7 +413,7 @@ function generateBreadcrumbSchema(data: any, context: SchemaContext): SchemaOrgB
   const pathname = slug ? `/${slug}` : '/';
   
   // Extract frontmatter from various data structures
-  const frontmatter = data.frontmatter || data.metadata || data.pageConfig || data;
+  const frontmatter = data.frontmatter || data.pageConfig || data;
   
   // Use the centralized breadcrumb generation utility
   const breadcrumbItems = generateBreadcrumbs(frontmatter, pathname);
@@ -1538,8 +1539,8 @@ function generateFAQSchema(data: any, context: SchemaContext): SchemaOrgBase | n
   const frontmatter = getMetadata(data);
   const faqs: any[] = [];
 
-  // Custom FAQs - check multiple possible locations (prioritize explicit FAQs)
-  const faqData = frontmatter.faq || data.metadata?.faq || data.faq;
+  // Custom FAQs - check frontmatter locations
+  const faqData = frontmatter.faq || data.faq;
   if (faqData && Array.isArray(faqData) && faqData.length > 0) {
     faqData.forEach((item: any) => {
       if (item.question && item.answer) {
@@ -1790,6 +1791,18 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
     ...(mainImage.height && { 'height': mainImage.height })
   };
 
+  // Add magnification level for micro images (1000x standard)
+  if (mainImage.isMicro) {
+    imageObject.additionalProperty = imageObject.additionalProperty || [];
+    imageObject.additionalProperty.push({
+      '@type': 'PropertyValue',
+      'propertyID': 'magnification',
+      'name': 'Magnification Level',
+      'value': '1000x',
+      'unitText': 'times'
+    });
+  }
+
   // Image License Metadata - use image-specific values or fall back to site defaults
   // @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
   
@@ -1826,6 +1839,50 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
         'name': author.name,
         ...(author.url && { 'url': author.url })
       };
+    }
+  }
+
+  // Add VisualArtwork schema for contaminants with appearance data
+  // Leverages visual_characteristics.appearance_on_categories from frontmatter
+  const frontmatter = data.frontmatter || data;
+  const visualChars = frontmatter.visual_characteristics;
+  
+  if (visualChars?.appearance_on_categories) {
+    const appearances = visualChars.appearance_on_categories;
+    const categories = Object.keys(appearances);
+    
+    // Use first category as primary, or find most detailed one
+    const primaryCategory = categories[0];
+    const primaryAppearance = appearances[primaryCategory];
+    
+    if (primaryAppearance) {
+      imageObject.about = {
+        '@type': 'VisualArtwork',
+        'artform': 'Contamination Pattern',
+        'surface': primaryCategory,
+        'description': primaryAppearance.appearance,
+        ...(primaryAppearance.pattern && { 'pattern': primaryAppearance.pattern })
+      };
+      
+      // Add coverage as additional property
+      if (primaryAppearance.coverage) {
+        imageObject.additionalProperty = imageObject.additionalProperty || [];
+        imageObject.additionalProperty.push({
+          '@type': 'PropertyValue',
+          'name': 'Coverage Range',
+          'value': primaryAppearance.coverage
+        });
+      }
+      
+      // Add pattern variations as additional properties
+      if (categories.length > 1) {
+        imageObject.additionalProperty = imageObject.additionalProperty || [];
+        imageObject.additionalProperty.push({
+          '@type': 'PropertyValue',
+          'name': 'Surface Variations',
+          'value': `Appears differently on ${categories.length} material types: ${categories.join(', ')}`
+        });
+      }
     }
   }
 
@@ -1943,6 +2000,11 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   const baseMaterialSlug = materialSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '').replace(/-contamination$/, '');
   const datasetFolder = isContaminant ? 'contaminants' : 'materials';
   const datasetName = isContaminant ? materialSlug : `${baseMaterialSlug}-laser-cleaning`;
+
+  // **PHASE 1 ENHANCEMENT**: Load generated dataset file for enhanced data
+  // These files contain: 20+ variableMeasured items, citation array, author E-E-A-T data, images
+  const generatedDataset = loadGeneratedDataset(datasetName, datasetFolder);
+  const enhancedFields = extractEnhancedFields(generatedDataset);
 
   // E-E-A-T Enhancement: Use page author as dataset creator for authority
   const author = frontmatter.author || data.author;
@@ -2195,15 +2257,17 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
       : `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
     'description': datasetDescription,
     'version': '1.0',
-    'license': {
+    'license': enhancedFields?.license || {
       '@type': 'CreativeWork',
       'name': 'Creative Commons Attribution 4.0 International',
       'url': 'https://creativecommons.org/licenses/by/4.0/'
     },
-    'creator': creator,
-    // E-E-A-T: Also add author field for better E-E-A-T scoring
-    ...(authorPerson && { 'author': authorPerson }),
-    'distribution': [
+    // **PHASE 1**: Use enhanced creator from generated dataset (includes credentials, expertise)
+    'creator': enhancedFields?.creator || creator,
+    // **PHASE 1**: Add author E-E-A-T data from generated dataset
+    ...(enhancedFields?.author && { 'author': enhancedFields.author }),
+    // **PHASE 1**: Use enhanced distribution array from generated dataset
+    'distribution': enhancedFields?.distribution || [
       {
         '@type': 'DataDownload',
         'encodingFormat': 'application/json',
@@ -2223,7 +2287,41 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
         'name': 'Plain Text Dataset'
       }
     ],
-    ...(measurements.length > 0 && { 'variableMeasured': measurements }),
+    // **PHASE 1**: Use enhanced variableMeasured from generated dataset (20+ items)
+    // Falls back to dynamically generated measurements if dataset file doesn't exist
+    ...(enhancedFields?.variableMeasured && enhancedFields.variableMeasured.length > 0 
+      ? { 'variableMeasured': enhancedFields.variableMeasured }
+      : measurements.length > 0 
+        ? { 'variableMeasured': measurements }
+        : {}),
+    // **PHASE 1**: Add citation array from generated dataset (3+ items)
+    ...(enhancedFields?.citation && enhancedFields.citation.length > 0 && {
+      'citation': enhancedFields.citation
+    }),
+    // **PHASE 1**: Add image references from generated dataset
+    ...(enhancedFields?.image && {
+      'image': enhancedFields.image
+    }),
+    // **PHASE 1**: Add publisher from generated dataset
+    ...(enhancedFields?.publisher && {
+      'publisher': enhancedFields.publisher
+    }),
+    // **PHASE 1**: Add keywords from generated dataset
+    ...(enhancedFields?.keywords && enhancedFields.keywords.length > 0 && {
+      'keywords': enhancedFields.keywords
+    }),
+    // **PHASE 1**: Add measurementTechnique from generated dataset
+    ...(enhancedFields?.measurementTechnique && {
+      'measurementTechnique': enhancedFields.measurementTechnique
+    }),
+    // **PHASE 1**: Add includedInDataCatalog from generated dataset
+    ...(enhancedFields?.includedInDataCatalog && {
+      'includedInDataCatalog': enhancedFields.includedInDataCatalog
+    }),
+    // **PHASE 1**: Add dataQuality metadata from generated dataset
+    ...(enhancedFields?.dataQuality && {
+      'dataQuality': enhancedFields.dataQuality
+    }),
     'temporalCoverage': '2025',
     'spatialCoverage': {
       '@type': 'Place',
@@ -2240,8 +2338,8 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
 function generateChemicalSubstanceSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl, baseUrl } = context;
   
-  // Extract metadata from various possible locations
-  const metadata = (data.metadata || data.frontmatter || {}) as Record<string, unknown>;
+  // Extract frontmatter from various possible locations
+  const metadata = (data.frontmatter || {}) as Record<string, unknown>;
   const compoundData = metadata as any;
   
   // Only generate for compound pages with chemical formula
@@ -2270,6 +2368,12 @@ function generateChemicalSubstanceSchema(data: any, context: SchemaContext): Sch
       'url': baseUrl
     }
   };
+  
+  // SEO Enhancement: Add common names/synonyms as alternateName for layman terminology
+  const commonNames = compoundData.common_names || compoundData.synonyms;
+  if (commonNames && Array.isArray(commonNames) && commonNames.length > 0) {
+    schema.alternateName = commonNames;
+  }
   
   // Add CAS number if available
   if (compoundData.cas_number || compoundData.casNumber) {
@@ -2348,6 +2452,100 @@ function generateChemicalSubstanceSchema(data: any, context: SchemaContext): Sch
       if (healthAspects.length > 0) {
         schema.healthAspect = healthAspects.join('. ') + '.';
       }
+    }
+  }
+  
+  // SEO Enhancement: Add structured health effects keywords for safety searches
+  const healthKeywords = compoundData.health_effects_keywords;
+  if (healthKeywords && Array.isArray(healthKeywords) && healthKeywords.length > 0) {
+    if (!schema.additionalProperty) {
+      schema.additionalProperty = [];
+    }
+    
+    healthKeywords.forEach((keyword: string) => {
+      schema.additionalProperty.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'health_effect',
+        'name': keyword.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+        'description': `Potential health effect from ${name} exposure`
+      });
+    });
+  }
+  
+  // SEO Enhancement: Add exposure limits for regulatory compliance searches
+  const exposureLimits = compoundData.exposure_limits;
+  if (exposureLimits) {
+    if (!schema.additionalProperty) {
+      schema.additionalProperty = [];
+    }
+    
+    if (exposureLimits.osha_pel_ppm !== undefined) {
+      schema.additionalProperty.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'osha_pel',
+        'name': 'OSHA PEL (Permissible Exposure Limit)',
+        'value': exposureLimits.osha_pel_ppm,
+        'unitText': 'ppm'
+      });
+    }
+    
+    if (exposureLimits.niosh_rel_ppm !== undefined) {
+      schema.additionalProperty.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'niosh_rel',
+        'name': 'NIOSH REL (Recommended Exposure Limit)',
+        'value': exposureLimits.niosh_rel_ppm,
+        'unitText': 'ppm'
+      });
+    }
+    
+    if (exposureLimits.acgih_tlv_ppm !== undefined) {
+      schema.additionalProperty.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'acgih_tlv',
+        'name': 'ACGIH TLV (Threshold Limit Value)',
+        'value': exposureLimits.acgih_tlv_ppm,
+        'unitText': 'ppm'
+      });
+    }
+  }
+  
+  // SEO Enhancement: Add regulatory classification for compliance searches
+  const regulatory = compoundData.regulatory_classification;
+  if (regulatory) {
+    if (!schema.additionalProperty) {
+      schema.additionalProperty = [];
+    }
+    
+    if (regulatory.un_number) {
+      schema.additionalProperty.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'un_number',
+        'name': 'UN Number',
+        'value': regulatory.un_number,
+        'description': 'United Nations identification number for hazardous materials transport'
+      });
+    }
+    
+    if (regulatory.dot_hazard_class) {
+      schema.additionalProperty.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'dot_hazard_class',
+        'name': 'DOT Hazard Class',
+        'value': regulatory.dot_hazard_class,
+        'description': 'Department of Transportation hazard classification'
+      });
+    }
+    
+    if (regulatory.nfpa_codes) {
+      const nfpa = regulatory.nfpa_codes;
+      schema.additionalProperty.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'nfpa_rating',
+        'name': 'NFPA 704 Diamond Rating',
+        'value': `Health: ${nfpa.health}, Flammability: ${nfpa.flammability}, Reactivity: ${nfpa.reactivity}${nfpa.special ? ', Special: ' + nfpa.special : ''}`,
+        'description': 'National Fire Protection Association hazard identification system'
+      });
     }
   }
   

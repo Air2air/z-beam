@@ -65,7 +65,7 @@ export function LaserMaterialInteraction({
   return (
     <SectionContainer
       title="Laser-Material Interaction"
-      icon={<Zap className="w-5 h-5 text-muted" />}
+      icon={<Zap className="w-5 h-5 text-orange-500" />}
       actionText={settingsUrl ? "Settings" : undefined}
       actionUrl={settingsUrl}
       className={`mb-8 ${className}`}

@@ -11,6 +11,93 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Hickory surface cleaning 
+               without charring
 
-Generated: 2025-12-21T07:05:13.959Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Hickory absorption and 
+               minimal penetration
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Optimal beam diameter for precision cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: High repetition rate for efficient cleaning coverage
+
+ENERGY DENSITY:
+  Value: 1.2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Scanning speed for efficient area coverage without 
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+
+POWER:
+  Value: 50 W
+  Range: 10-200 W
+  Description: Typical range for 1064 nm pulsed lasers on wood; starting at 50W balances cleaning efficiency and heat input to prevent charring on low-conductivity hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer specs from IPG Photonics YLR series and studies on wood laser ablation (e.g., Journal of Cultural Heritage, 2018).
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal; 1000 mm/s recommended for optimal balance on Hickory to avoid overheating. Slower (100-500 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards from Laserax equipment manuals and process optimization in Optics and Lasers in Engineering (2020).
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for wood cleaning to minimize heat-affected zone (HAZ); 50 ns typical for Hickory to enable precise ablation without thermal damage. Picosecond (ps) or femtosecond for ultra-fine work but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on wood substrates.
+
+REPETITION_RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: 20 kHz recommended for Hickory to achieve fast cleaning while limiting heat accumulation due to wood's low thermal conductivity. Higher rates (>50 kHz) speed up process but increase risk of charring; lower for delicate control. Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser cleaning of organics.
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below Hickory's damage threshold (~3-5 J/cm² at 1064 nm) for safe cleaning; 2 J/cm² recommended for contamination removal without ablation of substrate. Conservative for hardwoods to prevent carbonization. Source: Ablation threshold studies in Wood Science and Technology (2017).
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: 300 μm recommended for Hickory surface preparation, balancing fine detail and large-area coverage. Smaller (100-200 μm) for precision, larger (500-1000 μm) for broad cleaning. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: 2 passes typical for complete removal on Hickory; single pass for light contamination, multi-pass (up to 5) for heavy layers to ensure uniformity without excessive heat. Source: Industry case studies in restoration of wooden artifacts (e.g., Studies in Conservation, 2022).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: 50% overlap recommended for uniform coverage on Hickory, preventing gaps in cleaning while minimizing overexposure. Range 30-80% based on contamination density. Source: Process optimization studies in Laser Cleaning Journal (2020).
+
+
+Generated: 2025-12-22T20:49:23.581Z
 License: CC BY 4.0

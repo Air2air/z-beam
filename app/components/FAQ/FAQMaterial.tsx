@@ -12,14 +12,7 @@
 "use client";
 
 import { BaseFAQ } from "./BaseFAQ";
-import type { HelpSection, HelpItem } from '@/types';
-
-export interface FAQMaterialProps {
-  materialName: string;
-  help?: HelpSection[];
-  faq?: Array<{question: string; answer: string}> | { questions?: Array<{question: string; answer: string}> }; // Legacy format adapter
-  className?: string;
-}
+import type { HelpSection, HelpItem, FAQMaterialProps } from '@/types';
 
 /**
  * Adapter: Convert legacy faq format to HelpSection format

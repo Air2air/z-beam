@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning#dataset",
   "name": "Gallium Arsenide Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Gallium Arsenide. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/gallium-arsenide-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/gallium-arsenide-laser-cleaning.json",
       "name": "Gallium Arsenide Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/gallium-arsenide-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/gallium-arsenide-laser-cleaning.csv",
       "name": "Gallium Arsenide Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/gallium-arsenide-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/gallium-arsenide-laser-cleaning.txt",
       "name": "Gallium Arsenide Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Gallium Arsenide",
@@ -214,8 +214,200 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "electricalResistivity": {
+          "value": 3300000,
+          "unit": "Ω m",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "fractureToughness": 0.44,
+        "density": {
+          "value": 5.317,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 0.008,
+          "unit": "nm/min",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "youngsModulus": {
+          "value": 85.4,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 7.5,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 1170,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 41,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 140,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.85,
+          "unit": "dimensionless (normalized resistance scale 0-1)",
+          "confidence": 92,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 10.5,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Physics Letters",
+          "citation": "G. R. Huggett, F. W. Chambers, and R. A. House, Applied Physics Letters, 1975, Vol. 27, Issue 6, pp. 298-300, DOI: 10.1063/1.88493",
+          "context": "Undoped single-crystal Gallium Arsenide (99.999% purity), room temperature (25°C), 1.06 μm wavelength, 20 ns pulse duration, single-shot measurement in vacuum",
+          "confidence": 95,
+          "researched_date": "2025-11-24T11:58:47.098498",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "value": 0.68,
+          "unit": "dimensionless",
+          "min": 0.5,
+          "max": 0.9,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 10000000,
+          "unit": "m⁻¹",
+          "min": 1000000,
+          "max": 100000000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 4.5,
+          "unit": "J/cm²",
+          "min": 1,
+          "max": 10,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 1.5,
+          "unit": "MW/m",
+          "min": 0.8,
+          "max": 2.5,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.32,
+          "unit": "dimensionless",
+          "min": 0.3,
+          "max": 0.35,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 1511,
+          "unit": "K",
+          "min": 1400,
+          "max": 1600,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 5,
+          "unit": "Pa",
+          "min": 0.1,
+          "max": 50,
+          "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 1511,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.3,
+          "unit": "1",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.00000573,
+          "unit": "1/K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 55,
+          "unit": "W/m·K",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 322,
+          "unit": "J/(kg·K)",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 0.68,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 0.000032,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 0.85,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "J. Bonse, J. Krüger, S. Höhm, A. Rosenfeld, 'Femtosecond laser ablation of gallium arsenide: threshold fluences and incubation effects', Applied Surface Science, 2012, DOI: 10.1016/j.apsusc.2012.04.123",
+          "context": "Undoped single-crystal GaAs (purity >99.99%), room temperature (25°C), 800 nm wavelength Ti:sapphire femtosecond laser, 100 fs pulse duration, measured in air at 1 atm",
+          "confidence": 95,
+          "researched_date": "2025-11-24T11:58:55.625892",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Semiconductor Manufacturing",
+      "Aerospace & Defense",
+      "Medical Devices",
+      "Telecommunications",
+      "Research & Development",
+      "Solar Energy",
+      "Automotive Electronics",
+      "Cultural Heritage Preservation",
+      "Industrial Manufacturing",
+      "Consumer Electronics"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +581,377 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser cleaning."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 3300000,
+      "unitText": "Ω m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 5.317,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0.008,
+      "unitText": "nm/min",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 85.4,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 7.5,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 1170,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 41,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 140,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.85,
+      "unitText": "dimensionless (normalized resistance scale 0-1)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 10.5,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.68,
+      "unitText": "dimensionless",
+      "minValue": 0.5,
+      "maxValue": 0.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 10000000,
+      "unitText": "m⁻¹",
+      "minValue": 1000000,
+      "maxValue": 100000000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 4.5,
+      "unitText": "J/cm²",
+      "minValue": 1,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 1.5,
+      "unitText": "MW/m",
+      "minValue": 0.8,
+      "maxValue": 2.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.32,
+      "unitText": "dimensionless",
+      "minValue": 0.3,
+      "maxValue": 0.35,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1511,
+      "unitText": "K",
+      "minValue": 1400,
+      "maxValue": 1600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 5,
+      "unitText": "Pa",
+      "minValue": 0.1,
+      "maxValue": 50,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1511,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.3,
+      "unitText": "1",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.00000573,
+      "unitText": "1/K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 55,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 322,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.68,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.000032,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 0.85,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: environmental-dust-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/environmental-dust-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Gallium Arsenide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Ikmanda Roswati",
+    "jobTitle": "Junior Research Scientist in Laser Physics",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Bandung Institute of Technology"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/ikmanda-roswati",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/ikmanda-roswati.jpg",
+      "description": "Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/gallium-arsenide-laser-cleaning-hero.jpg",
+      "description": "Gallium Arsenide surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/gallium-arsenide-laser-cleaning-micro.jpg",
+      "description": "Gallium Arsenide microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Gallium Arsenide Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Ikmanda Roswati",
+        "jobTitle": "Junior Research Scientist in Laser Physics"
+      },
+      "datePublished": "2025-12-22T06:53:13.810593Z",
+      "url": "http://localhost:3000/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning",
+      "citation": "Z-Beam (2025). Gallium Arsenide Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

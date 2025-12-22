@@ -669,7 +669,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                   }}
                   className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
-                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
+                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-orange-500"
                 />
               </div>
 
@@ -692,7 +692,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                   }}
                   className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
-                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
+                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-orange-500"
                 />
               </div>
 
@@ -715,7 +715,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                   }}
                   className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
-                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
+                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-orange-500"
                 />
               </div>
 
@@ -738,7 +738,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                   }}
                   className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
-                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
+                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-orange-500"
                 />
               </div>
 
@@ -761,7 +761,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                   }}
                   className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
-                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
+                    [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-orange-500"
                 />
               </div>
 
@@ -851,7 +851,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
                 onChange={(e) => setSpeed(parseFloat(e.target.value))}
                 className="w-full h-2 bg-primary rounded-md appearance-none cursor-pointer 
                   [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
-                  [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
+                  [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-orange-500"
               />
             </div>
           </div>

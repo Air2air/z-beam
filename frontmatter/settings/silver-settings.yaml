@@ -1,7 +1,7 @@
 id: silver-settings
 name: Silver
-datePublished: '2025-12-21T03:33:04.298989Z'
-dateModified: '2025-12-21T03:33:04.298989Z'
+datePublished: '2025-12-22T23:37:08.517678Z'
+dateModified: '2025-12-22T23:37:08.517678Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/silver-settings
@@ -46,14 +46,55 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: silver-laser-cleaning
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /materials/metal/non-ferrous/silver-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power range for Silver cleaning considering thermal conductivity
     unit: W
@@ -299,8 +340,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: I've found that silver responds exceptionally well to laser cleaning when you keep the energy levels low
-  and steady right from the start.
-micro: I've found that silver responds exceptionally well to laser cleaning when you keep the energy levels low and steady
-  right from the start. Its mirror-like shine means most of the laser light bounces away, so you need to build up the process
-  gradually over several passes to gently lift off tarnish or grime without scorching the surface.

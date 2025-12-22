@@ -1008,7 +1008,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
 
             {/* Hovered Relationship Info */}
             {hoveredRelation && (
-              <div className="relationship-tooltip rounded-md p-4 border border-blue-500/50 animate-fadeIn">
+              <div className="relationship-tooltip rounded-md p-4 border border-orange-500/50 animate-fadeIn">
                 <div className="tooltip-header flex items-center gap-2 mb-2">
                   <span className="tooltip-icon text-lg">
                     {getRelationshipIcon(hoveredRelation.type)}

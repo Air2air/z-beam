@@ -81,7 +81,6 @@ describe('JSON-LD Architecture Enforcement', () => {
           '/app/layout.tsx',           // Root layout with organization schema
           '/app/components/JsonLD/',   // JSON-LD component itself
           '/app/utils/schemas/',       // Schema utility functions
-          '/app/datasets/page.tsx',    // DataCatalog schema for datasets page
         ];
         
         const isAllowed = allowedFiles.some(allowed => relativePath.includes(allowed));

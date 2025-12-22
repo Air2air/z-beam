@@ -1,8 +1,8 @@
 id: industrial-oil-contamination
 name: Industrial Oil / Grease Buildup
 category: organic-residue
-datePublished: '2025-12-21T02:51:37.618480Z'
-dateModified: '2025-12-21T02:51:37.618480Z'
+datePublished: '2025-12-22T23:36:12.846015Z'
+dateModified: '2025-12-22T23:36:12.846015Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/industrial-oil-contamination
@@ -29,12 +29,70 @@ micro:
     laser ablation.
   before: Surface shows contamination from industrial oil / grease buildup affecting material appearance and properties.
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: carbon-dioxide
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: water-vapor
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: carbon-monoxide
+      phase: gas
+      hazard_level: moderate
+      presentation: card
+    - id: carbon-particulates
+      phase: solid
+      hazard_level: moderate
+      presentation: card
+    - id: vocs
+      phase: gas
+      hazard_level: moderate
+      presentation: card
+  found_on_materials:
+  - id: steel-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/ferrous/steel-laser-cleaning
+  - id: aluminum-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+  - id: brass-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+  - id: bronze-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+  - id: copper-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         aged_appearance: Fresh contamination appears as a thin, glossy film. Aged contamination becomes thicker, darker, and
@@ -330,7 +388,7 @@ relationships:
     - dark gray
     texture: greasy, sticky, slippery
     thickness: thin film to thick deposits
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -426,9 +484,16 @@ relationships:
       url: https://webstore.iec.ch/publication/3587
     reviewedBy: Z-Beam Quality Assurance Team
   valid_materials:
-  - ALL
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - ALL
   realism_notes: Oil/grease appears on MACHINERY parts, not randomly on all materials. Context is critical.
-  safetyData: &id001
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -493,6 +558,21 @@ relationships:
       source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      general:
+        title: General Materials
+        description: Materials in the general category
+        items:
+        - id: all-laser-cleaning
+          title: All Laser Cleaning
+          url: /materials/general/misc/all-laser-cleaning
+          image: /images/material/all-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 author:
   id: 2
   name: Alessandro Moretti
@@ -542,7 +622,7 @@ valid_contexts:
 - automotive
 - manufacturing_equipment
 subcategory: petroleum
-safetyData: *id001
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

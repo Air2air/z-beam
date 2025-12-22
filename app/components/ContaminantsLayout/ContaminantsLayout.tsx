@@ -8,17 +8,19 @@ import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { GridSection } from '../GridSection';
 import { CompoundSafetyGrid } from '../CompoundSafetyGrid';
 import { CardGrid } from '../CardGrid';
-import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
+import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
+import { materialLinkageToGridItem, compoundLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { SafetyOverview } from '../Contaminants';
 import { convertCitationsToStandards, getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
+import { getCompoundArticle, getContaminantArticle, getArticle } from '@/app/utils/contentAPI';
 import ContaminantDatasetDownloader from '../Dataset/ContaminantDatasetDownloader';
 import type { LayoutProps, ContaminantsLayoutProps, SectionConfig } from '@/types';
 
 // Re-export for convenience
 export type { ContaminantsLayoutProps };
 
-export function ContaminantsLayout(props: ContaminantsLayoutProps) {
+export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
   const contaminantName = (metadata?.title as string) || metadata?.name || slug;
   const thumbnailLink = `/contaminants/${category}/${subcategory}/${slug}`;
@@ -31,7 +33,46 @@ export function ContaminantsLayout(props: ContaminantsLayoutProps) {
   const regulatoryStandards = convertCitationsToStandards(metadata);
   
   const safetyData = relationships?.laser_properties?.safety_data;
-  const compounds = relationships?.produces_compounds || [];
+
+  // Enrich minimal references with full compound data
+  const producesCompounds = relationships?.produces_compounds?.items || [];
+  const enrichedCompounds = await Promise.all(
+    producesCompounds.map(async (ref: { id: string; phase?: string; hazard_level?: string }) => {
+      const article = await getCompoundArticle(ref.id);
+      if (!article) return null;
+      
+      const metadata = article.metadata as any; // Allow images.hero access
+      return {
+        id: ref.id,
+        title: metadata.name || metadata.title,
+        category: metadata.category,
+        description: metadata.description,
+        url: metadata.full_path || `/compounds/${ref.id}`,
+        phase: ref.phase,
+        hazard_level: ref.hazard_level,
+        image: metadata.images?.hero?.url,
+      };
+    })
+  ).then(items => items.filter(Boolean));
+
+  // Enrich minimal references with full material data
+  const foundOnMaterials = relationships?.found_on_materials?.items || [];
+  const enrichedMaterials = await Promise.all(
+    foundOnMaterials.map(async (ref: { id: string }) => {
+      const article = await getArticle(ref.id);
+      if (!article) return null;
+      
+      const metadata = article.metadata as any; // Allow images.hero access
+      return {
+        id: ref.id,
+        title: metadata.name || metadata.title,
+        category: metadata.category,
+        description: metadata.description,
+        url: metadata.full_path || `/materials/${ref.id}`,
+        image: metadata.images?.hero?.url,
+      };
+    })
+  ).then(items => items.filter(Boolean));
 
   // Configure sections for BaseContentLayout
   const sections: SectionConfig[] = [
@@ -42,7 +83,7 @@ export function ContaminantsLayout(props: ContaminantsLayoutProps) {
           description="Compounds produced during laser removal with exposure limits and required safety controls"
         >
           <CompoundSafetyGrid
-            compounds={compounds}
+            compounds={enrichedCompounds}
             sortBy="severity"
             showConcentrations={true}
             showExceedsWarnings={true}
@@ -50,8 +91,16 @@ export function ContaminantsLayout(props: ContaminantsLayoutProps) {
           />
         </GridSection>
       ),
-      condition: compounds.length > 0,
+      condition: enrichedCompounds.length > 0,
       props: {}
+    },
+    {
+      component: SafetyDataPanel,
+      condition: !!safetyData,
+      props: { 
+        safetyData,
+        compounds: enrichedCompounds
+      }
     },
     {
       component: SafetyOverview,
@@ -84,27 +133,28 @@ export function ContaminantsLayout(props: ContaminantsLayoutProps) {
         thumbnailLink,
       }
     },
-    // Material groups (from relationships.materials.groups)
-    ...(relationships?.materials?.groups ? Object.values(relationships.materials.groups) : []).flatMap((group: any) => ({
+    // Relationship cards for produces_compounds
+    {
       component: CardGrid,
-      condition: group?.items?.length > 0,
+      condition: enrichedCompounds.length > 0,
       props: {
-        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem),
-        title: group.title,
-        description: group.description,
-      }
-    })),
-    // Contaminant groups (from relationships.contaminants.groups)
-    ...(relationships?.contaminants?.groups ? Object.values(relationships.contaminants.groups) : []).flatMap((group: any) => ({
-      component: CardGrid,
-      condition: group?.items?.length > 0,
-      props: {
-        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem),
-        title: group.title,
-        description: group.description,
+        items: enrichedCompounds.map(compoundLinkageToGridItem),
+        title: 'Compounds Produced',
+        description: 'Compounds generated during laser removal of this contaminant',
         variant: 'relationship' as const,
       }
-    })),
+    },
+    // Relationship cards for found_on_materials
+    {
+      component: CardGrid,
+      condition: enrichedMaterials.length > 0,
+      props: {
+        items: enrichedMaterials.map(materialLinkageToGridItem),
+        title: 'Found On Materials',
+        description: 'Materials where this contaminant is commonly found',
+      }
+    },
+    // ScheduleCards MUST be last section for all layouts
     {
       component: ScheduleCards,
       props: {}

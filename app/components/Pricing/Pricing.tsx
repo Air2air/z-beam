@@ -23,7 +23,7 @@ export function Pricing({ materialName: _materialName, materialSlug: _materialSl
             </div>
             <div className="text-right">
               <div className="text-xs text-gray-400 mb-1">Starting at</div>
-              <div className="text-3xl font-bold text-blue-600">
+              <div className="text-3xl font-bold text-orange-600">
                 ${professionalCleaning.hourlyRate}
               </div>
               <div className="text-sm text-gray-400">
@@ -34,7 +34,7 @@ export function Pricing({ materialName: _materialName, materialSlug: _materialSl
           
           <a
             href="/contact"
-            className="block w-full text-center bg-blue-600 text-white py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
+            className="block w-full text-center bg-orange-600 text-white py-3 rounded-md font-medium hover:bg-orange-700 transition-colors"
           >
             Request Professional Service
           </a>

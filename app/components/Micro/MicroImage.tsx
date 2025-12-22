@@ -32,7 +32,8 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
           alt={`${SITE_CONFIG.shortName} logo`}
           width={60}
           height={60}
-          className="opacity-50"
+          className="text-orange-500"
+          style={{ filter: 'brightness(0) saturate(100%) invert(53%) sepia(89%) saturate(2476%) hue-rotate(1deg) brightness(103%) contrast(101%)' }}
           unoptimized
         />
       </div>

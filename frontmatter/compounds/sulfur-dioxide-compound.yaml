@@ -3,8 +3,8 @@ name: Sulfur Dioxide
 display_name: Sulfur Dioxide (SO₂)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-20T23:36:52.294925Z'
-dateModified: '2025-12-20T23:36:52.294925Z'
+datePublished: '2025-12-22T21:25:26.155424Z'
+dateModified: '2025-12-22T21:25:26.155424Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
@@ -19,10 +19,16 @@ breadcrumb:
   href: /compounds/toxic_gas/acid_gas
 - label: Sulfur Dioxide
   href: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
-chemical_formula: SO2
+chemical_formula: SO₂
 cas_number: 7446-09-5
 molecular_weight: 64.06
-description: null
+description: Sulfur dioxide drifts as a colorless gas with a sharp, choking odor that clings to the air, making it a notorious
+  player in industrial atmospheres where careful handling turns potential hazards into controlled assets. In factories churning
+  out paper and food preservatives, this gas steps in as a versatile reagent, bleaching fabrics or inhibiting spoilage without
+  leaving heavy residues behind, while its reactivity helps refine metals through smelting processes that demand quick, efficient
+  sulfur transfers. When lasers pulse against grimy surfaces in cleaning setups, sulfur dioxide's affinity for absorbing certain
+  wavelengths aids in breaking down contaminants, vaporizing dirt layers through photochemical dances that leave underlying
+  materials pristine yet unaltered in their core structure.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,37 +51,54 @@ sources_in_laser_cleaning:
 - vulcanized_rubber_decomposition
 - sulfide_coating_removal
 relationships:
-  produced_by_contaminants:
-  - id: rubber-residue-contamination
-    title: Rubber Compound Residue
-    url: /contaminants/organic-residue/polymer/rubber-residue-contamination
-    image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Vulcanized rubber contains sulfur compounds
-  - id: industrial-oil-contamination
-    title: Industrial Oil / Grease Buildup
-    url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-    image: /images/contaminants/organic-residue/petroleum/industrial-oil.jpg
-    frequency: occasional
-    severity: low
-    typical_context: Sulfur additives in some lubricants
   chemical_properties:
-  - type: chemical_properties
-    id: sulfur-dioxide-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: sulfur-dioxide-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: sulfur-dioxide-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: sulfur-dioxide-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: sulfur-dioxide-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: sulfur-dioxide-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: irritant-gas-high-concentration
-    overrides:
-      specific_compound: Sulfur Dioxide
-      pel_ppm: 5
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: irritant-gas-high-concentration
+      overrides:
+        specific_compound: Sulfur Dioxide
+        pel_ppm: 5
+      presentation: card
   emergency_response:
     fire_hazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition products in fire.
     fire_suppression: If cylinder involved in fire, evacuate immediately - explosion hazard. Cool cylinders with water spray
@@ -88,6 +111,58 @@ relationships:
       lb.
     special_hazards: Severe respiratory and eye irritant. Triggers asthma attacks. Forms sulfurous acid with moisture. Corrosive
       to tissues. May cause bronchospasm and pulmonary edema. Cryogenic liquid causes frostbite.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rubber-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Vulcanized rubber contains sulfur compounds
+      presentation: card
+      url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+    - id: industrial-oil-contamination
+      frequency: occasional
+      severity: low
+      typical_context: Sulfur additives in some lubricants
+      presentation: card
+      url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: cast-iron-laser-cleaning
+      presentation: card
+      url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    - id: iron-laser-cleaning
+      presentation: card
+      url: /materials/metal/ferrous/iron-laser-cleaning
+    - id: rubber-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/rubber-laser-cleaning
+    - id: stainless-steel-304-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
+    - id: stainless-steel-316-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+    - id: stainless-steel-laser-cleaning
+      presentation: card
+      url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    - id: steel-laser-cleaning
+      presentation: card
+      url: /materials/metal/ferrous/steel-laser-cleaning
+    - id: tool-steel-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/tool-steel-laser-cleaning
   physical_properties:
     boiling_point: -10.0°C (14°F)
     melting_point: -75.5°C (-103.9°F)
@@ -248,94 +323,10 @@ detection_monitoring:
     detection_limit: 0.02 ppm
   odor_threshold: 0.3-1 ppm - provides adequate warning below toxic levels
 title: Sulfur Dioxide (SO₂)
-ppe_requirements_detail:
-  id: irritant-gas-high-concentration
-  hazard_type: irritant_gas
-  concentration_range: '>25 ppm or unknown'
-  exposure_duration: any
-  minimum_protection_level: Level B
-  idlh_atmosphere: potentially
-  respiratory:
-    primary:
-      equipment: Self-contained breathing apparatus (SCBA)
-      type: Pressure-demand, positive-pressure
-      standard: NIOSH 42 CFR 84
-      air_supply: Compressed breathing air (Grade D minimum)
-      duration: 30-60 minutes typical
-      condition: MANDATORY for >25 ppm or unknown concentrations
-      maintenance: Daily inspection, annual certification
-    alternative:
-      equipment: Supplied-air respirator with escape bottle
-      type: Pressure-demand mode
-      condition: Only if continuous air supply verified
-      escape_bottle: 5-minute minimum escape time
-  skin:
-    suit:
-      equipment: Level B chemical protective suit
-      material: Butyl rubber, Viton, or multilayer
-      standard: NFPA 1991 Level B
-      condition: Fully encapsulating when >25 ppm
-      splash_protection: Liquid-tight seams
-    gloves:
-      material: Butyl rubber (inner) + outer chemical glove
-      thickness: '>25 mil combined'
-      breakthrough_time: '>8 hours'
-      tape_seal: Taped to suit sleeves
-    boots:
-      equipment: Chemical-resistant boots
-      material: Match suit material
-      condition: Integrated or taped to suit
-  eye:
-    equipment: Full-face respirator facepiece (part of SCBA)
-    backup: Chemical goggles worn under facepiece
-    condition: Full face and eye protection mandatory
-  special_requirements:
-  - Buddy system mandatory - never work alone
-  - Continuous air monitoring with audible alarms
-  - Decontamination area established before entry
-  - Emergency escape routes identified
-  - Communication system established
-  - Entry permit required for confined spaces
-  - Standby rescue team with equivalent PPE
-  entry_procedures:
-  - Pre-entry medical clearance for SCBA use
-  - Equipment inspection checklist
-  - Atmosphere testing before and during entry
-  - Continuous air monitoring
-  - Time limits for SCBA air supply
-  - Backup SCBA or escape respirator available
-  decontamination:
-    primary:
-    - Gross decontamination in hot zone
-    - Suit and equipment wash-down
-    - Methodical removal in decon area
-    - Inner clothing removal last
-    secondary:
-    - Shower immediately after doffing
-    - Wash with soap and water for 15 minutes
-    - Medical evaluation if exposure suspected
-    disposal:
-    - All PPE as hazardous waste unless decontaminated
-    - SCBA facepieces cleaned and disinfected
-    - Suits inspected for damage before reuse
-  training_required:
-  - HAZWOPER 40-hour or equivalent
-  - SCBA qualification and practice
-  - Level B suit donning and doffing
-  - Decontamination procedures
-  - Emergency egress procedures
-  medical_surveillance:
-    required: true
-    frequency: Annual minimum
-    requirements:
-    - Respiratory medical clearance
-    - SCBA fit testing (annual)
-    - Exposure monitoring records
-  limitations:
-  - SCBA air supply limits operation time
-  - Heat stress significant in chemical suits
-  - Dexterity and mobility reduced
-  - Communication may be impaired
-  - Exit buddy system required
-  specific_compound: Sulfur Dioxide
-  pel_ppm: 5
+seo_description: Sulfur dioxide drifts as a colorless gas with a sharp, choking odor that clings to the air, making it a notorious
+  player in industrial atmospheres where...
+micro: Sulfur dioxide drifts as a colorless gas with a sharp, choking odor that clings to the air, making it a notorious player
+  in industrial atmospheres where careful handling turns potential hazards into controlled assets. In factories churning out
+  paper and food preservatives, this gas steps in as a versatile reagent, bleaching fabrics or inhibiting spoilage without
+  leaving heavy residues behind, while its reactivity helps refine metals through smelting processes that demand quick, efficient
+  sulfur transfers.

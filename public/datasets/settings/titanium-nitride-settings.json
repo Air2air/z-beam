@@ -5,8 +5,8 @@
     "subcategory": "coating",
     "title": "Titanium Nitride Settings",
     "description": "Before laser cleaning, Titanium Nitride surfaces require careful parameter selection After cleaning, Titanium Nitride surfaces show restored appearance with controlled parameters",
-    "datePublished": "2025-12-21T03:33:05.137360Z",
-    "dateModified": "2025-12-21T03:33:05.137360Z",
+    "datePublished": "2025-12-22T06:55:50.578059Z",
+    "dateModified": "2025-12-22T06:55:50.578059Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,127 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "value": 80,
+      "unit": "W",
+      "description": "Optimal average power for ceramic cleaning",
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "value": 1064,
+      "unit": "nm",
+      "description": "Near-IR wavelength for optimal absorption",
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "value": 50,
+      "unit": "μm",
+      "description": "Beam spot diameter for effective cleaning resolution",
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "value": 50,
+      "unit": "kHz",
+      "description": "Pulse frequency for controlled material removal",
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "value": 2,
+      "unit": "J/cm²",
+      "description": "Energy per unit area for surface cleaning",
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "value": 10,
+      "unit": "ns",
+      "description": "Pulse duration for minimal thermal penetration",
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "value": 500,
+      "unit": "mm/s",
+      "description": "Beam travel speed for uniform coverage",
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "value": 3,
+      "unit": "passes",
+      "description": "Number of cleaning cycles for complete removal",
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "value": 50,
+      "unit": "%",
+      "description": "Beam overlap for consistent surface treatment",
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 20,
+      "max": 300,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for industrial laser cleaning of hard coatings like TiN to ablate contaminants without substrate melting (TiN melting point ~2950°C). Starting at 100W for controlled energy delivery; max limited to avoid thermal damage. Source: IPG Photonics YLR series specs for 1064 nm cleaning systems; academic review in 'Laser Cleaning of Metallic Substrates' (Optics and Lasers in Engineering, 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds balance ablation efficiency and heat accumulation on TiN's moderate thermal conductivity (~20 W/m·K). Recommended 1500 mm/s for optimal contaminant removal; slower (100-1000 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 50,
+      "description": "Nanosecond regime preferred for industrial cleaning of TiN to achieve photothermal ablation with minimal heat-affected zone (HAZ <10 μm). Picosecond (ps, 1-100 ps) or femtosecond (fs) reduce HAZ further but increase cost; 50 ns recommended for balance. Source: Laser physics research in Applied Surface Science (2019) on TiN ablation thresholds at 1064 nm."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 50,
+      "description": "Typical for pulsed cleaning to ensure pulse overlap without excessive heat buildup on reflective TiN surfaces (reflectivity ~40% at 1064 nm). 50 kHz recommended for TiN to speed up process while monitoring temperature; higher rates (>100 kHz) risk accumulation, lower for precision. Source: Academic literature in Optics Express (2017) on pulse repetition effects in coating cleaning."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 1,
+      "description": "Fluence range for safe ablation of contaminants on TiN; damage threshold ~2-3 J/cm² due to high melting point and conductivity. Recommended 1.0 J/cm² for effective cleaning without delamination. Conservative estimate for industrial use. Source: Ablation threshold studies in Journal of Applied Physics (2021) for TiN at 1064 nm."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter suited for TiN surface preparation; smaller (50-100 μm) for fine details, larger (200-500 μm) for broad areas. 200 μm recommended for uniform coverage on coated surfaces. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "value": 2,
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on TiN to avoid over-ablation. Recommended 2 passes for complete, damage-free cleaning. Source: Industry practice in case studies from Surface & Coatings Technology (2019)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "value": 60,
+      "description": "Ensures uniform fluence distribution on TiN for even cleaning; 60% recommended to prevent gaps or hotspots given beam Gaussian profile. Typical range 30-80% based on scan speed. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2022)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

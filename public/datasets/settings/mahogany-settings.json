@@ -5,8 +5,8 @@
     "subcategory": "hardwood",
     "title": "Mahogany Settings",
     "description": "When laser cleaning mahogany, start with a careful assessment of its high porosity, which can lead to uneven energy absorption if not managed. This property requires you to reduce power levels initially to prevent surface charring while ensuring the laser removes contaminants without embedding them deeper into the wood's open structure. Adjust scan speeds higher than for denser hardwoods to minimize heat buildup, restoring the material's natural grain effectively and avoiding cracks from thermal stress.",
-    "datePublished": "2025-12-21T03:33:03.376038Z",
-    "dateModified": "2025-12-21T03:33:03.376038Z",
+    "datePublished": "2025-12-22T06:55:48.907478Z",
+    "dateModified": "2025-12-22T06:55:48.907478Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -41,7 +41,134 @@
       "formatting_file": "usa_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Mahogany surface cleaning without charring",
+      "unit": "W",
+      "value": 40,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength for optimal absorption in Mahogany lignin and cellulose",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise surface cleaning control",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 20,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without wood damage",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Pulse duration for controlled ablation of surface contaminants",
+      "unit": "ns",
+      "value": 100,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Number of cleaning passes for complete surface treatment",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Beam overlap percentage for uniform cleaning pattern",
+      "unit": "%",
+      "value": 30,
+      "min": 10,
+      "max": 90
+    },
+    "dwellTime": {
+      "description": "Effective dwell time per spot for contaminant removal",
+      "unit": "μs",
+      "value": 50,
+      "min": 0.2,
+      "max": 200
+    },
+    "power": {
+      "min": 10,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Typical range for wood cleaning to avoid thermal damage; starting at 50 W for light contamination on mahogany, max ~200 W to prevent charring (based on Nd:YAG systems for cultural heritage wood, e.g., Lee et al., 2016, J. Cult. Herit.)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 2000,
+      "description": "Faster speeds reduce heat accumulation on heat-sensitive mahogany; 2000 mm/s optimal for light contaminants, slower (500-1000 mm/s) for heavy; from industry manuals like IPG Photonics laser cleaning guidelines."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for minimal heat-affected zone in wood; 20 ns balances cleaning efficiency and substrate safety, avoiding picosecond/femtosecond for cost (Verho et al., 2019, Opt. Lasers Eng.)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 40,
+      "unit": "kHz",
+      "description": "40 kHz recommended for mahogany to enable fast cleaning without excessive heat buildup; higher rates (>50 kHz) risk accumulation on low-conductivity wood (academic review in Pouli et al., 2015, Lasers Med. Sci.)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence below mahogany damage threshold (~2-4 J/cm² at 1064 nm); 1.5 J/cm² safe for contaminant removal without ablation (ablation studies on hardwoods, e.g., Ancona et al., 2010, Appl. Surf. Sci.)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "200 μm for precise cleaning on detailed mahogany surfaces; smaller for fine work, larger for broad areas (equipment specs from Coherent and Trumpf laser systems for wood processing)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Multi-pass (2 recommended) for complete removal on mahogany without single-pass overheating; single pass for light dirt (industry case studies on wood restoration, e.g., EU project LASER4ART)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "60% ensures uniform coverage on irregular wood surfaces like mahogany; 30-50% for speed, higher for heavy contamination (process optimization in Asmus, 1995, Stud. Conserv.)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

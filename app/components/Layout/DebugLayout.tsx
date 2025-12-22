@@ -128,7 +128,7 @@ export function DebugLayout({
               <li key={section.id}>
                 <Link 
                   href={`/debug/${section.id !== 'overview' ? section.id : ''}`}
-                  className={`block px-3 py-2 rounded-md ${currentSection === section.id ? 'bg-blue-50 text-blue-700' : 'text-muted'}`}
+                  className={`block px-3 py-2 rounded-md ${currentSection === section.id ? 'bg-orange-50 text-orange-700' : 'text-muted'}`}
                   onClick={() => setShowMenu(false)}
                 >
                   <div className="flex items-center">
@@ -172,7 +172,7 @@ export function DebugLayout({
                         href={`/debug/${section.id !== 'overview' ? section.id : ''}`}
                         className={`flex items-center px-3 py-2 rounded-md text-sm ${
                           currentSection === section.id 
-                            ? 'bg-blue-50 text-blue-700' 
+                            ? 'bg-orange-50 text-orange-700' 
                             : 'text-muted'
                         }`}
                       >

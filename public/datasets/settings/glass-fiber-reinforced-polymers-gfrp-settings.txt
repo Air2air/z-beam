@@ -11,6 +11,104 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for GFRP surface cleaning without 
 
-Generated: 2025-12-21T07:05:13.946Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption in surface 
+               contaminants with minimal GFRP damage
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise surface cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 3 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Optimal energy density for GFRP surface processing
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               surface contaminants
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap percentage for uniform cleaning coverage
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Threshold fluence for effective contaminant removal without fiber damage
+
+DWELL TIME:
+  Value: 0.2 ms
+  Range: 0.2-200 ms
+  Description: Optimal dwell time per spot for effective cleaning
+
+POWER:
+  Value: 100 W
+  Range: 50-300 W
+  Description: Typical range for industrial pulsed Nd:YAG lasers (1064 nm) cleaning composites like GFRP to remove contaminants without matrix degradation; starting at 100W balances efficiency and safety. Max safe ~300W to avoid thermal damage to polymer matrix (melting ~250°C). Source: Manufacturer specs (e.g., IPG Photonics YLR series); academic paper by Dupont et al. (2017) in Optics and Lasers in Engineering on composite surface prep.
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Range for effective ablation of light contaminants (faster speeds) vs. heavy (slower); 2000 mm/s optimal for uniform cleaning on GFRP without excessive heat buildup due to low thermal conductivity (~0.5 W/m·K). Source: Industry standards from Laser Institute of America guidelines; equipment manuals (e.g., CleanLASER CL series) and case studies on polymer composites.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (5-100 ns) typical for industrial 1064 nm cleaning of GFRP to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond better for ultra-precision but costlier and less common industrially. 20 ns recommended for polymer sensitivity. Source: Laser physics research in Journal of Applied Physics (e.g., Anisimov et al., 2015) on ablation thresholds for fiber-reinforced polymers.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: 10-100 kHz for cleaning applications; 50 kHz recommended for GFRP to achieve fast processing while limiting heat accumulation in low-conductivity matrix (trade-off: higher freq speeds up cleaning but risks thermal damage). Source: Academic literature, e.g., Palmieri et al. (2020) in Composites Part B on laser cleaning of GFRP, noting optimal rates for contamination removal.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant ablation; GFRP damage threshold ~2-4 J/cm² (polymer matrix ablation starts ~1 J/cm² at 1064 nm due to moderate absorption); 1.5 J/cm² safe for cleaning without substrate harm. Source: Ablation threshold studies in Applied Surface Science (e.g., Lorenz et al., 2018) on GFRP and similar composites.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: 100-500 μm diameter for cleaning; 200 μm recommended for GFRP to balance resolution for surface prep (fine detail) and coverage for larger areas, considering fiber weave (~10-20 μm fibers). Source: Equipment specifications from Coherent and Trumpf laser systems; industry practice for composite applications.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: 1-5 passes typical for complete removal; multi-pass (2 recommended) for GFRP to ensure thorough cleaning of layered contaminants without single-pass overheating, especially for industrial prep. Source: Industry case studies, e.g., Boeing and Airbus reports on laser cleaning of composites; process optimization in Journal of Cleaner Production (2019).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: 30-80% for uniform coverage; 60% recommended for GFRP to avoid gaps in heterogeneous surface while preventing over-exposure and thermal stress. Source: Process optimization studies in Optics Express (e.g., Kumar et al., 2021) on scan strategies for polymer composites.
+
+
+Generated: 2025-12-22T20:49:23.555Z
 License: CC BY 4.0

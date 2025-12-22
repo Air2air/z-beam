@@ -6,26 +6,32 @@
  */
 
 /**
- * Safely access frontmatter/metadata from various data structures
+ * Safely access frontmatter from various data structures
  * 
  * Priority order:
- * 1. data.frontmatter (Material/Contaminant pages from contentAPI)
- * 2. data.metadata (legacy structure - but check it's actually frontmatter-like)
- * 3. data itself (Settings pages - the object IS the frontmatter)
+ * 1. Settings objects with machineSettings at top level (return directly)
+ * 2. data.frontmatter (Material/Contaminant pages from contentAPI)
+ * 3. data.pageConfig (legacy structure)
+ * 4. data itself (fallback - the object IS the frontmatter)
  * 
  * Settings pages pass the SettingsMetadata object directly, which IS the frontmatter.
- * They don't wrap it in a metadata/frontmatter property.
+ * They have machineSettings at the top level with no nesting.
  */
 export function getMetadata(data: any): Record<string, unknown> {
-  // Check for explicit frontmatter wrapper first (Material/Contaminant pages)
-  if (data.frontmatter && typeof data.frontmatter === 'object' && Object.keys(data.frontmatter).length > 0) {
-    return data.frontmatter as Record<string, unknown>;
+  // PRIORITY: Settings objects have machineSettings at top level (flat structure)
+  // Return them directly to avoid metadata wrapper confusion
+  if (data.machineSettings && typeof data.machineSettings === 'object' && !data.frontmatter && !data.metadata) {
+    return data as Record<string, unknown>;
   }
   
-  // Check for metadata wrapper, but only if it looks like actual frontmatter
-  // (has typical frontmatter properties like title, machineSettings, etc.)
-  if (data.metadata && typeof data.metadata === 'object' && Object.keys(data.metadata).length > 5) {
+  // Check for explicit metadata wrapper (used in some tests and API responses)
+  if (data.metadata && typeof data.metadata === 'object' && Object.keys(data.metadata).length > 0) {
     return data.metadata as Record<string, unknown>;
+  }
+  
+  // Check for explicit frontmatter wrapper (Material/Contaminant pages)
+  if (data.frontmatter && typeof data.frontmatter === 'object' && Object.keys(data.frontmatter).length > 0) {
+    return data.frontmatter as Record<string, unknown>;
   }
   
   // Legacy pageConfig structure
@@ -33,7 +39,7 @@ export function getMetadata(data: any): Record<string, unknown> {
     return data.pageConfig as Record<string, unknown>;
   }
   
-  // If no wrapper found, the data object itself is the frontmatter (Settings pages)
+  // Fallback: the data object itself is the frontmatter
   return data as Record<string, unknown>;
 }
 

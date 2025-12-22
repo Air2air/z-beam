@@ -5,8 +5,8 @@
     "subcategory": "fiber-reinforced",
     "title": "Epoxy Resin Composites Settings",
     "description": "I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly because their fiber-reinforced structure absorbs energy more readily without reflecting it away. This helps remove contaminants efficiently, as the matrix holds up well under controlled heat, preventing quick degradation that you'd get with softer plastics. So, approach it by starting with gentler passes to leverage that absorption for clean results. Just watch out for localized overheating at the end, which can cause delamination if you push too hard.",
-    "datePublished": "2025-12-21T03:33:02.720029Z",
-    "dateModified": "2025-12-21T03:33:02.720029Z",
+    "datePublished": "2025-12-22T06:55:48.375832Z",
+    "dateModified": "2025-12-22T06:55:48.375832Z",
     "author": {
       "id": 1,
       "name": "Yi-Chun Lin",
@@ -41,7 +41,127 @@
       "formatting_file": "taiwan_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for epoxy resin removal without substrate damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength providing good absorption in epoxy resins with minimal substrate penetration",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise epoxy removal control",
+      "unit": "μm",
+      "value": 50,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "High repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "fluenceThreshold": {
+      "description": "Minimum fluence required for epoxy resin ablation",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.3,
+      "max": 4.5
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of epoxy matrix",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform epoxy removal",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Number of cleaning passes for complete epoxy removal",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Beam overlap percentage for uniform cleaning coverage",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 500,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for 1064 nm Nd:YAG lasers in polymer composite cleaning to balance ablation efficiency and heat input; starting at 100 W minimizes thermal damage to epoxy matrix. Max safe ~300 W to avoid delamination (based on thermal conductivity ~0.2-0.5 W/mK). Source: Studies in Optics and Lasers in Engineering (2018) on laser ablation of CFRP; IPG Photonics YLR series specs."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 2000,
+      "description": "Effective speeds ensure fluence delivery without excessive dwell time; 2000 mm/s optimal for light contamination on epoxy composites to prevent charring. Slower (500-1000 mm/s) for heavy contaminants. Source: Industry guidelines from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for surface prep on composites."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 20,
+      "description": "Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes heat-affected zone (HAZ) in low-reflectivity epoxy (~5-10% at 1064 nm). Ps/fs (<1 ns) for ultra-precise but higher cost. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects in composite ablation."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "unit": "kHz",
+      "value": 30,
+      "description": "20-50 kHz balances cleaning speed and heat accumulation in epoxy (melting point ~150-200°C); higher rates (>50 kHz) risk thermal buildup leading to matrix degradation. Source: Academic literature in Proceedings of SPIE (2021) on pulsed laser cleaning of polymer composites; trade-offs noted in manufacturer data from Coherent Inc."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "description": "Fluence range for contaminant removal without substrate ablation; damage threshold for epoxy composites ~1.5-2.5 J/cm² at 1064 nm. Recommended <1.0 J/cm² for safe cleaning. Conservative due to variable fiber content. Source: Ablation threshold studies in Composites Part B (2017); Optics Express (2022).",
+      "value": 10.05
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "description": "Beam diameters for uniform coverage; 200-300 μm recommended for epoxy composites to achieve fine control over ablation on heterogeneous surfaces (e.g., carbon fiber reinforced). Smaller for detail work, larger for broad areas. Source: Equipment specs from Adapt Laser Systems; process optimization in Industrial Laser Solutions (2020).",
+      "value": 250
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "unit": "passes",
+      "description": "Multi-pass (2-5) typical for layered contaminants on epoxy without single-pass overheating; 3 passes recommended for complete removal while preserving composite integrity. Single pass viable for light prep. Source: Industry case studies in Journal of Materials Processing Technology (2019); practical guidelines from laser cleaning service providers.",
+      "value": 5.5
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "unit": "%",
+      "description": "50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60% recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety.",
+      "value": 50
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

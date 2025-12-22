@@ -325,7 +325,7 @@ describe('InfoCard', () => {
         />
       );
 
-      const icon = container.querySelector('.text-blue-400');
+      const icon = container.querySelector('.text-orange-400');
       expect(icon).toBeInTheDocument();
       expect(icon).toHaveClass('w-5', 'h-5');
     });

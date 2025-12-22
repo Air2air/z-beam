@@ -1,8 +1,8 @@
 id: efflorescence-contamination
 name: Concrete Efflorescence
 category: inorganic-coating
-datePublished: '2025-12-21T02:51:36.789198Z'
-dateModified: '2025-12-21T02:51:36.789198Z'
+datePublished: '2025-12-22T23:36:11.641629Z'
+dateModified: '2025-12-22T23:36:11.641629Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/mineral/efflorescence-contamination
@@ -24,12 +24,76 @@ description: Efflorescence appears as white, crystalline salt deposits that form
   a solid challenge due to the risk of substrate damage from abrasive methods, but laser cleaning addresses this effectively
   by vaporizing the salts layer by layer while preserving the material's integrity.
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: calcium-oxide
+      phase: solid
+      hazard_level: low
+      presentation: card
+    - id: carbon-dioxide
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: water-vapor
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: calcium-oxide
+      phase: solid
+      hazard_level: moderate
+      presentation: card
+  found_on_materials:
+  - id: brick-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/brick-laser-cleaning
+  - id: ceramic-matrix-composites-cmcs-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+  - id: concrete-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/concrete-laser-cleaning
+  - id: granite-laser-cleaning
+    presentation: card
+    url: /materials/stone/igneous/granite-laser-cleaning
+  - id: limestone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+  - id: marble-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+  - id: porcelain-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/oxide/porcelain-laser-cleaning
+  - id: sandstone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+  - id: slate-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+  - id: terracotta-laser-cleaning
+    presentation: card
+    url: /materials/masonry/concrete/terracotta-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         appearance: Efflorescence on ceramic shows as a white, powdery, or crystalline residue that can dull glazed surfaces
@@ -117,7 +181,7 @@ relationships:
         coverage: Coverage is typically uneven and sparse, ranging from isolated spots to broader areas in high-moisture environments.
         pattern: It often appears in streaks or patches, following the wood grain or moisture pathways, and is common in damp,
           unsealed areas.
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -202,22 +266,36 @@ relationships:
       thermal_diffusivity: 0.3
       vaporization_temperature: 285
   valid_materials:
-  - Concrete
-  - Brick
-  - Granite
-  - Marble
-  - Limestone
-  - Sandstone
-  - Basalt
-  - Slate
-  - Quartzite
-  - Travertine
-  - Bluestone
-  - Soapstone
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - Basalt
+    - Bluestone
+    - Brick
+    - Concrete
+    - Granite
+    - Limestone
+    - Marble
+    - Quartzite
+    - Sandstone
+    - Slate
+    - Soapstone
+    - Travertine
   prohibited_materials:
-  - Metal
-  - Glass
-  safetyData: &id001
+    _section:
+      title: Unsafe for Materials
+      description: Materials where removal of this contamination is not recommended
+      order: 4
+      variant: warning
+      icon: alert-triangle
+    items:
+    - Glass
+    - Metal
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -272,6 +350,102 @@ relationships:
       source: 'Respirable fraction: 0.30 (30% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      stone:
+        title: Stone Materials
+        description: Natural and processed stone materials affected by this contamination
+        items:
+        - id: basalt-laser-cleaning
+          title: Basalt
+          url: /materials/stone/igneous/basalt-laser-cleaning
+          image: /images/material/basalt-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: bluestone-laser-cleaning
+          title: Bluestone
+          url: /materials/stone/sedimentary/bluestone-laser-cleaning
+          image: /images/material/bluestone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: granite-laser-cleaning
+          title: Granite
+          url: /materials/stone/igneous/granite-laser-cleaning
+          image: /images/material/granite-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: limestone-laser-cleaning
+          title: Limestone
+          url: /materials/stone/sedimentary/limestone-laser-cleaning
+          image: /images/material/limestone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: marble-laser-cleaning
+          title: Marble
+          url: /materials/stone/metamorphic/marble-laser-cleaning
+          image: /images/material/marble-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: quartzite-laser-cleaning
+          title: Quartzite
+          url: /materials/stone/sedimentary/quartzite-laser-cleaning
+          image: /images/material/quartzite-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: sandstone-laser-cleaning
+          title: Sandstone
+          url: /materials/stone/sedimentary/sandstone-laser-cleaning
+          image: /images/material/sandstone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: slate-laser-cleaning
+          title: Slate
+          url: /materials/stone/metamorphic/slate-laser-cleaning
+          image: /images/material/slate-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: soapstone-laser-cleaning
+          title: Soapstone
+          url: /materials/stone/sedimentary/soapstone-laser-cleaning
+          image: /images/material/soapstone-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: travertine-laser-cleaning
+          title: Travertine
+          url: /materials/stone/natural/travertine-laser-cleaning
+          image: /images/material/travertine-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      masonry:
+        title: Masonry Materials
+        description: Materials in the masonry category
+        items:
+        - id: brick-laser-cleaning
+          title: Brick
+          url: /materials/masonry/general/brick-laser-cleaning
+          image: /images/material/brick-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: concrete-laser-cleaning
+          title: Concrete
+          url: /materials/masonry/general/concrete-laser-cleaning
+          image: /images/material/concrete-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 composition:
 - CaCO₃
 - CaSO₄
@@ -305,14 +479,17 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 subcategory: mineral
-safetyData: *id001
-removalByMaterial:
+safety_data: *id001
+removal_by_material:
   basalt:
     laser_parameters:
       wavelength:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -325,35 +502,35 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -361,14 +538,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -425,6 +602,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -437,35 +617,35 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 50
         recommended: 50
         range:
-        - 10
-        - 200
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 20
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -473,14 +653,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -537,6 +717,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -549,50 +732,50 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 2000
         recommended: 2000
         range:
-        - 500
-        - 5000
+        - 0.1
+        - 2400
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -649,6 +832,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 500
@@ -661,36 +847,36 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 100
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 50
         recommended: 50
         range:
-        - 10
-        - 150
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 2
         recommended: 2
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 1000
         recommended: 1000
         range:
-        - 100
-        - 5000
+        - 0.1
+        - 1200
       pass_count:
         unit: passes
         value: 3
@@ -703,8 +889,8 @@ removalByMaterial:
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -761,6 +947,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -773,35 +962,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 200
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 2
         recommended: 2
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -809,14 +998,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -873,6 +1062,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -885,50 +1077,50 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 100
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 300
         recommended: 300
         range:
-        - 100
-        - 1000
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -985,6 +1177,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -997,35 +1192,35 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 20
         recommended: 20
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1
         recommended: 1
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1033,14 +1228,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 50
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -1097,6 +1292,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -1109,35 +1307,35 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 2
         recommended: 2
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1145,14 +1343,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -1209,6 +1407,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -1221,35 +1422,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 100
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 15
         recommended: 15
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1257,14 +1458,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -1321,6 +1522,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -1333,35 +1537,35 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1369,14 +1573,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -1433,6 +1637,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -1445,35 +1652,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 500
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 20
-        - 80
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1481,14 +1688,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 50
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -1545,6 +1752,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 50
@@ -1557,35 +1767,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.0
         recommended: 1.0
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1593,14 +1803,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:

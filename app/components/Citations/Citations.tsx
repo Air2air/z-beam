@@ -85,14 +85,14 @@ export function Citations({ research_library, materialName, heroImage, materialL
                   aria-expanded={isExpanded}
                   aria-controls={`citation-${citationId}-details`}
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-900/30 border border-blue-500/50 rounded-md flex items-center justify-center">
-                    <span className="text-blue-400 font-bold text-lg">{citation.year}</span>
+                  <div className="flex-shrink-0 w-12 h-12 bg-orange-900/30 border border-orange-500/50 rounded-md flex items-center justify-center">
+                    <span className="text-orange-400 font-bold text-lg">{citation.year}</span>
                   </div>
                   
                   <div className="flex-1 min-w-0">
                     {/* Citation ID & Quality Indicators */}
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="text-xs font-mono text-blue-400 font-bold">[{citationId}]</span>
+                      <span className="text-xs font-mono text-orange-400 font-bold">[{citationId}]</span>
                       {citation.quality_indicators?.peer_reviewed && (
                         <span className="px-2 py-0.5 bg-green-900/30 border border-green-500/50 rounded text-xs text-green-300">
                           ✓ Peer Reviewed
@@ -131,7 +131,7 @@ export function Citations({ research_library, materialName, heroImage, materialL
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300 hover:underline"
+                        className="inline-flex items-center gap-1 text-xs text-orange-400 hover:text-orange-300 hover:underline"
                       >
                         <span>{citation.doi ? `DOI: ${citation.doi}` : 'View Source'}</span>
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,8 +162,8 @@ export function Citations({ research_library, materialName, heroImage, materialL
                   >
                     {/* Key Findings (new format) */}
                     {citation.key_findings && citation.key_findings.length > 0 && (
-                      <div className="bg-blue-900/10 border-l-2 border-blue-500 pl-4 py-3 mt-3">
-                        <div className="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-2">
+                      <div className="bg-orange-900/10 border-l-2 border-orange-500 pl-4 py-3 mt-3">
+                        <div className="text-xs font-semibold text-orange-400 uppercase tracking-wide mb-2">
                           Key Findings
                         </div>
                         <div className="space-y-3">
@@ -195,8 +195,8 @@ export function Citations({ research_library, materialName, heroImage, materialL
                     
                     {/* Legacy key_finding support */}
                     {citation.key_finding && !citation.key_findings && (
-                      <div className="bg-blue-900/10 border-l-2 border-blue-500 pl-4 py-3 mt-3">
-                        <div className="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-1">
+                      <div className="bg-orange-900/10 border-l-2 border-orange-500 pl-4 py-3 mt-3">
+                        <div className="text-xs font-semibold text-orange-400 uppercase tracking-wide mb-1">
                           Key Finding
                         </div>
                         <div className="text-sm">
@@ -230,7 +230,7 @@ export function Citations({ research_library, materialName, heroImage, materialL
                             </span>
                           )}
                           {citation.quality_indicators.impact_factor && (
-                            <span className="px-2 py-1 bg-blue-900/30 border border-blue-500/50 rounded text-xs text-blue-300">
+                            <span className="px-2 py-1 bg-orange-900/30 border border-orange-500/50 rounded text-xs text-orange-300">
                               Impact Factor: {citation.quality_indicators.impact_factor}
                             </span>
                           )}

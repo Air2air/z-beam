@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/rare-earth/lanthanide/neodymium-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/rare-earth/lanthanide/neodymium-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Neodymium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/neodymium-laser-cleaning
+# Citation: Z-Beam (2025). Neodymium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/rare-earth/lanthanide/neodymium-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Neodymium,,,,,Material name
@@ -30,3 +30,24 @@ Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for safe ablat
 Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter range for precision vs. area coverage; smaller for fine surface prep on Neodymium components (e.g., magnets), larger for broad cleaning. 200 μm recommended for uniform energy distribution without hotspots. Source: Equipment specifications from Trumpf laser systems; process optimization in Surface and Coatings Technology (2022)."
 Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy layers to ensure complete removal without cumulative damage to soft Neodymium. 2 passes recommended for industrial surface preparation. Source: Industry practice in laser cleaning case studies, e.g., SPIE Proceedings (2020) on metallic alloys; adapts to Neodymium's reactivity."
 Machine,Settings,overlap_ratio,50,%,10,90,,Ensures uniform coverage and prevents gaps in cleaning; 50% optimal for Neodymium to minimize overexposure while achieving even fluence distribution. Higher for detailed work. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2019); standard in equipment like Adapt Laser guidelines.
+Property,material_characteristics,youngsModulus,32,GPa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,oxidationResistance,-2.323,V,,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,density,7007,kg/m³,,,ai_research,Material property: density
+Property,material_characteristics,hardness,41,HV,,,ai_research,Material property: hardness
+Property,material_characteristics,absorptivity,0.37,dimensionless,,,ai_research,Material property: absorptivity
+Property,material_characteristics,boilingPoint,3347,K,,,ai_research,Material property: boilingPoint
+Property,laser_material_interaction,absorptivity,0.72,dimensionless,,,ai_research,Material property: absorptivity
+Property,laser_material_interaction,thermalDestruction,1294,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,specificHeat,190.3,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserReflectivity,0.68,,,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalConductivity,16.73,W/m·K,,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,thermalExpansion,12.5,10^{-6} K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,ablationThreshold,1.75,J/cm²,,,ai_research,Material property: ablationThreshold
+Property,laser_material_interaction,absorptionCoefficient,32000000,m^{-1},,,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,1.25,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalDiffusivity,0.0000124,m²/s,,,scientific_literature,Material property: thermalDiffusivity
+Application,Industries,Application 1,Electronics Manufacturing,,,,,Industry application
+Application,Industries,Application 2,Aerospace,,,,,Industry application
+Application,Industries,Application 3,Medical,,,,,Industry application
+Application,Industries,Application 4,Renewable Energy,,,,,Industry application
+Application,Industries,Application 5,Defense,,,,,Industry application

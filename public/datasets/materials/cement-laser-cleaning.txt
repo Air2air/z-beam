@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Cement Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/masonry/general/cement-laser-cleaning
+URL:            http://localhost:3000/materials/masonry/general/cement-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,148 @@ overlap_ratio:
   Note:   Ensures uniform coverage on irregular cement surfaces; 30-50% for large areas, 60-80% for detailed cleaning. Recommended 50% prevents gaps while minimizing overexposure. Source: Process optimization studies in Optics Express (2014) by Lorenz et al. on scan overlap for ablation uniformity.
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  0.55 MPa m^{1/2}
+    Source: ai_research
+
+  density:
+    Value:  3150 kg/m³
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  1 dimensionless
+    Source: ai_research
+
+  youngsModulus:
+    Value:  21 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  0.3 GPa
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  42.5 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  3.2 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  7.5 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.92 dimensionless (normalized resistance index 0-1)
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.85 dimensionless
+    Min:    0.7 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  500000 m⁻¹
+    Min:    100000 m⁻¹
+    Max:    1000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  8 J/cm²
+    Min:    1 J/cm²
+    Max:    20 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.5 MW/m
+    Min:    0.5 MW/m
+    Max:    3 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.15 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.3 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1000 K
+    Min:    800 K
+    Max:    1500 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  10 Pa
+    Min:    0.1 Pa
+    Max:    100 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  773 K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.35 dimensionless
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000011 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.72 W/m·K
+    Source: ai_research
+
+  specificHeat:
+    Value:  880 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.42 dimensionless
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  5.26e-7 m^2/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  2.1 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Construction and Infrastructure
+2. Historical Preservation
+3. Nuclear Decommissioning
+4. Marine and Offshore
+5. Industrial Maintenance
+6. Bridge and Tunnel Maintenance
+7. Water Treatment Facilities
+8. Food Processing
+9. Mining and Mineral Processing
+10. Power Generation
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Cement Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/cement-laser-cleaning
+  Z-Beam (2025). Cement Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/masonry/general/cement-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

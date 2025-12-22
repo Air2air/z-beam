@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for plaster surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:14.022Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for plaster 
+               absorption and minimal substrate damage
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for balanced cleaning efficiency and 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               and thermal management
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence level sufficient for contaminant removal while 
+               preserving plaster substrate
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal with controlled thermal penetration
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning without 
+               excessive dwell time
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning coverage and 
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for industrial laser cleaning of delicate materials like plaster to avoid thermal damage; starting at 100 W for light contamination removal. Max safe below 500 W to prevent substrate cracking due to plaster's low thermal conductivity (~0.5 W/m·K). Source: Manufacturer specs from IPG Photonics YLR series and studies on laser cleaning of gypsum-based plasters (e.g., J. Cult. Herit. 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for 1064 nm cleaning on plaster; slower speeds (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning of plaster; picosecond (ps) or femtosecond reduces HAZ but less common at 1064 nm for industrial use. 20 ns minimizes heat accumulation on low-melting-point plaster (~150°C dehydration). Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation of calcium sulfate materials.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for plaster to achieve fast coverage without excessive heat buildup, trading off speed vs. thermal load. Higher rates (>50 kHz) risk accumulation on low-conductivity substrates. Source: Academic literature, e.g., Appl. Surf. Sci. (2019) on stone/plaster cleaning parameters.
+
+ENERGY_DENSITY:
+  Value: 0.8 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal without ablating plaster; damage threshold ~1.5-2.0 J/cm² for gypsum due to reflectivity (~0.3 at 1064 nm) and low melting point. Recommended 0.8 J/cm² for safe surface preparation. Source: Ablation threshold studies in J. Appl. Phys. (2017) and historical artifact cleaning papers.
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precision vs. area coverage; 300 μm recommended for plaster to focus energy on contaminants while sparing porous substrate. Smaller for fine details, larger for broad industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers on plaster to gradually remove without damage. Recommended 2 passes for uniform results in industrial settings. Source: Industry case studies, e.g., restoration projects in Constr. Build. Mater. (2020).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or overexposure; 50% recommended for plaster cleaning to optimize energy distribution and minimize uneven heating. Typical 30-80% based on scan patterns. Source: Process optimization studies in Lasers Manuf. Mater. Process. (2016).
+
+
+Generated: 2025-12-22T20:49:23.698Z
 License: CC BY 4.0

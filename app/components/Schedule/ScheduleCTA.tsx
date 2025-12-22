@@ -45,7 +45,7 @@ export function BookingCTA({ variant = 'default', className = '' }: BookingCTAPr
       <Link
         href="/schedule"
         onClick={handleClick}
-        className="inline-block bg-white text-blue-600 px-8 py-3 rounded-md font-semibold hover:bg-blue-50 transition-colors"
+        className="inline-block bg-white text-orange-600 px-8 py-3 rounded-md font-semibold hover:bg-orange-50 transition-colors"
       >
         Schedule Appointment
       </Link>

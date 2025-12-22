@@ -3,8 +3,8 @@ name: Benzene
 display_name: Benzene (C₆H₆)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-20T23:36:51.987758Z'
-dateModified: '2025-12-20T23:36:51.987758Z'
+datePublished: '2025-12-22T21:25:25.784408Z'
+dateModified: '2025-12-22T21:25:25.784408Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aromatic-hydrocarbon/benzene-compound
@@ -19,10 +19,25 @@ breadcrumb:
   href: /compounds/carcinogen/aromatic_hydrocarbon
 - label: Benzene
   href: /compounds/carcinogen/aromatic-hydrocarbon/benzene-compound
-chemical_formula: C6H6
+chemical_formula: C₆H₆
 cas_number: 71-43-2
 molecular_weight: 78.11
-description: null
+description: 'Handling benzene starts with understanding its role in tough industrial setups. Workers often encounter it as
+  a clear, volatile liquid that mixes easily with oils and fats. This makes it handy for dissolving stubborn residues in manufacturing
+  lines.
+
+
+  Flammable by nature, it ignites quickly under heat or sparks. Factories use it to produce synthetic rubbers and plastics,
+  where its solvent power dissolves polymers without leaving harsh traces. In fuel blending, it boosts energy output subtly.
+
+
+  As a carcinogen, exposure demands strict ventilation and protective gear to avoid long-term health risks like leukemia.
+  Its vapors spread fast, irritating eyes and skin on contact.
+
+
+  For laser cleaning, benzene''s thin film on metal surfaces responds well to precise beams. The process vaporizes it cleanly,
+  minimizing toxic spread compared to chemical wipes. This method suits contaminated tools in refineries, leaving no oily
+  buildup behind. Overall, its durability in reactions drives widespread use, balanced by careful handling protocols.'
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -46,58 +61,54 @@ sources_in_laser_cleaning:
 - solvent_residue_vaporization
 - plastic_pyrolysis
 relationships:
-  produced_by_contaminants:
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
-    frequency: common
-    severity: high
-    typical_context: Thermal breakdown of aromatic paint solvents
-  - id: rubber-residue-contamination
-    title: Rubber Compound Residue
-    url: /contaminants/organic-residue/polymer/rubber-residue-contamination
-    image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
-    frequency: common
-    severity: high
-    typical_context: Pyrolysis of styrene-butadiene rubber
-  - id: plastic-residue-contamination
-    title: Degraded Polymer Deposits
-    url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-    image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
-    frequency: common
-    severity: high
-    typical_context: Thermal decomposition of polystyrene and aromatic polymers
-  - id: industrial-oil-contamination
-    title: Industrial Oil / Grease Buildup
-    url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-    image: /images/contaminants/organic-residue/petroleum/industrial-oil.jpg
-    frequency: occasional
-    severity: moderate
-    typical_context: Thermal breakdown of aromatic hydrocarbons
-  - id: cutting-fluid-contamination
-    title: Machining Coolant Residue
-    url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
-    image: /images/contaminants/organic-residue/lubricant/cutting-fluid.jpg
-    frequency: occasional
-    severity: moderate
-    typical_context: Decomposition of aromatic additives
   chemical_properties:
-  - type: chemical_properties
-    id: benzene-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: benzene-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: benzene-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: benzene-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: benzene-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: benzene-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: particulate-carcinogen
-    overrides:
-      specific_compound: Benzene
-      pel_ppm: 1
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: particulate-carcinogen
+      overrides:
+        specific_compound: Benzene
+        pel_ppm: 1
+      presentation: card
   emergency_response:
     fire_hazard: Highly flammable liquid. Vapors heavier than air, may travel to ignition source. Forms explosive mixtures
       with air.
@@ -111,6 +122,44 @@ relationships:
       CERCLA.
     special_hazards: Carcinogen - causes leukemia. May cause bone marrow depression with chronic exposure. Decomposes producing
       toxic carbon monoxide and carbon dioxide.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: paint-residue-contamination
+      frequency: common
+      severity: high
+      typical_context: Thermal breakdown of aromatic paint solvents
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+    - id: rubber-residue-contamination
+      frequency: common
+      severity: high
+      typical_context: Pyrolysis of styrene-butadiene rubber
+      presentation: card
+      url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+    - id: plastic-residue-contamination
+      frequency: common
+      severity: high
+      typical_context: Thermal decomposition of polystyrene and aromatic polymers
+      presentation: card
+      url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+    - id: industrial-oil-contamination
+      frequency: occasional
+      severity: moderate
+      typical_context: Thermal breakdown of aromatic hydrocarbons
+      presentation: card
+      url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+    - id: cutting-fluid-contamination
+      frequency: occasional
+      severity: moderate
+      typical_context: Decomposition of aromatic additives
+      presentation: card
+      url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
   physical_properties:
     boiling_point: 80.1°C (176°F)
     melting_point: 5.5°C (42°F)
@@ -298,73 +347,6 @@ detection_monitoring:
   odor_threshold: NOT reliable indicator. Odor threshold (1.5-4.7 ppm) is above safe exposure levels and varies greatly. Do
     not rely on odor - use monitoring equipment.
 title: Benzene (C₆H₆)
-ppe_requirements_detail:
-  id: particulate-carcinogen
-  hazard_type: particulate
-  hazard_level: carcinogen
-  minimum_protection_level: Level C
-  respiratory:
-    primary:
-      equipment: HEPA-filtered respirator (P100)
-      standard: NIOSH 42 CFR 84
-      condition: For particles <10 μm
-      filter_efficiency: 99.97% @ 0.3 μm
-      fit_test_required: true
-      cartridge_change: Per manufacturer or breathing resistance increase
-  skin:
-    gloves:
-      material: Nitrile gloves, disposable
-      standard: ANSI/ISEA 101
-      condition: Prevent skin contact with particulates
-      disposal: Contained disposal - hazardous waste
-    body:
-      equipment: Disposable Tyvek coveralls
-      standard: ANSI/ISEA 101
-      condition: Full body coverage, sealed at wrists/ankles
-      hood: Integrated hood covering head and neck
-      disposal: Hazardous waste, do not reuse
-    footwear:
-      equipment: Disposable boot covers
-      material: Tyvek or polyethylene
-      condition: Prevent particulate tracking
-  eye:
-    equipment: Safety goggles with side shields
-    standard: ANSI Z87.1
-    condition: Impact and particle protection
-    cleaning: Disposable or decontaminate between uses
-  special_requirements:
-  - Wet methods preferred to suppress dust
-  - HEPA vacuum only - never dry sweep
-  - Designated decontamination area
-  - Disposable PPE changed in decon area
-  - Shower facilities available
-  - No eating, drinking, smoking in work area
-  - Medical surveillance program required
-  decontamination:
-  - Remove PPE in designated decon area
-  - Vacuum suit before removal (HEPA only)
-  - Remove from inside out to minimize contact
-  - Place in labeled hazardous waste bag
-  - Wash hands and face thoroughly
-  - Shower at end of shift
-  training_required:
-  - Carcinogen hazard awareness
-  - HEPA respirator fit testing
-  - Proper PPE donning and doffing
-  - Decontamination procedures
-  - Medical surveillance requirements
-  medical_surveillance:
-    required: true
-    frequency: Annual minimum
-    requirements:
-    - Baseline and periodic medical exams
-    - Respiratory function testing
-    - Cancer screening per OSHA guidelines
-    - Exposure records maintenance
-  waste_handling:
-  - All PPE as hazardous waste
-  - Sealed, labeled containers
-  - Manifest tracking required
-  - EPA hazardous waste codes applicable
-  specific_compound: Benzene
-  pel_ppm: 1
+seo_description: Handling benzene starts with understanding its role in tough industrial setups.
+micro: Handling benzene starts with understanding its role in tough industrial setups. Workers often encounter it as a clear,
+  volatile liquid that mixes easily with oils and fats.

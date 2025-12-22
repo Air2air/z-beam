@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Slate Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/stone/metamorphic/slate-laser-cleaning
+URL:            http://localhost:3000/materials/stone/metamorphic/slate-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,152 @@ overlap_ratio:
   Note:   30-80% overlap ensures uniform coverage; 60% recommended for slate to avoid striping while preventing excessive heat buildup on low-reflectivity contaminants. Source: Process optimization studies by M. Autric et al. (Proc. SPIE, 2015).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  0.92 MPa√m
+    Source: ai_research
+
+  youngsModulus:
+    Value:  45 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.002 mm/year
+    Source: ai_research
+
+  density:
+    Value:  2750 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  3.5 Mohs
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.95 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  150 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  42.5 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  14 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0.8 %
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.85 dimensionless
+    Min:    0.7 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  100000 m⁻¹
+    Min:    10000 m⁻¹
+    Max:    1000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  8 J/cm²
+    Min:    5 J/cm²
+    Max:    15 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  2.5 MW/m
+    Min:    1 MW/m
+    Max:    4 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.15 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.3 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1300 K
+    Min:    1200 K
+    Max:    1500 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.01 Pa
+    Min:    0.001 Pa
+    Max:    1 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1273 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  880 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.12 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  2 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000085 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.88 dimensionless (absorptivity at 1064 nm)
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  9.6e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Construction and Architecture
+3. Monument Preservation
+4. Museum Conservation
+5. Educational Collections
+6. Landscape Architecture
+7. Interior Design
+8. Archaeological Conservation
+9. Religious Artifact Preservation
+10. Sculpture Conservation
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Slate Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/metamorphic/slate-laser-cleaning
+  Z-Beam (2025). Slate Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/metamorphic/slate-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

@@ -1,7 +1,7 @@
 id: basalt-settings
 name: Basalt
-datePublished: '2025-12-21T03:33:02.327924Z'
-dateModified: '2025-12-21T03:33:02.327924Z'
+datePublished: '2025-12-22T23:37:05.112621Z'
+dateModified: '2025-12-22T23:37:05.112621Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/stone/igneous/basalt-settings
@@ -45,14 +45,55 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: basalt-laser-cleaning
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /materials/stone/igneous/basalt-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for Basalt surface cleaning without thermal damage
     unit: W
@@ -302,6 +343,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning basalt, it stands out from softer stones like limestone because of its dense, hard nature.
-micro: When laser cleaning basalt, it stands out from softer stones like limestone because of its dense, hard nature. I've
-  seen this density help absorb laser energy quickly, so contaminants lift off without much residue left behind.

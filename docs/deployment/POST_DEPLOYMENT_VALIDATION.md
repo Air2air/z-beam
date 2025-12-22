@@ -465,7 +465,10 @@ npm run validate:production:full -- --url=http://localhost:3000
    - ChemicalSubstance schema (98 contaminant pages)
    - AggregateRating schema (8 pages with ratings)
    - Person schema (E-E-A-T authors)
-   - ImageObject with licensing metadata
+   - ImageObject with licensing metadata ✅ **COMPLETE (Dec 21, 2025)**
+     - Magnification PropertyValue for micro images (180+ materials, 34 contaminants)
+     - VisualArtwork schema for contaminants with appearance data (34 pages)
+     - See: `docs/02-features/seo/IMAGEOBJECT_ENHANCEMENTS_DEC21_2025.md`
 
 2. **Deep Content Analysis** (2-3 hours)
    - Verify all 404 content pages (not just samples)

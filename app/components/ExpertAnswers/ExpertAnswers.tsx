@@ -31,7 +31,7 @@ function SeverityBadge({ severity }: { severity?: 'low' | 'medium' | 'high' }) {
   
   const config = {
     low: { 
-      color: 'bg-blue-900 text-blue-200 border-blue-300700',
+      color: 'bg-orange-900 text-orange-200 border-orange-300700',
       icon: 'ℹ️'
     },
     medium: { 
@@ -69,11 +69,11 @@ function ExpertCard({ expert, dateAnswered, upvoteCount }: {
   });
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50900/20900/20 rounded-md border border-blue-200800">
+    <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-orange-50 to-indigo-50900/20900/20 rounded-md border border-orange-200800">
       {/* Expert photo */}
       {expert.image && (
         <div className="flex-shrink-0">
-          <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-blue-400600">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-orange-400600">
             <Image
               src={expert.image}
               alt={expert.name}
@@ -172,7 +172,7 @@ function ExpertAnswerCard({
   return (
     <div role="listitem" id={`qa-${index}`}>
       <details
-        className="group bg-secondary rounded-md border-2 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-blue-300:border-blue-600"
+        className="group bg-secondary rounded-md border-2 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-orange-300:border-orange-600"
         open={answer.acceptedAnswer && index === 0} // Auto-open first accepted answer
       >
         <summary 
@@ -203,7 +203,7 @@ function ExpertAnswerCard({
             )}
           </div>
           <svg
-            className="w-6 h-6 text-blue-600400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
+            className="w-6 h-6 text-orange-600400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -357,7 +357,7 @@ export function ExpertAnswers({
         <p>
           All answers provided by verified laser cleaning experts with industry credentials.
           {' '}
-          <strong>Need personalized help?</strong> <a href="/contact" className="text-blue-600400 hover:underline">Contact our team</a>
+          <strong>Need personalized help?</strong> <a href="/contact" className="text-orange-600400 hover:underline">Contact our team</a>
         </p>
       </div>
     </SectionContainer>

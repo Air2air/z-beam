@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/rare-earth/lanthanide/europium-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/rare-earth/lanthanide/europium-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Europium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/europium-laser-cleaning
+# Citation: Z-Beam (2025). Europium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/rare-earth/lanthanide/europium-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Europium,,,,,Material name
@@ -30,3 +30,25 @@ Machine,Settings,energy_density,1,J/cm²,0.1,20,,"Fluence for contaminant ablati
 Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for precise surface preparation; smaller for fine details on Europium components, larger for broad areas; 200 μm balances resolution and efficiency. Source: Equipment specifications (e.g., IPG Photonics scanners, 50-1000 μm); adapted for industrial cleaning of reactive metals."
 Machine,Settings,pass_count,2,passes,1,10,,"Multi-pass for thorough removal of contaminants (e.g., oxides) on Europium without single-pass overheating; single pass for light cleaning, 2-3 typical for industrial prep. Source: Industry practice (e.g., case studies in Surf. Coat. Technol., 2019 on metal surface cleaning); conservative for soft substrates."
 Machine,Settings,overlap_ratio,70,%,10,90,,"Ensures uniform coverage and overlap for complete cleaning; higher for heavy contamination on irregular Europium surfaces, lower for speed; 70% optimal for even energy distribution. Source: Process optimization studies (e.g., Lasers Manuf. Mater. Process., 2022; standard 50-80% in laser scanning protocols)."
+Property,material_characteristics,density,5.264,g/cm³,,,ai_research,Material property: density
+Property,material_characteristics,oxidationResistance,-2.41,V,,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,youngsModulus,18,GPa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,hardness,0.22,GPa,,,ai_research,Material property: hardness
+Property,material_characteristics,boilingPoint,1802,K,,,ai_research,Material property: boilingPoint
+Property,material_characteristics,absorptivity,0.28,,,,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptivity,0.72,dimensionless,,,ai_research,Material property: absorptivity
+Property,laser_material_interaction,thermalDestruction,1099,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,laserReflectivity,0.43,dimensionless (fraction),,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalExpansion,0.0000352,K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,thermalConductivity,13.9,W/m·K,,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,specificHeat,145,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,ablationThreshold,2.1,J/cm²,,,ai_research,Material property: ablationThreshold
+Property,laser_material_interaction,absorptionCoefficient,420000,cm^{-1},,,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,2.3,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalDiffusivity,0.00001465,m²/s,,,scientific_literature,Material property: thermalDiffusivity
+Application,Industries,Application 1,Electronics Manufacturing,,,,,Industry application
+Application,Industries,Application 2,Permanent Magnet Production,,,,,Industry application
+Application,Industries,Application 3,Optical Component Cleaning,,,,,Industry application
+Application,Industries,Application 4,Research Laboratory,,,,,Industry application
+Application,Industries,Application 5,Precision Manufacturing,,,,,Industry application
+Application,Industries,Application 6,Aerospace Components,,,,,Industry application

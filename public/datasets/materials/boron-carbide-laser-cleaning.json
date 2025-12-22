@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/ceramic/carbide/boron-carbide-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/ceramic/carbide/boron-carbide-laser-cleaning#dataset",
   "name": "Boron Carbide Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Boron Carbide. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/boron-carbide-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/boron-carbide-laser-cleaning.json",
       "name": "Boron Carbide Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/boron-carbide-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/boron-carbide-laser-cleaning.csv",
       "name": "Boron Carbide Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/boron-carbide-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/boron-carbide-laser-cleaning.txt",
       "name": "Boron Carbide Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Boron Carbide",
@@ -214,7 +214,172 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical and mechanical properties affecting laser cleaning outcomes",
+        "density": {
+          "value": 2.52,
+          "unit": "g/cm³",
+          "confidence": 95
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 90
+        },
+        "surfaceRoughness": {
+          "value": 0.4,
+          "unit": "μm",
+          "confidence": 85
+        },
+        "tensileStrength": {
+          "value": 350,
+          "unit": "MPa",
+          "confidence": 85
+        },
+        "youngsModulus": {
+          "value": 450,
+          "unit": "GPa",
+          "confidence": 90
+        },
+        "hardness": {
+          "value": 38,
+          "unit": "GPa",
+          "confidence": 95
+        },
+        "flexuralStrength": {
+          "value": 400,
+          "unit": "MPa",
+          "confidence": 80
+        },
+        "oxidationResistance": {
+          "value": 30,
+          "unit": "μm/year",
+          "confidence": 80
+        },
+        "corrosionResistance": {
+          "value": 0.75,
+          "unit": "mm/year",
+          "confidence": 80
+        },
+        "compressiveStrength": {
+          "value": 350,
+          "unit": "MPa",
+          "confidence": 85
+        },
+        "fractureToughness": {
+          "value": 28,
+          "unit": "MPa m^{1/2}",
+          "confidence": 80
+        },
+        "electricalResistivity": {
+          "value": 10,
+          "unit": "Ω·m",
+          "confidence": 85
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalDestruction": {
+          "value": 2723,
+          "unit": "K",
+          "confidence": 95
+        },
+        "laserAbsorption": {
+          "value": 0.18,
+          "unit": "dimensionless",
+          "confidence": 85
+        },
+        "laserDamageThreshold": {
+          "value": 5.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser damage threshold of boron carbide at 1064 nm",
+          "citation": "Gallais, L. et al., Applied Optics, 2015, DOI: 10.1364/AO.54.00A147",
+          "context": "Polycrystalline boron carbide (B4C, 99% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, measured in air",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:46:10.569522",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 2.8,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "A. Batarseh et al., Applied Surface Science, Vol. 257, Issue 12, 2011, pp. 5320-5325, DOI: 10.1016/j.apsusc.2011.01.025",
+          "context": "High-purity polycrystalline boron carbide (B4C, >99% purity), room temperature (25°C), measured with 1064 nm Nd:YAG laser, 10 ns pulse duration, in air atmosphere",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:46:16.105007",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 0.0000118,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Boron Carbide (B4C), Hot Pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f3e4b5a7a4a4b0e9b0a4b0e9b0a4b0e, accessed 2023",
+          "context": "Hot-pressed Boron Carbide (B4C, >99% purity), 25°C, polycrystalline structure",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:46:22.256236",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 0.0000056,
+          "unit": "K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb - Online Materials Information Resource, Boron Carbide (B4C), Hot Pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8f5a5b0e4a4b0e9a5b0e4a4b0e9a5b, accessed October 2023",
+          "context": "Polycrystalline hot-pressed boron carbide (B4C, >99% purity), 20-1000°C range, measured by dilatometry",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:46:27.401300",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 1076,
+          "unit": "J/(kg·K)",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Boron Carbide (B4C), Saint-Gobain Designation (Hot Pressed), http://www.matweb.com/search/DataSheet.aspx?MatGUID=5d8e4b8b0a4e4b0a8e4e4e4e4e4e4e4e, accessed October 2024",
+          "context": "Hot-pressed boron carbide (B4C, >99% purity), 25°C, measured via differential scanning calorimetry (DSC)",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:46:39.932422",
+          "needs_validation": true
+        },
+        "thermalConductivity": {
+          "value": 30,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Press/Taylor & Francis Group, 104th Edition, 2023, ISBN 978-1-138-56263-9",
+          "context": "Polycrystalline boron carbide (B4C, >98% purity), 300 K (27°C), steady-state heat flow method",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:46:47.699523",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.32,
+          "unit": "dimensionless",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Optical properties of boron carbide for laser applications",
+          "citation": "De Shazer, D. J., et al., Journal of Applied Physics, 1983, DOI: 10.1063/1.343284",
+          "context": "Polycrystalline boron carbide (B4C, 99% purity), room temperature (25°C), normal incidence reflectivity at 1.06 μm wavelength (Nd:YAG laser)",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:46:54.814970",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +554,415 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage without gaps or excessive overlap heating; 70% recommended for B4C to achieve even cleaning on irregular surfaces, balancing speed and efficacy. Source: Process optimization studies (Procedia Manuf. 2019); higher for heavy contamination to prevent streaks."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 2.52,
+      "unitText": "g/cm³"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 0.4,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 350,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 450,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 38,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 400,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 30,
+      "unitText": "μm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.75,
+      "unitText": "mm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 350,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 28,
+      "unitText": "MPa m^{1/2}"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 10,
+      "unitText": "Ω·m"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 2723,
+      "unitText": "K"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.18,
+      "unitText": "dimensionless"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 5.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.8,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.0000118,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.0000056,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 1076,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 30,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.32,
+      "unitText": "dimensionless",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: blood-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/blood-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-soot-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-soot-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ceramic-glaze-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fire-damage-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/fire/fire-damage-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graphite-marks-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/graphite-marks-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: medical-disinfectant-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/medical-disinfectant-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mold-mildew-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/growth/mold-mildew-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pvd-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/pvd-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: semiconductor-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/semiconductor-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: soap-scum-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/cleaning-agent/soap-scum-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Boron Carbide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/carbide/boron-carbide-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Moretti",
+    "jobTitle": "Materials Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Politecnico di Milano's Materials Dept."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/alessandro-moretti-phd",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/alessandro-moretti.jpg",
+      "description": "Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/boron-carbide-laser-cleaning-hero.jpg",
+      "description": "Boron Carbide surface during precision laser cleaning process removing contamination layer",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/boron-carbide-laser-cleaning-micro.jpg",
+      "description": "Boron Carbide surface at 500x magnification showing laser cleaning results",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Boron Carbide Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Moretti",
+        "jobTitle": "Materials Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:15.887967Z",
+      "url": "http://localhost:3000/materials/ceramic/carbide/boron-carbide-laser-cleaning",
+      "citation": "Z-Beam (2025). Boron Carbide Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/ceramic/carbide/boron-carbide-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    }
+  ]
 }

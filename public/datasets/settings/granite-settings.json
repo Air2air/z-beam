@@ -5,8 +5,8 @@
     "subcategory": "igneous",
     "title": "Granite Settings",
     "description": "When laser cleaning granite, start with the main challenge of its low heat conduction. This dense igneous stone holds heat unevenly compared to softer sedimentary rocks, which can lead to surface cracking if energy builds up too fast. You must use lower power settings right away to spread the heat gradually. Keep scan speeds moderate so the laser removes contaminants without stressing the material's rigid structure. Watch out for overexposure in the middle of the process—granite's hardness resists cleaning but amplifies any localized heating. Adjust to multiple light passes instead of heavy single ones. This approach restores the stone's natural finish while preserving its compressive strength for applications like monument restoration. End by verifying even cleaning to avoid weak spots.",
-    "datePublished": "2025-12-21T03:33:02.971632Z",
-    "dateModified": "2025-12-21T03:33:02.971632Z",
+    "datePublished": "2025-12-22T06:55:48.574411Z",
+    "dateModified": "2025-12-22T06:55:48.574411Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -41,7 +41,127 @@
       "formatting_file": "usa_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for granite surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-infrared wavelength optimized for granite mineral absorption",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "fluenceThreshold": {
+      "description": "Minimum fluence required for effective contaminant removal from granite",
+      "unit": "J/cm²",
+      "value": 2.5,
+      "min": 0.3,
+      "max": 4.5
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate damage",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 300,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for 1064 nm pulsed lasers in stone cleaning to avoid thermal damage to granite's low thermal conductivity (~1.5 W/m·K); starting at 100W for light contamination. Max safe below granite's damage threshold (~400°C melting point onset). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on stone ablation."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1000,
+      "description": "Effective speeds for contamination removal on granite; slower for heavy rust/oxides (200-800 mm/s), faster for light dust (1500-3000 mm/s). Recommended 1000 mm/s balances efficiency and safety. Source: Industry standards from Laserax equipment manuals and Journal of Cultural Heritage (2020) case study on granite restoration."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for granite to achieve ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond reduces HAZ further but increases cost. Avoid >100 ns to prevent cracking. Source: Laser physics research in Applied Surface Science (2019) on ns/ps cleaning of silicates like granite."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Typical for 1064 nm cleaning; 50 kHz recommended for granite to enable fast processing without excessive heat accumulation (granite reflectivity ~10-20% at 1064 nm aids absorption). Higher rates (>80 kHz) risk thermal buildup. Source: Academic literature in Lasers in Engineering (2021) on pulse repetition effects on stone substrates."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 2,
+      "unit": "J/cm²",
+      "description": "Fluence range for safe contaminant removal; granite damage threshold ~6-8 J/cm². Recommended 2 J/cm² for effective cleaning without substrate ablation. Conservative due to granite's variable composition. Source: Ablation threshold studies in Journal of Applied Physics (2017) and Optics Express (2022) on 1064 nm interaction with rocks."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Beam diameter for uniform coverage on granite surfaces; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners, aligned with industry practice for stone."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers on granite to ensure complete removal without overexposure. Recommended 2 passes for typical industrial use. Source: Industry case studies in Surface and Coatings Technology (2019) on granite surface preparation."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "Ensures uniform fluence distribution; 60% recommended for granite to avoid striping while minimizing passes. Higher (70-80%) for textured surfaces. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2020) on laser scanning parameters for stones."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

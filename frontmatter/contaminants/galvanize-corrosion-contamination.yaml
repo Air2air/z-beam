@@ -1,8 +1,8 @@
 id: galvanize-corrosion-contamination
 name: White Rust on Galvanized Steel
 category: oxidation
-datePublished: '2025-12-21T02:51:37.284723Z'
-dateModified: '2025-12-21T02:51:37.284723Z'
+datePublished: '2025-12-22T23:36:12.326422Z'
+dateModified: '2025-12-22T23:36:12.326422Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/ferrous/galvanize-corrosion-contamination
@@ -24,12 +24,82 @@ description: Galvanize-corrosion contamination, it manifests as zinc carbonate a
   arise from its protective yet stubborn bond, yet laser cleaning proves effective, as the process selectively ablates these
   layers without substrate harm.
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: zinc-oxide
+      phase: solid
+      hazard_level: moderate
+      presentation: card
+    - id: zinc-oxide
+      phase: gas
+      hazard_level: moderate
+      presentation: card
+    - id: carbon-dioxide
+      phase: gas
+      hazard_level: low
+      presentation: card
+  found_on_materials:
+  - id: steel-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/ferrous/steel-laser-cleaning
+  - id: iron-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/ferrous/iron-laser-cleaning
+  - id: stainless-steel-316-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+  - id: aluminum-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+  - id: copper-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+  - id: brass-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+  - id: bronze-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+  - id: titanium-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/specialty/titanium-laser-cleaning
+  - id: zinc-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/alloy/zinc-laser-cleaning
+  - id: nickel-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/specialty/nickel-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         appearance: White, powdery or crystalline deposits that cling to glazed or unglazed surfaces, sometimes causing discoloration.
@@ -89,7 +159,7 @@ relationships:
           texture.
         coverage: Generally sparse and localized, with variation based on wood porosity and moisture levels.
         pattern: Usually forms in irregular patches or spots, often concentrated in damp or shaded areas.
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -170,13 +240,27 @@ relationships:
       thermal_diffusivity: 0.6
       vaporization_temperature: 120
   valid_materials:
-  - Galvanized Steel
-  - Zinc-Coated Metal
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - Galvanized Steel
+    - Zinc-Coated Metal
   prohibited_materials:
-  - Aluminum
-  - Stainless Steel
-  - Copper
-  safetyData: &id001
+    _section:
+      title: Unsafe for Materials
+      description: Materials where removal of this contamination is not recommended
+      order: 4
+      variant: warning
+      icon: alert-triangle
+    items:
+    - Aluminum
+    - Copper
+    - Stainless Steel
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -219,6 +303,28 @@ relationships:
       source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      general:
+        title: General Materials
+        description: Materials in the general category
+        items:
+        - id: galvanized-steel-laser-cleaning
+          title: Galvanized Steel Laser Cleaning
+          url: /materials/general/misc/galvanized-steel-laser-cleaning
+          image: /images/material/galvanized-steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: zinc-coated-metal-laser-cleaning
+          title: Zinc Coated Metal Laser Cleaning
+          url: /materials/general/misc/zinc-coated-metal-laser-cleaning
+          image: /images/material/zinc-coated-metal-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 composition:
 - ZnO
 - Zn(OH)₂
@@ -253,7 +359,7 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: ferrous
-safetyData: *id001
+safety_data: *id001
 regulatory_standards_detail:
 - id: osha-ppe-requirements
   title: OSHA 29 CFR 1926.95 - Personal Protective Equipment

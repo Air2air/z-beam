@@ -53,7 +53,7 @@ export function DiagnosticCenter({
           onClick={() => setActiveTab('prevention')}
           className={`px-4 py-2 font-medium transition-all min-h-[44px] ${
             activeTab === 'prevention'
-              ? 'text-blue-400 border-b-2 border-blue-400 bg-blue-500/10'
+              ? 'text-orange-400 border-b-2 border-orange-400 bg-orange-500/10'
               : 'text-tertiary hover:text-secondary hover:bg-secondary'
           }`}
           aria-pressed={activeTab === 'prevention'}

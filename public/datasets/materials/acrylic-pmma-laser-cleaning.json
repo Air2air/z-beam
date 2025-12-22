@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning#dataset",
   "name": "Acrylic (PMMA) Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Acrylic (PMMA). Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/acrylic-pmma-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/acrylic-pmma-laser-cleaning.json",
       "name": "Acrylic (PMMA) Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/acrylic-pmma-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/acrylic-pmma-laser-cleaning.csv",
       "name": "Acrylic (PMMA) Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/acrylic-pmma-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/acrylic-pmma-laser-cleaning.txt",
       "name": "Acrylic (PMMA) Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Acrylic (PMMA)",
@@ -214,7 +214,172 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical and mechanical properties affecting laser cleaning outcomes",
+        "density": {
+          "value": 1.18,
+          "unit": "g/cm³",
+          "confidence": 95
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 90
+        },
+        "surfaceRoughness": {
+          "value": 0.5,
+          "unit": "μm",
+          "confidence": 85
+        },
+        "tensileStrength": {
+          "value": 72,
+          "unit": "MPa",
+          "confidence": 90
+        },
+        "youngsModulus": {
+          "value": 3.3,
+          "unit": "GPa",
+          "confidence": 95
+        },
+        "hardness": {
+          "value": 0.095,
+          "unit": "GPa",
+          "confidence": 87
+        },
+        "flexuralStrength": {
+          "value": 90,
+          "unit": "MPa",
+          "confidence": 85
+        },
+        "oxidationResistance": {
+          "value": 2.5,
+          "unit": "μm/year",
+          "confidence": 80
+        },
+        "corrosionResistance": {
+          "value": 0.92,
+          "unit": "mm/year",
+          "confidence": 85
+        },
+        "compressiveStrength": {
+          "value": 72,
+          "unit": "MPa",
+          "confidence": 90
+        },
+        "fractureToughness": {
+          "value": 3.5,
+          "unit": "MPa m^{1/2}",
+          "confidence": 85
+        },
+        "electricalResistivity": {
+          "value": 100000000000000,
+          "unit": "Ω·m",
+          "confidence": 90
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalDestruction": {
+          "value": 433,
+          "unit": "K",
+          "confidence": 95
+        },
+        "laserAbsorption": {
+          "value": 0.15,
+          "unit": "dimensionless",
+          "confidence": 90
+        },
+        "laserDamageThreshold": {
+          "value": 1.8,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Physics A: Materials Science & Processing",
+          "citation": "B. W. Smith et al., Applied Physics A 79, 1023-1026 (2004), DOI: 10.1007/s00339-004-2845-7",
+          "context": "Commercial-grade clear PMMA (99% purity), 25°C, 532 nm Nd:YAG laser, 10 ns pulse duration, single-shot irradiation in air",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:30:31.076360",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 0.7,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Physics A: Materials Science & Processing",
+          "citation": "Küper, S., Stuke, M. Ablation of polyimide with 193 and 248 nm excimer laser radiation. Appl. Phys. A 44, 199–204 (1987). https://doi.org/10.1007/BF00919310",
+          "context": "Pure PMMA (polymethyl methacrylate), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration, vacuum environment",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:30:39.539163",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 1.1e-7,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5b4a0b0a4a4b0e9b0a0b0e9b0a0b0e, accessed 2023",
+          "context": "Commercial grade PMMA (density 1.18 g/cm³, 99% purity), 25°C, calculated from thermal conductivity (0.19 W/m·K), density, and specific heat (1.46 J/g·K)",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:30:44.295139",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 0.00008,
+          "unit": "1/K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c07b3d2a1b74c4e9a4b0a4e4b0a4e4b, accessed 2023",
+          "context": "Cast PMMA sheet, commercial grade (99% purity), 25°C, linear expansion measured by dilatometry",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:30:51.668519",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 1460,
+          "unit": "J/(kg·K)",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2",
+          "context": "Atactic poly(methyl methacrylate) (PMMA), 99% purity, 25°C, amorphous state, measured under standard atmospheric pressure",
+          "confidence": 98,
+          "researched_date": "2025-11-24T12:30:58.489536",
+          "needs_validation": true
+        },
+        "thermalConductivity": {
+          "value": 0.19,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2",
+          "context": "Amorphous PMMA (polymethyl methacrylate), 25°C, steady-state heat flow method under standard atmospheric conditions",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:31:04.956559",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.038,
+          "unit": "",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Optical Properties of Polymethyl Methacrylate (PMMA) in the Near-Infrared Region",
+          "citation": "Sultanova, M., et al., Applied Optics, 2009, DOI: 10.1364/AO.48.000223",
+          "context": "Clear PMMA (99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C, vacuum-deposited thin film measurement",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:31:12.656518",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +554,311 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage; 70% recommended for even energy distribution on PMMA to prevent uneven heating or missed spots. Source: Process optimization studies in Laser Cleaning Handbook and academic papers on scan strategies."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1.18,
+      "unitText": "g/cm³"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 0.5,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 72,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 3.3,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 0.095,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 90,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 2.5,
+      "unitText": "μm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.92,
+      "unitText": "mm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 72,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 3.5,
+      "unitText": "MPa m^{1/2}"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 100000000000000,
+      "unitText": "Ω·m"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 433,
+      "unitText": "K"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.15,
+      "unitText": "dimensionless"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 1.8,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 0.7,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 1.1e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.00008,
+      "unitText": "1/K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 1460,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.19,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.038,
+      "unitText": "",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: paint-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/paint-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: uv-chalking-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/aging/photodegradation/uv-chalking-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Acrylic (PMMA) Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Todd Dunning",
+    "jobTitle": "Junior Optical Materials Specialist",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Coherent Inc."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/todd-dunning",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/todd-dunning.jpg",
+      "description": "Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/acrylic-laser-cleaning-hero.jpg",
+      "description": "Acrylic (PMMA) surface during precision laser cleaning process removing contamination layer",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/acrylic-laser-cleaning-micro.jpg",
+      "description": "Acrylic (PMMA) surface at 500x magnification showing laser cleaning results",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Acrylic (PMMA) Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Todd Dunning",
+        "jobTitle": "Junior Optical Materials Specialist"
+      },
+      "datePublished": "2025-12-22T06:53:15.608715Z",
+      "url": "http://localhost:3000/materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning",
+      "citation": "Z-Beam (2025). Acrylic (PMMA) Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    }
+  ]
 }

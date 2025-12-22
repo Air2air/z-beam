@@ -3,8 +3,8 @@ name: Lead Oxide
 display_name: Lead Oxide (PbO)
 category: particulate
 hazard_class: toxic
-datePublished: '2025-12-20T23:36:52.465429Z'
-dateModified: '2025-12-20T23:36:52.465429Z'
+datePublished: '2025-12-22T21:25:26.540127Z'
+dateModified: '2025-12-22T21:25:26.540127Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/lead-oxide-compound
@@ -22,7 +22,13 @@ breadcrumb:
 chemical_formula: PbO
 cas_number: 1317-36-8
 molecular_weight: 223.2
-description: null
+description: Handling lead oxide particulates often poses challenges in industrial settings due to their sticky adhesion to
+  surfaces and potential for environmental buildup. These fine particles exhibit a dense, stable structure that resists easy
+  breakdown, making them durable for long-term use in battery production where they form essential components for energy storage.
+  In glass manufacturing, lead oxide integrates smoothly to enhance clarity and weight, while ceramics benefit from its strengthening
+  effects against cracks. When it comes to laser cleaning, the material's absorbent nature allows targeted beams to vaporize
+  layers without excessive heat spread, effectively removing accumulations from metal parts or historical artifacts while
+  preserving underlying integrity—though care must ensure no toxic fumes linger in the process.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -38,6 +44,52 @@ sources_in_laser_cleaning:
 - lead_coating_ablation
 - pewter_patina_removal
 relationships:
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: lead-paint-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of Lead-Based Paint Removal
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+    - id: lead-paint-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of Lead-Based Paint Removal
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+    - id: lead-paint-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of Lead-Based Paint Removal
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: aluminum-bronze-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+    - id: bronze-laser-cleaning
+      presentation: card
+      url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    - id: lead-crystal-laser-cleaning
+      presentation: card
+      url: /materials/glass/soda-lime/lead-crystal-laser-cleaning
+    - id: lead-laser-cleaning
+      presentation: card
+      url: /materials/metal/non-ferrous/lead-laser-cleaning
   health_effects: null
 subcategory: metal_oxide
 author:
@@ -69,3 +121,8 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 title: Lead Oxide (PbO)
+seo_description: Handling lead oxide particulates often poses challenges in industrial settings due to their sticky adhesion
+  to surfaces and potential for environmental buildup.
+micro: Handling lead oxide particulates often poses challenges in industrial settings due to their sticky adhesion to surfaces
+  and potential for environmental buildup. These fine particles exhibit a dense, stable structure that resists easy breakdown,
+  making them durable for long-term use in battery production where they form essential components for energy storage.

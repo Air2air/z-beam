@@ -3,8 +3,8 @@ name: Zinc Oxide
 display_name: Zinc Oxide (ZnO)
 category: metal_fume
 hazard_class: irritant
-datePublished: '2025-12-20T23:36:52.210980Z'
-dateModified: '2025-12-20T23:36:52.210980Z'
+datePublished: '2025-12-22T21:25:26.044506Z'
+dateModified: '2025-12-22T21:25:26.044506Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/metal-fume/metal-oxide/zinc-oxide-compound
@@ -22,7 +22,18 @@ breadcrumb:
 chemical_formula: ZnO
 cas_number: 1314-13-2
 molecular_weight: 81.38
-description: null
+description: When handling zinc oxide in workshop setups, workers often start by sifting through its fine, powdery form that
+  resists clumping under humid conditions, making it straightforward to blend into coatings or fillers without much hassle.
+  This material stands out for its bright white hue and smooth texture, which help it scatter light effectively in paints
+  and sunscreens, providing a natural barrier against harsh rays while keeping things lightweight and non-irritating on skin.
+  In rubber production, it acts as a toughener, boosting flexibility and longevity in tires or seals that endure constant
+  wear from roads and machinery vibrations. Beyond that, its stable nature shines in electronics, where it forms protective
+  layers on circuits to ward off corrosion and maintain steady performance amid heat buildup. For laser cleaning tasks involving
+  metal surfaces, zinc oxide emerges as a byproduct in fumes from vaporized residues, yet it aids the process by absorbing
+  energy efficiently, which helps strip away grime and rust without deeply scarring the underlying metal, leaving a cleaner
+  finish ready for reuse. Overall, this versatile compound proves invaluable across factories, from enhancing durability in
+  ceramics to stabilizing pigments in textiles, always prioritizing safety in airborne handling to minimize fume exposure
+  during intense operations.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,51 +56,54 @@ sources_in_laser_cleaning:
 - zinc_coating_removal
 - zinc_alloy_processing
 relationships:
-  produced_by_contaminants:
-  - id: galvanize-corrosion-contamination
-    title: White Rust on Galvanized Steel
-    url: /contaminants/oxidation/ferrous/galvanize-corrosion-contamination
-    image: /images/contaminants/oxidation/ferrous/galvanize-corrosion.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Vaporization from galvanized coatings
-  - id: zinc-plating-contamination
-    title: Zinc Electroplating
-    url: /contaminants/metallic-coating/plating/zinc-plating-contamination
-    image: /images/contaminants/metallic-coating/plating/zinc-plating.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Direct vaporization of zinc electroplating
-  - id: brass-plating-contamination
-    title: Brass Coating Removal
-    url: /contaminants/metallic-coating/plating/brass-plating-contamination
-    image: /images/contaminants/metallic-coating/plating/brass-plating.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Zinc component of brass alloy
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
-    frequency: occasional
-    severity: low
-    typical_context: Zinc oxide pigments in paint
   chemical_properties:
-  - type: chemical_properties
-    id: zinc-oxide-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: zinc-oxide-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: zinc-oxide-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: zinc-oxide-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: zinc-oxide-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: zinc-oxide-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: irritant-gas-low-concentration
-    overrides:
-      specific_compound: Zinc Oxide
-      pel_ppm: null
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: irritant-gas-low-concentration
+      overrides:
+        specific_compound: Zinc Oxide
+        pel_ppm: null
+      presentation: card
   emergency_response:
     fire_hazard: Non-combustible. May release toxic zinc oxide fume when heated above 1000°C.
     fire_suppression: Use agent appropriate for surrounding fire. Wear SCBA - toxic fumes possible.
@@ -100,6 +114,44 @@ relationships:
     environmental_hazards: Toxic to aquatic life. May contaminate soil/water. Generally low environmental risk.
     special_hazards: 'METAL FUME FEVER: flu-like symptoms 4-12 hours post-exposure (fever, chills, nausea, muscle aches).
       Self-limiting but recurrent with repeated exposure. Welding galvanized metal major exposure source.'
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: galvanize-corrosion-contamination
+      frequency: very_common
+      severity: high
+      typical_context: Vaporization from galvanized coatings
+      presentation: card
+      url: /contaminants/oxidation/ferrous/galvanize-corrosion-contamination
+    - id: zinc-plating-contamination
+      frequency: very_common
+      severity: high
+      typical_context: Direct vaporization of zinc electroplating
+      presentation: card
+      url: /contaminants/metallic-coating/plating/zinc-plating-contamination
+    - id: brass-plating-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Zinc component of brass alloy
+      presentation: card
+      url: /contaminants/metallic-coating/plating/brass-plating-contamination
+    - id: paint-residue-contamination
+      frequency: occasional
+      severity: low
+      typical_context: Zinc oxide pigments in paint
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+    - id: battery-corrosion-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Battery Leakage Corrosion
+      presentation: card
+      url: /contaminants/oxidation/battery/battery-corrosion-contamination
   physical_properties:
     boiling_point: 1974°C (3585°F) - sublimes
     melting_point: 1975°C (3587°F)
@@ -264,76 +316,9 @@ detection_monitoring:
     detection_limit: 0.3 µg/sample
   odor_threshold: Not applicable - odorless
 title: Zinc Oxide (ZnO)
-ppe_requirements_detail:
-  id: irritant-gas-low-concentration
-  hazard_type: irritant_gas
-  concentration_range: <25 ppm
-  exposure_duration: short_term
-  minimum_protection_level: Level C
-  respiratory:
-    primary:
-      equipment: NIOSH-approved organic vapor respirator
-      standard: NIOSH 42 CFR 84
-      filter_type: Organic vapor cartridge
-      condition: For concentrations <25 ppm
-      fit_test_required: true
-      change_schedule: Per manufacturer guidance or saturation
-    upgrade_conditions:
-    - trigger: Concentration >25 ppm
-      equipment: Self-contained breathing apparatus (SCBA)
-    - trigger: Unknown concentration
-      equipment: SCBA or supplied-air respirator
-    - trigger: Oxygen deficient atmosphere (<19.5%)
-      equipment: SCBA (pressure-demand mode)
-  skin:
-    gloves:
-      material: Nitrile or butyl rubber
-      thickness: 15-18 mil minimum
-      standard: ANSI/ISEA 105
-      breakthrough_time: '>480 minutes'
-      condition: All handling operations
-    body:
-      equipment: Chemical-resistant apron or coveralls
-      material: Tyvek or equivalent polymer-laminate
-      standard: ANSI/ISEA 101
-      condition: Splash potential or prolonged exposure
-    footwear:
-      equipment: Chemical-resistant boots
-      material: Nitrile or PVC
-      condition: Floor contamination or large spills
-  eye:
-    primary:
-      equipment: Chemical safety goggles
-      type: Indirect vents, sealed to face
-      standard: ANSI Z87.1
-      marking: Z87+ for impact protection
-      condition: All operations with exposure potential
-    secondary:
-      equipment: Face shield
-      condition: Splash hazard or container transfer
-      use: Over goggles, not replacement
-  special_requirements:
-  - Work in well-ventilated area or use local exhaust ventilation
-  - Eliminate all ignition sources within 50 feet
-  - Emergency shower and eyewash within 10 seconds travel time
-  - Prohibit eating, drinking, smoking in contaminated areas
-  - Wash hands thoroughly before eating or drinking
-  decontamination:
-  - Remove contaminated clothing immediately
-  - Wash skin with soap and water
-  - Launder contaminated clothing separately
-  - Do not reuse until properly decontaminated
-  training_required:
-  - Respiratory protection program
-  - Chemical hazard awareness
-  - PPE donning and doffing procedures
-  - Emergency response procedures
-  medical_surveillance:
-    required: false
-    recommended: Annual respiratory fitness evaluation
-  limitations:
-  - Not for IDLH (Immediately Dangerous to Life or Health) atmospheres
-  - Not for oxygen-deficient environments
-  - Air-purifying respirators do not supply oxygen
-  specific_compound: Zinc Oxide
-  pel_ppm: null
+seo_description: When handling zinc oxide in workshop setups, workers often start by sifting through its fine, powdery form
+  that resists clumping under humid conditions, making...
+micro: When handling zinc oxide in workshop setups, workers often start by sifting through its fine, powdery form that resists
+  clumping under humid conditions, making it straightforward to blend into coatings or fillers without much hassle. This material
+  stands out for its bright white hue and smooth texture, which help it scatter light effectively in paints and sunscreens,
+  providing a natural barrier against harsh rays while keeping things lightweight and non-irritating on skin.

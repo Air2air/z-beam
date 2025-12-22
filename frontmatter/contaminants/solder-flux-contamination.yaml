@@ -1,8 +1,8 @@
 id: solder-flux-contamination
 name: Soldering Flux Residue
 category: organic-residue
-datePublished: '2025-12-21T02:51:40.119188Z'
-dateModified: '2025-12-21T02:51:40.119188Z'
+datePublished: '2025-12-22T23:36:16.352198Z'
+dateModified: '2025-12-22T23:36:16.352198Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/lubricant/solder-flux-contamination
@@ -23,12 +23,136 @@ description: Solder-flux contamination forms during electronics soldering operat
   strong bonding dependent from humidity, posing removal challenges like chemical resistance, yet laser cleaning effectively
   ablates it precisely, without damaging the underlying materials.
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: carbon-dioxide
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: water-vapor
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: vocs
+      phase: gas
+      hazard_level: moderate
+      presentation: card
+    - id: carbon-ash
+      phase: solid
+      hazard_level: low
+      presentation: card
+  found_on_materials:
+  - id: aluminum-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+  - id: brass-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+  - id: brick-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/brick-laser-cleaning
+  - id: bronze-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+  - id: cast-iron-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+  - id: ceramic-matrix-composites-cmcs-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+  - id: concrete-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/concrete-laser-cleaning
+  - id: copper-laser-cleaning
+    presentation: card
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+  - id: granite-laser-cleaning
+    presentation: card
+    url: /materials/stone/igneous/granite-laser-cleaning
+  - id: iron-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/iron-laser-cleaning
+  - id: limestone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+  - id: magnesium-laser-cleaning
+    presentation: card
+    url: /materials/metal/specialty/magnesium-laser-cleaning
+  - id: marble-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+  - id: nickel-laser-cleaning
+    presentation: card
+    url: /materials/metal/specialty/nickel-laser-cleaning
+  - id: porcelain-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/oxide/porcelain-laser-cleaning
+  - id: sandstone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+  - id: slate-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+  - id: stainless-steel-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+  - id: steel-laser-cleaning
+    presentation: card
+    url: /materials/metal/ferrous/steel-laser-cleaning
+  - id: terracotta-laser-cleaning
+    presentation: card
+    url: /materials/masonry/concrete/terracotta-laser-cleaning
+  - id: titanium-laser-cleaning
+    presentation: card
+    url: /materials/metal/specialty/titanium-laser-cleaning
+  - id: titanium-carbide-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/carbide/titanium-carbide-laser-cleaning
+  - id: tool-steel-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/tool-steel-laser-cleaning
+  - id: zinc-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/zinc-laser-cleaning
+  - id: titanium-alloy-ti-6al-4v-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
+  - id: stainless-steel-316-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+  - id: stainless-steel-304-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
+  - id: aluminum-bronze-laser-cleaning
+    presentation: card
+    url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+  - id: aluminum-nitride-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+  - id: titanium-nitride-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/coating/titanium-nitride-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         appearance: Flux residue appears as a crusty, dull coating in white, yellow, or brown, often masking the ceramic's
@@ -99,7 +223,7 @@ relationships:
           appear stained or waxy.
         coverage: Coverage is generally sparse and spotty, limited to contact points, with high variation due to wood absorption.
         pattern: It tends to form irregular patches or streaks where flux was accidentally applied, with no uniform distribution.
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -184,13 +308,27 @@ relationships:
       thermal_diffusivity: 0.08
       vaporization_temperature: 450
   valid_materials:
-  - PCB
-  - Copper
-  - Brass
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - Brass
+    - Copper
+    - PCB
   prohibited_materials:
-  - Plastics
-  - Optical Components
-  safetyData: &id001
+    _section:
+      title: Unsafe for Materials
+      description: Materials where removal of this contamination is not recommended
+      order: 4
+      variant: warning
+      icon: alert-triangle
+    items:
+    - Optical Components
+    - Plastics
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -249,6 +387,39 @@ relationships:
       source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      metals:
+        title: Metal Substrates
+        description: Ferrous and non-ferrous metals affected by this contamination
+        items:
+        - id: brass-laser-cleaning
+          title: Brass
+          url: /materials/metal/non-ferrous/brass-laser-cleaning
+          image: /images/material/brass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: copper-laser-cleaning
+          title: Copper
+          url: /materials/metal/non-ferrous/copper-laser-cleaning
+          image: /images/material/copper-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      general:
+        title: General Materials
+        description: Materials in the general category
+        items:
+        - id: pcb-laser-cleaning
+          title: Pcb Laser Cleaning
+          url: /materials/general/misc/pcb-laser-cleaning
+          image: /images/material/pcb-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 composition:
 - Abietic Acid
 - Activators
@@ -283,14 +454,17 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 subcategory: lubricant
-safetyData: *id001
-removalByMaterial:
+safety_data: *id001
+removal_by_material:
   brass:
     laser_parameters:
       wavelength:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -303,35 +477,35 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 10
         recommended: 10
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -339,14 +513,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 50
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -403,6 +577,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -415,35 +592,35 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 500
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 50
         recommended: 50
         range:
-        - 10
-        - 200
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 20
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -451,14 +628,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:

@@ -40,7 +40,7 @@ export default function ConfirmSchedulingPage() {
             <div className="rounded-md border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
               <div className="flex items-start gap-4">
                 <div className="rounded-md bg-blue-100 p-3 dark:bg-blue-900/30">
-                  <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  <Mail className="h-6 w-6 text-orange-600 dark:text-blue-400" />
                 </div>
                 <div className="flex-1">
                   <h2 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
@@ -98,13 +98,13 @@ export default function ConfirmSchedulingPage() {
                   <div className="space-y-2">
                     <a
                       href={SITE_CONFIG.contact.general.phoneHref}
-                      className="block text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                      className="block text-orange-600 hover:text-orange-700 dark:text-blue-400 dark:hover:text-blue-300"
                     >
                       📞 {SITE_CONFIG.contact.general.phone}
                     </a>
                     <a
                       href={`mailto:${SITE_CONFIG.contact.general.email}`}
-                      className="block text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                      className="block text-orange-600 hover:text-orange-700 dark:text-blue-400 dark:hover:text-blue-300"
                     >
                       ✉️ {SITE_CONFIG.contact.general.email}
                     </a>
@@ -118,7 +118,7 @@ export default function ConfirmSchedulingPage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
+              className="inline-flex items-center justify-center rounded-md bg-orange-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:bg-orange-500 dark:hover:bg-orange-600"
             >
               Return to Home
             </Link>
@@ -134,11 +134,11 @@ export default function ConfirmSchedulingPage() {
           <div className="mt-12 text-center">
             <p className="text-sm text-gray-500 dark:text-gray-400">
               While you wait, learn more about{' '}
-              <Link href="/services" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+              <Link href="/services" className="text-orange-600 hover:text-orange-700 dark:text-blue-400 dark:hover:text-blue-300">
                 our services
               </Link>
               {' '}or explore our{' '}
-              <Link href="/materials" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+              <Link href="/materials" className="text-orange-600 hover:text-orange-700 dark:text-blue-400 dark:hover:text-blue-300">
                 material database
               </Link>
               .

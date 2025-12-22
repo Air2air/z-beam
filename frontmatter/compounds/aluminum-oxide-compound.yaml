@@ -3,8 +3,8 @@ name: Aluminum Oxide
 display_name: Aluminum Oxide (Al₂O₃)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2025-12-20T23:36:52.443622Z'
-dateModified: '2025-12-20T23:36:52.443622Z'
+datePublished: '2025-12-22T21:25:26.481164Z'
+dateModified: '2025-12-22T21:25:26.481164Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/aluminum-oxide-compound
@@ -19,10 +19,20 @@ breadcrumb:
   href: /compounds/particulate/metal_oxide
 - label: Aluminum Oxide
   href: /compounds/particulate/metal-oxide/aluminum-oxide-compound
-chemical_formula: Al2O3
+chemical_formula: Al₂O₃
 cas_number: 1344-28-1
 molecular_weight: 101.96
-description: null
+description: Handling tough residues on metal surfaces often demands a material that's both aggressive and reliable, which
+  is where aluminum oxide particulates shine in laser cleaning setups. These fine particles, known for their exceptional hardness
+  and durability, effectively abrade away contaminants without damaging the underlying substrate, making them ideal for restoring
+  industrial equipment or historical artifacts through precise laser-assisted processes. In broader industrial roles, aluminum
+  oxide stands out as a go-to abrasive in grinding wheels and sandblasting operations, where its sharp edges and chemical
+  stability ensure consistent performance under high-stress conditions. Engineers value its heat resistance, allowing it to
+  withstand intense thermal environments in refractory linings for furnaces or kilns, while its inert nature prevents unwanted
+  reactions during ceramic production. When paired with laser technology, the particles' reflective properties and toughness
+  enhance cleaning efficiency, scattering debris efficiently and leaving surfaces smooth and prepared for further treatments,
+  all without introducing harmful residues. This versatility extends to polishing delicate components in aerospace or electronics,
+  where controlled abrasion yields a flawless finish.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -36,6 +46,61 @@ sources_in_laser_cleaning:
 - anodizing_removal
 - aluminum_coating_ablation
 relationships:
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: aluminum-oxidation-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Aluminum Oxidation
+      presentation: card
+      url: /contaminants/oxidation/non-ferrous/aluminum-oxidation-contamination
+    - id: aluminum-oxidation-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Aluminum Oxidation
+      presentation: card
+      url: /contaminants/oxidation/non-ferrous/aluminum-oxidation-contamination
+    - id: anodizing-defects-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Anodizing Layer Irregularities
+      presentation: card
+      url: /contaminants/metallic-coating/anodizing/anodizing-defects-contamination
+    - id: anodizing-defects-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Anodizing Layer Irregularities
+      presentation: card
+      url: /contaminants/metallic-coating/anodizing/anodizing-defects-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: aluminum-bronze-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+    - id: aluminum-laser-cleaning
+      presentation: card
+      url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    - id: aluminum-nitride-laser-cleaning
+      presentation: card
+      url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+    - id: brass-laser-cleaning
+      presentation: card
+      url: /materials/metal/non-ferrous/brass-laser-cleaning
+    - id: bronze-laser-cleaning
+      presentation: card
+      url: /materials/metal/non-ferrous/bronze-laser-cleaning
   health_effects: null
 subcategory: metal_oxide
 author:
@@ -67,3 +132,9 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 title: Aluminum Oxide (Al₂O₃)
+seo_description: Handling tough residues on metal surfaces often demands a material that's both aggressive and reliable, which
+  is where aluminum oxide particulates shine in...
+micro: Handling tough residues on metal surfaces often demands a material that's both aggressive and reliable, which is where
+  aluminum oxide particulates shine in laser cleaning setups. These fine particles, known for their exceptional hardness and
+  durability, effectively abrade away contaminants without damaging the underlying substrate, making them ideal for restoring
+  industrial equipment or historical artifacts through precise laser-assisted processes.

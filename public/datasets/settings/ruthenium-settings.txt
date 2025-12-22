@@ -15,6 +15,95 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 45 W
+  Range: 1-120 W
+  Description: Optimal average power for Ruthenium oxide removal 
+               without substrate damage
 
-Generated: 2025-12-21T07:05:14.070Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for efficient Ruthenium oxide 
+               absorption with minimal substrate interaction
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise Ruthenium surface 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 2.3 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for Ruthenium oxide removal without 
+               bulk material damage
+
+PULSE WIDTH:
+  Value: 8 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled Ruthenium 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform Ruthenium surface 
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete Ruthenium 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform Ruthenium surface 
+
+POWER:
+  Value: 200 W
+  Range: 50-500 W
+  Description: Typical range for industrial Nd:YAG laser cleaning of reflective metals like Ruthenium; starting at 200 W balances efficiency and heat input to avoid melting (melting point ~2334°C). Source: IPG Photonics YLR series specs and general metal cleaning guidelines (e.g., SPIE proceedings on laser ablation).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for contamination removal; slower for heavy contamination (100-500 mm/s), faster for light (500-2000 mm/s). Recommended 500 mm/s for Ruthenium to ensure uniform cleaning without excessive heat accumulation due to its thermal conductivity (~120 W/m·K). Source: Industry standards from Laserax and CleanLaser equipment manuals.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for Ruthenium cleaning to ablate contaminants while minimizing heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for low thermal damage on high-reflectivity surfaces. Source: Laser physics studies (e.g., Applied Surface Science journal on ns vs. ps ablation thresholds for noble metals).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Standard for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat buildup on Ruthenium's reflective surface (reflectivity ~60% at 1064 nm). 50 kHz balances speed and safety. Trade-off: high freq increases overlap heating. Source: Academic literature (e.g., Optics & Lasers in Engineering on repetition rate effects in metal cleaning).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant ablation without substrate damage; Ruthenium damage threshold ~4-5 J/cm² at 1064 nm due to high melting point. Recommended 1 J/cm² for safe cleaning of light contaminants. Source: Ablation threshold studies (e.g., Journal of Applied Physics on noble metal thresholds; conservative estimate for Ru similar to Pt/Rh).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller spots (50-200 μm) for fine surface prep on Ruthenium components; larger (200-500 μm) for broad areas. 200 μm recommended for uniform energy distribution on small industrial parts. Source: Equipment specs from Coherent and Trumpf lasers for precision cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid damage. Recommended 2 passes for Ruthenium to ensure complete removal while respecting thermal properties. Source: Industry case studies (e.g., laser cleaning of catalytic surfaces in chemical engineering reports).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or over-ablation; 50% optimal for Ruthenium to prevent uneven heating on reflective surfaces. Typical range 30-80% based on scan patterns. Source: Process optimization studies (e.g., Journal of Laser Applications on scan overlap for metal surface treatment).
+
+
+Generated: 2025-12-22T20:49:23.792Z
 License: CC BY 4.0

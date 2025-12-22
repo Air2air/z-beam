@@ -15,6 +15,7 @@ export async function CardGrid({
   groupByCategory = false,
   columns = 3,
   gap = 'md',
+  variant = 'default',
 }: CardGridSSRProps) {
   // Select the appropriate article fetcher based on content type
   const getArticleForType = 
@@ -93,6 +94,7 @@ export async function CardGrid({
                   href={item.href || item.url || `/${item.slug}`}
                   imageUrl={item.imageUrl}
                   imageAlt={item.imageAlt}
+                  variant={variant}
                   frontmatter={{
                     title: item.title || 'Untitled',
                     slug: item.slug,
@@ -122,6 +124,7 @@ export async function CardGrid({
           href={item.href || item.url || `/${item.slug}`}
           imageUrl={item.imageUrl}
           imageAlt={item.imageAlt}
+          variant={variant}
           frontmatter={{
             title: item.title || 'Untitled',
             slug: item.slug,

@@ -27,7 +27,7 @@ export default function MaterialFilters({
     <div className="material-filters space-y-4">
       {/* Search */}
       <div className="relative">
-        <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted w-5 h-5" />
+        <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-500 w-5 h-5" />
         <input
           type="text"
           placeholder="Search materials..."

@@ -11,6 +11,98 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for concrete surface cleaning and 
+               contaminant removal
 
-Generated: 2025-12-21T07:05:13.912Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for concrete 
+               absorption and minimal substrate damage
+
+SPOT SIZE:
+  Value: 0.8 mm
+  Range: 0.1-500 mm
+  Description: Beam spot diameter for effective cleaning coverage and 
+               energy density control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning 
+               coverage without thermal buildup
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               while preserving concrete integrity
+
+PULSE WIDTH:
+  Value: 12 ns
+  Range: 0.1-1000 ns
+  Description: Pulse duration balancing efficient contaminant removal 
+               with concrete substrate preservation
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning with 
+               sufficient energy deposition
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap percentage for uniform cleaning 
+
+POWER:
+  Value: 500 W
+  Range: 100-2000 W
+  Description: Typical range for industrial 1064 nm laser cleaning of concrete surfaces (e.g., graffiti or rust removal); starting at 500 W balances efficiency and safety to avoid thermal cracking. Max safe below substrate damage threshold (~1000-1500 W depending on fluence). Source: CleanLaser and IPG Photonics equipment specs; academic review in J. Laser Appl. (2018) on stone/concrete cleaning.
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contamination removal on concrete; slower (100-500 mm/s) for heavy soiling like rust, faster (2000-5000 mm/s) for light contaminants. Recommended 1000 mm/s for optimal balance of cleaning rate and uniformity, considering concrete's low thermal conductivity. Source: Industry standards from Laser Clean Tech manuals; case study in Opt. Lasers Eng. (2020).
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (10-150 ns) typical for concrete to enable ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 50 ns for efficient contaminant removal without cracking porous concrete. Source: Laser physics research in Appl. Surf. Sci. (2019) on pulsed laser ablation of cementitious materials.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in low-conductivity concrete. Recommended 50 kHz for balanced throughput and thermal management. Source: Academic literature in J. Clean. Prod. (2021) on industrial laser parameters for building materials.
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant ablation (e.g., paints or oxides); concrete damage threshold ~8-12 J/cm² to prevent spalling. Recommended 2 J/cm² for effective cleaning below threshold, accounting for variable reflectivity at 1064 nm. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) and Opt. Express (2022) on concrete laser interactions.
+
+SPOT_SIZE:
+  Value: 1000 μm
+  Range: 0.1-1200 μm
+  Description: Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020).
+
+PASS_COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (3-5) for heavy layers to ensure complete removal without excessive energy input. Recommended 3 passes for typical industrial concrete cleaning to achieve uniform results. Source: Industry case studies in Constr. Build. Mater. (2019) on laser surface preparation.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Standard overlap for uniform scan coverage; 30-50% for faster large-area cleaning, 50-80% for detailed work to avoid gaps on uneven concrete. Recommended 50% for balanced efficiency and homogeneity. Source: Process optimization studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems.
+
+
+Generated: 2025-12-22T20:49:23.494Z
 License: CC BY 4.0

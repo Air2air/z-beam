@@ -1,8 +1,8 @@
 id: blood-residue-contamination
 name: Biological Blood Residue
 category: biological
-datePublished: '2025-12-21T02:51:35.834083Z'
-dateModified: '2025-12-21T02:51:35.834083Z'
+datePublished: '2025-12-22T23:36:10.396843Z'
+dateModified: '2025-12-22T23:36:10.396843Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/biological/deposit/blood-residue-contamination
@@ -32,12 +32,130 @@ description: 'Blood-residue contamination, it arises from biological sources lik
   so contamination lingers in crevices. Laser cleaning addresses this effectively, pulses target organic bonds precisely and
   ablation vaporizes residues without heat spread, thus surfaces exhibit cleanliness and integrity preserves.'
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: water-vapor
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: carbon-dioxide
+      phase: gas
+      hazard_level: low
+      presentation: card
+    - id: nitrogen-oxides
+      phase: gas
+      hazard_level: moderate
+      presentation: card
+    - id: carbon-ash
+      phase: solid
+      hazard_level: moderate
+      presentation: card
+  found_on_materials:
+  - id: borosilicate-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+  - id: brick-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/brick-laser-cleaning
+  - id: carbon-fiber-reinforced-polymer-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning
+  - id: ceramic-matrix-composites-cmcs-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+  - id: concrete-laser-cleaning
+    presentation: card
+    url: /materials/masonry/general/concrete-laser-cleaning
+  - id: crown-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+  - id: epoxy-resin-composites-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+  - id: fiberglass-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
+  - id: float-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/soda-lime/float-glass-laser-cleaning
+  - id: glass-fiber-reinforced-polymers-gfrp-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning
+  - id: gorilla-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+  - id: granite-laser-cleaning
+    presentation: card
+    url: /materials/stone/igneous/granite-laser-cleaning
+  - id: lead-crystal-laser-cleaning
+    presentation: card
+    url: /materials/glass/soda-lime/lead-crystal-laser-cleaning
+  - id: limestone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+  - id: marble-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+  - id: metal-matrix-composites-mmcs-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
+  - id: phenolic-resin-composites-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
+  - id: polyester-resin-composites-laser-cleaning
+    presentation: card
+    url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
+  - id: porcelain-laser-cleaning
+    presentation: card
+    url: /materials/ceramic/oxide/porcelain-laser-cleaning
+  - id: quartz-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/soda-lime/quartz-glass-laser-cleaning
+  - id: sandstone-laser-cleaning
+    presentation: card
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+  - id: sapphire-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/soda-lime/sapphire-glass-laser-cleaning
+  - id: slate-laser-cleaning
+    presentation: card
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+  - id: soda-lime-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/specialty-glass/soda-lime-glass-laser-cleaning
+  - id: tempered-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+  - id: terracotta-laser-cleaning
+    presentation: card
+    url: /materials/masonry/concrete/terracotta-laser-cleaning
+  - id: urethane-composites-laser-cleaning
+    presentation: card
+    url: /materials/composite/structural/urethane-composites-laser-cleaning
+  - id: aluminosilicate-glass-laser-cleaning
+    presentation: card
+    url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         appearance: On ceramic, blood stains are reddish-brown to dark, with a glossy or matte finish matching the glaze,
@@ -129,7 +247,7 @@ relationships:
           parts of the wood.
         pattern: It spreads in irregular patches or along the grain, with possible feathering edges due to the porous surface
           absorbing the liquid.
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -214,23 +332,30 @@ relationships:
       thermal_diffusivity: 0.14
       vaporization_temperature: 100
   valid_materials:
-  - Stainless Steel
-  - Crown Glass
-  - Float Glass
-  - Borosilicate Glass
-  - Aluminosilicate Glass
-  - Fused Silica
-  - Gorilla Glass
-  - Tempered Glass
-  - Alumina
-  - Silicon Carbide
-  - Zirconia
-  - Aluminum Nitride
-  - Boron Carbide
-  - Boron Nitride
-  - Silicon Nitride
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - Alumina
+    - Aluminosilicate Glass
+    - Aluminum Nitride
+    - Boron Carbide
+    - Boron Nitride
+    - Borosilicate Glass
+    - Crown Glass
+    - Float Glass
+    - Fused Silica
+    - Gorilla Glass
+    - Silicon Carbide Sic
+    - Silicon Nitride
+    - Stainless Steel
+    - Tempered Glass
+    - Zirconia
   prohibited_materials: []
-  safetyData: &id001
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -298,6 +423,131 @@ relationships:
       source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      ceramics:
+        title: Ceramic Materials
+        description: Ceramic and glass materials affected by this contamination
+        items:
+        - id: alumina-laser-cleaning
+          title: Alumina
+          url: /materials/ceramic/oxide/alumina-laser-cleaning
+          image: /images/material/alumina-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: aluminum-nitride-laser-cleaning
+          title: Aluminum Nitride
+          url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+          image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: boron-carbide-laser-cleaning
+          title: Boron Carbide
+          url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
+          image: /images/material/boron-carbide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: boron-nitride-laser-cleaning
+          title: Boron Nitride
+          url: /materials/ceramic/technical/boron-nitride-laser-cleaning
+          image: /images/material/boron-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: silicon-nitride-laser-cleaning
+          title: Silicon Nitride
+          url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
+          image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: zirconia-laser-cleaning
+          title: Zirconia
+          url: /materials/ceramic/oxide/zirconia-laser-cleaning
+          image: /images/material/zirconia-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      glass:
+        title: Glass Materials
+        description: Materials in the glass category
+        items:
+        - id: aluminosilicate-glass-laser-cleaning
+          title: Aluminosilicate Glass
+          url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+          image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: borosilicate-glass-laser-cleaning
+          title: Borosilicate Glass
+          url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+          image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: crown-glass-laser-cleaning
+          title: Crown Glass
+          url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+          image: /images/material/crown-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: float-glass-laser-cleaning
+          title: Float Glass
+          url: /materials/glass/soda-lime/float-glass-laser-cleaning
+          image: /images/material/float-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: fused-silica-laser-cleaning
+          title: Fused Silica
+          url: /materials/glass/soda-lime/fused-silica-laser-cleaning
+          image: /images/material/fused-silica-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: gorilla-glass-laser-cleaning
+          title: Gorilla Glass
+          url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+          image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: tempered-glass-laser-cleaning
+          title: Tempered Glass
+          url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+          image: /images/material/tempered-glass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      general:
+        title: General Materials
+        description: Materials in the general category
+        items:
+        - id: silicon-carbide-laser-cleaning
+          title: Silicon Carbide Laser Cleaning
+          url: /materials/general/misc/silicon-carbide-laser-cleaning
+          image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      metals:
+        title: Metal Substrates
+        description: Ferrous and non-ferrous metals affected by this contamination
+        items:
+        - id: stainless-steel-laser-cleaning
+          title: Stainless Steel
+          url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+          image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 composition:
 - Hemoglobin
 - Proteins
@@ -333,14 +583,17 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: deposit
-safetyData: *id001
-removalByMaterial:
+safety_data: *id001
+removal_by_material:
   alumina:
     laser_parameters:
       wavelength:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -353,35 +606,35 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 500
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 50
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -389,14 +642,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -453,6 +706,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -465,35 +721,35 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 2
         recommended: 2
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 50
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -501,14 +757,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -565,6 +821,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -577,35 +836,35 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 500
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 50
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -613,14 +872,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -679,6 +938,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -691,35 +953,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 200
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 10
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 20
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 4
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -727,14 +989,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -791,6 +1053,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 50
@@ -803,35 +1068,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 100
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 0.5
         recommended: 0.5
         range:
         - 0.1
-        - 2.0
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -839,14 +1104,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -903,6 +1168,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 50
@@ -915,35 +1183,35 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 500
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 10
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 2
         recommended: 2
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -951,14 +1219,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 50
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1015,6 +1283,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 50
@@ -1027,35 +1298,35 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 2
         recommended: 2
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1063,14 +1334,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1127,6 +1398,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -1139,50 +1413,50 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 500
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 0.5
         recommended: 0.5
         range:
         - 0.1
-        - 2.0
+        - 20.0
       spot_size:
         unit: μm
         value: 300
         recommended: 300
         range:
-        - 100
-        - 1000
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1239,6 +1513,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -1251,31 +1528,35 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
+        value: 500
+        recommended: 500
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 2
         recommended: 2
         range:
-        - 0.5
-        - 5
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
+        value: 250
+        recommended: 250
         range:
-        - 50
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1283,14 +1564,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1347,6 +1628,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 50
@@ -1359,35 +1643,35 @@ removalByMaterial:
         value: 500
         recommended: 500
         range:
-        - 100
-        - 2000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 10
         recommended: 10
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 20
         recommended: 20
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 0.5
         recommended: 0.5
         range:
         - 0.1
-        - 5
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 50
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1395,14 +1679,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1459,6 +1743,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -1471,21 +1758,21 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 100
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 10
+        - 1
         - 200
       energy_density:
         unit: J/cm²
@@ -1493,28 +1780,28 @@ removalByMaterial:
         recommended: 0.5
         range:
         - 0.1
-        - 2.0
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 50
-        - 1000
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1571,6 +1858,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -1583,35 +1873,35 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 500
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 50
         recommended: 50
         range:
-        - 10
-        - 100
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 20
+        - 1
         - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1625,8 +1915,8 @@ removalByMaterial:
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1685,6 +1975,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -1697,35 +1990,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 100
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 10
         recommended: 10
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 50
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1733,14 +2026,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 50
         recommended: 50
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:
@@ -1797,6 +2090,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 150
@@ -1809,35 +2105,35 @@ removalByMaterial:
         value: 1000
         recommended: 1000
         range:
-        - 200
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 50
         recommended: 50
         range:
-        - 10
-        - 200
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 40
         recommended: 40
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -1845,14 +2141,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 50
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: photochemical
       secondary_mechanisms:

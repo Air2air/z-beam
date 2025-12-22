@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/plastic/thermoplastic/polycarbonate-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/plastic/thermoplastic/polycarbonate-laser-cleaning#dataset",
   "name": "Polycarbonate Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Polycarbonate. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/polycarbonate-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/polycarbonate-laser-cleaning.json",
       "name": "Polycarbonate Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/polycarbonate-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/polycarbonate-laser-cleaning.csv",
       "name": "Polycarbonate Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/polycarbonate-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/polycarbonate-laser-cleaning.txt",
       "name": "Polycarbonate Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Polycarbonate",
@@ -214,8 +214,205 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "electricalResistivity": {
+          "value": 100000000000000,
+          "unit": "Ω·m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "fractureToughness": {
+          "value": 2.3,
+          "unit": "MPa m^{1/2}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "youngsModulus": {
+          "value": 2.3,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 18,
+          "unit": "vol% O2",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 1.2,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 118,
+          "unit": "Rockwell R",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.93,
+          "unit": "",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 86,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 83,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 66,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "A. M. K. Esch, J. Ihlemann, and B. Wolff, 'UV laser ablation of polymers: polycarbonate and polyimide', Applied Surface Science, 1993, DOI: 10.1016/0169-4332(93)90096-5",
+          "context": "Bisphenol A polycarbonate (commercial grade, >99% purity), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration, vacuum environment",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:05:29.457464",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "value": 0.1,
+          "unit": "dimensionless",
+          "min": 0.05,
+          "max": 0.2,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 2000,
+          "unit": "m⁻¹",
+          "min": 1000,
+          "max": 5000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 5,
+          "unit": "J/cm²",
+          "min": 1,
+          "max": 10,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 0.8,
+          "unit": "MW/m",
+          "min": 0.5,
+          "max": 1.5,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.05,
+          "unit": "dimensionless",
+          "min": 0.04,
+          "max": 0.06,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 673,
+          "unit": "K",
+          "min": 600,
+          "max": 700,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 0.01,
+          "unit": "Pa",
+          "min": 0.001,
+          "max": 0.1,
+          "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 460,
+          "unit": "°C",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 1170,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.051,
+          "unit": "",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 0.2,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.000068,
+          "unit": "K^{-1}",
+          "confidence": 96,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 94000,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 1.17e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 0.25,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "R. Srinivasan and B. Braren, Applied Surface Science, 46 (1990) 22-30, DOI: 10.1016/0169-4332(90)90004-8",
+          "context": "Commercial grade polycarbonate (Lexan, ~99% purity), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration, vacuum environment",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:05:40.580498",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Aerospace",
+      "Automotive",
+      "Medical Devices",
+      "Electronics Manufacturing",
+      "Marine",
+      "Cultural Heritage",
+      "Optical Manufacturing",
+      "Energy Sector",
+      "Food Processing",
+      "Construction"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +586,410 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "60% overlap ensures uniform coverage and avoids gaps in cleaning; higher for heavy contamination to build fluence gradually. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 100000000000000,
+      "unitText": "Ω·m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 2.3,
+      "unitText": "MPa m^{1/2}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 2.3,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 18,
+      "unitText": "vol% O2",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1.2,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 118,
+      "unitText": "Rockwell R",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.93,
+      "unitText": "",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 86,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 83,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 66,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.1,
+      "unitText": "dimensionless",
+      "minValue": 0.05,
+      "maxValue": 0.2,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 2000,
+      "unitText": "m⁻¹",
+      "minValue": 1000,
+      "maxValue": 5000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 5,
+      "unitText": "J/cm²",
+      "minValue": 1,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 0.8,
+      "unitText": "MW/m",
+      "minValue": 0.5,
+      "maxValue": 1.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.05,
+      "unitText": "dimensionless",
+      "minValue": 0.04,
+      "maxValue": 0.06,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 673,
+      "unitText": "K",
+      "minValue": 600,
+      "maxValue": 700,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 0.01,
+      "unitText": "Pa",
+      "minValue": 0.001,
+      "maxValue": 0.1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 460,
+      "unitText": "°C",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 1170,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.051,
+      "unitText": "",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.2,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.000068,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 94000,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 1.17e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 0.25,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: paint-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/paint-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: uv-chalking-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/aging/photodegradation/uv-chalking-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Polycarbonate Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/polycarbonate-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Chun Lin",
+    "jobTitle": "Laser Processing Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "National Taiwan University"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/yi-chun-lin",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/yi-chun-lin.jpg",
+      "description": "Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/polycarbonate-laser-cleaning-hero.jpg",
+      "description": "Polycarbonate surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/polycarbonate-laser-cleaning-micro.jpg",
+      "description": "Polycarbonate microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Polycarbonate Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Yi-Chun Lin",
+        "jobTitle": "Laser Processing Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:14.517481Z",
+      "url": "http://localhost:3000/materials/plastic/thermoplastic/polycarbonate-laser-cleaning",
+      "citation": "Z-Beam (2025). Polycarbonate Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/polycarbonate-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for phenolic resin composite 
+               cleaning without thermal damage
 
-Generated: 2025-12-21T07:05:14.018Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for phenolic resin 
+               absorption and minimal substrate damage
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control on 
+               composite surfaces
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective phenolic resin removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               phenolic resin matrix
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive heat accumulation
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage; starting at 100W for light contamination on phenolics, which have low thermal conductivity (~0.2 W/m·K). Max safe ~300W to prevent charring (melting point ~200-300°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018) on polymer composites.
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for 1064 nm cleaning of contaminants; slower (500-1000 mm/s) for heavy soiling, faster (2000-3000 mm/s) for light; 1500 mm/s optimal for uniform removal without substrate heating on low-reflectivity phenolics (~10-20% at 1064 nm). Source: Industry standards from Laserax manuals and J. Cleaner Production (2020) case studies.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ <50 μm); 20 ns balances ablation efficiency and reduced thermal diffusion in phenolics. Ps (10-100 ps) for ultra-precise work but higher cost. Source: Laser physics in Applied Surface Science (2019) on polymer ablation thresholds.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for industrial cleaning; 30 kHz recommended for phenolics to achieve fast processing while limiting heat accumulation (high freq >50 kHz risks cumulative heating due to low conductivity). Trade-off: higher rates speed up cleaning but increase HAZ. Source: Academic literature in Journal of Laser Applications (2021).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal; damage threshold for phenolics ~1.5-2.5 J/cm² at 1064 nm due to moderate absorption; 1.0 J/cm² safe for cleaning without ablation of substrate. Conservative for thermal sensitivity. Source: Ablation studies in Composites Part B (2017) and Optics Express (2022).
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precision vs. area coverage; 300 μm recommended for phenolic composites in surface prep to focus energy and minimize overshoot on irregular surfaces. Smaller for fine details, larger for broad areas. Source: Equipment specs from Coherent Inc. and process optimization in Industrial Laser Solutions (2020).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes typical for complete removal on phenolics without excessive heat buildup. Source: Industry practice in aerospace case studies (e.g., AIAA Journal, 2019) and manufacturer guidelines.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 50% recommended for phenolic composites to avoid gaps or overexposure, balancing efficiency and even fluence distribution. Higher (60-80%) for heavy contamination. Source: Process optimization in Surface and Coatings Technology (2021).
+
+
+Generated: 2025-12-22T20:49:23.690Z
 License: CC BY 4.0

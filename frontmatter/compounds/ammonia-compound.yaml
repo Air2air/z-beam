@@ -3,8 +3,8 @@ name: Ammonia
 display_name: Ammonia (NH₃)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2025-12-20T23:36:52.334671Z'
-dateModified: '2025-12-20T23:36:52.334671Z'
+datePublished: '2025-12-22T21:25:26.206055Z'
+dateModified: '2025-12-22T21:25:26.206055Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
@@ -19,10 +19,18 @@ breadcrumb:
   href: /compounds/corrosive_gas/alkaline_gas
 - label: Ammonia
   href: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
-chemical_formula: NH3
+chemical_formula: NH₃
 cas_number: 7664-41-7
 molecular_weight: 17.03
-description: null
+description: Handling ammonia in industrial settings demands respect for its sharp, irritating odor that lingers and signals
+  danger right away, while its colorless nature as a gas makes it sneaky unless you're paying close attention. This stuff
+  dissolves readily in water to form solutions that pack a punch for cleaning tough grime off metals or machinery, turning
+  it into a go-to for stripping away residues without much fuss. In bigger operations, factories churn it out for boosting
+  crop yields through fertilizers or chilling things down in refrigeration systems where reliability counts on its efficient
+  heat absorption. When it comes to laser cleaning, though, watch out—its corrosive edge can etch surfaces if vapors mix in
+  during the process, so sealing off areas and ventilating aggressively works best to avoid pitting or weakening the material
+  under the beam; skipping that step invites headaches like uneven finishes or weakened spots that compromise durability later
+  on. Overall, its reactivity shines in controlled environments but bites back if mishandled around sensitive tools.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,30 +53,54 @@ sources_in_laser_cleaning:
 - protein_pyrolysis
 - amine_breakdown
 relationships:
-  produced_by_contaminants:
-  - id: blood-residue-contamination
-    title: Biological Blood Residue
-    url: /contaminants/biological/deposit/blood-residue-contamination
-    image: /images/contaminants/biological/deposit/blood-residue.jpg
-    frequency: occasional
-    severity: low
-    typical_context: Breakdown of proteins
   chemical_properties:
-  - type: chemical_properties
-    id: ammonia-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: ammonia-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: ammonia-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: ammonia-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: ammonia-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: ammonia-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: corrosive-liquid-moderate
-    overrides:
-      specific_compound: Ammonia
-      pel_ppm: 50
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: corrosive-liquid-moderate
+      overrides:
+        specific_compound: Ammonia
+        pel_ppm: 50
+      presentation: card
   emergency_response:
     fire_hazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse. May
       reignite after flame is extinguished.
@@ -83,6 +115,46 @@ relationships:
       >100 lbs.
     special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
       Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: blood-residue-contamination
+      frequency: occasional
+      severity: low
+      typical_context: Breakdown of proteins
+      presentation: card
+      url: /contaminants/biological/deposit/blood-residue-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: ceramic-matrix-composites-cmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+    - id: epoxy-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+    - id: metal-matrix-composites-mmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
+    - id: phenolic-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
+    - id: polyester-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
+    - id: urethane-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/structural/urethane-composites-laser-cleaning
   physical_properties:
     boiling_point: -33.34°C (-28°F)
     melting_point: -77.73°C (-107.9°F)
@@ -251,72 +323,9 @@ detection_monitoring:
     detection_limit: 0.02 ppm
   odor_threshold: 5-50 ppm - provides good warning below toxic levels
 title: Ammonia (NH₃)
-ppe_requirements_detail:
-  id: corrosive-liquid-moderate
-  hazard_type: corrosive_liquid
-  hazard_level: moderate
-  minimum_protection_level: Level C
-  respiratory:
-    equipment: Half-face respirator with acid gas cartridge
-    standard: NIOSH 42 CFR 84
-    condition: If vapor exposure possible
-    cartridge_type: Acid gas/organic vapor combination
-    fit_test_required: true
-  skin:
-    gloves:
-      material: Neoprene or PVC gloves
-      length: Elbow-length for handling
-      standard: ASTM F739
-      breakthrough_time: '>8 hours'
-      thickness: '>18 mil'
-    apron:
-      equipment: Chemical-resistant apron
-      material: Neoprene, PVC, or rubber
-      length: Full-length coverage
-      condition: All handling operations
-    footwear:
-      equipment: Chemical-resistant boots
-      material: PVC or rubber
-      height: At least 8 inches
-  eye:
-    primary:
-      equipment: Chemical splash goggles
-      standard: ANSI Z87.1
-      type: Indirect vents, sealed to face
-    secondary:
-      equipment: Face shield (8-inch minimum)
-      condition: Over goggles for handling operations
-      use: Face shield does not replace goggles
-  special_requirements:
-  - Emergency shower and eyewash within 10 seconds travel time
-  - Flush eyes for 15 minutes if contact occurs
-  - Remove contaminated clothing immediately
-  - Work in ventilated area or use fume hood
-  - Have neutralizing agent available (appropriate for specific chemical)
-  decontamination:
-  - Flush contaminated areas with water immediately
-  - Remove contaminated clothing under water if possible
-  - Wash skin thoroughly with soap and water
-  - Launder contaminated clothing separately
-  - Inspect PPE for damage before reuse
-  training_required:
-  - Chemical hazard awareness (corrosives)
-  - Proper PPE selection and use
-  - Emergency response procedures
-  - First aid for chemical burns
-  first_aid:
-    eye_contact:
-    - Flush immediately with water for 15+ minutes
-    - Hold eyelids open during flushing
-    - Seek immediate medical attention
-    skin_contact:
-    - Remove contaminated clothing
-    - Flush with water for 15+ minutes
-    - Wash with soap and water
-    - Seek medical attention
-    inhalation:
-    - Move to fresh air
-    - Administer oxygen if available
-    - Seek medical attention
-  specific_compound: Ammonia
-  pel_ppm: 50
+seo_description: Handling ammonia in industrial settings demands respect for its sharp, irritating odor that lingers and signals
+  danger right away, while its colorless nature...
+micro: Handling ammonia in industrial settings demands respect for its sharp, irritating odor that lingers and signals danger
+  right away, while its colorless nature as a gas makes it sneaky unless you're paying close attention. This stuff dissolves
+  readily in water to form solutions that pack a punch for cleaning tough grime off metals or machinery, turning it into a
+  go-to for stripping away residues without much fuss.

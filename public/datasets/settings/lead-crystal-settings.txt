@@ -11,6 +11,98 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 25 W
+  Range: 1-120 W
+  Description: Optimal average power for Lead Crystal surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:13.975Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption in Lead 
+               Crystal with minimal transmission
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control on Lead 
+               Crystal surfaces
+
+REPETITION RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               without substrate damage
+
+PULSE WIDTH:
+  Value: 100 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+               surface contaminants
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of cleaning passes for complete 
+               contaminant removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning pattern
+
+POWER:
+  Value: 20 W
+  Range: 10-100 W
+  Description: Typical range for delicate glass-like materials to avoid thermal damage; starting low prevents cracking in lead crystal (thermal conductivity ~1 W/mK, melting point ~500-600°C). Max safe based on avoiding substrate ablation. Source: IPG Photonics laser cleaning guidelines for optics.
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for contaminant removal without overheating; slower for heavy contamination (e.g., oxides), faster for light dust. Recommended balances speed and safety for lead crystal's low thermal conductivity. Source: Industry standards from Laserax equipment manuals.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) in transparent lead crystal at 1064 nm; picosecond (ps) or femtosecond reduces thermal effects but increases cost. Avoids cracking due to reflectivity (~4% at 1064 nm). Source: Laser physics studies in Optics Express (e.g., ns pulses for glass ablation thresholds).
+
+REPETITION_RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Typical for efficient cleaning; lower rates reduce heat accumulation in low-conductivity lead crystal, higher speeds up process but risks damage. Trade-off: high freq increases throughput but potential thermal buildup. Source: Academic literature in Journal of Applied Physics on pulsed laser cleaning.
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for removing contaminants (e.g., 0.5-1 for light, 1-3 for heavy) while below lead crystal damage threshold (~4-5 J/cm² at 1064 nm due to transparency). Conservative for safety. Source: Ablation threshold studies in Applied Surface Science for glass materials.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller for fine details on intricate lead crystal surfaces, larger for broad areas; 200 μm balances precision and coverage without excessive energy concentration. Source: Equipment specs from Coherent and Trumpf laser systems for precision cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal without risking damage to fragile lead crystal. Source: Industry case studies in laser cleaning of cultural heritage glass (e.g., adaptable to industrial from SPIE proceedings).
+
+OVERLAP_RATIO:
+  Value: 70 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage and avoids gaps in cleaning; 70% optimal for even fluence distribution on reflective, delicate surfaces like lead crystal. Source: Process optimization in Journal of Laser Applications.
+
+
+Generated: 2025-12-22T20:49:23.612Z
 License: CC BY 4.0

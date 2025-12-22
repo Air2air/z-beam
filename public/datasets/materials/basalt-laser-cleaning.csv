@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/stone/igneous/basalt-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/stone/igneous/basalt-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Basalt Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/igneous/basalt-laser-cleaning
+# Citation: Z-Beam (2025). Basalt Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/igneous/basalt-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Basalt,,,,,Material name
@@ -30,3 +30,39 @@ Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for safe ablat
 Machine,Settings,spot_size,200,μm,0.1,500,,"Smaller spots (100-200 μm) for precise surface preparation on basalt, larger (300-500 μm) for broad area cleaning; recommended balances resolution and efficiency for industrial use. Source: Equipment specifications from Raycus and SPI Lasers; optimization in F. Léonard et al. (Opt. Lasers Eng., 2015) for heterogeneous surfaces like basalt."
 Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, 2-3 for heavy layers on basalt to ensure complete removal without over-ablation; multi-pass minimizes damage risk. Source: Industry practice from case studies in heritage stone cleaning (adaptable to industrial), e.g., EN 17121 standard and reports by the European Laser Cleaning Association; practical trials in basalt quarrying applications."
 Machine,Settings,overlap_ratio,60,%,10,90,,"30-50% for large areas to speed processing, 60-80% for uniform coverage and contaminant removal on textured basalt surfaces; prevents gaps in cleaning. Source: Process optimization studies in P. Pouli et al. (Appl. Phys. A, 2010) on scan strategies for stones; laser system manuals emphasizing overlap for even fluence distribution."
+Property,material_characteristics,fractureToughness,2.4,MPa m^{0.5},,,ai_research,Material property: fractureToughness
+Property,material_characteristics,density,2900,kg/m³,,,ai_research,Material property: density
+Property,material_characteristics,oxidationResistance,0.96,dimensionless,,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,youngsModulus,89,GPa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,hardness,6,Mohs,,,ai_research,Material property: hardness
+Property,material_characteristics,compressiveStrength,200,MPa,,,ai_research,Material property: compressiveStrength
+Property,material_characteristics,tensileStrength,14,MPa,,,ai_research,Material property: tensileStrength
+Property,material_characteristics,flexuralStrength,20,MPa,,,ai_research,Material property: flexuralStrength
+Property,material_characteristics,corrosionResistance,0.96,dimensionless,,,ai_research,Material property: corrosionResistance
+Property,material_characteristics,porosity,3.4,%,,,ai_research,Material property: porosity
+Property,material_characteristics,laserDamageThreshold,1.45,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptionCoefficient,500000,m⁻¹,100000,1000000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,5,J/cm²,1,10,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalShockResistance,3,MW/m,2,4,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,reflectivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,1573,K,1400,1700,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,vaporPressure,1,Pa,0.1,10,ai_research,Material property: vaporPressure
+Property,laser_material_interaction,thermalDestruction,1673,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,laserReflectivity,0.1,dimensionless,,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalExpansion,0.0000065,K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,thermalConductivity,1.74,W/m·K,,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,specificHeat,840,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserAbsorption,7500,cm^{-1},,,ai_research,Material property: laserAbsorption
+Property,laser_material_interaction,thermalDiffusivity,8.5e-7,m²/s,,,ai_research,Material property: thermalDiffusivity
+Property,laser_material_interaction,ablationThreshold,2.8,J/cm²,,,scientific_literature,Material property: ablationThreshold
+Application,Industries,Application 1,Aerospace,,,,,Industry application
+Application,Industries,Application 2,Marine Engineering,,,,,Industry application
+Application,Industries,Application 3,Cultural Heritage,,,,,Industry application
+Application,Industries,Application 4,Construction and Architecture,,,,,Industry application
+Application,Industries,Application 5,Automotive Manufacturing,,,,,Industry application
+Application,Industries,Application 6,Energy Sector,,,,,Industry application
+Application,Industries,Application 7,Electronics Manufacturing,,,,,Industry application
+Application,Industries,Application 8,Medical Device Manufacturing,,,,,Industry application
+Application,Industries,Application 9,Industrial Manufacturing,,,,,Industry application
+Application,Industries,Application 10,Geotechnical Engineering,,,,,Industry application

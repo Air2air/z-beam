@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Epoxy Resin Composites Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+URL:            http://localhost:3000/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -113,35 +113,176 @@ repetition_rate:
   Note:   20-50 kHz balances cleaning speed and heat accumulation in epoxy (melting point ~150-200°C); higher rates (>50 kHz) risk thermal buildup leading to matrix degradation. Source: Academic literature in Proceedings of SPIE (2021) on pulsed laser cleaning of polymer composites; trade-offs noted in manufacturer data from Coherent Inc.
 
 energy_density:
-  Value:  N/A J/cm²
+  Value:  10.05 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
   Note:   Fluence range for contaminant removal without substrate ablation; damage threshold for epoxy composites ~1.5-2.5 J/cm² at 1064 nm. Recommended <1.0 J/cm² for safe cleaning. Conservative due to variable fiber content. Source: Ablation threshold studies in Composites Part B (2017); Optics Express (2022).
 
 spot_size:
-  Value:  N/A μm
+  Value:  250 μm
   Min:    0.1 μm
   Max:    500 μm
   Note:   Beam diameters for uniform coverage; 200-300 μm recommended for epoxy composites to achieve fine control over ablation on heterogeneous surfaces (e.g., carbon fiber reinforced). Smaller for detail work, larger for broad areas. Source: Equipment specs from Adapt Laser Systems; process optimization in Industrial Laser Solutions (2020).
 
 pass_count:
-  Value:  N/A passes
+  Value:  5.5 passes
   Min:    1 passes
   Max:    10 passes
   Note:   Multi-pass (2-5) typical for layered contaminants on epoxy without single-pass overheating; 3 passes recommended for complete removal while preserving composite integrity. Single pass viable for light prep. Source: Industry case studies in Journal of Materials Processing Technology (2019); practical guidelines from laser cleaning service providers.
 
 overlap_ratio:
-  Value:  N/A %
+  Value:  50 %
   Min:    10 %
   Max:    90 %
   Note:   50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60% recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety.
+
+================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  electricalResistivity:
+    Value:  100000000000000 ohm-m
+    Source: ai_research
+
+  fractureToughness:
+    Value:  1.2 MPa√m
+    Source: ai_research
+
+  density:
+    Value:  1800 kg/m³
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  310 °C
+    Source: ai_research
+
+  youngsModulus:
+    Value:  25000000000 Pa
+    Source: ai_research
+
+  hardness:
+    Value:  85 Shore D
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  550 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  450 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  420 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.95 dimensionless
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.3 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.25 dimensionless
+    Min:    0.1 dimensionless
+    Max:    0.5 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  50000 m⁻¹
+    Min:    10000 m⁻¹
+    Max:    200000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  4.5 J/cm²
+    Min:    1 J/cm²
+    Max:    10 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.2 MW/m
+    Min:    0.5 MW/m
+    Max:    2.5 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.05 dimensionless
+    Min:    0.03 dimensionless
+    Max:    0.1 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  600 K
+    Min:    500 K
+    Max:    700 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  200 Pa
+    Min:    50 Pa
+    Max:    1000 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  623 K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.05 dimensionless
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.00002 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.35 W/(m·K)
+    Source: ai_research
+
+  specificHeat:
+    Value:  1100 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  35000 m^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  1.15e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Aerospace
+2. Automotive
+3. Wind Energy
+4. Marine
+5. Electronics
+6. Medical Devices
+7. Cultural Heritage
+8. Sports Equipment
+9. Construction
+10. Rail Transportation
 
 ================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Epoxy Resin Composites Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+  Z-Beam (2025). Epoxy Resin Composites Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

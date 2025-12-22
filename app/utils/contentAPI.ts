@@ -191,11 +191,8 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
           const content = await fs.readFile(filePath, 'utf8');
           const parsed = safeMatterParse(content, { excerpt: false, engines: { yaml: (s: string) => require('js-yaml').load(s, { schema: require('js-yaml').JSON_SCHEMA }) } });
           
-          // Handle normalized structure (parsed.data.metadata) or legacy flat structure
-          const data = parsed.data.metadata || parsed.data;
-          
           // Only add slug if YAML is complete
-          if (isYamlComplete(data)) {
+          if (isYamlComplete(parsed.data)) {
             const slug = stripParenthesesFromSlug(file.replace('.yaml', ''));
             slugs.add(slug);
           } else {
@@ -931,11 +928,8 @@ const getArticleByContentType = cache(async (
       
       if (!parsed) return null;
       
-      // Handle normalized structure (parsed.metadata) or legacy flat structure
-      let frontmatterData = parsed.metadata || parsed;
-      
       // Apply all normalizations
-      frontmatterData = normalizeAllTextFields(frontmatterData);
+      let frontmatterData = normalizeAllTextFields(parsed);
       frontmatterData = normalizeCategoryFields(frontmatterData);
       frontmatterData = normalizeFreshnessTimestamps(frontmatterData);
       frontmatterData = normalizeNumericValues(frontmatterData);
@@ -1143,53 +1137,51 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       return null;
     }
     
-    // Construct SettingsMetadata with all available data from metadata property
-    const metadata = data.metadata || data; // Fallback for old format during transition
+    // Construct SettingsMetadata with all available data
     return {
-      name: metadata.name,
-      materialRef: metadata.materialRef,
-      category: metadata.category,
-      subcategory: metadata.subcategory,
-      title: metadata.title,
-      subtitle: metadata.subtitle,
-      description: metadata.description,
+      name: data.name,
+      materialRef: data.materialRef,
+      category: data.category,
+      subcategory: data.subcategory,
+      title: data.title,
+      subtitle: data.subtitle,
+      description: data.description,
       slug,
-      author: metadata.author,
-      datePublished: metadata.datePublished,
-      dateModified: metadata.dateModified,
-      breadcrumb: metadata.breadcrumb,
-      images: metadata.images,
+      author: data.author,
+      datePublished: data.datePublished,
+      dateModified: data.dateModified,
+      breadcrumb: data.breadcrumb,
+      images: data.images,
       
       // Component-specific data
-      components: metadata.components,
-      essential_parameters: metadata.essential_parameters,
-      heatmap_config: metadata.heatmap_config,
-      thermal_accumulation: metadata.thermal_accumulation,
-      material_challenges: metadata.material_challenges,
-      common_issues: metadata.common_issues,
+      components: data.components,
+      essential_parameters: data.essential_parameters,
+      heatmap_config: data.heatmap_config,
+      thermal_accumulation: data.thermal_accumulation,
+      material_challenges: data.material_challenges,
+      common_issues: data.common_issues,
       
       // Research and documentation
-      research_library: metadata.research_library,
-      equipment_requirements: metadata.equipment_requirements,
-      expected_outcomes: metadata.expected_outcomes,
+      research_library: data.research_library,
+      equipment_requirements: data.equipment_requirements,
+      expected_outcomes: data.expected_outcomes,
       
       // Expert answers for E-E-A-T
-      expertAnswers: metadata.expertAnswers,
+      expertAnswers: data.expertAnswers,
       
       // Cross-domain relationships
-      domain_linkages: metadata.domain_linkages,
+      domain_linkages: data.domain_linkages,
       
       // Legacy support
-      machineSettings: metadata.machineSettings,
+      machineSettings: data.machineSettings,
       
       // SEO and E-E-A-T
-      seo: metadata.seo || metadata.seo_settings_page,
-      eeat: metadata.eeat,
+      seo: data.seo || data.seo_settings_page,
+      eeat: data.eeat,
       
       // Attached data
       _materialProperties: materialProperties,
       _metadata: {
-        ...(metadata._metadata || {}),
         sourceType, // Track whether data came from separate file or hybrid
       }
     } as SettingsMetadata;

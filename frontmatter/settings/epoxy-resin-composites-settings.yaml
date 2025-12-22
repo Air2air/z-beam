@@ -1,7 +1,7 @@
 id: epoxy-resin-composites-settings
 name: Epoxy Resin Composites
-datePublished: '2025-12-21T03:33:02.720029Z'
-dateModified: '2025-12-21T03:33:02.720029Z'
+datePublished: '2025-12-22T23:37:05.882055Z'
+dateModified: '2025-12-22T23:37:05.882055Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/epoxy-resin-composites-settings
@@ -45,14 +45,42 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials: []
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for epoxy resin removal without substrate damage
     unit: W
@@ -147,6 +175,7 @@ machineSettings:
     description: 'Fluence range for contaminant removal without substrate ablation; damage threshold for epoxy composites
       ~1.5-2.5 J/cm² at 1064 nm. Recommended <1.0 J/cm² for safe cleaning. Conservative due to variable fiber content. Source:
       Ablation threshold studies in Composites Part B (2017); Optics Express (2022).'
+    value: 10.05
   spot_size:
     min: 0.1
     max: 500
@@ -154,6 +183,7 @@ machineSettings:
     description: 'Beam diameters for uniform coverage; 200-300 μm recommended for epoxy composites to achieve fine control
       over ablation on heterogeneous surfaces (e.g., carbon fiber reinforced). Smaller for detail work, larger for broad areas.
       Source: Equipment specs from Adapt Laser Systems; process optimization in Industrial Laser Solutions (2020).'
+    value: 250
   pass_count:
     min: 1
     max: 10
@@ -161,6 +191,7 @@ machineSettings:
     description: 'Multi-pass (2-5) typical for layered contaminants on epoxy without single-pass overheating; 3 passes recommended
       for complete removal while preserving composite integrity. Single pass viable for light prep. Source: Industry case
       studies in Journal of Materials Processing Technology (2019); practical guidelines from laser cleaning service providers.'
+    value: 5.5
   overlap_ratio:
     min: 10
     max: 90
@@ -168,6 +199,7 @@ machineSettings:
     description: '50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60%
       recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization
       studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety.'
+    value: 50.0
 challenges:
   thermal_management:
   - challenge: Matrix degradation and delamination
@@ -287,8 +319,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly because
-  their fiber-reinforced structure absorbs energy...
-micro: I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly because their fiber-reinforced
-  structure absorbs energy more readily without reflecting it away. This helps remove contaminants efficiently, as the matrix
-  holds up well under controlled heat, preventing quick degradation that you'd get with softer plastics.

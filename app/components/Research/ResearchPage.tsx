@@ -180,9 +180,9 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                     </p>
                   </div>
                   {expandedSources.has(index) ? (
-                    <ChevronRightIcon className="w-6 h-6 text-muted" />
+                    <ChevronRightIcon className="w-6 h-6 text-orange-500" />
                   ) : (
-                    <ChevronRightIcon className="w-6 h-6 text-muted" />
+                    <ChevronRightIcon className="w-6 h-6 text-orange-500" />
                   )}
                 </button>
                 
@@ -658,7 +658,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                     <Link
                       key={index}
                       href={item.url}
-                      className="block p-4 bg-secondary rounded-md border hover:border-blue-500 transition-colors"
+                      className="block p-4 bg-secondary rounded-md border hover:border-orange-500 transition-colors"
                     >
                       <div className="font-semibold text-blue-600400 mb-1">
                         {item.title}
@@ -682,7 +682,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
                     <Link
                       key={index}
                       href={item.url}
-                      className="block p-4 bg-secondary rounded-md border hover:border-blue-500 transition-colors"
+                      className="block p-4 bg-secondary rounded-md border hover:border-orange-500 transition-colors"
                     >
                       <div className="font-semibold text-blue-600400 mb-1">
                         {item.title}

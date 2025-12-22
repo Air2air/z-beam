@@ -11,6 +11,97 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 90 W
+  Range: 1-120 W
+  Description: Optimal average power for Lanthanum oxide removal 
+               without substrate damage
 
-Generated: 2025-12-21T07:05:13.973Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption in Lanthanum 
+
+SPOT SIZE:
+  Value: 80 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise oxide removal control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning 
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for Lanthanum oxide ablation
+
+PULSE WIDTH:
+  Value: 12 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient oxide layer 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning efficiency
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete oxide removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning coverage
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Fluence threshold for effective Lanthanum cleaning
+
+POWER:
+  Value: 100 W
+  Range: 20-500 W
+  Description: Typical range for pulsed Nd:YAG lasers in metal cleaning to avoid thermal damage; recommended starting at 100 W for Lanthanum's low melting point (921°C) and moderate thermal conductivity (~13 W/mK). Conservative max to prevent substrate melting. Source: General manufacturer specs (e.g., IPG Photonics) and ablation studies on rare earth metals (e.g., J. Appl. Phys. 2018 on similar metals).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Range for effective contaminant removal without excessive heat buildup; slower for heavy contamination (100-500 mm/s), faster for light (1000-2000 mm/s). Recommended 500 mm/s for balanced cleaning on reflective Lanthanum surfaces. Source: Industry standards from laser cleaning equipment manuals (e.g., Laserax systems) and process optimization in Opt. Lasers Eng. (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning to balance ablation and minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier. 20 ns recommended for Lanthanum to limit thermal diffusion given its properties. Source: Laser physics research in Appl. Surf. Sci. (2019) on metal ablation thresholds.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning; higher rates increase speed but risk heat accumulation on low-conductivity Lanthanum. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause overheating. Source: Academic literature, e.g., J. Laser Appl. (2021) on repetition rate effects in metal surface prep.
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal without damaging Lanthanum (estimated damage threshold ~4 J/cm² at 1064 nm due to high reflectivity). Recommended 1.5 J/cm² for safe cleaning of oxides or contaminants. Source: Ablation threshold studies on rare earths (e.g., Phys. Rev. B 2017) and general metal cleaning in Lasers Manuf. Mater. Process. (2022).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller for fine detail (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for uniform cleaning on Lanthanum without excessive energy concentration. Source: Equipment specifications from manufacturers like Coherent and Trumpf for 1064 nm systems.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Lanthanum while minimizing risk to soft substrate. Source: Industry case studies in laser cleaning of metals (e.g., Proc. SPIE 2019) and practical guidelines from Adapt Laser Systems.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 50% recommended for Lanthanum to avoid gaps or over-ablation on irregular surfaces. Lower (30%) for speed, higher (80%) for thoroughness. Source: Process optimization studies in J. Clean. Prod. (2021) on scan strategies for metallic substrates.
+
+
+Generated: 2025-12-22T20:49:23.609Z
 License: CC BY 4.0

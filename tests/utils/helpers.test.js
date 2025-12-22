@@ -60,14 +60,14 @@ describe('Helper utilities', () => {
   describe('getVariantClasses', () => {
     test('should return default primary and md classes', () => {
       const result = getVariantClasses();
-      expect(result).toContain('bg-blue-600');
+      expect(result).toContain('bg-orange-600');
       expect(result).toContain('text-white');
       expect(result).toContain('px-4');
       expect(result).toContain('py-2');
     });
 
     test('should handle all variant types', () => {
-      expect(getVariantClasses('primary')).toContain('bg-blue-600');
+      expect(getVariantClasses('primary')).toContain('bg-orange-600');
       expect(getVariantClasses('secondary')).toContain('bg-gray-200');
       expect(getVariantClasses('outline')).toContain('border');
       expect(getVariantClasses('ghost')).toContain('text-gray-600');
@@ -461,7 +461,7 @@ describe('Helper utilities', () => {
         true && 'active'
       );
       
-      expect(buttonClass).toContain('bg-blue-600');
+      expect(buttonClass).toContain('bg-orange-600');
       expect(buttonClass).toContain('px-6');
       expect(buttonClass).toContain('mt-4');
       expect(buttonClass).toContain('active');

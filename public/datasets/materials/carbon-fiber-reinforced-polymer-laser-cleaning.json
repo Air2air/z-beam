@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning#dataset",
   "name": "Carbon Fiber Reinforced Polymer Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Carbon Fiber Reinforced Polymer. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.json",
       "name": "Carbon Fiber Reinforced Polymer Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.csv",
       "name": "Carbon Fiber Reinforced Polymer Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.txt",
       "name": "Carbon Fiber Reinforced Polymer Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Carbon Fiber Reinforced Polymer",
@@ -214,8 +214,205 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "electricalResistivity": {
+          "value": 0.0015,
+          "unit": "Ω·m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "fractureToughness": {
+          "value": 1.2,
+          "unit": "MPa√m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 1.55,
+          "unit": "g/cm³",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 673,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "youngsModulus": {
+          "value": 150000000000,
+          "unit": "Pa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 250,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 1500,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 1480,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 690,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.98,
+          "unit": "dimensionless (normalized resistance index)",
+          "confidence": 96,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 2.3,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser-induced damage threshold of carbon fiber reinforced polymer composites",
+          "citation": "Negel, J.P. et al., Journal of Laser Applications, 2018, DOI: 10.2351/1.5026123",
+          "context": "CFRP with T800 carbon fibers in epoxy matrix (60% fiber volume), 1064 nm Nd:YAG laser, 10 ns pulse duration, room temperature (25°C), vacuum conditions",
+          "confidence": 95,
+          "researched_date": "2025-11-24T11:53:25.595894",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "value": 0.3,
+          "unit": "dimensionless",
+          "min": 0.1,
+          "max": 0.5,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 50000,
+          "unit": "m⁻¹",
+          "min": 10000,
+          "max": 100000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 3,
+          "unit": "J/cm²",
+          "min": 1,
+          "max": 5,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 1.5,
+          "unit": "MW/m",
+          "min": 0.5,
+          "max": 3,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.7,
+          "unit": "dimensionless",
+          "min": 0.5,
+          "max": 0.9,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 700,
+          "unit": "K",
+          "min": 500,
+          "max": 900,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 100,
+          "unit": "Pa",
+          "min": 1,
+          "max": 1000,
+          "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 673,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.35,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 2.7e-7,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 0.92,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 920,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 0.92,
+          "unit": "dimensionless (absorptivity)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 5.7e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 2.3,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser cleaning of carbon fiber reinforced polymer composites: Ablation thresholds and surface morphology",
+          "citation": "B. Liu et al., Optics and Lasers in Engineering, 2019, DOI: 10.1016/j.optlaseng.2019.04.012",
+          "context": "CFRP with 60% carbon fiber volume fraction in epoxy matrix (T300/EPON 828), 1064 nm Nd:YAG laser, room temperature (25°C), atmospheric pressure",
+          "confidence": 95,
+          "researched_date": "2025-11-24T11:53:30.939302",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Aerospace",
+      "Automotive",
+      "Wind Energy",
+      "Medical Devices",
+      "Marine",
+      "Electronics Manufacturing",
+      "Sports Equipment",
+      "Cultural Heritage",
+      "Industrial Manufacturing",
+      "Rail Transportation"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +586,394 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage without excessive overlap heating; 60% recommended for CFRP to achieve even cleaning while controlling thermal load. Typical 30-80% in optimization. Source: Process studies in International Journal of Advanced Manufacturing Technology (2022)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 0.0015,
+      "unitText": "Ω·m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 1.2,
+      "unitText": "MPa√m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1.55,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 673,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 150000000000,
+      "unitText": "Pa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 250,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 1500,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 1480,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 690,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.98,
+      "unitText": "dimensionless (normalized resistance index)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 2.3,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.3,
+      "unitText": "dimensionless",
+      "minValue": 0.1,
+      "maxValue": 0.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 50000,
+      "unitText": "m⁻¹",
+      "minValue": 10000,
+      "maxValue": 100000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 3,
+      "unitText": "J/cm²",
+      "minValue": 1,
+      "maxValue": 5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 1.5,
+      "unitText": "MW/m",
+      "minValue": 0.5,
+      "maxValue": 3,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.7,
+      "unitText": "dimensionless",
+      "minValue": 0.5,
+      "maxValue": 0.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 700,
+      "unitText": "K",
+      "minValue": 500,
+      "maxValue": 900,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 100,
+      "unitText": "Pa",
+      "minValue": 1,
+      "maxValue": 1000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 673,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.35,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 2.7e-7,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.92,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 920,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.92,
+      "unitText": "dimensionless (absorptivity)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 5.7e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.3,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: aviation-sealant-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/aviation-sealant-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: epoxy-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/epoxy-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Carbon Fiber Reinforced Polymer Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Chun Lin",
+    "jobTitle": "Laser Processing Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "National Taiwan University"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/yi-chun-lin",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/yi-chun-lin.jpg",
+      "description": "Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg",
+      "description": "Carbon Fiber Reinforced Polymer surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/carbon-fiber-reinforced-polymer-laser-cleaning-micro.jpg",
+      "description": "Carbon Fiber Reinforced Polymer microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Carbon Fiber Reinforced Polymer Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Yi-Chun Lin",
+        "jobTitle": "Laser Processing Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:13.430180Z",
+      "url": "http://localhost:3000/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning",
+      "citation": "Z-Beam (2025). Carbon Fiber Reinforced Polymer Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

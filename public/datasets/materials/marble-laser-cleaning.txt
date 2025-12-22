@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Marble Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/stone/metamorphic/marble-laser-cleaning
+URL:            http://localhost:3000/materials/stone/metamorphic/marble-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,152 @@ overlap_ratio:
   Note:   70% overlap ensures uniform fluence coverage without gaps on marble's textured surface; higher for heavy soiling to avoid streaking. Source: Process optimization in Opt. Express (2016) and scanning system manuals from scanning galvo providers like Scanlab.
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  1.16 MPa√m
+    Source: ai_research
+
+  youngsModulus:
+    Value:  55 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.98 
+    Source: ai_research
+
+  density:
+    Value:  2710 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  3 Mohs
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.65 dimensionless (resistance index, 0-1 scale)
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  100 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  11 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  10 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0.6 %
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.1 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.15 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  5000 m⁻¹
+    Min:    1000 m⁻¹
+    Max:    10000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Min:    1 J/cm²
+    Max:    5 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.2 MW/m
+    Min:    0.8 MW/m
+    Max:    1.8 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.9 dimensionless
+    Min:    0.85 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1100 K
+    Min:    1050 K
+    Max:    1150 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.1 Pa
+    Min:    0.01 Pa
+    Max:    1 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  825 °C
+    Source: ai_research
+
+  specificHeat:
+    Value:  880 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.38 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  2.8 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000065 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  5000 m^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.00000124 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Construction and Architecture
+3. Monument Conservation
+4. Museum and Art Conservation
+5. Funerary Art Restoration
+6. Interior Design and Luxury Goods
+7. Archaeological Science
+8. Industrial Manufacturing
+9. Religious Architecture
+10. Public Art Maintenance
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Marble Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/metamorphic/marble-laser-cleaning
+  Z-Beam (2025). Marble Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/metamorphic/marble-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

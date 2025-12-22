@@ -34,9 +34,11 @@ export async function getAllCategories(): Promise<CategoryInfo[]> {
   const result = await getAllCategoriesGeneric<ContaminantInfo>('contaminants');
   return result.map(cat => ({
     ...cat,
+    items: cat.items, // Keep items for CollectionPageCategory compatibility
     contaminants: cat.items,
     subcategories: cat.subcategories.map(sub => ({
       ...sub,
+      items: sub.items, // Keep items for subcategories too
       contaminants: sub.items
     }))
   }));

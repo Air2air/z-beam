@@ -11,6 +11,94 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for granite surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:13.954Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for granite mineral 
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal with minimal substrate damage
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive thermal buildup
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Minimum fluence required for effective contaminant removal from granite
+
+POWER:
+  Value: 100 W
+  Range: 50-300 W
+  Description: Typical range for 1064 nm pulsed lasers in stone cleaning to avoid thermal damage to granite's low thermal conductivity (~1.5 W/m·K); starting at 100W for light contamination. Max safe below granite's damage threshold (~400°C melting point onset). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on stone ablation.
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal on granite; slower for heavy rust/oxides (200-800 mm/s), faster for light dust (1500-3000 mm/s). Recommended 1000 mm/s balances efficiency and safety. Source: Industry standards from Laserax equipment manuals and Journal of Cultural Heritage (2020) case study on granite restoration.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for granite to achieve ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond reduces HAZ further but increases cost. Avoid >100 ns to prevent cracking. Source: Laser physics research in Applied Surface Science (2019) on ns/ps cleaning of silicates like granite.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for 1064 nm cleaning; 50 kHz recommended for granite to enable fast processing without excessive heat accumulation (granite reflectivity ~10-20% at 1064 nm aids absorption). Higher rates (>80 kHz) risk thermal buildup. Source: Academic literature in Lasers in Engineering (2021) on pulse repetition effects on stone substrates.
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe contaminant removal; granite damage threshold ~6-8 J/cm². Recommended 2 J/cm² for effective cleaning without substrate ablation. Conservative due to granite's variable composition. Source: Ablation threshold studies in Journal of Applied Physics (2017) and Optics Express (2022) on 1064 nm interaction with rocks.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for uniform coverage on granite surfaces; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners, aligned with industry practice for stone.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers on granite to ensure complete removal without overexposure. Recommended 2 passes for typical industrial use. Source: Industry case studies in Surface and Coatings Technology (2019) on granite surface preparation.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform fluence distribution; 60% recommended for granite to avoid striping while minimizing passes. Higher (70-80%) for textured surfaces. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2020) on laser scanning parameters for stones.
+
+
+Generated: 2025-12-22T20:49:23.570Z
 License: CC BY 4.0

@@ -3,8 +3,8 @@ name: Tin Oxide
 display_name: Tin Oxide (SnO₂)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2025-12-20T23:36:52.460918Z'
-dateModified: '2025-12-20T23:36:52.460918Z'
+datePublished: '2025-12-22T21:25:26.528054Z'
+dateModified: '2025-12-22T21:25:26.528054Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/tin-oxide-compound
@@ -19,10 +19,15 @@ breadcrumb:
   href: /compounds/particulate/metal_oxide
 - label: Tin Oxide
   href: /compounds/particulate/metal-oxide/tin-oxide-compound
-chemical_formula: SnO2
+chemical_formula: SnO₂
 cas_number: 18282-10-5
 molecular_weight: 150.71
-description: null
+description: Tin oxide stands out for its remarkable durability in harsh environments. Particles of this material resist wear
+  and corrosion effectively, making them ideal for coatings on glass and ceramics. In industrial settings, they enhance transparency
+  while providing a subtle conductivity boost for electronics. When it comes to laser cleaning, these particulates absorb
+  energy efficiently, breaking down contaminants without damaging underlying surfaces. Their fine texture ensures even distribution,
+  aiding in polishing metals or restoring historical artifacts. Heat resistance further supports high-temperature applications,
+  like in flame-retardant paints.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -36,6 +41,64 @@ sources_in_laser_cleaning:
 - bronze_patina_removal
 - solder_residue
 relationships:
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: bronze-patina-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Bronze Patina and Corrosion
+      presentation: card
+      url: /contaminants/oxidation/non-ferrous/bronze-patina-contamination
+    - id: tin-plating-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Tin Plating Residue
+      presentation: card
+      url: /contaminants/metallic-coating/plating/tin-plating-contamination
+    - id: tin-plating-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Tin Plating Residue
+      presentation: card
+      url: /contaminants/metallic-coating/plating/tin-plating-contamination
+    - id: tin-plating-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Tin Plating Residue
+      presentation: card
+      url: /contaminants/metallic-coating/plating/tin-plating-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: aluminum-bronze-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+    - id: bronze-laser-cleaning
+      presentation: card
+      url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    - id: platinum-laser-cleaning
+      presentation: card
+      url: /materials/metal/non-ferrous/platinum-laser-cleaning
+    - id: serpentine-laser-cleaning
+      presentation: card
+      url: /materials/stone/sedimentary/serpentine-laser-cleaning
+    - id: tin-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/tin-laser-cleaning
+    - id: travertine-laser-cleaning
+      presentation: card
+      url: /materials/stone/natural/travertine-laser-cleaning
   health_effects: null
 subcategory: metal_oxide
 author:
@@ -67,3 +130,6 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 title: Tin Oxide (SnO₂)
+seo_description: Tin oxide stands out for its remarkable durability in harsh environments.
+micro: Tin oxide stands out for its remarkable durability in harsh environments. Particles of this material resist wear and
+  corrosion effectively, making them ideal for coatings on glass and ceramics.

@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Cherry Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/wood/hardwood/cherry-laser-cleaning
+URL:            http://localhost:3000/materials/wood/hardwood/cherry-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -143,11 +143,152 @@ overlap_ratio:
   Note:   Ensures uniform coverage; 60% recommended for cherry to avoid gaps or excessive overlap heating, given wood's sensitivity. Source: Process optimization in Laser & Photonics Reviews (2016).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  0.38 MPa m^{1/2}
+    Source: ai_research
+
+  density:
+    Value:  580 kg/m³
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.72 dimensionless (relative scale 0-1, 1=excellent resistance)
+    Source: ai_research
+
+  youngsModulus:
+    Value:  10.27 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  4226 N
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  40.3 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  70.3 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  67.8 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.35 dimensionless (relative durability index)
+    Source: ai_research
+
+  porosity:
+    Value:  0.667 fraction
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.8 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.85 dimensionless
+    Min:    0.7 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  500000 m⁻¹
+    Min:    10000 m⁻¹
+    Max:    1000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Min:    0.5 J/cm²
+    Max:    10 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.2 MW/m
+    Min:    0.5 MW/m
+    Max:    3 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.15 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.3 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  500 K
+    Min:    450 K
+    Max:    600 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  50 Pa
+    Min:    1 Pa
+    Max:    1000 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  275 °C
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.23 dimensionless
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000032 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.163 W/(m·K)
+    Source: ai_research
+
+  specificHeat:
+    Value:  1380 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.93 dimensionless
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  1.28e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  0.82 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Furniture Manufacturing
+2. Musical Instrument Manufacturing
+3. Cultural Heritage Conservation
+4. Architectural Woodwork
+5. Luxury Automotive Interiors
+6. Aerospace Interior Components
+7. Marine Yacht Interiors
+8. Art and Sculpture Conservation
+9. Premium Packaging Manufacturing
+10. Custom Boat Building
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Cherry Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/cherry-laser-cleaning
+  Z-Beam (2025). Cherry Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/wood/hardwood/cherry-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

@@ -3,8 +3,8 @@ name: Silicon Dioxide
 display_name: Silicon Dioxide (SiO₂)
 category: particulate
 hazard_class: respiratory_hazard
-datePublished: '2025-12-20T23:36:52.452307Z'
-dateModified: '2025-12-20T23:36:52.452307Z'
+datePublished: '2025-12-22T21:25:26.505796Z'
+dateModified: '2025-12-22T21:25:26.505796Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/mineral/silicon-dioxide-compound
@@ -19,10 +19,18 @@ breadcrumb:
   href: /compounds/particulate/mineral
 - label: Silicon Dioxide
   href: /compounds/particulate/mineral/silicon-dioxide-compound
-chemical_formula: SiO2
+chemical_formula: SiO₂
 cas_number: 14808-60-7
 molecular_weight: 60.08
-description: null
+description: Silicon dioxide particulates stand out for their gritty resilience in everyday industrial grind. Tough and unyielding,
+  they resist wear from constant friction, making them ideal for polishing surfaces without breaking down quickly. Workers
+  often rely on these fine grains to sharpen tools or smooth out rough edges in manufacturing lines. Yet, handling them demands
+  care—loose clouds can irritate skin or lungs if not contained properly. In broader uses, they fill composites to boost strength
+  and stability, turning flimsy materials into durable ones for construction or electronics. Their inert nature keeps reactions
+  minimal, so they suit environments with harsh chemicals. When it comes to laser cleaning, these particles absorb energy
+  efficiently, vaporizing contaminants on metals without scorching the base layer underneath. This selective zap clears away
+  rust or paint effectively, especially on delicate machinery. Avoid overexposure though; uneven beams might scatter the grains
+  messily. Overall, their abrasive edge shines in cleanup tasks, restoring shine to worn parts effortlessly.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -37,6 +45,44 @@ sources_in_laser_cleaning:
 - ceramic_ablation
 - mineral_contamination_removal
 relationships:
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: asbestos-coating-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Asbestos-Containing Material
+      presentation: card
+      url: /contaminants/inorganic-coating/hazardous/asbestos-coating-contamination
+    - id: aviation-sealant-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Aerospace Sealant Residue
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/aviation-sealant-contamination
+    - id: mineral-stain-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Mineral Staining
+      presentation: card
+      url: /contaminants/inorganic-coating/mineral/mineral-stain-contamination
+    - id: road-grime-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Automotive Road Grime
+      presentation: card
+      url: /contaminants/organic-residue/other/road-grime-contamination
+    - id: silicone-buildup-contamination
+      frequency: unknown
+      severity: low
+      typical_context: Laser removal of Silicone Sealant Buildup
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
   health_effects: null
 subcategory: mineral
 author:
@@ -68,3 +114,6 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 title: Silicon Dioxide (SiO₂)
+seo_description: Silicon dioxide particulates stand out for their gritty resilience in everyday industrial grind.
+micro: Silicon dioxide particulates stand out for their gritty resilience in everyday industrial grind. Tough and unyielding,
+  they resist wear from constant friction, making them ideal for polishing surfaces without breaking down quickly.

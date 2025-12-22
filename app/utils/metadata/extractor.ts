@@ -54,11 +54,6 @@ export class MetadataExtractor {
     
     const obj = data as Record<string, unknown>;
     
-    // Handle nested structure (parsed.metadata)
-    if (obj.metadata && typeof obj.metadata === 'object') {
-      return this.normalize(obj.metadata as Record<string, unknown>);
-    }
-    
     // Handle flat structure
     return this.normalize(obj);
   }

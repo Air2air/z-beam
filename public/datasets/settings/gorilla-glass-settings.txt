@@ -11,6 +11,92 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal power range for Gorilla Glass cleaning without 
 
-Generated: 2025-12-21T07:05:13.951Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Optimal wavelength for Gorilla Glass processing with 
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Optimal spot size for precision cleaning of Gorilla 
+
+REPETITION RATE:
+  Value: 100 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Optimal pulse width for controlled ablation of surface 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Optimal number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap ratio for uniform cleaning 
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Optimal fluence threshold for contaminant removal without glass damage
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for delicate glass substrates like Gorilla Glass to avoid thermal damage; starting at 50W for light contamination removal. Max safe below 200W to prevent cracking due to low thermal conductivity (~1 W/mK). Source: IPG Photonics laser cleaning guidelines for optics; academic review in Journal of Laser Applications (2018).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Range for effective contaminant ablation without substrate heating; slower speeds (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Recommended 500 mm/s for Gorilla Glass to balance efficiency and safety. Source: Industry standards from Laser Institute of America; equipment manuals from Coherent Inc.
+
+PULSE_WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially. 10 ns recommended to limit heat diffusion in Gorilla Glass (high reflectivity ~4% at 1064 nm). Source: Laser physics research in Applied Physics A (2020) on glass ablation thresholds.
+
+REPETITION_RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Typical 10-100 kHz for pulsed cleaning; lower rates reduce heat accumulation in low-conductivity Gorilla Glass, higher enable faster processing but risk overheating. 20 kHz recommended for balanced throughput. Trade-off: high freq increases cumulative fluence. Source: Academic literature in Optics and Lasers in Engineering (2019).
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal (e.g., oils, fingerprints); Gorilla Glass damage threshold ~2-5 J/cm² at 1064 nm ns pulses due to softening point ~500°C. Recommended 0.5 J/cm² for safe cleaning below threshold. Source: Ablation threshold studies in Journal of Applied Physics (2017) on strengthened glass.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller spots (50-200 μm) for fine detail cleaning on Gorilla Glass surfaces; larger (200-500 μm) for broad areas. 200 μm recommended for uniform coverage without pinpoint damage. Source: Equipment specifications from Trumpf and Coherent laser systems for precision optics cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid exceeding damage fluence per pass. Recommended 2 passes for Gorilla Glass to ensure complete removal while minimizing thermal stress. Source: Industry case studies in Surface and Coatings Technology (2021); Corning application notes.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: 30-80% overlap ensures uniform fluence distribution; higher for delicate materials like Gorilla Glass to prevent uneven heating or missed spots. 50% recommended for optimal coverage in industrial cleaning. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2022).
+
+
+Generated: 2025-12-22T20:49:23.566Z
 License: CC BY 4.0

@@ -11,6 +11,103 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Willow surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:14.146Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for Willow 
+               absorption and minimal penetration
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning with adequate 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               and thermal management
+
+ENERGY DENSITY:
+  Value: 1.2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               without substrate damage
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal with controlled thermal effects
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for efficient area coverage and 
+               effective cleaning
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Optimal number of passes for complete cleaning without 
+               excessive processing
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap percentage for uniform cleaning coverage
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Optimal dwell time per spot for effective cleaning action
+
+POWER:
+  Value: 150 W
+  Range: 50-500 W
+  Description: Typical range for 1064 nm fiber lasers in wood cleaning to balance efficiency and avoid charring; starting at 150 W for willow's low thermal conductivity (~0.15 W/mK) prevents substrate damage. Source: IPG Photonics YLR series specs and studies on laser wood surface treatment (e.g., Journal of Cultural Heritage, 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contaminant removal on porous woods like willow; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance. Source: Industry standards from Laserax equipment manuals and wood cleaning case studies (Optics and Lasers in Engineering, 2020).
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for 1064 nm cleaning of organics like willow to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 50 ns recommended for willow's reflectivity (~5-10% at 1064 nm). Source: Laser physics research in Applied Surface Science (2019).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning to ensure coverage without excessive heat buildup in low-melting-point woods (willow ~250-300°C char point); higher rates speed up process but risk accumulation. 50 kHz balances speed and safety. Source: Academic literature on wood ablation (Journal of Applied Physics, 2017).
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal without ablating willow substrate; damage threshold ~5-10 J/cm² at 1064 nm due to high absorption. Recommended 2 J/cm² for safe cleaning. Conservative estimate for uncertainty in willow-specific data. Source: Ablation threshold studies in Optics Express (2021).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise cleaning on wood grains; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for uniform willow surface prep. Source: Equipment specs from Coherent and Trumpf laser systems.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete removal on willow without overexposure. Source: Industry practice in heritage wood restoration case studies (Studies in Conservation, 2016).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage on irregular wood surfaces like willow; 30-50% for speed, 60-80% for thoroughness. 60% recommended to avoid gaps. Source: Process optimization in laser scanning studies (Procedia Manufacturing, 2019).
+
+
+Generated: 2025-12-22T20:49:23.933Z
 License: CC BY 4.0

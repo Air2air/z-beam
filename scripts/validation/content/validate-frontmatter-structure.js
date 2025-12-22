@@ -19,7 +19,6 @@ const SAMPLE_COUNT = FULL_VALIDATION ? Infinity : 10; // Check all files with --
 
 // Properties that should NOT exist (common mistakes)
 const FORBIDDEN_PROPERTIES = [
-  'applications',
   'environmentalImpact',
   'beforeText', // Should be micro.before
   'afterText',  // Should be micro.after

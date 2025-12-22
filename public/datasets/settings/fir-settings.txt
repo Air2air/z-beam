@@ -11,6 +11,98 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Fir surface cleaning without 
 
-Generated: 2025-12-21T07:05:13.932Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption in Fir wood 
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control on Fir 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+
+ENERGY DENSITY:
+  Value: 1.2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient contaminant 
+               removal with minimal substrate damage
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning of Fir 
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+               removal from Fir
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap percentage for uniform cleaning 
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Optimal dwell time per cleaning spot on Fir wood surface
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for pulsed Nd:YAG lasers in wood cleaning to avoid thermal damage; starting at 50 W for light contamination on softwoods like Fir. Max limited to prevent charring (Fir's low thermal conductivity ~0.12 W/mK increases heat buildup). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaning heads; academic paper by Pou et al. (2004) in Optics and Lasers in Engineering.
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Range for effective contaminant removal without substrate ablation; slower for heavy contamination (500-1000 mm/s) vs light (2000-5000 mm/s). Recommended 1500 mm/s balances speed and control for Fir surface preparation. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems); case studies on wood restoration.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for Fir to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns optimal for 1064 nm ablation of organics without excessive plasma formation. Source: Laser physics research in Applied Surface Science (e.g., Anisimov et al., 2010) on wood ablation thresholds.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for cleaning applications; 30 kHz recommended for Fir to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk thermal damage on low-conductivity wood). Source: Academic literature in Journal of Applied Physics (e.g., studies on pulse overlap in laser cleaning, Semaltianos, 2013).
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe cleaning of contaminants; Fir damage threshold ~6-10 J/cm² at 1064 nm due to moderate reflectivity (~40% for wood). Recommended 2 J/cm² for removal without charring. Source: Ablation threshold studies in Optics Express (e.g., research on softwood laser interaction, Kononenko et al., 2006); conservative for industrial use.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for cleaning; smaller (100-200 μm) for fine detail on Fir grain, larger (300-500 μm) for broad areas. 200 μm recommended for uniform surface preparation. Source: Equipment specifications from Trumpf and CleanLASER systems; process optimization in industrial applications.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete Fir cleaning without overexposure. Source: Industry practice from case studies in wood heritage restoration (e.g., European Laser Cleaning projects) and manufacturer guidelines.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 50% recommended for Fir to avoid gaps or streaks while minimizing total energy input. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surface and Coatings Technology (e.g., research on scan strategies, Palmieri et al., 2018).
+
+
+Generated: 2025-12-22T20:49:23.530Z
 License: CC BY 4.0

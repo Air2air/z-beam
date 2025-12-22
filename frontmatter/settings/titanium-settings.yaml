@@ -1,7 +1,7 @@
 id: titanium-settings
 name: Titanium
-datePublished: '2025-12-21T03:33:04.625468Z'
-dateModified: '2025-12-21T03:33:04.625468Z'
+datePublished: '2025-12-22T23:37:08.982511Z'
+dateModified: '2025-12-22T23:37:08.982511Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/titanium-settings
@@ -47,14 +47,55 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: titanium-laser-cleaning
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /materials/metal/specialty/titanium-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for Titanium oxide layer removal
     unit: W
@@ -297,9 +338,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning titanium, I've seen it stand out from denser metals like steel because of its lighter
-  weight and strong natural oxide layer that fights...
-micro: When laser cleaning titanium, I've seen it stand out from denser metals like steel because of its lighter weight and
-  strong natural oxide layer that fights corrosion so well. This makes it great for aerospace parts, where you can remove
-  tough contaminants without deep damage, but the layer also means the laser tends to skim the surface gently—start with milder
-  power and slower passes to let heat dissipate evenly and avoid uneven heating.

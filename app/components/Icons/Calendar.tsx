@@ -2,11 +2,7 @@
 // Inline SVG icon to replace lucide-react import (saves ~50KB in bundle)
 
 import React from 'react';
-
-interface IconProps {
-  className?: string;
-  size?: number;
-}
+import type { IconProps } from '@/types';
 
 export const Calendar: React.FC<IconProps> = ({ className, size = 24 }) => (
   <svg

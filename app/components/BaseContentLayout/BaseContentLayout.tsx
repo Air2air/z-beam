@@ -49,6 +49,14 @@ export function BaseContentLayout({
       {/* Page-specific content passed from route page */}
       {children}
       
+      {/* Micro - Common across all content types - BEFORE sections so ScheduleCards can be last */}
+      {showMicro && metadata?.images?.micro?.url && (
+        <Micro 
+          frontmatter={metadata as any}
+          config={{}}
+        />
+      )}
+      
       {/* Render configured sections */}
       {sections.map((section, index) => {
         const { component: Component, condition = true, props = {} } = section;
@@ -62,14 +70,6 @@ export function BaseContentLayout({
           <Component key={index} {...props} />
         );
       })}
-      
-      {/* Micro - Common across all content types */}
-      {showMicro && metadata?.images?.micro?.url && (
-        <Micro 
-          frontmatter={metadata as any}
-          config={{}}
-        />
-      )}
     </Layout>
   );
 }

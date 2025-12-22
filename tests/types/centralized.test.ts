@@ -1,6 +1,12 @@
 /**
  * Test Suite: Centralized Types Validation
  * Testing the centralized type system for consistency and completeness
+ * 
+ * MANDATORY REQUIREMENTS:
+ * 1. All types MUST be imported from '@/types' or '@/types/centralized'
+ * 2. NO duplicate type definitions allowed in component files
+ * 3. Common props (IconProps, BadgeProps, etc.) MUST use centralized types
+ * 4. This test enforces zero type duplication across the codebase
  */
 
 import {
@@ -18,8 +24,14 @@ import {
   MetricsGridProps,
   Author,
   MaterialType,
-  TableProps
+  TableProps,
+  IconProps,
+  BadgeProps
 } from '@/types/centralized';
+
+import fs from 'fs';
+import path from 'path';
+import { glob } from 'glob';
 
 describe('Centralized Types - Micro System', () => {
   test('MicroDataStructure should support all required fields', () => {
@@ -273,15 +285,177 @@ describe('Centralized Types - Export Validation', () => {
       }
     };
 
-    const complexProps: MicroProps = {
-      frontmatter: {
-        title: 'Complex Test',
-        author: 'Test Author',
-        micro: complexMicro
+    const complexData: BaseFrontmatter = {
+      title: 'Complex Test',
+      slug: 'complex-test',
+      author_object: {
+        name: 'Expert Author',
+        title: 'Research Lead',
+        verification_level: 'expert'
       }
     };
 
-    expect(complexMicro.quality_metrics?.contamination_removal).toBe('95%');
-    expect(complexProps.frontmatter?.title).toBe('Complex Test');
+    const complexProps: MicroProps = {
+      frontmatter: complexData,
+      config: {
+        showTechnicalDetails: true,
+        showMetadata: true
+      }
+    };
+
+    expect(complexProps.frontmatter.author_object?.verification_level).toBe('expert');
+  });
+});
+
+// ============================================================================
+// MANDATORY TYPE DUPLICATION PREVENTION TESTS
+// ============================================================================
+
+describe('Type Duplication Prevention - MANDATORY', () => {
+  const componentDirs = [
+    'app/components',
+    'app/utils',
+    'app/lib'
+  ];
+
+  const forbiddenPatterns = [
+    { name: 'IconProps', pattern: /^interface\s+IconProps\s*{/gm },
+    { name: 'BadgeProps', pattern: /^interface\s+BadgeProps\s*{/gm },
+    { name: 'CardProps', pattern: /^interface\s+CardProps\s*{/gm },
+    { name: 'ButtonProps', pattern: /^interface\s+ButtonProps\s*{/gm },
+    { name: 'TableProps', pattern: /^interface\s+TableProps\s*{/gm },
+    { name: 'HeroProps', pattern: /^interface\s+HeroProps\s*{/gm },
+    { name: 'LayoutProps', pattern: /^interface\s+LayoutProps\s*{/gm },
+    { name: 'GridItem', pattern: /^interface\s+GridItem\s*{/gm },
+    { name: 'Author', pattern: /^interface\s+Author\s*{/gm },
+    { name: 'ArticleMetadata', pattern: /^interface\s+ArticleMetadata\s*{/gm }
+  ];
+
+  test('CRITICAL: No duplicate IconProps in component files', () => {
+    const violations: string[] = [];
+    const componentFiles = glob.sync('app/components/**/*.{ts,tsx}');
+    
+    componentFiles.forEach(file => {
+      if (file.includes('types/centralized')) return; // Skip centralized types
+      
+      const content = fs.readFileSync(file, 'utf-8');
+      if (/^interface\s+IconProps\s*{/gm.test(content)) {
+        violations.push(file);
+      }
+    });
+
+    if (violations.length > 0) {
+      throw new Error(
+        `CRITICAL TYPE VIOLATION: Found duplicate IconProps definitions in:\n${violations.join('\n')}\n\n` +
+        `FIX: Remove local interface and import from '@/types':\n` +
+        `  import type { IconProps } from '@/types';`
+      );
+    }
+
+    expect(violations).toHaveLength(0);
+  });
+
+  test('CRITICAL: No duplicate BadgeProps in component files', () => {
+    const violations: string[] = [];
+    const componentFiles = glob.sync('app/components/**/*.{ts,tsx}');
+    
+    componentFiles.forEach(file => {
+      if (file.includes('types/centralized')) return;
+      
+      const content = fs.readFileSync(file, 'utf-8');
+      if (/^interface\s+BadgeProps\s*{/gm.test(content)) {
+        violations.push(file);
+      }
+    });
+
+    if (violations.length > 0) {
+      throw new Error(
+        `CRITICAL TYPE VIOLATION: Found duplicate BadgeProps definitions in:\n${violations.join('\n')}\n\n` +
+        `FIX: Remove local interface and import from '@/types':\n` +
+        `  import type { BadgeProps } from '@/types';`
+      );
+    }
+
+    expect(violations).toHaveLength(0);
+  });
+
+  test('CRITICAL: No duplicate common type definitions', () => {
+    const violations: { file: string; type: string }[] = [];
+    const componentFiles = glob.sync('app/components/**/*.{ts,tsx}');
+    
+    componentFiles.forEach(file => {
+      if (file.includes('types/centralized')) return;
+      
+      const content = fs.readFileSync(file, 'utf-8');
+      
+      forbiddenPatterns.forEach(({ name, pattern }) => {
+        if (pattern.test(content)) {
+          violations.push({ file, type: name });
+        }
+      });
+    });
+
+    if (violations.length > 0) {
+      const grouped = violations.reduce((acc, { file, type }) => {
+        if (!acc[type]) acc[type] = [];
+        acc[type].push(file);
+        return acc;
+      }, {} as Record<string, string[]>);
+
+      const errorMessage = Object.entries(grouped)
+        .map(([type, files]) => 
+          `\n${type}:\n${files.map(f => `  - ${f}`).join('\n')}`
+        )
+        .join('\n');
+
+      throw new Error(
+        `CRITICAL TYPE VIOLATION: Found duplicate type definitions:${errorMessage}\n\n` +
+        `FIX: Remove local interfaces and import from '@/types':\n` +
+        `  import type { IconProps, BadgeProps, CardProps } from '@/types';`
+      );
+    }
+
+    expect(violations).toHaveLength(0);
+  });
+
+  test('CRITICAL: All centralized types are exported from types/index.ts', () => {
+    const centralizedPath = path.join(process.cwd(), 'types/centralized.ts');
+    const indexPath = path.join(process.cwd(), 'types/index.ts');
+    
+    expect(fs.existsSync(centralizedPath)).toBe(true);
+    expect(fs.existsSync(indexPath)).toBe(true);
+
+    const indexContent = fs.readFileSync(indexPath, 'utf-8');
+    expect(indexContent).toContain("export * from './centralized'");
+  });
+
+  test('Components must import from @/types, not local definitions', () => {
+    const componentFiles = glob.sync('app/components/**/*.{ts,tsx}');
+    const violations: string[] = [];
+
+    const commonTypes = ['IconProps', 'BadgeProps', 'CardProps', 'ButtonProps'];
+    
+    componentFiles.forEach(file => {
+      const content = fs.readFileSync(file, 'utf-8');
+      const hasLocalInterface = commonTypes.some(type => 
+        new RegExp(`^interface\\s+${type}\\s*{`, 'gm').test(content)
+      );
+      const hasImportFromTypes = content.includes("from '@/types'") || 
+                                   content.includes('from "@/types"');
+
+      if (hasLocalInterface && !hasImportFromTypes) {
+        violations.push(file);
+      }
+    });
+
+    if (violations.length > 0) {
+      throw new Error(
+        `TYPE IMPORT VIOLATION: These files define local types instead of importing from @/types:\n` +
+        `${violations.join('\n')}\n\n` +
+        `FIX: Import from centralized types instead.`
+      );
+    }
+
+    expect(violations).toHaveLength(0);
   });
 });

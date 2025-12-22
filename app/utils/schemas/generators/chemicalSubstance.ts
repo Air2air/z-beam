@@ -21,8 +21,8 @@ import type { SchemaContext } from './types';
 export function generateChemicalSubstanceSchema(data: any, context: SchemaContext): any | null {
   const { pageUrl, baseUrl } = context;
   
-  // Extract metadata from various possible locations
-  const metadata = (data.metadata || data.frontmatter || {}) as Record<string, unknown>;
+  // Extract frontmatter from various possible locations
+  const metadata = (data.frontmatter || {}) as Record<string, unknown>;
   const compoundData = metadata as any;
   
   // Only generate for compound pages with chemical formula
@@ -185,7 +185,7 @@ export function generateChemicalSubstanceSchema(data: any, context: SchemaContex
  * Used as a condition for SchemaFactory registration
  */
 export function hasChemicalSubstanceData(data: any): boolean {
-  const metadata = (data.metadata || data.frontmatter || {}) as Record<string, unknown>;
+  const metadata = (data.frontmatter || {}) as Record<string, unknown>;
   const compoundData = metadata as any;
   
   // Must have chemical formula to be considered a chemical substance

@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for metal oxide removal
 
-Generated: 2025-12-21T07:05:14.099Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal metal absorption
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Pulse frequency for controlled cleaning
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Energy per unit area for oxide removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Pulse duration for minimal heat-affected zone
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Beam travel speed for uniform treatment
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning cycles for complete removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Beam overlap for consistent coverage
+
+POWER:
+  Value: 100 W
+  Range: 20-1000 W
+  Description: Typical range for industrial fiber lasers cleaning metals like SS316; starting at 100 W avoids overheating due to SS316's reflectivity (~65% at 1064 nm); max limited to prevent melting (threshold ~500-1000 W depending on pulse); source: IPG Photonics YLR series specs and Anisimov et al. (2018) in Optics Express.
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contamination removal; slower (100-1000 mm/s) for heavy rust/oil, faster (2000-5000 mm/s) for light contaminants; 2000 mm/s optimal for SS316 surface prep balancing efficiency and minimal HAZ; source: Laserax equipment manuals and industry standards from SPIE proceedings (2020).
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime standard for industrial cleaning to ablate contaminants without deep substrate penetration; 50 ns recommended for SS316 to minimize heat-affected zone (HAZ <10 μm) given its thermal conductivity (16 W/m·K); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier; source: Laser physics studies by Kunze et al. (2019) in Applied Surface Science.
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning; 20-50 kHz for SS316 to control heat accumulation (high freq increases temp rise); 50 kHz balances speed and safety; trade-off: higher rates speed up process but risk thermal damage; source: Academic literature, e.g., Pou et al. (2011) in Journal of Cleaner Production.
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe ablation of contaminants on metals; SS316 damage threshold ~1.5-2.5 J/cm² for ns pulses at 1064 nm; 0.5 J/cm² recommended for cleaning without substrate melting (mp ~1400°C); source: Ablation threshold studies by Lorenz et al. (2017) in Applied Physics A.
+
+SPOT_SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for focused cleaning; smaller (20-50 μm) for fine details, larger (100-200 μm) for broad areas; 100 μm recommended for uniform SS316 surface prep; source: Equipment specs from Coherent and Trumpf lasers, per industry case studies.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete SS316 cleaning without excessive wear; source: Industry practice from case studies in Metal Finishing Journal (2021) and manufacturer guidelines.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on reflective SS316; 60% recommended to avoid gaps while minimizing passes; source: Process optimization studies by Zhou et al. (2020) in Optics and Lasers in Engineering.
+
+
+Generated: 2025-12-22T20:49:23.854Z
 License: CC BY 4.0

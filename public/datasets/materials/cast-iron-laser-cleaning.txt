@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Cast Iron Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/metal/ferrous/cast-iron-laser-cleaning
+URL:            http://localhost:3000/materials/metal/ferrous/cast-iron-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,169 @@ overlap_ratio:
   Note:   Standard range for scan line overlap to ensure uniform fluence distribution; 60% recommended for cast iron to achieve even cleaning on irregular surfaces without gaps or over-ablation. Higher (70-80%) for heavy contamination. Source: Process optimization studies in Optics and Laser Technology (2020); based on Gaussian beam profiles in cleaning simulations.
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  density:
+    Value:  7.2 g/cm³
+    Min:    0.53 g/cm³
+    Max:    22.6 g/cm³
+
+  porosity:
+    Value:  1.5 %
+    Min:    0 %
+    Max:    15 %
+
+  surfaceRoughness:
+    Value:  25 μm
+    Min:    0.4 μm
+    Max:    150 μm
+
+  tensileStrength:
+    Value:  250 MPa
+    Min:    3 MPa
+    Max:    3000 MPa
+
+  youngsModulus:
+    Value:  110 GPa
+    Min:    5 GPa
+    Max:    600 GPa
+
+  hardness:
+    Value:  200 HB
+    Min:    0.5 HB
+    Max:    3500 HB
+
+  flexuralStrength:
+    Value:  400 MPa
+    Min:    2.5 MPa
+    Max:    1050 MPa
+
+  oxidationResistance:
+    Value:  400 °C
+    Min:    200 °C
+    Max:    1200 °C
+
+  corrosionResistance:
+    Value:  0.1 mm/year
+    Min:    1 mm/year
+    Max:    10 mm/year
+
+  compressiveStrength:
+    Value:  830 MPa
+    Source: ai_research
+
+  fractureToughness:
+    Value:  20 MPa m^{1/2}
+    Source: ai_research
+
+  electricalResistivity:
+    Value:  7.5e-7 Ω·m
+    Source: ai_research
+
+  boilingPoint:
+    Value:  3134 K
+    Source: ai_research
+
+  electricalConductivity:
+    Value:  2300000 S/m
+    Source: ai_research
+
+  meltingPoint:
+    Value:  1473 K
+    Source: ai_research
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  thermalConductivity:
+    Value:  46 W/(m·K)
+    Min:    7 W/(m·K)
+    Max:    430 W/(m·K)
+
+  thermalExpansion:
+    Value:  0.0000115 K^{-1}
+    Min:    0.5 K^{-1}
+    Max:    33 K^{-1}
+
+  thermalDiffusivity:
+    Value:  14 mm²/s
+    Min:    0.06 mm²/s
+    Max:    174 mm²/s
+
+  specificHeat:
+    Value:  460 J/(kg·K)
+    Min:    100 J/(kg·K)
+    Max:    2000 J/(kg·K)
+
+  thermalShockResistance:
+    Value:  250 °C
+    Min:    50 °C
+    Max:    400 °C
+
+  laserReflectivity:
+    Value:  0.35 
+    Min:    5 
+    Max:    99.9 
+
+  absorptionCoefficient:
+    Value:  5000000 m^{-1}
+    Min:    100000 m^{-1}
+    Max:    50000000 m^{-1}
+
+  ablationThreshold:
+    Value:  2.5 J/cm²
+    Min:    2 J/cm²
+    Max:    8 J/cm²
+
+  laserDamageThreshold:
+    Value:  3 J/cm²
+    Min:    0.1 J/cm²
+    Max:    20 J/cm²
+
+  thermalDestruction:
+    Value:  1423 K
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.42 dimensionless
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.5 
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.37 dimensionless
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.133 Pa
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1473 K
+    Source: ai_research
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Automotive
+2. Manufacturing
+3. Machinery
+4. Construction Equipment
+5. Industrial Equipment
+6. Foundry
+7. Heavy Industry
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Cast Iron Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/ferrous/cast-iron-laser-cleaning
+  Z-Beam (2025). Cast Iron Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/ferrous/cast-iron-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

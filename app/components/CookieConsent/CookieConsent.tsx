@@ -111,7 +111,7 @@ export function CookieConsent() {
           {/* Header */}
           <div className="flex items-start justify-between p-4 pb-3 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-2">
-              <Cookie className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <Cookie className="w-5 h-5 text-orange-600 dark:text-orange-400" />
               <h3 className="font-semibold text-gray-900 dark:text-white">
                 Cookie Settings
               </h3>
@@ -137,7 +137,7 @@ export function CookieConsent() {
                 <div className="flex flex-col gap-2">
                   <button
                     onClick={handleAcceptAll}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors"
+                    className="w-full bg-orange-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors"
                   >
                     Accept All
                   </button>
@@ -149,7 +149,7 @@ export function CookieConsent() {
                   </button>
                   <button
                     onClick={() => setShowDetails(true)}
-                    className="w-full text-blue-600 dark:text-blue-400 hover:underline text-sm py-2"
+                    className="w-full text-orange-600 dark:text-orange-400 hover:underline text-sm py-2"
                   >
                     Customize Settings
                   </button>
@@ -182,7 +182,7 @@ export function CookieConsent() {
                   <div className="pb-4 border-b border-gray-200 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <BarChart3 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                        <BarChart3 className="w-4 h-4 text-orange-600 dark:text-blue-400" />
                         <h4 className="font-medium text-gray-900 dark:text-white">
                           Analytics Cookies
                         </h4>
@@ -194,7 +194,7 @@ export function CookieConsent() {
                           onChange={() => togglePreference('analytics')}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-300 dark:bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-gray-300 dark:bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300 dark:peer-focus:ring-orange-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600"></div>
                       </label>
                     </div>
                     <p className="text-xs text-gray-600 dark:text-gray-400 pl-6">
@@ -219,7 +219,7 @@ export function CookieConsent() {
                           onChange={() => togglePreference('marketing')}
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-300 dark:bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-gray-300 dark:bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300 dark:peer-focus:ring-orange-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-600"></div>
                       </label>
                     </div>
                     <p className="text-xs text-gray-600 dark:text-gray-400 pl-6">
@@ -233,7 +233,7 @@ export function CookieConsent() {
                 <div className="flex flex-col gap-2">
                   <button
                     onClick={handleSavePreferences}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors"
+                    className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2.5 px-4 rounded-md transition-colors"
                   >
                     Save Preferences
                   </button>
@@ -250,7 +250,7 @@ export function CookieConsent() {
                   Read our{' '}
                   <a 
                     href="/legal/privacy" 
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-orange-600 dark:text-blue-400 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -259,7 +259,7 @@ export function CookieConsent() {
                   {' '}and{' '}
                   <a 
                     href="/legal/cookie-policy" 
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-orange-600 dark:text-blue-400 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

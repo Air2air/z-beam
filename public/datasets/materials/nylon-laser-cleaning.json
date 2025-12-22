@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/plastic/thermoplastic/nylon-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/plastic/thermoplastic/nylon-laser-cleaning#dataset",
   "name": "Nylon Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Nylon. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/nylon-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/nylon-laser-cleaning.json",
       "name": "Nylon Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/nylon-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/nylon-laser-cleaning.csv",
       "name": "Nylon Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/nylon-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/nylon-laser-cleaning.txt",
       "name": "Nylon Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Nylon",
@@ -214,7 +214,172 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical and mechanical properties affecting laser cleaning outcomes",
+        "density": {
+          "value": 1.14,
+          "unit": "g/cm³",
+          "confidence": 95
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 90
+        },
+        "surfaceRoughness": {
+          "value": 1.2,
+          "unit": "μm",
+          "confidence": 85
+        },
+        "tensileStrength": {
+          "value": 75,
+          "unit": "MPa",
+          "confidence": 90
+        },
+        "youngsModulus": {
+          "value": 2.7,
+          "unit": "GPa",
+          "confidence": 95
+        },
+        "hardness": {
+          "value": 0.08,
+          "unit": "GPa",
+          "confidence": 87
+        },
+        "flexuralStrength": {
+          "value": 85,
+          "unit": "MPa",
+          "confidence": 85
+        },
+        "oxidationResistance": {
+          "value": 2,
+          "unit": "μm/year",
+          "confidence": 80
+        },
+        "corrosionResistance": {
+          "value": 0.9,
+          "unit": "mm/year",
+          "confidence": 85
+        },
+        "compressiveStrength": {
+          "value": 75,
+          "unit": "MPa",
+          "confidence": 90
+        },
+        "fractureToughness": {
+          "value": 7,
+          "unit": "MPa m^{1/2}",
+          "confidence": 85
+        },
+        "electricalResistivity": {
+          "value": 10000000000000,
+          "unit": "Ω·m",
+          "confidence": 90
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalDestruction": {
+          "value": 533,
+          "unit": "K",
+          "confidence": 95
+        },
+        "laserAbsorption": {
+          "value": 0.65,
+          "unit": "dimensionless",
+          "confidence": 90
+        },
+        "laserDamageThreshold": {
+          "value": 1.8,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser damage thresholds of common polymers for nanosecond pulses",
+          "citation": "J. Bonse et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-7",
+          "context": "Nylon 6,6 (commercial grade, 99% purity), 25°C, 532 nm wavelength, 10 ns pulse duration, measured via optical microscopy of ablation craters",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:44:40.097061",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Threshold fluences for the laser ablation of nylon 6,6",
+          "citation": "B. Hopp, T. Smausz, N. Barna, Cs. Vass, L. Juhász, et al., Journal of Physics D: Applied Physics, 2001, DOI: 10.1088/0022-3727/34/5/307",
+          "context": "Nylon 6,6 (commercial grade, ~99% purity), room temperature (25°C), measured using 193 nm ArF excimer laser pulses in vacuum",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:44:46.495689",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 1.29e-7,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "Polymer Handbook, Fourth Edition",
+          "citation": "Brandrup, J., Immergut, E.H., Grulke, E.A. (eds.), Polymer Handbook, 4th ed., John Wiley & Sons, Inc., 1999, ISBN 978-0-471-53857-1",
+          "context": "Nylon 6,6 (commercial grade, unfilled), 25°C, calculated from thermal conductivity, density, and specific heat capacity",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:44:56.468435",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 0.00008,
+          "unit": "K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b7e5b5b0b4a4b0e9a5e5b5b0b4a4b0e, accessed 2024",
+          "context": "Nylon 6,6 (polyhexamethylene adipamide), unfilled, dry as molded, 23°C, linear coefficient",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:45:02.798000",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 1700,
+          "unit": "J/(kg·K)",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., DuPont Zytel® 101L NC010 Nylon 66, http://www.matweb.com/search/DataSheet.aspx?MatGUID=9f1a4b5b0d4a4b0e9c5e4a5b0d4a4b0e, accessed 2024",
+          "context": "Nylon 6,6 (polyhexamethylene adipamide), unfilled, dry as molded, 23°C, measured by differential scanning calorimetry (DSC)",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:45:13.528675",
+          "needs_validation": true
+        },
+        "thermalConductivity": {
+          "value": 0.25,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, DuPont Zytel® 101L NC010 Nylon 66, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1e3d4a5b0a4a4b0e9a5b0a4a4b0e9a5b, accessed 2023",
+          "context": "Unreinforced Nylon 6,6 (polyhexamethylene adipamide), 23°C, dry as molded, isotropic measurement via guarded hot plate method",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:45:19.011403",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.044,
+          "unit": "dimensionless (fraction)",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "Nylon 6,6 (commercial grade, 99% purity), 25°C, normal incidence, calculated for 1064 nm wavelength based on refractive index n=1.53",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:45:27.402183",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +554,311 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Higher overlap ensures uniform coverage on irregular Nylon surfaces, preventing gaps in cleaning; 30-50% for large areas, 70-80% for precision. Recommended for even energy distribution and minimal HAZ. Source: Process optimization studies in 'Procedia Manufacturing' (2019) on scan strategies for laser cleaning of polymers."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1.14,
+      "unitText": "g/cm³"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 1.2,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 75,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 2.7,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 0.08,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 85,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 2,
+      "unitText": "μm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.9,
+      "unitText": "mm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 75,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 7,
+      "unitText": "MPa m^{1/2}"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 10000000000000,
+      "unitText": "Ω·m"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 533,
+      "unitText": "K"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.65,
+      "unitText": "dimensionless"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 1.8,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 1.29e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.00008,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 1700,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.25,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.044,
+      "unitText": "dimensionless (fraction)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: paint-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/paint-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: uv-chalking-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/aging/photodegradation/uv-chalking-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Nylon Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/nylon-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Moretti",
+    "jobTitle": "Materials Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Politecnico di Milano's Materials Dept."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/alessandro-moretti-phd",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/alessandro-moretti.jpg",
+      "description": "Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/nylon-laser-cleaning-hero.jpg",
+      "description": "Nylon surface during precision laser cleaning process removing contamination layer",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/nylon-laser-cleaning-micro.jpg",
+      "description": "Nylon surface at 500x magnification showing laser cleaning results",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Nylon Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Moretti",
+        "jobTitle": "Materials Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:15.699007Z",
+      "url": "http://localhost:3000/materials/plastic/thermoplastic/nylon-laser-cleaning",
+      "citation": "Z-Beam (2025). Nylon Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/nylon-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    }
+  ]
 }

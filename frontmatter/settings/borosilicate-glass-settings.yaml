@@ -1,7 +1,7 @@
 id: borosilicate-glass-settings
 name: Borosilicate Glass
-datePublished: '2025-12-21T03:33:02.408571Z'
-dateModified: '2025-12-21T03:33:02.408571Z'
+datePublished: '2025-12-22T23:37:05.266767Z'
+dateModified: '2025-12-22T23:37:05.266767Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/soda-lime/borosilicate-glass-settings
@@ -45,14 +45,67 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: oak-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/oak-laser-cleaning
+    - id: maple-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/maple-laser-cleaning
+    - id: pine-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/softwood/pine-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for Borosilicate Glass surface cleaning without thermal damage
     unit: W
@@ -292,8 +345,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: We've found that when laser cleaning borosilicate glass, you need to start with gentle power levels right
-  away, since its brittle nature compared to tougher...
-micro: We've found that when laser cleaning borosilicate glass, you need to start with gentle power levels right away, since
-  its brittle nature compared to tougher metals can lead to cracks if heat builds up too fast. Begin by scanning slowly to
-  let its superior heat resistance—unlike everyday soda-lime glass—absorb energy without shocking the surface.

@@ -1,7 +1,7 @@
 id: ceramic-matrix-composites-cmcs-settings
 name: Ceramic Matrix Composites CMCs
-datePublished: '2025-12-21T03:33:02.566968Z'
-dateModified: '2025-12-21T03:33:02.566968Z'
+datePublished: '2025-12-22T23:37:05.571111Z'
+dateModified: '2025-12-22T23:37:05.571111Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-settings
@@ -45,14 +45,42 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials: []
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for CMC surface contaminant removal without substrate damage
     unit: W
@@ -294,8 +322,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded
-  fibers, as these can trap contaminants and lead to...
-micro: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded fibers, as
-  these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early check helps
-  prevent thermal stress that might crack the brittle matrix, so we recommend a gentle initial scan to test response.

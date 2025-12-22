@@ -101,14 +101,14 @@ export default async function SafetyPage() {
               but it requires proper training, equipment, and protocols to ensure safe operation. This guide outlines 
               the essential safety considerations for laser cleaning operations.
             </p>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md p-6">
+            <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-md p-6">
               <div className="flex items-start gap-3">
-                <ShieldIcon className="text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0 mt-1" />
+                <ShieldIcon className="text-orange-600 dark:text-orange-400 text-2xl flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-2">
                     Professional Guidance Available
                   </h3>
-                  <p className="text-blue-800 dark:text-blue-200 text-sm">
+                  <p className="text-orange-800 dark:text-orange-200 text-sm">
                     Our safety specialists are available to discuss your specific application, 
                     material concerns, and facility requirements. Schedule a free consultation to ensure 
                     your laser cleaning operations meet all safety standards.
@@ -294,15 +294,15 @@ export default async function SafetyPage() {
                 <h4 className="font-semibold mb-3">OSHA Requirements</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-orange-600 mt-1">•</span>
                     <span>29 CFR 1926.102 - Eye and face protection</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-orange-600 mt-1">•</span>
                     <span>29 CFR 1910.134 - Respiratory protection</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-orange-600 mt-1">•</span>
                     <span>29 CFR 1910.147 - Lockout/tagout procedures</span>
                   </li>
                 </ul>
@@ -312,15 +312,15 @@ export default async function SafetyPage() {
                 <h4 className="font-semibold mb-3">ANSI Standards</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-orange-600 mt-1">•</span>
                     <span>ANSI Z136.1 - Safe use of lasers</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-orange-600 mt-1">•</span>
                     <span>ANSI Z136.9 - Safe use in manufacturing</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
+                    <span className="text-orange-600 mt-1">•</span>
                     <span>ANSI Z87.1 - Eye and face protection</span>
                   </li>
                 </ul>
@@ -378,8 +378,8 @@ export default async function SafetyPage() {
                 </li>
               </ul>
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md p-4 mt-6">
-              <p className="text-sm text-blue-900 dark:text-blue-100">
+            <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-md p-4 mt-6">
+              <p className="text-sm text-orange-900 dark:text-orange-100">
                 <strong>Note:</strong> Z-Beam provides comprehensive operator training as part of our service packages. 
                 Contact us to discuss training requirements for your team.
               </p>
@@ -396,7 +396,7 @@ export default async function SafetyPage() {
             horizPadding={true}
           >
             <div className="text-center py-6">
-              <PhoneIcon className="text-4xl text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+              <PhoneIcon className="text-4xl text-orange-600 dark:text-orange-400 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
                 Questions About Laser Safety?
               </h3>
@@ -407,7 +407,7 @@ export default async function SafetyPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                   href="tel:+16505905040"
-                  className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors font-semibold"
+                  className="inline-flex items-center justify-center gap-2 bg-orange-600 text-white px-8 py-3 rounded-md hover:bg-orange-700 transition-colors font-semibold"
                 >
                   <PhoneIcon />
                   Call (650) 590-5040

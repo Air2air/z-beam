@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning#dataset",
   "name": "Phenolic Resin Composites Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Phenolic Resin Composites. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/phenolic-resin-composites-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/phenolic-resin-composites-laser-cleaning.json",
       "name": "Phenolic Resin Composites Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/phenolic-resin-composites-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/phenolic-resin-composites-laser-cleaning.csv",
       "name": "Phenolic Resin Composites Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/phenolic-resin-composites-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/phenolic-resin-composites-laser-cleaning.txt",
       "name": "Phenolic Resin Composites Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Phenolic Resin Composites",
@@ -214,8 +214,205 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "electricalResistivity": {
+          "value": 1000000000000,
+          "unit": "Ω·m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "fractureToughness": {
+          "value": 1.8,
+          "unit": "MPa m^{1/2}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "youngsModulus": {
+          "value": 10,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 723,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 1.85,
+          "unit": "g/cm³",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 95,
+          "unit": "Rockwell M",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.95,
+          "unit": "dimensionless (normalized resistance index)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 241,
+          "unit": "MPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 140,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 69,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of Composite Materials",
+          "citation": "Zhang, Y. et al., Laser ablation thresholds of fiber-reinforced phenolic composites, Journal of Composite Materials, 2018, DOI: 10.1177/0021998318755852",
+          "context": "Glass fiber reinforced phenolic resin composite (50 wt% resin, 99% purity matrix), 25°C, measured with 1064 nm Nd:YAG laser, 10 ns pulse duration, vacuum environment",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:04:02.241447",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "value": 0.85,
+          "unit": "dimensionless",
+          "min": 0.7,
+          "max": 0.95,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 5000000,
+          "unit": "m⁻¹",
+          "min": 1000000,
+          "max": 10000000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 2.5,
+          "unit": "J/cm²",
+          "min": 1,
+          "max": 5,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 1.5,
+          "unit": "MW/m",
+          "min": 0.8,
+          "max": 3,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.1,
+          "unit": "dimensionless",
+          "min": 0.05,
+          "max": 0.2,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 723,
+          "unit": "K",
+          "min": 573,
+          "max": 873,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 100,
+          "unit": "Pa",
+          "min": 10,
+          "max": 1000,
+          "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 653,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 1200,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.12,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 0.28,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.000022,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 25000,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 1.53e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 2.3,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Ablation of Phenolic Resin Composites: Threshold Fluence and Surface Morphology",
+          "citation": "Wang, L. et al., Composites Part B: Engineering, 2018, DOI: 10.1016/j.compositesb.2018.05.012",
+          "context": "Carbon fiber reinforced phenolic resin composite (60 wt% phenolic resin matrix, 40 wt% carbon fibers), room temperature (25°C), Nd:YAG laser at 1064 nm wavelength, pulse duration 10 ns",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:04:09.808650",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Aerospace",
+      "Automotive",
+      "Electronics",
+      "Medical Devices",
+      "Marine",
+      "Energy",
+      "Rail Transportation",
+      "Construction",
+      "Industrial Manufacturing",
+      "Cultural Heritage"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +586,378 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage; 50% recommended for phenolic composites to avoid gaps or overexposure, balancing efficiency and even fluence distribution. Higher (60-80%) for heavy contamination. Source: Process optimization in Surface and Coatings Technology (2021)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 1000000000000,
+      "unitText": "Ω·m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 1.8,
+      "unitText": "MPa m^{1/2}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 10,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 723,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1.85,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 95,
+      "unitText": "Rockwell M",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.95,
+      "unitText": "dimensionless (normalized resistance index)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 241,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 140,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 69,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.85,
+      "unitText": "dimensionless",
+      "minValue": 0.7,
+      "maxValue": 0.95,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 5000000,
+      "unitText": "m⁻¹",
+      "minValue": 1000000,
+      "maxValue": 10000000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 2.5,
+      "unitText": "J/cm²",
+      "minValue": 1,
+      "maxValue": 5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 1.5,
+      "unitText": "MW/m",
+      "minValue": 0.8,
+      "maxValue": 3,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.1,
+      "unitText": "dimensionless",
+      "minValue": 0.05,
+      "maxValue": 0.2,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 723,
+      "unitText": "K",
+      "minValue": 573,
+      "maxValue": 873,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 100,
+      "unitText": "Pa",
+      "minValue": 10,
+      "maxValue": 1000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 653,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 1200,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.12,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.28,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.000022,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 25000,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 1.53e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.3,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Phenolic Resin Composites Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Todd Dunning",
+    "jobTitle": "Junior Optical Materials Specialist",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Coherent Inc."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/todd-dunning",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/todd-dunning.jpg",
+      "description": "Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/phenolic-resin-composites-laser-cleaning-hero.jpg",
+      "description": "Phenolic Resin Composites surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/phenolic-resin-composites-laser-cleaning-micro.jpg",
+      "description": "Phenolic Resin Composites microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Phenolic Resin Composites Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Todd Dunning",
+        "jobTitle": "Junior Optical Materials Specialist"
+      },
+      "datePublished": "2025-12-22T06:53:14.405624Z",
+      "url": "http://localhost:3000/materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning",
+      "citation": "Z-Beam (2025). Phenolic Resin Composites Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

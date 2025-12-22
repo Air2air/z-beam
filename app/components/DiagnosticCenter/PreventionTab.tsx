@@ -95,7 +95,7 @@ export function PreventionTab({ challenges }: PreventionTabProps) {
                   </div>
                   
                   {/* Prevention */}
-                  <div className="bg-blue-900/10 border-l-2 border-blue-500 pl-2 py-1">
+                  <div className="bg-orange-900/10 border-l-2 border-orange-500 pl-2 py-1">
                     <p className="text-xs">
                       <span className="font-semibold text-blue-400">Prevention:</span> {challenge.prevention}
                     </p>

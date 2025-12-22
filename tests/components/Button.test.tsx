@@ -73,7 +73,7 @@ describe('Button Component', () => {
       render(<Button variant="minimal">Minimal</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('bg-transparent', 'text-blue-600', 'hover:text-blue-700');
+      expect(button).toHaveClass('bg-transparent', 'text-orange-600', 'hover:text-orange-700');
     });
   });
 
@@ -324,7 +324,7 @@ describe('Button Component', () => {
           { variant: 'secondary' as const, ring: 'focus-visible:ring-white' },
           { variant: 'outline' as const, ring: 'focus-visible:ring-2' },
           { variant: 'danger' as const, ring: 'focus-visible:ring-red-500' },
-          { variant: 'minimal' as const, ring: 'focus-visible:ring-blue-500' },
+          { variant: 'minimal' as const, ring: 'focus-visible:ring-orange-500' },
         ];
 
         variants.forEach(({ variant, ring }) => {

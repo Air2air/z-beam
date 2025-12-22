@@ -3,8 +3,8 @@ name: Polycyclic Aromatic Hydrocarbons
 display_name: PAHs
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-20T23:36:52.009534Z'
-dateModified: '2025-12-20T23:36:52.009534Z'
+datePublished: '2025-12-22T21:25:25.809379Z'
+dateModified: '2025-12-22T21:25:25.809379Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aromatic-hydrocarbon/pahs-compound
@@ -22,7 +22,16 @@ breadcrumb:
 chemical_formula: Various
 cas_number: N/A
 molecular_weight: null
-description: null
+description: Unlike everyday fuels that burn away cleanly, polycyclic aromatic hydrocarbons stand out with their rigid, ring-linked
+  structures that cling stubbornly to surfaces and soils, lingering far longer and posing bigger cleanup headaches. These
+  compounds, often born from incomplete burning in industries like steelmaking or road paving, show up as sticky residues
+  or fine particles. Harsh and oily in feel, they resist water but dissolve easily in solvents, which makes handling them
+  tricky without spreading contamination. In factories, PAHs sneak into products like paints and plastics as unintended additives,
+  boosting durability yet raising red flags for worker safety. Their real danger? As known carcinogens, even tiny exposures
+  over time can spark serious health issues, from skin irritations to deeper cellular damage. When it comes to zapping them
+  off historic buildings or polluted gear, laser cleaning shines by targeting their light-absorbing traits—blasting away layers
+  without harsh chemicals, though it demands careful calibration to avoid scattering the stuff further. Overall, these materials
+  demand respect in use, pushing industries toward greener alternatives to curb their toxic footprint.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,77 +54,116 @@ sources_in_laser_cleaning:
 - carbon_rich_contamination
 - high_temperature_pyrolysis
 relationships:
-  produced_by_contaminants:
-  - id: carbon-buildup-contamination
-    title: Carbon Deposit Buildup
-    url: /contaminants/organic-residue/other/carbon-buildup-contamination
-    image: /images/contaminants/carbon-buildup.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Vaporization and reformation of existing PAHs
-  - id: carbon-soot-contamination
-    title: Carbon Soot Deposits
-    url: /contaminants/organic-residue/other/carbon-soot-contamination
-    image: /images/contaminants/carbon-soot.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Pre-existing PAHs from incomplete combustion
-  - id: fire-damage-contamination
-    title: Fire and Smoke Damage
-    url: /contaminants/thermal-damage/fire/fire-damage-contamination
-    image: /images/contaminants/fire-damage.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Pre-existing PAHs from fire events
-  - id: rubber-residue-contamination
-    title: Rubber Compound Residue
-    url: /contaminants/organic-residue/polymer/rubber-residue-contamination
-    image: /images/contaminants/rubber-residue.jpg
-    frequency: common
-    severity: high
-    typical_context: Pyrolysis produces PAHs
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-    image: /images/contaminants/paint-residue.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Incomplete combustion of organic binders
-  - id: plastic-residue-contamination
-    title: Degraded Polymer Deposits
-    url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-    image: /images/contaminants/plastic-residue.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Thermal degradation of aromatic polymers
-  - id: bitumen-tar-contamination
-    title: Bitumen and Tar Coatings
-    url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
-    image: /images/contaminants/bitumen-tar.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Bitumen is rich in PAHs
   chemical_properties:
-  - type: chemical_properties
-    id: pahs-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: pahs-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: pahs-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: pahs-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: pahs-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: pahs-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: particulate-carcinogen
-    overrides:
-      specific_compound: Polycyclic Aromatic Hydrocarbons
-      pel_ppm: null
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: particulate-carcinogen
+      overrides:
+        specific_compound: Polycyclic Aromatic Hydrocarbons
+        pel_ppm: null
+      presentation: card
   emergency_response:
   - type: emergency_response
     id: flammable-gas-extremely
     overrides:
       specific_compound: Polycyclic Aromatic Hydrocarbons
+    presentation: card
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: carbon-buildup-contamination
+      frequency: very_common
+      severity: high
+      typical_context: Vaporization and reformation of existing PAHs
+      presentation: card
+      url: /contaminants/organic-residue/other/carbon-buildup-contamination
+    - id: carbon-soot-contamination
+      frequency: very_common
+      severity: high
+      typical_context: Pre-existing PAHs from incomplete combustion
+      presentation: card
+      url: /contaminants/organic-residue/other/carbon-soot-contamination
+    - id: fire-damage-contamination
+      frequency: very_common
+      severity: high
+      typical_context: Pre-existing PAHs from fire events
+      presentation: card
+      url: /contaminants/thermal-damage/fire/fire-damage-contamination
+    - id: rubber-residue-contamination
+      frequency: common
+      severity: high
+      typical_context: Pyrolysis produces PAHs
+      presentation: card
+      url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+    - id: paint-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Incomplete combustion of organic binders
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+    - id: plastic-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Thermal degradation of aromatic polymers
+      presentation: card
+      url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+    - id: bitumen-tar-contamination
+      frequency: very_common
+      severity: high
+      typical_context: Bitumen is rich in PAHs
+      presentation: card
+      url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+    - id: exhaust-residue-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of Exhaust System Deposits
+      presentation: card
+      url: /contaminants/thermal-damage/fire/exhaust-residue-contamination
 subcategory: aromatic_hydrocarbon
 author:
   id: 3
@@ -148,76 +196,6 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 title: PAHs
-ppe_requirements_detail:
-  id: particulate-carcinogen
-  hazard_type: particulate
-  hazard_level: carcinogen
-  minimum_protection_level: Level C
-  respiratory:
-    primary:
-      equipment: HEPA-filtered respirator (P100)
-      standard: NIOSH 42 CFR 84
-      condition: For particles <10 μm
-      filter_efficiency: 99.97% @ 0.3 μm
-      fit_test_required: true
-      cartridge_change: Per manufacturer or breathing resistance increase
-  skin:
-    gloves:
-      material: Nitrile gloves, disposable
-      standard: ANSI/ISEA 101
-      condition: Prevent skin contact with particulates
-      disposal: Contained disposal - hazardous waste
-    body:
-      equipment: Disposable Tyvek coveralls
-      standard: ANSI/ISEA 101
-      condition: Full body coverage, sealed at wrists/ankles
-      hood: Integrated hood covering head and neck
-      disposal: Hazardous waste, do not reuse
-    footwear:
-      equipment: Disposable boot covers
-      material: Tyvek or polyethylene
-      condition: Prevent particulate tracking
-  eye:
-    equipment: Safety goggles with side shields
-    standard: ANSI Z87.1
-    condition: Impact and particle protection
-    cleaning: Disposable or decontaminate between uses
-  special_requirements:
-  - Wet methods preferred to suppress dust
-  - HEPA vacuum only - never dry sweep
-  - Designated decontamination area
-  - Disposable PPE changed in decon area
-  - Shower facilities available
-  - No eating, drinking, smoking in work area
-  - Medical surveillance program required
-  decontamination:
-  - Remove PPE in designated decon area
-  - Vacuum suit before removal (HEPA only)
-  - Remove from inside out to minimize contact
-  - Place in labeled hazardous waste bag
-  - Wash hands and face thoroughly
-  - Shower at end of shift
-  training_required:
-  - Carcinogen hazard awareness
-  - HEPA respirator fit testing
-  - Proper PPE donning and doffing
-  - Decontamination procedures
-  - Medical surveillance requirements
-  medical_surveillance:
-    required: true
-    frequency: Annual minimum
-    requirements:
-    - Baseline and periodic medical exams
-    - Respiratory function testing
-    - Cancer screening per OSHA guidelines
-    - Exposure records maintenance
-  waste_handling:
-  - All PPE as hazardous waste
-  - Sealed, labeled containers
-  - Manifest tracking required
-  - EPA hazardous waste codes applicable
-  specific_compound: Polycyclic Aromatic Hydrocarbons
-  pel_ppm: null
 emergency_response_detail:
   id: flammable-gas-extremely
   hazard_type: flammable_gas
@@ -439,3 +417,9 @@ emergency_response_detail:
     - Root cause analysis
     - Corrective actions implemented
   specific_compound: Polycyclic Aromatic Hydrocarbons
+seo_description: Unlike everyday fuels that burn away cleanly, polycyclic aromatic hydrocarbons stand out with their rigid,
+  ring-linked structures that cling stubbornly to...
+micro: Unlike everyday fuels that burn away cleanly, polycyclic aromatic hydrocarbons stand out with their rigid, ring-linked
+  structures that cling stubbornly to surfaces and soils, lingering far longer and posing bigger cleanup headaches. These
+  compounds, often born from incomplete burning in industries like steelmaking or road paving, show up as sticky residues
+  or fine particles.

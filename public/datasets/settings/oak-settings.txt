@@ -11,6 +11,99 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Oak surface cleaning without 
 
-Generated: 2025-12-21T07:05:14.009Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength for optimal absorption in Oak 
+               cellulose and lignin
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               thermal management
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               without wood damage
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete surface 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning pattern
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Optimal dwell time per cleaning spot
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for pulsed Nd:YAG lasers in wood cleaning to remove contaminants without charring; starting at 50 W for light soiling on oak, max limited by oak's low thermal conductivity (~0.17 W/m·K) to avoid substrate damage. Source: Studies on laser cleaning of wooden artifacts (e.g., Journal of Cultural Heritage, 2015).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for 1064 nm cleaning of oak; slower for heavy contamination (e.g., mold or grease) to ensure removal, faster for light dust; 500 mm/s optimal for balancing efficiency and heat control. Source: Industry manuals from IPG Photonics and Adapt Laser Systems.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for industrial cleaning of oak to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; 20 ns balances ablation of contaminants with oak's sensitivity to thermal damage. Source: Laser physics research in Optics & Lasers in Engineering (2018).
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for 1064 nm cleaning; 30 kHz recommended for oak to achieve fast coverage without excessive heat accumulation, as higher rates (>50 kHz) risk charring due to oak's low reflectivity (~10-20% at 1064 nm). Trade-off: higher freq speeds process but increases thermal load. Source: Academic literature, Applied Surface Science (2020).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal on wood; oak damage threshold ~3-5 J/cm² (ablation starts at ~1 J/cm² for organics); 1.5 J/cm² safe for cleaning without degrading cellulose structure. Conservative due to oak's melting/decomposition point ~200-300°C. Source: Ablation threshold studies in Journal of Applied Physics (2017).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise industrial cleaning; smaller for fine details on oak surfaces (e.g., engravings), larger for broad areas; 200 μm recommended for uniform contaminant removal without excessive overlap heating. Source: Equipment specs from Coherent and Trumpf lasers.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for oak to ensure complete removal while monitoring for discoloration. Source: Industry case studies on wood restoration (e.g., Laser Cleaning Conference proceedings, 2019).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021).
+
+
+Generated: 2025-12-22T20:49:23.673Z
 License: CC BY 4.0

@@ -2,8 +2,8 @@ id: cast-iron-laser-cleaning
 name: Cast Iron
 title: Cast Iron Laser Cleaning
 category: metal
-datePublished: '2025-12-20T23:39:54.500089Z'
-dateModified: '2025-12-20T23:39:54.500089Z'
+datePublished: '2025-12-22T23:35:14.568917Z'
+dateModified: '2025-12-22T23:35:14.568917Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/ferrous/cast-iron-laser-cleaning
@@ -117,21 +117,119 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 relationships:
+  contaminated_by:
+    _section:
+      title: Common Contaminants
+      description: Types of contamination typically found on this material
+      order: 1
+      variant: relationship
+      icon: droplet
+    items:
+    - id: adhesive-residue-contamination
+      presentation: card
+    - id: algae-growth-contamination
+      presentation: card
+    - id: biological-stains-contamination
+      presentation: card
+    - id: brake-dust-contamination
+      presentation: card
+    - id: carbon-soot-contamination
+      presentation: card
+    - id: chemical-stains-contamination
+      presentation: card
+    - id: coolant-scale-contamination
+      presentation: card
+    - id: epoxy-residue-contamination
+      presentation: card
+    - id: fertilizer-residue-contamination
+      presentation: card
+    - id: forging-scale-contamination
+      presentation: card
+    - id: gasket-material-contamination
+      presentation: card
+    - id: graffiti-paint-contamination
+      presentation: card
+    - id: graphite-marks-contamination
+      presentation: card
+    - id: grease-deposits-contamination
+      presentation: card
+    - id: industrial-oil-contamination
+      presentation: card
+    - id: ink-stains-contamination
+      presentation: card
+    - id: insect-residue-contamination
+      presentation: card
+    - id: lime-scale-contamination
+      presentation: card
+    - id: mercury-contamination
+      presentation: card
+    - id: mineral-deposits-contamination
+      presentation: card
+    - id: paint-residue-contamination
+      presentation: card
+    - id: pesticide-residue-contamination
+      presentation: card
+    - id: plastic-residue-contamination
+      presentation: card
+    - id: pollen-deposit-contamination
+      presentation: card
+    - id: radioactive-contamination
+      presentation: card
+    - id: rubber-residue-contamination
+      presentation: card
+    - id: rust-oxidation-contamination
+      presentation: card
+    - id: salt-residue-contamination
+      presentation: card
+    - id: scale-buildup-contamination
+      presentation: card
+    - id: silicone-buildup-contamination
+      presentation: card
+    - id: tree-sap-contamination
+      presentation: card
+    - id: water-stain-contamination
+      presentation: card
+    - id: wax-buildup-contamination
+      presentation: card
+    - id: zinc-plating-contamination
+      presentation: card
   regulatory:
-    title: Regulatory Standards
-    description: Safety, environmental, and industry standards applicable to laser cleaning this material
-    groups:
-      all_standards:
-        title: Applicable Standards
-        description: All regulatory standards and guidelines
-        items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
-        - type: regulatory_standards
-          id: ce-machinery-directive
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this material
+      order: 2
+      variant: reference
+      icon: book
+    items:
+    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+      image: /images/logo/logo-org-fda.png
+      longName: Food and Drug Administration
+      name: FDA
+      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+    - description: ANSI Z136.1 - Safe Use of Lasers
+      image: /images/logo/logo-org-ansi.png
+      longName: American National Standards Institute
+      name: ANSI
+      url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    - description: IEC 60825 - Safety of Laser Products
+      image: /images/logo/logo-org-iec.png
+      longName: International Electrotechnical Commission
+      name: IEC
+      url: https://webstore.iec.ch/publication/3587
+    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+      image: /images/logo/logo-org-osha.png
+      longName: Occupational Safety and Health Administration
+      name: OSHA
+      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 subcategory: ferrous
+applications:
+- Automotive
+- Manufacturing
+- Machinery
+- Construction Equipment
+- Industrial Equipment
+- Foundry
+- Heavy Industry
 characteristics:
   crystallineStructure:
     allowedValues:

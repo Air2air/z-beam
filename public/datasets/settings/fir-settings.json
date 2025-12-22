@@ -5,8 +5,8 @@
     "subcategory": "softwood",
     "title": "Fir Settings",
     "description": "When laser cleaning Fir, watch its softness compared to hardwoods—it chars faster under heat. You must start with low power to prevent surface damage. Unlike denser woods, Fir's high porosity absorbs contaminants deeply, so use multiple gentle passes. This clears grime without warping the grain. Keep scans slow for even coverage. Adjust overlap to avoid hot spots. Fir restores well in heritage work.",
-    "datePublished": "2025-12-21T03:33:02.784162Z",
-    "dateModified": "2025-12-21T03:33:02.784162Z",
+    "datePublished": "2025-12-22T06:55:48.442144Z",
+    "dateModified": "2025-12-22T06:55:48.442144Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,134 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Fir surface cleaning without charring",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength for optimal absorption in Fir wood contaminants",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control on Fir wood grain",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage on Fir surfaces",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal from Fir wood",
+      "unit": "J/cm²",
+      "value": 1.2,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for efficient contaminant removal with minimal substrate damage",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning of Fir surfaces",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete contaminant removal from Fir",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap percentage for uniform cleaning coverage",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "dwellTime": {
+      "description": "Optimal dwell time per cleaning spot on Fir wood surface",
+      "unit": "μs",
+      "value": 100,
+      "min": 0.2,
+      "max": 200
+    },
+    "power": {
+      "min": 20,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Typical range for pulsed Nd:YAG lasers in wood cleaning to avoid thermal damage; starting at 50 W for light contamination on softwoods like Fir. Max limited to prevent charring (Fir's low thermal conductivity ~0.12 W/mK increases heat buildup). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaning heads; academic paper by Pou et al. (2004) in Optics and Lasers in Engineering."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "value": 1500,
+      "unit": "mm/s",
+      "description": "Range for effective contaminant removal without substrate ablation; slower for heavy contamination (500-1000 mm/s) vs light (2000-5000 mm/s). Recommended 1500 mm/s balances speed and control for Fir surface preparation. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems); case studies on wood restoration."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for Fir to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns optimal for 1064 nm ablation of organics without excessive plasma formation. Source: Laser physics research in Applied Surface Science (e.g., Anisimov et al., 2010) on wood ablation thresholds."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 30,
+      "unit": "kHz",
+      "description": "Typical for cleaning applications; 30 kHz recommended for Fir to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk thermal damage on low-conductivity wood). Source: Academic literature in Journal of Applied Physics (e.g., studies on pulse overlap in laser cleaning, Semaltianos, 2013)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "unit": "J/cm²",
+      "value": 2,
+      "description": "Fluence range for safe cleaning of contaminants; Fir damage threshold ~6-10 J/cm² at 1064 nm due to moderate reflectivity (~40% for wood). Recommended 2 J/cm² for removal without charring. Source: Ablation threshold studies in Optics Express (e.g., research on softwood laser interaction, Kononenko et al., 2006); conservative for industrial use."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "unit": "μm",
+      "value": 200,
+      "description": "Beam diameter range for cleaning; smaller (100-200 μm) for fine detail on Fir grain, larger (300-500 μm) for broad areas. 200 μm recommended for uniform surface preparation. Source: Equipment specifications from Trumpf and CleanLASER systems; process optimization in industrial applications."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete Fir cleaning without overexposure. Source: Industry practice from case studies in wood heritage restoration (e.g., European Laser Cleaning projects) and manufacturer guidelines."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Ensures uniform coverage; 50% recommended for Fir to avoid gaps or streaks while minimizing total energy input. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surface and Coatings Technology (e.g., research on scan strategies, Palmieri et al., 2018)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

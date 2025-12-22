@@ -1,7 +1,7 @@
 id: fused-silica-settings
 name: Fused Silica
-datePublished: '2025-12-21T03:33:02.845604Z'
-dateModified: '2025-12-21T03:33:02.845604Z'
+datePublished: '2025-12-22T23:37:06.073917Z'
+dateModified: '2025-12-22T23:37:06.073917Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/soda-lime/fused-silica-settings
@@ -45,14 +45,67 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: oak-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/oak-laser-cleaning
+    - id: maple-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/maple-laser-cleaning
+    - id: pine-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/softwood/pine-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power range for Fused Silica surface cleaning without thermal damage
     unit: W
@@ -132,6 +185,7 @@ machineSettings:
       HAZ but higher cost. Typical 10-30 ns for fused silica to limit thermal diffusion given low thermal conductivity (~1.4
       W/m·K). Recommended 20 ns. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects
       for dielectric materials.'
+    value: 500
   repetition_rate:
     min: 1
     max: 200
@@ -155,6 +209,7 @@ machineSettings:
     description: 'Smaller spots (50-200 μm) for fine detail/precision on fused silica surfaces; larger (200-500 μm) for broad
       area prep. Recommended 200 μm for balanced resolution and efficiency at 1064 nm (high reflectivity ~4% for silica).
       Source: Equipment specifications from Coherent and Trumpf laser systems manuals.'
+    value: 250
   pass_count:
     min: 1
     max: 10
@@ -291,6 +346,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy.
-micro: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This makes the process
-  slower since the beam tends to pass through the material with minimal interaction.

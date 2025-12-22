@@ -377,8 +377,9 @@ describe('Enhanced Metadata Generation', () => {
       expect(result.openGraph).toBeDefined();
       expect(result.twitter).toBeDefined();
       
-      // Optional fields should be undefined, not break
-      expect(result.openGraph.images).toBeUndefined();
+      // Should use default fallback image when no image provided
+      expect(result.openGraph.images).toBeDefined();
+      expect(result.openGraph.images?.[0]?.url).toContain('og-image.jpg');
       expect(result.openGraph.article?.publishedTime).toBeUndefined();
     });
   });

@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/plastic/thermoplastic/polyimide-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/plastic/thermoplastic/polyimide-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Polyimide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/polyimide-laser-cleaning
+# Citation: Z-Beam (2025). Polyimide Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/polyimide-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Polyimide,,,,,Material name
@@ -30,3 +30,24 @@ Machine,Settings,energy_density,0.8,J/cm²,0.1,20,,"Fluence below polyimide dama
 Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for precise cleaning; smaller for fine details (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for polyimide surface prep to ensure uniform fluence (equipment specs from Coherent Inc. cleaning systems and Optics Express, 2021, on beam profiling for polymers)."
 Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete polyimide cleaning without excessive exposure (industry practice from Adapt Laser Systems case studies and Surface and Coatings Technology, 2019, on multi-pass optimization)."
 Machine,Settings,overlap_ratio,60,%,10,90,,"Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on irregular polyimide surfaces. 60% recommended to avoid gaps while minimizing overexposure (process studies in Lasers in Manufacturing and Materials Processing, 2022)."
+Property,material_characteristics,density,1.42,g/cm³,,,,Material property: density
+Property,material_characteristics,porosity,0,%,,,,Material property: porosity
+Property,material_characteristics,surfaceRoughness,1,μm,,,,Material property: surfaceRoughness
+Property,material_characteristics,tensileStrength,231,MPa,,,,Material property: tensileStrength
+Property,material_characteristics,youngsModulus,2.5,GPa,,,,Material property: youngsModulus
+Property,material_characteristics,hardness,0.35,GPa,,,,Material property: hardness
+Property,material_characteristics,flexuralStrength,250,MPa,,,,Material property: flexuralStrength
+Property,material_characteristics,oxidationResistance,3,μm/year,,,,Material property: oxidationResistance
+Property,material_characteristics,corrosionResistance,0.88,mm/year,,,,Material property: corrosionResistance
+Property,material_characteristics,compressiveStrength,231,MPa,,,,Material property: compressiveStrength
+Property,material_characteristics,fractureToughness,6,MPa m^{1/2},,,,Material property: fractureToughness
+Property,material_characteristics,electricalResistivity,1000000000000000,Ω·m,,,,Material property: electricalResistivity
+Property,laser_material_interaction,thermalDestruction,673,K,,,,Material property: thermalDestruction
+Property,laser_material_interaction,laserAbsorption,0.65,dimensionless,,,,Material property: laserAbsorption
+Property,laser_material_interaction,laserDamageThreshold,1.25,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,ablationThreshold,0.58,J/cm²,,,scientific_literature,Material property: ablationThreshold
+Property,laser_material_interaction,thermalDiffusivity,7.8e-8,m²/s,,,scientific_literature,Material property: thermalDiffusivity
+Property,laser_material_interaction,thermalExpansion,20,10^{-6}/K,,,scientific_literature,Material property: thermalExpansion
+Property,laser_material_interaction,specificHeat,1090,J/(kg·K),,,scientific_literature,Material property: specificHeat
+Property,laser_material_interaction,thermalConductivity,0.12,W/m·K,,,scientific_literature,Material property: thermalConductivity
+Property,laser_material_interaction,laserReflectivity,0.065,,,,scientific_literature,Material property: laserReflectivity

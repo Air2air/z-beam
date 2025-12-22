@@ -11,6 +11,13 @@ import { render } from '@testing-library/react';
 import { ItemPage } from '@/app/components/ContentPages/ItemPage';
 import { getSettingsArticle } from '@/app/utils/contentAPI';
 import type { ContentTypeConfig } from '@/app/config/contentTypes';
+import { createMockMaterial, createMockAuthor, createMockSettings } from '@/tests/utils/mockFactory';
+
+// Mock dataset loader to return null so tests use frontmatter data directly
+jest.mock('@/app/utils/schemas/datasetLoader', () => ({
+  loadGeneratedDataset: jest.fn(() => null),
+  extractEnhancedFields: jest.fn(() => null)
+}));
 
 // Mock next/navigation
 jest.mock('next/navigation', () => ({

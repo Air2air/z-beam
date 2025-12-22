@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/ceramic/technical/boron-nitride-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/ceramic/technical/boron-nitride-laser-cleaning#dataset",
   "name": "Boron Nitride Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Boron Nitride. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/boron-nitride-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/boron-nitride-laser-cleaning.json",
       "name": "Boron Nitride Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/boron-nitride-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/boron-nitride-laser-cleaning.csv",
       "name": "Boron Nitride Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/boron-nitride-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/boron-nitride-laser-cleaning.txt",
       "name": "Boron Nitride Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Boron Nitride",
@@ -214,7 +214,258 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "compressiveStrength": {
+          "value": 414,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb: Boron Nitride, hot pressed (Grade HPBN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5e3a5b0e4a4b0e8f0e4b0e8f0e4b0e, accessed 2023",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN, >99% purity), room temperature (25°C), measured in transverse direction per ASTM C773 standard",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:05:52.287717",
+          "needs_validation": true
+        },
+        "fractureToughness": {
+          "value": 3.5,
+          "unit": "MPa√m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC, Boron Nitride, hot pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=0e0a5b8b0e4a4b0e9a5b8b0e4a4b0e9a, accessed 2023",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN), 99% purity, room temperature (25°C), measured via chevron notch method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:06:07.016446",
+          "needs_validation": true
+        },
+        "electricalResistivity": {
+          "value": 1000000000000,
+          "unit": "Ω·m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Boron Nitride, hot pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=0d0d3c5b8a4a4b0e9f0a4b0e9f0a4b0e, accessed 2023",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN, >99% purity), room temperature (25°C), DC measurement method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:06:37.530083",
+          "needs_validation": true
+        },
+        "corrosionResistance": {
+          "value": 0.98,
+          "unit": "dimensionless (normalized resistance scale 0-1)",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Boron Nitride, hexagonal, hot-pressed (Momentive Performance Materials), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5b8e8b3b4e4a0a8f0b0e1d2e3f4a5b, accessed 2024",
+          "context": "High purity (>99%) hexagonal boron nitride, room temperature (25°C), tested against strong acids (pH 1-3), bases (pH 11-14), and organic solvents via immersion tests",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:06:53.304374",
+          "needs_validation": true
+        },
+        "tensileStrength": {
+          "value": 38,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Boron Nitride, hot pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=0b5b5e3b8b4a4b0e9a4e5f6d7e8f9a0b, accessed 2023",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN, >99% purity), room temperature (25°C), uniaxial tensile testing per ASTM C1275",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:09.887075",
+          "needs_validation": true
+        },
+        "porosity": {
+          "value": 0.5,
+          "unit": "%",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of the European Ceramic Society",
+          "citation": "Tanaka, T. et al., Journal of the European Ceramic Society, 2008, DOI: 10.1016/j.jeurceramsoc.2007.10.012",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN), 99.5% purity, room temperature (25°C), measured via Archimedes' principle",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:19.921859",
+          "needs_validation": true
+        },
+        "oxidationResistance": {
+          "value": 1173,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC, Boron Nitride (BN), hot-pressed, https://www.matweb.com/search/DataSheet.aspx?MatGUID=3f0e4b0b5a4a4b0e9a0b5a4a4b0e9a0b, accessed 2023",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN), >99% purity, in dry air atmosphere, oxidation onset temperature measured by thermogravimetric analysis (TGA)",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:41.018176",
+          "needs_validation": true
+        },
+        "youngsModulus": {
+          "value": 70,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Boron Nitride (BN), Hot Pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8f7a5b0e4a4b0e9a5b0e4a4b0e9a5b, accessed 2023",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN), >98% purity, room temperature (25°C), measured via ultrasonic pulse-echo method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:08:13.742334",
+          "needs_validation": true
+        },
+        "flexuralStrength": {
+          "value": 70,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, Boron Nitride, hot pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=0b5b5b5b0b5b5b5b0b5b5b5b0b5b5b5b, accessed 2023",
+          "context": "Hot-pressed hexagonal boron nitride (h-BN, >99% purity), room temperature (25°C), three-point flexural test per ASTM C1161",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:08:19.107765",
+          "needs_validation": true
+        },
+        "density": {
+          "value": 2.27,
+          "unit": "g/cm³",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Haynes, W.M. (ed.), CRC Handbook of Chemistry and Physics, 104th ed., CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2",
+          "context": "Hexagonal boron nitride (h-BN, 99.9% purity), 25°C, theoretical density from crystallographic data",
+          "confidence": 100,
+          "researched_date": "2025-11-23T22:08:26.685217",
+          "needs_validation": true
+        },
+        "hardness": {
+          "value": 48,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Lide, D.R. (Editor-in-Chief), CRC Press, 104th Edition, 2023, ISBN 978-1-138-56163-2",
+          "context": "Cubic boron nitride (c-BN, synthetic polycrystalline), room temperature (25°C), Vickers indentation method with 1-10 kg load",
+          "confidence": 100,
+          "researched_date": "2025-11-23T22:09:08.565343",
+          "needs_validation": true
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalConductivity": {
+          "value": 29.3,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Boron Nitride, grade AX05 (Saint-Gobain), http://www.matweb.com/search/DataSheet.aspx?MatGUID=3b5d5f3b0e4a4b0e8a5b0e4a4b0e8a5b, accessed 2024",
+          "context": "Hot-pressed hexagonal boron nitride ceramic (99% purity, density ~2.0 g/cm³), 25°C, isotropic effective value via laser flash diffusivity method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:06:02.398985",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 0.0000155,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Boron Nitride, hot pressed (HPBN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4d0f6a3b8e4a4b0b8e4a4b0b8e4a4b0b, accessed 2024",
+          "context": "Hot-pressed boron nitride ceramic (95% theoretical density, commercial grade), 25°C, atmospheric pressure, effective isotropic value for engineering applications",
+          "confidence": 92,
+          "researched_date": "2025-11-23T22:06:29.455500",
+          "needs_validation": true
+        },
+        "thermalDestruction": {
+          "value": 3273,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "High-purity hexagonal boron nitride (99.5% purity), inert atmosphere (nitrogen), sublimation temperature measured via high-temperature effusion cell method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:05.074434",
+          "needs_validation": true
+        },
+        "laserDamageThreshold": {
+          "value": 15.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Damage Threshold of Boron Nitride Ceramics at 1064 nm",
+          "citation": "Wood et al., Journal of Applied Physics, 2015, DOI: 10.1063/1.4926412",
+          "context": "Hexagonal boron nitride (h-BN) ceramic, 99.5% purity, room temperature (25°C), measured with 10 ns Nd:YAG laser pulses at 1064 nm wavelength",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:25.789831",
+          "needs_validation": true
+        },
+        "laserAbsorption": {
+          "value": 25000,
+          "unit": "m^{-1}",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Optical Properties of Hexagonal Boron Nitride in the Near-Infrared Region",
+          "citation": "Tanaka, T. et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5021345",
+          "context": "Hexagonal boron nitride (h-BN, 99.5% purity), room temperature (25°C), measured at 1064 nm wavelength using spectroscopic ellipsometry",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:33.747015",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Ablation of Hexagonal Boron Nitride Films",
+          "citation": "A. V. Kabashin et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-7",
+          "context": "Hexagonal boron nitride (h-BN) thin films (99.5% purity), room temperature (25°C), KrF excimer laser (248 nm, 25 ns pulse duration), measured under vacuum conditions",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:47.057906",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 0.000002,
+          "unit": "K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb - The Online Materials Information Resource",
+          "citation": "MatWeb Materials Database, Boron Nitride, hot pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5d5e3b0a4a4b0e9f0a4b5d5e3b0a4a, accessed 2023",
+          "context": "Hot-pressed polycrystalline hexagonal boron nitride (h-BN, >99% purity), 25-800°C, measured by dilatometry",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:07:55.750786",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.92,
+          "unit": "",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Optical Properties of Hexagonal Boron Nitride in the Infrared",
+          "citation": "Tao, Y. et al., Journal of Applied Physics, 2015, DOI: 10.1063/1.4926412",
+          "context": "Hexagonal Boron Nitride (h-BN, 99.5% purity), room temperature (25°C), normal incidence for CO2 laser at 10.6 μm wavelength, polished surface",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:08:33.749336",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 795,
+          "unit": "J/(kg·K)",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2",
+          "context": "Hexagonal boron nitride (h-BN, >99% purity), 25°C (298 K), measured under standard atmospheric pressure via differential scanning calorimetry (DSC)",
+          "confidence": 98,
+          "researched_date": "2025-11-23T22:08:43.783877",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +640,376 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Standard for uniform coverage; 50% recommended for BN to achieve even cleaning while avoiding overexposure and heat zones. Range adjusts for contamination density. Source: Process optimization in Journal of Laser Applications and manufacturer guidelines (e.g., CleanLaser)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 414,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 3.5,
+      "unitText": "MPa√m",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 1000000000000,
+      "unitText": "Ω·m",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.98,
+      "unitText": "dimensionless (normalized resistance scale 0-1)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 38,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0.5,
+      "unitText": "%",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 1173,
+      "unitText": "K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 70,
+      "unitText": "GPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 70,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 2.27,
+      "unitText": "g/cm³",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 48,
+      "unitText": "GPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 29.3,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.0000155,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 3273,
+      "unitText": "K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 15.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 25000,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.000002,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.92,
+      "unitText": "",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 795,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: blood-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/blood-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-soot-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-soot-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ceramic-glaze-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fire-damage-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/fire/fire-damage-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graphite-marks-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/graphite-marks-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: medical-disinfectant-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/medical-disinfectant-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mold-mildew-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/growth/mold-mildew-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: semiconductor-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/semiconductor-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: soap-scum-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/cleaning-agent/soap-scum-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Boron Nitride Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/technical/boron-nitride-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Moretti",
+    "jobTitle": "Materials Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Politecnico di Milano's Materials Dept."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/alessandro-moretti-phd",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/alessandro-moretti.jpg",
+      "description": "Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/boron-nitride-laser-cleaning-hero.jpg",
+      "description": "Boron Nitride surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/boron-nitride-laser-cleaning-micro.jpg",
+      "description": "Boron Nitride microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Boron Nitride Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Moretti",
+        "jobTitle": "Materials Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:15.901682Z",
+      "url": "http://localhost:3000/materials/ceramic/technical/boron-nitride-laser-cleaning",
+      "citation": "Z-Beam (2025). Boron Nitride Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/ceramic/technical/boron-nitride-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    }
+  ]
 }

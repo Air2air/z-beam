@@ -2,8 +2,8 @@ id: tungsten-carbide-laser-cleaning
 name: Tungsten Carbide
 title: Tungsten Carbide Laser Cleaning
 category: ceramic
-datePublished: '2025-12-20T23:40:06.632968Z'
-dateModified: '2025-12-20T23:40:06.632968Z'
+datePublished: '2025-12-22T23:35:17.697599Z'
+dateModified: '2025-12-22T23:35:17.697599Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/ceramic/carbide/tungsten-carbide-laser-cleaning
@@ -124,21 +124,53 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 relationships:
+  contaminated_by:
+    _section:
+      title: Common Contaminants
+      description: Types of contamination typically found on this material
+      order: 1
+      variant: relationship
+      icon: droplet
+    items:
+    - id: diamond-coating-contamination
+      presentation: card
+    - id: industrial-oil-contamination
+      presentation: card
   regulatory:
-    title: Regulatory Standards
-    description: Safety, environmental, and industry standards applicable to laser cleaning this material
-    groups:
-      all_standards:
-        title: Applicable Standards
-        description: All regulatory standards and guidelines
-        items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
-        - type: regulatory_standards
-          id: ce-machinery-directive
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this material
+      order: 2
+      variant: reference
+      icon: book
+    items:
+    - description: ANSI Z136.1 - Safe Use of Lasers
+      image: /images/logo/logo-org-ansi.png
+      longName: American National Standards Institute
+      name: ANSI
+      url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    - description: IEC 60825 - Safety of Laser Products
+      image: /images/logo/logo-org-iec.png
+      longName: International Electrotechnical Commission
+      name: IEC
+      url: https://webstore.iec.ch/en/publication/3587
+    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+      image: /images/logo/logo-org-osha.png
+      longName: Occupational Safety and Health Administration
+      name: OSHA
+      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 subcategory: carbide
+applications:
+- Aerospace
+- Automotive
+- Medical
+- Oil and Gas
+- Mining
+- Electronics Manufacturing
+- Marine
+- Tool and Die Manufacturing
+- Energy Generation
+- Cultural Heritage
 properties:
   material_characteristics:
     label: Material Characteristics

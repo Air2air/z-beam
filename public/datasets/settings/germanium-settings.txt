@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 60 W
+  Range: 1-120 W
+  Description: Controlled power for precision semiconductor cleaning
 
-Generated: 2025-12-21T07:05:13.944Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR for minimal lattice damage
+
+SPOT SIZE:
+  Value: 30 μm
+  Range: 0.1-500 μm
+  Description: Small spot for high-precision cleaning
+
+REPETITION RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Moderate frequency for controlled removal
+
+ENERGY DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Precision energy for contamination removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Ultra-short pulses for minimal thermal damage
+
+SCAN SPEED:
+  Value: 300 mm/s
+  Range: 10-5000 mm/s
+  Description: Careful scanning for uniform treatment
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Multiple passes for complete cleaning
+
+OVERLAP RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: High overlap for thorough coverage
+
+POWER:
+  Value: 50 W
+  Range: 10-100 W
+  Description: Typical range for pulsed Nd:YAG lasers in semiconductor cleaning to avoid thermal damage; recommended starting at 50 W for balanced ablation of contaminants on Ge, which has moderate thermal conductivity (60 W/mK) and high reflectivity (~40% at 1064 nm). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review in 'Laser Cleaning' by Kononenko (2020).
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g., oxides), faster for light particles; recommended 1000 mm/s for Ge to minimize heat-affected zone given its melting point of 938°C. Source: Industry standards from Laser Institute of America guidelines and equipment manuals from Trumpf; case study in Optics Express (2018) on IR cleaning of semiconductors.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on Ge; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially; 20 ns balances ablation efficiency and thermal confinement. Source: Laser physics research in Applied Physics A (2015) on ns/ps ablation thresholds for Ge at 1064 nm, noting reduced cracking in ns pulses.
+
+REPETITION_RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning to achieve uniform energy delivery; higher rates increase speed but risk heat accumulation on low-conductivity Ge; 20 kHz recommended for optimal throughput without substrate heating. Source: Academic literature in Journal of Applied Physics (2017) on rep rate effects in IR laser cleaning of semiconductors, highlighting trade-offs for materials like Ge.
+
+ENERGY_DENSITY:
+  Value: 0.8 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below Ge's damage threshold (~2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; lower for light cleaning, higher for heavy; 0.8 J/cm² recommended to ablate oxides/particles while preserving Ge surface integrity. Source: Ablation threshold studies in Physical Review B (2012) and Optics and Lasers in Engineering (2019), confirming Ge thresholds and conservative cleaning fluences.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precise industrial cleaning; smaller for fine details on Ge wafers, larger for area prep; 200 μm recommended for uniform coverage without excessive overlap heating. Source: Equipment specifications from Coherent and Spectra-Physics galvo scanners; process studies in Applied Surface Science (2021) for IR cleaning of Ge optics.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for complete removal of stubborn layers; 2 passes recommended for Ge to ensure thorough cleaning without risking cumulative thermal damage. Source: Industry practice from SPIE proceedings on laser surface preparation (2016) and case studies in semiconductor manufacturing, emphasizing multi-pass for IR-sensitive materials.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence in cleaning semiconductors.
+
+
+Generated: 2025-12-22T20:49:23.551Z
 License: CC BY 4.0

@@ -3,8 +3,8 @@ name: Volatile Organic Compounds
 display_name: VOCs
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-20T23:36:52.374520Z'
-dateModified: '2025-12-20T23:36:52.374520Z'
+datePublished: '2025-12-22T21:25:26.290283Z'
+dateModified: '2025-12-22T21:25:26.290283Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/organic-vapor/vocs-compound
@@ -22,7 +22,13 @@ breadcrumb:
 chemical_formula: Various
 cas_number: N/A
 molecular_weight: null
-description: null
+description: "Volatile organic compounds sneak into paints and adhesives everywhere. They evaporate quickly, leaving behind\
+  \ sharp odors that sting eyes and throats. In factories, workers mix them into varnishes for wood finishes or solvents for\
+  \ metal prep. These irritants build up fast, demanding good airflow to stay safe. \n\nLaser cleaning zaps away VOC-laden\
+  \ grime on surfaces like rusty beams or old machinery. Pulses vaporize the junk without harsh chemicals. It leaves metal\
+  \ clean and dry, dodging extra irritant release. Why bother? Speeds up jobs, cuts waste. Just watch for smoke—clear it quick\
+  \ to avoid breathing issues. Steer clear of dusty spots; lasers kick up particles that carry lingering fumes. Handles tough\
+  \ spots where scrubbers fail. Keeps sites running smooth."
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,72 +51,54 @@ sources_in_laser_cleaning:
 - polymer_decomposition
 - solvent_evaporation
 relationships:
-  produced_by_contaminants:
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
-    frequency: very_common
-    severity: moderate
-    typical_context: Vaporization of paint solvents and binders
-  - id: graffiti-paint-contamination
-    title: Graffiti and Spray Paint
-    url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
-    image: /images/contaminants/inorganic-coating/paint/graffiti-paint.jpg
-    frequency: very_common
-    severity: moderate
-    typical_context: Release of spray paint solvents
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-    image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
-    frequency: very_common
-    severity: moderate
-    typical_context: Release of adhesive solvents
-  - id: industrial-oil-contamination
-    title: Industrial Oil / Grease Buildup
-    url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-    image: /images/contaminants/organic-residue/petroleum/industrial-oil.jpg
-    frequency: very_common
-    severity: moderate
-    typical_context: Vaporization of hydrocarbon compounds
-  - id: silicone-buildup-contamination
-    title: Silicone Sealant Buildup
-    url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
-    image: /images/contaminants/organic-residue/adhesive/silicone-buildup.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Thermal breakdown of silicone polymers
-  - id: rubber-residue-contamination
-    title: Rubber Compound Residue
-    url: /contaminants/organic-residue/polymer/rubber-residue-contamination
-    image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Pyrolysis products
-  - id: plastic-residue-contamination
-    title: Degraded Polymer Deposits
-    url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-    image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Thermal decomposition products
   chemical_properties:
-  - type: chemical_properties
-    id: vocs-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: vocs-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: vocs-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: vocs-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: vocs-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: vocs-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: irritant-gas-low-concentration
-    overrides:
-      specific_compound: Volatile Organic Compounds
-      pel_ppm: null
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: irritant-gas-low-concentration
+      overrides:
+        specific_compound: Volatile Organic Compounds
+        pel_ppm: null
+      presentation: card
   emergency_response:
     fire_hazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel to ignition sources. Explosive mixtures
       possible.
@@ -125,6 +113,152 @@ relationships:
     special_hazards: Complex mixtures with unpredictable effects. Some carcinogenic (benzene, formaldehyde, 1,3-butadiene).
       Others neurotoxic (toluene, xylene, styrene). Respiratory irritants. Contribute to indoor air quality problems. Chronic
       exposure health effects vary widely.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: paint-residue-contamination
+      frequency: very_common
+      severity: moderate
+      typical_context: Vaporization of paint solvents and binders
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+    - id: graffiti-paint-contamination
+      frequency: very_common
+      severity: moderate
+      typical_context: Release of spray paint solvents
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+    - id: adhesive-residue-contamination
+      frequency: very_common
+      severity: moderate
+      typical_context: Release of adhesive solvents
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+    - id: industrial-oil-contamination
+      frequency: very_common
+      severity: moderate
+      typical_context: Vaporization of hydrocarbon compounds
+      presentation: card
+      url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+    - id: silicone-buildup-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Thermal breakdown of silicone polymers
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+    - id: rubber-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Pyrolysis products
+      presentation: card
+      url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+    - id: plastic-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Thermal decomposition products
+      presentation: card
+      url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+    - id: anti-seize-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Anti-Seize Compound
+      presentation: card
+      url: /contaminants/organic-residue/lubricant/anti-seize-contamination
+    - id: biological-stains-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Organic Biofilm Deposits
+      presentation: card
+      url: /contaminants/biological/deposit/biological-stains-contamination
+    - id: cutting-fluid-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Machining Coolant Residue
+      presentation: card
+      url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
+    - id: epoxy-residue-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Epoxy Resin Deposits
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+    - id: fuel-varnish-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Fuel System Varnish
+      presentation: card
+      url: /contaminants/organic-residue/petroleum/fuel-varnish-contamination
+    - id: gasket-material-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Gasket Material Residue
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/gasket-material-contamination
+    - id: grease-deposits-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Heavy Machinery Grease
+      presentation: card
+      url: /contaminants/organic-residue/petroleum/grease-deposits-contamination
+    - id: ink-stains-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Printing Ink Residue
+      presentation: card
+      url: /contaminants/organic-residue/marking/ink-stains-contamination
+    - id: pcb-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of PCB Oil Contamination
+      presentation: card
+      url: /contaminants/chemical-residue/industrial/pcb-contamination
+    - id: powder-coating-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Powder Coating Buildup
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/powder-coating-contamination
+    - id: primer-coating-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Paint Primer Layers
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/primer-coating-contamination
+    - id: quench-oil-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Quenching Oil Residue
+      presentation: card
+      url: /contaminants/thermal-damage/scale/quench-oil-contamination
+    - id: solder-flux-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Soldering Flux Residue
+      presentation: card
+      url: /contaminants/organic-residue/lubricant/solder-flux-contamination
+    - id: tree-sap-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Tree Sap and Resin
+      presentation: card
+      url: /contaminants/organic-residue/natural/tree-sap-contamination
+    - id: uv-chalking-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of UV Photodegradation / Polymer Chalking
+      presentation: card
+      url: /contaminants/aging/photodegradation/uv-chalking-contamination
+    - id: wood-rot-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Wood Rot / Fungal Biodegradation
+      presentation: card
+      url: /contaminants/biological/growth/wood-rot-contamination
   physical_properties:
     boiling_point: Variable (<260°C by EPA definition)
     melting_point: Variable
@@ -287,76 +421,6 @@ detection_monitoring:
   odor_threshold: Variable. Some VOCs odorless (benzene), others pungent at low ppm. Olfactory fatigue common. Do not rely
     on odor.
 title: VOCs
-ppe_requirements_detail:
-  id: irritant-gas-low-concentration
-  hazard_type: irritant_gas
-  concentration_range: <25 ppm
-  exposure_duration: short_term
-  minimum_protection_level: Level C
-  respiratory:
-    primary:
-      equipment: NIOSH-approved organic vapor respirator
-      standard: NIOSH 42 CFR 84
-      filter_type: Organic vapor cartridge
-      condition: For concentrations <25 ppm
-      fit_test_required: true
-      change_schedule: Per manufacturer guidance or saturation
-    upgrade_conditions:
-    - trigger: Concentration >25 ppm
-      equipment: Self-contained breathing apparatus (SCBA)
-    - trigger: Unknown concentration
-      equipment: SCBA or supplied-air respirator
-    - trigger: Oxygen deficient atmosphere (<19.5%)
-      equipment: SCBA (pressure-demand mode)
-  skin:
-    gloves:
-      material: Nitrile or butyl rubber
-      thickness: 15-18 mil minimum
-      standard: ANSI/ISEA 105
-      breakthrough_time: '>480 minutes'
-      condition: All handling operations
-    body:
-      equipment: Chemical-resistant apron or coveralls
-      material: Tyvek or equivalent polymer-laminate
-      standard: ANSI/ISEA 101
-      condition: Splash potential or prolonged exposure
-    footwear:
-      equipment: Chemical-resistant boots
-      material: Nitrile or PVC
-      condition: Floor contamination or large spills
-  eye:
-    primary:
-      equipment: Chemical safety goggles
-      type: Indirect vents, sealed to face
-      standard: ANSI Z87.1
-      marking: Z87+ for impact protection
-      condition: All operations with exposure potential
-    secondary:
-      equipment: Face shield
-      condition: Splash hazard or container transfer
-      use: Over goggles, not replacement
-  special_requirements:
-  - Work in well-ventilated area or use local exhaust ventilation
-  - Eliminate all ignition sources within 50 feet
-  - Emergency shower and eyewash within 10 seconds travel time
-  - Prohibit eating, drinking, smoking in contaminated areas
-  - Wash hands thoroughly before eating or drinking
-  decontamination:
-  - Remove contaminated clothing immediately
-  - Wash skin with soap and water
-  - Launder contaminated clothing separately
-  - Do not reuse until properly decontaminated
-  training_required:
-  - Respiratory protection program
-  - Chemical hazard awareness
-  - PPE donning and doffing procedures
-  - Emergency response procedures
-  medical_surveillance:
-    required: false
-    recommended: Annual respiratory fitness evaluation
-  limitations:
-  - Not for IDLH (Immediately Dangerous to Life or Health) atmospheres
-  - Not for oxygen-deficient environments
-  - Air-purifying respirators do not supply oxygen
-  specific_compound: Volatile Organic Compounds
-  pel_ppm: null
+seo_description: Volatile organic compounds sneak into paints and adhesives everywhere.
+micro: Volatile organic compounds sneak into paints and adhesives everywhere. They evaporate quickly, leaving behind sharp
+  odors that sting eyes and throats.

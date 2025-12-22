@@ -30,6 +30,7 @@ export interface GenericItemInfo {
   title: string;
   category: string;
   subcategory?: string;
+  href?: string;
 }
 
 /**
@@ -57,23 +58,21 @@ export async function getAllCategoriesGeneric<TItem extends GenericItemInfo>(
     const content = await fs.readFile(filePath, 'utf8');
     const parsed = yaml.load(content) as any;
     
-    // Handle normalized structure (parsed.metadata) or legacy flat structure
-    const data = parsed.metadata || parsed;
+    if (!parsed || !parsed.category) continue;
     
-    if (!data.category) continue;
-    
-    const categorySlug = normalizeForUrl(data.category);
-    const categoryLabel = capitalizeWords(data.category);
-    const subcategorySlug = data.subcategory ? normalizeForUrl(data.subcategory) : undefined;
-    const subcategoryLabel = data.subcategory ? capitalizeWords(data.subcategory) : undefined;
+    const categorySlug = normalizeForUrl(parsed.category);
+    const categoryLabel = capitalizeWords(parsed.category);
+    const subcategorySlug = parsed.subcategory ? normalizeForUrl(parsed.subcategory) : undefined;
+    const subcategoryLabel = parsed.subcategory ? capitalizeWords(parsed.subcategory) : undefined;
     const itemSlug = file.replace(/\.(yaml|yml)$/, '');
     
     const itemInfo: TItem = {
       slug: itemSlug,
-      name: data.name || itemSlug,
-      title: data.title || data.name || itemSlug,
+      name: parsed.name || itemSlug,
+      title: parsed.title || parsed.name || itemSlug,
       category: categorySlug,
-      subcategory: subcategorySlug
+      subcategory: subcategorySlug,
+      href: parsed.full_path || `/${contentType}/${itemSlug}`
     } as TItem;
     
     // Get or create category

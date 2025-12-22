@@ -213,11 +213,77 @@ function generateJSON(contaminant: ContaminantData, slug: string): string {
     // Variables measured
     variableMeasured: extractVariables(contaminant),
     
-    // Citation
-    citation: config.attribution.format
-      .replace('{year}', String(currentYear))
-      .replace('{materialName}', contaminant.name + ' Contamination Removal')
-      .replace('{url}', contaminantUrl)
+    // Author information (E-E-A-T)
+    author: contaminant.author ? {
+      '@type': 'Person',
+      name: contaminant.author.name,
+      jobTitle: contaminant.author.jobTitle || contaminant.author.title,
+      affiliation: contaminant.author.affiliation ? {
+        '@type': 'Organization',
+        name: contaminant.author.affiliation.name
+      } : undefined,
+      email: contaminant.author.email,
+      url: contaminant.author.url ? `${baseUrl}${contaminant.author.url}` : undefined,
+      image: contaminant.author.image ? {
+        '@type': 'ImageObject',
+        contentUrl: `${baseUrl}${contaminant.author.image}`,
+        description: contaminant.author.imageAlt
+      } : undefined
+    } : undefined,
+    
+    // Images
+    image: contaminant.images ? [
+      contaminant.images.hero ? {
+        '@type': 'ImageObject',
+        contentUrl: `${baseUrl}${contaminant.images.hero.url}`,
+        description: contaminant.images.hero.alt,
+        representativeOfPage: true
+      } : null,
+      contaminant.images.micro ? {
+        '@type': 'ImageObject',
+        contentUrl: `${baseUrl}${contaminant.images.micro.url}`,
+        description: contaminant.images.micro.alt,
+        thumbnail: true
+      } : null
+    ].filter(Boolean) : undefined,
+    
+    // Citation array (must be array with ≥3 items)
+    citation: [
+      // Primary dataset citation
+      {
+        '@type': 'CreativeWork',
+        name: `${contaminant.name} Contamination Removal Dataset`,
+        author: contaminant.author ? {
+          '@type': 'Person',
+          name: contaminant.author.name,
+          jobTitle: contaminant.author.jobTitle || contaminant.author.title
+        } : { '@type': 'Organization', name: config.publisher.name },
+        datePublished: contaminant.datePublished || new Date().toISOString().split('T')[0],
+        url: contaminantUrl,
+        citation: config.attribution.format
+          .replace('{year}', String(currentYear))
+          .replace('{materialName}', contaminant.name + ' Contamination Removal')
+          .replace('{url}', contaminantUrl)
+      },
+      // Publisher citation
+      {
+        '@type': 'CreativeWork',
+        name: config.catalog.name,
+        publisher: {
+          '@type': 'Organization',
+          name: config.publisher.name,
+          url: config.publisher.url
+        },
+        url: config.catalog.url
+      },
+      // Regulatory standards as additional citations
+      ...(contaminant.relationships?.regulatory_standards || []).slice(0, 3).map((reg: any) => ({
+        '@type': 'CreativeWork',
+        name: reg.type || 'Regulatory Standard',
+        identifier: reg.id,
+        description: 'Safety and regulatory compliance standard'
+      }))
+    ]
   };
 
   return JSON.stringify(dataset, null, 2);
@@ -369,6 +435,61 @@ function extractVariables(contaminant: ContaminantData): any[] {
       name: 'Visual Identification Data Available',
       value: Object.keys(contaminant.visual_characteristics.appearance_on_categories).length,
       unitText: 'material categories'
+    });
+    
+    // Add detailed visual characteristics per material category
+    Object.entries(contaminant.visual_characteristics.appearance_on_categories).forEach(([category, data]: [string, any]) => {
+      variables.push({
+        '@type': 'PropertyValue',
+        propertyID: `appearance_${category}`,
+        name: `Appearance on ${category}`,
+        value: data.appearance || 'Not specified',
+        description: `Visual appearance characteristics on ${category} materials`
+      });
+      
+      variables.push({
+        '@type': 'PropertyValue',
+        propertyID: `coverage_${category}`,
+        name: `Coverage pattern on ${category}`,
+        value: data.coverage || 'Not specified',
+        description: `Coverage pattern on ${category} materials`
+      });
+      
+      variables.push({
+        '@type': 'PropertyValue',
+        propertyID: `pattern_${category}`,
+        name: `Pattern on ${category}`,
+        value: data.pattern || 'Not specified',
+        description: `Distribution pattern on ${category} materials`
+      });
+    });
+  }
+  
+  // Add relationship data for compounds produced
+  if (contaminant.relationships?.produces_compounds && Array.isArray(contaminant.relationships.produces_compounds)) {
+    contaminant.relationships.produces_compounds.forEach((compound: any, index: number) => {
+      variables.push({
+        '@type': 'PropertyValue',
+        propertyID: `hazardous_compound_${index}`,
+        name: `Hazardous Compound: ${compound.id || 'Unknown'}`,
+        value: compound.phase || 'Unknown',
+        description: `Hazard level: ${compound.hazard_level || 'Unknown'}`,
+        url: compound.url
+      });
+    });
+  }
+  
+  // Add material frequency data
+  if (contaminant.relationships?.found_on_materials && Array.isArray(contaminant.relationships.found_on_materials)) {
+    contaminant.relationships.found_on_materials.forEach((material: any, index: number) => {
+      variables.push({
+        '@type': 'PropertyValue',
+        propertyID: `contamination_frequency_${index}`,
+        name: `Found on ${material.id || 'Unknown'}`,
+        value: material.frequency || 'Unknown',
+        description: 'Contamination occurrence frequency on this material',
+        url: material.url
+      });
     });
   }
   

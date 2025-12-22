@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 50 W
+  Range: 1-120 W
+  Description: Low power for organic material preservation
 
-Generated: 2025-12-21T07:05:13.922Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR for controlled wood cleaning
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Larger spot for gentle treatment
+
+REPETITION RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Lower frequency to prevent burning
+
+ENERGY DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Low energy to preserve wood fibers
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Short pulses for minimal charring
+
+SCAN SPEED:
+  Value: 700 mm/s
+  Range: 10-5000 mm/s
+  Description: Fast scanning to prevent heat damage
+
+PASS COUNT:
+  Value: 1 passes
+  Range: 1-10 passes
+  Description: Single gentle pass for delicate surfaces
+
+OVERLAP RATIO:
+  Value: 30 %
+  Range: 10-90 %
+  Description: Lower overlap for organic materials
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for delicate organic materials like wood to avoid thermal damage; starting at 100W for controlled cleaning of light contaminants on Ebony. Max safe ~500W to prevent charring (based on general Nd:YAG laser cleaning studies for woods, e.g., Journal of Cultural Heritage, 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for uniform Ebony surface prep (industry standards from IPG Photonics manuals and laser cleaning process optimization).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for minimal heat-affected zone on low-conductivity woods like Ebony; picosecond (ps) or femtosecond reduces thermal damage but increases cost. 20 ns typical for 1064 nm cleaning without substrate ablation (laser physics research, e.g., Optics & Lasers in Engineering, 2020).
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: 20-50 kHz balances speed and heat accumulation for organic materials; higher rates (>50 kHz) risk overheating Ebony due to poor thermal conductivity. Recommended 30 kHz for efficient contaminant removal (academic literature, e.g., Applied Surface Science, 2019).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below Ebony's ablation threshold (~5 J/cm² at 1064 nm for dark woods); 0.5-2 J/cm² for light cleaning, up to 4 for heavy. Recommended 1.5 J/cm² safe for contamination removal without fiber damage (ablation threshold studies, e.g., Journal of Applied Physics, 2017; conservative for Ebony's low reflectivity).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller spots (100-200 μm) for fine detail on Ebony grain, larger (300-500 μm) for broad areas. Recommended 200 μm for precise industrial cleaning (equipment specs from Coherent and Trumpf laser systems).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contaminants, multi-pass (2-3) for heavy or layered removal on woods. Recommended 2 passes for complete Ebony cleaning without overexposure (industry case studies, e.g., laser restoration of wooden artifacts in Heritage Science, 2021).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: 50-70% ensures uniform coverage and avoids gaps/striping on irregular surfaces like Ebony; lower for speed, higher for thoroughness. Recommended 60% for optimal process (process optimization studies, e.g., Lasers in Manufacturing and Materials Processing, 2022).
+
+
+Generated: 2025-12-22T20:49:23.512Z
 License: CC BY 4.0

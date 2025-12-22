@@ -34,23 +34,6 @@ export function EnvironmentalImpact({
         metadata={{ environmental_impact: environmentalImpact }}
         dataSource="materialProperties"
       />
-      
-      {/* Environmental commitment footer */}
-      <div className="mt-6 p-4 bg-green-900/20 rounded-md border border-green-200800">
-        <div className="flex items-start gap-3">
-          <span className="text-2xl" role="img" aria-label="Leaf">🌱</span>
-          <div className="flex-1">
-            <h4 className="font-semibold text-secondary mb-1">
-              Sustainable Technology
-            </h4>
-            <p className="text-sm text-green-700300">
-              Laser cleaning is an environmentally friendly alternative to chemical cleaning methods, 
-              significantly reducing hazardous waste, water consumption, and chemical emissions. 
-              All measurements based on industrial research standards and field data.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

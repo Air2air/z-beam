@@ -1,8 +1,8 @@
 id: steel-corrosion-contamination
 name: Steel Surface Corrosion
 category: oxidation
-datePublished: '2025-12-21T02:51:40.141338Z'
-dateModified: '2025-12-21T02:51:40.141338Z'
+datePublished: '2025-12-22T23:36:16.396576Z'
+dateModified: '2025-12-22T23:36:16.396576Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/ferrous/steel-corrosion-contamination
@@ -22,12 +22,82 @@ description: Steel corrosion contamination, it arises from oxidation on carbon s
   risking base material damage during mechanical methods. Laser cleaning targets it effectively, as ablation vaporizes oxide
   precisely and leaves surface intact.
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: iron-oxide
+      phase: solid
+      hazard_level: moderate
+      presentation: card
+    - id: iron-oxide
+      phase: solid
+      hazard_level: low
+      presentation: card
+    - id: carbon-dioxide
+      phase: gas
+      hazard_level: low
+      presentation: card
+  found_on_materials:
+  - id: steel-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/ferrous/steel-laser-cleaning
+  - id: iron-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/ferrous/iron-laser-cleaning
+  - id: stainless-steel-316-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+  - id: aluminum-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+  - id: copper-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+  - id: brass-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+  - id: bronze-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+  - id: titanium-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/specialty/titanium-laser-cleaning
+  - id: zinc-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/alloy/zinc-laser-cleaning
+  - id: nickel-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/specialty/nickel-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         appearance: Displays as reddish-brown stains or crusty deposits that can be rough to the touch, contrasting with the
@@ -103,7 +173,7 @@ relationships:
         coverage: Generally localized to areas near metal fasteners, with minimal spread across the wood surface.
         pattern: Usually appears as streaks or patches where metal components (like nails or screws) are in contact, often
           following grain lines.
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: gaussian
       fluence_range:
@@ -185,13 +255,26 @@ relationships:
       thermal_diffusivity: 0.3
       vaporization_temperature: 1200
   valid_materials:
-  - Steel
-  - Carbon Steel
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - Steel
   prohibited_materials:
-  - Stainless Steel
-  - Aluminum
-  - Copper
-  safetyData: &id001
+    _section:
+      title: Unsafe for Materials
+      description: Materials where removal of this contamination is not recommended
+      order: 4
+      variant: warning
+      icon: alert-triangle
+    items:
+    - Aluminum
+    - Copper
+    - Stainless Steel
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -253,6 +336,32 @@ relationships:
       source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      general:
+        title: General Materials
+        description: Materials in the general category
+        items:
+        - id: carbon-steel-laser-cleaning
+          title: Carbon Steel Laser Cleaning
+          url: /materials/general/misc/carbon-steel-laser-cleaning
+          image: /images/material/carbon-steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+      metals:
+        title: Metal Substrates
+        description: Ferrous and non-ferrous metals affected by this contamination
+        items:
+        - id: steel-laser-cleaning
+          title: Steel
+          url: /materials/metal/ferrous/steel-laser-cleaning
+          image: /images/material/steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 composition:
 - Fe₃O₄
 - FeO
@@ -288,14 +397,17 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: ferrous
-safetyData: *id001
-removalByMaterial:
+safety_data: *id001
+removal_by_material:
   steel:
     laser_parameters:
       wavelength:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -308,50 +420,50 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 100
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 200
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 80
         recommended: 80
         range:
-        - 20
+        - 1
         - 200
       energy_density:
         unit: J/cm²
         value: 2.5
         recommended: 2.5
         range:
-        - 0.5
-        - 8
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 250
         recommended: 250
         range:
-        - 100
-        - 1000
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:

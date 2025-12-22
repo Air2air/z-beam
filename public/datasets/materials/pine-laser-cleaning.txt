@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Pine Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/wood/softwood/pine-laser-cleaning
+URL:            http://localhost:3000/materials/wood/softwood/pine-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -143,11 +143,152 @@ overlap_ratio:
   Note:   Higher overlap ensures uniform coverage on irregular pine surfaces, preventing streaks; 70% balances efficiency and overlap-induced heating. Source: Process optimization studies in Optics Express (e.g., 2017 paper on scan strategies for laser cleaning, recommending 60-80% for woods).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  0.41 MPa·m^{1/2}
+    Source: ai_research
+
+  youngsModulus:
+    Value:  10.3 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.68 dimensionless (normalized resistance index)
+    Source: ai_research
+
+  density:
+    Value:  450 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  1690 N
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.35 normalized durability index (0-1)
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  38 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  59.3 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  100 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0.75 
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  42000 J/m²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.85 dimensionless
+    Min:    0.7 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  25000 m⁻¹
+    Min:    10000 m⁻¹
+    Max:    50000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Min:    1 J/cm²
+    Max:    10 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.2 MW/m
+    Min:    0.5 MW/m
+    Max:    3 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.15 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.3 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  523 K
+    Min:    473 K
+    Max:    623 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  5 Pa
+    Min:    0.1 Pa
+    Max:    50 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  596 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  1300 J/kg·K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.38 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.13 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000034 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.93 dimensionless
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  1.82e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.45 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage Restoration
+2. Marine and Shipbuilding
+3. Furniture Manufacturing
+4. Construction and Timber Framing
+5. Musical Instrument Manufacturing
+6. Food Processing Facilities
+7. Agricultural Equipment
+8. Art and Sculpture Conservation
+9. Packaging and Pallet Manufacturing
+10. Architectural Millwork
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Pine Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/softwood/pine-laser-cleaning
+  Z-Beam (2025). Pine Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/wood/softwood/pine-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

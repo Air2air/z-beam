@@ -3,8 +3,13 @@
 
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
+import type { InfoCardProps } from '@/types';
 
-export interface InfoCardProps {
+/**
+ * @deprecated Local type definition - import from @/types instead
+ * This is kept for backward compatibility but should not be used.
+ */
+export interface InfoCardPropsLocal {
   icon: LucideIcon;
   title: string;
   data: Array<{ label: string; value: string | number }>;
@@ -38,7 +43,7 @@ export function InfoCard({ icon: Icon, title, data, className = '' }: InfoCardPr
   return (
     <div className={`bg-gray-800/50 rounded-md border border-gray-700 p-4 ${className}`}>
       <div className="flex items-center gap-2 mb-3">
-        <Icon className="w-5 h-5 text-blue-400" aria-hidden="true" />
+        <Icon className="w-5 h-5 text-orange-400" aria-hidden="true" />
         <h3 className="text-base font-semibold text-white">{title}</h3>
       </div>
       <div className="space-y-2">

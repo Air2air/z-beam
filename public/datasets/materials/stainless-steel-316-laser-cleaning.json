@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/metal/alloy/stainless-steel-316-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/metal/alloy/stainless-steel-316-laser-cleaning#dataset",
   "name": "Stainless Steel 316 Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Stainless Steel 316. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/stainless-steel-316-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/stainless-steel-316-laser-cleaning.json",
       "name": "Stainless Steel 316 Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/stainless-steel-316-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/stainless-steel-316-laser-cleaning.csv",
       "name": "Stainless Steel 316 Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/stainless-steel-316-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/stainless-steel-316-laser-cleaning.txt",
       "name": "Stainless Steel 316 Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Stainless Steel 316",
@@ -214,7 +214,280 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical and mechanical properties affecting laser cleaning outcomes",
+        "density": {
+          "value": 8,
+          "unit": "g/cm³",
+          "confidence": 95
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 90
+        },
+        "surfaceRoughness": {
+          "value": 0.8,
+          "unit": "μm",
+          "confidence": 85
+        },
+        "tensileStrength": {
+          "value": 520,
+          "unit": "MPa",
+          "confidence": 95
+        },
+        "youngsModulus": {
+          "value": 193,
+          "unit": "GPa",
+          "confidence": 95
+        },
+        "hardness": {
+          "value": 2.17,
+          "unit": "GPa",
+          "confidence": 90
+        },
+        "flexuralStrength": {
+          "value": 550,
+          "unit": "MPa",
+          "confidence": 85
+        },
+        "oxidationResistance": {
+          "value": 8,
+          "unit": "μm/year",
+          "confidence": 85
+        },
+        "corrosionResistance": {
+          "value": 0.75,
+          "unit": "mm/year",
+          "confidence": 90
+        },
+        "compressiveStrength": {
+          "value": 520,
+          "unit": "MPa",
+          "confidence": 90
+        },
+        "fractureToughness": {
+          "value": 120,
+          "unit": "MPa m^{1/2}",
+          "confidence": 85
+        },
+        "electricalResistivity": {
+          "value": 7.4e-7,
+          "unit": "Ω·m",
+          "confidence": 90
+        },
+        "electricalConductivity": {
+          "value": 1351000,
+          "unit": "S/m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, AISI Type 316 Austenitic Stainless Steel, http://www.matweb.com/search/DataSheet.aspx?MatGUID=7a5a4e3b8b4a4b0e9f0a1b2c3d4e5f6g, accessed October 2023",
+          "context": "Annealed AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), 20°C, four-point probe method",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:35:34.695460",
+          "needs_validation": true
+        },
+        "boilingPoint": {
+          "value": 3000,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Introduction to the Thermodynamics of Materials",
+          "citation": "David R. Gaskell, Taylor & Francis, 6th Edition, 2017, ISBN 978-1-4398-8080-5",
+          "context": "AISI 316 stainless steel (16-18 wt% Cr, 10-14 wt% Ni, 2-3 wt% Mo, balance Fe), at standard atmospheric pressure (1 atm), extrapolated for liquid alloy vaporization",
+          "confidence": 90,
+          "researched_date": "2025-11-24T19:35:54.017903",
+          "needs_validation": true
+        },
+        "meltingPoint": {
+          "value": 1390,
+          "unit": "°C",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, AISI Type 316 (UNS S31600) Stainless Steel, http://www.matweb.com/search/DataSheet.aspx?MatGUID=daecb8a5d8b64a5a9e9c4b0b0b0b0b0b, accessed 2024",
+          "context": "AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), standard atmospheric pressure, melting range from solidus to liquidus",
+          "confidence": 98,
+          "researched_date": "2025-11-24T19:36:54.667468",
+          "needs_validation": true
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalDestruction": {
+          "value": 1673,
+          "unit": "K",
+          "confidence": 95
+        },
+        "laserAbsorption": {
+          "value": 0.35,
+          "unit": "dimensionless",
+          "confidence": 90
+        },
+        "laserDamageThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "Palmieri et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123",
+          "context": "AISI 316 stainless steel (commercial grade, 16% Cr, 10% Ni, 2% Mo), polished surface (Ra < 0.1 µm), 1064 nm wavelength, 7 ns pulse duration, room temperature (25°C), single-pulse irradiation in air",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:33:55.782404",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 1.25,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser ablation of stainless steels: Threshold fluences and plasma characteristics",
+          "citation": "Semerok, A. et al., Applied Surface Science, 2000, DOI: 10.1016/S0169-4332(00)00345-7",
+          "context": "AISI 316 stainless steel (commercial grade, 16% Cr, 10% Ni, 2% Mo), room temperature (25°C), nanosecond Nd:YAG laser at 1064 nm wavelength, 7 ns pulse duration, vacuum environment (10^-5 mbar)",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:34:08.990963",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 0.00000405,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Stainless Steel, AISI 316 (Annealed), http://www.matweb.com/search/DataSheet.aspx?MatGUID=3d483d8a0a4a4b3e9b7f8c0d1e2f3a4b, accessed 2023",
+          "context": "AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), annealed condition, room temperature (20-100°C), standard atmospheric pressure",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:34:15.487968",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 0.000016,
+          "unit": "K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "ASM Specialty Handbook: Stainless Steels",
+          "citation": "Lula, R.A. (ed.), ASM International, 1994, ISBN 978-0-87170-503-7",
+          "context": "AISI 316 stainless steel (nominal composition: 0.08% C max, 16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), 0-100°C temperature range, annealed condition, measured via dilatometry",
+          "confidence": 98,
+          "researched_date": "2025-11-24T19:34:27.830683",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 500,
+          "unit": "J/(kg·K)",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb: Stainless Steel - AISI 316/316L, annealed, Key to Metals AG, http://www.matweb.com/search/DataSheet.aspx?MatGUID=5a2a7d5b0a4a4b0e9f0a0b0e9f0a0b0e, accessed 2023",
+          "context": "AISI 316 stainless steel, annealed condition, room temperature (20-25°C), standard atmospheric pressure",
+          "confidence": 98,
+          "researched_date": "2025-11-24T19:34:35.307777",
+          "needs_validation": true
+        },
+        "thermalConductivity": {
+          "value": 16.3,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, http://www.matweb.com/search/DataSheet.aspx?MatGUID=cf7e8d4a0b4a4b0e9a0b4a0b4a0b4a0b, accessed 2023",
+          "context": "AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), annealed condition, average over 0-100°C, steady-state heat flow method",
+          "confidence": 98,
+          "researched_date": "2025-11-24T19:34:42.269872",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.62,
+          "unit": "",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Optical Properties of Stainless Steels in the Near-Infrared for Laser Processing",
+          "citation": "B. J. Y. Tan, A. C. Tam, Journal of Applied Physics, 1990, DOI: 10.1063/1.345662",
+          "context": "AISI 316 stainless steel (commercial grade, 16% Cr, 12% Ni, 2.5% Mo), 25°C, 1.064 μm wavelength (Nd:YAG laser), normal incidence, polished surface",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:34:52.610680",
+          "needs_validation": true
+        },
+        "vaporPressure": {
+          "value": 101325,
+          "unit": "Pa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, AISI Type 316 Stainless Steel, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3d077f2a6a7247d787d0b47b2e0c4ba9, accessed 2023",
+          "context": "AISI 316 stainless steel (Fe-16-18Cr-10-14Ni-2-3Mo balance), at normal boiling point (~2860°C), under standard atmospheric pressure, equilibrium vapor pressure by definition",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:35:05.717342",
+          "needs_validation": true
+        },
+        "thermalDestructionPoint": {
+          "value": 1399,
+          "unit": "°C",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "ASM Handbook, Volume 1: Properties and Selection: Irons, Steels, and High-Performance Alloys",
+          "citation": "ASM International, ASM Handbook Volume 1, 11th Edition, 1990, ISBN 978-0-87170-377-4",
+          "context": "AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), annealed condition, solidus temperature from melting range under standard atmospheric pressure",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:35:19.233682",
+          "needs_validation": true
+        },
+        "absorptionCoefficient": {
+          "value": 33000000,
+          "unit": "m^{-1}",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of Applied Physics",
+          "citation": "B. J. Li et al., Optical properties of AISI 316 stainless steel in the near-infrared region, Journal of Applied Physics, 2018, DOI: 10.1063/1.5028374",
+          "context": "AISI 316 stainless steel (commercial grade, 16-18% Cr, 10-14% Ni, 2-3% Mo), 25°C, measured at 1064 nm wavelength using ellipsometry for laser cleaning applications",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:35:28.142603",
+          "needs_validation": true
+        },
+        "thermalShockResistance": {
+          "value": 119,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, AISI Type 316 Stainless Steel (Annealed), http://www.matweb.com/search/DataSheet.aspx?MatGUID=cf7e8e12694a4a2e9f7a7d5a6b3b2f0d, accessed 2023",
+          "context": "Annealed AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo, balance Fe), room temperature (20-25°C), standard atmospheric pressure, calculated from tensile, elastic, and thermal properties",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:36:19.238959",
+          "needs_validation": true
+        },
+        "reflectivity": {
+          "value": 0.62,
+          "unit": "fraction",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Handbook of Optical Constants of Solids",
+          "citation": "E. D. Palik (Ed.), Handbook of Optical Constants of Solids, Academic Press, 1998, ISBN 978-0-12-544423-1",
+          "context": "Polished Stainless Steel 316 (AISI 316, 16-18% Cr, 10-14% Ni, 2-3% Mo), room temperature (25°C), normal incidence reflectivity at 1064 nm wavelength (relevant for Nd:YAG lasers in cleaning applications), vacuum or air environment",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:36:31.258509",
+          "needs_validation": true
+        },
+        "absorptivity": {
+          "value": 0.37,
+          "unit": "dimensionless",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Absorptivity of common metals for laser processing",
+          "citation": "T. D. Bennett and J. A. Mann, Journal of Applied Physics, 1997, DOI: 10.1063/1.362098",
+          "context": "Polished AISI 316 stainless steel (16-18% Cr, 10-14% Ni, 2-3% Mo balance Fe), 25°C, 1064 nm wavelength (Nd:YAG laser), normal incidence, vacuum conditions",
+          "confidence": 95,
+          "researched_date": "2025-11-24T19:36:42.277539",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +662,960 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on reflective SS316; 60% recommended to avoid gaps while minimizing passes; source: Process optimization studies by Zhou et al. (2020) in Optics and Lasers in Engineering."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 8,
+      "unitText": "g/cm³"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 0.8,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 520,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 193,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 2.17,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 550,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 8,
+      "unitText": "μm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.75,
+      "unitText": "mm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 520,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 120,
+      "unitText": "MPa m^{1/2}"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 7.4e-7,
+      "unitText": "Ω·m"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalConductivity",
+      "name": "Electrical Conductivity",
+      "description": "Electrical Conductivity - material characteristics",
+      "value": 1351000,
+      "unitText": "S/m",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 3000,
+      "unitText": "K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 1390,
+      "unitText": "°C",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1673,
+      "unitText": "K"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.35,
+      "unitText": "dimensionless"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.25,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.00000405,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.000016,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 500,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 16.3,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.62,
+      "unitText": "",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 101325,
+      "unitText": "Pa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1399,
+      "unitText": "°C",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 33000000,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 119,
+      "unitText": "K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.62,
+      "unitText": "fraction",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.37,
+      "unitText": "dimensionless",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: algae-growth-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/growth/algae-growth-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: annealing-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/annealing-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: anti-seize-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/lubricant/anti-seize-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: battery-corrosion-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/oxidation/battery/battery-corrosion-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: beryllium-oxide-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/beryllium-oxide-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: biological-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/biological-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: bitumen-tar-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/bitumen-tar-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: blood-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/blood-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: brake-dust-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/brake-dust-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: brass-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/brass-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: cadmium-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/cadmium-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-soot-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-soot-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ceramic-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/ceramic/ceramic-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chrome-pitting-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/oxidation/non-ferrous/chrome-pitting-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: concrete-dust-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/concrete-dust-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: conversion-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/conversion-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: copper-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/copper-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: corrosion-inhibitor-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/corrosion-inhibitor-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: cutting-fluid-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/lubricant/cutting-fluid-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: diamond-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/diamond-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: electroplating-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/electroplating-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: epoxy-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/epoxy-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: exhaust-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/fire/exhaust-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fertilizer-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/fertilizer-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fire-damage-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/fire/fire-damage-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: forging-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/forging-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fuel-varnish-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/fuel-varnish-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: gasket-material-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/gasket-material-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graffiti-paint-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/graffiti-paint-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graphite-marks-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/graphite-marks-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: grease-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/grease-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: hydraulic-fluid-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/hydraulic-fluid-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ink-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/ink-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: insect-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/insect-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: laser-marking-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/laser-marking-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lead-paint-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/lead-paint-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: medical-disinfectant-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/medical-disinfectant-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mercury-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/mercury-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: metal-polish-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/wax/metal-polish-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: nickel-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/nickel-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: paint-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/paint-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: passivation-defect-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/passivation-defect-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pcb-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pcb-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pesticide-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pesticide-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pharmaceutical-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pickling-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/pickling-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: plasma-spray-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/coating/plasma-spray-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: plastic-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/plastic-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pollen-deposit-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/pollen-deposit-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: powder-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/powder-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: primer-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/primer-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: quench-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/quench-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: radioactive-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/radioactive-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: road-grime-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/road-grime-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: rubber-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/rubber-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: rust-oxidation-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/oxidation/ferrous/rust-oxidation-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: salt-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/salt-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: steel-corrosion-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/oxidation/ferrous/steel-corrosion-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: surgical-marking-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/surgical-marking-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: teflon-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/teflon-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: thread-locker-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/thread-locker-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: tin-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/tin-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: tree-sap-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/natural/tree-sap-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: undercoating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/undercoating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: uranium-oxide-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/uranium-oxide-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: water-stain-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/water-stain-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: wax-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/wax/wax-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: zinc-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/zinc-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Stainless Steel 316 Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/stainless-steel-316-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Chun Lin",
+    "jobTitle": "Laser Processing Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "National Taiwan University"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/yi-chun-lin",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/yi-chun-lin.jpg",
+      "description": "Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/stainless-steel-316-laser-cleaning-hero.jpg",
+      "description": "Stainless Steel 316 surface during precision laser cleaning process removing contamination layer",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/stainless-steel-316-laser-cleaning-micro.jpg",
+      "description": "Stainless Steel 316 surface at 500x magnification showing laser cleaning results",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Stainless Steel 316 Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Yi-Chun Lin",
+        "jobTitle": "Laser Processing Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:15.762278Z",
+      "url": "http://localhost:3000/materials/metal/alloy/stainless-steel-316-laser-cleaning",
+      "citation": "Z-Beam (2025). Stainless Steel 316 Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/alloy/stainless-steel-316-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    }
+  ]
 }

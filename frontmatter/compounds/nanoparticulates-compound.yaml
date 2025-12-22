@@ -3,8 +3,8 @@ name: Nanoparticulates
 display_name: Nanoparticulates
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-20T23:36:52.435132Z'
-dateModified: '2025-12-20T23:36:52.435132Z'
+datePublished: '2025-12-22T21:25:26.455199Z'
+dateModified: '2025-12-22T21:25:26.455199Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/nanomaterial/nanoparticulates-compound
@@ -22,7 +22,13 @@ breadcrumb:
 chemical_formula: Various
 cas_number: null
 molecular_weight: null
-description: null
+description: "Nanoparticulates pack immense surface area into tiny realms. They cling and react fast. Strength surges when\
+  \ mixed into composites. Durability boosts everyday gear. Heat resistance shields against harsh environments. Conductivity\
+  \ sparks electronics alive. \n\nIndustries grab them for paints that repel water. Coatings toughen up metals. Catalysts\
+  \ speed chemical reactions clean. Filters trap pollutants with ease. Medical tools gain precision edges. \n\nLaser cleaning\
+  \ thrives on their quirks. Pulses vaporize grime fast around them. They absorb energy sharply. Surfaces emerge pristine\
+  \ without deep scars. Graffiti vanishes from walls. Rust lifts off relics. These bits enable targeted blasts. Efficiency\
+  \ rules the process. Waste stays low. Restoration feels swift and sure."
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -37,6 +43,62 @@ sources_in_laser_cleaning:
 - condensation_nucleation
 - ceramic_coating_ablation
 relationships:
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: ceramic-coating-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of Ceramic Heat Barrier Coating
+      presentation: card
+      url: /contaminants/inorganic-coating/ceramic/ceramic-coating-contamination
+    - id: ceramic-glaze-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Ceramic Glaze Deposits
+      presentation: card
+      url: /contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination
+    - id: concrete-dust-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Concrete Dust Deposits
+      presentation: card
+      url: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
+    - id: environmental-dust-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Environmental Dust Layer
+      presentation: card
+      url: /contaminants/organic-residue/other/environmental-dust-contamination
+    - id: passivation-defect-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Passivation Layer Irregularities
+      presentation: card
+      url: /contaminants/inorganic-coating/coating/passivation-defect-contamination
+    - id: pvd-coating-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of PVD Coating Defects
+      presentation: card
+      url: /contaminants/inorganic-coating/coating/pvd-coating-contamination
+    - id: semiconductor-residue-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Semiconductor Processing Residue
+      presentation: card
+      url: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
+    - id: thermal-paste-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Thermal Compound Deposits
+      presentation: card
+      url: /contaminants/organic-residue/other/thermal-paste-contamination
   health_effects: null
 subcategory: nanomaterial
 author:
@@ -68,3 +130,5 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 title: Nanoparticulates
+seo_description: Nanoparticulates pack immense surface area into tiny realms.
+micro: Nanoparticulates pack immense surface area into tiny realms. They cling and react fast.

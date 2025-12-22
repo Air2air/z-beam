@@ -11,6 +11,93 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Cast Iron oxide removal 
+               without substrate damage
 
-Generated: 2025-12-21T07:05:13.894Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for Cast Iron 
+               absorption and rust removal
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for effective cleaning resolution
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for continuous cleaning 
+
+ENERGY DENSITY:
+  Value: 5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for Cast Iron oxide removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for efficient oxide layer 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for complete oxide removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform surface treatment
+
+POWER:
+  Value: 200 W
+  Range: 50-1000 W
+  Description: Typical range for industrial cleaning of cast iron to remove rust or contaminants without substrate damage; starting at 200W balances efficiency and safety. Max limited to avoid melting (cast iron melting point ~1150-1300°C). Source: IPG Photonics laser cleaning systems specs for metal surfaces; academic review in Optics and Lasers in Engineering (2018).
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective range for 1064 nm cleaning on cast iron; slower for heavy contamination (e.g., thick rust) to ensure ablation, faster for light oils. Recommended 2000 mm/s for optimal throughput with minimal heat input, considering cast iron's high thermal conductivity (~50 W/m·K). Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020).
+
+PULSE_WIDTH:
+  Value: 50 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime dominant for industrial cleaning of cast iron to achieve plasma-induced ablation with low heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 50 ns recommended to minimize thermal diffusion in cast iron (reflectivity ~40% at 1064 nm). Source: Laser physics research in Applied Surface Science (2019); avoids fs due to overkill for contamination removal.
+
+REPETITION_RATE:
+  Value: 100 kHz
+  Range: 1-200 kHz
+  Description: Standard range for pulsed fiber lasers in metal cleaning; 100 kHz balances cleaning speed and heat accumulation on cast iron, where high rates (>150 kHz) risk subsurface heating despite good conductivity. Trade-off: higher freq accelerates process but increases cumulative fluence. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe removal of contaminants like rust or paint on cast iron; damage threshold ~2-4 J/cm² to avoid pitting or melting. 1.5 J/cm² recommended for effective cleaning below ablation threshold of cast iron (~3 J/cm² at 1064 nm). Conservative due to cast iron's variable surface roughness. Source: Ablation threshold studies in Journal of Applied Physics (2017); SPIE proceedings on laser cleaning.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for industrial scanners; smaller for fine details (e.g., crevices in castings), larger for broad areas. 200 μm recommended for uniform coverage on rough cast iron surfaces without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser systems; process optimization in Surface and Coatings Technology (2022).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Typically 1-3 passes for light to moderate contamination on cast iron; multi-pass for layered buildup (e.g., old paint). 2 passes recommended for complete removal while minimizing total energy input and HAZ. Single pass viable for thin rust. Source: Industry practice from case studies in International Journal of Advanced Manufacturing Technology (2019); manufacturer guidelines.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Standard range for scan line overlap to ensure uniform fluence distribution; 60% recommended for cast iron to achieve even cleaning on irregular surfaces without gaps or over-ablation. Higher (70-80%) for heavy contamination. Source: Process optimization studies in Optics and Laser Technology (2020); based on Gaussian beam profiles in cleaning simulations.
+
+
+Generated: 2025-12-22T20:49:23.462Z
 License: CC BY 4.0

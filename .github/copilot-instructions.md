@@ -35,11 +35,13 @@
 - ❌ NO mocks/fallbacks in production code (tests OK)
 - ❌ NO hardcoded values/defaults (use config/dynamic calc)
 - ❌ NO rewriting working code (minimal surgical fixes only)
+- ❌ **NO duplicate type definitions** (use @/types exclusively) 🔥 **MANDATORY (Dec 21, 2025)**
 
 **TIER 2: Quality-Critical** (Will cause bugs)
 - ❌ NO expanding scope (fix X means fix ONLY X)
 - ✅ ALWAYS fail-fast on config (throw exceptions)
 - ✅ ALWAYS log to terminal (comprehensive dual logging)
+- ✅ **ALWAYS import types from @/types** (never create local interfaces) 🔥 **MANDATORY (Dec 21, 2025)**
 
 **TIER 3: Evidence & Honesty** (Will lose trust)
 - ✅ ALWAYS provide evidence (test output, commits)
@@ -927,6 +929,39 @@ See `docs/08-development/PROMPT_PURITY_POLICY.md` for complete policy.
 - **NEVER add content instructions to code** - they belong ONLY in prompts/*.txt
 - **NEVER hardcode component types** - they're discovered from prompts/*.txt
 - **ALWAYS check documentation before implementing** - see Documentation Compliance Checklist
+- **🔥 MANDATORY: ALWAYS import types from @/types** (Dec 21, 2025)
+- **🔥 MANDATORY: NEVER create duplicate type definitions** (Dec 21, 2025)
+
+## Type System Requirements 🔥 **MANDATORY (Dec 21, 2025)**
+
+### TIER 1 CRITICAL RULES (Will cause build failures)
+1. ❌ **NEVER define types locally** if they exist in `types/centralized.ts`
+2. ❌ **NEVER duplicate** IconProps, BadgeProps, CardProps, ButtonProps, etc.
+3. ✅ **ALWAYS import** from `@/types` or `@/types/centralized`
+4. ✅ **ALWAYS check** `types/centralized.ts` before creating new types
+
+### Common Type Imports
+```typescript
+// ✅ CORRECT - Import from centralized types
+import type { IconProps, BadgeProps, CardProps } from '@/types';
+import type { Author, ArticleMetadata, GridItem } from '@/types';
+
+// ❌ WRONG - Never create local duplicates
+interface IconProps { size?: number; className?: string; }
+interface BadgeProps { variant?: string; /* ... */ }
+```
+
+### Type Location Rules
+- **Shared/Reusable Types** → `types/centralized.ts`
+- **Component-Specific Types** → OK to keep local (only if truly unique)
+- **Schema Types** → Exported via `types/index.ts`
+- **Test Types** → Can be local to test files
+
+### Enforcement
+- **Automated Tests**: `tests/types/centralized.test.ts` validates zero duplication
+- **Build Checks**: TypeScript compilation will fail with duplicate types
+- **Pre-commit**: Type duplication tests run automatically
+- **Documentation**: `docs/08-development/TYPE_CONSOLIDATION_DEC21_2025.md`
 
 ## Architecture Patterns
 - **Wrapper Pattern**: Use lightweight wrappers to integrate specialized generators

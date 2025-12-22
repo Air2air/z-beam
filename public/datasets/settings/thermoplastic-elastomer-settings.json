@@ -5,8 +5,8 @@
     "subcategory": "structural",
     "title": "Thermoplastic Elastomer Settings",
     "description": "We've found that laser cleaning Thermoplastic Elastomer works best when we start with conservative power levels to leverage its good absorption of laser energy, which removes surface contaminants effectively without immediate heat buildup. This approach restores the material's flexibility and surface integrity quickly, as its low thermal conductivity keeps heat localized and prevents widespread softening. In our experience, the elastomer's rubber-like resilience sets it apart from rigid plastics, allowing multiple passes that expose clean layers beneath residues from automotive or medical applications. We adjust scan speeds to be moderate, ensuring the process reduces oxidation risks while maintaining the material's shape. However, always monitor for excessive dwell time at the end, as prolonged exposure can cause deformation in this sensitive composite.",
-    "datePublished": "2025-12-21T03:33:04.516683Z",
-    "dateModified": "2025-12-21T03:33:04.516683Z",
+    "datePublished": "2025-12-22T06:55:49.998794Z",
+    "dateModified": "2025-12-22T06:55:49.998794Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -41,7 +41,134 @@
       "formatting_file": "usa_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Thermoplastic Elastomer surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-IR wavelength optimized for Thermoplastic Elastomer absorption and minimal substrate damage",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control on Thermoplastic Elastomer surfaces",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning with thermal management",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective contaminant removal without damaging Thermoplastic Elastomer substrate",
+      "unit": "J/cm²",
+      "value": 1.2,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "dwellTime": {
+      "description": "Optimal dwell time per spot for effective cleaning",
+      "unit": "μs",
+      "value": 100,
+      "min": 0.2,
+      "max": 200
+    },
+    "power": {
+      "min": 10,
+      "max": 100,
+      "value": 30,
+      "unit": "W",
+      "description": "Typical range for polymer cleaning to avoid thermal damage; starting at 30W for light contamination on TPE, max below melting threshold (~150-200°C); based on IPG Photonics specs for YLR series lasers and studies in Optics and Lasers in Engineering (2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 2000,
+      "description": "Higher speeds minimize heat accumulation on heat-sensitive TPE; 2000 mm/s optimal for effective contaminant removal without substrate melting; ranges adjust for light (faster) vs heavy contamination; from industry manuals like those from Laserax and Applied Optics journal (2020)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes HAZ by rapid energy delivery before conduction; TPE's low thermal conductivity (~0.2 W/mK) benefits short pulses; cited in Laser & Photonics Reviews (2019) on polymer ablation."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 50,
+      "unit": "kHz",
+      "description": "Balanced rate for TPE to enable fast cleaning while limiting heat buildup; higher rates increase speed but risk accumulation on low-melting TPE; trade-off noted in academic literature like Journal of Applied Physics (2021)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 0.5,
+      "unit": "J/cm²",
+      "description": "Fluence below TPE damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² safe for contaminant removal; conservative for reflectivity (~0.9) and low melting point; from ablation threshold studies in Applied Surface Science (2017)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "200 μm recommended for uniform cleaning on TPE surfaces; smaller for fine details, larger for broad areas; suits industrial prep without focusing heat; per equipment specs from Coherent Inc. and process guidelines in Industrial Laser Solutions (2022)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Multi-pass for heavy contamination on TPE to stay under thermal limits; 2 passes typical for complete removal without damage; single pass for light soils; based on case studies in Journal of Cleaner Production (2020) for polymer surface prep."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 60,
+      "unit": "%",
+      "description": "60% ensures uniform coverage on irregular TPE surfaces; higher for heavy contamination to avoid gaps; standard range optimizes energy distribution; from process optimization in Lasers in Manufacturing and Materials Processing (2019)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

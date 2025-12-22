@@ -5,8 +5,8 @@
     "subcategory": "oxide",
     "title": "Stoneware Settings",
     "description": "When laser cleaning stoneware, you'll want to start with its dense, low-porosity nature. This makes it highly resistant to deep penetration by contaminants, so the laser clears surface grime efficiently without soaking into the material. Make sure you keep the power low at first to handle its poor heat spreading—heat builds up quickly, which can lead to cracks if you're not careful. Adjust by using short pulses and multiple light passes, overlapping them to restore the finish evenly. Watch out for overdoing it mid-process; that dense hardness means it holds up well to abrasion but risks micro-fractures from sudden heat spikes. This approach keeps your stoneware intact for heritage or industrial reuse.",
-    "datePublished": "2025-12-21T03:33:04.395407Z",
-    "dateModified": "2025-12-21T03:33:04.395407Z",
+    "datePublished": "2025-12-22T06:55:49.877439Z",
+    "dateModified": "2025-12-22T06:55:49.877439Z",
     "author": {
       "id": 3,
       "name": "Ikmanda Roswati",
@@ -43,7 +43,127 @@
       "formatting_file": "indonesia_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Stoneware surface cleaning without thermal damage",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-infrared wavelength optimized for Stoneware mineral absorption",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise cleaning control",
+      "unit": "μm",
+      "value": 100,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient cleaning coverage",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence level for effective contaminant removal without substrate damage",
+      "unit": "J/cm²",
+      "value": 5,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled ablation of contaminants",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform cleaning coverage",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete contaminant removal",
+      "unit": "passes",
+      "value": 3,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform cleaning pattern",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "power": {
+      "min": 50,
+      "max": 500,
+      "value": 100,
+      "unit": "W",
+      "description": "Typical range for industrial laser cleaning of ceramics like stoneware to avoid thermal damage; starting at 100W for light contamination removal. Max safe before substrate cracking or discoloration. Source: Manufacturer specs from CleanLaser systems and studies in Journal of Laser Applications (e.g., 2018 paper on ceramic surface preparation)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "unit": "mm/s",
+      "value": 1500,
+      "description": "Effective speeds for 1064 nm cleaning on stoneware; slower for heavy contaminants (500-1000 mm/s) vs light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from SPIE proceedings on laser cleaning (e.g., 2020) and equipment manuals from IPG Photonics."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "value": 20,
+      "unit": "ns",
+      "description": "Nanosecond regime preferred for stoneware to ablate contaminants without deep penetration; picosecond (ps) for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat accumulation in low-conductivity ceramics. Femtosecond avoided due to cost. Source: Laser physics research in Optics Express (e.g., 2015 study on pulsed laser ablation of ceramics)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 30,
+      "unit": "kHz",
+      "description": "Typical for cleaning applications; 30 kHz recommended for stoneware to achieve fast coverage while minimizing heat buildup—higher rates (>50 kHz) risk accumulation on low-thermal-conductivity materials. Trade-off: speed vs thermal safety. Source: Academic literature in Applied Surface Science (e.g., 2019 on repetition rate effects in ceramic cleaning)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 1.5,
+      "unit": "J/cm²",
+      "description": "Fluence range for contaminant removal on stoneware; damage threshold ~4 J/cm² due to high melting point (~1200°C) but conservative to prevent micro-cracks. 1.5 J/cm² safe for surface preparation. Stoneware's moderate reflectivity at 1064 nm requires mid-range. Source: Ablation threshold studies in Journal of Cultural Heritage (e.g., 2017 on stone and ceramic lasers)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 500,
+      "unit": "μm",
+      "description": "Beam diameter for uniform cleaning; smaller for fine details (200-400 μm), larger for broad areas (500-1000 μm). 500 μm recommended for stoneware industrial apps to cover surfaces efficiently without hotspots. Source: Equipment specifications from Coherent and Trumpf laser systems for ceramic processing."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete stoneware cleaning to ensure removal without overexposure. Based on layered ablation approach. Source: Industry practice in case studies from Laser Institute of America reports (e.g., 2021 industrial cleaning guidelines)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 50,
+      "unit": "%",
+      "description": "Ensures uniform coverage; 50% recommended for stoneware to avoid gaps or excessive overlap-induced damage, adjustable 30% for speed or 80% for thoroughness. Typical range balances efficiency. Source: Process optimization studies in Optics and Lasers in Engineering (e.g., 2016 on scan overlap in surface cleaning)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

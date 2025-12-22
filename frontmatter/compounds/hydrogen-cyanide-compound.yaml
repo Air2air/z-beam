@@ -3,8 +3,8 @@ name: Hydrogen Cyanide
 display_name: Hydrogen Cyanide (HCN)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-20T23:36:52.070014Z'
-dateModified: '2025-12-20T23:36:52.070014Z'
+datePublished: '2025-12-22T21:25:25.875336Z'
+dateModified: '2025-12-22T21:25:25.875336Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/cyanide/hydrogen-cyanide-compound
@@ -22,7 +22,11 @@ breadcrumb:
 chemical_formula: HCN
 cas_number: 74-90-8
 molecular_weight: 27.03
-description: null
+description: Handling hydrogen cyanide starts with extreme caution. It's a colorless gas that spreads quickly. Highly toxic,
+  it attacks the body fast. Smells faintly like bitter almonds to some. Dissolves easily in water, forming a dangerous solution.
+  In industry, it builds key chemicals for plastics and drugs. Fumigation uses it too, wiping out pests in tight spaces. Reacts
+  sharply with metals and acids. For laser cleaning, its volatility aids precise vapor removal. Lasers zap residues without
+  spreading the gas wide. Keeps surfaces clean in high-stakes labs. Always vent well to stay safe.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,44 +49,54 @@ sources_in_laser_cleaning:
 - polyurethane_decomposition
 - nylon_pyrolysis
 relationships:
-  produced_by_contaminants:
-  - id: plastic-residue-contamination
-    title: Degraded Polymer Deposits
-    url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-    image: /images/contaminants/organic-residue/polymer/plastic-residue.jpg
-    frequency: occasional
-    severity: high
-    typical_context: Thermal decomposition of nitrogen-containing polymers (polyurethane, nylon, acrylics)
-  - id: rubber-residue-contamination
-    title: Rubber Compound Residue
-    url: /contaminants/organic-residue/polymer/rubber-residue-contamination
-    image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
-    frequency: occasional
-    severity: high
-    typical_context: Pyrolysis of nitrile rubber
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-    image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
-    frequency: occasional
-    severity: moderate
-    typical_context: Breakdown of cyanoacrylate adhesives
   chemical_properties:
-  - type: chemical_properties
-    id: hydrogen-cyanide-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: hydrogen-cyanide-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: hydrogen-cyanide-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: hydrogen-cyanide-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: hydrogen-cyanide-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: hydrogen-cyanide-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: irritant-gas-high-concentration
-    overrides:
-      specific_compound: Hydrogen Cyanide
-      pel_ppm: 10
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: irritant-gas-high-concentration
+      overrides:
+        specific_compound: Hydrogen Cyanide
+        pel_ppm: 10
+      presentation: card
   emergency_response:
     fire_hazard: Extremely flammable liquid and vapor. Wide explosive range. May polymerize explosively if contaminated. Vapors
       may travel to ignition source.
@@ -99,6 +113,58 @@ relationships:
     special_hazards: ONE OF THE MOST TOXIC INDUSTRIAL CHEMICALS. Inhibits cellular respiration by binding to cytochrome oxidase.
       Death can occur within minutes. Polymerizes violently with alkaline contamination. Decomposes producing nitrogen oxides
       and hydrogen cyanide gas.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: plastic-residue-contamination
+      frequency: occasional
+      severity: high
+      typical_context: Thermal decomposition of nitrogen-containing polymers (polyurethane, nylon, acrylics)
+      presentation: card
+      url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+    - id: rubber-residue-contamination
+      frequency: occasional
+      severity: high
+      typical_context: Pyrolysis of nitrile rubber
+      presentation: card
+      url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+    - id: adhesive-residue-contamination
+      frequency: occasional
+      severity: moderate
+      typical_context: Breakdown of cyanoacrylate adhesives
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: ceramic-matrix-composites-cmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+    - id: epoxy-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+    - id: metal-matrix-composites-mmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
+    - id: phenolic-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
+    - id: polyester-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
+    - id: urethane-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/structural/urethane-composites-laser-cleaning
   physical_properties:
     boiling_point: 25.6°C (78°F)
     melting_point: -13.3°C (8°F)
@@ -292,94 +358,5 @@ detection_monitoring:
   odor_threshold: UNRELIABLE - 20-40% of population cannot smell HCN (genetic). Odor threshold (0.58-5 ppm) overlaps toxic
     range. NEVER rely on odor - MANDATORY continuous monitoring with alarms.
 title: Hydrogen Cyanide (HCN)
-ppe_requirements_detail:
-  id: irritant-gas-high-concentration
-  hazard_type: irritant_gas
-  concentration_range: '>25 ppm or unknown'
-  exposure_duration: any
-  minimum_protection_level: Level B
-  idlh_atmosphere: potentially
-  respiratory:
-    primary:
-      equipment: Self-contained breathing apparatus (SCBA)
-      type: Pressure-demand, positive-pressure
-      standard: NIOSH 42 CFR 84
-      air_supply: Compressed breathing air (Grade D minimum)
-      duration: 30-60 minutes typical
-      condition: MANDATORY for >25 ppm or unknown concentrations
-      maintenance: Daily inspection, annual certification
-    alternative:
-      equipment: Supplied-air respirator with escape bottle
-      type: Pressure-demand mode
-      condition: Only if continuous air supply verified
-      escape_bottle: 5-minute minimum escape time
-  skin:
-    suit:
-      equipment: Level B chemical protective suit
-      material: Butyl rubber, Viton, or multilayer
-      standard: NFPA 1991 Level B
-      condition: Fully encapsulating when >25 ppm
-      splash_protection: Liquid-tight seams
-    gloves:
-      material: Butyl rubber (inner) + outer chemical glove
-      thickness: '>25 mil combined'
-      breakthrough_time: '>8 hours'
-      tape_seal: Taped to suit sleeves
-    boots:
-      equipment: Chemical-resistant boots
-      material: Match suit material
-      condition: Integrated or taped to suit
-  eye:
-    equipment: Full-face respirator facepiece (part of SCBA)
-    backup: Chemical goggles worn under facepiece
-    condition: Full face and eye protection mandatory
-  special_requirements:
-  - Buddy system mandatory - never work alone
-  - Continuous air monitoring with audible alarms
-  - Decontamination area established before entry
-  - Emergency escape routes identified
-  - Communication system established
-  - Entry permit required for confined spaces
-  - Standby rescue team with equivalent PPE
-  entry_procedures:
-  - Pre-entry medical clearance for SCBA use
-  - Equipment inspection checklist
-  - Atmosphere testing before and during entry
-  - Continuous air monitoring
-  - Time limits for SCBA air supply
-  - Backup SCBA or escape respirator available
-  decontamination:
-    primary:
-    - Gross decontamination in hot zone
-    - Suit and equipment wash-down
-    - Methodical removal in decon area
-    - Inner clothing removal last
-    secondary:
-    - Shower immediately after doffing
-    - Wash with soap and water for 15 minutes
-    - Medical evaluation if exposure suspected
-    disposal:
-    - All PPE as hazardous waste unless decontaminated
-    - SCBA facepieces cleaned and disinfected
-    - Suits inspected for damage before reuse
-  training_required:
-  - HAZWOPER 40-hour or equivalent
-  - SCBA qualification and practice
-  - Level B suit donning and doffing
-  - Decontamination procedures
-  - Emergency egress procedures
-  medical_surveillance:
-    required: true
-    frequency: Annual minimum
-    requirements:
-    - Respiratory medical clearance
-    - SCBA fit testing (annual)
-    - Exposure monitoring records
-  limitations:
-  - SCBA air supply limits operation time
-  - Heat stress significant in chemical suits
-  - Dexterity and mobility reduced
-  - Communication may be impaired
-  - Exit buddy system required
-  specific_compound: Hydrogen Cyanide
-  pel_ppm: 10
+seo_description: Handling hydrogen cyanide starts with extreme caution.
+micro: Handling hydrogen cyanide starts with extreme caution. It's a colorless gas that spreads quickly.

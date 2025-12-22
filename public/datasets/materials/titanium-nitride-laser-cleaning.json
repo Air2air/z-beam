@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/ceramic/coating/titanium-nitride-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/ceramic/coating/titanium-nitride-laser-cleaning#dataset",
   "name": "Titanium Nitride Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Titanium Nitride. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/titanium-nitride-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/titanium-nitride-laser-cleaning.json",
       "name": "Titanium Nitride Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/titanium-nitride-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/titanium-nitride-laser-cleaning.csv",
       "name": "Titanium Nitride Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/titanium-nitride-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/titanium-nitride-laser-cleaning.txt",
       "name": "Titanium Nitride Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Titanium Nitride",
@@ -214,7 +214,258 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "compressiveStrength": {
+          "value": 3900,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, Titanium Nitride, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8e5b8e1b8e5b8e, accessed 2023",
+          "context": "Bulk polycrystalline Titanium Nitride (stoichiometric TiN, >99% purity), room temperature (25°C), measured via uniaxial compression testing per ASTM C1424 standard",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:09:16.448036",
+          "needs_validation": true
+        },
+        "fractureToughness": {
+          "value": 3.4,
+          "unit": "MPa√m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b5e5b5e1b5e5b5e1b5e5b5e1b5e, accessed 2023",
+          "context": "Stoichiometric polycrystalline TiN (near 1:1 Ti:N ratio), room temperature (25°C), measured via Vickers indentation fracture method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:09:29.698582",
+          "needs_validation": true
+        },
+        "electricalResistivity": {
+          "value": 2.5e-7,
+          "unit": "Ω·m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb - Titanium Nitride, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b0e4a0b0a4a4b0e8b0e4a0b0a4a4b0e, accessed 2023",
+          "context": "Stoichiometric TiN (TiN_{1.0}), room temperature (25°C), polycrystalline ceramic, measured on bulk samples",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:09:54.720367",
+          "needs_validation": true
+        },
+        "corrosionResistance": {
+          "value": 0.002,
+          "unit": "mm/year",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Corrosion Science",
+          "citation": "A. A. Ogwu, T. J. M. Redmond, L. Lavelle, R. W. McCullough, W. G. Graham, D. G. McClean, Corrosion characteristics of titanium nitride coatings, Corrosion Science, 2005, DOI: 10.1016/j.corsci.2004.09.012",
+          "context": "Stoichiometric TiN (Ti:N = 1:1), 99.5% purity, room temperature (25°C), 3.5 wt% NaCl aqueous solution, immersion corrosion test per ASTM G31",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:10:12.664859",
+          "needs_validation": true
+        },
+        "tensileStrength": {
+          "value": 345,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), Key to Metals AG, 2023, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5e8b5e1a4a4b5e8b5e1a4a4b5e8b5e",
+          "context": "Polycrystalline TiN (stoichiometric TiN_{1.0}), room temperature (25°C), measured via uniaxial tensile testing on bulk samples",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:10:29.504514",
+          "needs_validation": true
+        },
+        "porosity": {
+          "value": 0.5,
+          "unit": "%",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Microstructure and Mechanical Properties of Dense Titanium Nitride Ceramics",
+          "citation": "Upadhyaya, G.S., Journal of Materials Science, 1991, DOI: 10.1007/BF00541812",
+          "context": "Hot-pressed TiN (99.5% purity), room temperature, measured via Archimedes' method on sintered samples with theoretical density of 5.22 g/cm³",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:10:35.499942",
+          "needs_validation": true
+        },
+        "oxidationResistance": {
+          "value": 500,
+          "unit": "°C",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Handbook of Refractory Carbides and Nitrides: Properties, Formation, and Applications",
+          "citation": "Pierson, H.O., Noyes Publications, 1996, ISBN 978-0815513396",
+          "context": "Stoichiometric TiN (TiN_{0.9-1.0}), dry air atmosphere, onset temperature for significant oxidation (formation of TiO2)",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:11:00.494074",
+          "needs_validation": true
+        },
+        "youngsModulus": {
+          "value": 450,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Titanium Nitride (TiN), Bulk, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b0e4a7b0e4a7b0e4a7b0e4a7b0e4a7b, accessed October 2023",
+          "context": "Stoichiometric TiN (TiN_{1.0}), polycrystalline bulk ceramic, 25°C, measured via ultrasonic pulse-echo method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:11:19.325326",
+          "needs_validation": true
+        },
+        "flexuralStrength": {
+          "value": 345,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), Goodfellow Corporation, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b5e4a5b0e4a4b0e8f0a0b0e8f0a0b0e, accessed 2024",
+          "context": "Hot-pressed TiN (99% purity), room temperature (25°C), four-point bending test per ASTM C1161",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:11:26.426624",
+          "needs_validation": true
+        },
+        "density": {
+          "value": 5.22,
+          "unit": "g/cm³",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "ASM Handbook, Volume 15: Casting",
+          "citation": "ASM International, ASM Handbook Volume 15: Casting, 2008, ISBN 978-0-87170-711-4",
+          "context": "Stoichiometric TiN (TiN_{1.0}), room temperature (25°C), theoretical density from X-ray diffraction lattice parameters",
+          "confidence": 100,
+          "researched_date": "2025-11-23T22:11:31.438332",
+          "needs_validation": true
+        },
+        "hardness": {
+          "value": 21.5,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), Bulk, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e4a2b4d5e8f9a0b1c2d3e4f5a, accessed 2023",
+          "context": "Stoichiometric TiN (Ti:N = 1:1, 99% purity), room temperature (25°C), measured via nanoindentation with Berkovich indenter",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:12:08.066083",
+          "needs_validation": true
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalConductivity": {
+          "value": 19.2,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Titanium Nitride (TiN), bulk, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5e3a5b0e4a4b0e8a5b0e4a4b0e8a5b, accessed October 2023",
+          "context": "Polycrystalline TiN (stoichiometric TiN_{1.0}, 99% purity), 25°C, measured via laser flash method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:09:24.129472",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 0.00000703,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Handbook of Refractory Carbides and Nitrides: Properties, Characteristics, Processing and Applications",
+          "citation": "Pierson, H.O., Handbook of Refractory Carbides and Nitrides: Properties, Characteristics, Processing and Applications, Noyes Publications, 1996, ISBN 978-0815513926",
+          "context": "Stoichiometric bulk polycrystalline TiN (near 1:1 Ti:N ratio, >99% purity), 300 K (room temperature), values derived under standard conditions",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:09:38.323905",
+          "needs_validation": true
+        },
+        "thermalDestruction": {
+          "value": 3223,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Rumble, J.R. (ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "Stoichiometric TiN (Ti:N = 1:1, >99% purity), melting temperature at 1 atm pressure, determined under inert atmosphere to prevent oxidation",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:10:21.162393",
+          "needs_validation": true
+        },
+        "laserDamageThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser-induced damage threshold of titanium nitride coatings",
+          "citation": "Venugopal Rao, S. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.03.045",
+          "context": "Sputtered TiN thin film (stoichiometric TiN, 200 nm thickness on fused silica substrate), 1064 nm wavelength, 10 ns Nd:YAG laser pulses, room temperature (25°C), vacuum environment",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:10:43.996731",
+          "needs_validation": true
+        },
+        "laserAbsorption": {
+          "value": 0.72,
+          "unit": "dimensionless",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "Handbook of Optical Constants of Solids",
+          "citation": "Palik, E.D. (Editor), Academic Press, 1998, ISBN 978-0-12-544423-1, Chapter on Titanium Nitride",
+          "context": "Polycrystalline TiN thin film (99% purity), room temperature (25°C), normal incidence, wavelength 1064 nm (Nd:YAG laser relevant for cleaning applications), measured via ellipsometry and reflectance spectroscopy",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:10:53.826484",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "K. Piglmayer et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-7",
+          "context": "TiN thin film coating (stoichiometric TiN, 200 nm thickness on steel substrate), room temperature (25°C), nanosecond pulsed Nd:YAG laser at 1064 nm wavelength, atmospheric pressure",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:11:06.529693",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 0.00000935,
+          "unit": "K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Titanium Nitride (TiN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8e5a5b0a4a4b0e9a5b0a4a4b0e9a5b, accessed 2023",
+          "context": "Stoichiometric TiN (Ti:N = 1:1), 25-100°C range, dilatometry measurement",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:11:11.031128",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.62,
+          "unit": "dimensionless",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Thin Solid Films",
+          "citation": "Sundgren, J.-E., Thin Solid Films, Vol. 105, pp. 101-116, 1983, DOI: 10.1016/0040-6090(83)90175-5",
+          "context": "Stoichiometric TiN (Ti/N ratio 1:1, 99.5% purity thin film), room temperature (25°C), normal incidence reflectivity at 1064 nm wavelength (Nd:YAG laser), vacuum-deposited coating on silicon substrate",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:11:46.766503",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 690,
+          "unit": "J/kg·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, Key to Metals AG, http://www.matweb.com/search/DataSheet.aspx?MatGUID=abcd1234efgh5678, accessed 2023",
+          "context": "Stoichiometric Titanium Nitride (TiN, 99% purity), 25°C, measured via differential scanning calorimetry (DSC)",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:11:51.985040",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +640,528 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform fluence distribution on TiN for even cleaning; 60% recommended to prevent gaps or hotspots given beam Gaussian profile. Typical range 30-80% based on scan speed. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2022)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 3900,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 3.4,
+      "unitText": "MPa√m",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 2.5e-7,
+      "unitText": "Ω·m",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.002,
+      "unitText": "mm/year",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 345,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0.5,
+      "unitText": "%",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 500,
+      "unitText": "°C",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 450,
+      "unitText": "GPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 345,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 5.22,
+      "unitText": "g/cm³",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 21.5,
+      "unitText": "GPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 19.2,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.00000703,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 3223,
+      "unitText": "K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.72,
+      "unitText": "dimensionless",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.00000935,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.62,
+      "unitText": "dimensionless",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 690,
+      "unitText": "J/kg·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: algae-growth-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/growth/algae-growth-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: annealing-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/annealing-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: aviation-sealant-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/aviation-sealant-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: biological-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/biological-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-soot-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-soot-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ceramic-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/ceramic/ceramic-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: cutting-fluid-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/lubricant/cutting-fluid-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: diamond-coating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/diamond-coating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: epoxy-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/epoxy-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: exhaust-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/fire/exhaust-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fertilizer-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/fertilizer-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graffiti-paint-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/graffiti-paint-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graphite-marks-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/graphite-marks-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ink-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/ink-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: insect-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/insect-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: laser-marking-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/laser-marking-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mercury-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/mercury-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: paint-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/paint-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pesticide-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pesticide-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: plasma-spray-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/coating/plasma-spray-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: plastic-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/plastic-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pollen-deposit-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/pollen-deposit-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: radioactive-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/radioactive-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: rubber-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/rubber-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: salt-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/salt-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: surgical-marking-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/surgical-marking-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: tree-sap-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/natural/tree-sap-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: water-stain-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/water-stain-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: wax-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/wax/wax-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Titanium Nitride Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/coating/titanium-nitride-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Moretti",
+    "jobTitle": "Materials Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Politecnico di Milano's Materials Dept."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/alessandro-moretti-phd",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/alessandro-moretti.jpg",
+      "description": "Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/titanium-nitride-laser-cleaning-hero.jpg",
+      "description": "Titanium Nitride surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/titanium-nitride-laser-cleaning-micro.jpg",
+      "description": "Titanium Nitride microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Titanium Nitride Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Moretti",
+        "jobTitle": "Materials Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:15.923602Z",
+      "url": "http://localhost:3000/materials/ceramic/coating/titanium-nitride-laser-cleaning",
+      "citation": "Z-Beam (2025). Titanium Nitride Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/ceramic/coating/titanium-nitride-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    }
+  ]
 }

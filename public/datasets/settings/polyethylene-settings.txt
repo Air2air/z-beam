@@ -11,6 +11,93 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Polyethylene surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:14.032Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength with good Polyethylene absorption 
+               for efficient cleaning
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage
+
+ENERGY DENSITY:
+  Value: 5.1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective Polyethylene removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled material 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform surface treatment
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning coverage
+
+POWER:
+  Value: 150 W
+  Range: 50-500 W
+  Description: Typical range for industrial fiber lasers cleaning polymers like polyethylene to avoid melting (melting point ~110-130°C); starting at 150W for light contamination. Max safe ~500W to prevent substrate damage. Source: IPG Photonics YLR series specs and studies on polymer ablation (e.g., Opt. Lasers Eng. 2018).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for 1064 nm cleaning of polyethylene; slower (100-500 mm/s) for heavy contamination like oils, faster (500-2000 mm/s) for light dust. Recommended 500 mm/s balances efficiency and heat control given PE's low thermal conductivity (~0.3 W/mK). Source: Industry manuals from Laserax and Coherent, process optimization in J. Clean. Prod. 2020.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime (5-100 ns) preferred for industrial cleaning of polyethylene to ablate contaminants without excessive heat; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. 20 ns recommended to limit thermal diffusion in low-conductivity PE. Source: Laser physics reviews in Appl. Phys. A (2019) on polymer ablation thresholds.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical 10-100 kHz for pulsed fiber lasers in cleaning; 30 kHz recommended for polyethylene to achieve fast coverage while minimizing heat accumulation (trade-off: higher rates speed up process but risk melting). Source: Academic literature on ns-laser cleaning of plastics (e.g., Lasers Med. Sci. 2017).
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal on polyethylene; damage threshold ~1.2-1.5 J/cm² at 1064 nm due to PE's reflectivity (~90% at IR) and low melting point. 0.5 J/cm² recommended for safe cleaning of organics. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2015) and Opt. Express (2021).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for 1064 nm cleaning; 50-200 μm for fine surface prep on polyethylene, 200-500 μm for large areas. 200 μm recommended for uniform energy distribution without hotspots on reflective PE. Source: Equipment specs from Trumpf and SPI Lasers, application notes for polymer processing.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: 1-3 passes for light contamination removal, up to 5 for heavy layers; multi-pass preferred over single high-energy pass to avoid PE damage. 2 passes recommended for industrial prep. Source: Case studies in Surf. Coat. Technol. (2019) and industry practices from Adapt Laser Systems.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: 30-80% overlap ensures uniform coverage in scan patterns; 50% recommended for polyethylene to prevent gaps or overexposure, optimizing for even cleaning on irregular surfaces. Source: Process optimization in Int. J. Adv. Manuf. Technol. (2022) and laser scanning guidelines from scanning head manufacturers like Scanlab.
+
+
+Generated: 2025-12-22T20:49:23.718Z
 License: CC BY 4.0

@@ -54,10 +54,8 @@ export default async function SettingsPage() {
     ]
   };
 
-  // Load all settings frontmatter files and group by category
-  const settingsByCategory: Record<string, any[]> = {};
-  
-  await Promise.all(yamlFiles.map(async (file) => {
+  // Load all settings frontmatter files
+  const settingsCards = await Promise.all(yamlFiles.map(async (file) => {
     const filePath = path.join(frontmatterDir, file);
     const content = await fs.readFile(filePath, 'utf-8');
     const data: any = yaml.load(content);
@@ -73,7 +71,6 @@ export default async function SettingsPage() {
     try {
       const materialPath = path.join(process.cwd(), 'frontmatter', 'materials');
       const materialFiles = await fs.readdir(materialPath);
-      // Look for material file matching this setting name
       const materialFile = materialFiles.find(f => {
         const materialSlug = f.replace(/-laser-cleaning\.(yaml|yml)$/, '');
         return materialSlug === slug || materialSlug === slug.toLowerCase();
@@ -90,33 +87,18 @@ export default async function SettingsPage() {
       // Fall back to constructed URL if material not found
     }
     
-    const card = {
-      slug: href.replace(/^\//, ''), // Remove leading slash for slug
+    return {
+      slug: href.replace(/^\//, ''),
       title: name,
       description: `${config.actionText} for ${name.toLowerCase()}`,
       href,
       imageUrl,
       imageAlt: `${name} ${config.itemsProperty}`,
-      category: data.category,
-      subcategory: data.subcategory
     };
-    
-    // Group by category
-    const categoryKey = data.category || 'Other';
-    if (!settingsByCategory[categoryKey]) {
-      settingsByCategory[categoryKey] = [];
-    }
-    settingsByCategory[categoryKey].push(card);
   }));
-  
-  // Sort categories and their items
-  const sortedCategories = Object.keys(settingsByCategory).sort();
-  sortedCategories.forEach(cat => {
-    settingsByCategory[cat].sort((a, b) => a.title.localeCompare(b.title));
-  });
-  
-  // Flatten for schema
-  const allSettingsCards = sortedCategories.flatMap(cat => settingsByCategory[cat]);
+
+  // Sort alphabetically
+  settingsCards.sort((a, b) => a.title.localeCompare(b.title));
 
   const schemas = {
     '@context': 'https://schema.org',
@@ -125,8 +107,8 @@ export default async function SettingsPage() {
         url: pageUrl,
         name: pageTitle,
         description: pageDescription,
-        numberOfItems: allSettingsCards.length,
-        itemListElement: allSettingsCards.map((setting, index) => ({
+        numberOfItems: settingsCards.length,
+        itemListElement: settingsCards.map((setting, index) => ({
           '@type': 'ListItem',
           'position': index + 1,
           'name': setting.title,
@@ -144,14 +126,14 @@ export default async function SettingsPage() {
         '@id': `${pageUrl}#breadcrumb`,
         'itemListElement': [
           { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE_CONFIG.url },
-          { '@type': 'ListItem', 'position': 2, 'name': 'Settings', 'item': pageUrl }
+          { '@type': 'ListItem', 'position': 2, 'name': pageTitle, 'item': pageUrl }
         ]
       },
       generateItemListSchema({
         url: pageUrl,
         name: pageTitle,
         description: pageDescription,
-        items: allSettingsCards.map(setting => ({
+        items: settingsCards.map(setting => ({
           name: setting.title,
           url: `${SITE_CONFIG.url}${setting.href}`
         }))
@@ -165,11 +147,6 @@ export default async function SettingsPage() {
       })
     ]
   };
-  
-  // Helper to capitalize category names
-  const formatCategoryName = (cat: string) => {
-    return cat.charAt(0).toUpperCase() + cat.slice(1);
-  };
 
   return (
     <>
@@ -180,16 +157,13 @@ export default async function SettingsPage() {
         metadata={metadata as any}
         slug={config.rootPath}
       >
-        {sortedCategories.map(category => (
-          <div key={category} className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">{formatCategoryName(category)}</h2>
-            <CardGridSSR
-              items={settingsByCategory[category]}
-              columns={3}
-              variant="default"
-            />
-          </div>
-        ))}
+        <div className="mb-8">
+          <CardGridSSR
+            items={settingsCards}
+            columns={3}
+            variant="default"
+          />
+        </div>
       </Layout>
     </>
   );

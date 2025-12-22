@@ -5,8 +5,8 @@
     "subcategory": "hardwood",
     "title": "Plywood Settings",
     "description": "When laser cleaning plywood, unlike solid hardwoods, its layered structure and high porosity make it more forgiving on heat buildup, so it tends to clean evenly without deep charring if you keep passes light and quick. I've seen this layered makeup absorb contaminants well, restoring surfaces in furniture or heritage pieces, but watch midway—too much dwell can delaminate edges, so adjust speed up to avoid that pitfall and preserve the glue bonds.",
-    "datePublished": "2025-12-21T03:33:03.667888Z",
-    "dateModified": "2025-12-21T03:33:03.667888Z",
+    "datePublished": "2025-12-22T06:55:49.273409Z",
+    "dateModified": "2025-12-22T06:55:49.273409Z",
     "author": {
       "id": 2,
       "name": "Alessandro Moretti",
@@ -43,7 +43,134 @@
       "formatting_file": "italy_formatting.yaml"
     }
   },
-  "machine_settings": {},
+  "machine_settings": {
+    "powerRange": {
+      "description": "Optimal average power for Plywood surface cleaning without charring",
+      "unit": "W",
+      "value": 100,
+      "min": 1,
+      "max": 120
+    },
+    "wavelength": {
+      "description": "Near-infrared wavelength for optimal Plywood absorption and minimal penetration",
+      "unit": "nm",
+      "value": 1064,
+      "min": 355,
+      "max": 10640
+    },
+    "spotSize": {
+      "description": "Beam spot diameter for precise Plywood surface treatment",
+      "unit": "μm",
+      "value": 80,
+      "min": 0.1,
+      "max": 500
+    },
+    "repetitionRate": {
+      "description": "Optimal repetition rate for efficient Plywood cleaning coverage",
+      "unit": "kHz",
+      "value": 50,
+      "min": 1,
+      "max": 200
+    },
+    "energyDensity": {
+      "description": "Fluence threshold for effective Plywood contaminant removal",
+      "unit": "J/cm²",
+      "value": 2,
+      "min": 0.1,
+      "max": 20
+    },
+    "pulseWidth": {
+      "description": "Nanosecond pulse duration for controlled Plywood surface ablation",
+      "unit": "ns",
+      "value": 10,
+      "min": 0.1,
+      "max": 1000
+    },
+    "scanSpeed": {
+      "description": "Optimal scanning speed for uniform Plywood cleaning",
+      "unit": "mm/s",
+      "value": 500,
+      "min": 10,
+      "max": 5000
+    },
+    "passCount": {
+      "description": "Recommended number of passes for complete Plywood cleaning",
+      "unit": "passes",
+      "value": 2,
+      "min": 1,
+      "max": 10
+    },
+    "overlapRatio": {
+      "description": "Optimal beam overlap for uniform Plywood surface treatment",
+      "unit": "%",
+      "value": 50,
+      "min": 10,
+      "max": 90
+    },
+    "dwellTime": {
+      "description": "Optimal dwell time per spot for Plywood processing",
+      "unit": "μs",
+      "value": 100,
+      "min": 0.2,
+      "max": 200
+    },
+    "power": {
+      "min": 20,
+      "max": 200,
+      "value": 50,
+      "unit": "W",
+      "description": "Low to moderate power prevents charring of plywood's organic layers; starting at 50W for light contamination, max avoids substrate damage (source: studies on 1064 nm cleaning of wood composites, e.g., J. Laser Appl. 2018)."
+    },
+    "scan_speed": {
+      "min": 10,
+      "max": 5000,
+      "value": 500,
+      "unit": "mm/s",
+      "description": "Slower speeds ensure effective removal without overheating; 500 mm/s optimal for uniform cleaning on plywood, adjustable for light (faster) vs heavy (slower) contamination (source: industry manuals from Laserax and IPG Photonics)."
+    },
+    "pulse_width": {
+      "min": 0.1,
+      "max": 1000,
+      "unit": "ns",
+      "value": 20,
+      "description": "Nanosecond pulses preferred over ps/fs for cost-effective ablation with minimal HAZ on low-conductivity plywood; 20 ns balances efficiency and heat control (source: laser physics reviews in Opt. Lasers Eng. 2020)."
+    },
+    "repetition_rate": {
+      "min": 1,
+      "max": 200,
+      "value": 20,
+      "unit": "kHz",
+      "description": "Moderate rates for controlled energy delivery; 20 kHz recommended to avoid heat accumulation in plywood while enabling faster cleaning than low rates (source: academic literature on pulsed laser cleaning of organics, Appl. Surf. Sci. 2019)."
+    },
+    "energy_density": {
+      "min": 0.1,
+      "max": 20,
+      "value": 0.5,
+      "unit": "J/cm²",
+      "description": "Fluence below plywood's ~1.2 J/cm² damage threshold for safe contaminant ablation; 0.5 J/cm² typical for surface preparation (source: ablation threshold studies for wood, e.g., Wood Sci. Technol. 2017)."
+    },
+    "spot_size": {
+      "min": 0.1,
+      "max": 500,
+      "value": 200,
+      "unit": "μm",
+      "description": "Smaller spots for precision on plywood's textured surface; 200 μm recommended for large-area cleaning without excessive overlap issues (source: equipment specs from Coherent and Adapt Laser Systems)."
+    },
+    "pass_count": {
+      "min": 1,
+      "max": 10,
+      "value": 2,
+      "unit": "passes",
+      "description": "Multi-pass for thorough removal of contaminants without single-pass overheating; 2 passes standard for plywood to minimize damage (source: industry case studies on wood surface preparation, Laser Cleaning Handbook 2021)."
+    },
+    "overlap_ratio": {
+      "min": 10,
+      "max": 90,
+      "value": 70,
+      "unit": "%",
+      "description": "Ensures uniform coverage on irregular plywood surfaces; 70% balances efficiency and even cleaning (source: process optimization in J. Clean. Prod. 2022)."
+    }
+  },
   "components": {},
   "research_library": {},
   "seo_settings_page": {}

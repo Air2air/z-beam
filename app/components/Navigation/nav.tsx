@@ -91,7 +91,7 @@ export function Navbar() {
       {/* Skip Navigation Link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 px-4 py-2 z-[100] rounded-md m-2 focus-visible:outline-none"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-orange-600 px-4 py-2 z-[100] rounded-md m-2 focus-visible:outline-none"
         onFocus={(e) => e.target.scrollIntoView()}
       >
         Skip to main content
@@ -172,8 +172,8 @@ export function Navbar() {
                             focus-visible:outline-none transition-colors duration-200
                             ${
                               isActive
-                                ? "text-blue-600400 bg-blue-900/20"
-                                : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
+                                ? "text-orange-600400 bg-orange-900/20"
+                                : "text-secondary hover:bg-gray-100:bg-primary hover:text-orange-600:text-orange-400"
                             }
                           `}
                           role="menuitem"
@@ -202,7 +202,7 @@ export function Navbar() {
                                     block px-4 py-2 text-[15px]
                                     ${
                                       isDropdownActive
-                                        ? "text-blue-400 bg-blue-900/20"
+                                        ? "text-orange-400 bg-orange-900/20"
                                         : "text-secondary hover:bg-gray-700"
                                     }
                                   `}
@@ -228,8 +228,8 @@ export function Navbar() {
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
-                              ? "text-blue-600400 bg-blue-900/20"
-                              : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
+                              ? "text-orange-600400 bg-orange-900/20"
+                              : "text-secondary hover:bg-gray-100:bg-primary hover:text-orange-600:text-orange-400"
                           }
                         `}
                         aria-current={isActive ? "page" : undefined}
@@ -328,8 +328,8 @@ export function Navbar() {
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
-                              ? "text-blue-600400 bg-blue-900/20"
-                              : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
+                              ? "text-orange-600400 bg-orange-900/20"
+                              : "text-secondary hover:bg-gray-100:bg-primary hover:text-orange-600:text-orange-400"
                           }
                         `}
                         role="menuitem"
@@ -359,7 +359,7 @@ export function Navbar() {
                                     block px-4 py-2 text-sm
                                   ${
                                     isDropdownActive
-                                      ? "text-blue-400 bg-blue-900/20"
+                                      ? "text-orange-400 bg-orange-900/20"
                                       : "text-secondary hover:bg-gray-700"
                                   }
                                 `}
@@ -390,8 +390,8 @@ export function Navbar() {
                         focus-visible:outline-none transition-colors duration-200
                         ${
                           isActive
-                            ? "text-blue-600400 bg-blue-900/20"
-                            : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
+                            ? "text-orange-600400 bg-orange-900/20"
+                            : "text-secondary hover:bg-gray-100:bg-primary hover:text-orange-600:text-orange-400"
                         }
                       `}
                       role="menuitem"

@@ -11,6 +11,98 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Travertine surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:14.133Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Travertine absorption 
+               and minimal substrate damage
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for balanced cleaning efficiency and 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               and process speed
+
+ENERGY DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence level sufficient for contaminant removal below 
+               Travertine damage threshold
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal with controlled thermal penetration
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning without 
+               overlapping damage
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 30 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for complete coverage without 
+               excessive energy deposition
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for pulsed Nd:YAG lasers (1064 nm) on porous stones like travertine to remove contaminants without thermal damage; starting at 50 W for light soiling, max 200 W risks microcracking (source: IPG Photonics laser cleaning guidelines and studies on limestone ablation, e.g., J. Cult. Herit. 2018).
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds balance fluence and coverage; 1000 mm/s optimal for uniform cleaning on travertine, slower (500 mm/s) for heavy contamination, faster (up to 3000 mm/s) for light dust (source: Industry standards from Laser Cleaning Europe and equipment manuals like those from CleanLaser).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning with minimal heat-affected zone on heat-sensitive travertine; 20 ns balances ablation efficiency and reduced thermal diffusion (picosecond/fs for ultra-precision but overkill; source: Laser physics research in Opt. Lasers Eng. 2020 on stone heritage cleaning).
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for industrial cleaning to achieve pulse overlap without excessive heat buildup in low-conductivity travertine; 30 kHz recommended for faster processing vs. heat risks at higher rates (source: Academic literature, e.g., Appl. Surf. Sci. 2019 on pulsed laser parameters for carbonates).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal (e.g., soot, oxides) on travertine; damage threshold ~2-3 J/cm² for CaCO3-based stone, so 1.0 J/cm² safe starting point to avoid spalling (source: Ablation threshold studies in J. Appl. Phys. 2017 and heritage conservation papers).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for effective energy distribution; 200 μm recommended for travertine to cover pores without pinpoint damage, smaller for fine details, larger for broad areas (source: Equipment specs from manufacturers like Raycus and Coherent laser systems).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Multi-pass approach ensures complete removal without exceeding fluence limits on delicate travertine; 2 passes typical for industrial surface prep (single pass for very light contamination; source: Industry case studies in stone restoration, e.g., Restaurators 2021).
+
+OVERLAP_RATIO:
+  Value: 70 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage and prevents stripe patterns on uneven travertine surfaces; 70% optimal for balance between efficiency and overlap-induced heating (source: Process optimization in laser scanning studies, e.g., Opt. Express 2016).
+
+
+Generated: 2025-12-22T20:49:23.914Z
 License: CC BY 4.0

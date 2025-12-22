@@ -9,6 +9,12 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { SettingsJsonLD } from '@/app/components/JsonLD/SettingsJsonLD';
 
+// Mock dataset loader to return null so tests use frontmatter data directly
+jest.mock('@/app/utils/schemas/datasetLoader', () => ({
+  loadGeneratedDataset: jest.fn(() => null),
+  extractEnhancedFields: jest.fn(() => null)
+}));
+
 describe('SettingsJsonLD Component - Merged Schema Generation', () => {
   const baseSettings = {
     name: 'Oak',

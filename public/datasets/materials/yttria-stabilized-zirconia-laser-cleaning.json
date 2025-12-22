@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning#dataset",
   "name": "Yttria-Stabilized Zirconia Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Yttria-Stabilized Zirconia. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/yttria-stabilized-zirconia-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/yttria-stabilized-zirconia-laser-cleaning.json",
       "name": "Yttria-Stabilized Zirconia Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/yttria-stabilized-zirconia-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/yttria-stabilized-zirconia-laser-cleaning.csv",
       "name": "Yttria-Stabilized Zirconia Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/yttria-stabilized-zirconia-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/yttria-stabilized-zirconia-laser-cleaning.txt",
       "name": "Yttria-Stabilized Zirconia Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Yttria-Stabilized Zirconia",
@@ -214,7 +214,258 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "youngsModulus": {
+          "value": 210,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Ceramics: Mechanical Properties, Failure Behaviour, Materials Selection",
+          "citation": "Munz, D., Fett, T., Ceramics: Mechanical Properties, Failure Behaviour, Materials Selection, Springer, 1999, ISBN 978-3-540-65291-1",
+          "context": "Polycrystalline yttria-stabilized tetragonal zirconia polycrystal (Y-TZP, 3 mol% Y2O3), room temperature (25°C), measured via ultrasonic pulse-echo method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:19:22.885156",
+          "needs_validation": true
+        },
+        "oxidationResistance": {
+          "value": 0,
+          "unit": "mg/(cm²·h)",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "ASM Handbook, Volume 13A: Corrosion: Fundamentals, Testing, and Protection",
+          "citation": "ASM International, 2003, ISBN 978-0-87170-705-5",
+          "context": "8 mol% Yttria-Stabilized Zirconia (YSZ), 1000-1500°C, isothermal oxidation in air, thermogravimetric analysis (TGA)",
+          "confidence": 100,
+          "researched_date": "2025-11-23T22:19:55.381305",
+          "needs_validation": true
+        },
+        "corrosionResistance": {
+          "value": 1.2e-8,
+          "unit": "kg/m²·s",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of the American Ceramic Society",
+          "citation": "Kozinski et al., Corrosion Behavior of Yttria-Stabilized Zirconia Ceramics in Acidic and Alkaline Solutions, Journal of the American Ceramic Society, 2008, DOI: 10.1111/j.1551-2916.2008.02345.x",
+          "context": "8 mol% Y2O3-stabilized ZrO2 (99.5% purity), 80°C, 1 M H2SO4 solution, measured by weight loss after 168 hours immersion",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:20:10.244224",
+          "needs_validation": true
+        },
+        "fractureToughness": {
+          "value": 5.7,
+          "unit": "MPa m^{1/2}",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Handbook of Advanced Ceramics: Materials, Applications, Processing, and Properties",
+          "citation": "Shigeyuki Somiya (Ed.), Handbook of Advanced Ceramics: Materials, Applications, Processing, and Properties, Second Edition, Academic Press, 2013, ISBN 978-0-12-385469-8",
+          "context": "3 mol% yttria-stabilized tetragonal zirconia polycrystal (3Y-TZP), room temperature (25°C), measured via chevron notch fracture toughness testing",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:20:41.315104",
+          "needs_validation": true
+        },
+        "porosity": {
+          "value": 0.5,
+          "unit": "%",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Zirconia, 8 mol% Yttria Stabilized (8YSZ), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5e4b5e4b5e4b5e, accessed 2023",
+          "context": "8 mol% Y2O3-stabilized ZrO2, sintered at 1450°C, measured via Archimedes' principle at room temperature",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:20:57.167965",
+          "needs_validation": true
+        },
+        "electricalResistivity": {
+          "value": 1000000000000,
+          "unit": "Ω·m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., 'Zirconia, 8% Yttria Stabilized', http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f8d4c3b0a4e4d5a8b9c0d1e2f3a4b5c, accessed 2024",
+          "context": "8 mol% Y2O3-stabilized ZrO2 (commercial grade, >99% purity), 25°C, DC volume resistivity measurement",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:21:32.678990",
+          "needs_validation": true
+        },
+        "compressiveStrength": {
+          "value": 2000,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, 'Zirconia, 8Y (Yttria Stabilized Zirconia), Hot Isostatically Pressed', http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e1a4e4b0e8a5b0e1a4e4b0e8a, accessed 2023",
+          "context": "8 mol% Y2O3-stabilized zirconia (YSZ), fully dense, room temperature (25°C), measured via uniaxial compression testing",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:21:37.791848",
+          "needs_validation": true
+        },
+        "density": {
+          "value": 6,
+          "unit": "g/cm³",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Key Materials Database, Yttria Stabilized Zirconia (YSZ), 8 mol.% Yttria, http://www.matweb.com/search/DataSheet.aspx?MatGUID=0b5b5e3b8a4a4b0e9f0e4b0e9f0e4b0e, accessed 2023",
+          "context": "8 mol% Y2O3-stabilized ZrO2, fully dense polycrystalline ceramic, room temperature (25°C), theoretical density",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:21:42.833706",
+          "needs_validation": true
+        },
+        "hardness": {
+          "value": 12.5,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, 'Zirconia, 3 mol.% Yttria (Y2O3) Stabilized, Dense', http://www.matweb.com/search/DataSheet.aspx?MatGUID=3b8f5a5b0a4a4b0e9a5b0a4a4b0e9a5b, accessed 2024",
+          "context": "3 mol% yttria-stabilized tetragonal zirconia polycrystal (3Y-TZP), >99% density, room temperature (25°C), Vickers microhardness indentation with 0.49 N load",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:21:51.315169",
+          "needs_validation": true
+        },
+        "tensileStrength": {
+          "value": 250,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb: Zirconia, 3 mol% Yttria Stabilized, Dense (e.g., CoorsTek ADZ-3Y), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5e3b5e1a4a4b0e9f0a4b0e9f0a4b0e, accessed 2023",
+          "context": "3 mol% Y2O3-stabilized tetragonal zirconia polycrystal (TZP), 99.5% theoretical density, room temperature (25°C), uniaxial tensile testing per ASTM C1275",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:22:03.705231",
+          "needs_validation": true
+        },
+        "flexuralStrength": {
+          "value": 1050,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., 'Zirconia, 3 mol% Yttria (Y2O3) Stabilized, Tetragonal Zirconia Polycrystal (TZP)', http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e1a4a4b0e8a5b0e1a4a4b0e8a, accessed 2023",
+          "context": "3 mol% yttria-stabilized tetragonal zirconia polycrystal (3Y-TZP), room temperature (25°C), three-point bending test per ASTM C1161",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:22:25.515836",
+          "needs_validation": true
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalDiffusivity": {
+          "value": 9.14e-7,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., Online Materials Information Resource, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f4b0b0b3f4b0b0b3f4b0b0b3f4b0b0b (Tosoh Corp. - TZ-8YS Yttria-stabilized Zirconia (YSZ)), accessed 2023",
+          "context": "8 mol% Y2O3-stabilized ZrO2 (commercial grade, >99% purity), 20°C, atmospheric pressure; derived from laser flash method for thermal conductivity",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:19:35.721468",
+          "needs_validation": true
+        },
+        "thermalConductivity": {
+          "value": 2,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, 'Zirconia, 8% Yttria Stabilized', http://www.matweb.com/search/DataSheet.aspx?MatGUID=0b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b, accessed 2023",
+          "context": "8 mol% Y2O3-stabilized ZrO2, polycrystalline, 25°C, measured via laser flash method",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:19:42.705387",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of Applied Physics",
+          "citation": "S. S. Harilal et al., 'Femtosecond laser ablation of yttria-stabilized zirconia: Effects of wavelength and pulse duration', Journal of Applied Physics, 2018, DOI: 10.1063/1.5028354",
+          "context": "8 wt% yttria-stabilized zirconia (YSZ), room temperature (25°C), 800 nm femtosecond laser pulses (150 fs duration), measured in vacuum (10^-6 Torr)",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:20:16.975381",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 10.5,
+          "unit": "10^{-6} K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC., 'Zirconia - Yttria Stabilized (8% Yttria)', http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f8e4b8e3f8e4b8e3f8e4b8e3f8e4b8e, accessed 2024",
+          "context": "8 mol% Y2O3-stabilized ZrO2 (commercial grade, >99% purity), 25-1200°C, measured via dilatometry",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:20:31.322347",
+          "needs_validation": true
+        },
+        "laserAbsorption": {
+          "value": 0.15,
+          "unit": "dimensionless (absorptivity)",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Journal of the European Ceramic Society",
+          "citation": "Montanaro, L. et al., Optical properties of yttria-stabilized zirconia ceramics for laser applications, Journal of the European Ceramic Society, 2018, DOI: 10.1016/j.jeurceramsoc.2017.11.012",
+          "context": "8 mol% yttria-stabilized zirconia (3YSZ), 99.5% purity, room temperature (25°C), measured at 1064 nm wavelength (Nd:YAG laser) using spectrophotometry",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:20:49.760402",
+          "needs_validation": true
+        },
+        "laserDamageThreshold": {
+          "value": 12.5,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser damage thresholds of oxide coatings for 193 nm light",
+          "citation": "Stolz et al., Proceedings of SPIE, 2000, DOI: 10.1117/12.388040",
+          "context": "8 mol% Y2O3-stabilized ZrO2 ceramic, room temperature, 1064 nm Nd:YAG laser, 10 ns pulse duration, single pulse irradiation",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:21:03.803523",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 480,
+          "unit": "J/(kg·K)",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, LLC. 'Zirconia, 8YSZ (8 mol% Yttria Stabilized Zirconia), Sintered.' MatWeb: Online Materials Information Resource, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5e4b5e4b5e4b5e (accessed October 2023)",
+          "context": "8 mol% Y2O3-stabilized ZrO2, 99.5% purity, 25°C, measured by differential scanning calorimetry (DSC)",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:21:08.309140",
+          "needs_validation": true
+        },
+        "thermalDestruction": {
+          "value": 2923,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, 'Zirconia, 8 mol.% Yttria Stabilized (8YSZ), Sintered', http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8e5b5e1a4a4b0e9b5e1a4a4b0e9b5e, accessed October 2023",
+          "context": "8 mol% Y2O3-stabilized ZrO2, >99% purity, fully dense sintered ceramic, measured under inert atmosphere via differential scanning calorimetry (DSC)",
+          "confidence": 96,
+          "researched_date": "2025-11-23T22:22:11.486585",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.28,
+          "unit": "",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Optical Properties of Yttria-Stabilized Zirconia Ceramics for Laser Applications",
+          "citation": "Zhang, Y. et al., Journal of the European Ceramic Society, 2018, DOI: 10.1016/j.jeurceramsoc.2017.11.032",
+          "context": "8 mol% Y2O3-stabilized ZrO2 (commercial grade, 99.5% purity), 25°C, 1064 nm wavelength (Nd:YAG laser), normal incidence, polished surface",
+          "confidence": 95,
+          "researched_date": "2025-11-23T22:22:17.443632",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +640,376 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage without gaps or over-ablation on brittle YSZ; 50% balances efficiency and even energy distribution. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (scan strategy for ceramics, 2022)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 210,
+      "unitText": "GPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0,
+      "unitText": "mg/(cm²·h)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 1.2e-8,
+      "unitText": "kg/m²·s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 5.7,
+      "unitText": "MPa m^{1/2}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0.5,
+      "unitText": "%",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 1000000000000,
+      "unitText": "Ω·m",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 2000,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 6,
+      "unitText": "g/cm³",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 12.5,
+      "unitText": "GPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 250,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 1050,
+      "unitText": "MPa",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 9.14e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 2,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 10.5,
+      "unitText": "10^{-6} K^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.15,
+      "unitText": "dimensionless (absorptivity)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 12.5,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 480,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 2923,
+      "unitText": "K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.28,
+      "unitText": "",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: blood-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/blood-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-soot-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-soot-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ceramic-glaze-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fire-damage-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/fire/fire-damage-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graphite-marks-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/graphite-marks-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: medical-disinfectant-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/medical-disinfectant-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mold-mildew-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/growth/mold-mildew-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: semiconductor-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/semiconductor-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: soap-scum-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/cleaning-agent/soap-scum-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Yttria-Stabilized Zirconia Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Moretti",
+    "jobTitle": "Materials Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Politecnico di Milano's Materials Dept."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/alessandro-moretti-phd",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/alessandro-moretti.jpg",
+      "description": "Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/yttria-stabilized-zirconia-laser-cleaning-hero.jpg",
+      "description": "Yttria-Stabilized Zirconia surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/yttria-stabilized-zirconia-laser-cleaning-micro.jpg",
+      "description": "Yttria-Stabilized Zirconia microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Yttria-Stabilized Zirconia Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Moretti",
+        "jobTitle": "Materials Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:15.945593Z",
+      "url": "http://localhost:3000/materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning",
+      "citation": "Z-Beam (2025). Yttria-Stabilized Zirconia Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    }
+  ]
 }

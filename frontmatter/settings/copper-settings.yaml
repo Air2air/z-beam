@@ -1,7 +1,7 @@
 id: copper-settings
 name: Copper
-datePublished: '2025-12-21T03:33:02.665602Z'
-dateModified: '2025-12-21T03:33:02.665602Z'
+datePublished: '2025-12-22T23:37:05.761599Z'
+dateModified: '2025-12-22T23:37:05.761599Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/copper-settings
@@ -45,14 +45,55 @@ author:
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: copper-laser-cleaning
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /materials/metal/non-ferrous/copper-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for Copper oxide removal and surface cleaning
     unit: W
@@ -222,7 +263,7 @@ challenges:
     - Higher scan speeds (3000-5000 mm/s) for thin films
     - Chemical pre-cleaning for heavy contamination
 component_summaries:
-  machineSettings:
+  machine_settings:
     title: Machine Settings
     description: This table displays recommended ranges for power, pulse width, repetition rate, and scan speed, tailored
       to Copper's high reflectivity and thermal conductivity to ensure efficient laser absorption during cleaning. It helps
@@ -379,9 +420,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning copper, we've found that starting with gentle pulses works best because its shiny surface
-  bounces back most of the energy, so you get even...
-micro: When laser cleaning copper, we've found that starting with gentle pulses works best because its shiny surface bounces
-  back most of the energy, so you get even coverage without wasting shots. This high reflectivity sets it apart from duller
-  metals like iron, meaning we adjust our setup to focus on short, repeated passes that gradually lift dirt and oxides while
-  the metal's strong heat-spreading ability prevents hot spots.

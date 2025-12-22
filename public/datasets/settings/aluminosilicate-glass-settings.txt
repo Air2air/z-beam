@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 70 W
+  Range: 1-120 W
+  Description: Controlled power for glass cleaning
 
-Generated: 2025-12-21T07:05:13.846Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR for transparent material cleaning
+
+SPOT SIZE:
+  Value: 60 μm
+  Range: 0.1-500 μm
+  Description: Spot size for effective glass treatment
+
+REPETITION RATE:
+  Value: 40 kHz
+  Range: 1-200 kHz
+  Description: Moderate frequency for glass cleaning
+
+ENERGY DENSITY:
+  Value: 1.8 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Controlled energy for surface treatment
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Short pulses to prevent cracking
+
+SCAN SPEED:
+  Value: 600 mm/s
+  Range: 10-5000 mm/s
+  Description: Faster scanning for thermal management
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Careful passes for complete cleaning
+
+OVERLAP RATIO:
+  Value: 40 %
+  Range: 10-90 %
+  Description: Moderate overlap for glass surfaces
+
+POWER:
+  Value: 100 W
+  Range: 20-500 W
+  Description: Typical range for delicate glass substrates to avoid thermal damage; starting at 100W for initial tests on light contaminants. Max safe below 500W to prevent cracking (based on IPG Photonics specs for fiber lasers and studies in Optics and Lasers in Engineering, 2018).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for contaminant removal without excessive heat buildup; slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for balance on aluminosilicate glass (industry standards from Laserax equipment manuals).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning with minimal HAZ; picosecond (ps) or femtosecond for ultra-precision but higher cost. 20 ns recommended to limit thermal diffusion in low-conductivity glass (Laser & Particle Beams journal, 2015).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Balances cleaning speed and heat accumulation; higher rates (>50 kHz) risk substrate heating in reflective glass. 50 kHz optimal for aluminosilicate to avoid cumulative damage (academic literature in Applied Surface Science, 2020).
+
+ENERGY_DENSITY:
+  Value: 2 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below glass damage threshold (~10 J/cm² at 1064 nm for ns pulses); 0.5-2 J/cm² for light contaminants, up to 5 for heavy. Recommended 2 J/cm² for safe ablation of surface layers (ablation studies in Journal of Applied Physics, 2017).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for area coverage. 200 μm recommended for uniform treatment on flat glass surfaces without hotspots (equipment specs from Coherent Inc. laser systems).
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination; multi-pass (2-5) for stubborn residues. 2 passes typical for complete removal on aluminosilicate glass to minimize risk (industry case studies in Laser Cleaning Handbook, SPIE, 2019).
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or overexposure; 30-50% for speed, 60-80% for thoroughness. 60% recommended for even cleaning on smooth glass (process optimization in Optics Express, 2016).
+
+
+Generated: 2025-12-22T20:49:23.374Z
 License: CC BY 4.0

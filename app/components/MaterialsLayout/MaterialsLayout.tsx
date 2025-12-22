@@ -11,9 +11,11 @@ import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialChar
 import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetDownloader from '../Dataset/MaterialDatasetDownloader';
 import { CardGrid } from '../CardGrid';
+import { Micro } from '../Micro/Micro';
 import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
+import { getContaminantArticle } from '@/app/utils/contentAPI';
 import type { LayoutProps } from '@/types';
 import type { SectionConfig } from '../BaseContentLayout';
 
@@ -23,7 +25,7 @@ interface MaterialsLayoutProps extends LayoutProps {
   subcategory?: string;
 }
 
-export function MaterialsLayout(props: MaterialsLayoutProps) {
+export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
   const materialName = (metadata?.title as string) || metadata?.name || slug;
   const thumbnailLink = `/materials/${category}/${subcategory}/${slug}`;
@@ -32,13 +34,35 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
   // Configure sections for BaseContentLayout
   // Access data from relationships
   const relationships = (metadata as any)?.relationships || {};
-  const materialProperties = relationships?.materialProperties;
-  const regulatoryStandards = relationships?.regulatory_standards;
+  const materialProperties = relationships?.materialProperties || (metadata as any)?.properties;
+  const regulatoryStandards = relationships?.regulatory?.items || relationships?.regulatory_standards?.items || relationships?.regulatory_standards || relationships?.regulatory || [];
+  const applications = (metadata as any)?.applications; // NEW: Extract applications array
+
+  // Enrich minimal references with full contaminant data
+  const contaminatedBy = relationships?.contaminated_by?.items || relationships?.contaminated_by || [];
+  const enrichedContaminants = await Promise.all(
+    (Array.isArray(contaminatedBy) ? contaminatedBy : []).map(async (ref: { id: string; frequency?: string; severity?: string; typical_context?: string }) => {
+      const article = await getContaminantArticle(ref.id);
+      if (!article) return null;
+      
+      const metadata = article.metadata as any; // Allow images.hero access
+      return {
+        id: ref.id,
+        title: metadata.name || metadata.title,
+        category: metadata.category,
+        description: metadata.description,
+        url: metadata.full_path || `/contaminants/${ref.id}`,
+        frequency: ref.frequency,
+        severity: ref.severity,
+        typical_context: ref.typical_context,
+        image: metadata.images?.hero?.url,
+      };
+    })
+  ).then(items => items.filter(Boolean));
 
   const sections: SectionConfig[] = [
     {
       component: LaserMaterialInteraction,
-      condition: !!materialProperties,
       props: {
         materialName,
         materialProperties,
@@ -49,7 +73,6 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
     },
     {
       component: MaterialCharacteristics,
-      condition: !!materialProperties,
       props: {
         materialName,
         materialProperties,
@@ -57,6 +80,12 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         subcategory,
         slug,
       }
+    },
+    // Micro section - positioned after Material Characteristics
+    {
+      component: () => <Micro frontmatter={metadata as any} config={{}} />,
+      condition: () => !!metadata?.images?.micro?.url,
+      props: {}
     },
     {
       component: RegulatoryStandards,
@@ -68,7 +97,6 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
     },
     {
       component: MaterialFAQ,
-      condition: metadata?.faq && Array.isArray(metadata.faq) && metadata.faq.length > 0,
       props: {
         materialName,
         faq: metadata?.faq || [],
@@ -85,27 +113,16 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         maxItems: 6,
       }
     },
-    // Contaminant groups (from relationships.contaminants.groups)
-    ...(relationships?.contaminants?.groups ? Object.values(relationships.contaminants.groups) : []).flatMap((group: any) => ({
+    // Relationship cards for contaminated_by
+    {
       component: CardGrid,
-      condition: group?.items?.length > 0,
       props: {
-        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem),
-        title: group.title,
-        description: group.description,
+        items: enrichedContaminants.sort(sortByFrequency).map(contaminantLinkageToGridItem),
+        title: 'Common Contaminants',
+        description: 'Contaminants frequently found on this material requiring laser cleaning removal',
         variant: 'relationship' as const,
       }
-    })),
-    // Material groups (from relationships.materials.groups)
-    ...(relationships?.materials?.groups ? Object.values(relationships.materials.groups) : []).flatMap((group: any) => ({
-      component: CardGrid,
-      condition: group?.items?.length > 0,
-      props: {
-        items: (group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem),
-        title: group.title,
-        description: group.description,
-      }
-    })),
+    },
     {
       component: MaterialDatasetDownloader,
       props: {
@@ -120,6 +137,7 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         showFullDataset: true,
       }
     },
+    // ScheduleCards MUST be last section for all layouts
     {
       component: ScheduleCards,
       props: {}
@@ -134,6 +152,7 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       slug={slug}
       category={category}
       subcategory={subcategory}
+      showMicro={false}
     >
       {children}
     </BaseContentLayout>

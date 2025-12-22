@@ -125,7 +125,7 @@ export function SectionTitle({
   // Thumbnail content - always render, with fallback
   const thumbnailContent = (
     <div 
-      className={`flex-shrink-0 w-24 h-14 rounded overflow-hidden shadow-md ${thumbnailLink ? 'cursor-pointer' : ''}`}
+      className={`flex-shrink-0 w-24 h-14 rounded overflow-hidden shadow-md transition-transform duration-200 ${thumbnailLink ? 'cursor-pointer group-hover:scale-105' : ''}`}
     >
       {!showFallback ? (
         <Image
@@ -143,7 +143,8 @@ export function SectionTitle({
             alt=""
             width={32}
             height={32}
-            className="object-contain opacity-50"
+            className="object-contain text-orange-500"
+            style={{ filter: 'brightness(0) saturate(100%) invert(53%) sepia(89%) saturate(2476%) hue-rotate(1deg) brightness(103%) contrast(101%)' }}
           />
         </div>
       )}

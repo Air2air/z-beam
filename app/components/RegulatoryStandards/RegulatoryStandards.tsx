@@ -80,7 +80,7 @@ export function RegulatoryStandards({
                   {/* Search Materials Link */}
                   <Link
                     href={`/search?q=${encodeURIComponent(standard.name)}`}
-                    className="inline-flex items-center text-sm text-blue-600400 hover:text-blue-700:text-blue-300 transition-colors"
+                    className="inline-flex items-center text-sm text-orange-600400 hover:text-orange-700:text-orange-300 transition-colors"
                   >
                     <svg 
                       className="w-4 h-4 mr-1" 

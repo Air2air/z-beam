@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 60 W
+  Range: 1-120 W
+  Description: Controlled power for precision semiconductor cleaning
 
-Generated: 2025-12-21T07:05:13.940Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR for minimal lattice damage
+
+SPOT SIZE:
+  Value: 30 μm
+  Range: 0.1-500 μm
+  Description: Small spot for high-precision cleaning
+
+REPETITION RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Moderate frequency for controlled removal
+
+ENERGY DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Precision energy for contamination removal
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Ultra-short pulses for minimal thermal damage
+
+SCAN SPEED:
+  Value: 300 mm/s
+  Range: 10-5000 mm/s
+  Description: Careful scanning for uniform treatment
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Multiple passes for complete cleaning
+
+OVERLAP RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: High overlap for thorough coverage
+
+POWER:
+  Value: 50 W
+  Range: 10-200 W
+  Description: Typical range for pulsed fiber lasers in semiconductor cleaning; starting at 50 W balances efficiency and safety for GaN's sensitivity to heat (thermal conductivity ~130 W/mK); max avoids melting point (~2500°C). Source: IPG Photonics specs for YLR series; extrapolated from GaN ablation studies (e.g., J. Appl. Phys. 2015).
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective for light contaminants at higher speeds, slower for heavy; 1000 mm/s optimal for uniform GaN surface prep without overheating. Range from industry standards for 1064 nm cleaning. Source: Laserax equipment manuals; case studies on III-V semiconductors.
+
+PULSE_WIDTH:
+  Value: 10 ps
+  Range: 0.1-1000 ps
+  Description: Picosecond preferred over ns for minimal HAZ on reflective GaN (reflectivity ~40% at 1064 nm); avoids thermal accumulation. Femtosecond possible but less common industrially. Source: Laser physics research (Opt. Express 2018 on ultrashort pulse cleaning of nitrides).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: 50 kHz balances speed and heat management for GaN; higher rates risk accumulation on low-absorptivity material, slower for precision. Trade-off: faster cleaning but potential thermal damage. Source: Academic literature (Appl. Surf. Sci. 2020 on pulsed laser cleaning of GaN).
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Below GaN damage threshold (~1-2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; 0.5 J/cm² recommended for light industrial cleaning. Conservative for GaN's high melting point but low IR absorption. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2017).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: 200 μm for fine GaN surface prep (e.g., LED substrates); smaller for detail, larger for area coverage. Matches typical Gaussian beam in cleaning heads. Source: Coherent and Trumpf equipment specifications for micro-cleaning.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Multi-pass (2 recommended) for complete removal of heavy contaminants without single-pass overload on delicate GaN; single pass for light. Based on industrial practice for semiconductors. Source: Case studies in Surf. Coat. Technol. 2019.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: 60% ensures uniform coverage on GaN without excessive energy overlap causing damage; typical range for pulsed scanning. Optimizes for even ablation of contaminants. Source: Process optimization studies (Opt. Lasers Eng. 2021).
+
+
+Generated: 2025-12-22T20:49:23.544Z
 License: CC BY 4.0

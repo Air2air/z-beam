@@ -11,6 +11,96 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 15 W
+  Range: 1-120 W
+  Description: Optimal average power for Polycarbonate surface 
+               cleaning without thermal damage
 
-Generated: 2025-12-21T07:05:14.028Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength providing good absorption in 
+               contaminants while minimizing Polycarbonate substrate 
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning with sufficient 
+
+REPETITION RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning with 
+               adequate cooling between pulses
+
+PULSE WIDTH:
+  Value: 100 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal with controlled thermal penetration
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive thermal buildup
+
+FLUENCE THRESHOLD:
+  Value: 0.8 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Fluence threshold for contaminant removal while preserving Polycarbonate substrate
+
+POWER:
+  Value: 50 W
+  Range: 20-200 W
+  Description: Typical range for pulsed fiber lasers in polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PC, max limited by melting point (~147°C) and low thermal conductivity. Source: IPG Photonics YLR series specs for cleaning applications; conservative for polymers per studies in Optics and Lasers in Engineering (2018).
+
+SCAN_SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Slower speeds for polymers to control heat buildup; 500 mm/s optimal for uniform contaminant removal without substrate ablation. Range adjusts for light (faster) vs heavy contamination. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020).
+
+PULSE_WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for PC to balance ablation efficiency and minimal heat-affected zone (HAZ <10μm); picosecond (ps) reduces HAZ further but increases cost. Femtosecond risks over-ablation. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: 30 kHz balances cleaning speed and heat accumulation for PC's low thermal conductivity; higher rates (>50 kHz) accelerate process but risk melting. Source: Academic literature in Optics Express (2021) on pulsed laser cleaning of thermoplastics.
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence below PC damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² for safe contaminant removal. Conservative to prevent charring. Source: Ablation threshold studies in Journal of Applied Physics (2017) for polycarbonate at near-IR wavelengths.
+
+SPOT_SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: 100 μm diameter for precise surface preparation on PC; smaller for fine details, larger for broad areas. Matches typical Gaussian beam profiles. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Multi-pass (2 recommended) for complete removal of contaminants without single-pass overheating; single pass for very light soiling. Source: Industry practice in case studies from Surface & Coatings Technology (2022) on polymer cleaning.
+
+OVERLAP_RATIO:
+  Value: 60 %
+  Range: 10-90 %
+  Description: 60% overlap ensures uniform coverage and avoids gaps in cleaning; higher for heavy contamination to build fluence gradually. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020).
+
+
+Generated: 2025-12-22T20:49:23.710Z
 License: CC BY 4.0

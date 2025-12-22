@@ -11,6 +11,102 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Float Glass surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:13.934Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Float Glass absorption 
+               and minimal subsurface damage
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning with adequate 
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage 
+               and thermal management
+
+ENERGY DENSITY:
+  Value: 2.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence threshold for effective contaminant removal 
+               below glass damage threshold
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for effective contaminant 
+               removal without glass damage
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning without 
+               excessive thermal buildup
+
+DWELL TIME:
+  Value: 100 μs
+  Range: 0.2-200 μs
+  Description: Effective dwell time per spot for contaminant ablation
+
+POWER:
+  Value: 200 W
+  Range: 50-500 W
+  Description: Typical range for industrial 1064 nm fiber lasers in glass cleaning to balance efficiency and safety; starting at 200 W for contamination removal without overheating. Max safe below 500 W to avoid thermal stress on float glass (melting point ~500°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018).
+
+SCAN_SPEED:
+  Value: 2000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for 1064 nm cleaning; slower (500-1000 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light residues. Recommended 2000 mm/s for optimal contaminant removal on float glass while minimizing heat accumulation. Source: Industry standards from Laser Cleaning Europe guidelines and J. Cleaner Production (2020).
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for float glass to enable selective ablation of contaminants with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended to limit thermal diffusion in low-conductivity glass. Source: Laser physics research in Applied Surface Science (2019).
+
+REPETITION_RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat buildup on reflective float glass. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases overlap heating. Source: Academic literature in Optics Express (2017).
+
+ENERGY_DENSITY:
+  Value: 0.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for safe cleaning below float glass damage threshold (~3 J/cm² at 1064 nm due to partial IR absorption). 0.5 J/cm² recommended for contaminant removal without substrate ablation or cracking. Source: Ablation threshold studies in Journal of Applied Physics (2021).
+
+SPOT_SIZE:
+  Value: 300 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter range for precision (100-300 μm) vs. large-area cleaning (up to 1000 μm); 300 μm recommended for uniform coverage on float glass surfaces without excessive energy concentration. Source: Equipment specs from Coherent Inc. and industry manuals.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on float glass to ensure uniformity without cumulative damage. Source: Industry case studies in Surface and Coatings Technology (2022).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 50% recommended for float glass to avoid gaps or overexposure, balancing efficiency and preventing thermal gradients. Typical 30-80% in optimization. Source: Process studies in Lasers in Manufacturing and Materials Processing (2019).
+
+
+Generated: 2025-12-22T20:49:23.534Z
 License: CC BY 4.0

@@ -1,7 +1,7 @@
 id: alabaster-settings
 name: Alabaster
-datePublished: '2025-12-21T03:32:56.983260Z'
-dateModified: '2025-12-21T03:32:56.983260Z'
+datePublished: '2025-12-22T23:36:20.503993Z'
+dateModified: '2025-12-22T23:36:20.503993Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/stone/sedimentary/alabaster-settings
@@ -46,14 +46,67 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: oak-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/oak-laser-cleaning
+    - id: maple-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/maple-laser-cleaning
+    - id: pine-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/softwood/pine-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for Alabaster surface cleaning without thermal damage
     unit: W
@@ -300,8 +353,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: Alabaster stands out as a soft, sedimentary stone that carves beautifully under careful handling, bringing
-  a smooth, translucent finish to intricate designs.
-micro: Alabaster stands out as a soft, sedimentary stone that carves beautifully under careful handling, bringing a smooth,
-  translucent finish to intricate designs. In cultural heritage work, restorers often select it for delicate sculptures, where
-  low-intensity tools gently shape surfaces without cracking the material's fine grain.

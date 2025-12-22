@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Sandstone Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/stone/sedimentary/sandstone-laser-cleaning
+URL:            http://localhost:3000/materials/stone/sedimentary/sandstone-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,152 @@ overlap_ratio:
   Note:   Standard range for uniform coverage; 50% recommended for sandstone to ensure no gaps in porous surfaces while minimizing total energy input and heat buildup (source: Process optimization in laser scanning; Klein et al., 1999, J. Appl. Phys.).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  0.85 MPa m^{1/2}
+    Source: ai_research
+
+  youngsModulus:
+    Value:  18 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.95 
+    Source: ai_research
+
+  density:
+    Value:  2300 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  7 Mohs
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.82 dimensionless (normalized resistance index)
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  100 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  12.5 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  6.5 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  14 %
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.65 dimensionless
+    Min:    0.4 dimensionless
+    Max:    0.85 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  500000 m⁻¹
+    Min:    10000 m⁻¹
+    Max:    1000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  3.5 J/cm²
+    Min:    1 J/cm²
+    Max:    8 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.2 MW/m
+    Min:    0.5 MW/m
+    Max:    2.5 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.35 dimensionless
+    Min:    0.15 dimensionless
+    Max:    0.6 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  950 K
+    Min:    700 K
+    Max:    1200 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.1 Pa
+    Min:    0.001 Pa
+    Max:    10 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  600 °C
+    Source: ai_research
+
+  specificHeat:
+    Value:  837 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.05 fraction
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  2.3 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000075 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  1200 m^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.00000142 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.1 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Building Restoration
+3. Museum Conservation
+4. Manufacturing
+5. Energy Sector
+6. Archaeology
+7. Monument Preservation
+8. Construction
+9. Landscape Architecture
+10. Industrial Maintenance
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Sandstone Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/sandstone-laser-cleaning
+  Z-Beam (2025). Sandstone Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/sedimentary/sandstone-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

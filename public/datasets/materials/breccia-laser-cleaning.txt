@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Breccia Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/stone/sedimentary/breccia-laser-cleaning
+URL:            http://localhost:3000/materials/stone/sedimentary/breccia-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,152 @@ overlap_ratio:
   Note:   Standard range for uniform scan coverage in laser cleaning; 50% recommended for Breccia to ensure no gaps in porous surfaces while avoiding over-heating. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in industrial laser applications (e.g., LaserNet guidelines; research in Optics and Lasers in Engineering, 2015).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  0.85 MPa·m^{1/2}
+    Source: ai_research
+
+  density:
+    Value:  2710 kg/m³
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.87 dimensionless (resistance index)
+    Source: ai_research
+
+  youngsModulus:
+    Value:  32.5 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  3.5 Mohs
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  125 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  3.2 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  11.2 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.85 dimensionless (resistance index)
+    Source: ai_research
+
+  porosity:
+    Value:  0.15 fraction
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.15 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.75 dimensionless
+    Min:    0.6 dimensionless
+    Max:    0.9 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  5000000 m⁻¹
+    Min:    1000000 m⁻¹
+    Max:    10000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Min:    1 J/cm²
+    Max:    5 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.5 MW/m
+    Min:    0.8 MW/m
+    Max:    2.5 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.25 dimensionless
+    Min:    0.1 dimensionless
+    Max:    0.4 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1073 K
+    Min:    900 K
+    Max:    1300 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  10 Pa
+    Min:    0.1 Pa
+    Max:    100 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1673 K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.22 
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000082 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  2.3 W/m·K
+    Source: ai_research
+
+  specificHeat:
+    Value:  880 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  4500 cm^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.00000105 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.45 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Architecture and Construction
+3. Museum Conservation
+4. Monument Preservation
+5. Archaeological Research
+6. Stone Fabrication
+7. Landscape Architecture
+8. Interior Design
+9. Religious Architecture
+10. Educational Collections
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Breccia Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/breccia-laser-cleaning
+  Z-Beam (2025). Breccia Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/sedimentary/breccia-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

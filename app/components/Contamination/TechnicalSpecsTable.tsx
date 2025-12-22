@@ -51,7 +51,7 @@ export function TechnicalSpecsTable({ settings }: TechnicalSpecsTableProps) {
                   <td className="px-6 py-4 text-sm text-gray-300 text-center">{value.min}</td>
                   <td className="px-6 py-4 text-sm text-gray-300 text-center">{value.max}</td>
                   <td className="px-6 py-4 text-sm text-center">
-                    <span className="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full font-semibold">
+                    <span className="bg-orange-900/30 text-orange-300 px-3 py-1 rounded-full font-semibold">
                       {value.recommended}
                     </span>
                   </td>

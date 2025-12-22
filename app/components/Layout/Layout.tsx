@@ -154,14 +154,14 @@ export function Layout(props: LayoutProps) {
             })()}
           />
 
-          {metadata?.machineSettings && !metadata?.materialProperties && (
+          {metadata?.machineSettings && !metadata?.materialProperties && metadata?.content_type === 'settings' && (
             <SectionContainer 
               title={metadata.title && metadata.title.toLowerCase().includes('settings') 
                 ? metadata.title 
                 : metadata.title 
                   ? `${metadata.title} Machine Settings` 
                   : 'Machine Settings'}
-              icon={<Settings className="w-5 h-5 text-muted" />}
+              icon={<Settings className="w-5 h-5 text-orange-500" />}
               actionText="Materials"
               actionUrl={metadata?.category && metadata?.subcategory && metadata?.slug
                 ? `/materials/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-settings', '-laser-cleaning')}`

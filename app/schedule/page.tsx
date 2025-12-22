@@ -70,7 +70,7 @@ export default async function SchedulePage() {
     <>
       <JsonLD data={scheduleSchema} />
       <Layout
-        title="Schedule Your Service"
+        title="Schedule with us"
         description=""
         rightContent={
           <Link

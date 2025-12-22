@@ -3,8 +3,8 @@ name: Hexavalent Chromium
 display_name: Chromium(VI)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-20T23:36:52.253099Z'
-dateModified: '2025-12-20T23:36:52.253099Z'
+datePublished: '2025-12-22T21:25:26.097786Z'
+dateModified: '2025-12-22T21:25:26.097786Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/heavy-metal/chromium-vi-compound
@@ -22,7 +22,16 @@ breadcrumb:
 chemical_formula: Cr(VI)
 cas_number: 18540-29-9
 molecular_weight: 52.0
-description: null
+description: Handling chromium-VI materials demands careful consideration right from the initial setup in industrial environments,
+  where their vivid coloring and strong oxidizing nature make them stand out during processing. Workers often encounter these
+  compounds in applications like surface treatments for metals, where they provide a tough, corrosion-resistant layer that
+  enhances durability against harsh conditions, though their carcinogenic properties require strict safety protocols to prevent
+  exposure. When it comes to laser cleaning, the process involves directing precise beams to ablate contaminants without spreading
+  the toxic residue, leveraging the material's sensitivity to thermal disruption for effective removal while minimizing airborne
+  particles that could pose health risks. This approach shines in maintenance tasks for equipment coated with chromium-VI,
+  stripping away buildup through controlled vaporization that preserves underlying structures. Beyond that, industries value
+  how these materials contribute to vibrant pigments in paints or sturdy finishes on tools, but always with ventilation systems
+  in place to mitigate the inherent dangers tied to their reactivity.
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -45,44 +54,54 @@ sources_in_laser_cleaning:
 - chrome_plating_removal
 - chromate_coating_removal
 relationships:
-  produced_by_contaminants:
-  - id: chrome-pitting-contamination
-    title: Chromium Oxide Pitting
-    url: /contaminants/oxidation/non-ferrous/chrome-pitting-contamination
-    image: /images/contaminants/oxidation/non-ferrous/chrome-pitting.jpg
-    frequency: very_common
-    severity: high
-    typical_context: Oxidation of chromium creates Cr(VI)
-  - id: steel-corrosion-contamination
-    title: Steel Surface Corrosion
-    url: /contaminants/oxidation/ferrous/steel-corrosion-contamination
-    image: /images/contaminants/oxidation/ferrous/steel-corrosion.jpg
-    frequency: common
-    severity: high
-    typical_context: Oxidation of chromium in stainless steel
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
-    frequency: occasional
-    severity: high
-    typical_context: Chromate pigments in some paints
   chemical_properties:
-  - type: chemical_properties
-    id: chromium-vi-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: chromium-vi-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: chromium-vi-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: chromium-vi-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: chromium-vi-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: chromium-vi-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: particulate-carcinogen
-    overrides:
-      specific_compound: Hexavalent Chromium
-      pel_ppm: null
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: particulate-carcinogen
+      overrides:
+        specific_compound: Hexavalent Chromium
+        pel_ppm: null
+      presentation: card
   emergency_response:
     fire_hazard: Non-combustible. Strong oxidizer - increases fire intensity. Chromates may explode when heated with organic
       materials.
@@ -96,6 +115,58 @@ relationships:
       Report releases >5000 lbs.
     special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, nasal septum perforation. Strong oxidizer
       - reacts violently with combustibles. Corrosive to skin (ulcers/chrome holes). Potent allergen - can cause severe dermatitis.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: chrome-pitting-contamination
+      frequency: very_common
+      severity: high
+      typical_context: Oxidation of chromium creates Cr(VI)
+      presentation: card
+      url: /contaminants/oxidation/non-ferrous/chrome-pitting-contamination
+    - id: steel-corrosion-contamination
+      frequency: common
+      severity: high
+      typical_context: Oxidation of chromium in stainless steel
+      presentation: card
+      url: /contaminants/oxidation/ferrous/steel-corrosion-contamination
+    - id: paint-residue-contamination
+      frequency: occasional
+      severity: high
+      typical_context: Chromate pigments in some paints
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+    - id: conversion-coating-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of Chemical Conversion Coating
+      presentation: card
+      url: /contaminants/inorganic-coating/coating/conversion-coating-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: chromium-laser-cleaning
+      presentation: card
+      url: /materials/metal/specialty/chromium-laser-cleaning
+    - id: stainless-steel-304-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
+    - id: stainless-steel-316-laser-cleaning
+      presentation: card
+      url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+    - id: stainless-steel-laser-cleaning
+      presentation: card
+      url: /materials/metal/ferrous/stainless-steel-laser-cleaning
   physical_properties:
     boiling_point: 'Varies by compound (chromic acid: decomposes >250°C)'
     melting_point: Varies by compound
@@ -278,73 +349,10 @@ detection_monitoring:
     detection_limit: 0.05 µg/sample
   odor_threshold: Not applicable - no warning odor at hazardous levels
 title: Chromium(VI)
-ppe_requirements_detail:
-  id: particulate-carcinogen
-  hazard_type: particulate
-  hazard_level: carcinogen
-  minimum_protection_level: Level C
-  respiratory:
-    primary:
-      equipment: HEPA-filtered respirator (P100)
-      standard: NIOSH 42 CFR 84
-      condition: For particles <10 μm
-      filter_efficiency: 99.97% @ 0.3 μm
-      fit_test_required: true
-      cartridge_change: Per manufacturer or breathing resistance increase
-  skin:
-    gloves:
-      material: Nitrile gloves, disposable
-      standard: ANSI/ISEA 101
-      condition: Prevent skin contact with particulates
-      disposal: Contained disposal - hazardous waste
-    body:
-      equipment: Disposable Tyvek coveralls
-      standard: ANSI/ISEA 101
-      condition: Full body coverage, sealed at wrists/ankles
-      hood: Integrated hood covering head and neck
-      disposal: Hazardous waste, do not reuse
-    footwear:
-      equipment: Disposable boot covers
-      material: Tyvek or polyethylene
-      condition: Prevent particulate tracking
-  eye:
-    equipment: Safety goggles with side shields
-    standard: ANSI Z87.1
-    condition: Impact and particle protection
-    cleaning: Disposable or decontaminate between uses
-  special_requirements:
-  - Wet methods preferred to suppress dust
-  - HEPA vacuum only - never dry sweep
-  - Designated decontamination area
-  - Disposable PPE changed in decon area
-  - Shower facilities available
-  - No eating, drinking, smoking in work area
-  - Medical surveillance program required
-  decontamination:
-  - Remove PPE in designated decon area
-  - Vacuum suit before removal (HEPA only)
-  - Remove from inside out to minimize contact
-  - Place in labeled hazardous waste bag
-  - Wash hands and face thoroughly
-  - Shower at end of shift
-  training_required:
-  - Carcinogen hazard awareness
-  - HEPA respirator fit testing
-  - Proper PPE donning and doffing
-  - Decontamination procedures
-  - Medical surveillance requirements
-  medical_surveillance:
-    required: true
-    frequency: Annual minimum
-    requirements:
-    - Baseline and periodic medical exams
-    - Respiratory function testing
-    - Cancer screening per OSHA guidelines
-    - Exposure records maintenance
-  waste_handling:
-  - All PPE as hazardous waste
-  - Sealed, labeled containers
-  - Manifest tracking required
-  - EPA hazardous waste codes applicable
-  specific_compound: Hexavalent Chromium
-  pel_ppm: null
+seo_description: Handling chromium-VI materials demands careful consideration right from the initial setup in industrial environments,
+  where their vivid coloring and strong...
+micro: Handling chromium-VI materials demands careful consideration right from the initial setup in industrial environments,
+  where their vivid coloring and strong oxidizing nature make them stand out during processing. Workers often encounter these
+  compounds in applications like surface treatments for metals, where they provide a tough, corrosion-resistant layer that
+  enhances durability against harsh conditions, though their carcinogenic properties require strict safety protocols to prevent
+  exposure.

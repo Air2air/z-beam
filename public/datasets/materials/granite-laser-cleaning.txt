@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Granite Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/stone/igneous/granite-laser-cleaning
+URL:            http://localhost:3000/materials/stone/igneous/granite-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,152 @@ overlap_ratio:
   Note:   Ensures uniform fluence distribution; 60% recommended for granite to avoid striping while minimizing passes. Higher (70-80%) for textured surfaces. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2020) on laser scanning parameters for stones.
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  1.2 MPa√m
+    Source: ai_research
+
+  youngsModulus:
+    Value:  50000000000 Pa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.98 dimensionless
+    Source: ai_research
+
+  density:
+    Value:  2700 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  6.5 Mohs
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  9.7 dimensionless (corrosion resistance index, scale 0-10)
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  211 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  15 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  10.5 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0.6 %
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.1 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.2 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  100000 m⁻¹
+    Min:    50000 m⁻¹
+    Max:    200000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  8 J/cm²
+    Min:    5 J/cm²
+    Max:    15 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.5 MW/m
+    Min:    1 MW/m
+    Max:    3 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.9 dimensionless
+    Min:    0.8 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1500 K
+    Min:    1400 K
+    Max:    1600 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  1 Pa
+    Min:    0.1 Pa
+    Max:    10 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  773 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  790 J/kg·K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.35 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  2.79 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000008 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.42 dimensionless
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.00000132 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Architecture and Construction
+3. Monument Restoration
+4. Manufacturing
+5. Food Processing
+6. Marine Infrastructure
+7. Energy Sector
+8. Transportation Infrastructure
+9. Electronics Manufacturing
+10. Aerospace
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Granite Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/igneous/granite-laser-cleaning
+  Z-Beam (2025). Granite Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/igneous/granite-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

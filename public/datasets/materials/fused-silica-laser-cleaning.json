@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/glass/soda-lime/fused-silica-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/glass/soda-lime/fused-silica-laser-cleaning#dataset",
   "name": "Fused Silica Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Fused Silica. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/fused-silica-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/fused-silica-laser-cleaning.json",
       "name": "Fused Silica Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/fused-silica-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/fused-silica-laser-cleaning.csv",
       "name": "Fused Silica Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/fused-silica-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/fused-silica-laser-cleaning.txt",
       "name": "Fused Silica Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Fused Silica",
@@ -174,7 +174,8 @@
         "min": 0.1,
         "max": 1000,
         "unit": "ns",
-        "description": "Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but higher cost. Typical 10-30 ns for fused silica to limit thermal diffusion given low thermal conductivity (~1.4 W/m·K). Recommended 20 ns. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects for dielectric materials."
+        "description": "Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but higher cost. Typical 10-30 ns for fused silica to limit thermal diffusion given low thermal conductivity (~1.4 W/m·K). Recommended 20 ns. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects for dielectric materials.",
+        "value": 500
       },
       "repetition_rate": {
         "min": 1,
@@ -194,7 +195,8 @@
         "min": 0.1,
         "max": 500,
         "unit": "μm",
-        "description": "Smaller spots (50-200 μm) for fine detail/precision on fused silica surfaces; larger (200-500 μm) for broad area prep. Recommended 200 μm for balanced resolution and efficiency at 1064 nm (high reflectivity ~4% for silica). Source: Equipment specifications from Coherent and Trumpf laser systems manuals."
+        "description": "Smaller spots (50-200 μm) for fine detail/precision on fused silica surfaces; larger (200-500 μm) for broad area prep. Recommended 200 μm for balanced resolution and efficiency at 1064 nm (high reflectivity ~4% for silica). Source: Equipment specifications from Coherent and Trumpf laser systems manuals.",
+        "value": 250
       },
       "pass_count": {
         "min": 1,
@@ -212,8 +214,194 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "electricalResistivity": {
+          "value": 10000000000000000,
+          "unit": "Ω·m",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "fractureToughness": 0.75,
+        "density": {
+          "value": 2.203,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 0,
+          "unit": "g/m²/s",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "youngsModulus": {
+          "value": 73,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 5.5,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 1100,
+          "unit": "MPa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 48,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 50,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.999,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 40,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Optics",
+          "citation": "J. A. Folta, M. R. Kozlowski, N. Bellamy, SPIE Proceedings Vol. 1848, Laser-Induced Damage of Optical Materials: 1992, pp. 468-477, 1993, DOI: 10.1117/12.145281",
+          "context": "High-purity fused silica (Suprasil 1, 99.999% SiO2), room temperature (25°C), 1064 nm wavelength, 3 ns pulse duration, 1-on-1 damage testing on bulk material",
+          "confidence": 95,
+          "researched_date": "2025-11-24T11:58:33.134999",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "value": 0.03,
+          "unit": "dimensionless",
+          "min": 0.01,
+          "max": 0.1,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 10,
+          "unit": "m⁻¹",
+          "min": 1,
+          "max": 100,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 15,
+          "unit": "J/cm²",
+          "min": 5,
+          "max": 25,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 2,
+          "unit": "MW/m",
+          "min": 1,
+          "max": 3,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.04,
+          "unit": "dimensionless",
+          "min": 0.03,
+          "max": 0.05,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 1800,
+          "unit": "K",
+          "min": 1700,
+          "max": 2000,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 0.01,
+          "unit": "Pa",
+          "min": 0.001,
+          "max": 1,
+          "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 1986,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.035,
+          "unit": "",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 5.5e-7,
+          "unit": "K^{-1}",
+          "confidence": 99,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 1.38,
+          "unit": "W/m·K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 740,
+          "unit": "J/(kg·K)",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 0.1,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 8.4e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 9.2,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research"
+        }
+      }
+    },
+    "applications": [
+      "Aerospace",
+      "Semiconductor Manufacturing",
+      "Medical Device",
+      "Solar Energy",
+      "Cultural Heritage",
+      "Research Laboratory",
+      "Automotive",
+      "Marine",
+      "Telecommunications",
+      "Defense and Security"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -332,7 +520,7 @@
       "@type": "PropertyValue",
       "propertyID": "machine_pulse_width",
       "name": "Machine Setting: Pulse_width",
-      "value": "N/A",
+      "value": 500,
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000,
@@ -362,7 +550,7 @@
       "@type": "PropertyValue",
       "propertyID": "machine_spot_size",
       "name": "Machine Setting: Spot_size",
-      "value": "N/A",
+      "value": 250,
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500,
@@ -387,7 +575,497 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage; 50-70% typical for even energy distribution on transparent/low-absorbing fused silica. Recommended 60% to minimize gaps while avoiding overexposure. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 10000000000000000,
+      "unitText": "Ω·m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 2.203,
+      "unitText": "g/cm³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0,
+      "unitText": "g/m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 73,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 5.5,
+      "unitText": "GPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 1100,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 48,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 50,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.999,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 40,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.03,
+      "unitText": "dimensionless",
+      "minValue": 0.01,
+      "maxValue": 0.1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 10,
+      "unitText": "m⁻¹",
+      "minValue": 1,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 15,
+      "unitText": "J/cm²",
+      "minValue": 5,
+      "maxValue": 25,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 2,
+      "unitText": "MW/m",
+      "minValue": 1,
+      "maxValue": 3,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.04,
+      "unitText": "dimensionless",
+      "minValue": 0.03,
+      "maxValue": 0.05,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1800,
+      "unitText": "K",
+      "minValue": 1700,
+      "maxValue": 2000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 0.01,
+      "unitText": "Pa",
+      "minValue": 0.001,
+      "maxValue": 1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1986,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.035,
+      "unitText": "",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 5.5e-7,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 1.38,
+      "unitText": "W/m·K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 740,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.1,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 8.4e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 9.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: biological-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/biological-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: blood-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/blood-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: insect-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/insect-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: medical-disinfectant-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/medical-disinfectant-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pesticide-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pesticide-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pharmaceutical-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: plastic-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/plastic-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pollen-deposit-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/pollen-deposit-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: soap-scum-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/cleaning-agent/soap-scum-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: tree-sap-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/natural/tree-sap-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: water-stain-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/water-stain-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Fused Silica Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/fused-silica-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Todd Dunning",
+    "jobTitle": "Junior Optical Materials Specialist",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Coherent Inc."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/todd-dunning",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/todd-dunning.jpg",
+      "description": "Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/fused-silica-laser-cleaning-hero.jpg",
+      "description": "Fused Silica surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/fused-silica-laser-cleaning-micro.jpg",
+      "description": "Fused Silica microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Fused Silica Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Todd Dunning",
+        "jobTitle": "Junior Optical Materials Specialist"
+      },
+      "datePublished": "2025-12-22T06:53:13.773633Z",
+      "url": "http://localhost:3000/materials/glass/soda-lime/fused-silica-laser-cleaning",
+      "citation": "Z-Beam (2025). Fused Silica Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/glass/soda-lime/fused-silica-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

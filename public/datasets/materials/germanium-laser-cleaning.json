@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/semiconductor/elemental/germanium-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/semiconductor/elemental/germanium-laser-cleaning#dataset",
   "name": "Germanium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Germanium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/germanium-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/germanium-laser-cleaning.json",
       "name": "Germanium Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/germanium-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/germanium-laser-cleaning.csv",
       "name": "Germanium Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/germanium-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/germanium-laser-cleaning.txt",
       "name": "Germanium Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Germanium",
@@ -214,7 +214,172 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical and mechanical properties affecting laser cleaning outcomes",
+        "density": {
+          "value": 5.323,
+          "unit": "g/cm³",
+          "confidence": 95
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 90
+        },
+        "surfaceRoughness": {
+          "value": 0.3,
+          "unit": "μm",
+          "confidence": 85
+        },
+        "tensileStrength": {
+          "value": 52,
+          "unit": "MPa",
+          "confidence": 90
+        },
+        "youngsModulus": {
+          "value": 103,
+          "unit": "GPa",
+          "confidence": 95
+        },
+        "hardness": {
+          "value": 1.2,
+          "unit": "GPa",
+          "confidence": 87
+        },
+        "flexuralStrength": {
+          "value": 130,
+          "unit": "MPa",
+          "confidence": 85
+        },
+        "oxidationResistance": {
+          "value": 8,
+          "unit": "μm/year",
+          "confidence": 80
+        },
+        "corrosionResistance": {
+          "value": 0.6,
+          "unit": "mm/year",
+          "confidence": 85
+        },
+        "compressiveStrength": {
+          "value": 52,
+          "unit": "MPa",
+          "confidence": 90
+        },
+        "fractureToughness": {
+          "value": 6,
+          "unit": "MPa m^{1/2}",
+          "confidence": 85
+        },
+        "electricalResistivity": {
+          "value": 0.46,
+          "unit": "Ω·m",
+          "confidence": 90
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalDestruction": {
+          "value": 1211,
+          "unit": "K",
+          "confidence": 95
+        },
+        "laserAbsorption": {
+          "value": 0.55,
+          "unit": "dimensionless",
+          "confidence": 90
+        },
+        "laserDamageThreshold": {
+          "value": 10.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Handbook of Laser Technology and Applications",
+          "citation": "Webb, C.E. and Jones, J.D.C., Handbook of Laser Technology and Applications, Vol. III: Applications, Institute of Physics Publishing, 2004, ISBN 978-0-7503-0606-5",
+          "context": "Single-crystal Germanium (99.999% purity), room temperature (25°C), 10.6 μm wavelength (CO2 laser), 30 ns pulse duration, normal incidence, uncoated surface",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:38:39.787316",
+          "needs_validation": true
+        },
+        "ablationThreshold": {
+          "value": 0.42,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "Bonse, J., Baudach, S., Krüger, J., Lenzner, M., & Kautek, W., Femtosecond laser ablation of bare and anodic oxidized germanium, Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-6",
+          "context": "Polycrystalline Germanium (99.999% purity), room temperature (25°C), femtosecond Ti:sapphire laser at 800 nm wavelength, 150 fs pulse duration, in air",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:38:47.500862",
+          "needs_validation": true
+        },
+        "thermalDiffusivity": {
+          "value": 0.000036,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56263-9",
+          "context": "Intrinsic single-crystal Germanium (99.999% purity), 300 K, calculated from thermal conductivity, density, and specific heat capacity",
+          "confidence": 95,
+          "researched_date": "2025-11-24T12:39:01.938208",
+          "needs_validation": true
+        },
+        "thermalExpansion": {
+          "value": 0.0000059,
+          "unit": "K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "Polycrystalline Germanium (99.999% purity), 25°C, measured via dilatometry",
+          "confidence": 99,
+          "researched_date": "2025-11-24T12:39:09.983521",
+          "needs_validation": true
+        },
+        "specificHeat": {
+          "value": 322,
+          "unit": "J/(kg·K)",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "Pure Germanium (99.999% purity), 25°C, differential scanning calorimetry",
+          "confidence": 100,
+          "researched_date": "2025-11-24T12:39:17.023264",
+          "needs_validation": true
+        },
+        "thermalConductivity": {
+          "value": 60.2,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics, 104th Ed.",
+          "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "Intrinsic polycrystalline Germanium (99.999% purity), 300 K, steady-state heat flow method",
+          "confidence": 100,
+          "researched_date": "2025-11-24T12:39:23.778101",
+          "needs_validation": true
+        },
+        "laserReflectivity": {
+          "value": 0.36,
+          "unit": "fraction",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "Handbook of Optical Constants of Solids",
+          "citation": "Palik, E.D. (Ed.), Handbook of Optical Constants of Solids, Academic Press, 1985, ISBN 978-0-12-544415-6",
+          "context": "Polycrystalline Germanium (99.999% purity), 300 K, normal incidence reflectivity for infrared wavelengths (2-14 μm, typical for CO2 lasers at 10.6 μm)",
+          "confidence": 98,
+          "researched_date": "2025-11-24T12:39:29.175448",
+          "needs_validation": true
+        }
+      }
+    },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
@@ -389,7 +554,279 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence in cleaning semiconductors."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 5.323,
+      "unitText": "g/cm³"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 0.3,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 52,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 103,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 1.2,
+      "unitText": "GPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 130,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 8,
+      "unitText": "μm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.6,
+      "unitText": "mm/year"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 52,
+      "unitText": "MPa"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 6,
+      "unitText": "MPa m^{1/2}"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 0.46,
+      "unitText": "Ω·m"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1211,
+      "unitText": "K"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.55,
+      "unitText": "dimensionless"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 10.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 0.42,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.000036,
+      "unitText": "m²/s",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.0000059,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 322,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 60.2,
+      "unitText": "W/m·K",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.36,
+      "unitText": "fraction",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Germanium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/germanium-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Ikmanda Roswati",
+    "jobTitle": "Junior Research Scientist in Laser Physics",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Bandung Institute of Technology"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/ikmanda-roswati",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/ikmanda-roswati.jpg",
+      "description": "Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/germanium-laser-cleaning-hero.jpg",
+      "description": "Germanium surface during precision laser cleaning process removing contamination layer",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/germanium-laser-cleaning-micro.jpg",
+      "description": "Germanium surface at 500x magnification showing laser cleaning results",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Germanium Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Ikmanda Roswati",
+        "jobTitle": "Junior Research Scientist in Laser Physics"
+      },
+      "datePublished": "2025-12-22T06:53:15.661279Z",
+      "url": "http://localhost:3000/materials/semiconductor/elemental/germanium-laser-cleaning",
+      "citation": "Z-Beam (2025). Germanium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/semiconductor/elemental/germanium-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    }
+  ]
 }

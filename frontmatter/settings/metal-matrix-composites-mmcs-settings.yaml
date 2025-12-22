@@ -1,7 +1,7 @@
 id: metal-matrix-composites-mmcs-settings
 name: Metal Matrix Composites MMCs
-datePublished: '2025-12-21T03:33:03.449329Z'
-dateModified: '2025-12-21T03:33:03.449329Z'
+datePublished: '2025-12-22T23:37:06.921700Z'
+dateModified: '2025-12-22T23:37:06.921700Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/metal-matrix-composites-mmcs-settings
@@ -47,14 +47,42 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials: []
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for MMCs cleaning considering thermal conductivity and matrix integrity
     unit: W
@@ -300,8 +328,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: When laser cleaning metal matrix composites, unlike pure metals that heat evenly, watch out for their embedded
-  reinforcements—these can cause uneven heat...
-micro: When laser cleaning metal matrix composites, unlike pure metals that heat evenly, watch out for their embedded reinforcements—these
-  can cause uneven heat buildup right from the start, risking cracks if you push power too high. We've found that starting
-  with lower energy pulses helps control this, letting the laser clear contaminants without stressing the matrix.

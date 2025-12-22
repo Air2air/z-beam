@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning#dataset",
   "name": "Epoxy Resin Composites Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Epoxy Resin Composites. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/epoxy-resin-composites-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/epoxy-resin-composites-laser-cleaning.json",
       "name": "Epoxy Resin Composites Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/epoxy-resin-composites-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/epoxy-resin-composites-laser-cleaning.csv",
       "name": "Epoxy Resin Composites Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/epoxy-resin-composites-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/epoxy-resin-composites-laser-cleaning.txt",
       "name": "Epoxy Resin Composites Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Epoxy Resin Composites",
@@ -188,30 +188,231 @@
         "min": 0.1,
         "max": 20,
         "unit": "J/cm²",
-        "description": "Fluence range for contaminant removal without substrate ablation; damage threshold for epoxy composites ~1.5-2.5 J/cm² at 1064 nm. Recommended <1.0 J/cm² for safe cleaning. Conservative due to variable fiber content. Source: Ablation threshold studies in Composites Part B (2017); Optics Express (2022)."
+        "description": "Fluence range for contaminant removal without substrate ablation; damage threshold for epoxy composites ~1.5-2.5 J/cm² at 1064 nm. Recommended <1.0 J/cm² for safe cleaning. Conservative due to variable fiber content. Source: Ablation threshold studies in Composites Part B (2017); Optics Express (2022).",
+        "value": 10.05
       },
       "spot_size": {
         "min": 0.1,
         "max": 500,
         "unit": "μm",
-        "description": "Beam diameters for uniform coverage; 200-300 μm recommended for epoxy composites to achieve fine control over ablation on heterogeneous surfaces (e.g., carbon fiber reinforced). Smaller for detail work, larger for broad areas. Source: Equipment specs from Adapt Laser Systems; process optimization in Industrial Laser Solutions (2020)."
+        "description": "Beam diameters for uniform coverage; 200-300 μm recommended for epoxy composites to achieve fine control over ablation on heterogeneous surfaces (e.g., carbon fiber reinforced). Smaller for detail work, larger for broad areas. Source: Equipment specs from Adapt Laser Systems; process optimization in Industrial Laser Solutions (2020).",
+        "value": 250
       },
       "pass_count": {
         "min": 1,
         "max": 10,
         "unit": "passes",
-        "description": "Multi-pass (2-5) typical for layered contaminants on epoxy without single-pass overheating; 3 passes recommended for complete removal while preserving composite integrity. Single pass viable for light prep. Source: Industry case studies in Journal of Materials Processing Technology (2019); practical guidelines from laser cleaning service providers."
+        "description": "Multi-pass (2-5) typical for layered contaminants on epoxy without single-pass overheating; 3 passes recommended for complete removal while preserving composite integrity. Single pass viable for light prep. Source: Industry case studies in Journal of Materials Processing Technology (2019); practical guidelines from laser cleaning service providers.",
+        "value": 5.5
       },
       "overlap_ratio": {
         "min": 10,
         "max": 90,
         "unit": "%",
-        "description": "50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60% recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety."
+        "description": "50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60% recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety.",
+        "value": 50
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 60,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "electricalResistivity": {
+          "value": 100000000000000,
+          "unit": "ohm-m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "fractureToughness": {
+          "value": 1.2,
+          "unit": "MPa√m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "density": {
+          "value": 1800,
+          "unit": "kg/m³",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "oxidationResistance": {
+          "value": 310,
+          "unit": "°C",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "youngsModulus": {
+          "value": 25000000000,
+          "unit": "Pa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "hardness": {
+          "value": 85,
+          "unit": "Shore D",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "compressiveStrength": {
+          "value": 550,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "tensileStrength": {
+          "value": 450,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "flexuralStrength": {
+          "value": 420,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "corrosionResistance": {
+          "value": 0.95,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 2.3,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser Ablation and Damage Threshold of Epoxy-Based Carbon Fiber Composites",
+          "citation": "Palmieri, F., et al., Composites Part B: Engineering, 2019, DOI: 10.1016/j.compositesb.2019.107145",
+          "context": "Carbon fiber reinforced epoxy resin composite (CF/EP, 60 vol% fiber, bisphenol-A epoxy matrix), 1064 nm Nd:YAG laser, 8 ns pulse duration, room temperature (25°C), vacuum conditions",
+          "confidence": 95,
+          "researched_date": "2025-11-24T11:56:39.834977",
+          "needs_validation": true
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "absorptivity": {
+          "value": 0.25,
+          "unit": "dimensionless",
+          "min": 0.1,
+          "max": 0.5,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 50000,
+          "unit": "m⁻¹",
+          "min": 10000,
+          "max": 200000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 4.5,
+          "unit": "J/cm²",
+          "min": 1,
+          "max": 10,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 1.2,
+          "unit": "MW/m",
+          "min": 0.5,
+          "max": 2.5,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.05,
+          "unit": "dimensionless",
+          "min": 0.03,
+          "max": 0.1,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 600,
+          "unit": "K",
+          "min": 500,
+          "max": 700,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 200,
+          "unit": "Pa",
+          "min": 50,
+          "max": 1000,
+          "source": "ai_research"
+        },
+        "thermalDestruction": {
+          "value": 623,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserReflectivity": {
+          "value": 0.05,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalExpansion": {
+          "value": 0.00002,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalConductivity": {
+          "value": 0.35,
+          "unit": "W/(m·K)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "specificHeat": {
+          "value": 1100,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 35000,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 1.15e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser cleaning of carbon fiber reinforced epoxy composites: Ablation thresholds and surface morphology",
+          "citation": "Zhang, Y. et al., Composites Part B: Engineering, 2019, DOI: 10.1016/j.compositesb.2019.107123",
+          "context": "Carbon fiber reinforced epoxy resin composite (60% fiber volume fraction, bisphenol-A epoxy matrix), 1064 nm Nd:YAG laser, room temperature (25°C), pulse duration 10 ns, in air",
+          "confidence": 95,
+          "researched_date": "2025-11-24T11:56:45.366268",
+          "needs_validation": true
+        }
+      }
+    },
+    "applications": [
+      "Aerospace",
+      "Automotive",
+      "Wind Energy",
+      "Marine",
+      "Electronics",
+      "Medical Devices",
+      "Cultural Heritage",
+      "Sports Equipment",
+      "Construction",
+      "Rail Transportation"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -350,7 +551,7 @@
       "@type": "PropertyValue",
       "propertyID": "machine_energy_density",
       "name": "Machine Setting: Energy_density",
-      "value": "N/A",
+      "value": 10.05,
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20,
@@ -360,7 +561,7 @@
       "@type": "PropertyValue",
       "propertyID": "machine_spot_size",
       "name": "Machine Setting: Spot_size",
-      "value": "N/A",
+      "value": 250,
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500,
@@ -370,7 +571,7 @@
       "@type": "PropertyValue",
       "propertyID": "machine_pass_count",
       "name": "Machine Setting: Pass_count",
-      "value": "N/A",
+      "value": 5.5,
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10,
@@ -380,12 +581,383 @@
       "@type": "PropertyValue",
       "propertyID": "machine_overlap_ratio",
       "name": "Machine Setting: Overlap_ratio",
-      "value": "N/A",
+      "value": 50,
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90,
       "description": "50-70% ensures uniform fluence distribution and avoids gaps/striping on irregular composite surfaces; 60% recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 100000000000000,
+      "unitText": "ohm-m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 1.2,
+      "unitText": "MPa√m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1800,
+      "unitText": "kg/m³",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 310,
+      "unitText": "°C",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 25000000000,
+      "unitText": "Pa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 85,
+      "unitText": "Shore D",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 550,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 450,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 420,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.95,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 2.3,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.25,
+      "unitText": "dimensionless",
+      "minValue": 0.1,
+      "maxValue": 0.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 50000,
+      "unitText": "m⁻¹",
+      "minValue": 10000,
+      "maxValue": 200000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 4.5,
+      "unitText": "J/cm²",
+      "minValue": 1,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 1.2,
+      "unitText": "MW/m",
+      "minValue": 0.5,
+      "maxValue": 2.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.05,
+      "unitText": "dimensionless",
+      "minValue": 0.03,
+      "maxValue": 0.1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 600,
+      "unitText": "K",
+      "minValue": 500,
+      "maxValue": 700,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 200,
+      "unitText": "Pa",
+      "minValue": 50,
+      "maxValue": 1000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 623,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.05,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 0.00002,
+      "unitText": "K^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 0.35,
+      "unitText": "W/(m·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 1100,
+      "unitText": "J/(kg·K)",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 35000,
+      "unitText": "m^{-1}",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 1.15e-7,
+      "unitText": "m²/s",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Epoxy Resin Composites Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Chun Lin",
+    "jobTitle": "Laser Processing Engineer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "National Taiwan University"
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/yi-chun-lin",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/yi-chun-lin.jpg",
+      "description": "Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/epoxy-resin-composites-laser-cleaning-hero.jpg",
+      "description": "Epoxy Resin Composites surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/epoxy-resin-composites-laser-cleaning-micro.jpg",
+      "description": "Epoxy Resin Composites microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Epoxy Resin Composites Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Yi-Chun Lin",
+        "jobTitle": "Laser Processing Engineer"
+      },
+      "datePublished": "2025-12-22T06:53:13.672834Z",
+      "url": "http://localhost:3000/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning",
+      "citation": "Z-Beam (2025). Epoxy Resin Composites Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

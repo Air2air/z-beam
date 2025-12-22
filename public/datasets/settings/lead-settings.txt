@@ -19,6 +19,93 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power range for Lead surface cleaning
 
-Generated: 2025-12-21T07:05:13.977Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-IR wavelength optimized for Lead absorption and 
+               minimal reflectivity
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise Lead surface treatment
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient Lead cleaning 
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled Lead ablation
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform Lead cleaning
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete Lead 
+               contamination removal
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform Lead surface cleaning
+
+FLUENCE THRESHOLD:
+  Value: 2.5 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Minimum fluence required for effective Lead removal
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for industrial 1064 nm Nd:YAG lasers cleaning soft metals like lead to avoid melting (melting point 327°C); starting at 100W for light contamination; max safe below 500W to prevent substrate damage. Source: Manufacturer specs from IPG Photonics and Laserax systems for metal cleaning.
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds balance cleaning efficiency and heat input; recommended 1500 mm/s for optimal removal without excessive heating on reflective lead; lower for heavy contamination (500-1000 mm/s), higher for light (2000-3000 mm/s). Source: Industry standards from SPIE proceedings on laser cleaning processes.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning of lead; 20 ns recommended for minimal heat-affected zone (HAZ) due to lead's high thermal conductivity; picosecond (ps) or femtosecond for ultra-precise but less common industrially. Source: Laser physics research in Optics & Laser Technology journal on metal ablation.
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for lead to achieve fast cleaning while minimizing heat accumulation (high freq risks melting); trade-off: higher rates speed up process but increase thermal load. Source: Academic literature from Applied Surface Science on pulse repetition effects.
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant ablation without damaging lead substrate; damage threshold ~2-3 J/cm² for lead at 1064 nm due to reflectivity; 1.0 J/cm² safe for cleaning. Conservative estimate based on ablation studies; source: Threshold studies in Journal of Applied Physics on IR laser-metal interactions.
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for uniform coverage; 200 μm recommended for lead cleaning to balance resolution and area efficiency; smaller for fine details (100-200 μm), larger for broad surfaces (300-500 μm). Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete lead surface preparation to ensure removal without over-processing soft substrate. Source: Industry case studies from Laser Cleaning International reports on metal decontamination.
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage without gaps or excessive overlap heating; 50% recommended for lead to optimize cleaning uniformity while managing heat on low-melting material. Source: Process optimization studies in Surface and Coatings Technology journal.
+
+
+Generated: 2025-12-22T20:49:23.616Z
 License: CC BY 4.0

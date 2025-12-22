@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/rare-earth/lanthanide/dysprosium-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/rare-earth/lanthanide/dysprosium-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Dysprosium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/dysprosium-laser-cleaning
+# Citation: Z-Beam (2025). Dysprosium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/rare-earth/lanthanide/dysprosium-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Dysprosium,,,,,Material name
@@ -30,3 +30,24 @@ Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,"Fluence range for safe conta
 Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter for precise industrial cleaning; smaller for fine details on Dysprosium components, larger for broad areas. 200 μm recommended for balanced energy distribution and minimal distortion on soft metal. Source: Equipment specifications from Coherent and Trumpf lasers for metal surface prep."
 Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete Dysprosium cleaning to ensure uniformity without over-processing reflective surfaces. Source: Industry case studies on iterative laser cleaning (e.g., Proc. SPIE on multi-pass optimization for metals)."
 Machine,Settings,overlap_ratio,60,%,10,90,,Ensures uniform coverage; 60% recommended for Dysprosium to avoid gaps or streaks on large areas while preventing excessive overlap heating. Typical range from process studies. Source: Optimization studies in J. Laser Appl. and laser scanning guidelines from scanning head manufacturers like Scanlab.
+Property,material_characteristics,density,8550,kg/m³,,,ai_research,Material property: density
+Property,material_characteristics,oxidationResistance,-2.32,V,,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,youngsModulus,28,GPa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,hardness,0.41,GPa,,,ai_research,Material property: hardness
+Property,material_characteristics,boilingPoint,2840,K,,,ai_research,Material property: boilingPoint
+Property,material_characteristics,absorptivity,0.28,dimensionless,,,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptivity,0.72,dimensionless,,,ai_research,Material property: absorptivity
+Property,laser_material_interaction,thermalDestruction,1685,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,laserReflectivity,0.925,dimensionless,,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalExpansion,0.0000255,K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,thermalConductivity,10.7,W/m·K,,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,specificHeat,171.5,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,ablationThreshold,0.82,J/cm²,,,ai_research,Material property: ablationThreshold
+Property,laser_material_interaction,absorptionCoefficient,1250000,cm^{-1},,,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,thermalDiffusivity,0.0000074,m²/s,,,scientific_literature,Material property: thermalDiffusivity
+Property,laser_material_interaction,laserDamageThreshold,0.42,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Application,Industries,Application 1,Electronics Manufacturing,,,,,Industry application
+Application,Industries,Application 2,Renewable Energy,,,,,Industry application
+Application,Industries,Application 3,Aerospace,,,,,Industry application
+Application,Industries,Application 4,Automotive,,,,,Industry application
+Application,Industries,Application 5,Defense,,,,,Industry application

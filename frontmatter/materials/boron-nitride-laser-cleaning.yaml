@@ -2,8 +2,8 @@ id: boron-nitride-laser-cleaning
 name: Boron Nitride
 title: Boron Nitride Laser Cleaning
 category: ceramic
-datePublished: '2025-12-20T23:40:08.704662Z'
-dateModified: '2025-12-20T23:40:08.704662Z'
+datePublished: '2025-12-22T23:35:18.577349Z'
+dateModified: '2025-12-22T23:35:18.577349Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/ceramic/technical/boron-nitride-laser-cleaning
@@ -70,20 +70,48 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 relationships:
-  regulatory:
-    title: Regulatory Standards
-    description: Safety, environmental, and industry standards applicable to laser cleaning this material
-    groups:
-      all_standards:
-        title: Applicable Standards
-        description: All regulatory standards and guidelines
-        items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
-        - type: regulatory_standards
-          id: ce-machinery-directive
+  contaminated_by:
+    _section:
+      title: Common Contaminants
+      description: Types of contamination typically found on this material
+      order: 1
+      variant: relationship
+      icon: droplet
+    items:
+    - id: adhesive-residue-contamination
+      presentation: card
+    - id: blood-residue-contamination
+      presentation: card
+    - id: carbon-buildup-contamination
+      presentation: card
+    - id: carbon-soot-contamination
+      presentation: card
+    - id: ceramic-glaze-contamination
+      presentation: card
+    - id: chemical-stains-contamination
+      presentation: card
+    - id: fire-damage-contamination
+      presentation: card
+    - id: graphite-marks-contamination
+      presentation: card
+    - id: industrial-oil-contamination
+      presentation: card
+    - id: lime-scale-contamination
+      presentation: card
+    - id: medical-disinfectant-contamination
+      presentation: card
+    - id: mineral-deposits-contamination
+      presentation: card
+    - id: mold-mildew-contamination
+      presentation: card
+    - id: scale-buildup-contamination
+      presentation: card
+    - id: semiconductor-residue-contamination
+      presentation: card
+    - id: silicone-buildup-contamination
+      presentation: card
+    - id: soap-scum-contamination
+      presentation: card
 subcategory: technical
 properties:
   material_characteristics:

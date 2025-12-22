@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Oak Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/wood/hardwood/oak-laser-cleaning
+URL:            http://localhost:3000/materials/wood/hardwood/oak-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -143,11 +143,152 @@ overlap_ratio:
   Note:   Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  fractureToughness:
+    Value:  0.35 MPa m^{1/2}
+    Source: ai_research
+
+  youngsModulus:
+    Value:  12.4 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.85 J/cm²
+    Source: ai_research
+
+  density:
+    Value:  720 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  5738 N
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.75 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  50.3 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  95.1 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  99 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0.55 fraction
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.88 dimensionless
+    Min:    0.8 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  450000 m⁻¹
+    Min:    100000 m⁻¹
+    Max:    1000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2 J/cm²
+    Min:    1 J/cm²
+    Max:    5 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.5 MW/m
+    Min:    1 MW/m
+    Max:    2 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.12 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.2 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  650 K
+    Min:    600 K
+    Max:    700 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  100 Pa
+    Min:    10 Pa
+    Max:    500 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  280 °C
+    Source: ai_research
+
+  specificHeat:
+    Value:  1380 J/kg·K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.12 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.168 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000004 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  28000 m^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  1.25e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  2.45 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Cultural Heritage
+2. Aerospace
+3. Marine
+4. Furniture Manufacturing
+5. Musical Instrument
+6. Architectural Restoration
+7. Wine & Spirits
+8. Automotive
+9. Energy
+10. Medical Equipment
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Oak Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/oak-laser-cleaning
+  Z-Beam (2025). Oak Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/wood/hardwood/oak-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

@@ -3,8 +3,8 @@ name: Formaldehyde
 display_name: Formaldehyde (CH₂O)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-20T23:36:51.966550Z'
-dateModified: '2025-12-20T23:36:51.966550Z'
+datePublished: '2025-12-22T21:25:25.756079Z'
+dateModified: '2025-12-22T21:25:25.756079Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aldehyde/formaldehyde-compound
@@ -19,10 +19,21 @@ breadcrumb:
   href: /compounds/carcinogen/aldehyde
 - label: Formaldehyde
   href: /compounds/carcinogen/aldehyde/formaldehyde-compound
-chemical_formula: CH2O
+chemical_formula: CH₂O
 cas_number: 50-00-0
 molecular_weight: 30.03
-description: null
+description: "Handling formaldehyde in industrial settings often starts with the headache of its sharp, lingering odor that\
+  \ irritates eyes and skin right away, yet this volatile compound proves essential for creating tough resins and adhesives\
+  \ that bind wood products together without cracking under stress. Because it mixes easily with water to form a stable solution,\
+  \ workers rely on it to preserve biological specimens or disinfect surfaces in labs, though the real trick lies in controlling\
+  \ exposure since prolonged contact heightens cancer risks over time. In manufacturing, formaldehyde steps up as a key player\
+  \ for producing durable plastics and foams that withstand everyday wear, enabling everything from furniture to car parts\
+  \ to hold shape through repeated use. \n\nWhen it comes to laser cleaning, this chemical's residue on metal or stone surfaces\
+  \ responds well to precise beams that vaporize traces without damaging the base material, leaving behind a clean finish\
+  \ ideal for restoration projects where contaminants like old adhesives must go. Engineers appreciate how such methods avoid\
+  \ harsh solvents, reducing the spread of harmful vapors during the process, and ensuring tools or artifacts emerge pristine\
+  \ yet intact. Still, the underlying danger as a carcinogen demands strict ventilation and protective gear, turning what\
+  \ could be a straightforward cleanup into a carefully orchestrated task that prioritizes safety above speed."
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
@@ -46,51 +57,54 @@ sources_in_laser_cleaning:
 - organic_coating_pyrolysis
 - adhesive_breakdown
 relationships:
-  produced_by_contaminants:
-  - id: adhesive-residue-contamination
-    title: Adhesive Residue / Tape Marks
-    url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-    image: /images/contaminants/organic-residue/adhesive/adhesive-residue.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Thermal breakdown of formaldehyde-based adhesives
-  - id: wood-rot-contamination
-    title: Wood Rot / Fungal Biodegradation
-    url: /contaminants/biological/growth/wood-rot-contamination
-    image: /images/contaminants/biological/growth/wood-rot.jpg
-    frequency: common
-    severity: moderate
-    typical_context: Decomposition of wood compounds
-  - id: paint-residue-contamination
-    title: Paint Residue / Coating Failure
-    url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-    image: /images/contaminants/inorganic-coating/paint/paint-residue.jpg
-    frequency: occasional
-    severity: moderate
-    typical_context: Breakdown of melamine or urea-formaldehyde resins
-  - id: epoxy-residue-contamination
-    title: Epoxy Resin Deposits
-    url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
-    image: /images/contaminants/organic-residue/adhesive/epoxy-residue.jpg
-    frequency: occasional
-    severity: low
-    typical_context: Thermal degradation of certain epoxy formulations
   chemical_properties:
-  - type: chemical_properties
-    id: formaldehyde-physical-data
+    _section:
+      title: Chemical Properties
+      description: Physical and chemical characteristics
+      order: 1
+      variant: info
+      icon: beaker
+    items:
+    - type: chemical_properties
+      id: formaldehyde-physical-data
+      presentation: card
   health_effects: null
   environmental_impact:
-  - type: environmental_impact
-    id: formaldehyde-environmental-data
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and handling considerations
+      order: 5
+      variant: info
+      icon: leaf
+    items:
+    - type: environmental_impact
+      id: formaldehyde-environmental-data
+      presentation: card
   detection_monitoring:
-  - type: detection_monitoring
-    id: formaldehyde-monitoring-methods
+    _section:
+      title: Detection & Monitoring
+      description: Methods for detecting and monitoring this compound
+      order: 6
+      variant: info
+      icon: activity
+    items:
+    - type: detection_monitoring
+      id: formaldehyde-monitoring-methods
+      presentation: card
   ppe_requirements:
-  - type: ppe_requirements
-    id: particulate-carcinogen
-    overrides:
-      specific_compound: Formaldehyde
-      pel_ppm: 0.75
+    _section:
+      title: Safety Requirements
+      description: Personal protective equipment and safety protocols
+      order: 4
+      variant: safety
+      icon: shield
+    items:
+    - type: ppe_requirements
+      id: particulate-carcinogen
+      overrides:
+        specific_compound: Formaldehyde
+        pel_ppm: 0.75
+      presentation: card
   emergency_response:
     fire_hazard: Solutions >30% flammable. Pure gas flammable with wide explosive range (7-73%). Vapors heavier than air.
     fire_suppression: Use water spray, dry chemical, CO2, or foam. Water spray to cool containers and dilute vapors. Approach
@@ -105,6 +119,64 @@ relationships:
     special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1) - nasopharyngeal cancer and leukemia established. Severe respiratory
       irritant. Strong sensitizer causing occupational asthma. Lachrymator (causes tearing). Polymerizes on standing, especially
       with impurities.
+  produced_from_contaminants:
+    _section:
+      title: Contaminant Sources
+      description: Contaminants that produce this compound during laser cleaning
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: adhesive-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Thermal breakdown of formaldehyde-based adhesives
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+    - id: wood-rot-contamination
+      frequency: common
+      severity: moderate
+      typical_context: Decomposition of wood compounds
+      presentation: card
+      url: /contaminants/biological/growth/wood-rot-contamination
+    - id: paint-residue-contamination
+      frequency: occasional
+      severity: moderate
+      typical_context: Breakdown of melamine or urea-formaldehyde resins
+      presentation: card
+      url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+    - id: epoxy-residue-contamination
+      frequency: occasional
+      severity: low
+      typical_context: Thermal degradation of certain epoxy formulations
+      presentation: card
+      url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+  produced_from_materials:
+    _section:
+      title: Material Sources
+      description: Materials that release this compound when laser cleaned
+      order: 3
+      variant: relationship
+      icon: layers
+    items:
+    - id: ceramic-matrix-composites-cmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
+    - id: epoxy-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
+    - id: metal-matrix-composites-mmcs-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
+    - id: phenolic-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
+    - id: polyester-resin-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
+    - id: urethane-composites-laser-cleaning
+      presentation: card
+      url: /materials/composite/structural/urethane-composites-laser-cleaning
   physical_properties:
     boiling_point: -19°C (-2°F) for pure gas
     melting_point: -92°C (-134°F)
@@ -283,73 +355,10 @@ detection_monitoring:
     detection_limit: 0.001 ppm
   odor_threshold: 0.05-1 ppm - provides early warning but olfactory fatigue occurs. Do not rely on odor alone.
 title: Formaldehyde (CH₂O)
-ppe_requirements_detail:
-  id: particulate-carcinogen
-  hazard_type: particulate
-  hazard_level: carcinogen
-  minimum_protection_level: Level C
-  respiratory:
-    primary:
-      equipment: HEPA-filtered respirator (P100)
-      standard: NIOSH 42 CFR 84
-      condition: For particles <10 μm
-      filter_efficiency: 99.97% @ 0.3 μm
-      fit_test_required: true
-      cartridge_change: Per manufacturer or breathing resistance increase
-  skin:
-    gloves:
-      material: Nitrile gloves, disposable
-      standard: ANSI/ISEA 101
-      condition: Prevent skin contact with particulates
-      disposal: Contained disposal - hazardous waste
-    body:
-      equipment: Disposable Tyvek coveralls
-      standard: ANSI/ISEA 101
-      condition: Full body coverage, sealed at wrists/ankles
-      hood: Integrated hood covering head and neck
-      disposal: Hazardous waste, do not reuse
-    footwear:
-      equipment: Disposable boot covers
-      material: Tyvek or polyethylene
-      condition: Prevent particulate tracking
-  eye:
-    equipment: Safety goggles with side shields
-    standard: ANSI Z87.1
-    condition: Impact and particle protection
-    cleaning: Disposable or decontaminate between uses
-  special_requirements:
-  - Wet methods preferred to suppress dust
-  - HEPA vacuum only - never dry sweep
-  - Designated decontamination area
-  - Disposable PPE changed in decon area
-  - Shower facilities available
-  - No eating, drinking, smoking in work area
-  - Medical surveillance program required
-  decontamination:
-  - Remove PPE in designated decon area
-  - Vacuum suit before removal (HEPA only)
-  - Remove from inside out to minimize contact
-  - Place in labeled hazardous waste bag
-  - Wash hands and face thoroughly
-  - Shower at end of shift
-  training_required:
-  - Carcinogen hazard awareness
-  - HEPA respirator fit testing
-  - Proper PPE donning and doffing
-  - Decontamination procedures
-  - Medical surveillance requirements
-  medical_surveillance:
-    required: true
-    frequency: Annual minimum
-    requirements:
-    - Baseline and periodic medical exams
-    - Respiratory function testing
-    - Cancer screening per OSHA guidelines
-    - Exposure records maintenance
-  waste_handling:
-  - All PPE as hazardous waste
-  - Sealed, labeled containers
-  - Manifest tracking required
-  - EPA hazardous waste codes applicable
-  specific_compound: Formaldehyde
-  pel_ppm: 0.75
+seo_description: Handling formaldehyde in industrial settings often starts with the headache of its sharp, lingering odor
+  that irritates eyes and skin right away, yet this...
+micro: Handling formaldehyde in industrial settings often starts with the headache of its sharp, lingering odor that irritates
+  eyes and skin right away, yet this volatile compound proves essential for creating tough resins and adhesives that bind
+  wood products together without cracking under stress. Because it mixes easily with water to form a stable solution, workers
+  rely on it to preserve biological specimens or disinfect surfaces in labs, though the real trick lies in controlling exposure
+  since prolonged contact heightens cancer risks over time.

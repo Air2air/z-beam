@@ -11,6 +11,91 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 45 W
+  Range: 1-120 W
+  Description: Optimal average power for Europium oxide layer removal
 
-Generated: 2025-12-21T07:05:13.926Z
+WAVELENGTH:
+  Value: 532 nm
+  Range: 355-10640 nm
+  Description: Green wavelength for optimal Europium absorption
+
+SPOT SIZE:
+  Value: 50 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning
+
+PULSE WIDTH:
+  Value: 8 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse width for controlled ablation
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning
+
+PASS COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Number of cleaning passes required
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for complete coverage
+
+FLUENCE THRESHOLD:
+  Value: 1.2 J/cm²
+  Range: 0.3-4.5 J/cm²
+  Description: Threshold fluence for Europium oxide removal
+
+POWER:
+  Value: 30 W
+  Range: 10-100 W
+  Description: Typical average power for pulsed laser cleaning of soft metals like Europium to avoid melting (mp 826°C); conservative range due to low thermal conductivity (~14 W/m·K); recommended starting low to test. Source: General manufacturer specs (e.g., Coherent cleaning systems for metals, 10-200 W range); limited specific Europium data, adapted from Al cleaning studies (Opt. Lasers Eng., 2018).
+
+SCAN_SPEED:
+  Value: 1000 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for contamination removal; slower for heavy contamination (e.g., oxides on reactive Europium), faster for light; optimal balances ablation and heat dissipation. Source: Industry standards (e.g., Laser Cleaning Handbook by Trumpf, 100-10,000 mm/s); case studies on rare earth alloys (J. Laser Appl., 2020).
+
+PULSE_WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on low-melting Europium; picosecond (ps) or femtosecond (fs) reduce thermal effects but increase cost; ns avoids excessive heat accumulation. Source: Laser physics research (e.g., Appl. Surf. Sci., 2019 on metal ablation thresholds); ns typical for 532 nm cleaning.
+
+REPETITION_RATE:
+  Value: 20 kHz
+  Range: 1-200 kHz
+  Description: Balances cleaning speed and heat buildup; higher rates accelerate process but risk thermal damage to Europium's soft structure; moderate rate recommended for uniform ablation. Source: Academic literature (e.g., Opt. Express, 2017 on pulsed laser cleaning of metals; trade-offs noted in high-rep-rate studies).
+
+ENERGY_DENSITY:
+  Value: 1 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence for contaminant ablation without exceeding Europium damage threshold (~1.5-3 J/cm² estimated from similar soft metals); low values due to high reflectivity at 532 nm and low mp; safe cleaning below threshold. Source: Ablation threshold studies (e.g., J. Phys. D: Appl. Phys., 2021 on rare earth metals; conservative estimate for Europium).
+
+SPOT_SIZE:
+  Value: 200 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for precise surface preparation; smaller for fine details on Europium components, larger for broad areas; 200 μm balances resolution and efficiency. Source: Equipment specifications (e.g., IPG Photonics scanners, 50-1000 μm); adapted for industrial cleaning of reactive metals.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Multi-pass for thorough removal of contaminants (e.g., oxides) on Europium without single-pass overheating; single pass for light cleaning, 2-3 typical for industrial prep. Source: Industry practice (e.g., case studies in Surf. Coat. Technol., 2019 on metal surface cleaning); conservative for soft substrates.
+
+OVERLAP_RATIO:
+  Value: 70 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage and overlap for complete cleaning; higher for heavy contamination on irregular Europium surfaces, lower for speed; 70% optimal for even energy distribution. Source: Process optimization studies (e.g., Lasers Manuf. Mater. Process., 2022; standard 50-80% in laser scanning protocols).
+
+
+Generated: 2025-12-22T20:49:23.519Z
 License: CC BY 4.0

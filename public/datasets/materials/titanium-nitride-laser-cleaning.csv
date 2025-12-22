@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/ceramic/coating/titanium-nitride-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/ceramic/coating/titanium-nitride-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Titanium Nitride Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/coating/titanium-nitride-laser-cleaning
+# Citation: Z-Beam (2025). Titanium Nitride Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/ceramic/coating/titanium-nitride-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Titanium Nitride,,,,,Material name
@@ -30,3 +30,23 @@ Machine,Settings,energy_density,1,J/cm²,0.1,20,,Fluence range for safe ablation
 Machine,Settings,spot_size,200,μm,0.1,500,,"Beam diameter suited for TiN surface preparation; smaller (50-100 μm) for fine details, larger (200-500 μm) for broad areas. 200 μm recommended for uniform coverage on coated surfaces. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems."
 Machine,Settings,pass_count,2,passes,1,10,,"Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on TiN to avoid over-ablation. Recommended 2 passes for complete, damage-free cleaning. Source: Industry practice in case studies from Surface & Coatings Technology (2019)."
 Machine,Settings,overlap_ratio,60,%,10,90,,Ensures uniform fluence distribution on TiN for even cleaning; 60% recommended to prevent gaps or hotspots given beam Gaussian profile. Typical range 30-80% based on scan speed. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2022).
+Property,material_characteristics,compressiveStrength,3900,MPa,,,scientific_literature,Material property: compressiveStrength
+Property,material_characteristics,fractureToughness,3.4,MPa√m,,,scientific_literature,Material property: fractureToughness
+Property,material_characteristics,electricalResistivity,2.5e-7,Ω·m,,,scientific_literature,Material property: electricalResistivity
+Property,material_characteristics,corrosionResistance,0.002,mm/year,,,scientific_literature,Material property: corrosionResistance
+Property,material_characteristics,tensileStrength,345,MPa,,,scientific_literature,Material property: tensileStrength
+Property,material_characteristics,porosity,0.5,%,,,scientific_literature,Material property: porosity
+Property,material_characteristics,oxidationResistance,500,°C,,,scientific_literature,Material property: oxidationResistance
+Property,material_characteristics,youngsModulus,450,GPa,,,scientific_literature,Material property: youngsModulus
+Property,material_characteristics,flexuralStrength,345,MPa,,,scientific_literature,Material property: flexuralStrength
+Property,material_characteristics,density,5.22,g/cm³,,,scientific_literature,Material property: density
+Property,material_characteristics,hardness,21.5,GPa,,,scientific_literature,Material property: hardness
+Property,laser_material_interaction,thermalConductivity,19.2,W/m·K,,,scientific_literature,Material property: thermalConductivity
+Property,laser_material_interaction,thermalDiffusivity,0.00000703,m²/s,,,scientific_literature,Material property: thermalDiffusivity
+Property,laser_material_interaction,thermalDestruction,3223,K,,,scientific_literature,Material property: thermalDestruction
+Property,laser_material_interaction,laserDamageThreshold,1.2,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,laserAbsorption,0.72,dimensionless,,,scientific_literature,Material property: laserAbsorption
+Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,,,scientific_literature,Material property: ablationThreshold
+Property,laser_material_interaction,thermalExpansion,0.00000935,K^{-1},,,scientific_literature,Material property: thermalExpansion
+Property,laser_material_interaction,laserReflectivity,0.62,dimensionless,,,scientific_literature,Material property: laserReflectivity
+Property,laser_material_interaction,specificHeat,690,J/kg·K,,,scientific_literature,Material property: specificHeat

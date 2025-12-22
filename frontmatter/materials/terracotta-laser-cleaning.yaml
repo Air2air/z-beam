@@ -2,8 +2,8 @@ id: terracotta-laser-cleaning
 name: Terracotta
 title: Terracotta Laser Cleaning
 category: masonry
-datePublished: '2025-12-20T23:40:06.017114Z'
-dateModified: '2025-12-20T23:40:06.017114Z'
+datePublished: '2025-12-22T23:35:17.394404Z'
+dateModified: '2025-12-22T23:35:17.394404Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/masonry/concrete/terracotta-laser-cleaning
@@ -118,19 +118,51 @@ author:
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
 relationships:
+  contaminated_by:
+    _section:
+      title: Common Contaminants
+      description: Types of contamination typically found on this material
+      order: 1
+      variant: relationship
+      icon: droplet
+    items:
+    - id: industrial-oil-contamination
+      presentation: card
   regulatory:
-    title: Regulatory Standards
-    description: Safety, environmental, and industry standards applicable to laser cleaning this material
-    groups:
-      all_standards:
-        title: Applicable Standards
-        description: All regulatory standards and guidelines
-        items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this material
+      order: 2
+      variant: reference
+      icon: book
+    items:
+    - description: ANSI Z136.1 - Safe Use of Lasers
+      image: /images/logo/logo-org-ansi.png
+      longName: American National Standards Institute
+      name: ANSI
+      url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    - description: IEC 60825 - Safety of Laser Products
+      image: /images/logo/logo-org-iec.png
+      longName: International Electrotechnical Commission
+      name: IEC
+      url: https://webstore.iec.ch/en/publication/3587
+    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+      image: /images/logo/logo-org-osha.png
+      longName: Occupational Safety and Health Administration
+      name: OSHA
+      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 subcategory: concrete
+applications:
+- Cultural Heritage
+- Architecture and Construction
+- Manufacturing
+- Archaeology
+- Museum Conservation
+- Art Restoration
+- Industrial Maintenance
+- Historic Preservation
+- Ceramics Production
+- Research and Analysis
 properties:
   material_characteristics:
     label: Material Characteristics

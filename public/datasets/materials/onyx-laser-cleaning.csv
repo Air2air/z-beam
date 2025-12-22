@@ -3,10 +3,10 @@
 # URL: https://creativecommons.org/licenses/by/4.0/
 # Source: Z-Beam Laser Cleaning Research Lab
 # Contact: info@z-beam.com
-# Dataset: https://www.z-beam.com/materials/stone/sedimentary/onyx-laser-cleaning
-# Updated: 2025-12-21 | Version: 1.0
+# Dataset: http://localhost:3000/materials/stone/sedimentary/onyx-laser-cleaning
+# Updated: 2025-12-22 | Version: 1.0
 #
-# Citation: Z-Beam (2025). Onyx Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/onyx-laser-cleaning
+# Citation: Z-Beam (2025). Onyx Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/sedimentary/onyx-laser-cleaning
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Onyx,,,,,Material name
@@ -31,3 +31,39 @@ Machine,Settings,energy_density,1.5,J/cm²,0.1,20,,Fluence range for safe contam
 Machine,Settings,spot_size,300,μm,0.1,500,,"Beam diameter for uniform coverage; 300 μm recommended for Onyx surface preparation (fine detail vs. large area); from equipment specs like Coherent lasers, suitable for stone texturing."
 Machine,Settings,pass_count,2,passes,1,10,,"Typically 1-3 passes for complete removal on stones; 2 passes recommended for Onyx to ensure uniformity without overexposure; based on case studies in industrial cleaning (Laser Cleaning Handbook, 2021)."
 Machine,Settings,overlap_ratio,50,%,10,90,,Ensures uniform coverage; 50% recommended for Onyx to avoid gaps or excessive overlap-induced damage; typical range from process optimization in Opt. Express 2016.
+Property,material_characteristics,fractureToughness,0.78,MPa m^{1/2},,,ai_research,Material property: fractureToughness
+Property,material_characteristics,youngsModulus,78,GPa,,,ai_research,Material property: youngsModulus
+Property,material_characteristics,oxidationResistance,1,dimensionless (resistance index),,,ai_research,Material property: oxidationResistance
+Property,material_characteristics,density,2.65,g/cm³,,,ai_research,Material property: density
+Property,material_characteristics,hardness,7,Mohs,,,ai_research,Material property: hardness
+Property,material_characteristics,corrosionResistance,0.96,dimensionless,,,ai_research,Material property: corrosionResistance
+Property,material_characteristics,compressiveStrength,85,MPa,,,ai_research,Material property: compressiveStrength
+Property,material_characteristics,flexuralStrength,12.5,MPa,,,ai_research,Material property: flexuralStrength
+Property,material_characteristics,tensileStrength,12.5,MPa,,,ai_research,Material property: tensileStrength
+Property,material_characteristics,porosity,0.4,%,,,ai_research,Material property: porosity
+Property,material_characteristics,laserDamageThreshold,0.75,J/cm²,,,scientific_literature,Material property: laserDamageThreshold
+Property,laser_material_interaction,absorptivity,0.2,dimensionless,0.1,0.3,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptionCoefficient,100,m⁻¹,10,1000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,8,J/cm²,5,15,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,1,2,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,reflectivity,0.1,dimensionless,0.05,0.2,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,1983,K,1500,2000,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,vaporPressure,0.001,Pa,0.001,0.1,ai_research,Material property: vaporPressure
+Property,laser_material_interaction,thermalDestruction,1983,K,,,ai_research,Material property: thermalDestruction
+Property,laser_material_interaction,specificHeat,740,J/(kg·K),,,ai_research,Material property: specificHeat
+Property,laser_material_interaction,laserReflectivity,0.035,dimensionless,,,ai_research,Material property: laserReflectivity
+Property,laser_material_interaction,thermalConductivity,2.04,W/m·K,,,ai_research,Material property: thermalConductivity
+Property,laser_material_interaction,thermalExpansion,0.000012,K^{-1},,,ai_research,Material property: thermalExpansion
+Property,laser_material_interaction,laserAbsorption,0.32,,,,ai_research,Material property: laserAbsorption
+Property,laser_material_interaction,thermalDiffusivity,0.00000105,m²/s,,,ai_research,Material property: thermalDiffusivity
+Property,laser_material_interaction,ablationThreshold,4.2,J/cm²,,,scientific_literature,Material property: ablationThreshold
+Application,Industries,Application 1,Cultural Heritage,,,,,Industry application
+Application,Industries,Application 2,Architecture and Construction,,,,,Industry application
+Application,Industries,Application 3,Luxury Goods Manufacturing,,,,,Industry application
+Application,Industries,Application 4,Art and Sculpture,,,,,Industry application
+Application,Industries,Application 5,Interior Design,,,,,Industry application
+Application,Industries,Application 6,Museum Conservation,,,,,Industry application
+Application,Industries,Application 7,Religious Artifacts,,,,,Industry application
+Application,Industries,Application 8,Lapidary and Gemology,,,,,Industry application
+Application,Industries,Application 9,Furniture Manufacturing,,,,,Industry application
+Application,Industries,Application 10,Monument Restoration,,,,,Industry application

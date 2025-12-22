@@ -1,7 +1,7 @@
 id: yttrium-settings
 name: Yttrium
-datePublished: '2025-12-21T03:33:04.809354Z'
-dateModified: '2025-12-21T03:33:04.809354Z'
+datePublished: '2025-12-22T23:37:09.342484Z'
+dateModified: '2025-12-22T23:37:09.342484Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/rare-earth/scandium-group/yttrium-settings
@@ -47,14 +47,67 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 relationships:
-  related_materials: []
-  related_contaminants: []
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-machineSettings:
+  regulatory_standards:
+    _section:
+      title: Regulatory Compliance
+      description: Industry standards and regulations applicable to these settings
+      order: 3
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  optimized_for_materials:
+    _section:
+      title: Applicable Materials
+      description: Materials that can be safely cleaned using these laser parameters
+      order: 1
+      variant: relationship
+      icon: cube
+    items:
+    - id: oak-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/oak-laser-cleaning
+    - id: maple-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/hardwood/maple-laser-cleaning
+    - id: pine-laser-cleaning
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /materials/wood/softwood/pine-laser-cleaning
+  removes_contaminants:
+    _section:
+      title: Effective Against
+      description: Contamination types that can be removed using these settings
+      order: 2
+      variant: relationship
+      icon: droplet
+    items:
+    - id: rust-oxidation-contamination
+      effectiveness: high
+      presentation: card
+      level: high
+      valence: positive
+      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+    - id: adhesive-residue-contamination
+      effectiveness: medium
+      presentation: card
+      level: moderate
+      valence: positive
+      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+machine_settings:
   powerRange:
     description: Optimal average power for Yttrium surface cleaning without thermal damage
     unit: W
@@ -84,7 +137,7 @@ machineSettings:
     unit: J/cm²
     value: 5.1
     min: 0.3
-    max: 4.5
+    max: 6.12
   energyDensity:
     description: Fluence threshold for effective Yttrium contaminant removal without substrate damage
     unit: J/cm²
@@ -155,6 +208,7 @@ machineSettings:
     description: 'Fluence range for safe ablation of contaminants (e.g., oxides) on metals; Yttrium damage threshold ~1.5-2.5
       J/cm² at 1064 nm due to reflectivity. Recommended 1.0 J/cm² for conservative cleaning. Uncertainty in exact Yttrium
       threshold; based on similar metals. Source: Ablation studies in Appl. Surf. Sci. 257, 5281 (2011).'
+    value: 10.05
   spot_size:
     min: 0.1
     max: 500
@@ -311,6 +365,3 @@ regulatory_standards_detail:
   - iec-60825-laser-safety
   - osha-ppe-requirements
   category: operational_safety
-seo_description: The key with Yttrium is its high reflectivity, which makes laser cleaning a bit tricky at first.
-micro: The key with Yttrium is its high reflectivity, which makes laser cleaning a bit tricky at first. We've found it bounces
-  back most laser energy, so we typically start with multiple passes to gradually remove contaminants without wasting power.

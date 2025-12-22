@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Yttrium Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/rare-earth/scandium-group/yttrium-laser-cleaning
+URL:            http://localhost:3000/materials/rare-earth/scandium-group/yttrium-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -61,7 +61,7 @@ repetitionRate:
 fluenceThreshold:
   Value:  5.1 J/cm²
   Min:    0.3 J/cm²
-  Max:    4.5 J/cm²
+  Max:    6.12 J/cm²
   Note:   Fluence threshold for effective Yttrium cleaning
 
 energyDensity:
@@ -119,7 +119,7 @@ repetition_rate:
   Note:   Typical for pulsed cleaning; 30 kHz recommended for Yttrium to enable fast processing while limiting heat accumulation in low-conductivity scenarios. Higher rates speed up but risk thermal damage. Source: Academic lit. in J. Phys. D: Appl. Phys. 44, 435301 (2011); trade-offs noted for rare earth metals.
 
 energy_density:
-  Value:  N/A J/cm²
+  Value:  10.05 J/cm²
   Min:    0.1 J/cm²
   Max:    20 J/cm²
   Note:   Fluence range for safe ablation of contaminants (e.g., oxides) on metals; Yttrium damage threshold ~1.5-2.5 J/cm² at 1064 nm due to reflectivity. Recommended 1.0 J/cm² for conservative cleaning. Uncertainty in exact Yttrium threshold; based on similar metals. Source: Ablation studies in Appl. Surf. Sci. 257, 5281 (2011).
@@ -143,11 +143,132 @@ overlap_ratio:
   Note:   Ensures uniform coverage without gaps or excessive overlap; 50% optimal for Yttrium to prevent uneven heating given its thermal properties. Typical range from process optimization. Source: Studies in Opt. Laser Technol. 42, 129 (2010); industry standards for scanned laser cleaning.
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  youngsModulus:
+    Value:  41.2 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  673 K
+    Source: ai_research
+
+  density:
+    Value:  4472 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  0.26 GPa
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.37 dimensionless
+    Source: ai_research
+
+  boilingPoint:
+    Value:  3611 K
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  69000000 m^{-1}
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.8 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.35 dimensionless
+    Min:    0.2 dimensionless
+    Max:    0.5 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  50000000 m⁻¹
+    Min:    10000000 m⁻¹
+    Max:    100000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  5 J/cm²
+    Min:    1 J/cm²
+    Max:    10 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  2.5 MW/m
+    Min:    1.5 MW/m
+    Max:    3.5 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.65 dimensionless
+    Min:    0.5 dimensionless
+    Max:    0.8 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1799 K
+    Min:    1795 K
+    Max:    1805 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.1 Pa
+    Min:    0.01 Pa
+    Max:    1 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1795 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  300.8 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.92 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  17.2 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000106 K^{-1}
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.25 J/cm²
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.0000128 m²/s
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Electronics Manufacturing
+2. Permanent Magnet Production
+3. Optical Component Cleaning
+4. Research Laboratory
+5. Precision Manufacturing
+6. Aerospace Components
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Yttrium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/scandium-group/yttrium-laser-cleaning
+  Z-Beam (2025). Yttrium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/rare-earth/scandium-group/yttrium-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

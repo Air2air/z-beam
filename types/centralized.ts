@@ -188,6 +188,7 @@ export interface ArticleMetadata {
   references?: string[];
   targetAudience?: string;
   articleType?: string;
+  content_type?: string; // Content type for structured data
   canonical?: string; // Canonical URL for SEO
   
   // Enhanced frontmatter fields
@@ -195,6 +196,12 @@ export interface ArticleMetadata {
   properties?: Record<string, PropertyWithUnits>;
   
   // Image structure for hero and other images
+  hero?: {
+    url?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+  };
   images?: {
     hero?: {
       url?: string;
@@ -1045,7 +1052,7 @@ export interface CardGridProps {
   mode?: 'simple' | 'category-grouped' | 'search-results';
   
   // Card variant
-  variant?: 'default' | 'featured' | 'relationship' | 'category';
+  variant?: 'default' | 'featured' | 'relationship';
   
   // Category grouping options (for mode: 'category-grouped')
   showSearch?: boolean;
@@ -2420,7 +2427,7 @@ export interface CardProps {
   href: string;
   badge?: BadgeData | null;
   className?: string;
-  variant?: "default" | "featured" | "relationship" | "category";
+  variant?: "default" | "featured" | "relationship";
   imageUrl?: string; // Explicit URL for server-to-client serialization
   imageAlt?: string; // Explicit alt text
 }
@@ -2629,6 +2636,20 @@ export interface MaterialDatasetDownloaderProps {
   faq?: any[];
   regulatoryStandards?: any[];
   showFullDataset?: boolean;
+}
+
+/**
+ * Unified Dataset Downloader Props
+ * Used by DatasetDownloader component for both materials and contaminants
+ * 
+ * @see app/components/Dataset/DatasetDownloader.tsx
+ */
+export interface DatasetDownloaderProps {
+  itemName: string;
+  slug: string;
+  category: string;
+  subcategory?: string;
+  datasetType: 'materials' | 'contaminants';
 }
 
 /**
@@ -3785,8 +3806,9 @@ export interface TechnicalSpecsTableProps {
  * Other component interfaces
  */
 export interface BadgeProps {
-  text: string;
-  variant?: BadgeVariant;
+  text?: string;
+  children?: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'outline' | 'subtle' | 'solid' | 'card';
   color?: BadgeColor;
   size?: ComponentSize;
   className?: string;
@@ -3797,6 +3819,29 @@ export interface BadgeSymbolProps {
   formula?: string;
   materialType?: MaterialType;
   className?: string;
+}
+
+/**
+ * InfoCard component props - Reusable information card for displaying structured data
+ * Used for safety data, chemical properties, physical properties, exposure limits, etc.
+ * 
+ * @see app/components/InfoCard/InfoCard.tsx
+ * @example
+ * <InfoCard 
+ *   icon={Beaker} 
+ *   title="Chemical Identity" 
+ *   data={[
+ *     { label: 'CAS Number', value: '71-43-2' },
+ *     { label: 'Formula', value: 'C₆H₆' }
+ *   ]}
+ * />
+ */
+export interface InfoCardProps {
+  icon: any; // LucideIcon from 'lucide-react'
+  title: string;
+  data: Array<{ label: string; value: string | number }>;
+  className?: string;
+  variant?: 'default' | 'outlined' | 'filled';
 }
 
 export interface ButtonIconProps {
@@ -3906,6 +3951,10 @@ export interface SectionContainerInternalProps extends SectionContainerBaseProps
 }
 
 export interface SectionContainerBaseProps {
+  title?: string;
+  icon?: ReactNode;
+  actionText?: string;
+  actionUrl?: string;
   children: ReactNode;
   className?: string;
   variant?: 'default' | 'dark' | 'light';
@@ -3947,10 +3996,8 @@ export interface EnvironmentalImpactProps {
 
 export interface FAQMaterialProps {
   materialName: string;
-  faq?: Array<{
-    question: string;
-    answer: string;
-  }>;
+  help?: HelpSection[];
+  faq?: Array<{question: string; answer: string}> | { questions?: Array<{question: string; answer: string}> }; // Legacy format adapter
   className?: string;
 }
 
@@ -4179,6 +4226,35 @@ export interface CategoryInfo {
   title: string;
   description: string;
   subcategories?: SubcategoryInfo[];
+  items?: any[]; // Items in this category
+  materials?: any[]; // Related materials
+  contaminants?: any[]; // Related contaminants
+}
+
+/**
+ * Collection Page Types
+ * Used by CollectionPage component for category-based content pages
+ * 
+ * @see app/components/CollectionPage/CollectionPage.tsx
+ */
+export interface CollectionPageCategory {
+  slug: string;
+  label: string;
+  items: any[];
+  subcategories?: any[];
+  materials?: any[];
+  contaminants?: any[];
+}
+
+export interface CollectionPageConfig {
+  type: 'materials' | 'contaminants' | 'compounds' | 'settings';
+  plural: string;
+  rootPath: string;
+  pageTitle: string;
+  pageDescription: string;
+  categories: CollectionPageCategory[];
+  getImageUrl?: (category: CollectionPageCategory) => string;
+  getCardDescription?: (category: CollectionPageCategory) => string;
 }
 
 /**

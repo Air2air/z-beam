@@ -48,6 +48,66 @@ export function MaterialCard({
   // Create absolute URL for SEO Infrastructure structured data (relative href won't work)
   const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href || ''}`;
   
+  // Extract key metadata for relationship cards
+  const getRelationshipMetadata = () => {
+    if (variant !== 'relationship') return null;
+    
+    // Compound data
+    if (frontmatter?.chemicalFormula) {
+      return {
+        type: 'compound',
+        items: [
+          { label: 'Formula', value: frontmatter.chemicalFormula },
+          { label: 'CAS', value: frontmatter.chemicalProperties?.cas_number },
+          { label: 'Hazard', value: frontmatter.chemicalProperties?.hazard_class }
+        ].filter(item => item.value)
+      };
+    }
+    
+    // Contaminant data - show what we have
+    if (href?.includes('/contaminants')) {
+      const items = [];
+      if (frontmatter?.category) {
+        items.push({ label: 'Category', value: frontmatter.category.replace(/_/g, ' ').replace(/-/g, ' ') });
+      }
+      if (frontmatter?.description) {
+        items.push({ label: 'Context', value: frontmatter.description });
+      }
+      if (items.length > 0) {
+        return { type: 'contaminant', items };
+      }
+    }
+    
+    // Settings data
+    if (href?.includes('/settings')) {
+      const props = frontmatter?.properties || {};
+      const firstProps = Object.entries(props).slice(0, 2);
+      return {
+        type: 'setting',
+        items: firstProps.map(([key, val]: [string, any]) => ({
+          label: key.replace(/_/g, ' '),
+          value: val?.value ? `${val.value}${val.unit ? ` ${val.unit}` : ''}` : null
+        })).filter(item => item.value)
+      };
+    }
+    
+    return null;
+  };
+  
+  const relationshipData = getRelationshipMetadata();
+  
+  // Debug: Log to console in development
+  if (variant === 'relationship' && typeof window !== 'undefined') {
+    console.log('Relationship card DEBUG:', { 
+      variant, 
+      relationshipData,
+      'frontmatter.category': frontmatter?.category,
+      'frontmatter.description': frontmatter?.description,
+      'href': href,
+      'fullFrontmatter': frontmatter
+    });
+  }
+  
   // Check if this is a featured card by examining the className
   return (
     <Link
@@ -96,8 +156,22 @@ export function MaterialCard({
           />
         )}
         
-        {/* Standard Material Card - Image with overlay */}
+        {/* Relationship Card - Metadata display OR Standard Material Card - Image with overlay */}
         <div className={`relative w-full h-full bg-secondary`}>
+          {variant === 'relationship' && relationshipData ? (
+            /* Relationship metadata display */
+            <div className="absolute-inset flex flex-col justify-center items-center p-4 bg-tertiary">
+              <div className="w-full space-y-2">
+                {relationshipData.items.map((item, idx) => (
+                  <div key={idx} className="flex justify-between items-center border-b border-primary/10 pb-1">
+                    <span className="text-xs text-primary/70 font-medium uppercase tracking-wide">{item.label}</span>
+                    <span className="text-sm text-primary font-semibold">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            /* Standard image display */
             <Thumbnail
               alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
               frontmatter={frontmatter}
@@ -105,26 +179,27 @@ export function MaterialCard({
               objectFit="cover"
               priority={false}
             />
+          )}
 
-            {/* BadgeSymbol overlay for cards */}
-            {badge && badge.symbol && (
-              <div className="absolute-top-right z-20">
-                <BadgeSymbol
-                  content=""
-                  config={{
-                    symbol: badge.symbol,
-                    materialType: badge.materialType,
-                    atomicNumber: typeof badge.atomicNumber === 'number' ? badge.atomicNumber : 
-                                 typeof badge.atomicNumber === 'string' ? parseInt(badge.atomicNumber) : undefined,
-                    formula: badge.formula,
-                    variant: "card"
-                  }}
-                />
-              </div>
-            )}
+          {/* BadgeSymbol overlay for cards (not shown for relationship variant) */}
+          {variant !== 'relationship' && badge && badge.symbol && (
+            <div className="absolute-top-right z-20">
+              <BadgeSymbol
+                content=""
+                config={{
+                  symbol: badge.symbol,
+                  materialType: badge.materialType,
+                  atomicNumber: typeof badge.atomicNumber === 'number' ? badge.atomicNumber : 
+                               typeof badge.atomicNumber === 'string' ? parseInt(badge.atomicNumber) : undefined,
+                  formula: badge.formula,
+                  variant: "card"
+                }}
+              />
+            </div>
+          )}
 
-            {/* Material Title Bar - displays material name with navigation indicator */}
-            <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner" aria-label="Material card title">
+          {/* Material Title Bar - displays material name with navigation indicator */}
+          <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner" aria-label="Material card title">
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                   <h3 
@@ -153,10 +228,10 @@ export function MaterialCard({
                     strokeWidth={3} 
                     d="M9 5l7 7-7 7" 
                   />
-                </svg>
-              </div>
-            </header>
-          </div>
+              </svg>
+            </div>
+          </header>
+        </div>
       </article>
     </Link>
   );

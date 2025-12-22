@@ -113,15 +113,6 @@ export default function Footer() {
               )}
             </Link>
           ))}
-          <button
-            onClick={openCookieSettings}
-            className="text-secondary hover:text-primary 
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-                       rounded-md px-2 py-1 transition-colors"
-            aria-label="Manage cookie preferences"
-          >
-            Cookie Settings
-          </button>
         </nav>
 
         {/* Social Icons */}

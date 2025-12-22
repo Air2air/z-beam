@@ -3,6 +3,8 @@
 
 import React, { useState } from 'react';
 import { FileIcon } from '@/app/components/Buttons';
+import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetDownloadControls from './DatasetDownloadControls';
 import { copyToClipboard } from '@/app/utils/downloadUtils';
 import type { DatasetSectionProps } from '@/types/centralized';
@@ -50,24 +52,28 @@ export default function DatasetSection({
   const _directLink = getDirectLink?.(downloadFormat);
 
   return (
-    <div className="dataset-content">
+    <div className="dataset-card bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
+      {/* Header */}
+      <SectionTitle 
+        title={title}
+        description={description}
+        icon={getSectionIcon('dataset')}
+      />
+
       {/* Stats Grid */}
-      <div className="dataset-stats-grid hidden sm:grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-6">
+      <div className="dataset-stats-grid grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-6">
         {stats.map((stat, index) => (
           <div 
             key={index} 
-            className="dataset-stat-card bg-primary rounded-md p-1 h-[60px] flex flex-col items-center justify-center"
-            style={{ color: 'var(--text-primary)' }}
+            className="dataset-stat-card bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600 p-1 h-[60px] flex flex-col items-center justify-center"
           >
             <div 
-              className="dataset-stat-value text-lg md:text-xl font-bold text-center"
-              style={{ color: 'var(--text-primary)' }}
+              className="dataset-stat-value text-lg md:text-xl font-bold text-center text-gray-900 dark:text-white"
             >
               {stat.value}
             </div>
             <div 
-              className="dataset-stat-label text-xs text-center mt-0.5"
-              style={{ color: 'var(--text-tertiary)' }}
+              className="dataset-stat-label text-xs text-center mt-0.5 text-gray-600 dark:text-gray-400"
             >
               {stat.label}
             </div>

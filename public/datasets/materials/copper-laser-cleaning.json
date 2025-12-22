@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/materials/metal/non-ferrous/copper-laser-cleaning#dataset",
+  "@id": "http://localhost:3000/materials/metal/non-ferrous/copper-laser-cleaning#dataset",
   "name": "Copper Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Copper. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-22",
+  "datePublished": "2025-12-22",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/copper-laser-cleaning.json",
+      "contentUrl": "http://localhost:3000/datasets/materials/copper-laser-cleaning.json",
       "name": "Copper Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/copper-laser-cleaning.csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/copper-laser-cleaning.csv",
       "name": "Copper Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/copper-laser-cleaning.txt",
+      "contentUrl": "http://localhost:3000/datasets/materials/copper-laser-cleaning.txt",
       "name": "Copper Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-12-21"
+    "lastVerified": "2025-12-22"
   },
   "material": {
     "name": "Copper",
@@ -214,8 +214,226 @@
       }
     },
     "laserParameters": {},
-    "materialProperties": {},
-    "applications": [],
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "density": {
+          "value": 8.96,
+          "unit": "g/cm³",
+          "confidence": 98,
+          "min": 0.53,
+          "max": 22.6
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 96,
+          "min": 0,
+          "max": 15
+        },
+        "surfaceRoughness": {
+          "value": 0.1,
+          "unit": "μm Ra",
+          "confidence": 89,
+          "min": 0.4,
+          "max": 150
+        },
+        "tensileStrength": {
+          "value": 220,
+          "unit": "MPa",
+          "confidence": 88,
+          "min": 3,
+          "max": 3000
+        },
+        "youngsModulus": {
+          "value": 117,
+          "unit": "GPa",
+          "confidence": 93,
+          "min": 5,
+          "max": 600
+        },
+        "hardness": {
+          "value": 0.49,
+          "unit": "GPa",
+          "confidence": 87,
+          "min": 0.5,
+          "max": 3500
+        },
+        "flexuralStrength": {
+          "value": 210,
+          "unit": "MPa",
+          "confidence": 86,
+          "min": 2.5,
+          "max": 1050
+        },
+        "oxidationResistance": {
+          "value": 150,
+          "unit": "°C",
+          "confidence": "80",
+          "min": 200,
+          "max": 1200
+        },
+        "corrosionResistance": {
+          "value": 0.05,
+          "unit": "mm/year",
+          "confidence": 83,
+          "min": 1,
+          "max": 10
+        },
+        "compressiveStrength": {
+          "value": 70,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "fractureToughness": {
+          "value": 47,
+          "unit": "MPa√m",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "electricalResistivity": {
+          "value": 1.68e-8,
+          "unit": "Ω·m",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "boilingPoint": {
+          "value": 2835,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "electricalConductivity": {
+          "value": 59600000,
+          "unit": "S/m",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "meltingPoint": {
+          "value": 1357.77,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "percentage": 60
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "thermalConductivity": {
+          "value": 401,
+          "unit": "W/(m·K)",
+          "confidence": 95,
+          "min": 7,
+          "max": 430
+        },
+        "thermalExpansion": {
+          "value": 16.5,
+          "unit": "10^{-6}/K",
+          "confidence": 92,
+          "min": 0.5,
+          "max": 33
+        },
+        "thermalDiffusivity": {
+          "value": 1.17,
+          "unit": "10^{-4} m²/s",
+          "confidence": 90,
+          "min": 0.06,
+          "max": 174
+        },
+        "specificHeat": {
+          "value": 385,
+          "unit": "J/(kg·K)",
+          "confidence": 94,
+          "min": 100,
+          "max": 2000
+        },
+        "thermalShockResistance": {
+          "value": 250,
+          "unit": "kW/m²",
+          "confidence": 85,
+          "min": 50,
+          "max": 400
+        },
+        "laserReflectivity": {
+          "value": 0.98,
+          "unit": "",
+          "confidence": 92,
+          "min": 5,
+          "max": 99.9
+        },
+        "absorptionCoefficient": {
+          "value": 9.5,
+          "unit": "10^6 cm^{-1}",
+          "confidence": 90,
+          "min": 100000,
+          "max": 50000000
+        },
+        "ablationThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "confidence": 85,
+          "min": 2,
+          "max": 8
+        },
+        "laserDamageThreshold": {
+          "value": 0.8,
+          "unit": "J/cm²",
+          "confidence": 87,
+          "min": 0.1,
+          "max": 20
+        },
+        "percentage": 40,
+        "thermalDestruction": {
+          "value": 1357.77,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "laserAbsorption": {
+          "value": 0.035,
+          "unit": "",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "absorptivity": {
+          "value": 0.035,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.975,
+          "unit": "dimensionless",
+          "confidence": 98,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 101325,
+          "unit": "Pa",
+          "confidence": 100,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 1357.77,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research"
+        }
+      }
+    },
+    "applications": [
+      "Architecture",
+      "Electronics Manufacturing",
+      "HVAC Systems",
+      "Marine",
+      "Plumbing",
+      "Power Generation",
+      "Renewable Energy",
+      "Telecommunications"
+    ],
     "safetyConsiderations": [],
     "faqs": []
   },
@@ -389,7 +607,722 @@
       "minValue": 10,
       "maxValue": 90,
       "description": "Standard for uniform coverage; 60% recommended for copper to prevent gaps in cleaning while avoiding overexposure and thermal stress. Higher (70-80%) for heavy contamination, lower for speed. Source: Process optimization in Journal of Cleaner Production (2020)."
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 8.96,
+      "unitText": "g/cm³",
+      "minValue": 0.53,
+      "maxValue": 22.6
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%",
+      "minValue": 0,
+      "maxValue": 15
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 0.1,
+      "unitText": "μm Ra",
+      "minValue": 0.4,
+      "maxValue": 150
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 220,
+      "unitText": "MPa",
+      "minValue": 3,
+      "maxValue": 3000
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 117,
+      "unitText": "GPa",
+      "minValue": 5,
+      "maxValue": 600
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 0.49,
+      "unitText": "GPa",
+      "minValue": 0.5,
+      "maxValue": 3500
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 210,
+      "unitText": "MPa",
+      "minValue": 2.5,
+      "maxValue": 1050
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 150,
+      "unitText": "°C",
+      "minValue": 200,
+      "maxValue": 1200
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.05,
+      "unitText": "mm/year",
+      "minValue": 1,
+      "maxValue": 10
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 70,
+      "unitText": "MPa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 47,
+      "unitText": "MPa√m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 1.68e-8,
+      "unitText": "Ω·m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 2835,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalConductivity",
+      "name": "Electrical Conductivity",
+      "description": "Electrical Conductivity - material characteristics",
+      "value": 59600000,
+      "unitText": "S/m",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 1357.77,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 401,
+      "unitText": "W/(m·K)",
+      "minValue": 7,
+      "maxValue": 430
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - laser material interaction",
+      "value": 16.5,
+      "unitText": "10^{-6}/K",
+      "minValue": 0.5,
+      "maxValue": 33
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 1.17,
+      "unitText": "10^{-4} m²/s",
+      "minValue": 0.06,
+      "maxValue": 174
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - laser material interaction",
+      "value": 385,
+      "unitText": "J/(kg·K)",
+      "minValue": 100,
+      "maxValue": 2000
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 250,
+      "unitText": "kW/m²",
+      "minValue": 50,
+      "maxValue": 400
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - laser material interaction",
+      "value": 0.98,
+      "unitText": "",
+      "minValue": 5,
+      "maxValue": 99.9
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 9.5,
+      "unitText": "10^6 cm^{-1}",
+      "minValue": 100000,
+      "maxValue": 50000000
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "minValue": 2,
+      "maxValue": 8
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 0.8,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - laser material interaction",
+      "value": 1357.77,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - laser material interaction",
+      "value": 0.035,
+      "unitText": "",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.035,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.975,
+      "unitText": "dimensionless",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 101325,
+      "unitText": "Pa",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 1357.77,
+      "unitText": "K",
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "value": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "value": "https://webstore.ansi.org/standards/lia/ansiz1362022",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "value": "https://webstore.iec.ch/publication/3587",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "regulatory_compliance",
+      "name": "OSHA",
+      "description": "OSHA 29 CFR 1926.95 - Personal Protective Equipment",
+      "value": "https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102",
+      "measurementTechnique": "Regulatory compliance verification"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: adhesive-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/adhesive-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: algae-growth-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/growth/algae-growth-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: battery-corrosion-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/oxidation/battery/battery-corrosion-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: biological-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/biological-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: bronze-patina-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/oxidation/non-ferrous/bronze-patina-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: carbon-soot-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/carbon-soot-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: chemical-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/chemical-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: copper-patina-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/oxidation/non-ferrous/copper-patina-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: corrosion-inhibitor-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/coating/corrosion-inhibitor-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: electroplating-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/electroplating-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: epoxy-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/epoxy-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: fertilizer-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/fertilizer-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: gold-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/gold-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graffiti-paint-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/graffiti-paint-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: graphite-marks-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/graphite-marks-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: industrial-oil-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/petroleum/industrial-oil-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: ink-stains-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/marking/ink-stains-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: insect-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/insect-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: lime-scale-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/lime-scale-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mercury-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/mercury-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: metal-polish-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/wax/metal-polish-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: mineral-deposits-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/mineral-deposits-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: nickel-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/nickel-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: paint-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/paint/paint-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pesticide-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/industrial/pesticide-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: plastic-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/plastic-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: pollen-deposit-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/biological/deposit/pollen-deposit-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: radioactive-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/chemical-residue/hazardous/radioactive-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: rubber-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/polymer/rubber-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: salt-residue-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/inorganic-coating/mineral/salt-residue-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: scale-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/thermal-damage/scale/scale-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silicone-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/adhesive/silicone-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: silver-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/silver-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: solder-flux-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/lubricant/solder-flux-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: thermal-paste-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/thermal-paste-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: tin-plating-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/metallic-coating/plating/tin-plating-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: tree-sap-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/natural/tree-sap-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: water-stain-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/other/water-stain-contamination",
+      "measurementTechnique": "Contamination analysis"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "contamination_susceptibility",
+      "name": "Contamination: wax-buildup-contamination",
+      "description": "Material contamination relationship",
+      "value": "/contaminants/organic-residue/wax/wax-buildup-contamination",
+      "measurementTechnique": "Contamination analysis"
     }
   ],
-  "citation": "Z-Beam (2025). Copper Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/copper-laser-cleaning"
+  "author": {
+    "@type": "Person",
+    "name": "Todd Dunning",
+    "jobTitle": "Junior Optical Materials Specialist",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Coherent Inc."
+    },
+    "email": "info@z-beam.com",
+    "url": "http://localhost:3000https://z-beam.com/authors/todd-dunning",
+    "image": {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/author/todd-dunning.jpg",
+      "description": "Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools"
+    }
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/copper-laser-cleaning-hero.jpg",
+      "description": "Copper surface undergoing laser cleaning showing precise contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "http://localhost:3000/images/material/copper-laser-cleaning-micro.jpg",
+      "description": "Copper microscopic view of laser cleaning showing detailed precise contamination removal",
+      "thumbnail": true
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Copper Laser Cleaning Dataset",
+      "author": {
+        "@type": "Person",
+        "name": "Todd Dunning",
+        "jobTitle": "Junior Optical Materials Specialist"
+      },
+      "datePublished": "2025-12-22T06:53:13.614860Z",
+      "url": "http://localhost:3000/materials/metal/non-ferrous/copper-laser-cleaning",
+      "citation": "Z-Beam (2025). Copper Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/copper-laser-cleaning"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Z-Beam Material Properties Database",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Z-Beam Laser Cleaning Research Lab",
+        "url": "https://www.z-beam.com"
+      },
+      "url": "https://www.z-beam.com/datasets"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "FDA",
+      "description": "FDA 21 CFR 1040.10 - Laser Product Performance Standards",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Food and Drug Administration"
+      },
+      "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "ANSI",
+      "description": "ANSI Z136.1 - Safe Use of Lasers",
+      "publisher": {
+        "@type": "Organization",
+        "name": "American National Standards Institute"
+      },
+      "url": "https://webstore.ansi.org/standards/lia/ansiz1362022"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "IEC",
+      "description": "IEC 60825 - Safety of Laser Products",
+      "publisher": {
+        "@type": "Organization",
+        "name": "International Electrotechnical Commission"
+      },
+      "url": "https://webstore.iec.ch/publication/3587"
+    }
+  ]
 }

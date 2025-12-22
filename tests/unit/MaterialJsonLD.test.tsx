@@ -10,6 +10,12 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MaterialJsonLD } from '@/app/components/JsonLD/JsonLD';
 
+// Mock dataset loader to return null so tests use frontmatter data directly
+jest.mock('@/app/utils/schemas/datasetLoader', () => ({
+  loadGeneratedDataset: jest.fn(() => null),
+  extractEnhancedFields: jest.fn(() => null)
+}));
+
 describe('MaterialJsonLD Component', () => {
   const baseArticle = {
     metadata: {

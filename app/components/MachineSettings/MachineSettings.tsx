@@ -8,7 +8,6 @@ import { getSectionIcon } from '@/app/config/sectionIcons';
 interface MachineSettingsProps {
   metadata: any;
   materialName?: string;
-  heroImage?: string;
   materialLink?: string;
 }
 
@@ -19,12 +18,13 @@ interface MachineSettingsProps {
  * three-bar visualization (value, min, max) for all settings properties.
  * 
  * Designed for Settings pages to show equipment parameters and operating ranges.
+ * Includes "Material" button in top-right to navigate back to the material page.
  * 
  * @param metadata - Settings metadata containing machineSettings data
  * @param materialName - Optional material name for title context
- * @param heroImage - Optional hero image URL for thumbnail
+ * @param materialLink - Optional link back to material page (creates "Material" button)
  */
-export function MachineSettings({ metadata, materialName, heroImage, materialLink }: MachineSettingsProps) {
+export function MachineSettings({ metadata, materialName, materialLink }: MachineSettingsProps) {
   // Check if we have machine settings data
   const hasMachineSettings = metadata?.machineSettings && 
     Object.keys(metadata.machineSettings).length > 0;
@@ -39,14 +39,12 @@ export function MachineSettings({ metadata, materialName, heroImage, materialLin
 
   return (
     <SectionContainer
+      title={title}
+      icon={getSectionIcon('machine-settings')}
+      actionText={materialLink ? "Material" : undefined}
+      actionUrl={materialLink}
       className="mb-8"
     >
-      <SectionTitle
-        title={title}
-        icon={getSectionIcon('machine-settings')}
-        thumbnail={heroImage}
-        thumbnailLink={materialLink}
-      />
       <PropertyBars 
         metadata={metadata}
         dataSource="machineSettings"

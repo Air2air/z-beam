@@ -56,7 +56,7 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#materials"
-              className="inline-flex items-center space-x-2 bg-white text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-md transition-colors shadow-lg"
+              className="inline-flex items-center space-x-2 bg-white text-orange-600 hover:bg-orange-50 font-semibold px-6 py-3 rounded-md transition-colors shadow-lg"
             >
               <LayersIcon className="w-5 h-5" />
               <span>Browse Materials</span>

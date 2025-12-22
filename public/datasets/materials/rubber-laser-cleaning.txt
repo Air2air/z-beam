@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Rubber Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/composite/fiber-reinforced/rubber-laser-cleaning
+URL:            http://localhost:3000/materials/composite/fiber-reinforced/rubber-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,152 @@ overlap_ratio:
   Note:   50% overlap ensures uniform coverage and contaminant removal on irregular rubber surfaces; lower (30%) for speed, higher (70-80%) for heavy contamination. Balances efficiency and evenness. Source: Process optimization studies in Optics and Laser Technology (2019); typical range from manufacturer guidelines like those from CleanLaser.
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  electricalResistivity:
+    Value:  10000 Ω·m
+    Source: ai_research
+
+  fractureToughness:
+    Value:  3.2 MPa m^{0.5}
+    Source: ai_research
+
+  youngsModulus:
+    Value:  0.003 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  36 h
+    Source: ai_research
+
+  density:
+    Value:  1.15 g/cm³
+    Source: ai_research
+
+  hardness:
+    Value:  65 Shore A
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.95 dimensionless (normalized resistance index)
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  16.5 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  12.5 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  22 MPa
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  0.75 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.85 dimensionless
+    Min:    0.6 dimensionless
+    Max:    0.95 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  500000 m⁻¹
+    Min:    100000 m⁻¹
+    Max:    1000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.5 J/cm²
+    Min:    0.5 J/cm²
+    Max:    5 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  1.2 MW/m
+    Min:    0.5 MW/m
+    Max:    2.5 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.12 dimensionless
+    Min:    0.05 dimensionless
+    Max:    0.35 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  673 K
+    Min:    573 K
+    Max:    773 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  50 Pa
+    Min:    1 Pa
+    Max:    500 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  673 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  1700 J/(kg·K)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.07 fraction
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.17 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0002 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  120000 m^{-1}
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  1.04e-7 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  0.75 J/cm²
+    Source: scientific_literature
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Aerospace
+2. Automotive
+3. Medical Device Manufacturing
+4. Marine and Offshore
+5. Electronics Manufacturing
+6. Cultural Heritage Conservation
+7. Industrial Manufacturing
+8. Energy Sector
+9. Food Processing
+10. Rail Transportation
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Rubber Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/rubber-laser-cleaning
+  Z-Beam (2025). Rubber Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/rubber-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

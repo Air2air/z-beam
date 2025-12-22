@@ -42,65 +42,193 @@ export function SafetyDataPanel({
 }: SafetyDataPanelProps) {
   if (!safetyData) return null;
 
+  // Check if safetyData has any actual data (not just undefined fields)
+  const hasAnySafetyData = Object.values(safetyData).some(value => value !== undefined && value !== null);
+  if (!hasAnySafetyData) return null;
+
+  // Check if this is compound data (has storage_requirements, regulatory_classification, etc.)
+  // vs contaminant data (has fire_explosion_risk, toxic_gas_risk, etc.)
+  const isCompoundData = !!(safetyData.storage_requirements || safetyData.regulatory_classification || safetyData.workplace_exposure);
+
   return (
     <SectionContainer variant="default" className={`py-12 ${className}`}>
       <div className="container-custom px-4">
         <SectionTitle 
           title="Safety Information"
-          subtitle="Critical safety data for laser removal operations"
+          subtitle={isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"}
           alignment="left"
           className="mb-8"
         />
 
         {/* Unified Safety & Control Measures Grid */}
         <div className={`${getGridClasses({ columns: 3, gap: 'md' })} mb-8`}>
-          {/* Risk Cards */}
-          {safetyData.fire_explosion_risk && (
-            <RiskCard
-              icon={Flame}
-              label="Fire/Explosion Risk"
-              severity={safetyData.fire_explosion_risk}
-            />
-          )}
-          {safetyData.toxic_gas_risk && (
-            <RiskCard
-              icon={AlertTriangle}
-              label="Toxic Gas Risk"
-              severity={safetyData.toxic_gas_risk}
-            />
-          )}
-          {safetyData.visibility_hazard && (
-            <RiskCard
-              icon={Eye}
-              label="Visibility Hazard"
-              severity={safetyData.visibility_hazard}
-            />
+          {/* Contaminant-style Risk Cards */}
+          {!isCompoundData && (
+            <>
+              {safetyData.fire_explosion_risk && (
+                <RiskCard
+                  icon={Flame}
+                  label="Fire/Explosion Risk"
+                  severity={safetyData.fire_explosion_risk}
+                />
+              )}
+              {safetyData.toxic_gas_risk && (
+                <RiskCard
+                  icon={AlertTriangle}
+                  label="Toxic Gas Risk"
+                  severity={safetyData.toxic_gas_risk}
+                />
+              )}
+              {safetyData.visibility_hazard && (
+                <RiskCard
+                  icon={Eye}
+                  label="Visibility Hazard"
+                  severity={safetyData.visibility_hazard}
+                />
+              )}
+            </>
           )}
 
-          {/* PPE Requirements Card */}
+          {/* PPE Requirements Card - Works for both contaminants and compounds */}
           {safetyData.ppe_requirements && (
             <InfoCard
               icon={Shield}
               title="PPE Requirements"
               data={[
                 safetyData.ppe_requirements.respiratory && {
-                  label: 'Respiratory Protection',
+                  label: 'Respiratory',
                   value: safetyData.ppe_requirements.respiratory
                 },
-                safetyData.ppe_requirements.eye_protection && {
+                (safetyData.ppe_requirements.eye_protection || safetyData.ppe_requirements.eye) && {
                   label: 'Eye Protection',
-                  value: safetyData.ppe_requirements.eye_protection
+                  value: safetyData.ppe_requirements.eye_protection || safetyData.ppe_requirements.eye
                 },
-                safetyData.ppe_requirements.skin_protection && {
+                (safetyData.ppe_requirements.skin_protection || safetyData.ppe_requirements.skin) && {
                   label: 'Skin Protection',
-                  value: safetyData.ppe_requirements.skin_protection
+                  value: safetyData.ppe_requirements.skin_protection || safetyData.ppe_requirements.skin
+                },
+                safetyData.ppe_requirements.minimum_level && {
+                  label: 'Minimum Level',
+                  value: safetyData.ppe_requirements.minimum_level
                 }
               ].filter(Boolean) as Array<{ label: string; value: string | number }>}
             />
           )}
 
-          {/* Ventilation Requirements Card */}
-          {safetyData.ventilation_requirements && (
+          {/* Storage Requirements Card - Compound-specific */}
+          {isCompoundData && safetyData.storage_requirements && (
+            <InfoCard
+              icon={Shield}
+              title="Storage Requirements"
+              data={[
+                safetyData.storage_requirements.temperature_range && {
+                  label: 'Temperature',
+                  value: safetyData.storage_requirements.temperature_range
+                },
+                safetyData.storage_requirements.ventilation && {
+                  label: 'Ventilation',
+                  value: safetyData.storage_requirements.ventilation
+                },
+                safetyData.storage_requirements.container_material && {
+                  label: 'Container Material',
+                  value: safetyData.storage_requirements.container_material
+                }
+              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+            />
+          )}
+
+          {/* Regulatory Classification Card - Compound-specific */}
+          {isCompoundData && safetyData.regulatory_classification && (
+            <InfoCard
+              icon={AlertTriangle}
+              title="Regulatory Classification"
+              data={[
+                safetyData.regulatory_classification.un_number && {
+                  label: 'UN Number',
+                  value: safetyData.regulatory_classification.un_number
+                },
+                safetyData.regulatory_classification.dot_hazard_class && {
+                  label: 'DOT Hazard Class',
+                  value: safetyData.regulatory_classification.dot_hazard_class
+                },
+                safetyData.regulatory_classification.nfpa_codes && {
+                  label: 'NFPA',
+                  value: `H:${safetyData.regulatory_classification.nfpa_codes.health} F:${safetyData.regulatory_classification.nfpa_codes.flammability} R:${safetyData.regulatory_classification.nfpa_codes.reactivity}`
+                }
+              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+            />
+          )}
+
+          {/* Workplace Exposure Card - Compound-specific */}
+          {isCompoundData && safetyData.workplace_exposure && (
+            <InfoCard
+              icon={Wind}
+              title="Exposure Limits"
+              data={[
+                safetyData.workplace_exposure.osha_pel?.twa_8hr && {
+                  label: 'OSHA PEL (8hr)',
+                  value: `${safetyData.workplace_exposure.osha_pel.twa_8hr} ppm`
+                },
+                safetyData.workplace_exposure.niosh_rel?.twa_8hr && {
+                  label: 'NIOSH REL (8hr)',
+                  value: `${safetyData.workplace_exposure.niosh_rel.twa_8hr} ppm`
+                },
+                safetyData.workplace_exposure.niosh_rel?.idlh && {
+                  label: 'IDLH',
+                  value: `${safetyData.workplace_exposure.niosh_rel.idlh} ppm`
+                }
+              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+            />
+          )}
+
+          {/* Detection/Monitoring Card */}
+          {safetyData.detection_monitoring && (
+            <InfoCard
+              icon={Eye}
+              title="Detection & Monitoring"
+              data={[
+                safetyData.detection_monitoring.sensor_types && {
+                  label: 'Sensors',
+                  value: Array.isArray(safetyData.detection_monitoring.sensor_types) 
+                    ? safetyData.detection_monitoring.sensor_types.join(', ')
+                    : safetyData.detection_monitoring.sensor_types
+                },
+                safetyData.detection_monitoring.detection_range && {
+                  label: 'Range',
+                  value: safetyData.detection_monitoring.detection_range
+                },
+                safetyData.detection_monitoring.alarm_setpoints?.low && {
+                  label: 'Low Alarm',
+                  value: `${safetyData.detection_monitoring.alarm_setpoints.low} ppm`
+                }
+              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+            />
+          )}
+
+          {/* Reactivity Card - Compound-specific */}
+          {isCompoundData && safetyData.reactivity && (
+            <InfoCard
+              icon={Flame}
+              title="Reactivity"
+              data={[
+                safetyData.reactivity.stability && {
+                  label: 'Stability',
+                  value: safetyData.reactivity.stability
+                },
+                safetyData.reactivity.polymerization && {
+                  label: 'Polymerization',
+                  value: safetyData.reactivity.polymerization
+                },
+                safetyData.reactivity.reactivity_hazard && {
+                  label: 'Hazard',
+                  value: safetyData.reactivity.reactivity_hazard
+                }
+              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+            />
+          )}
+
+          {/* Ventilation Requirements Card - Contaminant-specific */}
+          {!isCompoundData && safetyData.ventilation_requirements && (
             <InfoCard
               icon={Wind}
               title="Ventilation Requirements"
@@ -121,8 +249,8 @@ export function SafetyDataPanel({
             />
           )}
 
-          {/* Particulate Generation Card */}
-          {safetyData.particulate_generation && (
+          {/* Particulate Generation Card - Contaminant-specific */}
+          {!isCompoundData && safetyData.particulate_generation && (
             <InfoCard
               icon={AlertTriangle}
               title="Particulate Generation"
@@ -134,6 +262,28 @@ export function SafetyDataPanel({
                 safetyData.particulate_generation.size_range_um && {
                   label: 'Size Range',
                   value: `${safetyData.particulate_generation.size_range_um[0]}-${safetyData.particulate_generation.size_range_um[1]} μm`
+                }
+              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+            />
+          )}
+
+          {/* Environmental Impact Card - Compound-specific */}
+          {isCompoundData && safetyData.environmental_impact && (
+            <InfoCard
+              icon={Wind}
+              title="Environmental Impact"
+              data={[
+                safetyData.environmental_impact.aquatic_toxicity && {
+                  label: 'Aquatic Toxicity',
+                  value: safetyData.environmental_impact.aquatic_toxicity
+                },
+                safetyData.environmental_impact.biodegradability && {
+                  label: 'Biodegradability',
+                  value: safetyData.environmental_impact.biodegradability
+                },
+                safetyData.environmental_impact.soil_mobility && {
+                  label: 'Soil Mobility',
+                  value: safetyData.environmental_impact.soil_mobility
                 }
               ].filter(Boolean) as Array<{ label: string; value: string | number }>}
             />

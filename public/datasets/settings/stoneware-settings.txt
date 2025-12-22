@@ -11,6 +11,94 @@ MACHINE SETTINGS - ALL PARAMETERS
 The following parameters must ALL be configured for optimal laser cleaning.
 These values are scientifically derived from material properties and research.
 
+POWER RANGE:
+  Value: 100 W
+  Range: 1-120 W
+  Description: Optimal average power for Stoneware surface cleaning 
+               without thermal damage
 
-Generated: 2025-12-21T07:05:14.105Z
+WAVELENGTH:
+  Value: 1064 nm
+  Range: 355-10640 nm
+  Description: Near-infrared wavelength optimized for Stoneware 
+               mineral absorption
+
+SPOT SIZE:
+  Value: 100 μm
+  Range: 0.1-500 μm
+  Description: Beam spot diameter for precise cleaning control
+
+REPETITION RATE:
+  Value: 50 kHz
+  Range: 1-200 kHz
+  Description: Optimal repetition rate for efficient cleaning coverage
+
+ENERGY DENSITY:
+  Value: 5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence level for effective contaminant removal without 
+               substrate damage
+
+PULSE WIDTH:
+  Value: 10 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond pulse duration for controlled ablation of 
+
+SCAN SPEED:
+  Value: 500 mm/s
+  Range: 10-5000 mm/s
+  Description: Optimal scanning speed for uniform cleaning coverage
+
+PASS COUNT:
+  Value: 3 passes
+  Range: 1-10 passes
+  Description: Recommended number of passes for complete contaminant 
+
+OVERLAP RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Optimal beam overlap for uniform cleaning pattern
+
+POWER:
+  Value: 100 W
+  Range: 50-500 W
+  Description: Typical range for industrial laser cleaning of ceramics like stoneware to avoid thermal damage; starting at 100W for light contamination removal. Max safe before substrate cracking or discoloration. Source: Manufacturer specs from CleanLaser systems and studies in Journal of Laser Applications (e.g., 2018 paper on ceramic surface preparation).
+
+SCAN_SPEED:
+  Value: 1500 mm/s
+  Range: 10-5000 mm/s
+  Description: Effective speeds for 1064 nm cleaning on stoneware; slower for heavy contaminants (500-1000 mm/s) vs light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from SPIE proceedings on laser cleaning (e.g., 2020) and equipment manuals from IPG Photonics.
+
+PULSE_WIDTH:
+  Value: 20 ns
+  Range: 0.1-1000 ns
+  Description: Nanosecond regime preferred for stoneware to ablate contaminants without deep penetration; picosecond (ps) for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat accumulation in low-conductivity ceramics. Femtosecond avoided due to cost. Source: Laser physics research in Optics Express (e.g., 2015 study on pulsed laser ablation of ceramics).
+
+REPETITION_RATE:
+  Value: 30 kHz
+  Range: 1-200 kHz
+  Description: Typical for cleaning applications; 30 kHz recommended for stoneware to achieve fast coverage while minimizing heat buildup—higher rates (>50 kHz) risk accumulation on low-thermal-conductivity materials. Trade-off: speed vs thermal safety. Source: Academic literature in Applied Surface Science (e.g., 2019 on repetition rate effects in ceramic cleaning).
+
+ENERGY_DENSITY:
+  Value: 1.5 J/cm²
+  Range: 0.1-20 J/cm²
+  Description: Fluence range for contaminant removal on stoneware; damage threshold ~4 J/cm² due to high melting point (~1200°C) but conservative to prevent micro-cracks. 1.5 J/cm² safe for surface preparation. Stoneware's moderate reflectivity at 1064 nm requires mid-range. Source: Ablation threshold studies in Journal of Cultural Heritage (e.g., 2017 on stone and ceramic lasers).
+
+SPOT_SIZE:
+  Value: 500 μm
+  Range: 0.1-500 μm
+  Description: Beam diameter for uniform cleaning; smaller for fine details (200-400 μm), larger for broad areas (500-1000 μm). 500 μm recommended for stoneware industrial apps to cover surfaces efficiently without hotspots. Source: Equipment specifications from Coherent and Trumpf laser systems for ceramic processing.
+
+PASS_COUNT:
+  Value: 2 passes
+  Range: 1-10 passes
+  Description: Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete stoneware cleaning to ensure removal without overexposure. Based on layered ablation approach. Source: Industry practice in case studies from Laser Institute of America reports (e.g., 2021 industrial cleaning guidelines).
+
+OVERLAP_RATIO:
+  Value: 50 %
+  Range: 10-90 %
+  Description: Ensures uniform coverage; 50% recommended for stoneware to avoid gaps or excessive overlap-induced damage, adjustable 30% for speed or 80% for thoroughness. Typical range balances efficiency. Source: Process optimization studies in Optics and Lasers in Engineering (e.g., 2016 on scan overlap in surface cleaning).
+
+
+Generated: 2025-12-22T20:49:23.866Z
 License: CC BY 4.0

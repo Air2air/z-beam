@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Steel Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/metal/ferrous/steel-laser-cleaning
+URL:            http://localhost:3000/materials/metal/ferrous/steel-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -137,11 +137,168 @@ overlap_ratio:
   Note:   Ensures uniform coverage; 30-50% for speed, 70-80% for thorough cleaning. Recommended 60% prevents gaps on irregular steel surfaces while minimizing over-processing. Source: Process optimization in International Journal of Advanced Manufacturing Technology (2022).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  density:
+    Value:  7.85 g/cm³
+    Min:    0.53 g/cm³
+    Max:    22.6 g/cm³
+
+  porosity:
+    Value:  0.1 %
+    Min:    0 %
+    Max:    15 %
+
+  surfaceRoughness:
+    Value:  1.6 μm Ra
+    Min:    0.4 μm Ra
+    Max:    150 μm Ra
+
+  tensileStrength:
+    Value:  400 MPa
+    Min:    3 MPa
+    Max:    3000 MPa
+
+  youngsModulus:
+    Value:  200 GPa
+    Min:    5 GPa
+    Max:    600 GPa
+
+  hardness:
+    Value:  1.47 GPa
+    Min:    0.5 GPa
+    Max:    3500 GPa
+
+  flexuralStrength:
+    Value:  350 MPa
+    Min:    2.5 MPa
+    Max:    1050 MPa
+
+  oxidationResistance:
+    Value:  8 scale (1-10)
+    Min:    200 scale (1-10)
+    Max:    1200 scale (1-10)
+
+  corrosionResistance:
+    Value:  6 scale (1-10)
+    Min:    1 scale (1-10)
+    Max:    10 scale (1-10)
+
+  compressiveStrength:
+    Value:  250 MPa
+    Source: ai_research
+
+  fractureToughness:
+    Value:  60 MPa m^{1/2}
+    Source: ai_research
+
+  electricalResistivity:
+    Value:  1.7e-7 Ω·m
+    Source: ai_research
+
+  boilingPoint:
+    Value:  3134 K
+    Source: ai_research
+
+  electricalConductivity:
+    Value:  6700000 S/m
+    Source: ai_research
+
+  meltingPoint:
+    Value:  1723 K
+    Source: ai_research
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  thermalConductivity:
+    Value:  50 W/(m·K)
+    Min:    7 W/(m·K)
+    Max:    430 W/(m·K)
+
+  thermalExpansion:
+    Value:  12 ×10^{-6}/K
+    Min:    0.5 ×10^{-6}/K
+    Max:    33 ×10^{-6}/K
+
+  thermalDiffusivity:
+    Value:  1.4 ×10^{-5} m²/s
+    Min:    0.06 ×10^{-5} m²/s
+    Max:    174 ×10^{-5} m²/s
+
+  specificHeat:
+    Value:  486 J/(kg·K)
+    Min:    100 J/(kg·K)
+    Max:    2000 J/(kg·K)
+
+  thermalShockResistance:
+    Value:  250 W/m
+    Min:    50 W/m
+    Max:    400 W/m
+
+  laserReflectivity:
+    Value:  0.4 dimensionless (at 1064 nm)
+    Min:    5 dimensionless (at 1064 nm)
+    Max:    99.9 dimensionless (at 1064 nm)
+
+  absorptionCoefficient:
+    Value:  0.6 dimensionless (at 1064 nm)
+    Min:    100000 dimensionless (at 1064 nm)
+    Max:    50000000 dimensionless (at 1064 nm)
+
+  ablationThreshold:
+    Value:  1.5 J/cm²
+    Min:    2 J/cm²
+    Max:    8 J/cm²
+
+  laserDamageThreshold:
+    Value:  2 J/cm²
+    Min:    0.1 J/cm²
+    Max:    20 J/cm²
+
+  thermalDestruction:
+    Value:  1773 K
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.35 dimensionless
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.35 dimensionless
+    Source: ai_research
+
+  vaporPressure:
+    Value:  10 Pa
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1773 K
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.59 
+    Source: ai_research
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Automotive
+2. Construction
+3. Manufacturing
+4. Oil & Gas
+5. Rail Transport
+6. Shipbuilding
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Steel Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/ferrous/steel-laser-cleaning
+  Z-Beam (2025). Steel Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/ferrous/steel-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

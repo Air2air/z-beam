@@ -1,8 +1,8 @@
 id: battery-corrosion-contamination
 name: Battery Leakage Corrosion
 category: oxidation
-datePublished: '2025-12-21T02:51:35.584222Z'
-dateModified: '2025-12-21T02:51:35.584222Z'
+datePublished: '2025-12-22T23:36:10.067541Z'
+dateModified: '2025-12-22T23:36:10.067541Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/battery/battery-corrosion-contamination
@@ -22,12 +22,74 @@ description: Battery-corrosion contamination forms through electrolyte reactions
   to alloys. On copper, it builds insulating films; on steel and brass, cracking induces. Removal challenges demand careful
   dissolution, but laser cleaning ablates layers precisely, so surface restores conductivity effectively.
 relationships:
-  regulatoryStandards:
-  - type: regulatory_standards
-    id: osha-ppe-requirements
-  - type: regulatory_standards
-    id: ansi-z136-1-laser-safety
-  visualCharacteristics:
+  regulatory_standards:
+    _section:
+      title: Regulatory Standards
+      description: Industry standards and regulations applicable to this contamination
+      order: 8
+      variant: reference
+      icon: book
+    items:
+    - type: regulatory_standards
+      id: osha-ppe-requirements
+      presentation: card
+    - type: regulatory_standards
+      id: ansi-z136-1-laser-safety
+      presentation: card
+  produces_compounds:
+    _section:
+      title: Compounds Released
+      description: Hazardous fumes and particles generated when removing this contamination
+      order: 1
+      variant: warning
+      icon: flask
+    items:
+    - id: zinc-oxide
+      phase: solid
+      hazard_level: low
+      presentation: card
+  found_on_materials:
+  - id: steel-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/ferrous/steel-laser-cleaning
+  - id: iron-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/ferrous/iron-laser-cleaning
+  - id: stainless-steel-316-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+  - id: aluminum-laser-cleaning
+    frequency: very_common
+    presentation: card
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+  - id: copper-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+  - id: brass-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+  - id: bronze-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+  - id: titanium-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/specialty/titanium-laser-cleaning
+  - id: zinc-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/alloy/zinc-laser-cleaning
+  - id: nickel-laser-cleaning
+    frequency: common
+    presentation: card
+    url: /materials/metal/specialty/nickel-laser-cleaning
+  visual_characteristics:
     appearance_on_categories:
       ceramic:
         appearance: White or colored powdery residues, potentially causing surface pitting or a dull, rough finish.
@@ -85,7 +147,7 @@ relationships:
           degradation.
         coverage: Typically limited to the contact area, with variation based on wood porosity and liquid spread.
         pattern: Spots or patches that follow the wood grain, with streaks if the liquid runs.
-  laserProperties:
+  laser_properties:
     laser_parameters:
       beam_profile: flat_top
       fluence_range:
@@ -169,13 +231,27 @@ relationships:
       thermal_diffusivity: 0.12
       vaporization_temperature: 450
   valid_materials:
-  - Copper
-  - Steel
-  - Brass
+    _section:
+      title: Safe for Materials
+      description: Materials where this contamination can be safely removed
+      order: 3
+      variant: relationship
+      icon: shield-check
+    items:
+    - Brass
+    - Copper
+    - Steel
   prohibited_materials:
-  - Aluminum
-  - Electronics
-  safetyData: &id001
+    _section:
+      title: Unsafe for Materials
+      description: Materials where removal of this contamination is not recommended
+      order: 4
+      variant: warning
+      icon: alert-triangle
+    items:
+    - Aluminum
+    - Electronics
+  safety_data: &id001
     fire_explosion_risk:
       severity: low
       description: Minimal fire risk with standard precautions and adequate ventilation
@@ -233,6 +309,35 @@ relationships:
       source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
       mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
       related_field: particulate_generation.respirable_fraction
+  materials:
+    title: Affected Materials
+    description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+    groups:
+      metals:
+        title: Metal Substrates
+        description: Ferrous and non-ferrous metals affected by this contamination
+        items:
+        - id: brass-laser-cleaning
+          title: Brass
+          url: /materials/metal/non-ferrous/brass-laser-cleaning
+          image: /images/material/brass-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: copper-laser-cleaning
+          title: Copper
+          url: /materials/metal/non-ferrous/copper-laser-cleaning
+          image: /images/material/copper-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
+        - id: steel-laser-cleaning
+          title: Steel
+          url: /materials/metal/ferrous/steel-laser-cleaning
+          image: /images/material/steel-laser-cleaning-hero.jpg
+          frequency: common
+          severity: moderate
+          typical_context: ''
 composition:
 - KOH
 - K₂CO₃
@@ -268,14 +373,17 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 subcategory: battery
-safetyData: *id001
-removalByMaterial:
+safety_data: *id001
+removal_by_material:
   brass:
     laser_parameters:
       wavelength:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 100
@@ -288,35 +396,35 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 500
-        - 3000
+        - 10
+        - 5000
       pulse_width:
         unit: ns
         value: 10
         recommended: 10
         range:
-        - 5
-        - 50
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 30
         recommended: 30
         range:
-        - 10
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -324,14 +432,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 70
         recommended: 70
         range:
-        - 50
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -388,6 +496,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -400,35 +511,35 @@ removalByMaterial:
         value: 2000
         recommended: 2000
         range:
-        - 500
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 50
         recommended: 50
         range:
-        - 10
-        - 200
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 50
         recommended: 50
         range:
-        - 20
-        - 100
+        - 1
+        - 200
       energy_density:
         unit: J/cm²
         value: 1.5
         recommended: 1.5
         range:
-        - 0.5
-        - 3.0
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 200
         recommended: 200
         range:
-        - 100
+        - 0.1
         - 500
       pass_count:
         unit: passes
@@ -436,14 +547,14 @@ removalByMaterial:
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:
@@ -501,6 +612,9 @@ removalByMaterial:
         unit: nm
         value: 1064
         recommended: 1064
+        range:
+        - 355
+        - 10640
       power:
         unit: W
         value: 200
@@ -513,50 +627,50 @@ removalByMaterial:
         value: 1500
         recommended: 1500
         range:
-        - 100
+        - 10
         - 5000
       pulse_width:
         unit: ns
         value: 20
         recommended: 20
         range:
-        - 5
-        - 200
+        - 0.1
+        - 1000
       repetition_rate:
         unit: kHz
         value: 80
         recommended: 80
         range:
-        - 20
+        - 1
         - 200
       energy_density:
         unit: J/cm²
         value: 2.5
         recommended: 2.5
         range:
-        - 0.5
-        - 8
+        - 0.1
+        - 20.0
       spot_size:
         unit: μm
         value: 250
         recommended: 250
         range:
-        - 100
-        - 1000
+        - 0.1
+        - 500
       pass_count:
         unit: passes
         value: 2
         recommended: 2
         range:
         - 1
-        - 5
+        - 10
       overlap_ratio:
         unit: '%'
         value: 60
         recommended: 60
         range:
-        - 30
-        - 80
+        - 10
+        - 90
     removal_characteristics:
       primary_mechanism: thermal_ablation
       secondary_mechanisms:

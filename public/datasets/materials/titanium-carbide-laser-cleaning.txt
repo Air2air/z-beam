@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Titanium Carbide Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-12-21
+Last Updated:   2025-12-22
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            https://www.z-beam.com/materials/ceramic/carbide/titanium-carbide-laser-cleaning
+URL:            http://localhost:3000/materials/ceramic/carbide/titanium-carbide-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-12-21
+Last Verified:  2025-12-22
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -37,7 +37,7 @@ MACHINE SETTINGS
 powerRange:
   Value:  150 W
   Min:    1 W
-  Max:    120 W
+  Max:    180 W
   Note:   Optimal average power for Titanium Carbide surface cleaning without substrate damage
 
 wavelength:
@@ -137,11 +137,156 @@ overlap_ratio:
   Note:   Ensures uniform coverage on TiC surfaces; 60% typical for even fluence distribution and minimal striping, adjustable 30% for speed vs. 80% for thoroughness. Source: Process optimization in Laser & Photonics Reviews (2020).
 
 ================================================================================
+MATERIAL PROPERTIES
+================================================================================
+
+MATERIAL CHARACTERISTICS:
+--------------------------------------------------------------------------------
+  youngsModulus:
+    Value:  440 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  1073 K
+    Source: ai_research
+
+  density:
+    Value:  4.93 g/cm³
+    Source: ai_research
+
+  hardness:
+    Value:  29.4 GPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.95 
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  4000 MPa
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  400 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  345 MPa
+    Source: ai_research
+
+  fractureToughness:
+    Value:  3.8 MPa√m
+    Source: ai_research
+
+  porosity:
+    Value:  0 %
+    Source: ai_research
+
+  electricalResistivity:
+    Value:  6.8e-7 Ω·m
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  3.8 J/cm²
+    Source: scientific_literature
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
+  absorptivity:
+    Value:  0.7 dimensionless
+    Min:    0.5 dimensionless
+    Max:    0.9 dimensionless
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  5000000 m⁻¹
+    Min:    1000000 m⁻¹
+    Max:    10000000 m⁻¹
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  3.5 J/cm²
+    Min:    1 J/cm²
+    Max:    5 J/cm²
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  2.5 MW/m
+    Min:    1.5 MW/m
+    Max:    3.5 MW/m
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.3 dimensionless
+    Min:    0.1 dimensionless
+    Max:    0.5 dimensionless
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  3340 K
+    Min:    3200 K
+    Max:    3500 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  1 Pa
+    Min:    0.1 Pa
+    Max:    10 Pa
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  3340 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  569 J/kg·K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.35 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  21 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.00000792 K^{-1}
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.7 dimensionless
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.0000133 m²/s
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  12000 J/m²
+    Source: ai_research
+
+================================================================================
+APPLICATIONS
+================================================================================
+
+1. Aerospace
+2. Automotive
+3. Medical Devices
+4. Electronics Manufacturing
+5. Energy Sector
+6. Tool Manufacturing
+7. Marine Engineering
+8. Research and Development
+9. Food Processing Equipment
+10. Cultural Heritage Conservation
+
+================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Titanium Carbide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/carbide/titanium-carbide-laser-cleaning
+  Z-Beam (2025). Titanium Carbide Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/ceramic/carbide/titanium-carbide-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

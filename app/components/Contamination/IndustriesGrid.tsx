@@ -59,7 +59,7 @@ export function IndustriesGrid({ industries }: IndustriesGridProps) {
                 <ul className="space-y-1">
                   {industry.use_cases.map((useCase, j) => (
                     <li key={j} className="text-gray-300 text-sm flex items-start gap-2">
-                      <span className="text-blue-400 mt-0.5">•</span>
+                      <span className="text-orange-400 mt-0.5">•</span>
                       <span>{useCase}</span>
                     </li>
                   ))}
