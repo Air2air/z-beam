@@ -3,8 +3,8 @@ name: Hexavalent Chromium
 display_name: Chromium(VI)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-22T21:25:26.097786Z'
-dateModified: '2025-12-22T21:25:26.097786Z'
+datePublished: '2025-12-23T00:44:42.981710Z'
+dateModified: '2025-12-23T00:44:42.981710Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/heavy-metal/chromium-vi-compound
@@ -57,10 +57,10 @@ relationships:
   chemical_properties:
     _section:
       title: Chemical Properties
-      description: Physical and chemical characteristics
+      description: Chemical and physical characteristics of this compound
       order: 1
-      variant: info
-      icon: beaker
+      variant: technical
+      icon: atom
     items:
     - type: chemical_properties
       id: chromium-vi-physical-data
@@ -69,9 +69,9 @@ relationships:
   environmental_impact:
     _section:
       title: Environmental Impact
-      description: Environmental effects and handling considerations
+      description: Environmental effects and disposal considerations for this compound
       order: 5
-      variant: info
+      variant: warning
       icon: leaf
     items:
     - type: environmental_impact
@@ -80,9 +80,9 @@ relationships:
   detection_monitoring:
     _section:
       title: Detection & Monitoring
-      description: Methods for detecting and monitoring this compound
+      description: Methods and equipment for detecting and monitoring this compound
       order: 6
-      variant: info
+      variant: technical
       icon: activity
     items:
     - type: detection_monitoring
@@ -90,10 +90,10 @@ relationships:
       presentation: card
   ppe_requirements:
     _section:
-      title: Safety Requirements
-      description: Personal protective equipment and safety protocols
+      title: Personal Protective Equipment
+      description: Required safety equipment when this compound may be present
       order: 4
-      variant: safety
+      variant: warning
       icon: shield
     items:
     - type: ppe_requirements
@@ -117,8 +117,8 @@ relationships:
       - reacts violently with combustibles. Corrosive to skin (ulcers/chrome holes). Potent allergen - can cause severe dermatitis.
   produced_from_contaminants:
     _section:
-      title: Contaminant Sources
-      description: Contaminants that produce this compound during laser cleaning
+      title: Source Contaminants
+      description: Contamination types that generate this compound during laser cleaning
       order: 2
       variant: relationship
       icon: droplet
@@ -149,11 +149,11 @@ relationships:
       url: /contaminants/inorganic-coating/coating/conversion-coating-contamination
   produced_from_materials:
     _section:
-      title: Material Sources
-      description: Materials that release this compound when laser cleaned
+      title: Source Materials
+      description: Materials that generate this compound when laser processed
       order: 3
       variant: relationship
-      icon: layers
+      icon: cube
     items:
     - id: chromium-laser-cleaning
       presentation: card

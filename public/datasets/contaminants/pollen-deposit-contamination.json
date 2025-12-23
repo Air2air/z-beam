@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/biological/deposit/pollen-deposit-contamination#dataset",
-  "name": "Pollen Accumulation Removal Dataset",
-  "description": "Comprehensive contamination dataset for Pollen Accumulation. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/pollen-deposit-contamination#dataset",
+  "name": "Pollen Accumulation Contamination Dataset",
+  "description": "Pollen-deposit contamination, it arises from fine plant residues transported by wind and humidity, which settle on surfaces to form tenacious organic layers. Unlike inorganic dusts that lack biological adhesion, this deposit exhibits a granular texture, persists under exposure, and on crown glass creates uneven films resisting wipes, while on steel and aluminum it shows similar hold, dependent from surface smoothness that influences variability across glasses and metals. Removal challenges stem from its tenacity against mechanical methods, yet laser cleaning proves effective, as it ablates organics selectively, sparing the substrates.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,206 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "pollen accumulation",
+    "Pollen Accumulation",
     "contamination removal",
     "laser cleaning",
-    "biological",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "biological"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/pollen-deposit-contamination.json",
-      "name": "Pollen Accumulation Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/pollen-deposit-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/pollen-deposit-contamination.csv",
-      "name": "Pollen Accumulation Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/pollen-deposit-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/pollen-deposit-contamination.txt",
-      "name": "Pollen Accumulation Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/pollen-deposit-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Pollen Accumulation",
-    "slug": "pollen-deposit-contamination",
-    "category": "biological",
-    "description": "Pollen-deposit contamination, it arises from fine plant residues transported by wind and humidity, which settle on surfaces to form tenacious organic layers. Unlike inorganic dusts that lack biological adhesion, this deposit exhibits a granular texture, persists under exposure, and on crown glass creates uneven films resisting wipes, while on steel and aluminum it shows similar hold, dependent from surface smoothness that influences variability across glasses and metals. Removal challenges stem from its tenacity against mechanical methods, yet laser cleaning proves effective, as it ablates organics selectively, sparing the substrates.",
-    "composition": [
-      "Proteins",
-      "Lipids",
-      "Cellulose"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      },
-      "toxicGasRisk": {
-        "severity": "low",
-        "primary_hazards": [
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 2.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Carbon Dioxide",
-            "concentration_mg_m3": 1800,
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Carbon Monoxide and Carbon Dioxide generation - multiple toxic compounds",
-        "mitigation": "N95 or P100 respirator for particulate control, standard ventilation"
-      },
-      "visibilityHazard": {
-        "severity": "low",
-        "description": "Light haze (20-40% reduction), minimal impact on sight lines",
-        "source": "Respirable fraction: 0.30 (30% of particles <10μm)",
-        "mitigation": "Standard visibility precautions, adequate lighting",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "half_mask",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "HEPA",
-        "minimum_air_changes_per_hour": 10,
-        "rationale": "Standard industrial ventilation (10 ACH) for particulate control"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 21 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "Proteins",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Lipids",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Cellulose",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "low",
-        "primary_hazards": [
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 2.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Carbon Dioxide",
-            "concentration_mg_m3": 1800,
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Carbon Monoxide and Carbon Dioxide generation - multiple toxic compounds",
-        "mitigation": "N95 or P100 respirator for particulate control, standard ventilation"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "low",
-        "description": "Light haze (20-40% reduction), minimal impact on sight lines",
-        "source": "Respirable fraction: 0.30 (30% of particles <10μm)",
-        "mitigation": "Standard visibility precautions, adequate lighting",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "half_mask"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 10,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 21,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Pollen Accumulation Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/biological/deposit/pollen-deposit-contamination"
+  ]
 }

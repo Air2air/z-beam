@@ -3,8 +3,8 @@ name: Carbon Monoxide
 display_name: Carbon Monoxide (CO)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-22T21:24:50.502524Z'
-dateModified: '2025-12-22T21:24:50.502524Z'
+datePublished: '2025-12-23T00:44:11.747016Z'
+dateModified: '2025-12-23T00:44:11.747016Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/asphyxiant/carbon-monoxide-compound
@@ -56,10 +56,10 @@ relationships:
   chemical_properties:
     _section:
       title: Chemical Properties
-      description: Physical and chemical characteristics
+      description: Chemical and physical characteristics of this compound
       order: 1
-      variant: info
-      icon: beaker
+      variant: technical
+      icon: atom
     items:
     - type: chemical_properties
       id: carbon-monoxide-physical-data
@@ -68,9 +68,9 @@ relationships:
   environmental_impact:
     _section:
       title: Environmental Impact
-      description: Environmental effects and handling considerations
+      description: Environmental effects and disposal considerations for this compound
       order: 5
-      variant: info
+      variant: warning
       icon: leaf
     items:
     - type: environmental_impact
@@ -79,9 +79,9 @@ relationships:
   detection_monitoring:
     _section:
       title: Detection & Monitoring
-      description: Methods for detecting and monitoring this compound
+      description: Methods and equipment for detecting and monitoring this compound
       order: 6
-      variant: info
+      variant: technical
       icon: activity
     items:
     - type: detection_monitoring
@@ -89,10 +89,10 @@ relationships:
       presentation: card
   ppe_requirements:
     _section:
-      title: Safety Requirements
-      description: Personal protective equipment and safety protocols
+      title: Personal Protective Equipment
+      description: Required safety equipment when this compound may be present
       order: 4
-      variant: safety
+      variant: warning
       icon: shield
     items:
     - type: ppe_requirements
@@ -117,8 +117,8 @@ relationships:
       oxygen, causing tissue hypoxia. Delayed neurological effects possible.
   produced_from_contaminants:
     _section:
-      title: Contaminant Sources
-      description: Contaminants that produce this compound during laser cleaning
+      title: Source Contaminants
+      description: Contamination types that generate this compound during laser cleaning
       order: 2
       variant: relationship
       icon: droplet

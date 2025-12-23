@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/biological/deposit/insect-residue-contamination#dataset",
-  "name": "Insect Impact Residue Removal Dataset",
-  "description": "Comprehensive contamination dataset for Insect Impact Residue. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/insect-residue-contamination#dataset",
+  "name": "Insect Impact Residue Contamination Dataset",
+  "description": "Insect-residue contamination, this protein-rich deposit from insect bodies, forms when flying insects collide and smear across surfaces during motion, then dry under air and heat exposure, thus creating hardened adhesive layers over time. Unique characteristics include irregular splatters with yellowish hues and fibrous textures, distinguishing from dirt or pollen by sticky organic composition and biological resilience, while on materials like float glass or stainless steel, it adheres tightly, etches lightly under sunlight, dulls surfaces, and traps particles in pores, so still persists after exposure. Key challenges arise from bonding strength that resists solvents and scraping, mechanical methods spread it further, but laser cleaning proves effective as pulses vaporize organics precisely without abrasion, thus targets residue selectively and already restores surface uniformity with no secondary damage.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,226 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "insect impact residue",
+    "Insect Impact Residue",
     "contamination removal",
     "laser cleaning",
-    "biological",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "biological"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/insect-residue-contamination.json",
-      "name": "Insect Impact Residue Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/insect-residue-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/insect-residue-contamination.csv",
-      "name": "Insect Impact Residue Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/insect-residue-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/insect-residue-contamination.txt",
-      "name": "Insect Impact Residue Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/insect-residue-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Insect Impact Residue",
-    "slug": "insect-residue-contamination",
-    "category": "biological",
-    "description": "Insect-residue contamination, this protein-rich deposit from insect bodies, forms when flying insects collide and smear across surfaces during motion, then dry under air and heat exposure, thus creating hardened adhesive layers over time. Unique characteristics include irregular splatters with yellowish hues and fibrous textures, distinguishing from dirt or pollen by sticky organic composition and biological resilience, while on materials like float glass or stainless steel, it adheres tightly, etches lightly under sunlight, dulls surfaces, and traps particles in pores, so still persists after exposure. Key challenges arise from bonding strength that resists solvents and scraping, mechanical methods spread it further, but laser cleaning proves effective as pulses vaporize organics precisely without abrasion, thus targets residue selectively and already restores surface uniformity with no secondary damage.",
-    "composition": [
-      "Proteins",
-      "Chitin",
-      "Fats"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      },
-      "toxicGasRisk": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 15,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Carbon Dioxide",
-            "concentration_mg_m3": 900,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Hydrogen Cyanide",
-            "concentration_mg_m3": 2.2,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
-            "concentration_mg_m3": 1.5,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Hydrogen Cyanide - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.70 (70% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "carbon",
-        "minimum_air_changes_per_hour": 12,
-        "rationale": "Standard industrial ventilation (12 ACH) for particulate control"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 21 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "Proteins",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Chitin",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Fats",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 15,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Carbon Dioxide",
-            "concentration_mg_m3": 900,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Hydrogen Cyanide",
-            "concentration_mg_m3": 2.2,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
-            "concentration_mg_m3": 1.5,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Hydrogen Cyanide - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.70 (70% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 12,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 21,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Insect Impact Residue Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/biological/deposit/insect-residue-contamination"
+  ]
 }

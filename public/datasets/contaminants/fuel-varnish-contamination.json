@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/organic-residue/petroleum/fuel-varnish-contamination#dataset",
-  "name": "Fuel System Varnish Removal Dataset",
-  "description": "Comprehensive contamination dataset for Fuel System Varnish. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/fuel-varnish-contamination#dataset",
+  "name": "Fuel System Varnish Contamination Dataset",
+  "description": "Fuel-varnish forms as sticky polymerized deposits from degraded fuel in engines, so it builds up during storage and operation. This contamination shows unique gummy texture and dark color, distinguishing it from dry rust or oily residues because varnish resists solvents yet cracks under heat. On steel and aluminum surfaces, it adheres tightly and causes corrosion over time, while brass experiences reduced conductivity from the layer, so removal challenges include avoiding substrate damage during scraping. Laser cleaning works effectively because pulses vaporize the varnish selectively without harming metal bases.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,226 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "fuel system varnish",
+    "Fuel System Varnish",
     "contamination removal",
     "laser cleaning",
-    "organic-residue",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "organic-residue"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fuel-varnish-contamination.json",
-      "name": "Fuel System Varnish Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fuel-varnish-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fuel-varnish-contamination.csv",
-      "name": "Fuel System Varnish Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fuel-varnish-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fuel-varnish-contamination.txt",
-      "name": "Fuel System Varnish Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fuel-varnish-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Fuel System Varnish",
-    "slug": "fuel-varnish-contamination",
-    "category": "organic-residue",
-    "description": "Fuel-varnish forms as sticky polymerized deposits from degraded fuel in engines, so it builds up during storage and operation. This contamination shows unique gummy texture and dark color, distinguishing it from dry rust or oily residues because varnish resists solvents yet cracks under heat. On steel and aluminum surfaces, it adheres tightly and causes corrosion over time, while brass experiences reduced conductivity from the layer, so removal challenges include avoiding substrate damage during scraping. Laser cleaning works effectively because pulses vaporize the varnish selectively without harming metal bases.",
-    "composition": [
-      "Gum",
-      "Varnish",
-      "Carbon"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "high",
-        "description": "Flammable residues or combustible dust with significant fire/explosion potential",
-        "mitigation": "Fire extinguisher within 10m, avoid enclosed spaces, monitor for hot spots, spark-resistant tools"
-      },
-      "toxicGasRisk": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": "0.5-5",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Acrolein",
-            "concentration_mg_m3": "0.1-1",
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Benzene",
-            "concentration_mg_m3": "0.5-3",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": "10-50",
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Formaldehyde, Acrolein, Benzene - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "carbon",
-        "minimum_air_changes_per_hour": 12,
-        "rationale": "Enhanced ventilation required due to fire/explosion risk - 12 ACH with carbon"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 3 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "Gum",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Varnish",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Carbon",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "high",
-        "description": "Flammable residues or combustible dust with significant fire/explosion potential",
-        "mitigation": "Fire extinguisher within 10m, avoid enclosed spaces, monitor for hot spots, spark-resistant tools"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": "0.5-5",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Acrolein",
-            "concentration_mg_m3": "0.1-1",
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Benzene",
-            "concentration_mg_m3": "0.5-3",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": "10-50",
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Formaldehyde, Acrolein, Benzene - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 12,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 3,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Fuel System Varnish Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/organic-residue/petroleum/fuel-varnish-contamination"
+  ]
 }

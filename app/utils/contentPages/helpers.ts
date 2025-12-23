@@ -29,7 +29,7 @@ export function generateCategoryMetadata(
   
   // Fallback metadata
   return createMetadata({
-    title: `${categoryDisplayName} ${config.actionText} | ${SITE_CONFIG.shortName}`,
+    title: `${categoryDisplayName} ${config.actionText}`,
     description: `${config.purposeText} ${categoryDisplayName.toLowerCase()} ${config.itemsProperty}.`,
     keywords: [`${categoryDisplayName} ${config.actionText.toLowerCase()}`, config.rootPath],
     image: '/images/z-beam-laser-cleaning-og.jpg',

@@ -46,7 +46,7 @@ interface MetadataConfig {
 
 /**
  * Format material page title for optimal CTR
- * Pattern: [Material] Laser Cleaning: [Key Spec] | Z-Beam
+ * Pattern: [Material] Laser Cleaning: Settings & Guide | Z-Beam
  * Target: 50-60 characters
  */
 export function formatMaterialTitle(config: MetadataConfig): string {
@@ -58,33 +58,32 @@ export function formatMaterialTitle(config: MetadataConfig): string {
   const wavelength = machineSettings?.wavelength?.value;
   const power = machineSettings?.powerRange?.value;
   
-  // Build title with specs (prioritize wavelength + power)
+  // Build title with value prop - what user gets
   if (wavelength && power) {
-    const title = `${materialName} Laser Cleaning: ${wavelength}nm, ${power}W Parameters`;
+    const title = `${materialName} Laser Cleaning: ${wavelength}nm, ${power}W Guide`;
     return truncateTitle(title);
   }
   
   // Just wavelength
   if (wavelength) {
-    const title = `${materialName} Laser Cleaning: ${wavelength}nm Parameters`;
+    const title = `${materialName} Laser Cleaning: ${wavelength}nm Settings`;
     return truncateTitle(title);
   }
   
   // Just power
   if (power) {
-    const title = `${materialName} Laser Cleaning: ${power}W Industrial Settings`;
+    const title = `${materialName} Laser Cleaning: ${power}W Settings & Guide`;
     return truncateTitle(title);
   }
   
-  // Fallback - category-based
-  const categoryContext = getCategoryTitleSuffix(config.category);
-  const title = `${materialName} Laser Cleaning: ${categoryContext}`;
+  // Fallback - emphasize what user gets
+  const title = `${materialName} Laser Cleaning: Settings & Guide`;
   return truncateTitle(title);
 }
 
 /**
  * Format settings page title for optimal CTR
- * Pattern: [Material] Settings: [Pass Count] + [Key Spec] | Z-Beam
+ * Pattern: [Material] Laser Settings: Parameters & Guide | Z-Beam
  * Target: 50-60 characters
  */
 export function formatSettingsTitle(config: MetadataConfig): string {
@@ -97,14 +96,14 @@ export function formatSettingsTitle(config: MetadataConfig): string {
   const power = machineSettings?.powerRange?.value;
   const passes = machineSettings?.passCount?.value;
   
-  // Build title with specs and passes
+  // Build title with specs and value prop
   if (passes && wavelength && power) {
-    const title = `${materialName} Settings: ${passes}-Pass, ${power}W, ${wavelength}nm`;
+    const title = `${materialName} Laser Settings: ${passes}-Pass, ${power}W Guide`;
     return truncateTitle(title);
   }
   
   if (wavelength && power) {
-    const title = `${materialName} Settings: ${power}W, ${wavelength}nm Specifications`;
+    const title = `${materialName} Laser Settings: ${power}W, ${wavelength}nm Parameters`;
     return truncateTitle(title);
   }
   
@@ -113,8 +112,8 @@ export function formatSettingsTitle(config: MetadataConfig): string {
     return truncateTitle(title);
   }
   
-  // Fallback
-  const title = `${materialName} Laser Cleaning Settings: Industrial Parameters`;
+  // Fallback - clear and keyword-rich
+  const title = `${materialName} Laser Settings: Parameters & Guide`;
   return truncateTitle(title);
 }
 
@@ -450,7 +449,7 @@ function truncateDescription(text: string, limit: number): string {
 
 /**
  * Format contaminant page title for optimal CTR
- * Pattern: [Contaminant Name] Removal: Laser Cleaning Methods | Z-Beam
+ * Pattern: [Contaminant] Removal: Laser Cleaning Guide | Z-Beam
  * Target: 50-60 characters
  */
 export function formatContaminantTitle(config: MetadataConfig): string {
@@ -458,8 +457,11 @@ export function formatContaminantTitle(config: MetadataConfig): string {
   
   const { materialName } = config;
   
-  // Build concise title focused on removal
-  const title = `${materialName} Removal: Laser Cleaning Methods`;
+  // Remove awkward suffixes like "/ Iron Oxide Formation"
+  const cleanName = materialName.split('/')[0].trim();
+  
+  // Build concise, natural title
+  const title = `${cleanName} Removal: Laser Cleaning Guide`;
   return truncateTitle(title);
 }
 

@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/thermal-damage/scale/quench-oil-contamination#dataset",
-  "name": "Quenching Oil Residue Removal Dataset",
-  "description": "Comprehensive contamination dataset for Quenching Oil Residue. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/quench-oil-contamination#dataset",
+  "name": "Quenching Oil Residue Contamination Dataset",
+  "description": "During quenching process, oil contaminates steel surfaces because heat treatment causes carbonization, so deposits form hard layers that differ from rust by their oily residue and adhesion strength. On tool steel, contamination spreads unevenly and resists solvents, while on steel it bonds tightly during cooling, creating removal challenges like surface damage from mechanical methods. Laser cleaning works effectively so pulses vaporize deposits without harming substrate, and process achieves clean results after short exposure.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,226 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "quenching oil residue",
+    "Quenching Oil Residue",
     "contamination removal",
     "laser cleaning",
-    "thermal-damage",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "thermal-damage"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/quench-oil-contamination.json",
-      "name": "Quenching Oil Residue Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/quench-oil-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/quench-oil-contamination.csv",
-      "name": "Quenching Oil Residue Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/quench-oil-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/quench-oil-contamination.txt",
-      "name": "Quenching Oil Residue Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/quench-oil-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Quenching Oil Residue",
-    "slug": "quench-oil-contamination",
-    "category": "thermal-damage",
-    "description": "During quenching process, oil contaminates steel surfaces because heat treatment causes carbonization, so deposits form hard layers that differ from rust by their oily residue and adhesion strength. On tool steel, contamination spreads unevenly and resists solvents, while on steel it bonds tightly during cooling, creating removal challenges like surface damage from mechanical methods. Laser cleaning works effectively so pulses vaporize deposits without harming substrate, and process achieves clean results after short exposure.",
-    "composition": [
-      "Carbonized Oil",
-      "PAH",
-      "Additives"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "moderate",
-        "description": "Combustible materials present, risk elevated in confined spaces or high-power settings",
-        "mitigation": "Fire extinguisher accessible, adequate ventilation, monitor substrate temperature"
-      },
-      "toxicGasRisk": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Acrolein",
-            "concentration_mg_m3": 2.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": 1.8,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 15,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
-            "concentration_mg_m3": 0.5,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Formaldehyde, Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "carbon",
-        "minimum_air_changes_per_hour": 12,
-        "rationale": "Standard industrial ventilation (12 ACH) for particulate control"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 2 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "Carbonized Oil",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "PAH",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Additives",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "moderate",
-        "description": "Combustible materials present, risk elevated in confined spaces or high-power settings",
-        "mitigation": "Fire extinguisher accessible, adequate ventilation, monitor substrate temperature"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Acrolein",
-            "concentration_mg_m3": 2.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": 1.8,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 15,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
-            "concentration_mg_m3": 0.5,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Formaldehyde, Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 12,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 2,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Quenching Oil Residue Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/thermal-damage/scale/quench-oil-contamination"
+  ]
 }

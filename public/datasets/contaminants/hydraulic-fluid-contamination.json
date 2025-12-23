@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/organic-residue/petroleum/hydraulic-fluid-contamination#dataset",
-  "name": "Hydraulic Fluid Contamination Removal Dataset",
-  "description": "Comprehensive contamination dataset for Hydraulic Fluid Contamination. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/hydraulic-fluid-contamination#dataset",
+  "name": "Hydraulic Fluid Contamination Contamination Dataset",
+  "description": "Hydraulic-fluid contamination, it arises from leaks in heavy machinery, where petroleum-based oils seep gradually under vibration and pressure, forming sticky deposits that harden into tenacious oily films. These contaminants, they distinguish themselves by persistent adhesion that penetrates surfaces, unlike dry dust or watery residues; on steel, layers build slowly and tenaciously, aluminum shows quicker pore-deep spread, while concrete absorbs profoundly, yielding darkened stains. Removal proves challenging, as solvents fail against embedded oils and scraping risks damage, yet laser cleaning excels, its pulses vaporizing films effectively without harming substrates.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,226 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "hydraulic fluid contamination",
+    "Hydraulic Fluid Contamination",
     "contamination removal",
     "laser cleaning",
-    "organic-residue",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "organic-residue"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/hydraulic-fluid-contamination.json",
-      "name": "Hydraulic Fluid Contamination Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/hydraulic-fluid-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/hydraulic-fluid-contamination.csv",
-      "name": "Hydraulic Fluid Contamination Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/hydraulic-fluid-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/hydraulic-fluid-contamination.txt",
-      "name": "Hydraulic Fluid Contamination Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/hydraulic-fluid-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Hydraulic Fluid Contamination",
-    "slug": "hydraulic-fluid-contamination",
-    "category": "organic-residue",
-    "description": "Hydraulic-fluid contamination, it arises from leaks in heavy machinery, where petroleum-based oils seep gradually under vibration and pressure, forming sticky deposits that harden into tenacious oily films. These contaminants, they distinguish themselves by persistent adhesion that penetrates surfaces, unlike dry dust or watery residues; on steel, layers build slowly and tenaciously, aluminum shows quicker pore-deep spread, while concrete absorbs profoundly, yielding darkened stains. Removal proves challenging, as solvents fail against embedded oils and scraping risks damage, yet laser cleaning excels, its pulses vaporizing films effectively without harming substrates.",
-    "composition": [
-      "Mineral Oil",
-      "Additives",
-      "Zinc Compounds"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "moderate",
-        "description": "Combustible materials present, risk elevated in confined spaces or high-power settings",
-        "mitigation": "Fire extinguisher accessible, adequate ventilation, monitor substrate temperature"
-      },
-      "toxicGasRisk": {
-        "severity": "high",
-        "primary_hazards": [
-          {
-            "compound": "Acrolein",
-            "concentration_mg_m3": 0.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": 1.2,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 15,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Particulate Polycyclic Aromatic Hydrocarbons",
-            "concentration_mg_m3": 0.8,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection",
-        "mitigation": "Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING: Formaldehyde, Particulate Polycyclic Aromatic Hydrocarbons - known carcinogen(s), minimize exposure"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.70 (70% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "carbon",
-        "minimum_air_changes_per_hour": 12,
-        "rationale": "Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 3 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "Mineral Oil",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Additives",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Zinc Compounds",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "moderate",
-        "description": "Combustible materials present, risk elevated in confined spaces or high-power settings",
-        "mitigation": "Fire extinguisher accessible, adequate ventilation, monitor substrate temperature"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "high",
-        "primary_hazards": [
-          {
-            "compound": "Acrolein",
-            "concentration_mg_m3": 0.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": 1.2,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 15,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Particulate Polycyclic Aromatic Hydrocarbons",
-            "concentration_mg_m3": 0.8,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection",
-        "mitigation": "Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING: Formaldehyde, Particulate Polycyclic Aromatic Hydrocarbons - known carcinogen(s), minimize exposure"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.70 (70% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 12,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 3,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Hydraulic Fluid Contamination Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/organic-residue/petroleum/hydraulic-fluid-contamination"
+  ]
 }

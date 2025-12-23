@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/chemical-residue/hazardous/mercury-contamination#dataset",
-  "name": "Mercury Spill Residue Removal Dataset",
-  "description": "Comprehensive contamination dataset for Mercury Spill Residue. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/mercury-contamination#dataset",
+  "name": "Mercury Spill Residue Contamination Dataset",
+  "description": "Mercury contamination forms from elemental spills or amalgam residues in industrial settings. Before cleaning, liquid films spread quickly on concrete and tile, so vapors release easily during handling and this volatility distinguishes it from solid pollutants. On metals such as copper, steel, and aluminum, mercury alloys and penetrates deeply, so adhesion strengthens and removal challenges include toxicity and residue scattering; laser cleaning vaporizes contamination precisely without substrate harm, so after treatment surfaces exhibit effective cleanliness.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,198 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "mercury spill residue",
+    "Mercury Spill Residue",
     "contamination removal",
     "laser cleaning",
-    "chemical-residue",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "chemical-residue"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/mercury-contamination.json",
-      "name": "Mercury Spill Residue Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/mercury-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/mercury-contamination.csv",
-      "name": "Mercury Spill Residue Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/mercury-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/mercury-contamination.txt",
-      "name": "Mercury Spill Residue Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/mercury-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Mercury Spill Residue",
-    "slug": "mercury-contamination",
-    "category": "chemical-residue",
-    "description": "Mercury contamination forms from elemental spills or amalgam residues in industrial settings. Before cleaning, liquid films spread quickly on concrete and tile, so vapors release easily during handling and this volatility distinguishes it from solid pollutants. On metals such as copper, steel, and aluminum, mercury alloys and penetrates deeply, so adhesion strengthens and removal challenges include toxicity and residue scattering; laser cleaning vaporizes contamination precisely without substrate harm, so after treatment surfaces exhibit effective cleanliness.",
-    "composition": [
-      "Hg",
-      "Metal Amalgams"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "none",
-        "description": "No significant fire or explosion risk identified",
-        "mitigation": "Standard workplace fire safety protocols"
-      },
-      "toxicGasRisk": {
-        "severity": "high",
-        "primary_hazards": [
-          {
-            "compound": "Elemental Mercury Vapor",
-            "concentration_mg_m3": 0.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Mercury Oxide",
-            "concentration_mg_m3": 0.1,
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Elemental Mercury Vapor and Mercury Oxide generation - multiple toxic compounds",
-        "mitigation": "Full-face respirator with appropriate cartridges, gas detection system, medical monitoring"
-      },
-      "visibilityHazard": {
-        "severity": "low",
-        "description": "Light haze (20-40% reduction), minimal impact on sight lines",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Standard visibility precautions, adequate lighting",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "HEPA",
-        "minimum_air_changes_per_hour": 15,
-        "rationale": "Enhanced ventilation required due to toxic gas generation - 15 ACH with HEPA"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 15 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "Hg",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Metal Amalgams",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "none",
-        "description": "No significant fire or explosion risk identified",
-        "mitigation": "Standard workplace fire safety protocols"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "high",
-        "primary_hazards": [
-          {
-            "compound": "Elemental Mercury Vapor",
-            "concentration_mg_m3": 0.5,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Mercury Oxide",
-            "concentration_mg_m3": 0.1,
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Elemental Mercury Vapor and Mercury Oxide generation - multiple toxic compounds",
-        "mitigation": "Full-face respirator with appropriate cartridges, gas detection system, medical monitoring"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "low",
-        "description": "Light haze (20-40% reduction), minimal impact on sight lines",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Standard visibility precautions, adequate lighting",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 15,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 15,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Mercury Spill Residue Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/chemical-residue/hazardous/mercury-contamination"
+  ]
 }

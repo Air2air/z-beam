@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/thermal-damage/fire/fire-damage-contamination#dataset",
-  "name": "Fire and Smoke Damage Removal Dataset",
-  "description": "Comprehensive contamination dataset for Fire and Smoke Damage. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/fire-damage-contamination#dataset",
+  "name": "Fire and Smoke Damage Contamination Dataset",
+  "description": "Fire-damage contamination consists of char, soot, and thermal degradation products, which form when intense heat from fires decomposes organic matter and deposits irregular residues on surfaces. This contamination, it exhibits unique carbonaceous layering and strong chemical bonding that distinguish it from simpler particulates like dust, thus adheres tenaciously to porous substrates such as concrete and sandstone, where it infiltrates cracks and resists mechanical scraping without risking material erosion. Key challenges arise from uneven thickness and heat sensitivity, yet laser cleaning proves effective, as selective ablation vaporizes the residues layer by layer while preserving durable bases like steel and granite intact.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,244 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "fire and smoke damage",
+    "Fire and Smoke Damage",
     "contamination removal",
     "laser cleaning",
-    "thermal-damage",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "thermal-damage"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fire-damage-contamination.json",
-      "name": "Fire and Smoke Damage Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fire-damage-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fire-damage-contamination.csv",
-      "name": "Fire and Smoke Damage Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fire-damage-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fire-damage-contamination.txt",
-      "name": "Fire and Smoke Damage Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/fire-damage-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Fire and Smoke Damage",
-    "slug": "fire-damage-contamination",
-    "category": "thermal-damage",
-    "description": "Fire-damage contamination consists of char, soot, and thermal degradation products, which form when intense heat from fires decomposes organic matter and deposits irregular residues on surfaces. This contamination, it exhibits unique carbonaceous layering and strong chemical bonding that distinguish it from simpler particulates like dust, thus adheres tenaciously to porous substrates such as concrete and sandstone, where it infiltrates cracks and resists mechanical scraping without risking material erosion. Key challenges arise from uneven thickness and heat sensitivity, yet laser cleaning proves effective, as selective ablation vaporizes the residues layer by layer while preserving durable bases like steel and granite intact.",
-    "composition": [
-      "C",
-      "Ash",
-      "Tar",
-      "Metal Oxides"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "moderate",
-        "description": "Combustible materials present, risk elevated in confined spaces or high-power settings",
-        "mitigation": "Fire extinguisher accessible, adequate ventilation, monitor substrate temperature"
-      },
-      "toxicGasRisk": {
-        "severity": "high",
-        "primary_hazards": [
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 50,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Carbon Dioxide",
-            "concentration_mg_m3": 9000,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": 2.5,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Benzene",
-            "concentration_mg_m3": 3,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
-            "concentration_mg_m3": 1.2,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced protection",
-        "mitigation": "Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "carbon",
-        "minimum_air_changes_per_hour": 12,
-        "rationale": "Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 18 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "C",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Ash",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Tar",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_3",
-      "name": "Chemical Composition",
-      "value": "Metal Oxides",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "moderate",
-        "description": "Combustible materials present, risk elevated in confined spaces or high-power settings",
-        "mitigation": "Fire extinguisher accessible, adequate ventilation, monitor substrate temperature"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "high",
-        "primary_hazards": [
-          {
-            "compound": "Carbon Monoxide",
-            "concentration_mg_m3": 50,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Carbon Dioxide",
-            "concentration_mg_m3": 9000,
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": 2.5,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Benzene",
-            "concentration_mg_m3": 3,
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Polycyclic Aromatic Hydrocarbons (PAHs)",
-            "concentration_mg_m3": 1.2,
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced protection",
-        "mitigation": "Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 12,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 18,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Fire and Smoke Damage Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/thermal-damage/fire/fire-damage-contamination"
+  ]
 }

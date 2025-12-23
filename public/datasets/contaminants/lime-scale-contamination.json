@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/thermal-damage/scale/lime-scale-contamination#dataset",
-  "name": "Limescale Deposits Removal Dataset",
-  "description": "Comprehensive contamination dataset for Limescale Deposits. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/lime-scale-contamination#dataset",
+  "name": "Limescale Deposits Contamination Dataset",
+  "description": "Lime-scale builds up as hard calcium carbonate from evaporated hard water, creating a stubborn white layer on surfaces. It differs from rust or salts by its porous, crystalline structure that bonds aggressively without corroding the substrate. On glasses like float or borosilicate, it etches lightly, while on metals such as stainless steel or copper, it flakes unevenly—making removal a real challenge due to tight grip and residue spread. Laser cleaning ramps up efficiency here, vaporizing the scale precisely to clear it fast without scratching the material underneath.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,176 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "limescale deposits",
+    "Limescale Deposits",
     "contamination removal",
     "laser cleaning",
-    "thermal-damage",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "thermal-damage"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/lime-scale-contamination.json",
-      "name": "Limescale Deposits Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/lime-scale-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/lime-scale-contamination.csv",
-      "name": "Limescale Deposits Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/lime-scale-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/lime-scale-contamination.txt",
-      "name": "Limescale Deposits Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/lime-scale-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Limescale Deposits",
-    "slug": "lime-scale-contamination",
-    "category": "thermal-damage",
-    "description": "Lime-scale builds up as hard calcium carbonate from evaporated hard water, creating a stubborn white layer on surfaces. It differs from rust or salts by its porous, crystalline structure that bonds aggressively without corroding the substrate. On glasses like float or borosilicate, it etches lightly, while on metals such as stainless steel or copper, it flakes unevenly—making removal a real challenge due to tight grip and residue spread. Laser cleaning ramps up efficiency here, vaporizing the scale precisely to clear it fast without scratching the material underneath.",
-    "composition": [
-      "CaCO₃",
-      "MgCO₃"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "none",
-        "description": "No significant fire or explosion risk identified",
-        "mitigation": "Standard workplace fire safety protocols"
-      },
-      "toxicGasRisk": {
-        "severity": "low",
-        "primary_hazards": [],
-        "description": "Minimal gas generation, nuisance particulates only",
-        "mitigation": "N95 or P100 respirator for particulate control, standard ventilation"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.70 (70% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "half_mask",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "HEPA",
-        "minimum_air_changes_per_hour": 10,
-        "rationale": "Standard industrial ventilation (10 ACH) for particulate control"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 27 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "CaCO₃",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "MgCO₃",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "none",
-        "description": "No significant fire or explosion risk identified",
-        "mitigation": "Standard workplace fire safety protocols"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "low",
-        "primary_hazards": [],
-        "description": "Minimal gas generation, nuisance particulates only",
-        "mitigation": "N95 or P100 respirator for particulate control, standard ventilation"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.70 (70% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "half_mask"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 10,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 27,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Limescale Deposits Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/thermal-damage/scale/lime-scale-contamination"
+  ]
 }

@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/inorganic-coating/ceramic/ceramic-coating-contamination#dataset",
-  "name": "Ceramic Heat Barrier Coating Removal Dataset",
-  "description": "Comprehensive contamination dataset for Ceramic Heat Barrier Coating. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/ceramic-coating-contamination#dataset",
+  "name": "Ceramic Heat Barrier Coating Contamination Dataset",
+  "description": "Ceramic-coating contamination, it manifests as adherent residues from thermal barrier layers on engine components, forming through spallation and chemical interactions during high-heat operations, where ceramic particles dislodge and bond tenaciously with exhaust gases, influenced from prolonged exposure to combustion byproducts. This layer, it exhibits a distinctive patchy, iridescent structure with crystalline edges that resist flaking unlike soot or dissolving unlike oil residues, showing strong embedding on steel via porosity, moderate bonding on stainless steel enhanced by oxide layers, yet weaker attachment on titanium along grain boundaries. Removal challenges arise from its persistence against mechanical scraping or chemical agents without substrate damage, but laser cleaning proves effective, as pulsed energy selectively ablates the contamination through vaporization, targeting its optical absorption to restore surface smoothness.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,196 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "ceramic heat barrier coating",
+    "Ceramic Heat Barrier Coating",
     "contamination removal",
     "laser cleaning",
-    "inorganic-coating",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "inorganic-coating"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/ceramic-coating-contamination.json",
-      "name": "Ceramic Heat Barrier Coating Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/ceramic-coating-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/ceramic-coating-contamination.csv",
-      "name": "Ceramic Heat Barrier Coating Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/ceramic-coating-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/ceramic-coating-contamination.txt",
-      "name": "Ceramic Heat Barrier Coating Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/ceramic-coating-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Ceramic Heat Barrier Coating",
-    "slug": "ceramic-coating-contamination",
-    "category": "inorganic-coating",
-    "description": "Ceramic-coating contamination, it manifests as adherent residues from thermal barrier layers on engine components, forming through spallation and chemical interactions during high-heat operations, where ceramic particles dislodge and bond tenaciously with exhaust gases, influenced from prolonged exposure to combustion byproducts. This layer, it exhibits a distinctive patchy, iridescent structure with crystalline edges that resist flaking unlike soot or dissolving unlike oil residues, showing strong embedding on steel via porosity, moderate bonding on stainless steel enhanced by oxide layers, yet weaker attachment on titanium along grain boundaries. Removal challenges arise from its persistence against mechanical scraping or chemical agents without substrate damage, but laser cleaning proves effective, as pulsed energy selectively ablates the contamination through vaporization, targeting its optical absorption to restore surface smoothness.",
-    "composition": [
-      "ZrO₂",
-      "Y₂O₃",
-      "Al₂O₃"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      },
-      "toxicGasRisk": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Carbon monoxide",
-            "concentration_mg_m3": "10-100",
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Carbon monoxide generation detected - moderate toxicity risk",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "HEPA",
-        "minimum_air_changes_per_hour": 10,
-        "rationale": "Standard industrial ventilation (10 ACH) for particulate control"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 3 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "ZrO₂",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Y₂O₃",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Al₂O₃",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Carbon monoxide",
-            "concentration_mg_m3": "10-100",
-            "hazard_class": "toxic"
-          }
-        ],
-        "description": "Carbon monoxide generation detected - moderate toxicity risk",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 10,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 3,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Ceramic Heat Barrier Coating Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/inorganic-coating/ceramic/ceramic-coating-contamination"
+  ]
 }

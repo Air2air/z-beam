@@ -1,27 +1,21 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/contaminants/organic-residue/adhesive/epoxy-residue-contamination#dataset",
-  "name": "Epoxy Resin Deposits Removal Dataset",
-  "description": "Comprehensive contamination dataset for Epoxy Resin Deposits. Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.",
+  "@id": "https://www.z-beam.com/contaminants/epoxy-residue-contamination#dataset",
+  "name": "Epoxy Resin Deposits Contamination Dataset",
+  "description": "Epoxy-residue forms when cured two-part adhesive hardens on surfaces after mixing and application, creating tough layer with dense bonds. This contamination shows unique stickiness and resistance to solvents unlike softer paints or oils, so removal needs targeted heat without damaging base. On metals such as steel and aluminum, residue clings tightly during exposure, posing challenges like incomplete stripping because of its durability, yet laser cleaning succeeds by vaporizing it precisely through controlled pulses.",
   "version": "1.0",
-  "dateModified": "2025-12-21",
-  "datePublished": "2025-12-21",
+  "dateModified": "2025-12-23",
+  "datePublished": "2025-12-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
-    "url": "https://creativecommons.org/licenses/by/4.0/",
-    "description": "Free to share and adapt with attribution"
+    "url": "https://creativecommons.org/licenses/by/4.0/"
   },
   "creator": {
     "@type": "Organization",
     "name": "Z-Beam Laser Cleaning Research Lab",
-    "url": "https://www.z-beam.com",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Data Support",
-      "email": "info@z-beam.com"
-    }
+    "url": "https://www.z-beam.com"
   },
   "publisher": {
     "@type": "Organization",
@@ -29,236 +23,55 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "epoxy resin deposits",
+    "Epoxy Resin Deposits",
     "contamination removal",
     "laser cleaning",
-    "organic-residue",
-    "safety data",
-    "chemical composition",
-    "PPE requirements"
+    "surface cleaning",
+    "industrial decontamination",
+    "organic-residue"
   ],
-  "inLanguage": "en-US",
-  "temporalCoverage": "2025",
-  "spatialCoverage": "Global",
-  "measurementTechnique": "Laser contamination removal analysis, safety assessment, chemical characterization",
-  "includedInDataCatalog": {
-    "@type": "DataCatalog",
-    "name": "Z-Beam Contamination Removal Database",
-    "description": "Comprehensive database of contamination removal parameters, safety data, and laser cleaning specifications",
-    "url": "https://www.z-beam.com/datasets/contaminants"
-  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Adhesion Strength",
+      "description": "Bond strength to substrate"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thickness",
+      "description": "Typical contamination layer thickness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Removal Efficiency",
+      "description": "Cleaning effectiveness percentage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Surface Damage Risk",
+      "description": "Risk of substrate damage"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PPE Requirements",
+      "description": "Personal protective equipment"
+    }
+  ],
   "distribution": [
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/epoxy-residue-contamination.json",
-      "name": "Epoxy Resin Deposits Dataset (JSON)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/epoxy-residue-contamination.json"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/epoxy-residue-contamination.csv",
-      "name": "Epoxy Resin Deposits Dataset (CSV)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/epoxy-residue-contamination.csv"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/contaminants/epoxy-residue-contamination.txt",
-      "name": "Epoxy Resin Deposits Dataset (TXT)"
+      "contentUrl": "https://www.z-beam.com/datasets/contaminants/epoxy-residue-contamination.txt"
     }
-  ],
-  "isAccessibleForFree": true,
-  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
-  "dataQuality": {
-    "verificationMethod": "Multi-source validation and expert review",
-    "sources": [
-      "Industry safety databases",
-      "Chemical composition analysis",
-      "Field testing results"
-    ],
-    "updateFrequency": "Quarterly",
-    "accuracyLevel": "High",
-    "lastVerified": "2025-12-21"
-  },
-  "contaminant": {
-    "name": "Epoxy Resin Deposits",
-    "slug": "epoxy-residue-contamination",
-    "category": "organic-residue",
-    "description": "Epoxy-residue forms when cured two-part adhesive hardens on surfaces after mixing and application, creating tough layer with dense bonds. This contamination shows unique stickiness and resistance to solvents unlike softer paints or oils, so removal needs targeted heat without damaging base. On metals such as steel and aluminum, residue clings tightly during exposure, posing challenges like incomplete stripping because of its durability, yet laser cleaning succeeds by vaporizing it precisely through controlled pulses.",
-    "composition": [
-      "Bisphenol A",
-      "Epichlorohydrin",
-      "Amine Hardener"
-    ],
-    "safetyData": {
-      "fireExplosionRisk": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      },
-      "toxicGasRisk": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Benzene",
-            "concentration_mg_m3": "5-50",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Phenol",
-            "concentration_mg_m3": "2-20",
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": "1-15",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon monoxide",
-            "concentration_mg_m3": "10-100",
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Particulate polycyclic aromatic hydrocarbons",
-            "concentration_mg_m3": "0.5-5",
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Benzene, Phenol, Formaldehyde - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Benzene, Formaldehyde - known carcinogen(s), minimize exposure"
-      },
-      "visibilityHazard": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      },
-      "ppeRequirements": {
-        "respiratory": "PAPR",
-        "eyeProtection": "goggles",
-        "protectiveClothing": "Not specified",
-        "gloves": "Not specified"
-      },
-      "ventilationRequirements": {
-        "exhaust_velocity_m_s": 0.5,
-        "filtration_type": "carbon",
-        "minimum_air_changes_per_hour": 12,
-        "rationale": "Standard industrial ventilation (12 ACH) for particulate control"
-      }
-    },
-    "laserProperties": {},
-    "removalComplexity": "Data available for 17 material types",
-    "visualCharacteristics": "No visual identification data"
-  },
-  "variableMeasured": [
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_0",
-      "name": "Chemical Composition",
-      "value": "Bisphenol A",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_1",
-      "name": "Chemical Composition",
-      "value": "Epichlorohydrin",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "composition_2",
-      "name": "Chemical Composition",
-      "value": "Amine Hardener",
-      "description": "Primary chemical compound in contamination"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "fire_explosion_risk",
-      "name": "Fire/Explosion Risk",
-      "value": {
-        "severity": "low",
-        "description": "Minimal fire risk with standard precautions and adequate ventilation",
-        "mitigation": "Standard fire safety precautions, extinguisher available within 15m"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "toxic_gas_risk",
-      "name": "Toxic Gas Risk",
-      "value": {
-        "severity": "moderate",
-        "primary_hazards": [
-          {
-            "compound": "Benzene",
-            "concentration_mg_m3": "5-50",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Phenol",
-            "concentration_mg_m3": "2-20",
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Formaldehyde",
-            "concentration_mg_m3": "1-15",
-            "hazard_class": "carcinogenic"
-          },
-          {
-            "compound": "Carbon monoxide",
-            "concentration_mg_m3": "10-100",
-            "hazard_class": "toxic"
-          },
-          {
-            "compound": "Particulate polycyclic aromatic hydrocarbons",
-            "concentration_mg_m3": "0.5-5",
-            "hazard_class": "carcinogenic"
-          }
-        ],
-        "description": "Multiple toxic compounds detected: Benzene, Phenol, Formaldehyde - requires enhanced protection",
-        "mitigation": "Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING: Benzene, Formaldehyde - known carcinogen(s), minimize exposure"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "visibility_hazard",
-      "name": "Visibility Hazard",
-      "value": {
-        "severity": "moderate",
-        "description": "Moderate visibility reduction (40-60%), significant particulate haze",
-        "source": "Respirable fraction: 0.80 (80% of particles <10μm)",
-        "mitigation": "Ensure clear sight lines, use source extraction, maintain awareness of surroundings",
-        "related_field": "particulate_generation.respirable_fraction"
-      }
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_respiratory",
-      "name": "Required Respiratory Protection",
-      "value": "PAPR"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ppe_eye_protection",
-      "name": "Required Eye Protection",
-      "value": "goggles"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ventilation_ach",
-      "name": "Minimum Air Changes Per Hour",
-      "value": 12,
-      "unitText": "ACH"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "material_specific_removal_count",
-      "name": "Material-Specific Removal Methods Available",
-      "value": 17,
-      "unitText": "material types"
-    }
-  ],
-  "citation": "Z-Beam (2025). Epoxy Resin Deposits Contamination Removal. Retrieved from https://www.z-beam.com/contaminants/organic-residue/adhesive/epoxy-residue-contamination"
+  ]
 }
