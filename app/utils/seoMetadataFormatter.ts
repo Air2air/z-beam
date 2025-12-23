@@ -127,70 +127,41 @@ export function formatMaterialDescription(config: MetadataConfig): string {
   
   const { 
     materialName, 
-    materialDescription,
     machineSettings,
-    materialProperties,
     category,
     subcategory
   } = config;
   
-  // Extract key data points
-  const density = materialProperties?.material_characteristics?.density?.value;
+  // Extract key specs for technical description
   const wavelength = machineSettings?.wavelength?.value;
   const power = machineSettings?.powerRange?.value;
   
-  // If we have authored material description, enhance it with technical details
-  if (materialDescription && materialDescription.trim().length > 0) {
-    let desc = materialDescription;
-    
-    // Add density if available and not too long
-    if (density && desc.length < 100) {
-      desc += ` (${density}g/cm³)`;
+  // Build concise, keyword-rich description (155-160 chars target)
+  let desc = `${materialName} laser cleaning: `;
+  
+  // Add key technical specs
+  if (wavelength) {
+    desc += `${wavelength}nm optimal`;
+    if (power) {
+      desc += `, ${power}W power`;
     }
-    
-    // Add page features if space permits
-    if (desc.length < 120) {
-      desc += '. Properties, parameters, challenges';
-    }
-    
-    // Add industry context if space permits
-    const context = getIndustryContext(category, subcategory);
-    if (context && desc.length < 135) {
-      desc += ` for ${context.toLowerCase()}`;
-    }
-    
-    return truncateDescription(desc, 160);
+  } else if (power) {
+    desc += `${power}W power settings`;
+  } else {
+    desc += 'parameters & settings';
   }
   
-  // FALLBACK: Generate technical description if no authored content
-  // Build description with page features
-  let desc = materialName;
+  // Add value proposition
+  desc += '. Complete guide';
   
-  // Add density if available
-  if (density) {
-    desc += ` at ${density}g/cm³`;
-  }
-  
-  // Add what's on the page (material properties, parameters, challenges)
-  desc += '. Material properties, laser parameters';
-  
-  // Add laser specs if space permits
-  if (wavelength && power && desc.length < 100) {
-    desc += ` (${wavelength}nm, ${power}W)`;
-  }
-  
-  // Add page features
-  if (desc.length < 120) {
-    desc += ', cleaning challenges';
-  }
-  
-  // Add application context if space permits
+  // Add application context
   const context = getIndustryContext(category, subcategory);
-  if (context && desc.length < 135) {
+  if (context && desc.length < 130) {
     desc += ` for ${context.toLowerCase()}`;
+  } else if (desc.length < 140) {
+    desc += ' for industrial applications';
   }
   
-  // Truncate to 160 chars
   return truncateDescription(desc, 160);
 }
 
@@ -204,7 +175,6 @@ export function formatSettingsDescription(config: MetadataConfig): string {
   
   const {
     materialName,
-    settingsDescription,
     machineSettings,
     category,
     subcategory
@@ -213,61 +183,41 @@ export function formatSettingsDescription(config: MetadataConfig): string {
   // Extract machine settings
   const power = machineSettings?.powerRange?.value;
   const wavelength = machineSettings?.wavelength?.value;
-  const _scanSpeed = machineSettings?.scanSpeed?.value;
+  const scanSpeed = machineSettings?.scanSpeed?.value;
   const passes = machineSettings?.passCount?.value;
   
-  // If we have authored settings description, enhance it with page features
-  if (settingsDescription && settingsDescription.trim().length > 0) {
-    let desc = settingsDescription;
-    
-    // Add page features if space permits
-    if (desc.length < 130) {
-      desc += '. Settings, speed, challenges';
-    }
-    
-    // Add technical specs if space permits
-    if (power && wavelength && desc.length < 145) {
-      desc += ` (${power}W, ${wavelength}nm)`;
-    }
-    
-    return truncateDescription(desc, 160);
-  }
+  // Build concise, parameter-focused description (155-160 chars target)
+  let desc = `${materialName} laser parameters: `;
   
-  // FALLBACK: Generate technical description if no authored content
-  
-  // Build description with page features
-  let desc = '';
-  
-  // Add what's on the page first
-  desc = `${materialName} laser settings: `;
-  
-  // Add machine specs
-  if (power && wavelength) {
-    desc += `${power}W, ${wavelength}nm`;
+  // Add key specs
+  if (wavelength && power) {
+    desc += `${wavelength}nm, ${power}W`;
+  } else if (wavelength) {
+    desc += `${wavelength}nm wavelength`;
+  } else if (power) {
+    desc += `${power}W power`;
   } else {
-    desc += 'power, wavelength';
+    desc += 'wavelength, power, speed';
   }
   
-  // Add what else is on the page
-  desc += ', scan speed, spot size';
-  
-  // Add pass count if available
-  if (passes && desc.length < 100) {
-    desc += `, ${passes} passes`;
+  // Add scan speed or passes
+  if (scanSpeed && desc.length < 70) {
+    desc += `, ${scanSpeed}mm/s speed`;
+  } else if (passes && desc.length < 70) {
+    desc += `, ${passes}-pass technique`;
   }
   
-  // Add page features (challenges, thermal management)
-  if (desc.length < 120) {
-    desc += ', thermal challenges, safety data';
-  }
+  // Add value proposition
+  desc += '. Complete settings guide';
   
-  // Add application context if space permits
+  // Add application context
   const context = getIndustryContext(category, subcategory);
-  if (context && desc.length < 140) {
+  if (context && desc.length < 125) {
     desc += ` for ${context.toLowerCase()}`;
+  } else if (desc.length < 140) {
+    desc += ' for professional cleaning';
   }
   
-  // Truncate to 160 chars
   return truncateDescription(desc, 160);
 }
 
@@ -473,16 +423,26 @@ export function formatContaminantTitle(config: MetadataConfig): string {
 export function formatContaminantDescription(config: MetadataConfig): string {
   if (config.customDescription) return config.customDescription;
   
-  const { contaminationDescription, materialName } = config;
+  const { materialName, machineSettings } = config;
   
-  // Use authored description if available
-  if (contaminationDescription && contaminationDescription.trim().length > 0) {
-    return truncateDescription(contaminationDescription, 160);
+  // Extract key technical specs
+  const wavelength = machineSettings?.wavelength?.value;
+  
+  // Clean up contaminant name (remove "/" suffixes)
+  const cleanName = materialName.split('/')[0].trim();
+  
+  // Build concise, technical description (155-160 chars target)
+  let desc = `${cleanName} removal laser cleaning: `;
+  
+  // Add technical specifications
+  if (wavelength) {
+    desc += `${wavelength}nm wavelength`;
+  } else {
+    desc += 'optimal parameters';
   }
   
-  // Fallback
-  return truncateDescription(
-    `Professional laser cleaning for ${materialName} removal. Technical specifications, parameters, and industrial methods for effective contamination removal.`,
-    160
-  );
+  // Add value proposition and application
+  desc += '. Complete elimination guide for industrial surfaces';
+  
+  return truncateDescription(desc, 160);
 }
