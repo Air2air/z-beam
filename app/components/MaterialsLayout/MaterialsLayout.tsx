@@ -46,19 +46,28 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
       if (!article) return null;
       
       const metadata = article.metadata as any; // Allow images.hero access
+      const normalizeFrequency = (freq: string | undefined): 'very_common' | 'common' | 'occasional' | 'rare' => {
+        if (freq === 'very_common' || freq === 'common' || freq === 'rare') return freq;
+        return 'occasional';
+      };
+      const normalizeSeverity = (sev: string | undefined): 'severe' | 'high' | 'moderate' | 'low' => {
+        if (sev === 'severe' || sev === 'high' || sev === 'low') return sev;
+        return 'moderate';
+      };
       return {
         id: ref.id,
         title: metadata.name || metadata.title,
-        category: metadata.category,
+        category: metadata.category || '',
+        subcategory: metadata.subcategory || '',
         description: metadata.description,
         url: metadata.full_path || `/contaminants/${ref.id}`,
-        frequency: ref.frequency,
-        severity: ref.severity,
-        typical_context: ref.typical_context,
-        image: metadata.images?.hero?.url,
+        frequency: normalizeFrequency(ref.frequency),
+        severity: normalizeSeverity(ref.severity),
+        typical_context: ref.typical_context || '',
+        image: metadata.images?.hero?.url || '',
       };
     })
-  ).then(items => items.filter(Boolean));
+  ).then(items => items.filter((item): item is NonNullable<typeof item> => item !== null));
 
   const sections: SectionConfig[] = [
     {

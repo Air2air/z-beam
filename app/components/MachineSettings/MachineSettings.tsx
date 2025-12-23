@@ -9,6 +9,7 @@ interface MachineSettingsProps {
   metadata: any;
   materialName?: string;
   materialLink?: string;
+  heroImage?: string;
 }
 
 /**
