@@ -44,11 +44,11 @@
     "validate:jsonld:syntax": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
     "validate:jsonld:rendering": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
     "fix:dataset-urls": "node scripts/fix-dataset-urls.js",
-    "prebuild": "npm run validate:content && npm run generate:datasets && npm run fix:dataset-urls",
+    "prebuild": "npm run validate:content",
     "postbuild": "npm run validate:urls",
     "postdeploy": "npm run validate:production:comprehensive",
     "build:analyze": "ANALYZE=true npm run build",
-    "generate:datasets": "tsx scripts/generate-datasets.ts && node scripts/generate-settings-datasets.js",
+
     "datasets:add-disclaimers": "node scripts/datasets/add-legal-disclaimers.js",
     "datasets:check": "tsx scripts/datasets/check-sync.ts",
     "datasets:watch": "tsx scripts/datasets/watch-changes.ts",
@@ -63,7 +63,7 @@
     "cache:stats": "node -e \"const ValidationCache = require('./scripts/validation/lib/cache'); console.log(ValidationCache.getStats());\"",
     "logs:view": "ls -lht .terminal-logs/**/*.log 2>/dev/null | head -20 || echo 'No logs yet'",
     "logs:clean": "find .terminal-logs -name '*.log' -mtime +7 -delete 2>/dev/null && echo '✅ Old logs cleaned' || echo 'No old logs to clean'",
-    "vercel-build": "npm run validate:content && npm run generate:datasets && npm run fix:dataset-urls && next build",
+    "vercel-build": "npm run validate:content && next build",
     "logs": "vercel logs --follow",
     "status": "vercel ls"
   },
