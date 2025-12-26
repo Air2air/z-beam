@@ -2,8 +2,8 @@ id: kevlar-reinforced-polymer-laser-cleaning
 name: Kevlar-Reinforced Polymer
 title: Kevlar-Reinforced Polymer Laser Cleaning
 category: composite
-datePublished: '2025-12-23T00:56:26.808204Z'
-dateModified: '2025-12-23T00:56:26.808204Z'
+datePublished: '2025-12-25T21:16:04.045960Z'
+dateModified: '2025-12-25T21:16:04.045960Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/composite/fiber-reinforced/kevlar-reinforced-polymer-laser-cleaning
@@ -21,9 +21,11 @@ breadcrumb:
 description: When laser cleaning Kevlar-reinforced polymer, keep an eye on its low thermal conductivity right away, since
   it traps heat on the surface to shield the underlying fibers—use precise pulses to remove contaminants without weakening
   the tough structure.
-micro: When laser cleaning Kevlar-reinforced polymer, keep an eye on its low thermal conductivity right away, since it traps
-  heat on the surface to shield the underlying fibers—use precise pulses to remove contaminants without weakening the tough
-  structure.
+micro:
+  before: The surface shows scattered dark spots and hazy patches across the fibers. Laser cleaning effectively removes this
+    buildup without disturbing the underlying material structure.
+  after: After treatment, the polymer weave appears uniform with clearly defined individual strands. This process restores
+    the original texture while eliminating all visible contamination.
 faq:
 - answer: For Kevlar-reinforced polymer, employ a 1064 nm wavelength laser at 45 W average power. An essential fluence of
     4.5 J/cm², delivered via 15 ns pulses, effectively cleans contaminants without causing thermal damage to the aramid fibers.
@@ -122,57 +124,7 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 subcategory: fiber-reinforced
-applications:
-- Aerospace
-- Automotive Racing
-- Marine and Naval
-- Medical Equipment
-- Electronics Manufacturing
-- Cultural Heritage Conservation
-- Wind Energy
-- Sports Equipment Manufacturing
-- Military and Defense
-- Industrial Manufacturing
 characteristics:
   crystallineStructure:
     allowedValues:
@@ -377,5 +329,78 @@ contamination:
     industrial_oil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
-seo_description: When laser cleaning Kevlar-reinforced polymer, keep an eye on its low thermal conductivity right away, since
-  it traps heat on the surface to shield the...
+card:
+  default:
+    heading: Kevlar-Reinforced Polymer
+    subtitle: composite / fiber-reinforced
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Aerospace
+      - Automotive Racing
+      - Marine and Naval
+      - Medical Equipment
+      - Electronics Manufacturing
+      - Cultural Heritage Conservation
+      - Wind Energy
+      - Sports Equipment Manufacturing
+      - Military and Defense
+      - Industrial Manufacturing

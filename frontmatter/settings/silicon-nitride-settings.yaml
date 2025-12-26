@@ -1,7 +1,7 @@
 id: silicon-nitride-settings
 name: Silicon Nitride
-datePublished: '2025-12-22T23:37:08.481704Z'
-dateModified: '2025-12-22T23:37:08.481704Z'
+datePublished: '2025-12-25T21:16:32.915357Z'
+dateModified: '2025-12-25T21:16:32.915357Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/oxide/silicon-nitride-settings
@@ -16,6 +16,10 @@ breadcrumb:
   href: /settings/ceramic/oxide
 - label: Silicon Nitride
   href: /settings/ceramic/oxide/silicon-nitride-settings
+description: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat. I've seen
+  that happen when folks push too hard right away. This works best if you start with gentle pulses to warm the surface slowly,
+  building up over a few passes. That way, you remove contaminants without risking fractures, keeping the material's tough,
+  heat-resistant nature intact. Just avoid high speeds early on.
 author:
   id: 1
   name: Yi-Chun Lin
@@ -44,67 +48,97 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
+card:
+  default:
+    heading: ''
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: success
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
 relationships:
-  regulatory_standards:
-    _section:
-      title: Regulatory Compliance
-      description: Industry standards and regulations applicable to these settings
-      order: 3
-      variant: reference
-      icon: book
-    items:
-    - type: regulatory_standards
-      id: osha-ppe-requirements
+  technical:
+    works_on_materials:
       presentation: card
-    - type: regulatory_standards
-      id: ansi-z136-1-laser-safety
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
+        variant: default
+    removes_contaminants:
       presentation: card
-  optimized_for_materials:
-    _section:
-      title: Applicable Materials
-      description: Materials that can be safely cleaned using these laser parameters
-      order: 1
-      variant: relationship
-      icon: cube
-    items:
-    - id: oak-laser-cleaning
-      effectiveness: medium
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
       presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/oak-laser-cleaning
-    - id: maple-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/maple-laser-cleaning
-    - id: pine-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/softwood/pine-laser-cleaning
-  removes_contaminants:
-    _section:
-      title: Effective Against
-      description: Contamination types that can be removed using these settings
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: rust-oxidation-contamination
-      effectiveness: high
-      presentation: card
-      level: high
-      valence: positive
-      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
-    - id: adhesive-residue-contamination
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - challenge: Thermal shock and cracking
+          severity: critical
+          threshold_temperature: ΔT > 200-300°C rapid cooling
+          impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
+          solutions:
+          - Use pulse mode with 3-5 second cooling between passes
+          - Gradual power ramping (start 50W, increase 10W per pass)
+          - Preheat substrate to reduce thermal gradients
+          - Monitor for surface crazing; stop immediately if cracks appear
+        - challenge: Variable thermal conductivity
+          severity: medium
+          property_value: 0.8-120 W/m·K (150x variation between materials)
+          impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
+          solutions:
+          - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
+          - High conductivity ceramics (SiC, WC) tolerate higher power
+          - Test on scrap to determine cooling requirements
+        contamination_challenges:
+        - id: coating-residue-removal
+          type: challenge
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+title: Silicon Nitride Settings
+category: ceramic
+subcategory: oxide
 machine_settings:
   powerRange:
     description: Optimal average power for Silicon Nitride surface cleaning without thermal damage
@@ -232,121 +266,3 @@ machine_settings:
     description: 'Typical 30-80% for uniform coverage; 50% recommended for Si3N4 to avoid uneven heating or missed spots while
       preventing overexposure on heat-sensitive ceramic. Higher overlap for heavy contamination. Source: Process optimization
       in Laser & Photonics Reviews (2019).'
-challenges:
-  thermal_management:
-  - challenge: Thermal shock and cracking
-    severity: critical
-    threshold_temperature: ΔT > 200-300°C rapid cooling
-    impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
-    solutions:
-    - Use pulse mode with 3-5 second cooling between passes
-    - Gradual power ramping (start 50W, increase 10W per pass)
-    - Preheat substrate to reduce thermal gradients
-    - Monitor for surface crazing; stop immediately if cracks appear
-  - challenge: Variable thermal conductivity
-    severity: medium
-    property_value: 0.8-120 W/m·K (150x variation between materials)
-    impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
-    solutions:
-    - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
-    - High conductivity ceramics (SiC, WC) tolerate higher power
-    - Test on scrap to determine cooling requirements
-  surface_characteristics:
-  - challenge: Surface defects and damage threshold
-    severity: high
-    impact: Micro-cracks, pores, and surface defects dramatically lower damage threshold
-    solutions:
-    - Inspect surface with magnification before cleaning
-    - Reduce power 30-40% for porous or aged ceramics
-    - Use multiple low-energy passes rather than single high-energy pass
-    - Polished ceramics tolerate 2-3x higher fluence than rough surfaces
-  - challenge: Porosity variation
-    severity: medium
-    porosity_range: 0-30% (dense vs porous ceramics)
-    impact: Porous ceramics trap contaminants deep in structure and scatter laser energy
-    solutions:
-    - Dense ceramics (0-5% porosity) clean easily at 100-150W
-    - Porous ceramics require multiple progressive passes
-    - Use crosshatch scan pattern for uniform penetration
-    - Chemical pre-treatment for deep contamination in porous ceramics
-  contamination_challenges:
-  - challenge: Coating and residue removal
-    severity: medium
-    impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate damage
-    solutions:
-    - First pass 120W fast (2000 mm/s) for bulk coating removal
-    - Second pass 80W slow (1000 mm/s) for residue
-    - Monitor for substrate exposure; adjust power accordingly
-    - PVD coatings may require chemical assist for complete removal
-description: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat. I've seen
-  that happen when folks push too hard right away. This works best if you start with gentle pulses to warm the surface slowly,
-  building up over a few passes. That way, you remove contaminants without risking fractures, keeping the material's tough,
-  heat-resistant nature intact. Just avoid high speeds early on.
-category: ceramic
-subcategory: oxide
-title: Silicon Nitride Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety

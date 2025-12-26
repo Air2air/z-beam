@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/app/config';
 import { Button } from '../Button';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 export default function CallToAction() {
   return (
@@ -13,7 +14,7 @@ export default function CallToAction() {
       role="region"
     >
       <div className="w-full h-full flex items-center">
-        <div className="grid grid-cols-3 gap-4 w-full">
+        <div className={`grid grid-cols-3 ${GRID_GAP_RESPONSIVE} w-full`}>
           
           {/* Left column: Phone number */}
           <div className="flex items-center justify-center h-[80px]">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import type { RelationshipSection } from '@/types';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 interface DescriptiveDataItem {
   [key: string]: string | number | boolean | string[] | null | undefined;
@@ -41,7 +42,7 @@ export function DescriptiveDataPanel({
           key={index}
           className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
         >
-          <dl className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <dl className={`grid grid-cols-1 md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
             {Object.entries(item).map(([key, value]) => {
               // Skip internal fields or null values
               if (key.startsWith('_') || value === null || value === undefined) {

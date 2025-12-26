@@ -1,5 +1,7 @@
 // app/components/DiagnosticCenter/QuickReferenceTab.tsx
 
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+
 interface Challenge {
   challenge: string;
   severity: 'critical' | 'high' | 'medium' | 'low';
@@ -42,7 +44,7 @@ export function QuickReferenceTab({ challenges, issues }: QuickReferenceTabProps
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-4">
+    <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
       {/* Left Column: Challenges by Severity */}
       <div className="bg-secondary rounded-md p-4 border">
         <h3 className="text-lg text-secondary font-semibold mb-3 flex items-center gap-2">

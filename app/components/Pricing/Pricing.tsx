@@ -1,4 +1,4 @@
-import { SITE_CONFIG } from '@/app/config/site';
+import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 interface PricingProps {
   materialName: string;
@@ -9,7 +9,7 @@ export function Pricing({ materialName: _materialName, materialSlug: _materialSl
   const { professionalCleaning, equipmentRental } = SITE_CONFIG.pricing;
   
   return (
-    <div className="grid md:grid-cols-2 gap-6 my-12">
+    <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE} my-12`}>
         {/* Professional Service Card */}
         <div className="card-background rounded-md p-6 shadow-md border card-enhanced-hover transition-all duration-300 ease-out">
           <div className="flex items-start justify-between mb-4">

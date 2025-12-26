@@ -503,12 +503,15 @@ export const GRID_CONFIGS = {
   4: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4",
 } as const;
 
+// Centralized grid gap configuration - single responsive pattern for all grid types
+export const GRID_GAP_RESPONSIVE = "gap-2 sm:gap-3 md:gap-4 lg:gap-6";
+
 export const GRID_GAPS = {
   xs: "gap-1",
   sm: "gap-2", 
-  md: "gap-2 md:gap-4 lg:gap-6",
-  lg: "gap-2 md:gap-6 lg:gap-8",
-  xl: "gap-2 md:gap-8 lg:gap-12"
+  md: GRID_GAP_RESPONSIVE,
+  lg: GRID_GAP_RESPONSIVE,
+  xl: GRID_GAP_RESPONSIVE
 } as const;
 
 export const GRID_CONTAINER_CLASSES = {
@@ -525,7 +528,7 @@ export const GRID_SECTION_SPACING = {
 } as const;
 
 export const SECTION_HEADER_CLASSES = {
-  title: "text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2",
+  title: "text-lg md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2",
   subtitle: "text-gray-600 dark:text-gray-400 mt-2",
   container: "mb-8"
 } as const;
@@ -534,6 +537,11 @@ export const CATEGORY_HEADER_CLASSES = {
   title: "text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2",
   subtitle: "text-gray-600 dark:text-gray-400 mt-2", 
   container: "mb-6"
+} as const;
+
+// Centralized card header styling (matches Material Cards)
+export const CARD_HEADER_CLASSES = {
+  title: "card-title text-lg truncate text-primary font-medium"
 } as const;
 
 export function getGridClasses({ 

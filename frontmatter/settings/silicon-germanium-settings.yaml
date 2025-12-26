@@ -1,7 +1,7 @@
 id: silicon-germanium-settings
 name: Silicon Germanium
-datePublished: '2025-12-22T23:37:08.427627Z'
-dateModified: '2025-12-22T23:37:08.427627Z'
+datePublished: '2025-12-25T21:16:32.901993Z'
+dateModified: '2025-12-25T21:16:32.901993Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/semiconductor/elemental/silicon-germanium-settings
@@ -16,6 +16,14 @@ breadcrumb:
   href: /settings/semiconductor/elemental
 - label: Silicon Germanium
   href: /settings/semiconductor/elemental/silicon-germanium-settings
+description: I've found that laser cleaning Silicon Germanium works smoothly when you ease into it with gentle settings, much
+  like handling pure silicon but with extra caution for its alloy quirks. This material tends to absorb energy more readily
+  than silicon alone, thanks to the germanium mix, which helps contaminants lift off without much force. In my experience,
+  it restores surfaces in electronics manufacturing or telecom parts effectively, clearing residues while preserving the semiconductor
+  integrity that sets it apart from tougher metals. The blend gives it a bit more flexibility under heat compared to rigid
+  ceramics, so you can push scan speeds a touch higher once you gauge the response. But watch how it conducts warmth—it's
+  not as efficient as silicon, leading to quicker buildup if you're not careful. To avoid cracks or altered properties, always
+  test on a scrap piece first and keep passes minimal; rushing it can dull that precise edge SiGe offers in high-tech apps.
 author:
   id: 3
   name: Ikmanda Roswati
@@ -46,67 +54,105 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
+card:
+  default:
+    heading: ''
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: success
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
 relationships:
-  regulatory_standards:
-    _section:
-      title: Regulatory Compliance
-      description: Industry standards and regulations applicable to these settings
-      order: 3
-      variant: reference
-      icon: book
-    items:
-    - type: regulatory_standards
-      id: osha-ppe-requirements
+  technical:
+    works_on_materials:
       presentation: card
-    - type: regulatory_standards
-      id: ansi-z136-1-laser-safety
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
+        variant: default
+    removes_contaminants:
       presentation: card
-  optimized_for_materials:
-    _section:
-      title: Applicable Materials
-      description: Materials that can be safely cleaned using these laser parameters
-      order: 1
-      variant: relationship
-      icon: cube
-    items:
-    - id: oak-laser-cleaning
-      effectiveness: medium
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
       presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/oak-laser-cleaning
-    - id: maple-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/maple-laser-cleaning
-    - id: pine-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/softwood/pine-laser-cleaning
-  removes_contaminants:
-    _section:
-      title: Effective Against
-      description: Contamination types that can be removed using these settings
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: rust-oxidation-contamination
-      effectiveness: high
-      presentation: card
-      level: high
-      valence: positive
-      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
-    - id: adhesive-residue-contamination
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - challenge: Crystal lattice damage and doping redistribution
+          severity: critical
+          threshold_temperature: Above 400-600°C causes dopant migration
+          impact: Heat causes permanent alteration of electronic properties and device failure
+          solutions:
+          - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
+          - Reduce power by 60-70% compared to structural materials
+          - Monitor temperature with IR camera; stop if >150°C surface temperature
+          - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
+        - challenge: Thermal stress and wafer cracking
+          severity: high
+          property_value: Low fracture toughness 0.75-3.0 MPa·√m
+          impact: Thermal gradients cause catastrophic wafer fracture
+          solutions:
+          - Use pulse mode with 10-15 second cooling for thick wafers
+          - Thin wafers (<200 μm) require substrate backing for thermal management
+          - Defocused beam reduces peak temperature gradients
+          - Gradual power ramping (start 10W, increase 5W per pass)
+        contamination_challenges:
+        - challenge: Photoresist and polymer residue removal
+          severity: medium
+          impact: Organic residues carbonize and become harder to remove
+          solutions:
+          - First pass 20W fast (1500 mm/s) for bulk removal
+          - Second pass 10W slow (800 mm/s) for residue
+          - UV laser (355nm) more effective for organic materials
+          - Oxygen-rich environment aids in organic ablation
+          - Post-cleaning oxygen plasma for complete residue removal
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+title: Silicon Germanium Settings
+category: semiconductor
+subcategory: elemental
 machine_settings:
   powerRange:
     description: Optimal average power for SiGe surface cleaning without thermal damage
@@ -225,127 +271,3 @@ machine_settings:
     unit: '%'
     description: 'Ensures uniform coverage; 50% optimal for SiGe to avoid gaps or hot spots given beam divergence at 1064
       nm. Source: Process optimization studies in Opt. Express (2020) for scanned laser cleaning of alloys.'
-challenges:
-  thermal_management:
-  - challenge: Crystal lattice damage and doping redistribution
-    severity: critical
-    threshold_temperature: Above 400-600°C causes dopant migration
-    impact: Heat causes permanent alteration of electronic properties and device failure
-    solutions:
-    - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
-    - Reduce power by 60-70% compared to structural materials
-    - Monitor temperature with IR camera; stop if >150°C surface temperature
-    - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
-  - challenge: Thermal stress and wafer cracking
-    severity: high
-    property_value: Low fracture toughness 0.75-3.0 MPa·√m
-    impact: Thermal gradients cause catastrophic wafer fracture
-    solutions:
-    - Use pulse mode with 10-15 second cooling for thick wafers
-    - Thin wafers (<200 μm) require substrate backing for thermal management
-    - Defocused beam reduces peak temperature gradients
-    - Gradual power ramping (start 10W, increase 5W per pass)
-  surface_characteristics:
-  - challenge: Surface contamination and particulates
-    severity: critical
-    impact: Sub-micron particles cause device defects and yield loss
-    solutions:
-    - Class 100 cleanroom environment required
-    - Use dry laser cleaning (no liquid assist to avoid residue)
-    - Gas assist (nitrogen or argon) blows particles away during cleaning
-    - Post-cleaning inspection with particle counter (<0.1 μm detection)
-    - Follow with wet chemical clean for critical applications
-  - challenge: Native oxide layer removal
-    severity: high
-    impact: Silicon forms native oxide that must be removed without substrate damage
-    solutions:
-    - Low power (5-15W) for oxide removal only
-    - Multiple gentle passes (3-5 passes at 10W) preferred
-    - Hydrogen-rich environment prevents oxide reformation
-    - Verify oxide removal with ellipsometry or XPS
-  contamination_challenges:
-  - challenge: Photoresist and polymer residue removal
-    severity: medium
-    impact: Organic residues carbonize and become harder to remove
-    solutions:
-    - First pass 20W fast (1500 mm/s) for bulk removal
-    - Second pass 10W slow (800 mm/s) for residue
-    - UV laser (355nm) more effective for organic materials
-    - Oxygen-rich environment aids in organic ablation
-    - Post-cleaning oxygen plasma for complete residue removal
-description: I've found that laser cleaning Silicon Germanium works smoothly when you ease into it with gentle settings, much
-  like handling pure silicon but with extra caution for its alloy quirks. This material tends to absorb energy more readily
-  than silicon alone, thanks to the germanium mix, which helps contaminants lift off without much force. In my experience,
-  it restores surfaces in electronics manufacturing or telecom parts effectively, clearing residues while preserving the semiconductor
-  integrity that sets it apart from tougher metals. The blend gives it a bit more flexibility under heat compared to rigid
-  ceramics, so you can push scan speeds a touch higher once you gauge the response. But watch how it conducts warmth—it's
-  not as efficient as silicon, leading to quicker buildup if you're not careful. To avoid cracks or altered properties, always
-  test on a scrap piece first and keep passes minimal; rushing it can dull that precise edge SiGe offers in high-tech apps.
-category: semiconductor
-subcategory: elemental
-title: Silicon Germanium Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety

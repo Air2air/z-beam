@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { DatasetCard } from './DatasetCard';
-import { getGridClasses } from '@/app/config/site';
+import { getGridClasses, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
 
 interface CategoryBundlesProps {
@@ -28,7 +28,7 @@ export default function CategoryBundles({ materials, categoryStats, onDownload }
   const categories = Object.entries(categoryStats).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div className={getGridClasses({ columns: 3, gap: "md" })}>
+    <div className={`${getGridClasses({ columns: 3 })} ${GRID_GAP_RESPONSIVE}`}>
       {categories.map(([category, count]) => {
         // Get first material from category for hero image
         const categoryMaterials = materials.filter(m => m.category === category);

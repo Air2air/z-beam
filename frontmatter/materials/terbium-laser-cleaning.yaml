@@ -2,8 +2,8 @@ id: terbium-laser-cleaning
 name: Terbium
 title: Terbium Laser Cleaning
 category: rare-earth
-datePublished: '2025-12-23T00:56:28.224713Z'
-dateModified: '2025-12-23T00:56:28.224713Z'
+datePublished: '2025-12-25T21:16:05.266066Z'
+dateModified: '2025-12-25T21:16:05.266066Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/rare-earth/lanthanide/terbium-laser-cleaning
@@ -20,8 +20,11 @@ breadcrumb:
   href: /materials/rare-earth/lanthanide/terbium-laser-cleaning
 description: In our work with terbium for laser cleaning, we've noticed it stands out from other rare-earth metals by bouncing
   back most of the laser energy, which means cleaner surfaces on aerospace parts with no worry of deep material damage.
-micro: In our work with terbium for laser cleaning, we've noticed it stands out from other rare-earth metals by bouncing back
-  most of the laser energy, which means cleaner surfaces on aerospace parts with no worry of deep material damage.
+micro:
+  before: Before laser cleaning, the Terbium surface shows heavy contamination with dark patches and uneven buildup. You can
+    see how these stubborn deposits completely obscure the underlying metal's natural appearance.
+  after: After treatment, the laser effectively clears all that accumulated material away. Now we observe a uniform metallic
+    surface with consistent coloration restored across the entire sample area, which looks much cleaner than before.
 faq:
 - answer: When removing Terbium oxide from metal substrates, the 1064 nm near-IR wavelength performs straightforwardly, thanks
     to strong absorption in Tb compounds. This process enables ablation efficiently at fluences over 2.5 J/cm², sparing the
@@ -132,47 +135,7 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/en/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 subcategory: lanthanide
-applications:
-- Electronics Manufacturing
-- Medical
-- Aerospace
-- Renewable Energy
-- Defense
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -346,5 +309,68 @@ contamination:
   conditional: {}
   _needs_review: true
   _note: Category "rare-earth" not recognized - conservative defaults applied
-seo_description: In our work with terbium for laser cleaning, we've noticed it stands out from other rare-earth metals by
-  bouncing back most of the laser energy, which means...
+card:
+  default:
+    heading: Terbium
+    subtitle: rare-earth / lanthanide
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/en/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Electronics Manufacturing
+      - Medical
+      - Aerospace
+      - Renewable Energy
+      - Defense

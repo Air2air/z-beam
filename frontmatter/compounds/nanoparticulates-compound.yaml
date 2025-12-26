@@ -3,8 +3,8 @@ name: Nanoparticulates
 display_name: Nanoparticulates
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-23T00:44:43.343182Z'
-dateModified: '2025-12-23T00:44:43.343182Z'
+datePublished: '2025-12-24T23:09:10.325983Z'
+dateModified: '2025-12-24T23:09:10.325983Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/nanomaterial/nanoparticulates-compound
@@ -19,88 +19,15 @@ breadcrumb:
   href: /compounds/particulate/nanomaterial
 - label: Nanoparticulates
   href: /compounds/particulate/nanomaterial/nanoparticulates-compound
+page_title: 'Nanoparticulates: Respiratory Irritant'
+meta_description: 'Nanoparticulates: Respiratory Irritant from metal processing. Requires proper ventilation and PPE.'
 chemical_formula: Various
 cas_number: null
 molecular_weight: null
-description: "Nanoparticulates pack immense surface area into tiny realms. They cling and react fast. Strength surges when\
-  \ mixed into composites. Durability boosts everyday gear. Heat resistance shields against harsh environments. Conductivity\
-  \ sparks electronics alive. \n\nIndustries grab them for paints that repel water. Coatings toughen up metals. Catalysts\
-  \ speed chemical reactions clean. Filters trap pollutants with ease. Medical tools gain precision edges. \n\nLaser cleaning\
-  \ thrives on their quirks. Pulses vaporize grime fast around them. They absorb energy sharply. Surfaces emerge pristine\
-  \ without deep scars. Graffiti vanishes from walls. Rust lifts off relics. These bits enable targeted blasts. Efficiency\
-  \ rules the process. Waste stays low. Restoration feels swift and sure."
+health_effects: null
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
-exposure_limits: null
-health_effects_keywords:
-- respiratory_penetration
-- pulmonary_effects
-monitoring_required: true
-typical_concentration_range: 0.01-1 mg/m³
-sources_in_laser_cleaning:
-- ultrafine_particle_generation
-- condensation_nucleation
-- ceramic_coating_ablation
-relationships:
-  produced_from_contaminants:
-    _section:
-      title: Source Contaminants
-      description: Contamination types that generate this compound during laser cleaning
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: ceramic-coating-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of Ceramic Heat Barrier Coating
-      presentation: card
-      url: /contaminants/inorganic-coating/ceramic/ceramic-coating-contamination
-    - id: ceramic-glaze-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Ceramic Glaze Deposits
-      presentation: card
-      url: /contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination
-    - id: concrete-dust-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Concrete Dust Deposits
-      presentation: card
-      url: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
-    - id: environmental-dust-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Environmental Dust Layer
-      presentation: card
-      url: /contaminants/organic-residue/other/environmental-dust-contamination
-    - id: passivation-defect-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Passivation Layer Irregularities
-      presentation: card
-      url: /contaminants/inorganic-coating/coating/passivation-defect-contamination
-    - id: pvd-coating-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of PVD Coating Defects
-      presentation: card
-      url: /contaminants/inorganic-coating/coating/pvd-coating-contamination
-    - id: semiconductor-residue-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Semiconductor Processing Residue
-      presentation: card
-      url: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
-    - id: thermal-paste-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Thermal Compound Deposits
-      presentation: card
-      url: /contaminants/organic-residue/other/thermal-paste-contamination
-  health_effects: null
-subcategory: nanomaterial
 author:
   id: 4
   name: Todd Dunning
@@ -129,6 +56,65 @@ author:
   - https://spie.org/profile/Todd.Dunning
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
+health_effects_keywords:
+- respiratory_penetration
+- pulmonary_effects
+monitoring_required: true
+typical_concentration_range: 0.01-1 mg/m³
+sources_in_laser_cleaning:
+- ultrafine_particle_generation
+- condensation_nucleation
+- ceramic_coating_ablation
+relationships:
+  produced_from_contaminants:
+    presentation: card
+    items:
+    - id: ceramic-coating-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of Ceramic Heat Barrier Coating
+      intensity: very_negative
+    - id: ceramic-glaze-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Ceramic Glaze Deposits
+      intensity: negative
+    - id: concrete-dust-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Concrete Dust Deposits
+      intensity: negative
+    - id: environmental-dust-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Environmental Dust Layer
+      intensity: negative
+    - id: passivation-defect-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Passivation Layer Irregularities
+      intensity: negative
+    - id: pvd-coating-contamination
+      frequency: unknown
+      severity: high
+      typical_context: Laser removal of PVD Coating Defects
+      intensity: very_negative
+    - id: semiconductor-residue-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Semiconductor Processing Residue
+      intensity: negative
+    - id: thermal-paste-contamination
+      frequency: unknown
+      severity: moderate
+      typical_context: Laser removal of Thermal Compound Deposits
+      intensity: negative
+    _section:
+      title: Produced From Contaminants
+      description: Contaminants that generate this compound during laser cleaning
+      icon: droplet
+      order: 9
+      variant: default
+  health_effects: null
 title: Nanoparticulates
-seo_description: Nanoparticulates pack immense surface area into tiny realms.
-micro: Nanoparticulates pack immense surface area into tiny realms. They cling and react fast.
+subcategory: nanomaterial

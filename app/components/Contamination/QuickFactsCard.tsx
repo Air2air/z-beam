@@ -7,6 +7,7 @@
 
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { getGridClasses } from '@/app/utils/gridConfig';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 interface QuickFact {
   removal_efficiency: string;
@@ -30,7 +31,7 @@ export function QuickFactsCard({ facts }: QuickFactsCardProps) {
           </h2>
           
           {/* Metrics Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className={`grid grid-cols-2 md:grid-cols-4 ${GRID_GAP_RESPONSIVE} mb-6`}>
             <div className="text-center">
               <div className="text-3xl mb-1">⚡</div>
               <div className="text-sm text-gray-400 mb-1">Removal Efficiency</div>

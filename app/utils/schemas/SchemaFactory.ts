@@ -1928,7 +1928,7 @@ function generateSoftwareApplicationSchema(data: any, context: SchemaContext): S
     ],
     'screenshot': {
       '@type': 'ImageObject',
-      'url': `${baseUrl}/images/material/${(materialName as string).toLowerCase().replace(/\s+/g, '-')}-laser-cleaning-hero.jpg`
+      'url': `${baseUrl}/images/material/${(materialName as string).toLowerCase().replace(/\s+/g, '-')}-hero.jpg`
     },
     'author': {
       '@type': 'Organization',
@@ -1996,10 +1996,9 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   // Extract material/contaminant slug from the full slug path
   const materialSlug = slug.split('/').pop() || slug;
   
-  // Normalize slug: remove suffixes for unified dataset naming
-  const baseMaterialSlug = materialSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '').replace(/-contamination$/, '');
+  // Dataset naming: IDs already include proper suffixes
   const datasetFolder = isContaminant ? 'contaminants' : 'materials';
-  const datasetName = isContaminant ? materialSlug : `${baseMaterialSlug}-laser-cleaning`;
+  const datasetName = materialSlug;
 
   // **PHASE 1 ENHANCEMENT**: Load generated dataset file for enhanced data
   // These files contain: 20+ variableMeasured items, citation array, author E-E-A-T data, images

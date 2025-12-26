@@ -118,7 +118,7 @@ export function mapMaterialLinkageToGrid(linkage: Relationship): GridItem {
 export function mapContaminantLinkageToGrid(linkage: Relationship): GridItem {
   return {
     slug: linkage.id,
-    href: linkage.url || `/contaminants/${linkage.id}`,
+    href: linkage.url, // URL must come from enriched data with full_path
     title: linkage.title,
     imageUrl: linkage.image,
     imageAlt: linkage.title,

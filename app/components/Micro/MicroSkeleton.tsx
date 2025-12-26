@@ -6,6 +6,8 @@
  * @performance Reserves exact space needed by Micro (min-h-[500px]) to maintain CLS: 0.0
  */
 
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+
 export default function MicroSkeleton() {
   return (
     <div 
@@ -19,7 +21,7 @@ export default function MicroSkeleton() {
       </div>
       
       {/* Before/After text skeleton - matches Micro's grid layout */}
-      <div className="grid-2col-md gap-6">
+      <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
         {/* Before section */}
         <div className="p-6 md:p-8 bg-gray-100 rounded-md space-y-3">
           <div className="h-6 bg-gray-300 rounded w-1/3" />

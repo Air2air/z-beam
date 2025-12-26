@@ -2,8 +2,8 @@ id: vanadium-laser-cleaning
 name: Vanadium
 title: Vanadium Laser Cleaning
 category: metal
-datePublished: '2025-12-23T00:56:28.461388Z'
-dateModified: '2025-12-23T00:56:28.461388Z'
+datePublished: '2025-12-25T21:16:05.469630Z'
+dateModified: '2025-12-25T21:16:05.469630Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/alloy/vanadium-laser-cleaning
@@ -21,9 +21,11 @@ breadcrumb:
 description: When laser cleaning vanadium alloys, I've seen how their natural corrosion resistance keeps surfaces intact even
   under intense pulses, so you start with moderate power to gently lift contaminants without risking the underlying strength
   that makes them ideal for aerospace parts and chemical gear.
-micro: When laser cleaning vanadium alloys, I've seen how their natural corrosion resistance keeps surfaces intact even under
-  intense pulses, so you start with moderate power to gently lift contaminants without risking the underlying strength that
-  makes them ideal for aerospace parts and chemical gear.
+micro:
+  before: At 1000x magnification, the vanadium surface shows heavy contamination with dark patches and scattered debris. You
+    can see how these deposits completely obscure the underlying metal structure and create a rough texture across large areas.
+  after: After laser treatment, the surface appears clean and uniform with consistent metallic luster. The process effectively
+    removes all visible buildup while preserving the base material integrity so we get a smooth finish ready for further applications.
 faq:
 - answer: 1064 nm near-IR lasers prove optimal for cleaning vanadium oxide from steel alloys, absorbing efficiently into the
     reflective metal. Notably, unlike 532 nm visible light—which scatters more due to vanadium's properties—thus, target 5.1
@@ -118,52 +120,7 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/en/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 subcategory: alloy
-applications:
-- Aerospace
-- Nuclear Energy
-- Chemical Processing
-- Medical Devices
-- Automotive
-- Electronics Manufacturing
-- Marine Engineering
-- Cultural Heritage
-- Research Laboratories
-- Additive Manufacturing
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -393,5 +350,73 @@ contamination:
   - copper_patina
   - aluminum_oxidation
   conditional: {}
-seo_description: When laser cleaning vanadium alloys, I've seen how their natural corrosion resistance keeps surfaces intact
-  even under intense pulses, so you start with...
+card:
+  default:
+    heading: Vanadium
+    subtitle: metal / alloy
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/en/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Aerospace
+      - Nuclear Energy
+      - Chemical Processing
+      - Medical Devices
+      - Automotive
+      - Electronics Manufacturing
+      - Marine Engineering
+      - Cultural Heritage
+      - Research Laboratories
+      - Additive Manufacturing

@@ -4,6 +4,8 @@
  * @see app/components/Card/Card.tsx
  */
 
+import { CARD_HEADER_CLASSES } from './site';
+
 export interface CardVariantConfig {
   // Layout
   padding: string;
@@ -31,7 +33,7 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
     
     // Typography
-    titleClass: "card-title text-lg truncate text-primary font-medium",
+    titleClass: CARD_HEADER_CLASSES.title,
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
@@ -46,10 +48,10 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     // Layout
     padding: "px-3 py-1 md:px-4 md:py-2.5",
     imageHeight: "h-full", // Full height for featured cards - image expands to fill card
-    cardHeight: "h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem]",
+    cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
     
     // Typography
-    titleClass: "card-title text-lg truncate text-primary font-medium",
+    titleClass: CARD_HEADER_CLASSES.title,
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
@@ -67,7 +69,7 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
     
     // Typography
-    titleClass: "card-title text-lg truncate text-primary font-medium",
+    titleClass: CARD_HEADER_CLASSES.title,
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance - subtle differences for relationship context

@@ -1,8 +1,6 @@
 // app/components/MachineSettings/MachineSettings.tsx
 import React from 'react';
-import { PropertyBars } from '../PropertyBars/PropertyBars';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface MachineSettingsProps {
@@ -15,7 +13,7 @@ interface MachineSettingsProps {
 /**
  * MachineSettings - Dedicated component for displaying machine settings parameters
  * 
- * Displays machine configuration parameters using PropertyBars component with
+ * Displays machine configuration parameters using PropertyGrid component with
  * three-bar visualization (value, min, max) for all settings properties.
  * 
  * Designed for Settings pages to show equipment parameters and operating ranges.
@@ -39,19 +37,16 @@ export function MachineSettings({ metadata, materialName, materialLink }: Machin
     : 'Machine Settings';
 
   return (
-    <SectionContainer
+    <PropertyGrid
+      metadata={metadata}
+      dataSource="machineSettings"
       title={title}
       icon={getSectionIcon('machine-settings')}
       actionText={materialLink ? "Material" : undefined}
       actionUrl={materialLink}
+      columns={{ xs: 2, sm: 3, md: 4, lg: 5 }}
+      height={70}
       className="mb-8"
-    >
-      <PropertyBars 
-        metadata={metadata}
-        dataSource="machineSettings"
-        columns={{ xs: 2, sm: 3, md: 4, lg: 5 }}
-        height={70}
-      />
-    </SectionContainer>
+    />
   );
 }

@@ -2,8 +2,8 @@ id: tin-laser-cleaning
 name: Tin
 title: Tin Laser Cleaning
 category: metal
-datePublished: '2025-12-23T00:56:28.283267Z'
-dateModified: '2025-12-23T00:56:28.283267Z'
+datePublished: '2025-12-25T21:16:05.318407Z'
+dateModified: '2025-12-25T21:16:05.318407Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/alloy/tin-laser-cleaning
@@ -20,8 +20,12 @@ breadcrumb:
   href: /materials/metal/alloy/tin-laser-cleaning
 description: For laser cleaning of tin, begin with low power to carefully manage its low melting point, in contrast to tougher
   metals that endure higher intensities without deformation.
-micro: For laser cleaning of tin, begin with low power to carefully manage its low melting point, in contrast to tougher metals
-  that endure higher intensities without deformation.
+micro:
+  before: At 1000x magnification, the tin surface shows heavy contamination with dark patches and uneven buildup. The laser
+    cleaning process effectively strips away these layers of grime and oxidation without harming the underlying metal structure.
+  after: After treatment, we see a uniform metallic surface with consistent texture across the entire sample area. This clean
+    finish restores the material's natural properties for reliable performance in various applications from electronics to
+    food processing equipment.
 faq:
 - answer: For cleaning tin oxide without melting the underlying metal at 231.9°C, choose a 1064 nm fiber laser rather than
     532 nm—particularly its near-IR wavelength boosts oxide absorption while tin's high reflectivity limits substrate heating.
@@ -121,104 +125,7 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: adhesive-residue-contamination
-      presentation: card
-    - id: algae-growth-contamination
-      presentation: card
-    - id: biological-stains-contamination
-      presentation: card
-    - id: carbon-soot-contamination
-      presentation: card
-    - id: chemical-stains-contamination
-      presentation: card
-    - id: epoxy-residue-contamination
-      presentation: card
-    - id: fertilizer-residue-contamination
-      presentation: card
-    - id: graffiti-paint-contamination
-      presentation: card
-    - id: graphite-marks-contamination
-      presentation: card
-    - id: industrial-oil-contamination
-      presentation: card
-    - id: ink-stains-contamination
-      presentation: card
-    - id: insect-residue-contamination
-      presentation: card
-    - id: lime-scale-contamination
-      presentation: card
-    - id: mercury-contamination
-      presentation: card
-    - id: mineral-deposits-contamination
-      presentation: card
-    - id: paint-residue-contamination
-      presentation: card
-    - id: pesticide-residue-contamination
-      presentation: card
-    - id: plastic-residue-contamination
-      presentation: card
-    - id: pollen-deposit-contamination
-      presentation: card
-    - id: radioactive-contamination
-      presentation: card
-    - id: rubber-residue-contamination
-      presentation: card
-    - id: salt-residue-contamination
-      presentation: card
-    - id: scale-buildup-contamination
-      presentation: card
-    - id: silicone-buildup-contamination
-      presentation: card
-    - id: tree-sap-contamination
-      presentation: card
-    - id: water-stain-contamination
-      presentation: card
-    - id: wax-buildup-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/en/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 subcategory: alloy
-applications:
-- Electronics Manufacturing
-- Food Processing Equipment
-- Cultural Heritage Conservation
-- Aerospace Components
-- Automotive Electrical Systems
-- Marine Electronics
-- Medical Device Manufacturing
-- Renewable Energy Systems
-- Historical Architecture
-- Manufacturing Tooling
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -449,5 +356,99 @@ contamination:
   - copper_patina
   - aluminum_oxidation
   conditional: {}
-seo_description: For laser cleaning of tin, begin with low power to carefully manage its low melting point, in contrast to
-  tougher metals that endure higher intensities without...
+card:
+  default:
+    heading: Tin
+    subtitle: metal / alloy
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: adhesive-residue-contamination
+      - id: algae-growth-contamination
+      - id: biological-stains-contamination
+      - id: carbon-soot-contamination
+      - id: chemical-stains-contamination
+      - id: epoxy-residue-contamination
+      - id: fertilizer-residue-contamination
+      - id: graffiti-paint-contamination
+      - id: graphite-marks-contamination
+      - id: industrial-oil-contamination
+      - id: ink-stains-contamination
+      - id: insect-residue-contamination
+      - id: lime-scale-contamination
+      - id: mercury-contamination
+      - id: mineral-deposits-contamination
+      - id: paint-residue-contamination
+      - id: pesticide-residue-contamination
+      - id: plastic-residue-contamination
+      - id: pollen-deposit-contamination
+      - id: radioactive-contamination
+      - id: rubber-residue-contamination
+      - id: salt-residue-contamination
+      - id: scale-buildup-contamination
+      - id: silicone-buildup-contamination
+      - id: tree-sap-contamination
+      - id: water-stain-contamination
+      - id: wax-buildup-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/en/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Electronics Manufacturing
+      - Food Processing Equipment
+      - Cultural Heritage Conservation
+      - Aerospace Components
+      - Automotive Electrical Systems
+      - Marine Electronics
+      - Medical Device Manufacturing
+      - Renewable Energy Systems
+      - Historical Architecture
+      - Manufacturing Tooling

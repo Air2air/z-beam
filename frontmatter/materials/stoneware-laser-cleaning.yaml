@@ -2,8 +2,8 @@ id: stoneware-laser-cleaning
 name: Stoneware
 title: Stoneware Laser Cleaning
 category: ceramic
-datePublished: '2025-12-23T00:56:28.117360Z'
-dateModified: '2025-12-23T00:56:28.117360Z'
+datePublished: '2025-12-25T21:16:05.176036Z'
+dateModified: '2025-12-25T21:16:05.176036Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/ceramic/oxide/stoneware-laser-cleaning
@@ -20,8 +20,9 @@ breadcrumb:
   href: /materials/ceramic/oxide/stoneware-laser-cleaning
 description: I've found stoneware handles laser cleaning smoothly compared to fragile porcelains, absorbing heat evenly to
   strip away contaminants from heritage pieces or chemical gear without cracking the tough body underneath.
-micro: I've found stoneware handles laser cleaning smoothly compared to fragile porcelains, absorbing heat evenly to strip
-  away contaminants from heritage pieces or chemical gear without cracking the tough body underneath.
+micro:
+  before: Before cleaning, the surface shows scattered dark contaminants across the material.
+  after: Laser treatment removes this buildup and restores the original ceramic finish completely.
 faq:
 - answer: For glazed stoneware, the 1064 nm near-infrared wavelength offers a practical way to ablate soot and grease, with
     high contaminant absorption and low penetration into the ceramic substrate that preserves its integrity. This process
@@ -123,52 +124,7 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/en/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 subcategory: oxide
-applications:
-- Cultural Heritage
-- Food Processing
-- Chemical Processing
-- Electronics Manufacturing
-- Aerospace
-- Medical Device Manufacturing
-- Energy Production
-- Automotive Manufacturing
-- Marine Engineering
-- Semiconductor Fabrication
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -355,5 +311,73 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-seo_description: I've found stoneware handles laser cleaning smoothly compared to fragile porcelains, absorbing heat evenly
-  to strip away contaminants from heritage pieces or...
+card:
+  default:
+    heading: Stoneware
+    subtitle: ceramic / oxide
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/en/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Cultural Heritage
+      - Food Processing
+      - Chemical Processing
+      - Electronics Manufacturing
+      - Aerospace
+      - Medical Device Manufacturing
+      - Energy Production
+      - Automotive Manufacturing
+      - Marine Engineering
+      - Semiconductor Fabrication

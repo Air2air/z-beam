@@ -1,7 +1,6 @@
 // app/components/MaterialCharacteristics/MaterialCharacteristics.tsx
 import React from 'react';
-import { PropertyBars } from '../PropertyBars/PropertyBars';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface MaterialCharacteristicsProps {
@@ -15,7 +14,7 @@ interface MaterialCharacteristicsProps {
 /**
  * MaterialCharacteristics - Dedicated component for displaying material characteristics
  * 
- * Displays core material properties using PropertyBars component with
+ * Displays core material properties using PropertyGrid component with
  * three-bar visualization (value, min, max) for characteristics like:
  * - Density, hardness, tensile strength
  * - Melting point, thermal destruction
@@ -41,8 +40,8 @@ export function MaterialCharacteristics({ materialProperties, materialName, cate
   }
 
   const title = materialName 
-    ? `${materialName} Material Characteristics`
-    : 'Material Characteristics';
+    ? `${materialName} physical characteristics`
+    : 'Physical characteristics';
 
   // Generate settings URL if we have the required info
   const settingsUrl = (category && subcategory && slug)
@@ -63,19 +62,16 @@ export function MaterialCharacteristics({ materialProperties, materialName, cate
   };
 
   return (
-    <SectionContainer
+    <PropertyGrid
+      metadata={metadata}
+      dataSource="materialProperties"
       title={title}
       icon={getSectionIcon('material-properties')}
-      actionText={settingsUrl ? "Settings" : undefined}
+      actionText={settingsUrl && materialName ? `${materialName} machine settings` : undefined}
       actionUrl={settingsUrl}
+      columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
+      height={70}
       className="mb-8"
-    >
-      <PropertyBars 
-        metadata={metadata}
-        dataSource="materialProperties"
-        columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
-        height={70}
-      />
-    </SectionContainer>
+    />
   );
 }

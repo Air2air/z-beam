@@ -1,7 +1,7 @@
 id: zirconium-settings
 name: Zirconium
-datePublished: '2025-12-22T23:37:09.447227Z'
-dateModified: '2025-12-22T23:37:09.447227Z'
+datePublished: '2025-12-25T21:16:33.271702Z'
+dateModified: '2025-12-25T21:16:33.271702Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/zirconium-settings
@@ -16,6 +16,14 @@ breadcrumb:
   href: /settings/metal/alloy
 - label: Zirconium
   href: /settings/metal/alloy/zirconium-settings
+description: In our experience, laser cleaning zirconium works best when we dial in conservative power levels right from the
+  start. This metal's high reflectivity bounces back a lot of the laser energy, so we keep pulses short and scan speeds moderate
+  to ensure contaminants lift off without scorching the surface underneath. We've found this approach restores that smooth,
+  corrosion-resistant finish so crucial for nuclear or chemical applications, where even minor pitting could spell trouble.
+  But watch out midway through—zirconium picks up oxygen fast if things heat up unevenly, leading to brittle spots that weaken
+  its toughness. To sidestep that, we overlap passes just enough for even coverage, avoiding overexposure that might embrittle
+  the material. Overall, treat it gentler than more absorbent alloys; adjust dwell times down if you see any whitening, and
+  you'll get clean results that hold up in demanding environments.
 author:
   id: 3
   name: Ikmanda Roswati
@@ -46,67 +54,86 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
+card:
+  default:
+    heading: ''
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: success
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
 relationships:
-  regulatory_standards:
-    _section:
-      title: Regulatory Compliance
-      description: Industry standards and regulations applicable to these settings
-      order: 3
-      variant: reference
-      icon: book
-    items:
-    - type: regulatory_standards
-      id: osha-ppe-requirements
+  technical:
+    works_on_materials:
       presentation: card
-    - type: regulatory_standards
-      id: ansi-z136-1-laser-safety
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
+        variant: default
+    removes_contaminants:
       presentation: card
-  optimized_for_materials:
-    _section:
-      title: Applicable Materials
-      description: Materials that can be safely cleaned using these laser parameters
-      order: 1
-      variant: relationship
-      icon: cube
-    items:
-    - id: oak-laser-cleaning
-      effectiveness: medium
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
       presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/oak-laser-cleaning
-    - id: maple-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/maple-laser-cleaning
-    - id: pine-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/softwood/pine-laser-cleaning
-  removes_contaminants:
-    _section:
-      title: Effective Against
-      description: Contamination types that can be removed using these settings
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: rust-oxidation-contamination
-      effectiveness: high
-      presentation: card
-      level: high
-      valence: positive
-      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
-    - id: adhesive-residue-contamination
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+title: Zirconium Settings
+category: metal
+subcategory: alloy
 machine_settings:
   powerRange:
     description: Optimal average power for Zirconium oxide removal without substrate damage
@@ -233,129 +260,3 @@ machine_settings:
     description: 'Ensures uniform coverage on irregular Zr surfaces; 50% for speed, 80% for thoroughness. 70% recommended
       to prevent gaps while minimizing over-processing and heat buildup. Source: Process optimization studies (Opt. Laser
       Technol. 2022) for metal cleaning.'
-challenges:
-  thermal_management:
-  - challenge: High thermal conductivity and heat spread
-    severity: medium
-    property_value: 4-400 W/(m·K) depending on metal
-    impact: Heat spreads rapidly causing large heat-affected zones
-    solutions:
-    - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-    - Increase scan speed to minimize dwell time
-    - Apply cooling between passes for thick sections
-  - challenge: Melting and heat-affected zone formation
-    severity: high
-    threshold_range: 660°C (Al) to 3422°C (W)
-    impact: Substrate melting or microstructural changes in heat-affected zone
-    solutions:
-    - Stay below 70% of melting temperature
-    - Use pulse mode with adequate cooling time
-    - Monitor for surface discoloration indicating oxidation
-  surface_characteristics:
-  - challenge: High reflectivity
-    severity: high
-    reflectivity_range: 60-95% at 1064nm for polished metals
-    impact: Most laser energy reflected, requiring higher power; safety hazard
-    solutions:
-    - Use shorter wavelengths (355nm UV) for better absorption
-    - Increase power density but monitor for thermal damage
-    - Ensure proper beam containment and safety measures
-    - Surface oxidation/roughness improves absorption
-  - challenge: Surface finish variations
-    severity: medium
-    impact: Polished surfaces reflect more, rough surfaces absorb better
-    solutions:
-    - Adjust power based on surface condition
-    - Test parameters on similar finish samples
-    - Polished surfaces need 20-40% more power
-  contamination_challenges:
-  - challenge: Rust and oxide layer removal
-    severity: medium
-    impact: Requires multiple passes; rust/oxide has different absorption than base metal
-    solutions:
-    - First pass at higher power (100-120W) to remove bulk oxide
-    - Second pass at lower power (60-80W) for final cleaning
-    - Monitor for base metal exposure to avoid over-processing
-  - challenge: Oil and grease removal
-    severity: low
-    impact: Organic contaminants vaporize easily but can redeposit
-    solutions:
-    - Use fume extraction to prevent redeposition
-    - Higher scan speeds (3000-5000 mm/s) for thin films
-    - Chemical pre-cleaning for heavy contamination
-description: In our experience, laser cleaning zirconium works best when we dial in conservative power levels right from the
-  start. This metal's high reflectivity bounces back a lot of the laser energy, so we keep pulses short and scan speeds moderate
-  to ensure contaminants lift off without scorching the surface underneath. We've found this approach restores that smooth,
-  corrosion-resistant finish so crucial for nuclear or chemical applications, where even minor pitting could spell trouble.
-  But watch out midway through—zirconium picks up oxygen fast if things heat up unevenly, leading to brittle spots that weaken
-  its toughness. To sidestep that, we overlap passes just enough for even coverage, avoiding overexposure that might embrittle
-  the material. Overall, treat it gentler than more absorbent alloys; adjust dwell times down if you see any whitening, and
-  you'll get clean results that hold up in demanding environments.
-category: metal
-subcategory: alloy
-title: Zirconium Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety

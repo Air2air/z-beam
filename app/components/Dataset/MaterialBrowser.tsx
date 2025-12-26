@@ -6,7 +6,7 @@ import { SearchIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
 import { DatasetCard } from './DatasetCard';
 import { SectionContainer } from '../SectionContainer';
 import MaterialFilters from './MaterialFilters';
-import { getGridClasses } from '@/app/config/site';
+import { getGridClasses, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
 import { triggerDownload } from '@/app/utils/downloadUtils';
 import type { MaterialBrowserProps } from '@/types/centralized';
@@ -105,7 +105,7 @@ export default function MaterialBrowser({
 
         {/* Results Section */}
         <SectionContainer title="Materials" bgColor="transparent" radius={false}>
-          <div className={getGridClasses({ columns: 3, gap: 'md' })}>
+          <div className={`${getGridClasses({ columns: 3 })} ${GRID_GAP_RESPONSIVE}`}>
             {filteredMaterials.map((material: any) => (
               <DatasetCard
                 key={material.slug}
@@ -212,7 +212,7 @@ export default function MaterialBrowser({
       {showFilters && filtersUI}
 
       {/* Materials Grid - Using centralized grid configuration */}
-      <div className={getGridClasses({ columns: 3, gap: "md" })}>
+      <div className={`${getGridClasses({ columns: 3 })} ${GRID_GAP_RESPONSIVE}`}>
         {filteredMaterials.map((material) => {
           return (
             <DatasetCard

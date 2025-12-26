@@ -2,8 +2,8 @@ id: yttrium-laser-cleaning
 name: Yttrium
 title: Yttrium Laser Cleaning
 category: rare-earth
-datePublished: '2025-12-23T00:56:28.520537Z'
-dateModified: '2025-12-23T00:56:28.520537Z'
+datePublished: '2025-12-25T21:16:05.522513Z'
+dateModified: '2025-12-25T21:16:05.522513Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/rare-earth/scandium-group/yttrium-laser-cleaning
@@ -22,10 +22,11 @@ description: When laser cleaning yttrium components in aerospace or magnet produ
   lower power pulses that account for its strong reflectivity, which bounces most energy away and keeps the surface cool during
   the process, so you gently remove contaminants without risking any underlying heat buildup or structural changes as you
   scan across the area in steady passes.
-micro: When laser cleaning yttrium components in aerospace or magnet production, I've found it works best to start with lower
-  power pulses that account for its strong reflectivity, which bounces most energy away and keeps the surface cool during
-  the process, so you gently remove contaminants without risking any underlying heat buildup or structural changes as you
-  scan across the area in steady passes.
+micro:
+  before: Before laser treatment, the Yttrium surface shows heavy contamination with dark patches and scattered particles.
+    You can see how debris completely obscures the material's natural metallic appearance.
+  after: After cleaning, the laser removes all that buildup and restores a uniform finish. Now we observe consistent coloration
+    across the entire surface area without any remaining residue or discoloration from previous contaminants.
 faq:
 - answer: To clean yttrium oxide from yttrium alloys, a 1064 nm Nd:YAG laser with 10 ns pulses at 50 kHz performs best. It
     targets 5.1 J/cm² fluence, leveraging the metal's high reflectivity and thermal conductivity for contaminant ablation
@@ -136,48 +137,7 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/en/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 subcategory: scandium-group
-applications:
-- Electronics Manufacturing
-- Permanent Magnet Production
-- Optical Component Cleaning
-- Research Laboratory
-- Precision Manufacturing
-- Aerospace Components
 properties:
   material_characteristics:
     label: Material Characteristics
@@ -338,5 +298,69 @@ contamination:
   conditional: {}
   _needs_review: true
   _note: Category "rare-earth" not recognized - conservative defaults applied
-seo_description: When laser cleaning yttrium components in aerospace or magnet production, I've found it works best to start
-  with lower power pulses that account for its strong...
+card:
+  default:
+    heading: Yttrium
+    subtitle: rare-earth / scandium-group
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/en/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Electronics Manufacturing
+      - Permanent Magnet Production
+      - Optical Component Cleaning
+      - Research Laboratory
+      - Precision Manufacturing
+      - Aerospace Components

@@ -1,0 +1,1025 @@
+
+> prebuild
+> npm run validate:content
+
+
+> validate:content
+> node scripts/validation/lib/run-content-validation.js
+
+
+🔍 Frontmatter structure...
+📋 Expected Frontmatter Structure:
+
+{
+  "name": "string",
+  "category": "string",
+  "subcategory": "string",
+  "title": "string",
+  "description": "string",
+  "author": "object",
+  "images": {
+    "hero": {
+      "url": "string",
+      "alt": "string"
+    },
+    "micro": {
+      "url": "string",
+      "alt": "string"
+    }
+  },
+  "micro": {
+    "before": "string",
+    "after": "string"
+  },
+  "eeat": {
+    "reviewedBy": "string|object",
+    "citations": "array",
+    "isBasedOn": "string|object"
+  }
+}
+
+
+🔍 Validating Frontmatter Structure
+
+📁 Checking 10 sample files (153 total)...
+
+═══════════════════════════════════════════════════════
+  Validation Results
+═══════════════════════════════════════════════════════
+
+WARNINGS:
+
+⚠️  aluminum-bronze-laser-cleaning.yaml: micro exists but has no before/after text
+
+✅ Validation passed with warnings.
+
+✅ Frontmatter structure
+
+🔍 Naming conventions...
+🚀 Starting end-to-end naming validation...
+
+📝 Validating frontmatter YAML files...
+
+   Found 153 files
+
+🖼️  Validating image files...
+
+   Found 684 images
+
+
+🔗 Validating cross-references...
+
+   Checked 153 unique slugs
+
+======================================================================
+📋 NAMING NORMALIZATION VALIDATION REPORT
+======================================================================
+
+Files Checked: 837
+Slugs Validated: 153
+Images Validated: 990
+Naming Errors: 0
+Errors: 0
+Warnings: 153
+
+⚠️  WARNINGS:
+
+  • Name field "Zirconium" doesn't match filename slug "zirconium-laser-cleaning"
+  • Name field "Zirconia" doesn't match filename slug "zirconia-laser-cleaning"
+  • Name field "Zinc" doesn't match filename slug "zinc-laser-cleaning"
+  • Name field "Yttrium" doesn't match filename slug "yttrium-laser-cleaning"
+  • Name field "Yttria-Stabilized Zirconia" doesn't match filename slug "yttria-stabilized-zirconia-laser-cleaning"
+  • Name field "Willow" doesn't match filename slug "willow-laser-cleaning"
+  • Name field "Walnut" doesn't match filename slug "walnut-laser-cleaning"
+  • Name field "Vanadium" doesn't match filename slug "vanadium-laser-cleaning"
+  • Name field "Urethane Composites" doesn't match filename slug "urethane-composites-laser-cleaning"
+  • Name field "Tungsten" doesn't match filename slug "tungsten-laser-cleaning"
+  ... and 143 more warnings
+
+
+✅ All 837 files validated
+⚠️  Name field "Zirconium" doesn't match filename slug "zirconium-laser-cleaning"
+⚠️  Name field "Zirconia" doesn't match filename slug "zirconia-laser-cleaning"
+⚠️  Name field "Zinc" doesn't match filename slug "zinc-laser-cleaning"
+⚠️  Name field "Yttrium" doesn't match filename slug "yttrium-laser-cleaning"
+⚠️  Name field "Yttria-Stabilized Zirconia" doesn't match filename slug "yttria-stabilized-zirconia-laser-cleaning"
+⚠️  Name field "Willow" doesn't match filename slug "willow-laser-cleaning"
+⚠️  Name field "Walnut" doesn't match filename slug "walnut-laser-cleaning"
+⚠️  Name field "Vanadium" doesn't match filename slug "vanadium-laser-cleaning"
+⚠️  Name field "Urethane Composites" doesn't match filename slug "urethane-composites-laser-cleaning"
+⚠️  Name field "Tungsten" doesn't match filename slug "tungsten-laser-cleaning"
+⚠️  Name field "Tungsten Carbide" doesn't match filename slug "tungsten-carbide-laser-cleaning"
+⚠️  Name field "Travertine" doesn't match filename slug "travertine-laser-cleaning"
+⚠️  Name field "Tool Steel" doesn't match filename slug "tool-steel-laser-cleaning"
+⚠️  Name field "Titanium Nitride" doesn't match filename slug "titanium-nitride-laser-cleaning"
+⚠️  Name field "Titanium" doesn't match filename slug "titanium-laser-cleaning"
+⚠️  Name field "Titanium Carbide" doesn't match filename slug "titanium-carbide-laser-cleaning"
+⚠️  Name field "Titanium Alloy (Ti-6Al-4V)" doesn't match filename slug "titanium-alloy-ti-6al-4v-laser-cleaning"
+⚠️  Name field "Tin" doesn't match filename slug "tin-laser-cleaning"
+⚠️  Name field "Thermoplastic Elastomer" doesn't match filename slug "thermoplastic-elastomer-laser-cleaning"
+⚠️  Name field "Terracotta" doesn't match filename slug "terracotta-laser-cleaning"
+⚠️  Name field "Terbium" doesn't match filename slug "terbium-laser-cleaning"
+⚠️  Name field "Tempered Glass" doesn't match filename slug "tempered-glass-laser-cleaning"
+⚠️  Name field "Teak" doesn't match filename slug "teak-laser-cleaning"
+⚠️  Name field "Tantalum" doesn't match filename slug "tantalum-laser-cleaning"
+⚠️  Name field "Stucco" doesn't match filename slug "stucco-laser-cleaning"
+⚠️  Name field "Stoneware" doesn't match filename slug "stoneware-laser-cleaning"
+⚠️  Name field "Steel" doesn't match filename slug "steel-laser-cleaning"
+⚠️  Name field "Stainless Steel" doesn't match filename slug "stainless-steel-laser-cleaning"
+⚠️  Name field "Stainless Steel 316" doesn't match filename slug "stainless-steel-316-laser-cleaning"
+⚠️  Name field "Stainless Steel 304" doesn't match filename slug "stainless-steel-304-laser-cleaning"
+⚠️  Name field "Soda-Lime Glass" doesn't match filename slug "soda-lime-glass-laser-cleaning"
+⚠️  Name field "Soapstone" doesn't match filename slug "soapstone-laser-cleaning"
+⚠️  Name field "Slate" doesn't match filename slug "slate-laser-cleaning"
+⚠️  Name field "Silver" doesn't match filename slug "silver-laser-cleaning"
+⚠️  Name field "Silicon Nitride" doesn't match filename slug "silicon-nitride-laser-cleaning"
+⚠️  Name field "Silicon" doesn't match filename slug "silicon-laser-cleaning"
+⚠️  Name field "Silicon Germanium" doesn't match filename slug "silicon-germanium-laser-cleaning"
+⚠️  Name field "Silicon Carbide (SiC)" doesn't match filename slug "silicon-carbide-sic-laser-cleaning"
+⚠️  Name field "Shale" doesn't match filename slug "shale-laser-cleaning"
+⚠️  Name field "Serpentine" doesn't match filename slug "serpentine-laser-cleaning"
+⚠️  Name field "Schist" doesn't match filename slug "schist-laser-cleaning"
+⚠️  Name field "Sapphire Glass" doesn't match filename slug "sapphire-glass-laser-cleaning"
+⚠️  Name field "Sandstone" doesn't match filename slug "sandstone-laser-cleaning"
+⚠️  Name field "Ruthenium" doesn't match filename slug "ruthenium-laser-cleaning"
+⚠️  Name field "Rubber" doesn't match filename slug "rubber-laser-cleaning"
+⚠️  Name field "Rosewood" doesn't match filename slug "rosewood-laser-cleaning"
+⚠️  Name field "Rhodium" doesn't match filename slug "rhodium-laser-cleaning"
+⚠️  Name field "Rhenium" doesn't match filename slug "rhenium-laser-cleaning"
+⚠️  Name field "Redwood" doesn't match filename slug "redwood-laser-cleaning"
+⚠️  Name field "Quartzite" doesn't match filename slug "quartzite-laser-cleaning"
+⚠️  Name field "Quartz Glass" doesn't match filename slug "quartz-glass-laser-cleaning"
+⚠️  Name field "Pyrex" doesn't match filename slug "pyrex-laser-cleaning"
+⚠️  Name field "Praseodymium" doesn't match filename slug "praseodymium-laser-cleaning"
+⚠️  Name field "Porphyry" doesn't match filename slug "porphyry-laser-cleaning"
+⚠️  Name field "Porcelain" doesn't match filename slug "porcelain-laser-cleaning"
+⚠️  Name field "Poplar" doesn't match filename slug "poplar-laser-cleaning"
+⚠️  Name field "Polyvinyl Chloride" doesn't match filename slug "polyvinyl-chloride-laser-cleaning"
+⚠️  Name field "Polytetrafluoroethylene (PTFE)" doesn't match filename slug "polytetrafluoroethylene-ptfe-laser-cleaning"
+⚠️  Name field "Polystyrene" doesn't match filename slug "polystyrene-laser-cleaning"
+⚠️  Name field "Polypropylene" doesn't match filename slug "polypropylene-laser-cleaning"
+⚠️  Name field "Polyimide" doesn't match filename slug "polyimide-laser-cleaning"
+⚠️  Name field "Polyethylene" doesn't match filename slug "polyethylene-laser-cleaning"
+⚠️  Name field "Polyester Resin Composites" doesn't match filename slug "polyester-resin-composites-laser-cleaning"
+⚠️  Name field "Polycarbonate" doesn't match filename slug "polycarbonate-laser-cleaning"
+⚠️  Name field "Plywood" doesn't match filename slug "plywood-laser-cleaning"
+⚠️  Name field "Platinum" doesn't match filename slug "platinum-laser-cleaning"
+⚠️  Name field "Plaster" doesn't match filename slug "plaster-laser-cleaning"
+⚠️  Name field "Pine" doesn't match filename slug "pine-laser-cleaning"
+⚠️  Name field "Phenolic Resin Composites" doesn't match filename slug "phenolic-resin-composites-laser-cleaning"
+⚠️  Name field "PET" doesn't match filename slug "pet-laser-cleaning"
+⚠️  Name field "PEEK" doesn't match filename slug "peek-laser-cleaning"
+⚠️  Name field "Palladium" doesn't match filename slug "palladium-laser-cleaning"
+⚠️  Name field "Onyx" doesn't match filename slug "onyx-laser-cleaning"
+⚠️  Name field "Oak" doesn't match filename slug "oak-laser-cleaning"
+⚠️  Name field "Nylon" doesn't match filename slug "nylon-laser-cleaning"
+⚠️  Name field "Niobium" doesn't match filename slug "niobium-laser-cleaning"
+⚠️  Name field "Nickel" doesn't match filename slug "nickel-laser-cleaning"
+⚠️  Name field "Neodymium" doesn't match filename slug "neodymium-laser-cleaning"
+⚠️  Name field "Mortar" doesn't match filename slug "mortar-laser-cleaning"
+⚠️  Name field "Molybdenum" doesn't match filename slug "molybdenum-laser-cleaning"
+⚠️  Name field "Metal Matrix Composites MMCs" doesn't match filename slug "metal-matrix-composites-mmcs-laser-cleaning"
+⚠️  Name field "MDF" doesn't match filename slug "mdf-laser-cleaning"
+⚠️  Name field "Marble" doesn't match filename slug "marble-laser-cleaning"
+⚠️  Name field "Maple" doesn't match filename slug "maple-laser-cleaning"
+⚠️  Name field "Manganese" doesn't match filename slug "manganese-laser-cleaning"
+⚠️  Name field "Mahogany" doesn't match filename slug "mahogany-laser-cleaning"
+⚠️  Name field "Magnesium" doesn't match filename slug "magnesium-laser-cleaning"
+⚠️  Name field "Limestone" doesn't match filename slug "limestone-laser-cleaning"
+⚠️  Name field "Lead" doesn't match filename slug "lead-laser-cleaning"
+⚠️  Name field "Lead Crystal" doesn't match filename slug "lead-crystal-laser-cleaning"
+⚠️  Name field "Lanthanum" doesn't match filename slug "lanthanum-laser-cleaning"
+⚠️  Name field "Kevlar-Reinforced Polymer" doesn't match filename slug "kevlar-reinforced-polymer-laser-cleaning"
+⚠️  Name field "Iron" doesn't match filename slug "iron-laser-cleaning"
+⚠️  Name field "Iridium" doesn't match filename slug "iridium-laser-cleaning"
+⚠️  Name field "Indium Phosphide" doesn't match filename slug "indium-phosphide-laser-cleaning"
+⚠️  Name field "Indium" doesn't match filename slug "indium-laser-cleaning"
+⚠️  Name field "Inconel" doesn't match filename slug "inconel-laser-cleaning"
+⚠️  Name field "Hickory" doesn't match filename slug "hickory-laser-cleaning"
+⚠️  Name field "Hastelloy" doesn't match filename slug "hastelloy-laser-cleaning"
+⚠️  Name field "Hafnium" doesn't match filename slug "hafnium-laser-cleaning"
+⚠️  Name field "Granite" doesn't match filename slug "granite-laser-cleaning"
+⚠️  Name field "Gorilla Glass" doesn't match filename slug "gorilla-glass-laser-cleaning"
+⚠️  Name field "Gold" doesn't match filename slug "gold-laser-cleaning"
+⚠️  Name field "Gneiss" doesn't match filename slug "gneiss-laser-cleaning"
+⚠️  Name field "Glass Fiber Reinforced Polymers GFRP" doesn't match filename slug "glass-fiber-reinforced-polymers-gfrp-laser-cleaning"
+⚠️  Name field "Germanium" doesn't match filename slug "germanium-laser-cleaning"
+⚠️  Name field "Gallium Nitride" doesn't match filename slug "gallium-nitride-laser-cleaning"
+⚠️  Name field "Gallium" doesn't match filename slug "gallium-laser-cleaning"
+⚠️  Name field "Gallium Arsenide" doesn't match filename slug "gallium-arsenide-laser-cleaning"
+⚠️  Name field "Fused Silica" doesn't match filename slug "fused-silica-laser-cleaning"
+⚠️  Name field "Float Glass" doesn't match filename slug "float-glass-laser-cleaning"
+⚠️  Name field "Fir" doesn't match filename slug "fir-laser-cleaning"
+⚠️  Name field "Fiberglass" doesn't match filename slug "fiberglass-laser-cleaning"
+⚠️  Name field "Fiber Reinforced Polyurethane FRPU" doesn't match filename slug "fiber-reinforced-polyurethane-frpu-laser-cleaning"
+⚠️  Name field "Europium" doesn't match filename slug "europium-laser-cleaning"
+⚠️  Name field "Epoxy Resin Composites" doesn't match filename slug "epoxy-resin-composites-laser-cleaning"
+⚠️  Name field "Ebony" doesn't match filename slug "ebony-laser-cleaning"
+⚠️  Name field "Dysprosium" doesn't match filename slug "dysprosium-laser-cleaning"
+⚠️  Name field "Dolomite" doesn't match filename slug "dolomite-laser-cleaning"
+⚠️  Name field "Crown Glass" doesn't match filename slug "crown-glass-laser-cleaning"
+⚠️  Name field "Copper" doesn't match filename slug "copper-laser-cleaning"
+⚠️  Name field "Concrete" doesn't match filename slug "concrete-laser-cleaning"
+⚠️  Name field "Cobalt" doesn't match filename slug "cobalt-laser-cleaning"
+⚠️  Name field "Chromium" doesn't match filename slug "chromium-laser-cleaning"
+⚠️  Name field "Cherry" doesn't match filename slug "cherry-laser-cleaning"
+⚠️  Name field "Cerium" doesn't match filename slug "cerium-laser-cleaning"
+⚠️  Name field "Ceramic Matrix Composites CMCs" doesn't match filename slug "ceramic-matrix-composites-cmcs-laser-cleaning"
+⚠️  Name field "Cement" doesn't match filename slug "cement-laser-cleaning"
+⚠️  Name field "Cedar" doesn't match filename slug "cedar-laser-cleaning"
+⚠️  Name field "Cast Iron" doesn't match filename slug "cast-iron-laser-cleaning"
+⚠️  Name field "Carbon Fiber Reinforced Polymer" doesn't match filename slug "carbon-fiber-reinforced-polymer-laser-cleaning"
+⚠️  Name field "Calcite" doesn't match filename slug "calcite-laser-cleaning"
+⚠️  Name field "Bronze" doesn't match filename slug "bronze-laser-cleaning"
+⚠️  Name field "Brick" doesn't match filename slug "brick-laser-cleaning"
+⚠️  Name field "Breccia" doesn't match filename slug "breccia-laser-cleaning"
+⚠️  Name field "Brass" doesn't match filename slug "brass-laser-cleaning"
+⚠️  Name field "Borosilicate Glass" doesn't match filename slug "borosilicate-glass-laser-cleaning"
+⚠️  Name field "Boron Nitride" doesn't match filename slug "boron-nitride-laser-cleaning"
+⚠️  Name field "Boron Carbide" doesn't match filename slug "boron-carbide-laser-cleaning"
+⚠️  Name field "Bluestone" doesn't match filename slug "bluestone-laser-cleaning"
+⚠️  Name field "Birch" doesn't match filename slug "birch-laser-cleaning"
+⚠️  Name field "Beryllium" doesn't match filename slug "beryllium-laser-cleaning"
+⚠️  Name field "Beech" doesn't match filename slug "beech-laser-cleaning"
+⚠️  Name field "Basalt" doesn't match filename slug "basalt-laser-cleaning"
+⚠️  Name field "Bamboo" doesn't match filename slug "bamboo-laser-cleaning"
+⚠️  Name field "Ash" doesn't match filename slug "ash-laser-cleaning"
+⚠️  Name field "Aluminum Nitride" doesn't match filename slug "aluminum-nitride-laser-cleaning"
+⚠️  Name field "Aluminum" doesn't match filename slug "aluminum-laser-cleaning"
+⚠️  Name field "Aluminum Bronze" doesn't match filename slug "aluminum-bronze-laser-cleaning"
+⚠️  Name field "Aluminosilicate Glass" doesn't match filename slug "aluminosilicate-glass-laser-cleaning"
+⚠️  Name field "Alumina" doesn't match filename slug "alumina-laser-cleaning"
+⚠️  Name field "Alabaster" doesn't match filename slug "alabaster-laser-cleaning"
+⚠️  Name field "Acrylic (PMMA)" doesn't match filename slug "acrylic-pmma-laser-cleaning"
+
+================================================================================
+📊 Naming Validation Summary
+================================================================================
+  ✅ Passed:   1
+  ⚠️  Warnings: 153
+  ❌ Failures: 0
+  ⏱️  Duration: 3.92s
+================================================================================
+
+✅ Naming conventions
+
+🔍 Metadata sync...
+🚀 Starting metadata validation...
+
+📝 Validating frontmatter YAML files...
+
+📄 Validating page YAML files...
+
+
+🔍 Validating JSON-LD synchronization...
+
+⏭️  Skipping JSON-LD sync validation (requires TypeScript runtime)
+
+
+======================================================================
+📊 METADATA VALIDATION REPORT
+======================================================================
+
+Files Checked: 160
+Missing Fields: 0
+Sync Issues: 0
+Errors: 0
+Warnings: 177
+
+⚠️  WARNINGS:
+
+  • zirconium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • zirconia-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • zinc-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • yttrium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • yttria-stabilized-zirconia-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/yttria-stabilized-zirconia-laser-cleaning-micro.jpg
+
+  • yttria-stabilized-zirconia-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • willow-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • walnut-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • vanadium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • urethane-composites-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • tungsten-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • tungsten-carbide-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • travertine-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • tool-steel-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • titanium-nitride-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/titanium-nitride-laser-cleaning-micro.jpg
+
+  • titanium-nitride-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • titanium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • titanium-carbide-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • titanium-alloy-ti-6al-4v-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/titanium-alloy-ti-6al-4v-laser-cleaning-micro.jpg
+
+  • titanium-alloy-ti-6al-4v-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • tin-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • thermoplastic-elastomer-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • terracotta-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • terbium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • tempered-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • teak-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • tantalum-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • stucco-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • stoneware-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • steel-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • stainless-steel-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • stainless-steel-316-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/stainless-steel-316-laser-cleaning-micro.jpg
+
+  • stainless-steel-316-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • stainless-steel-304-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/stainless-steel-304-laser-cleaning-micro.jpg
+
+  • stainless-steel-304-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • soda-lime-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • soapstone-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • slate-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • silver-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • silicon-nitride-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • silicon-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • silicon-germanium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • silicon-carbide-sic-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • shale-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • serpentine-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • schist-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • sapphire-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • sandstone-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • ruthenium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • rubber-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • rosewood-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • rhodium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • rhenium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • redwood-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • quartzite-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • quartz-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • pyrex-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • praseodymium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • porphyry-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • porcelain-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • poplar-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polyvinyl-chloride-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polytetrafluoroethylene-ptfe-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polystyrene-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polypropylene-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polyimide-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/polyimide-laser-cleaning-micro.jpg
+
+  • polyimide-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polyethylene-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polyester-resin-composites-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • polycarbonate-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • plywood-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • platinum-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • plaster-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • pine-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • phenolic-resin-composites-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • pet-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/pet-laser-cleaning-micro.jpg
+
+  • pet-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • peek-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/peek-laser-cleaning-micro.jpg
+
+  • peek-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • palladium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • onyx-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • oak-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • nylon-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/nylon-laser-cleaning-micro.jpg
+
+  • nylon-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • niobium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • nickel-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • neodymium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • mortar-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • molybdenum-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • metal-matrix-composites-mmcs-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • mdf-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • marble-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • maple-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • manganese-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • mahogany-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • magnesium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • limestone-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • lead-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • lead-crystal-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • lanthanum-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • kevlar-reinforced-polymer-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • iron-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • iridium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • indium-phosphide-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/indium-phosphide-laser-cleaning-micro.jpg
+
+  • indium-phosphide-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • indium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • inconel-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • hickory-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • hastelloy-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • hafnium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • granite-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • gorilla-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • gold-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • gneiss-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • glass-fiber-reinforced-polymers-gfrp-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • germanium-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/germanium-laser-cleaning-micro.jpg
+
+  • germanium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • gallium-nitride-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/gallium-nitride-laser-cleaning-hero.jpg
+
+  • gallium-nitride-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/gallium-nitride-laser-cleaning-micro.jpg
+
+  • gallium-nitride-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • gallium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • gallium-arsenide-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • fused-silica-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • float-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • fir-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • fiberglass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • fiber-reinforced-polyurethane-frpu-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • europium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • epoxy-resin-composites-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • ebony-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/ebony-laser-cleaning-micro.jpg
+
+  • ebony-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • dysprosium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • dolomite-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/dolomite-laser-cleaning-hero.jpg
+
+  • dolomite-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/dolomite-laser-cleaning-micro.jpg
+
+  • dolomite-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • crown-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • copper-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • concrete-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • cobalt-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • chromium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • cherry-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • cerium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • ceramic-matrix-composites-cmcs-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • cement-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • cedar-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • cast-iron-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • carbon-fiber-reinforced-polymer-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • calcite-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • bronze-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • brick-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • breccia-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • brass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • borosilicate-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • boron-nitride-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/boron-nitride-laser-cleaning-micro.jpg
+
+  • boron-nitride-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • boron-carbide-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/boron-carbide-laser-cleaning-micro.jpg
+
+  • boron-carbide-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • bluestone-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • birch-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • beryllium-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • beech-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • basalt-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • bamboo-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • ash-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • aluminum-nitride-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/aluminum-nitride-laser-cleaning-micro.jpg
+
+  • aluminum-nitride-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • aluminum-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • aluminum-bronze-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/aluminum-bronze-laser-cleaning-micro.jpg
+
+  • aluminum-bronze-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • aluminosilicate-glass-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+
+  • aluminosilicate-glass-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/aluminosilicate-glass-laser-cleaning-micro.jpg
+
+  • aluminosilicate-glass-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • alumina-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • alabaster-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+  • acrylic-pmma-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/acrylic-laser-cleaning-hero.jpg
+
+  • acrylic-pmma-laser-cleaning.yaml:
+    Type: missing_image
+    Message: Image not found: /images/material/acrylic-laser-cleaning-micro.jpg
+
+  • acrylic-pmma-laser-cleaning.yaml:
+    Type: no_generation_date
+    Message: File lacks generation timestamp for tracking data freshness
+
+✅ Metadata sync
+
+🔍 Sitemap verification...
+═══════════════════════════════════════
+🗺️  SITEMAP VERIFICATION SCRIPT
+═══════════════════════════════════════
+
+1️⃣  Checking sitemap.ts existence...
+[0;32m✓ Sitemap file exists[0m
+
+2️⃣  Validating dynamic article generation...
+[0;32m✓ Dynamic article generation is implemented[0m
+
+3️⃣  Counting article files...
+[0;32m✓ Found 153 article files[0m
+
+4️⃣  Validating static routes...
+[0;32m✓ All static routes present[0m
+
+5️⃣  Validating material category routes...
+[0;32m✓ All material categories present[0m
+
+6️⃣  Running sitemap tests...
+
+> test
+> jest tests/sitemap/sitemap.test.ts --silent
+

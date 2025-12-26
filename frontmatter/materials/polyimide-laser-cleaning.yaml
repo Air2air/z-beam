@@ -2,8 +2,8 @@ id: polyimide-laser-cleaning
 name: Polyimide
 title: Polyimide Laser Cleaning
 category: plastic
-datePublished: '2025-12-23T00:56:28.994996Z'
-dateModified: '2025-12-23T00:56:28.994996Z'
+datePublished: '2025-12-25T21:16:05.831713Z'
+dateModified: '2025-12-25T21:16:05.831713Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/plastic/thermoplastic/polyimide-laser-cleaning
@@ -21,9 +21,10 @@ breadcrumb:
 description: When laser cleaning polyimide, consider its exceptional heat resistance, which maintains stability under intense
   thermal stress to prevent warping or breakdown—problems that affect lesser plastics—and lets you achieve a clean surface
   without compromising structural integrity.
-micro: When laser cleaning polyimide, consider its exceptional heat resistance, which maintains stability under intense thermal
-  stress to prevent warping or breakdown—problems that affect lesser plastics—and lets you achieve a clean surface without
-  compromising structural integrity.
+micro:
+  before: Polyimide laser cleaning requires careful parameter selection to optimize contamination removal while preserving
+    substrate integrity.
+  after: ''
 faq:
 - question: How can I prevent Polyimide from charring during laser cleaning?
   answer: You must start with a lower power setting right away to avoid overheating, since Polyimide holds heat poorly and
@@ -72,35 +73,6 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
 subcategory: thermoplastic
 properties:
   material_characteristics:
@@ -255,14 +227,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T19:45:02.718968'
       needs_validation: true
-settings_description: When laser cleaning Polyimide, you'll want to begin with a low pulse energy to gently remove contaminants
-  without risking thermal damage. This material's high heat resistance works in your favor, allowing steady progress on stubborn
-  residues like oils or particles, but you must monitor the surface closely since it absorbs laser energy moderately well
-  and can char if you push too hard. Make sure you use short pulses and keep the beam moving to avoid localized heating that
-  builds up quickly on its non-porous, tough surface. In my setups, this approach restores the smooth finish effectively,
-  preserving the polymer's flexibility and strength for electronics or aerospace parts. Watch out midway through for any discoloration—dial
-  back the power immediately if it appears, as overheating leads to cracking or brittleness that ruins the material's durability.
-  Adjust your scanning speed upward as you go to maintain even coverage.
 components:
   micro:
     before: At 1000x magnification, the polyimide surface looks cluttered with scattered dirt particles and sticky residues
@@ -285,5 +249,48 @@ contamination:
     industrial_oil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
-seo_description: When laser cleaning polyimide, consider its exceptional heat resistance, which maintains stability under
-  intense thermal stress to prevent warping or...
+card:
+  default:
+    heading: Polyimide
+    subtitle: plastic / thermoplastic
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default

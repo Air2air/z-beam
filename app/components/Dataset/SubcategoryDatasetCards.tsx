@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { DatasetCard } from './DatasetCard';
-import { getGridClasses } from '@/app/config/site';
+import { getGridClasses, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
 import { triggerBlobDownload } from '@/app/utils/downloadUtils';
 
@@ -109,7 +109,7 @@ export default function SubcategoryDatasetCards({
   };
 
   return (
-    <div className={getGridClasses({ columns: 3, gap: "md" })}>
+    <div className={`${getGridClasses({ columns: 3 })} ${GRID_GAP_RESPONSIVE}`}>
       {subcategories.map((subcategory) => (
         <DatasetCard
           key={subcategory.slug}

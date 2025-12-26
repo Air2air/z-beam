@@ -1,7 +1,7 @@
 // app/components/Contact/ContactInfo.tsx
 import React from 'react';
 import { SITE_CONFIG } from '@/app/config/site';
-import { Title } from '../Title';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 export function ContactInfo() {
   return (
@@ -11,7 +11,7 @@ export function ContactInfo() {
       <div className="space-y-6">
         {/* Email Section */}
         <div>
-          <Title level="card" title="General Inquiries" />
+          <SectionTitle title="General Inquiries" />
           <div className="space-y-2">
             <p className="text-muted">
               <strong>Email:</strong>{' '}
@@ -38,7 +38,7 @@ export function ContactInfo() {
 
         {/* Support Section */}
         <div>
-          <Title level="card" title="Technical Support" />
+          <SectionTitle title="Technical Support" />
           <div className="space-y-2">
             <p className="text-muted">
               <strong>Support Email:</strong>{' '}
@@ -63,7 +63,7 @@ export function ContactInfo() {
 
         {/* Address Section */}
         <div>
-          <Title level="card" title="Business Address" />
+          <SectionTitle title="Business Address" />
           <div className="text-muted">
             {/* <p>{SITE_CONFIG.address.company}</p>
             <p>{SITE_CONFIG.address.street}</p> */}
@@ -74,7 +74,7 @@ export function ContactInfo() {
 
         {/* Hours Section */}
         <div>
-          <Title level="card" title="Office Hours" />
+          <SectionTitle title="Office Hours" />
           <div className="space-y-1 text-muted">
             <p>{SITE_CONFIG.hours.weekday}</p>
             <p>{SITE_CONFIG.hours.saturday}</p>

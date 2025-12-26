@@ -5,7 +5,7 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--max-old-space-size=4096' tsx scripts/dev/validate-frontmatter-on-startup.ts && next dev",
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next node_modules/.cache tsconfig.tsbuildinfo .vercel .validation-cache",

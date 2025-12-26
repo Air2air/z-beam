@@ -13,6 +13,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { RegulatoryStandardsProps } from '@/types';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
@@ -46,7 +47,7 @@ export function RegulatoryStandards({
         thumbnail={heroImage}
         thumbnailLink={thumbnailLink}
       />
-      <ul className="grid-2col gap-4 list-none mt-4">
+      <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
         {validStandards.map((standard, index) => (
           <li
             key={`${standard.name}-${index}`}

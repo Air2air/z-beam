@@ -53,6 +53,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SECTION_HEADER_CLASSES } from '@/app/config/site';
 
 export interface SectionTitleProps {
   /** The main section title text (required) */
@@ -156,7 +157,7 @@ export function SectionTitle({
       <div className={`flex-1 ${alignmentClasses[alignment]}`}>
         <h2
           id={headingId}
-          className="mb-0 flex items-center gap-2"
+          className={`${SECTION_HEADER_CLASSES.title} mb-0 flex items-center gap-2`}
           aria-label={ariaLabel}
           aria-describedby={subtitleId || ariaDescribedby}
         >
@@ -181,18 +182,21 @@ export function SectionTitle({
         )}
       </div>
       
-      {thumbnailLink ? (
-        <Link 
-          href={thumbnailLink} 
-          className="group flex-shrink-0"
-          aria-label={`View ${thumbnailAlt || 'material'} page`}
-        >
-          {thumbnailContent}
-        </Link>
-      ) : (
-        <div aria-hidden="true">
-          {thumbnailContent}
-        </div>
+      {/* Only render thumbnail if explicitly provided */}
+      {thumbnail && (
+        thumbnailLink ? (
+          <Link 
+            href={thumbnailLink} 
+            className="group flex-shrink-0"
+            aria-label={`View ${thumbnailAlt || 'material'} page`}
+          >
+            {thumbnailContent}
+          </Link>
+        ) : (
+          <div aria-hidden="true">
+            {thumbnailContent}
+          </div>
+        )
       )}
     </div>
   );

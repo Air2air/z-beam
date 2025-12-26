@@ -42,6 +42,7 @@ export function MaterialCard({
   // Use explicit props first (for serialization), then fallback to frontmatter
   const title = frontmatter?.title || '';
   const subject = frontmatter?.subject || ''; // Use subject instead of name
+  const name = frontmatter?.name || ''; // Material name (short form)
   const imageUrl = explicitImageUrl || frontmatter?.images?.hero?.url || '';
   const imageAlt = explicitImageAlt || frontmatter?.images?.hero?.alt || '';
   
@@ -207,8 +208,8 @@ export function MaterialCard({
                     id={`card-title-${slug}`}
                     itemProp="name"
                   >
-                    {/* Prioritize subject over title */}
-                    {subject || title}
+                    {/* For materials, use name only; for others, prioritize subject over title */}
+                    {name || subject || title}
                   </h3>
                 </div>
                 

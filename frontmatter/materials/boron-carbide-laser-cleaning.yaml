@@ -2,8 +2,8 @@ id: boron-carbide-laser-cleaning
 name: Boron Carbide
 title: Boron Carbide Laser Cleaning
 category: ceramic
-datePublished: '2025-12-23T00:56:29.039907Z'
-dateModified: '2025-12-23T00:56:29.039907Z'
+datePublished: '2025-12-25T21:16:05.862207Z'
+dateModified: '2025-12-25T21:16:05.862207Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/ceramic/carbide/boron-carbide-laser-cleaning
@@ -21,9 +21,10 @@ breadcrumb:
 description: We've discovered boron carbide shines in laser cleaning applications, thanks to its superior hardness that withstands
   abrasion and intense heat without cracking or deforming—outpacing softer ceramics by upholding structural integrity for
   armor and tooling in demanding environments
-micro: We've discovered boron carbide shines in laser cleaning applications, thanks to its superior hardness that withstands
-  abrasion and intense heat without cracking or deforming—outpacing softer ceramics by upholding structural integrity for
-  armor and tooling in demanding environments.
+micro:
+  before: Boron Carbide laser cleaning requires careful parameter selection to optimize contamination removal while preserving
+    substrate integrity.
+  after: ''
 images:
   hero:
     alt: Boron Carbide surface during precision laser cleaning process removing contamination layer
@@ -60,69 +61,6 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: adhesive-residue-contamination
-      presentation: card
-    - id: blood-residue-contamination
-      presentation: card
-    - id: carbon-buildup-contamination
-      presentation: card
-    - id: carbon-soot-contamination
-      presentation: card
-    - id: ceramic-glaze-contamination
-      presentation: card
-    - id: chemical-stains-contamination
-      presentation: card
-    - id: fire-damage-contamination
-      presentation: card
-    - id: graphite-marks-contamination
-      presentation: card
-    - id: industrial-oil-contamination
-      presentation: card
-    - id: lime-scale-contamination
-      presentation: card
-    - id: medical-disinfectant-contamination
-      presentation: card
-    - id: mineral-deposits-contamination
-      presentation: card
-    - id: mold-mildew-contamination
-      presentation: card
-    - id: pvd-coating-contamination
-      presentation: card
-    - id: scale-buildup-contamination
-      presentation: card
-    - id: semiconductor-residue-contamination
-      presentation: card
-    - id: silicone-buildup-contamination
-      presentation: card
-    - id: soap-scum-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
 subcategory: carbide
 properties:
   material_characteristics:
@@ -272,14 +210,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T19:46:54.814970'
       needs_validation: true
-settings_description: We've found that when laser cleaning boron carbide, you must start slow to avoid cracking its brittle
-  structure right from the setup. This material's extreme hardness makes it tough on contaminants, but that same brittleness
-  demands careful control—push too hard, and micro-fractures appear under heat stress. In our experience, pulsing the laser
-  at moderate rates works best, as it clears surface buildup without overwhelming the low absorption that keeps energy from
-  penetrating deeply. We typically adjust the beam focus tight to target only the top layer, preserving the smooth, non-porous
-  finish underneath. Its heat resistance shines here, letting you work longer sessions than with softer ceramics, but always
-  watch for thermal gradients that could warp edges. Skip high continuous power; it risks uneven heating and material loss.
-  Instead, test on a small area first—this brings back the original durability without compromising strength.
 components:
   micro:
     before: At 1000x magnification, the boron carbide surface looks rough and dotted with dark specks of contamination. Grimy
@@ -301,5 +231,65 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-seo_description: We've discovered boron carbide shines in laser cleaning applications, thanks to its superior hardness that
-  withstands abrasion and intense heat without...
+card:
+  default:
+    heading: Boron Carbide
+    subtitle: ceramic / carbide
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: adhesive-residue-contamination
+      - id: blood-residue-contamination
+      - id: carbon-buildup-contamination
+      - id: carbon-soot-contamination
+      - id: ceramic-glaze-contamination
+      - id: chemical-stains-contamination
+      - id: fire-damage-contamination
+      - id: graphite-marks-contamination
+      - id: industrial-oil-contamination
+      - id: lime-scale-contamination
+      - id: medical-disinfectant-contamination
+      - id: mineral-deposits-contamination
+      - id: mold-mildew-contamination
+      - id: pvd-coating-contamination
+      - id: scale-buildup-contamination
+      - id: semiconductor-residue-contamination
+      - id: silicone-buildup-contamination
+      - id: soap-scum-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default

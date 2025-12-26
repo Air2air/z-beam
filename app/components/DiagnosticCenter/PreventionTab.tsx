@@ -1,5 +1,7 @@
 // app/components/DiagnosticCenter/PreventionTab.tsx
 
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+
 interface Challenge {
   challenge: string;
   severity: 'critical' | 'high' | 'medium' | 'low';
@@ -28,7 +30,7 @@ export function PreventionTab({ challenges }: PreventionTabProps) {
   }
 
   return (
-    <div className="grid md:grid-cols-2 gap-4">
+    <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
       {Object.entries(challenges).map(([category, challengeList]: [string, Challenge[]]) => (
         <div key={category} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-md border overflow-hidden">
           {/* Category Header with Icon */}

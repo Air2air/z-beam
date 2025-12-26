@@ -140,71 +140,104 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   
   const authorName = getAuthorName(metadata.author);
   
-  // SEO-optimized title and description for material/settings pages
+  // Extract SEO metadata from frontmatter (if present)
+  const seoMetadata = 'seo' in metadata ? (metadata as any).seo : undefined;
+  
+  // SEO-optimized title and description for material/settings/contaminant pages
+  // Priority 1: Use pre-generated SEO metadata from frontmatter
+  // Priority 2: Use dynamic formatters as fallback
   let seoTitle = title || '';
   let seoDescription = description || '';
   
-  // Apply SEO formatting for material pages
-  if (contentType === 'unified_material') {
-    seoTitle = formatMaterialTitle({
-      pageType: 'material',
-      materialName: materialName || title || '',
-      category: extractSafeValue(category),
-      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
-      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
-      materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
-      materialDescription: subtitle
-    });
-    
-    seoDescription = formatMaterialDescription({
-      pageType: 'material',
-      materialName: materialName || title || '',
-      category: extractSafeValue(category),
-      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
-      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
-      materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
-      materialDescription: subtitle
-    });
+  // Check for pre-generated SEO metadata first (Priority 1)
+  // Used by all 4 domains: materials, settings, contaminants, compounds
+  if (seoMetadata) {
+    // Material page - check for page_title
+    if (contentType === 'unified_material' && seoMetadata.page_title) {
+      seoTitle = seoMetadata.page_title;
+      seoDescription = seoMetadata.meta_description || description || '';
+    }
+    // Settings page - check for settings_title
+    else if (contentType === 'settings' && seoMetadata.settings_title) {
+      seoTitle = seoMetadata.settings_title;
+      seoDescription = seoMetadata.settings_description || description || '';
+    }
+    // Contaminant page - check for page_title
+    else if (contentType === 'contaminants' && seoMetadata.page_title) {
+      seoTitle = seoMetadata.page_title;
+      seoDescription = seoMetadata.meta_description || description || '';
+    }
+    // Compound page - check for page_title
+    else if (contentType === 'compounds' && seoMetadata.page_title) {
+      seoTitle = seoMetadata.page_title;
+      seoDescription = seoMetadata.meta_description || description || '';
+    }
   }
   
-  // Apply SEO formatting for settings pages
-  if (contentType === 'settings') {
-    seoTitle = formatSettingsTitle({
-      pageType: 'settings',
-      materialName: materialName || title || '',
-      category: extractSafeValue(category),
-      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
-      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
-      settingsDescription: (metadata as any).description
-    });
+  // Fallback to dynamic formatters if no pre-generated SEO metadata (Priority 2)
+  if (!seoMetadata || (!seoMetadata.page_title && !seoMetadata.settings_title)) {
+    // Apply SEO formatting for material pages
+    if (contentType === 'unified_material') {
+      seoTitle = formatMaterialTitle({
+        pageType: 'material',
+        materialName: materialName || title || '',
+        category: extractSafeValue(category),
+        subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+        machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+        materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
+        materialDescription: subtitle
+      });
+      
+      seoDescription = formatMaterialDescription({
+        pageType: 'material',
+        materialName: materialName || title || '',
+        category: extractSafeValue(category),
+        subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+        machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+        materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
+        materialDescription: subtitle
+      });
+    }
     
-    seoDescription = formatSettingsDescription({
-      pageType: 'settings',
-      materialName: materialName || title || '',
-      category: extractSafeValue(category),
-      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
-      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
-      settingsDescription: (metadata as any).description
-    });
-  }
-  
-  // Apply SEO formatting for contaminant pages
-  if (contentType === 'contaminants') {
-    seoTitle = formatContaminantTitle({
-      pageType: 'contaminant',
-      materialName: materialName || title || '',
-      category: extractSafeValue(category),
-      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
-      contaminationDescription: contamination_description
-    });
+    // Apply SEO formatting for settings pages
+    if (contentType === 'settings') {
+      seoTitle = formatSettingsTitle({
+        pageType: 'settings',
+        materialName: materialName || title || '',
+        category: extractSafeValue(category),
+        subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+        machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+        settingsDescription: (metadata as any).description
+      });
+      
+      seoDescription = formatSettingsDescription({
+        pageType: 'settings',
+        materialName: materialName || title || '',
+        category: extractSafeValue(category),
+        subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+        machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+        settingsDescription: (metadata as any).description
+      });
+    }
     
-    seoDescription = formatContaminantDescription({
-      pageType: 'contaminant',
-      materialName: materialName || title || '',
-      category: extractSafeValue(category),
-      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
-      contaminationDescription: contamination_description
-    });
+    // Apply SEO formatting for contaminant pages
+    if (contentType === 'contaminants') {
+      seoTitle = formatContaminantTitle({
+        pageType: 'contaminant',
+        materialName: materialName || title || '',
+        category: extractSafeValue(category),
+        subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+        contaminationDescription: contamination_description
+      });
+      
+      seoDescription = formatContaminantDescription({
+        pageType: 'contaminant',
+        materialName: materialName || title || '',
+        category: extractSafeValue(category),
+        subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+        contaminationDescription: contamination_description
+      });
+    }
   }
   
   // Use title directly - layout template will add site name suffix
@@ -277,6 +310,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
         width: heroImageWidth || 1200,
         height: heroImageHeight || 630,
         type: 'image/jpeg',
+        creator: authorName || SITE_CONFIG.shortName,
       }] : undefined,
       
       // Video metadata for rich social sharing

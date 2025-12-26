@@ -6,14 +6,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ScheduleCards.module.css';
+import { GRID_GAP_RESPONSIVE, CARD_HEADER_CLASSES } from '@/app/config/site';
 
 export function ScheduleCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 lg:gap-6">
+    <div className={`grid grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
       {/* Schedule Service Card */}
       <Link
         href="/schedule"
-        className="group card-base h-full min-h-[6rem] md:min-h-[8rem] lg:min-h-[10rem] card-enhanced-hover transition-smooth card-focus"
+        className="group card-base h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem] card-enhanced-hover transition-smooth card-focus"
         aria-label="Schedule a service or consultation"
       >
         <article className="absolute-inset" role="article">
@@ -31,10 +32,10 @@ export function ScheduleCards() {
             </div>
 
             {/* Title Bar */}
-            <header className="absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm px-3 py-3 md:px-4 md:py-2.5 z-10" role="banner" aria-label="Card title">
+            <header className="absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2.5 z-10" role="banner" aria-label="Card title">
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
-                  <h3 className="card-title text-lg truncate text-primary font-medium">
+                  <h3 className={CARD_HEADER_CLASSES.title}>
                     Schedule with us
                   </h3>
                 </div>
@@ -65,7 +66,7 @@ export function ScheduleCards() {
       {/* Contact Us Card */}
       <Link
         href="/contact"
-        className="group card-base h-full min-h-[6rem] md:min-h-[8rem] lg:min-h-[10rem] card-enhanced-hover transition-smooth card-focus"
+        className="group card-base h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem] card-enhanced-hover transition-smooth card-focus"
         aria-label="Contact us"
       >
         <article className="absolute-inset" role="article">
@@ -83,10 +84,10 @@ export function ScheduleCards() {
             </div>
 
             {/* Title Bar */}
-            <header className="absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm px-3 py-3 md:px-4 md:py-2.5 z-10" role="banner" aria-label="Card title">
+            <header className="absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm px-3 py-1 md:px-4 md:py-2.5 z-10" role="banner" aria-label="Card title">
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
-                  <h3 className="card-title text-lg truncate text-primary font-medium">
+                  <h3 className={CARD_HEADER_CLASSES.title}>
                     Contact Us
                   </h3>
                 </div>

@@ -2,8 +2,8 @@ id: iron-laser-cleaning
 name: Iron
 title: Iron Laser Cleaning
 category: metal
-datePublished: '2025-12-23T00:56:26.788266Z'
-dateModified: '2025-12-23T00:56:26.788266Z'
+datePublished: '2025-12-25T21:16:04.022868Z'
+dateModified: '2025-12-25T21:16:04.022868Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/ferrous/iron-laser-cleaning
@@ -21,9 +21,10 @@ breadcrumb:
 description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid strength
   and heat tolerance that keeps the base material intact while removing rust or grime, but make sure you avoid overexposure
   in the middle stages since it can lead to uneven surface heating if not monitored closely.
-micro: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid strength and
-  heat tolerance that keeps the base material intact while removing rust or grime, but make sure you avoid overexposure in
-  the middle stages since it can lead to uneven surface heating if not monitored closely.
+micro:
+  before: The surface shows heavy contamination with scattered debris and dark oxidation.
+  after: Laser cleaning effectively removes all buildup, restoring the original metallic texture across the entire area we
+    examined.
 faq:
 - answer: For rust removal from iron, nanosecond pulses at a 1064 nm wavelength offer a straightforward solution. Applying
     a fluence of about 5.1 J/cm² efficiently ablates oxides, while 50% overlap avoids heat buildup that might alter the base
@@ -113,65 +114,7 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: forging-scale-contamination
-      presentation: card
-    - id: grease-deposits-contamination
-      presentation: card
-    - id: industrial-oil-contamination
-      presentation: card
-    - id: rust-oxidation-contamination
-      presentation: card
-    - id: zinc-plating-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 subcategory: ferrous
-applications:
-- Aerospace
-- Automotive Manufacturing
-- Marine Engineering
-- Cultural Heritage Conservation
-- Energy Sector
-- Rail Transportation
-- Heavy Manufacturing
-- Electronics Manufacturing
-- Medical Device Manufacturing
-- Construction and Infrastructure
 characteristics:
   crystallineStructure:
     allowedValues:
@@ -405,5 +348,82 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-seo_description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid strength
-  and heat tolerance that keeps the base material...
+card:
+  default:
+    heading: Iron
+    subtitle: metal / ferrous
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: forging-scale-contamination
+      - id: grease-deposits-contamination
+      - id: industrial-oil-contamination
+      - id: rust-oxidation-contamination
+      - id: zinc-plating-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Aerospace
+      - Automotive Manufacturing
+      - Marine Engineering
+      - Cultural Heritage Conservation
+      - Energy Sector
+      - Rail Transportation
+      - Heavy Manufacturing
+      - Electronics Manufacturing
+      - Medical Device Manufacturing
+      - Construction and Infrastructure

@@ -119,7 +119,7 @@ export function formatSettingsTitle(config: MetadataConfig): string {
 
 /**
  * Format material page description for optimal CTR
- * Structure: Use authored materialDescription (first 155-160 chars) or fallback to specs
+ * Structure: Challenge-focused, outcome-oriented for technical audience
  * Target: 155-160 characters (no mobile truncation)
  */
 export function formatMaterialDescription(config: MetadataConfig): string {
@@ -132,34 +132,33 @@ export function formatMaterialDescription(config: MetadataConfig): string {
     subcategory
   } = config;
   
-  // Extract key specs for technical description
+  // Extract technical specs for challenge-solution format
   const wavelength = machineSettings?.wavelength?.value;
   const power = machineSettings?.powerRange?.value;
+  const passes = machineSettings?.passCount?.value;
   
-  // Build concise, keyword-rich description (155-160 chars target)
-  let desc = `${materialName} laser cleaning: `;
+  // Get material-specific challenge descriptor
+  const challenge = getMaterialChallenge(materialName, category, subcategory);
   
-  // Add key technical specs
-  if (wavelength) {
-    desc += `${wavelength}nm optimal`;
-    if (power) {
-      desc += `, ${power}W power`;
-    }
-  } else if (power) {
-    desc += `${power}W power settings`;
-  } else {
-    desc += 'parameters & settings';
+  // Build challenge-focused description: [Challenge] → [Method] → [Outcome]
+  let desc = `${materialName}: ${challenge}`;
+  
+  // Add technical method
+  if (wavelength && power) {
+    desc += ` ${wavelength}nm, ${power}W`;
+  } else if (wavelength) {
+    desc += ` ${wavelength}nm wavelength`;
   }
   
-  // Add value proposition
-  desc += '. Complete guide';
+  // Add pass technique if available
+  if (passes && desc.length < 100) {
+    desc += `, ${passes}-pass technique`;
+  }
   
-  // Add application context
-  const context = getIndustryContext(category, subcategory);
-  if (context && desc.length < 130) {
-    desc += ` for ${context.toLowerCase()}`;
-  } else if (desc.length < 140) {
-    desc += ' for industrial applications';
+  // Add outcome/benefit
+  const outcome = getMaterialOutcome(materialName, category, subcategory);
+  if (desc.length < 110) {
+    desc += `. ${outcome}`;
   }
   
   return truncateDescription(desc, 160);
@@ -167,7 +166,7 @@ export function formatMaterialDescription(config: MetadataConfig): string {
 
 /**
  * Format settings page description for optimal CTR
- * Structure: Use authored settingsDescription (first 155-160 chars) or fallback to specs
+ * Structure: Outcome-focused with quality metrics and damage prevention
  * Target: 155-160 characters
  */
 export function formatSettingsDescription(config: MetadataConfig): string {
@@ -186,36 +185,31 @@ export function formatSettingsDescription(config: MetadataConfig): string {
   const scanSpeed = machineSettings?.scanSpeed?.value;
   const passes = machineSettings?.passCount?.value;
   
-  // Build concise, parameter-focused description (155-160 chars target)
-  let desc = `${materialName} laser parameters: `;
+  // Build outcome-focused description: [Settings] → [What it removes] → [Quality outcome]
+  let desc = `${materialName} settings: `;
   
-  // Add key specs
-  if (wavelength && power) {
-    desc += `${wavelength}nm, ${power}W`;
-  } else if (wavelength) {
-    desc += `${wavelength}nm wavelength`;
+  // Add parameters
+  if (power && wavelength) {
+    desc += `${power}W, ${wavelength}nm`;
   } else if (power) {
     desc += `${power}W power`;
   } else {
-    desc += 'wavelength, power, speed';
+    desc += 'optimized parameters';
   }
   
-  // Add scan speed or passes
-  if (scanSpeed && desc.length < 70) {
-    desc += `, ${scanSpeed}mm/s speed`;
-  } else if (passes && desc.length < 70) {
-    desc += `, ${passes}-pass technique`;
+  // Add what it removes (material-specific)
+  const removes = getRemovalTargets(materialName, category);
+  desc += ` removes ${removes}`;
+  
+  // Add damage prevention benefit
+  const benefit = getSettingsBenefit(materialName, category);
+  if (desc.length < 120) {
+    desc += `. ${benefit}`;
   }
   
-  // Add value proposition
-  desc += '. Complete settings guide';
-  
-  // Add application context
-  const context = getIndustryContext(category, subcategory);
-  if (context && desc.length < 125) {
-    desc += ` for ${context.toLowerCase()}`;
-  } else if (desc.length < 140) {
-    desc += ' for professional cleaning';
+  // Add speed comparison if space
+  if (desc.length < 140) {
+    desc += '. Faster than mechanical methods';
   }
   
   return truncateDescription(desc, 160);
@@ -312,6 +306,187 @@ function _extractKeyConsideration(description?: string): string {
   
   // Fallback: return nothing (let other parts fill the description)
   return '';
+}
+
+/**
+ * Get material-specific challenge for description
+ */
+function getMaterialChallenge(material: string, category?: string, subcategory?: string): string {
+  const lower = material.toLowerCase();
+  
+  // High reflectivity materials
+  if (lower.includes('aluminum') || lower.includes('aluminium')) {
+    return 'High reflectivity (88%) requires precise wavelength';
+  }
+  if (lower.includes('copper')) {
+    return '95% reflection requires green laser, oxidation risk';
+  }
+  if (lower.includes('gold') || lower.includes('silver')) {
+    return 'Extreme reflectivity demands specialized parameters';
+  }
+  
+  // High absorption materials
+  if (lower.includes('steel') || lower.includes('iron')) {
+    return '85% absorption enables efficient rust/scale removal';
+  }
+  if (lower.includes('titanium')) {
+    return 'Reactive surface requires controlled parameters';
+  }
+  
+  // Thermal sensitive materials
+  if (lower.includes('plastic') || lower.includes('polymer')) {
+    return 'Low melting point demands precise thermal control';
+  }
+  if (lower.includes('composite')) {
+    return 'Multi-layer structure requires balanced parameters';
+  }
+  
+  // Default by category
+  if (category === 'metal') return 'Optical properties require wavelength optimization';
+  if (category === 'ceramic') return 'Brittle nature demands gentle cleaning approach';
+  if (category === 'glass') return 'Transparency requires specific wavelength selection';
+  
+  return 'Material properties require optimized parameters';
+}
+
+/**
+ * Get material-specific outcome/benefit
+ */
+function getMaterialOutcome(material: string, category?: string, subcategory?: string): string {
+  const lower = material.toLowerCase();
+  
+  // Metal outcomes
+  if (lower.includes('aluminum') || lower.includes('aluminium')) {
+    return 'Preserves anodized finish, no heat damage';
+  }
+  if (lower.includes('steel') || lower.includes('iron')) {
+    return 'No warping, preserves base metal integrity';
+  }
+  if (lower.includes('copper')) {
+    return 'Maintains conductivity, prevents oxidation';
+  }
+  if (lower.includes('titanium')) {
+    return 'Preserves passivation layer, aerospace-grade';
+  }
+  if (lower.includes('stainless')) {
+    return 'Maintains corrosion resistance, no re-passivation needed';
+  }
+  
+  // Other materials
+  if (lower.includes('composite')) {
+    return 'No delamination, preserves fiber-matrix bond';
+  }
+  if (lower.includes('ceramic')) {
+    return 'No thermal shock, preserves surface integrity';
+  }
+  if (lower.includes('glass')) {
+    return 'No scratching, maintains optical clarity';
+  }
+  
+  return 'No substrate damage, production-ready finish';
+}
+
+/**
+ * Get removal targets for settings page
+ */
+function getRemovalTargets(material: string, category?: string): string {
+  const lower = material.toLowerCase();
+  
+  // Metal-specific contamination
+  if (lower.includes('aluminum') || lower.includes('aluminium')) {
+    return 'oxide, anodizing prep';
+  }
+  if (lower.includes('steel') || lower.includes('iron')) {
+    return 'rust, mill scale, paint';
+  }
+  if (lower.includes('stainless')) {
+    return 'heat tint, weld oxidation';
+  }
+  if (lower.includes('copper') || lower.includes('brass')) {
+    return 'oxidation, tarnish';
+  }
+  if (lower.includes('titanium')) {
+    return 'oxide, contamination';
+  }
+  
+  // Category defaults
+  if (category === 'metal') return 'oxide, scale, coatings';
+  if (category === 'composite') return 'paint, adhesive residue';
+  if (category === 'ceramic') return 'contaminants, coatings';
+  
+  return 'surface contamination, coatings';
+}
+
+/**
+ * Get settings benefit (damage prevention/quality outcome)
+ */
+function getSettingsBenefit(material: string, category?: string): string {
+  const lower = material.toLowerCase();
+  
+  if (lower.includes('aluminum') || lower.includes('aluminium')) {
+    return 'No melting, Ra <1μm finish';
+  }
+  if (lower.includes('steel') || lower.includes('iron')) {
+    return 'No warping, minimal HAZ';
+  }
+  if (lower.includes('copper')) {
+    return 'Preserves conductivity';
+  }
+  if (lower.includes('titanium')) {
+    return 'Maintains passivation';
+  }
+  if (lower.includes('composite')) {
+    return 'No delamination risk';
+  }
+  
+  return 'No substrate damage';
+}
+
+/**
+ * Get contaminant removal efficiency metrics
+ */
+function getContaminantEfficiency(contaminant: string): string {
+  const lower = contaminant.toLowerCase();
+  
+  if (lower.includes('rust') || lower.includes('oxide')) {
+    return '88-92% absorption, efficient removal';
+  }
+  if (lower.includes('paint') || lower.includes('coating')) {
+    return 'Multi-layer removal, 1-5 passes';
+  }
+  if (lower.includes('scale') || lower.includes('mill scale')) {
+    return 'High absorption, 2-4 passes for complete removal';
+  }
+  if (lower.includes('oil') || lower.includes('grease')) {
+    return 'Surface ablation, single-pass capable';
+  }
+  if (lower.includes('carbon')) {
+    return 'High absorption at 1064nm, complete removal';
+  }
+  
+  return 'Efficient laser ablation';
+}
+
+/**
+ * Get substrate protection benefit for contaminant removal
+ */
+function getSubstrateProtection(contaminant: string): string {
+  const lower = contaminant.toLowerCase();
+  
+  if (lower.includes('rust') || lower.includes('oxide')) {
+    return 'Preserves base metal, no chemical waste';
+  }
+  if (lower.includes('paint') || lower.includes('coating')) {
+    return 'No substrate damage, no chemical stripping';
+  }
+  if (lower.includes('scale')) {
+    return 'No warping, maintains surface finish';
+  }
+  if (lower.includes('carbon')) {
+    return 'Selective removal, substrate intact';
+  }
+  
+  return 'No substrate damage, environmentally safe';
 }
 
 /**
@@ -417,7 +592,7 @@ export function formatContaminantTitle(config: MetadataConfig): string {
 
 /**
  * Format contaminant page description for optimal CTR
- * Structure: Use authored contaminationDescription (first 155-160 chars)
+ * Structure: Method-focused with removal efficiency and substrate protection
  * Target: 155-160 characters (no mobile truncation)
  */
 export function formatContaminantDescription(config: MetadataConfig): string {
@@ -425,24 +600,37 @@ export function formatContaminantDescription(config: MetadataConfig): string {
   
   const { materialName, machineSettings } = config;
   
-  // Extract key technical specs
+  // Extract technical specs
   const wavelength = machineSettings?.wavelength?.value;
+  const passes = machineSettings?.passCount?.value;
   
   // Clean up contaminant name (remove "/" suffixes)
   const cleanName = materialName.split('/')[0].trim();
   
-  // Build concise, technical description (155-160 chars target)
-  let desc = `${cleanName} removal laser cleaning: `;
+  // Build method-focused description: [Contaminant] → [Efficiency] → [Benefit]
+  let desc = `${cleanName}: `;
   
-  // Add technical specifications
-  if (wavelength) {
-    desc += `${wavelength}nm wavelength`;
-  } else {
-    desc += 'optimal parameters';
+  // Add absorption/efficiency metrics
+  const efficiency = getContaminantEfficiency(cleanName);
+  desc += efficiency;
+  
+  // Add wavelength if available
+  if (wavelength && desc.length < 60) {
+    desc += ` at ${wavelength}nm`;
   }
   
-  // Add value proposition and application
-  desc += '. Complete elimination guide for industrial surfaces';
+  // Add pass count for removal
+  if (passes && desc.length < 80) {
+    desc += `. ${passes} passes for complete removal`;
+  } else if (desc.length < 90) {
+    desc += '. Complete removal';
+  }
+  
+  // Add substrate protection benefit
+  const protection = getSubstrateProtection(cleanName);
+  if (desc.length < 120) {
+    desc += `. ${protection}`;
+  }
   
   return truncateDescription(desc, 160);
 }

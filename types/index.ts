@@ -39,24 +39,37 @@ export type {
 } from '../app/utils/schemas/generators/types';
 
 // ============================================================================
-// DOMAIN LINKAGES TYPES (LEGACY - Use frontmatter-relationships instead)
+// DOMAIN LINKAGES TYPES - REMOVED (Dec 22, 2025)
 // ============================================================================
-// Types for the domain_linkages system - bidirectional cross-domain relationships
-// Note: domain-linkages.ts exists but may not export these types
-// Commenting out to fix TS2306 error
-// export type {
-//   BaseRelationship,
-//   MaterialLinkage,
-//   ContaminantLinkage,
-//   CompoundLinkage,
-//   SettingsLinkage,
-//   RegulatoryLinkage,
-//   PPELinkage,
-//   Relationship,
-//   Relationships,
-//   RelationshipSectionProps,
-//   DomainType,
-// } from './domain-linkages';
+// The domain_linkages architecture was replaced with top-level relationships structure.
+// All relationship data now lives under frontmatter.relationships.* instead of domain_linkages.*
+// DomainLinkageSection component removed as obsolete.
+
+// ============================================================================
+// CARD SCHEMA TYPES (NEW - Dec 22, 2025)
+// ============================================================================
+// Card presentation schema for all entities with context-specific variants
+export type {
+  CardBadge,
+  CardMetric,
+  CardSeverity,
+  CardVariant,
+  CardSchema,
+  PresentationType,
+  RelationshipSection,
+  RelationshipItem,
+  RelationshipKey,
+  FrontmatterRelationshipsNew,
+  EntityFrontmatter,
+} from './card-schema';
+
+export {
+  SEVERITY_COLORS,
+  detectCardContext,
+  isCardSchema,
+  isCardVariant,
+  isRelationshipKey,
+} from './card-schema';
 
 // ============================================================================
 // FRONTMATTER RELATIONSHIPS TYPES (NEW UNIFIED SCHEMA)

@@ -54,6 +54,27 @@ const nextConfig = {
     forceSwcTransforms: true,
   },
 
+  // Development server configuration
+  ...(process.env.NODE_ENV === 'development' && {
+    // Reduce memory usage during development
+    onDemandEntries: {
+      maxInactiveAge: 60 * 1000, // 60 seconds
+      pagesBufferLength: 5,
+    },
+    // Configure webpack for better stability
+    webpack: (config, { dev, isServer }) => {
+      if (dev && !isServer) {
+        // Reduce watch file polling for better stability
+        config.watchOptions = {
+          poll: 1000, // Check for changes every 1 second
+          aggregateTimeout: 300, // Delay rebuild by 300ms after change
+          ignored: /node_modules|\.next/,
+        };
+      }
+      return config;
+    },
+  }),
+
   // Headers for caching (security headers moved to middleware.ts for CSP nonce support)
   async headers() {
     return [

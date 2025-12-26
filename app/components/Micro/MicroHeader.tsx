@@ -4,7 +4,7 @@
 import { FrontmatterType, ParsedMicroData } from '@/types';
 import React from 'react';
 import { capitalizeFirst } from '../../utils/formatting';
-import { Title } from '../Title';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 interface MicroHeaderProps {
   materialName: string;
@@ -18,10 +18,9 @@ export function MicroHeader({ materialName, frontmatter, microData }: MicroHeade
 
   return (
     <header className="micro-header mb-4">
-      <Title 
-        level="card"
+      <SectionTitle 
         title={`${capitalizedMaterial} Surface Topography`}
-        className="micro-heading text-xl mb-2"
+        className="micro-heading mb-2"
         id="surface-analysis-heading"
       />
       <p className="text-sm text-tertiary mb-3" itemProp="description">

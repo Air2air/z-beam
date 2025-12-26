@@ -3,8 +3,8 @@ name: Acetaldehyde
 display_name: Acetaldehyde (C₂H₄O)
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-23T00:44:42.780208Z'
-dateModified: '2025-12-23T00:44:42.780208Z'
+datePublished: '2025-12-24T23:09:09.994092Z'
+dateModified: '2025-12-24T23:09:09.994092Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/aldehyde/acetaldehyde-compound
@@ -19,167 +19,20 @@ breadcrumb:
   href: /compounds/irritant/aldehyde
 - label: Acetaldehyde
   href: /compounds/irritant/aldehyde/acetaldehyde-compound
+page_title: 'Acetaldehyde: Respiratory Irritant'
+meta_description: 'Acetaldehyde: Respiratory Irritant from metal processing. Requires proper ventilation and PPE.'
 chemical_formula: C₂H₄O
 cas_number: 75-07-0
 molecular_weight: 44.05
-description: Acetaldehyde's sharp, irritating vapor hits you first, marking it as a potent irritant that demands careful handling
-  in any workspace. This colorless liquid flows easily, evaporating quickly into the air with a fruity yet pungent scent that
-  lingers uncomfortably. In industry, it serves as a building block for creating resins and plastics, transforming raw inputs
-  into flexible materials used everywhere from packaging to adhesives. Factories also rely on it to produce acetic acid, fueling
-  processes that yield everyday vinegar and beyond. When it comes to laser cleaning, acetaldehyde's volatile nature makes
-  it responsive to precise energy bursts, allowing contaminants laced with it to vaporize cleanly without leaving stubborn
-  residues on metal or glass surfaces. Workers appreciate how this approach minimizes exposure risks, keeping the irritant
-  at bay during restoration tasks.
+health_effects: &id001
+  presentation: card
+  items:
+  - type: health_effects
+    id: acetaldehyde-toxicology
+    notes: Toxicology data from IARC, NTP, NIOSH
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
-exposure_limits:
-  osha_pel_ppm: 200
-  osha_pel_mg_m3: 360
-  niosh_rel_ppm: null
-  niosh_rel_mg_m3: null
-  acgih_tlv_ppm: 25
-  acgih_tlv_mg_m3: 45
-health_effects_keywords:
-- respiratory_irritation
-- eye_irritation
-- suspected_carcinogen
-- narcotic_effects
-monitoring_required: true
-typical_concentration_range: 5-25 mg/m³
-sources_in_laser_cleaning:
-- alcohol_oxidation
-- polymer_decomposition
-- organic_solvent_breakdown
-relationships:
-  chemical_properties:
-    _section:
-      title: Chemical Properties
-      description: Chemical and physical characteristics of this compound
-      order: 1
-      variant: technical
-      icon: atom
-    items:
-    - type: chemical_properties
-      id: acetaldehyde-physical-data
-      notes: Standard physical/chemical data from NIST
-      presentation: card
-  health_effects: null
-  environmental_impact:
-    _section:
-      title: Environmental Impact
-      description: Environmental effects and disposal considerations for this compound
-      order: 5
-      variant: warning
-      icon: leaf
-    items:
-    - type: environmental_impact
-      id: acetaldehyde-environmental-data
-      notes: Environmental fate from EPA databases
-      presentation: card
-  detection_monitoring:
-    _section:
-      title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: technical
-      icon: activity
-    items:
-    - type: detection_monitoring
-      id: acetaldehyde-monitoring-methods
-      notes: NIOSH Method 2538, EPA TO-15
-      presentation: card
-  ppe_requirements:
-    _section:
-      title: Personal Protective Equipment
-      description: Required safety equipment when this compound may be present
-      order: 4
-      variant: warning
-      icon: shield
-    items:
-    - type: ppe_requirements
-      id: irritant-gas-high-concentration
-      notes: Level B protection for >25 ppm or unknown concentrations
-      overrides:
-        specific_compound: acetaldehyde
-        ceiling_limit_ppm: 25
-      presentation: card
-  emergency_response:
-    fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
-      explosively in fire.
-    fire_suppression: EVACUATE - explosion hazard. Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water
-      spray to cool containers. Do not use water jet directly on liquid.
-    spill_procedures: EVACUATE. Eliminate ignition sources. Ventilate area. SCBA for large spills. Contain with dry sand or
-      earth. Neutralize with sodium bisulfite. Absorb with vermiculite.
-    exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
-      clothing. Wash skin with soap and water. Seek medical attention - irritation and carcinogen exposure concern.'
-    environmental_hazards: Toxic to aquatic life. Rapidly volatilizes from water. Biodegrades quickly. Report spills.
-    special_hazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). Respiratory tract carcinogen in animals. Extremely flammable. May
-      polymerize violently when contaminated. Narcotic at high concentrations. Irritating to eyes and respiratory tract.
-  produced_from_contaminants:
-    _section:
-      title: Source Contaminants
-      description: Contamination types that generate this compound during laser cleaning
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: plastic-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: PET and PVC thermal degradation
-      presentation: card
-      url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-    - id: adhesive-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: EVA and acrylic adhesive breakdown
-      presentation: card
-      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-    - id: paint-residue-contamination
-      frequency: occasional
-      severity: low
-      typical_context: Acrylic paint thermal degradation
-      presentation: card
-      url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-  produced_from_materials:
-    _section:
-      title: Source Materials
-      description: Materials that generate this compound when laser processed
-      order: 3
-      variant: relationship
-      icon: cube
-    items:
-    - id: ceramic-matrix-composites-cmcs-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
-    - id: epoxy-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
-    - id: metal-matrix-composites-mmcs-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
-    - id: phenolic-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
-    - id: polyester-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
-    - id: urethane-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/structural/urethane-composites-laser-cleaning
-  physical_properties:
-    boiling_point: 20.2°C (68.4°F)
-    melting_point: -123.5°C (-190.3°F)
-    vapor_pressure: 740 mmHg @ 20°C
-    vapor_density: 1.52 (Air=1)
-    specific_gravity: 0.788 @ 20°C
-    flash_point: -39°C (-38°F)
-    autoignition_temp: 175°C (347°F)
-    explosive_limits: 'LEL: 4%, UEL: 60%'
-    appearance: Colorless liquid, colorless gas >20°C
-    odor: Pungent, fruity odor @ 0.05-1 ppm
-subcategory: aldehyde
 author:
   id: 1
   name: Yi-Chun Lin
@@ -208,137 +61,320 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-ppe_requirements:
-  respiratory: NIOSH-approved organic vapor respirator for <25 ppm. SCBA for >25 ppm or unknown concentrations.
-  skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing for liquid contact.
-  eye: Chemical safety goggles, face shield for splash hazard.
-  minimum_level: Level C for <25 ppm, Level B for >25 ppm
-  special_notes: Probable human carcinogen (IARC Group 2B). Extremely flammable. Irritating vapor. May polymerize explosively.
-storage_requirements:
-  temperature_range: Store below 20°C, refrigerate. Keep away from heat.
-  ventilation: 'Outdoor storage strongly preferred. Indoor: explosion-proof ventilation. Gas detection mandatory.'
-  incompatibilities:
-  - Acids
-  - Bases
-  - Alcohols
-  - Ammonia
-  - Halogens
-  - Oxidizers
-  - Phenols
-  - Hydrogen cyanide
-  container_material: Stainless steel or aluminum. Must be stabilized. Never use copper or iron containers.
-  segregation: Separate from oxidizers and incompatibles by 20 feet. Flammable liquid storage cabinet.
-  quantity_limits: Minimize quantities. Many facilities limit to <10 gallons.
-  special_requirements: 'CRITICAL: Store with stabilizer. Check stabilizer regularly. Refrigerated storage required. Inert
-    gas blanketing (nitrogen). Post "EXTREMELY FLAMMABLE" and "CANCER HAZARD" signs.'
-regulatory_classification:
-  un_number: UN1089
-  dot_hazard_class: 3 (Flammable liquid)
-  dot_label: Flammable Liquid
-  nfpa_codes:
-    health: 2
-    flammability: 4
-    reactivity: 2
-    special: null
-  epa_hazard_categories:
-  - Flammability
-  - Acute toxicity
-  - Carcinogenicity (probable)
-  - Eye irritation
-  sara_title_iii: true
-  cercla_rq: 1000 pounds (454 kg)
-  rcra_code: U001
-workplace_exposure:
-  osha_pel:
-    twa_8hr: 200 ppm (360 mg/m³)
-    stel_15min: null
-    ceiling: null
-  niosh_rel:
-    twa_8hr: null
-    stel_15min: null
-    ceiling: 10 ppm (18 mg/m³) - based on carcinogenicity
-    idlh: 2000 ppm
-  acgih_tlv:
-    twa_8hr: null
-    stel_15min: null
-    ceiling: 25 ppm (confirmed animal carcinogen with unknown relevance to humans)
-  biological_exposure_indices: []
-synonyms_identifiers:
-  synonyms:
-  - Acetic aldehyde
-  - Ethanal
-  - Ethyl aldehyde
-  - CH3CHO
-  common_trade_names: []
-  other_identifiers:
-    rtecs_number: AB1925000
-    ec_number: 200-836-8
-    pubchem_cid: '177'
-reactivity:
-  stability: UNSTABLE. Polymerizes readily. Must be stabilized. Oxidizes in air.
-  polymerization: Violent exothermic polymerization with acids, bases, or contaminants. Stabilizer required.
-  incompatible_materials:
-  - Strong acids
-  - Strong bases
-  - Oxidizers
-  - Halogens
-  - Alcohols
-  - Ammonia
-  - Hydrogen cyanide
-  - Phenols
-  - Hydrogen sulfide
-  hazardous_decomposition:
-  - Carbon monoxide
-  - Carbon dioxide
-  - Acetic acid
-  - Acetaldehyde vapors
-  conditions_to_avoid:
-  - Heat
-  - Light
-  - Air
-  - Acids
-  - Bases
-  - Sparks
-  - Flames
-  - Contamination
-  reactivity_hazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Forms explosive peroxides
-    with air. May self-heat and ignite.
-environmental_impact:
-  aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 50-150 mg/L.'
-  biodegradability: Readily biodegradable (>70% in 28 days). Oxidizes to acetic acid.
-  bioaccumulation: 'Does not bioaccumulate. Log Kow: -0.34.'
-  soil_mobility: High mobility. Volatilizes rapidly from soil.
-  atmospheric_fate: 'Photolyzes rapidly. Forms peroxyacetyl nitrate (PAN). Atmospheric half-life: 9 hours.'
-  ozone_depletion: false
-  global_warming_potential: null
-  reportable_releases:
-    water: 1000 lbs to navigable waters
-    air: 1000 lbs/day (CERCLA RQ)
-detection_monitoring:
-  sensor_types:
-  - Photoionization detector (PID)
-  - Electrochemical
-  - Infrared
-  - Metal oxide
-  detection_range: 0-100 ppm typical
-  alarm_setpoints:
-    low: 10 ppm (NIOSH ceiling)
-    high: 25 ppm (ACGIH ceiling)
-    evacuate: 2000 ppm (NIOSH IDLH)
-  colorimetric_tubes:
-  - Dräger Acetaldehyde 100/a
-  - Gastec 92
-  analytical_methods:
-  - method: NIOSH 2538
-    technique: GC-FID
-    detection_limit: 0.01 ppm
-  - method: OSHA Method 68
-    technique: HPLC
-    detection_limit: 0.02 ppm
-  odor_threshold: 0.05-1 ppm - provides early warning
+health_effects_keywords:
+- respiratory_irritation
+- eye_irritation
+- suspected_carcinogen
+- narcotic_effects
+monitoring_required: true
+typical_concentration_range: 5-25 mg/m³
+sources_in_laser_cleaning:
+- alcohol_oxidation
+- polymer_decomposition
+- organic_solvent_breakdown
+relationships:
+  safety:
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 200
+        osha_pel_mg_m3: 360
+        niosh_rel_ppm: null
+        niosh_rel_mg_m3: null
+        acgih_tlv_ppm: 25
+        acgih_tlv_mg_m3: 45
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 200 ppm (360 mg/m³)
+            stel_15min: null
+            ceiling: null
+          niosh_rel:
+            twa_8hr: null
+            stel_15min: null
+            ceiling: 10 ppm (18 mg/m³) - based on carcinogenicity
+            idlh: 2000 ppm
+          acgih_tlv:
+            twa_8hr: null
+            stel_15min: null
+            ceiling: 25 ppm (confirmed animal carcinogen with unknown relevance to humans)
+          biological_exposure_indices: []
+      _section:
+        title: Exposure Limits
+        description: Regulatory exposure thresholds and safe concentration levels
+        icon: gauge
+        order: 4
+        variant: warning
+  chemical_properties:
+    presentation: descriptive
+    items:
+    - type: chemical_properties
+      id: acetaldehyde-physical-data
+      notes: Standard physical/chemical data from NIST
+    _section:
+      title: Chemical Properties
+      description: Fundamental chemical characteristics and behavior
+      icon: microscope
+      order: 1
+      variant: default
+  health_effects: *id001
+  environmental_impact:
+    presentation: descriptive
+    items:
+    - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 50-150 mg/L.'
+      biodegradability: Readily biodegradable (>70% in 28 days). Oxidizes to acetic acid.
+      bioaccumulation: 'Does not bioaccumulate. Log Kow: -0.34.'
+      soil_mobility: High mobility. Volatilizes rapidly from soil.
+      atmospheric_fate: 'Photolyzes rapidly. Forms peroxyacetyl nitrate (PAN). Atmospheric half-life: 9 hours.'
+      ozone_depletion: false
+      global_warming_potential: null
+      reportable_releases:
+        water: 1000 lbs to navigable waters
+        air: 1000 lbs/day (CERCLA RQ)
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and ecological considerations
+      icon: wind
+      order: 8
+      variant: warning
+  detection_monitoring:
+    presentation: descriptive
+    items:
+    - sensor_types:
+      - Photoionization detector (PID)
+      - Electrochemical
+      - Infrared
+      - Metal oxide
+      detection_range: 0-100 ppm typical
+      alarm_setpoints:
+        low: 10 ppm (NIOSH ceiling)
+        high: 25 ppm (ACGIH ceiling)
+        evacuate: 2000 ppm (NIOSH IDLH)
+      colorimetric_tubes:
+      - Dräger Acetaldehyde 100/a
+      - Gastec 92
+      analytical_methods:
+      - method: NIOSH 2538
+        technique: GC-FID
+        detection_limit: 0.01 ppm
+      - method: OSHA Method 68
+        technique: HPLC
+        detection_limit: 0.02 ppm
+      odor_threshold: 0.05-1 ppm - provides early warning
+    _section:
+      title: Detection & Monitoring
+      description: Methods and equipment for detecting and monitoring this compound
+      icon: gauge
+      order: 6
+      variant: default
+  ppe_requirements:
+    presentation: descriptive
+    items:
+    - respiratory: NIOSH-approved organic vapor respirator for <25 ppm. SCBA for >25 ppm or unknown concentrations.
+      skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing for liquid contact.
+      eye: Chemical safety goggles, face shield for splash hazard.
+      minimum_level: Level C for <25 ppm, Level B for >25 ppm
+      special_notes: Probable human carcinogen (IARC Group 2B). Extremely flammable. Irritating vapor. May polymerize explosively.
+    _section:
+      title: PPE Requirements
+      description: Personal protective equipment needed for safe handling
+      icon: shield
+      order: 5
+      variant: warning
+  emergency_response:
+    presentation: descriptive
+    items:
+    - fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
+        explosively in fire.
+      fire_suppression: EVACUATE - explosion hazard. Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water
+        spray to cool containers. Do not use water jet directly on liquid.
+      spill_procedures: EVACUATE. Eliminate ignition sources. Ventilate area. SCBA for large spills. Contain with dry sand
+        or earth. Neutralize with sodium bisulfite. Absorb with vermiculite.
+      exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
+        clothing. Wash skin with soap and water. Seek medical attention - irritation and carcinogen exposure concern.'
+      environmental_hazards: Toxic to aquatic life. Rapidly volatilizes from water. Biodegrades quickly. Report spills.
+      special_hazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). Respiratory tract carcinogen in animals. Extremely flammable.
+        May polymerize violently when contaminated. Narcotic at high concentrations. Irritating to eyes and respiratory tract.
+    _section:
+      title: Emergency Response
+      description: First aid and emergency procedures for exposure incidents
+      icon: alert-triangle
+      order: 7
+      variant: danger
+  produced_from_contaminants:
+    presentation: card
+    items:
+    - id: plastic-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: PET and PVC thermal degradation
+      intensity: negative
+    - id: adhesive-residue-contamination
+      frequency: common
+      severity: moderate
+      typical_context: EVA and acrylic adhesive breakdown
+      intensity: negative
+    - id: paint-residue-contamination
+      frequency: occasional
+      severity: low
+      typical_context: Acrylic paint thermal degradation
+      intensity: slightly_negative
+    _section:
+      title: Produced From Contaminants
+      description: Contaminants that generate this compound during laser cleaning
+      icon: droplet
+      order: 9
+      variant: default
+  produced_from_materials:
+    presentation: card
+    items:
+    - id: ceramic-matrix-composites-cmcs-laser-cleaning
+    - id: epoxy-resin-composites-laser-cleaning
+    - id: metal-matrix-composites-mmcs-laser-cleaning
+    - id: phenolic-resin-composites-laser-cleaning
+    - id: polyester-resin-composites-laser-cleaning
+    - id: urethane-composites-laser-cleaning
+    _section:
+      title: Produced From Materials
+      description: Materials that may release this compound during laser cleaning
+      icon: users
+      order: 10
+      variant: default
+  physical_properties:
+    presentation: descriptive
+    items:
+    - boiling_point: 20.2°C (68.4°F)
+      melting_point: -123.5°C (-190.3°F)
+      vapor_pressure: 740 mmHg @ 20°C
+      vapor_density: 1.52 (Air=1)
+      specific_gravity: 0.788 @ 20°C
+      flash_point: -39°C (-38°F)
+      autoignition_temp: 175°C (347°F)
+      explosive_limits: 'LEL: 4%, UEL: 60%'
+      appearance: Colorless liquid, colorless gas >20°C
+      odor: Pungent, fruity odor @ 0.05-1 ppm
+    _section:
+      title: Physical Properties
+      description: Physical characteristics and state information
+      icon: gauge
+      order: 2
+      variant: default
+  storage_requirements:
+    presentation: descriptive
+    items:
+    - temperature_range: Store below 20°C, refrigerate. Keep away from heat.
+      ventilation: 'Outdoor storage strongly preferred. Indoor: explosion-proof ventilation. Gas detection mandatory.'
+      incompatibilities:
+      - Acids
+      - Bases
+      - Alcohols
+      - Ammonia
+      - Halogens
+      - Oxidizers
+      - Phenols
+      - Hydrogen cyanide
+      container_material: Stainless steel or aluminum. Must be stabilized. Never use copper or iron containers.
+      segregation: Separate from oxidizers and incompatibles by 20 feet. Flammable liquid storage cabinet.
+      quantity_limits: Minimize quantities. Many facilities limit to <10 gallons.
+      special_requirements: 'CRITICAL: Store with stabilizer. Check stabilizer regularly. Refrigerated storage required. Inert
+        gas blanketing (nitrogen). Post "EXTREMELY FLAMMABLE" and "CANCER HAZARD" signs.'
+    _section:
+      title: Storage Requirements
+      description: Proper storage conditions and handling precautions
+      icon: alert-triangle
+      order: 13
+      variant: warning
+  regulatory_classification:
+    presentation: descriptive
+    items:
+    - un_number: UN1089
+      dot_hazard_class: 3 (Flammable liquid)
+      dot_label: Flammable Liquid
+      nfpa_codes:
+        health: 2
+        flammability: 4
+        reactivity: 2
+        special: null
+      epa_hazard_categories:
+      - Flammability
+      - Acute toxicity
+      - Carcinogenicity (probable)
+      - Eye irritation
+      sara_title_iii: true
+      cercla_rq: 1000 pounds (454 kg)
+      rcra_code: U001
+    _section:
+      title: Regulatory Classification
+      description: Hazard classifications and regulatory designations
+      icon: file-text
+      order: 12
+      variant: default
+  reactivity:
+    presentation: descriptive
+    items:
+    - stability: UNSTABLE. Polymerizes readily. Must be stabilized. Oxidizes in air.
+      polymerization: Violent exothermic polymerization with acids, bases, or contaminants. Stabilizer required.
+      incompatible_materials:
+      - Strong acids
+      - Strong bases
+      - Oxidizers
+      - Halogens
+      - Alcohols
+      - Ammonia
+      - Hydrogen cyanide
+      - Phenols
+      - Hydrogen sulfide
+      hazardous_decomposition:
+      - Carbon monoxide
+      - Carbon dioxide
+      - Acetic acid
+      - Acetaldehyde vapors
+      conditions_to_avoid:
+      - Heat
+      - Light
+      - Air
+      - Acids
+      - Bases
+      - Sparks
+      - Flames
+      - Contamination
+      reactivity_hazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Forms explosive peroxides
+        with air. May self-heat and ignite.
+    _section:
+      title: Reactivity
+      description: Chemical reactivity and compatibility with other substances
+      icon: flame
+      order: 11
+      variant: warning
+  synonyms_identifiers:
+    presentation: descriptive
+    items:
+    - synonyms:
+      - Acetic aldehyde
+      - Ethanal
+      - Ethyl aldehyde
+      - CH3CHO
+      common_trade_names: []
+      other_identifiers:
+        rtecs_number: AB1925000
+        ec_number: 200-836-8
+        pubchem_cid: '177'
+    _section:
+      title: Synonyms & Identifiers
+      description: Alternative names and chemical identifiers (CAS numbers)
+      icon: file-text
+      order: 14
+      variant: default
+  operational:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: acetaldehyde-toxicology
+      _section:
+        title: Health Effects
+        description: Potential health impacts from exposure
+        icon: activity
+        order: 1
+        variant: warning
 title: Acetaldehyde (C₂H₄O)
-seo_description: Acetaldehyde's sharp, irritating vapor hits you first, marking it as a potent irritant that demands careful
-  handling in any workspace.
-micro: Acetaldehyde's sharp, irritating vapor hits you first, marking it as a potent irritant that demands careful handling
-  in any workspace. This colorless liquid flows easily, evaporating quickly into the air with a fruity yet pungent scent that
-  lingers uncomfortably.
+subcategory: aldehyde

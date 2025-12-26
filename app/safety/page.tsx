@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from '../components/JsonLD/JsonLD';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
-import { SITE_CONFIG } from '@/app/config/site';
+import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { SectionContainer } from '../components/SectionContainer';
 import { AlertTriangleIcon, ShieldIcon, CheckCircleIcon, PhoneIcon } from '@/app/components/Buttons';
 
@@ -127,7 +127,7 @@ export default async function SafetyPage() {
             radius={true}
             horizPadding={true}
           >
-            <div className="grid-2col-md gap-6">
+            <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-5">
                 <div className="flex items-start gap-3 mb-3">
                   <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
@@ -289,7 +289,7 @@ export default async function SafetyPage() {
             bgColor="transparent"
             radius={false}
           >
-            <div className="grid-2col-md gap-6">
+            <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
               <div>
                 <h4 className="font-semibold mb-3">OSHA Requirements</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
@@ -340,7 +340,7 @@ export default async function SafetyPage() {
             <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
               All laser cleaning operators must complete comprehensive training covering:
             </p>
-            <div className="grid-2col-md gap-4">
+            <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
               <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />

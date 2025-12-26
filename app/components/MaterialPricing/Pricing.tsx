@@ -1,4 +1,4 @@
-import { SITE_CONFIG } from '@/app/config/site';
+import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 interface PricingProps {
   materialName: string;
@@ -14,7 +14,7 @@ export function Pricing({ materialName, materialSlug: _materialSlug }: PricingPr
         {materialName} Laser Cleaning Services
       </h2>
       
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
         {/* Professional Service Card */}
         <div className="bg-white rounded-md p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between mb-4">

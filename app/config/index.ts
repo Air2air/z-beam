@@ -28,6 +28,7 @@ export {
   GRID_SECTION_SPACING,
   SECTION_HEADER_CLASSES,
   CATEGORY_HEADER_CLASSES,
+  CARD_HEADER_CLASSES,
   getGridClasses,
   createSectionHeader,
   createCategoryHeader,

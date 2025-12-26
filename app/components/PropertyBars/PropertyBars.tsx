@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { capitalizeWords } from '@/app/utils/formatting';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 // Helper function to format display values with smart precision
 function formatDisplayValue(value: number): string {
@@ -215,7 +216,7 @@ function PropertyBarsGrid({
   const gridClasses = `${xsClass} ${smClass} ${mdClass} ${lgClass}`;
   
   return (
-    <div className={`grid gap-4 ${gridClasses} ${className}`}>
+    <div className={`grid ${GRID_GAP_RESPONSIVE} ${gridClasses} ${className}`}>
       {properties.map((prop, index) => {
         // Values are pre-normalized at load time via normalizeNumericValues()
         const { value, min, max } = prop;

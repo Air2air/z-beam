@@ -2,8 +2,8 @@ id: gallium-nitride-laser-cleaning
 name: Gallium Nitride
 title: Gallium Nitride Laser Cleaning
 category: semiconductor
-datePublished: '2025-12-23T00:56:28.952795Z'
-dateModified: '2025-12-23T00:56:28.952795Z'
+datePublished: '2025-12-25T21:16:05.800032Z'
+dateModified: '2025-12-25T21:16:05.800032Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/semiconductor/compound/gallium-nitride-laser-cleaning
@@ -21,8 +21,10 @@ breadcrumb:
 description: Gallium Nitride shows hardness and density. This compound resists oxidation, thus maintains surface integrity
   during laser cleaning. Smoothness aids uniform contaminant removal, yet stiffness challenges precise ablation. Benefits
   include durability and corrosion resistance for semiconductor processing.
-micro: Gallium Nitride shows hardness and density. This compound resists oxidation, thus maintains surface integrity during
-  laser cleaning.
+micro:
+  before: Gallium Nitride laser cleaning requires careful parameter selection to optimize contamination removal while preserving
+    substrate integrity.
+  after: ''
 faq:
 - question: How do I prepare Gallium Nitride for safe laser cleaning?
   answer: When laser cleaning Gallium Nitride, we typically start by ensuring the surface is free from loose debris to avoid
@@ -73,37 +75,6 @@ author:
   - https://www.academia.edu/profile/IkmandaRoswati
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: environmental-dust-contamination
-      presentation: card
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
 subcategory: compound
 properties:
   material_characteristics:
@@ -254,11 +225,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T19:41:03.309949'
       needs_validation: true
-settings_description: When laser cleaning Gallium Nitride, the biggest challenge we've found is its brittleness compared to
-  softer semiconductors like silicon. This sets it apart because it cracks easily under uneven heating, unlike more forgiving
-  materials. So we typically use short pulses and gentle power levels to remove contaminants without stressing the surface.
-  We've seen this approach restore clean finishes reliably. Just watch for any micro-fractures at the end—adjust scans if
-  needed to avoid them.
 components:
   micro:
     before: Under the microscope at high magnification, the contaminated Gallium Nitride surface reveals scattered dark spots
@@ -274,4 +240,49 @@ contamination:
   conditional: {}
   _needs_review: true
   _note: Category "semiconductor" not recognized - conservative defaults applied
-seo_description: Gallium Nitride shows hardness and density.
+card:
+  default:
+    heading: Gallium Nitride
+    subtitle: semiconductor / compound
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: environmental-dust-contamination
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default

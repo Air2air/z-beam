@@ -8,6 +8,7 @@ import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetDownloadControls from './DatasetDownloadControls';
 import { copyToClipboard } from '@/app/utils/downloadUtils';
 import type { DatasetSectionProps } from '@/types/centralized';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 export default function DatasetSection({
   title,
@@ -61,7 +62,7 @@ export default function DatasetSection({
       />
 
       {/* Stats Grid */}
-      <div className="dataset-stats-grid grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-6">
+      <div className={`dataset-stats-grid grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 ${GRID_GAP_RESPONSIVE} mb-6`}>
         {stats.map((stat, index) => (
           <div 
             key={index} 

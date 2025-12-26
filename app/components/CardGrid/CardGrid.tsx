@@ -18,7 +18,6 @@ import { Button } from "../Button";
 import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
-import { Title } from '../Title';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 

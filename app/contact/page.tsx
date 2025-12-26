@@ -6,7 +6,7 @@ import { ArticleMetadata } from "@/types";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { SITE_CONFIG } from "@/app/config/site";
+import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from "@/app/config/site";
 
 const ContactForm = dynamic(
   () =>
@@ -149,7 +149,7 @@ export default async function ContactPage() {
         }
         slug="contact"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-8">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_GAP_RESPONSIVE} mt-8`}>
           <div>
             <ContactForm />
           </div>

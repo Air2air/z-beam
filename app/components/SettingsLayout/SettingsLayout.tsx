@@ -12,8 +12,8 @@ import { MachineSettings } from '@/app/components/MachineSettings/MachineSetting
 import { ScheduleCards } from '@/app/components/Schedule/ScheduleCards';
 import { GridSection } from '@/app/components/GridSection/GridSection';
 import { CardGrid } from '@/app/components/CardGrid';
-import { getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
 import { DataGrid } from '@/app/components/DataGrid/DataGrid';
+import { DescriptiveDataPanel } from '@/app/components/DescriptiveDataPanel';
 import { 
   contaminantLinkageToGridItem, 
   materialLinkageToGridItem, 
@@ -629,6 +629,14 @@ export function SettingsLayout({
           />
         )
       ))}
+
+      {/* Descriptive data sections */}
+      {relationships?.technical?.common_challenges?.items?.length > 0 && (
+        <DescriptiveDataPanel
+          items={relationships.technical.common_challenges.items}
+          sectionMetadata={relationships.technical.common_challenges._section}
+        />
+      )}
 
       {/* Custom content slot */}
       {children}

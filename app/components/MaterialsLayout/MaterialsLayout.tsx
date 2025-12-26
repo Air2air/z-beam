@@ -12,10 +12,9 @@ import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetDownloader from '../Dataset/MaterialDatasetDownloader';
 import { CardGrid } from '../CardGrid';
 import { Micro } from '../Micro/Micro';
+import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
-import { getEnrichmentMetadata } from '@/app/utils/layoutHelpers';
-import { getContaminantArticle } from '@/app/utils/contentAPI';
 import type { LayoutProps } from '@/types';
 import type { SectionConfig } from '../BaseContentLayout';
 
@@ -27,7 +26,7 @@ interface MaterialsLayoutProps extends LayoutProps {
 
 export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
-  const materialName = (metadata?.title as string) || metadata?.name || slug;
+  const materialName = metadata?.name || (metadata?.title as string) || slug;
   const thumbnailLink = `/materials/${category}/${subcategory}/${slug}`;
   const heroImage = metadata?.images?.hero?.url;
   
@@ -36,38 +35,38 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const relationships = (metadata as any)?.relationships || {};
   const materialProperties = relationships?.materialProperties || (metadata as any)?.properties;
   const regulatoryStandards = relationships?.regulatory?.items || relationships?.regulatory_standards?.items || relationships?.regulatory_standards || relationships?.regulatory || [];
-  const applications = (metadata as any)?.applications; // NEW: Extract applications array
+  const applications = (metadata as any)?.applications;
 
-  // Enrich minimal references with full contaminant data
-  const contaminatedBy = relationships?.contaminated_by?.items || relationships?.contaminated_by || [];
+  // Extract contaminants from relationships and filter null items
+  const contaminatedByData = relationships?.technical?.contaminated_by || relationships?.contaminated_by || {};
+  const contaminantRefs = (contaminatedByData?.items || []).filter((item: any) => item != null);
+  const contaminatedBySection = contaminatedByData?._section || {};
+  
+  // Enrich contaminants with full metadata
+  const { getContaminantArticle } = await import('@/app/utils/contentAPI');
   const enrichedContaminants = await Promise.all(
-    (Array.isArray(contaminatedBy) ? contaminatedBy : []).map(async (ref: { id: string; frequency?: string; severity?: string; typical_context?: string }) => {
+    contaminantRefs.map(async (ref: any) => {
+      if (!ref || !ref.id) return null;
+      
+      // Fetch full article data to get full_path and other metadata
       const article = await getContaminantArticle(ref.id);
       if (!article) return null;
       
-      const metadata = article.metadata as any; // Allow images.hero access
-      const normalizeFrequency = (freq: string | undefined): 'very_common' | 'common' | 'occasional' | 'rare' => {
-        if (freq === 'very_common' || freq === 'common' || freq === 'rare') return freq;
-        return 'occasional';
-      };
-      const normalizeSeverity = (sev: string | undefined): 'severe' | 'high' | 'moderate' | 'low' => {
-        if (sev === 'severe' || sev === 'high' || sev === 'low') return sev;
-        return 'moderate';
-      };
+      const metadata = article.metadata as any;
       return {
         id: ref.id,
         title: metadata.name || metadata.title,
         category: metadata.category || '',
         subcategory: metadata.subcategory || '',
-        description: metadata.description,
-        url: metadata.full_path || `/contaminants/${ref.id}`,
-        frequency: normalizeFrequency(ref.frequency),
-        severity: normalizeSeverity(ref.severity),
-        typical_context: ref.typical_context || '',
+        description: ref.typical_context || metadata.description || '',
+        url: ref.url || metadata.full_path, // Use full_path from frontmatter
+        frequency: ref.frequency,
+        severity: ref.severity,
+        typical_context: ref.typical_context,
         image: metadata.images?.hero?.url || '',
       };
     })
-  ).then(items => items.filter((item): item is NonNullable<typeof item> => item !== null));
+  ).then(items => items.filter(Boolean));
 
   const sections: SectionConfig[] = [
     {
@@ -95,6 +94,14 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
       component: () => <Micro frontmatter={metadata as any} config={{}} />,
       condition: () => !!metadata?.images?.micro?.url,
       props: {}
+    },
+    // DUMP ALL RELATIONSHIPS FOR ANALYSIS
+    {
+      component: RelationshipsDump,
+      props: {
+        relationships,
+        entityName: materialName,
+      }
     },
     {
       component: RegulatoryStandards,
@@ -127,11 +134,12 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
       component: CardGrid,
       props: {
         items: enrichedContaminants.sort(sortByFrequency).map(contaminantLinkageToGridItem),
-        title: 'Common Contaminants',
-        description: 'Contaminants frequently found on this material requiring laser cleaning removal',
+        title: contaminatedBySection?.title ? contaminatedBySection.title.replace('Common Contaminants', `Common ${materialName} contaminants`) : `Common ${materialName} contaminants`,
+        description: contaminatedBySection?.description || 'Contaminants frequently found on this material requiring laser cleaning removal',
         variant: 'relationship' as const,
       }
     },
+    // Dataset downloader at bottom
     {
       component: MaterialDatasetDownloader,
       props: {

@@ -3,8 +3,8 @@ name: Ammonia
 display_name: Ammonia (NH₃)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2025-12-23T00:44:43.094518Z'
-dateModified: '2025-12-23T00:44:43.094518Z'
+datePublished: '2025-12-24T23:09:10.186711Z'
+dateModified: '2025-12-24T23:09:10.186711Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
@@ -19,154 +19,19 @@ breadcrumb:
   href: /compounds/corrosive_gas/alkaline_gas
 - label: Ammonia
   href: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
+page_title: 'Ammonia: Corrosive Fumes'
+meta_description: 'Ammonia: Corrosive Fumes from metal processing. Requires proper ventilation and PPE.'
 chemical_formula: NH₃
 cas_number: 7664-41-7
 molecular_weight: 17.03
-description: Handling ammonia in industrial settings demands respect for its sharp, irritating odor that lingers and signals
-  danger right away, while its colorless nature as a gas makes it sneaky unless you're paying close attention. This stuff
-  dissolves readily in water to form solutions that pack a punch for cleaning tough grime off metals or machinery, turning
-  it into a go-to for stripping away residues without much fuss. In bigger operations, factories churn it out for boosting
-  crop yields through fertilizers or chilling things down in refrigeration systems where reliability counts on its efficient
-  heat absorption. When it comes to laser cleaning, though, watch out—its corrosive edge can etch surfaces if vapors mix in
-  during the process, so sealing off areas and ventilating aggressively works best to avoid pitting or weakening the material
-  under the beam; skipping that step invites headaches like uneven finishes or weakened spots that compromise durability later
-  on. Overall, its reactivity shines in controlled environments but bites back if mishandled around sensitive tools.
+health_effects: &id001
+  presentation: card
+  items:
+  - type: health_effects
+    id: ammonia-toxicology
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
-exposure_limits:
-  osha_pel_ppm: 50
-  osha_pel_mg_m3: 35
-  niosh_rel_ppm: 25
-  niosh_rel_mg_m3: 18
-  acgih_tlv_ppm: 25
-  acgih_tlv_mg_m3: 17
-health_effects_keywords:
-- respiratory_irritation
-- eye_irritation
-- chemical_burns
-- pulmonary_edema
-monitoring_required: true
-typical_concentration_range: 5-25 mg/m³
-sources_in_laser_cleaning:
-- nitrogen_compound_decomposition
-- protein_pyrolysis
-- amine_breakdown
-relationships:
-  chemical_properties:
-    _section:
-      title: Chemical Properties
-      description: Chemical and physical characteristics of this compound
-      order: 1
-      variant: technical
-      icon: atom
-    items:
-    - type: chemical_properties
-      id: ammonia-physical-data
-      presentation: card
-  health_effects: null
-  environmental_impact:
-    _section:
-      title: Environmental Impact
-      description: Environmental effects and disposal considerations for this compound
-      order: 5
-      variant: warning
-      icon: leaf
-    items:
-    - type: environmental_impact
-      id: ammonia-environmental-data
-      presentation: card
-  detection_monitoring:
-    _section:
-      title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: technical
-      icon: activity
-    items:
-    - type: detection_monitoring
-      id: ammonia-monitoring-methods
-      presentation: card
-  ppe_requirements:
-    _section:
-      title: Personal Protective Equipment
-      description: Required safety equipment when this compound may be present
-      order: 4
-      variant: warning
-      icon: shield
-    items:
-    - type: ppe_requirements
-      id: corrosive-liquid-moderate
-      overrides:
-        specific_compound: Ammonia
-        pel_ppm: 50
-      presentation: card
-  emergency_response:
-    fire_hazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse. May
-      reignite after flame is extinguished.
-    fire_suppression: Stop flow if safe to do so. Do not extinguish flame unless leak can be stopped. Cool cylinders with
-      water spray from safe distance. Use dry chemical, CO2 from maximum distance.
-    spill_procedures: EVACUATE. Ventilate area. SCBA required for liquid releases or >300 ppm. Contain with water spray or
-      fog. Dilute with water. Neutralize with acid (sulfuric, hydrochloric). Dike large liquid spills.
-    exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - CRITICAL. Remove
-      contaminated clothing. Wash skin with water. If inhaled: administer oxygen. Seek immediate medical attention - severe
-      irritation likely.'
-    environmental_hazards: Toxic to aquatic life at high concentrations. Rapid volatilization from water. Report releases
-      >100 lbs.
-    special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
-      Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
-  produced_from_contaminants:
-    _section:
-      title: Source Contaminants
-      description: Contamination types that generate this compound during laser cleaning
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: blood-residue-contamination
-      frequency: occasional
-      severity: low
-      typical_context: Breakdown of proteins
-      presentation: card
-      url: /contaminants/biological/deposit/blood-residue-contamination
-  produced_from_materials:
-    _section:
-      title: Source Materials
-      description: Materials that generate this compound when laser processed
-      order: 3
-      variant: relationship
-      icon: cube
-    items:
-    - id: ceramic-matrix-composites-cmcs-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
-    - id: epoxy-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
-    - id: metal-matrix-composites-mmcs-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
-    - id: phenolic-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
-    - id: polyester-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
-    - id: urethane-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/structural/urethane-composites-laser-cleaning
-  physical_properties:
-    boiling_point: -33.34°C (-28°F)
-    melting_point: -77.73°C (-107.9°F)
-    vapor_pressure: 7510 mmHg @ 20°C
-    vapor_density: 0.60 (Air=1)
-    specific_gravity: 0.682 (liquid @ -33°C)
-    flash_point: Not applicable (gas)
-    autoignition_temp: 651°C (1204°F)
-    explosive_limits: 'LEL: 15%, UEL: 28%'
-    appearance: Colorless gas, colorless liquid under pressure
-    odor: Sharp, pungent, suffocating odor @ 5-50 ppm
-subcategory: alkaline_gas
 author:
   id: 4
   name: Todd Dunning
@@ -195,137 +60,312 @@ author:
   - https://spie.org/profile/Todd.Dunning
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
-ppe_requirements:
-  respiratory: SCBA or supplied-air respirator for >25 ppm or unknown concentrations. Air-purifying with ammonia cartridge
-    acceptable for ≤25 ppm.
-  skin: Neoprene, nitrile, or butyl rubber gloves. Chemical-resistant clothing. Liquid ammonia causes severe burns and frostbite.
-  eye: Chemical safety goggles, full face shield. Extremely irritating and corrosive to eyes.
-  minimum_level: Level C for known <25 ppm, Level B for >25 ppm or liquefied ammonia
-  special_notes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
-    frostbite. Emergency eyewash/shower within 10 seconds.
-storage_requirements:
-  temperature_range: Store cylinders <52°C. Keep away from heat.
-  ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. Ammonia gas detection mandatory.'
-  incompatibilities:
-  - Acids (violent reaction)
-  - Halogens (chlorine, bromine)
-  - Heavy metals
-  - Oxidizers
-  - Mercury
-  - Silver compounds
-  - Calcium hypochlorite
-  container_material: Steel cylinders for compressed gas. Stainless steel for solutions.
-  segregation: Separate from acids by 20 feet or firewall. Separate from oxidizers and halogens. Flammable gas storage.
-  quantity_limits: Per fire code. Refrigeration systems subject to special regulations.
-  special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "FLAMMABLE GAS" and "CORROSIVE"
-    signs. Emergency eyewash/shower within 25 feet. Avoid contact with copper, brass, zinc in piping.
-regulatory_classification:
-  un_number: UN1005 (anhydrous), UN2672 (solution)
-  dot_hazard_class: 2.2 (Non-flammable gas) or 2.3 (Toxic gas) depending on concentration
-  dot_label: Non-flammable Gas or Poison Gas
-  nfpa_codes:
-    health: 3
-    flammability: 1
-    reactivity: 0
-    special: null
-  epa_hazard_categories:
-  - Acute toxicity (inhalation)
-  - Flammability
-  - Skin corrosion
-  - Serious eye damage
-  sara_title_iii: true
-  cercla_rq: 100 pounds (45.4 kg)
-  rcra_code: null
-workplace_exposure:
-  osha_pel:
-    twa_8hr: 50 ppm (35 mg/m³)
-    stel_15min: null
-    ceiling: null
-  niosh_rel:
-    twa_8hr: 25 ppm (18 mg/m³)
-    stel_15min: 35 ppm (27 mg/m³) - 15 min
-    ceiling: null
-    idlh: 300 ppm
-  acgih_tlv:
-    twa_8hr: 25 ppm
-    stel_15min: 35 ppm
-    ceiling: null
-  biological_exposure_indices: []
-synonyms_identifiers:
-  synonyms:
-  - Anhydrous ammonia
-  - NH3
-  - Ammonia gas
-  - Ammonia solution (aqueous)
-  common_trade_names: []
-  other_identifiers:
-    rtecs_number: BO0875000
-    ec_number: 231-635-3
-    pubchem_cid: '222'
-reactivity:
-  stability: Stable under normal conditions.
-  polymerization: Will not polymerize
-  incompatible_materials:
-  - Strong acids (violent exothermic)
-  - Halogens (explosive reactions)
-  - Heavy metal compounds
-  - Mercury
-  - Silver oxide
-  - Oxidizers
-  - Calcium hypochlorite
-  hazardous_decomposition:
-  - Nitrogen
-  - Hydrogen
-  - Nitrogen oxides (in fire)
-  - Ammonia vapors
-  conditions_to_avoid:
-  - Heat
-  - Acids
-  - Halogens
-  - Oxidizers
-  - Sparks
-  - Open flames
-  reactivity_hazard: Reacts violently with strong acids producing heat and ammonium salts. Explosive reaction with halogens.
-    Attacks copper, brass, zinc, aluminum, and alloys.
-environmental_impact:
-  aquatic_toxicity: 'Toxic to fish at high concentrations. LC50 (fish, 96h): 0.5-2.0 mg/L un-ionized NH3. Unionized form highly
-    toxic.'
-  biodegradability: Readily biodegradable. Nitrifying bacteria convert to nitrate.
-  bioaccumulation: 'Does not bioaccumulate. Log Kow: -1.69.'
-  soil_mobility: High mobility as gas. Volatilizes from soil. Absorbed as ammonium ion.
-  atmospheric_fate: 'Reacts with acids forming ammonium salts. Washed out by rain. Atmospheric residence: days.'
-  ozone_depletion: false
-  global_warming_potential: null
-  reportable_releases:
-    water: 100 lbs to navigable waters
-    air: 100 lbs/day (CERCLA RQ)
-detection_monitoring:
-  sensor_types:
-  - Electrochemical
-  - Infrared
-  - Catalytic bead
-  - Colorimetric
-  detection_range: 0-100 ppm typical
-  alarm_setpoints:
-    low: 25 ppm (NIOSH REL/ACGIH TLV)
-    high: 35 ppm (NIOSH STEL/ACGIH STEL)
-    evacuate: 300 ppm (NIOSH IDLH)
-  colorimetric_tubes:
-  - Dräger Ammonia 0.25/a
-  - Gastec 3L
-  - Kitagawa 105
-  analytical_methods:
-  - method: NIOSH 6016
-    technique: Ion chromatography
-    detection_limit: 0.03 ppm
-  - method: OSHA ID-188
-    technique: Ion chromatography
-    detection_limit: 0.02 ppm
-  odor_threshold: 5-50 ppm - provides good warning below toxic levels
+health_effects_keywords:
+- respiratory_irritation
+- eye_irritation
+- chemical_burns
+- pulmonary_edema
+monitoring_required: true
+typical_concentration_range: 5-25 mg/m³
+sources_in_laser_cleaning:
+- nitrogen_compound_decomposition
+- protein_pyrolysis
+- amine_breakdown
+relationships:
+  safety:
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 50
+        osha_pel_mg_m3: 35
+        niosh_rel_ppm: 25
+        niosh_rel_mg_m3: 18
+        acgih_tlv_ppm: 25
+        acgih_tlv_mg_m3: 17
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 50 ppm (35 mg/m³)
+            stel_15min: null
+            ceiling: null
+          niosh_rel:
+            twa_8hr: 25 ppm (18 mg/m³)
+            stel_15min: 35 ppm (27 mg/m³) - 15 min
+            ceiling: null
+            idlh: 300 ppm
+          acgih_tlv:
+            twa_8hr: 25 ppm
+            stel_15min: 35 ppm
+            ceiling: null
+          biological_exposure_indices: []
+      _section:
+        title: Exposure Limits
+        description: Regulatory exposure thresholds and safe concentration levels
+        icon: gauge
+        order: 4
+        variant: warning
+  chemical_properties:
+    presentation: descriptive
+    items:
+    - type: chemical_properties
+      id: ammonia-physical-data
+    _section:
+      title: Chemical Properties
+      description: Fundamental chemical characteristics and behavior
+      icon: microscope
+      order: 1
+      variant: default
+  health_effects: *id001
+  environmental_impact:
+    presentation: descriptive
+    items:
+    - aquatic_toxicity: 'Toxic to fish at high concentrations. LC50 (fish, 96h): 0.5-2.0 mg/L un-ionized NH3. Unionized form
+        highly toxic.'
+      biodegradability: Readily biodegradable. Nitrifying bacteria convert to nitrate.
+      bioaccumulation: 'Does not bioaccumulate. Log Kow: -1.69.'
+      soil_mobility: High mobility as gas. Volatilizes from soil. Absorbed as ammonium ion.
+      atmospheric_fate: 'Reacts with acids forming ammonium salts. Washed out by rain. Atmospheric residence: days.'
+      ozone_depletion: false
+      global_warming_potential: null
+      reportable_releases:
+        water: 100 lbs to navigable waters
+        air: 100 lbs/day (CERCLA RQ)
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and ecological considerations
+      icon: wind
+      order: 8
+      variant: warning
+  detection_monitoring:
+    presentation: descriptive
+    items:
+    - sensor_types:
+      - Electrochemical
+      - Infrared
+      - Catalytic bead
+      - Colorimetric
+      detection_range: 0-100 ppm typical
+      alarm_setpoints:
+        low: 25 ppm (NIOSH REL/ACGIH TLV)
+        high: 35 ppm (NIOSH STEL/ACGIH STEL)
+        evacuate: 300 ppm (NIOSH IDLH)
+      colorimetric_tubes:
+      - Dräger Ammonia 0.25/a
+      - Gastec 3L
+      - Kitagawa 105
+      analytical_methods:
+      - method: NIOSH 6016
+        technique: Ion chromatography
+        detection_limit: 0.03 ppm
+      - method: OSHA ID-188
+        technique: Ion chromatography
+        detection_limit: 0.02 ppm
+      odor_threshold: 5-50 ppm - provides good warning below toxic levels
+    _section:
+      title: Detection & Monitoring
+      description: Methods and equipment for detecting and monitoring this compound
+      icon: gauge
+      order: 6
+      variant: default
+  ppe_requirements:
+    presentation: descriptive
+    items:
+    - respiratory: SCBA or supplied-air respirator for >25 ppm or unknown concentrations. Air-purifying with ammonia cartridge
+        acceptable for ≤25 ppm.
+      skin: Neoprene, nitrile, or butyl rubber gloves. Chemical-resistant clothing. Liquid ammonia causes severe burns and
+        frostbite.
+      eye: Chemical safety goggles, full face shield. Extremely irritating and corrosive to eyes.
+      minimum_level: Level C for known <25 ppm, Level B for >25 ppm or liquefied ammonia
+      special_notes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
+        frostbite. Emergency eyewash/shower within 10 seconds.
+    _section:
+      title: PPE Requirements
+      description: Personal protective equipment needed for safe handling
+      icon: shield
+      order: 5
+      variant: warning
+  emergency_response:
+    presentation: descriptive
+    items:
+    - fire_hazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse.
+        May reignite after flame is extinguished.
+      fire_suppression: Stop flow if safe to do so. Do not extinguish flame unless leak can be stopped. Cool cylinders with
+        water spray from safe distance. Use dry chemical, CO2 from maximum distance.
+      spill_procedures: EVACUATE. Ventilate area. SCBA required for liquid releases or >300 ppm. Contain with water spray
+        or fog. Dilute with water. Neutralize with acid (sulfuric, hydrochloric). Dike large liquid spills.
+      exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - CRITICAL. Remove
+        contaminated clothing. Wash skin with water. If inhaled: administer oxygen. Seek immediate medical attention - severe
+        irritation likely.'
+      environmental_hazards: Toxic to aquatic life at high concentrations. Rapid volatilization from water. Report releases
+        >100 lbs.
+      special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
+        Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
+    _section:
+      title: Emergency Response
+      description: First aid and emergency procedures for exposure incidents
+      icon: alert-triangle
+      order: 7
+      variant: danger
+  produced_from_contaminants:
+    presentation: card
+    items:
+    - id: blood-residue-contamination
+      frequency: occasional
+      severity: low
+      typical_context: Breakdown of proteins
+      intensity: slightly_negative
+    _section:
+      title: Produced From Contaminants
+      description: Contaminants that generate this compound during laser cleaning
+      icon: droplet
+      order: 9
+      variant: default
+  produced_from_materials:
+    presentation: card
+    items:
+    - id: ceramic-matrix-composites-cmcs-laser-cleaning
+    - id: epoxy-resin-composites-laser-cleaning
+    - id: metal-matrix-composites-mmcs-laser-cleaning
+    - id: phenolic-resin-composites-laser-cleaning
+    - id: polyester-resin-composites-laser-cleaning
+    - id: urethane-composites-laser-cleaning
+    _section:
+      title: Produced From Materials
+      description: Materials that may release this compound during laser cleaning
+      icon: users
+      order: 10
+      variant: default
+  physical_properties:
+    presentation: descriptive
+    items:
+    - boiling_point: -33.34°C (-28°F)
+      melting_point: -77.73°C (-107.9°F)
+      vapor_pressure: 7510 mmHg @ 20°C
+      vapor_density: 0.60 (Air=1)
+      specific_gravity: 0.682 (liquid @ -33°C)
+      flash_point: Not applicable (gas)
+      autoignition_temp: 651°C (1204°F)
+      explosive_limits: 'LEL: 15%, UEL: 28%'
+      appearance: Colorless gas, colorless liquid under pressure
+      odor: Sharp, pungent, suffocating odor @ 5-50 ppm
+    _section:
+      title: Physical Properties
+      description: Physical characteristics and state information
+      icon: gauge
+      order: 2
+      variant: default
+  storage_requirements:
+    presentation: descriptive
+    items:
+    - temperature_range: Store cylinders <52°C. Keep away from heat.
+      ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. Ammonia gas detection
+        mandatory.'
+      incompatibilities:
+      - Acids (violent reaction)
+      - Halogens (chlorine, bromine)
+      - Heavy metals
+      - Oxidizers
+      - Mercury
+      - Silver compounds
+      - Calcium hypochlorite
+      container_material: Steel cylinders for compressed gas. Stainless steel for solutions.
+      segregation: Separate from acids by 20 feet or firewall. Separate from oxidizers and halogens. Flammable gas storage.
+      quantity_limits: Per fire code. Refrigeration systems subject to special regulations.
+      special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "FLAMMABLE GAS" and "CORROSIVE"
+        signs. Emergency eyewash/shower within 25 feet. Avoid contact with copper, brass, zinc in piping.
+    _section:
+      title: Storage Requirements
+      description: Proper storage conditions and handling precautions
+      icon: alert-triangle
+      order: 13
+      variant: warning
+  regulatory_classification:
+    presentation: descriptive
+    items:
+    - un_number: UN1005 (anhydrous), UN2672 (solution)
+      dot_hazard_class: 2.2 (Non-flammable gas) or 2.3 (Toxic gas) depending on concentration
+      dot_label: Non-flammable Gas or Poison Gas
+      nfpa_codes:
+        health: 3
+        flammability: 1
+        reactivity: 0
+        special: null
+      epa_hazard_categories:
+      - Acute toxicity (inhalation)
+      - Flammability
+      - Skin corrosion
+      - Serious eye damage
+      sara_title_iii: true
+      cercla_rq: 100 pounds (45.4 kg)
+      rcra_code: null
+    _section:
+      title: Regulatory Classification
+      description: Hazard classifications and regulatory designations
+      icon: file-text
+      order: 12
+      variant: default
+  reactivity:
+    presentation: descriptive
+    items:
+    - stability: Stable under normal conditions.
+      polymerization: Will not polymerize
+      incompatible_materials:
+      - Strong acids (violent exothermic)
+      - Halogens (explosive reactions)
+      - Heavy metal compounds
+      - Mercury
+      - Silver oxide
+      - Oxidizers
+      - Calcium hypochlorite
+      hazardous_decomposition:
+      - Nitrogen
+      - Hydrogen
+      - Nitrogen oxides (in fire)
+      - Ammonia vapors
+      conditions_to_avoid:
+      - Heat
+      - Acids
+      - Halogens
+      - Oxidizers
+      - Sparks
+      - Open flames
+      reactivity_hazard: Reacts violently with strong acids producing heat and ammonium salts. Explosive reaction with halogens.
+        Attacks copper, brass, zinc, aluminum, and alloys.
+    _section:
+      title: Reactivity
+      description: Chemical reactivity and compatibility with other substances
+      icon: flame
+      order: 11
+      variant: warning
+  synonyms_identifiers:
+    presentation: descriptive
+    items:
+    - synonyms:
+      - Anhydrous ammonia
+      - NH3
+      - Ammonia gas
+      - Ammonia solution (aqueous)
+      common_trade_names: []
+      other_identifiers:
+        rtecs_number: BO0875000
+        ec_number: 231-635-3
+        pubchem_cid: '222'
+    _section:
+      title: Synonyms & Identifiers
+      description: Alternative names and chemical identifiers (CAS numbers)
+      icon: file-text
+      order: 14
+      variant: default
+  operational:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: ammonia-toxicology
+      _section:
+        title: Health Effects
+        description: Potential health impacts from exposure
+        icon: activity
+        order: 1
+        variant: warning
 title: Ammonia (NH₃)
-seo_description: Handling ammonia in industrial settings demands respect for its sharp, irritating odor that lingers and signals
-  danger right away, while its colorless nature...
-micro: Handling ammonia in industrial settings demands respect for its sharp, irritating odor that lingers and signals danger
-  right away, while its colorless nature as a gas makes it sneaky unless you're paying close attention. This stuff dissolves
-  readily in water to form solutions that pack a punch for cleaning tough grime off metals or machinery, turning it into a
-  go-to for stripping away residues without much fuss.
+subcategory: alkaline_gas

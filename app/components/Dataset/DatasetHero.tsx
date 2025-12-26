@@ -4,6 +4,7 @@
 import React from 'react';
 import { DatabaseIcon, LayersIcon, DownloadIcon } from '@/app/components/Buttons';
 import type { DatasetHeroProps } from '@/types/centralized';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHeroProps) {
   return (
@@ -33,7 +34,7 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
           </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-8">
+          <div className={`grid grid-cols-2 md:grid-cols-4 ${GRID_GAP_RESPONSIVE} max-w-4xl mx-auto mb-8`}>
             <div className="bg-white/10 backdrop-blur-sm rounded-md p-4 md:p-6">
               <div className="text-3xl md:text-4xl font-bold mb-1">{totalMaterials}</div>
               <div className="text-sm md:text-base text-blue-100">Materials</div>

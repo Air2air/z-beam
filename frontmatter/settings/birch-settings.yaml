@@ -1,7 +1,7 @@
 id: birch-settings
 name: Birch
-datePublished: '2025-12-22T23:37:05.207428Z'
-dateModified: '2025-12-22T23:37:05.207428Z'
+datePublished: '2025-12-25T21:16:31.735629Z'
+dateModified: '2025-12-25T21:16:31.735629Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/hardwood/birch-settings
@@ -16,6 +16,14 @@ breadcrumb:
   href: /settings/wood/hardwood
 - label: Birch
   href: /settings/wood/hardwood/birch-settings
+description: The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser energy than
+  denser hardwoods. This property allows the process to remove surface contaminants and restore natural grain effectively,
+  but it also increases the risk of uneven heating if not managed carefully. We typically start with reduced power levels
+  to prevent charring in those open pores, gradually increasing as the cleaning progresses to expose underlying layers without
+  compromising structural integrity. In our experience, this approach improves adhesion removal in applications like furniture
+  manufacturing or architectural restoration, where preserving the wood's flexibility is essential. Watch for localized discoloration
+  mid-process, and adjust scan speeds upward to reduce dwell time on porous areas, ensuring the material's moderate strength
+  holds up across multiple passes.
 author:
   id: 4
   name: Todd Dunning
@@ -44,55 +52,80 @@ author:
   - https://spie.org/profile/Todd.Dunning
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
+card:
+  default:
+    heading: ''
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: success
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
 relationships:
-  regulatory_standards:
-    _section:
-      title: Regulatory Compliance
-      description: Industry standards and regulations applicable to these settings
-      order: 3
-      variant: reference
-      icon: book
-    items:
-    - type: regulatory_standards
-      id: osha-ppe-requirements
+  technical:
+    works_on_materials:
       presentation: card
-    - type: regulatory_standards
-      id: ansi-z136-1-laser-safety
+      items:
+      - id: birch-laser-cleaning
+        effectiveness: high
+      _section:
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
+        variant: default
+    removes_contaminants:
       presentation: card
-  optimized_for_materials:
-    _section:
-      title: Applicable Materials
-      description: Materials that can be safely cleaned using these laser parameters
-      order: 1
-      variant: relationship
-      icon: cube
-    items:
-    - id: birch-laser-cleaning
-      effectiveness: high
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
       presentation: card
-      level: high
-      valence: positive
-      url: /materials/wood/hardwood/birch-laser-cleaning
-  removes_contaminants:
-    _section:
-      title: Effective Against
-      description: Contamination types that can be removed using these settings
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: rust-oxidation-contamination
-      effectiveness: high
-      presentation: card
-      level: high
-      valence: positive
-      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
-    - id: adhesive-residue-contamination
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: charring-carbonization
+          type: challenge
+        - id: slow-thermal-diffusivity
+          type: challenge
+        contamination_challenges:
+        - id: varnish-coating-removal
+          type: challenge
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+title: Birch Settings
+category: wood
+subcategory: hardwood
 machine_settings:
   powerRange:
     description: Optimal average power for Birch surface cleaning without charring
@@ -213,124 +246,3 @@ machine_settings:
     description: 'Ensures uniform coverage in scan patterns; 60% recommended for birch to avoid gaps or overexposure (higher
       overlap for heavy contamination, lower for efficiency). Typical range 30-80% in optimization. Source: Process studies
       in International Journal of Advanced Manufacturing Technology (2016).'
-challenges:
-  thermal_management:
-  - challenge: Charring and carbonization
-    severity: high
-    threshold_temperature: 250-300°C
-    impact: Wood chars at low temperatures leaving black marks and structural damage
-    solutions:
-    - Use pulse mode with 2-5 second cooling between passes
-    - Reduce power by 30-40% compared to metals
-    - Increase scan speed to reduce dwell time
-    - Monitor surface for discoloration; stop if browning occurs
-  - challenge: Slow thermal diffusivity
-    severity: medium
-    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
-    impact: Heat accumulates rapidly causing thermal damage zones
-    solutions:
-    - Increase cooling time between passes
-    - Use lower repetition rates (<20 kHz)
-    - Apply crosshatch patterns to distribute heat
-  surface_characteristics:
-  - challenge: Grain direction sensitivity
-    severity: medium
-    variation: 20-40% absorption variation by grain orientation
-    impact: Laser absorption varies significantly with grain direction
-    solutions:
-    - Scan parallel to grain for consistent results
-    - Use crosshatch pattern (0° and 90°) for uniform cleaning
-    - Test on scrap to determine optimal scan direction
-  - challenge: Porous structure with deep contamination
-    severity: medium
-    porosity_range: 12-65% (softwoods highest)
-    impact: Contaminants penetrate deep into wood structure
-    solutions:
-    - Multiple passes with progressive power increase
-    - Reduce scan speed for deeper penetration (600 mm/s)
-    - Chemical pre-treatment for deep-seated contamination
-  contamination_challenges:
-  - challenge: Varnish and coating removal
-    severity: medium
-    impact: Thick coatings require multiple passes and generate smoke/fumes
-    solutions:
-    - First pass 80W fast (1500 mm/s) for bulk removal
-    - Second pass 60W slow (800 mm/s) for residue
-    - Use fume extraction to prevent redeposition
-    - Limit to 2-3 passes maximum to avoid substrate damage
-description: The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser energy than
-  denser hardwoods. This property allows the process to remove surface contaminants and restore natural grain effectively,
-  but it also increases the risk of uneven heating if not managed carefully. We typically start with reduced power levels
-  to prevent charring in those open pores, gradually increasing as the cleaning progresses to expose underlying layers without
-  compromising structural integrity. In our experience, this approach improves adhesion removal in applications like furniture
-  manufacturing or architectural restoration, where preserving the wood's flexibility is essential. Watch for localized discoloration
-  mid-process, and adjust scan speeds upward to reduce dwell time on porous areas, ensuring the material's moderate strength
-  holds up across multiple passes.
-category: wood
-subcategory: hardwood
-title: Birch Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety

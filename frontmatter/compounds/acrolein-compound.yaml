@@ -3,8 +3,8 @@ name: Acrolein
 display_name: Acrolein (C₃H₄O)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-23T00:44:42.808851Z'
-dateModified: '2025-12-23T00:44:42.808851Z'
+datePublished: '2025-12-24T23:09:10.013535Z'
+dateModified: '2025-12-24T23:09:10.013535Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/aldehyde/acrolein-compound
@@ -19,174 +19,19 @@ breadcrumb:
   href: /compounds/toxic_gas/aldehyde
 - label: Acrolein
   href: /compounds/toxic-gas/aldehyde/acrolein-compound
+page_title: 'Acrolein: Toxic Metal Fumes'
+meta_description: 'Acrolein: Toxic Metal Fumes from metal processing. Requires enclosed extraction.'
 chemical_formula: C₃H₄O
 cas_number: 107-02-8
 molecular_weight: 56.06
-description: Acrolein's sharp, irritating odor hits first, marking it as a highly reactive compound that demands careful handling
-  in any setting. This volatility turns it into a colorless gas under normal conditions, prone to rapid dispersion and making
-  containment a constant challenge during storage or transport. In industrial realms, workers leverage its chemical punch
-  for crafting resins and plastics, where it serves as a building block that enhances durability without compromising flexibility
-  in end products. Beyond that, pharmaceutical synthesis draws on its aldehyde group to form intermediates, boosting efficiency
-  in drug development processes that require precise reactivity. When it comes to laser cleaning, acrolein's sensitivity to
-  intense light pulses stands out; such treatments can break it down swiftly, aiding in the removal of residues from surfaces
-  while minimizing toxic buildup, though the process generates fumes that require robust ventilation to protect operators
-  from prolonged exposure. Overall, its role in these applications hinges on balancing potent reactivity with safety protocols,
-  ensuring benefits outweigh the inherent hazards of this pervasive gas.
+health_effects: &id001
+  presentation: card
+  items:
+  - type: health_effects
+    id: acrolein-toxicology
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
-exposure_limits:
-  osha_pel_ppm: 0.1
-  osha_pel_mg_m3: 0.25
-  niosh_rel_ppm: 0.1
-  niosh_rel_mg_m3: 0.25
-  acgih_tlv_ppm: 0.1
-  acgih_tlv_mg_m3: 0.23
-health_effects_keywords:
-- severe_respiratory_irritation
-- pulmonary_edema
-- eye_irritation
-- lacrimation
-monitoring_required: true
-typical_concentration_range: 0.5-5 mg/m³
-sources_in_laser_cleaning:
-- acrylic_decomposition
-- fat_pyrolysis
-- glycerin_breakdown
-relationships:
-  chemical_properties:
-    _section:
-      title: Chemical Properties
-      description: Chemical and physical characteristics of this compound
-      order: 1
-      variant: technical
-      icon: atom
-    items:
-    - type: chemical_properties
-      id: acrolein-physical-data
-      presentation: card
-  health_effects: null
-  environmental_impact:
-    _section:
-      title: Environmental Impact
-      description: Environmental effects and disposal considerations for this compound
-      order: 5
-      variant: warning
-      icon: leaf
-    items:
-    - type: environmental_impact
-      id: acrolein-environmental-data
-      presentation: card
-  detection_monitoring:
-    _section:
-      title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: technical
-      icon: activity
-    items:
-    - type: detection_monitoring
-      id: acrolein-monitoring-methods
-      presentation: card
-  ppe_requirements:
-    _section:
-      title: Personal Protective Equipment
-      description: Required safety equipment when this compound may be present
-      order: 4
-      variant: warning
-      icon: shield
-    items:
-    - type: ppe_requirements
-      id: irritant-gas-high-concentration
-      overrides:
-        specific_compound: Acrolein
-        pel_ppm: 0.1
-      presentation: card
-  emergency_response:
-    fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
-      in fire, releasing toxic gases.
-    fire_suppression: EVACUATE - extremely toxic fumes. Use unmanned equipment. Dry chemical, CO2, alcohol-resistant foam.
-      Water spray to cool containers from safe distance. Do not use water directly on liquid.
-    spill_procedures: EVACUATE IMMEDIATELY. Extremely hazardous. SCBA MANDATORY. Eliminate ignition sources. Ventilate area.
-      Contain with sand/earth. Neutralize with sodium bisulfite solution. Absorb with inert material. Dispose as hazardous
-      waste.
-    exposure_immediate_actions: Remove to fresh air immediately. Severe eye/respiratory irritation likely. Flush eyes with
-      water for 15+ minutes. Remove contaminated clothing. Wash skin thoroughly. Seek medical attention immediately - potential
-      for delayed pulmonary edema.
-    environmental_hazards: Toxic to aquatic life. Volatilizes rapidly from water. Report spills >1 lb. Keep out of waterways.
-    special_hazards: EXTREMELY TOXIC AND IRRITATING. Lachrymator - causes immediate tearing. Severe respiratory irritant -
-      can cause pulmonary edema (delayed 24-48 hours). Polymerizes violently when contaminated. Suspected carcinogen. Fire
-      produces deadly acrolein and formaldehyde.
-  produced_from_contaminants:
-    _section:
-      title: Source Contaminants
-      description: Contamination types that generate this compound during laser cleaning
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      frequency: common
-      severity: high
-      typical_context: Thermal decomposition of fats and oils
-      presentation: card
-      url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-    - id: quench-oil-contamination
-      frequency: common
-      severity: high
-      typical_context: Thermal decomposition of quenching oils
-      presentation: card
-      url: /contaminants/thermal-damage/scale/quench-oil-contamination
-    - id: cutting-fluid-contamination
-      frequency: common
-      severity: high
-      typical_context: Thermal breakdown of oil-based cutting fluids
-      presentation: card
-      url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
-    - id: plastic-residue-contamination
-      frequency: occasional
-      severity: moderate
-      typical_context: Pyrolysis of certain polymers
-      presentation: card
-      url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-  produced_from_materials:
-    _section:
-      title: Source Materials
-      description: Materials that generate this compound when laser processed
-      order: 3
-      variant: relationship
-      icon: cube
-    items:
-    - id: ceramic-matrix-composites-cmcs-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
-    - id: epoxy-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
-    - id: metal-matrix-composites-mmcs-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
-    - id: phenolic-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
-    - id: polyester-resin-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
-    - id: urethane-composites-laser-cleaning
-      presentation: card
-      url: /materials/composite/structural/urethane-composites-laser-cleaning
-  physical_properties:
-    boiling_point: 52.7°C (127°F)
-    melting_point: -87.7°C (-126°F)
-    vapor_pressure: 210 mmHg @ 20°C
-    vapor_density: 1.94 (Air=1)
-    specific_gravity: '0.84'
-    flash_point: -26°C (-15°F)
-    autoignition_temp: 234°C (453°F)
-    explosive_limits: 'LEL: 2.8%, UEL: 31%'
-    appearance: Colorless to pale yellow liquid
-    odor: Pungent, acrid, disagreeable odor - IMMEDIATE WARNING at 0.1 ppm
-subcategory: aldehyde
 author:
   id: 2
   name: Alessandro Moretti
@@ -216,147 +61,338 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-ppe_requirements:
-  respiratory: Full-face pressure-demand SCBA or supplied-air respirator for >0.1 ppm. Air-purifying respirator with organic
-    vapor cartridge acceptable for ≤0.1 ppm with escape provisions.
-  skin: Nitrile or butyl rubber gloves, chemical-resistant suit. Acrolein causes severe skin burns - minimize exposure.
-  eye: Chemical safety goggles, full face shield. Extremely irritating to eyes.
-  minimum_level: Level B minimum for any concentration >0.1 ppm or unknown concentrations
-  special_notes: EXTREMELY IRRITATING at sub-ppm levels. Eye and respiratory irritation immediate. Lachrymator (tear gas properties).
-    Self-rescue respirators may be inadequate - use supplied air.
-storage_requirements:
-  temperature_range: Store below 25°C, refrigerate if possible. Keep away from heat.
-  ventilation: 'Outdoor storage preferred. Indoor: explosion-proof ventilation with emergency backup. Gas detection mandatory.'
-  incompatibilities:
-  - Oxidizers
-  - Acids
-  - Bases
-  - Ammonia
-  - Amines
-  - Sulfur dioxide
-  - Metal salts
-  - Light (polymerization catalyst)
-  container_material: Stainless steel or glass with PTFE seals. Stabilized with hydroquinone. Never use copper or brass.
-  segregation: Isolate from all other chemicals. Separate from oxidizers by 20 feet. Flammable storage cabinet.
-  quantity_limits: Minimize on-site quantities. Many facilities limit to <10 gallons.
-  special_requirements: 'CRITICAL: Store with stabilizer (hydroquinone 0.1-0.25%). Check stabilizer regularly. Gas detection
-    system MANDATORY. Keep refrigerated. Store away from light. Emergency eyewash/shower within 10 seconds. Post "EXTREMELY
-    FLAMMABLE" and "POISON" signs.'
-regulatory_classification:
-  un_number: UN1092
-  dot_hazard_class: 6.1 (Toxic), 3 (Flammable liquid)
-  dot_label: Poison, Flammable Liquid
-  nfpa_codes:
-    health: 4
-    flammability: 4
-    reactivity: 3
-    special: null
-  epa_hazard_categories:
-  - Acute toxicity (fatal if inhaled)
-  - Flammability
-  - Skin corrosion
-  - Serious eye damage
-  - Suspected carcinogen
-  sara_title_iii: true
-  cercla_rq: 1 pound (0.454 kg)
-  rcra_code: P003
-workplace_exposure:
-  osha_pel:
-    twa_8hr: 0.1 ppm (0.25 mg/m³)
-    stel_15min: null
-    ceiling: null
-  niosh_rel:
-    twa_8hr: 0.1 ppm (0.25 mg/m³)
-    stel_15min: 0.3 ppm (0.8 mg/m³) - 15 min
-    ceiling: null
-    idlh: 2 ppm
-  acgih_tlv:
-    twa_8hr: 0.1 ppm
-    stel_15min: null
-    ceiling: null
-  biological_exposure_indices: []
-synonyms_identifiers:
-  synonyms:
-  - Acrylaldehyde
-  - 2-Propenal
-  - Prop-2-enal
-  - Aqualin
-  - Biocide
-  common_trade_names:
-  - Magnacide
-  - Slimicide
-  other_identifiers:
-    rtecs_number: AS1050000
-    ec_number: 203-453-4
-    pubchem_cid: '7847'
-reactivity:
-  stability: UNSTABLE. Polymerizes readily, especially when contaminated or exposed to light, heat, acids, or bases. MUST
-    be stabilized.
-  polymerization: Violent exothermic polymerization possible. Stabilizer (hydroquinone) required. Check stabilizer level before
-    handling.
-  incompatible_materials:
-  - Strong oxidizers
-  - Strong acids
-  - Strong bases
-  - Ammonia
-  - Amines
-  - Sulfur dioxide
-  - Metal salts (iron, copper)
-  - Light
-  - Air
-  hazardous_decomposition:
-  - Carbon monoxide
-  - Carbon dioxide
-  - Formaldehyde
-  - Acrolein vapors
-  - Acrylic acid
-  conditions_to_avoid:
-  - Heat
-  - Light
-  - Oxidizers
-  - Acids
-  - Bases
-  - Contamination
-  - Sparks
-  - Flames
-  reactivity_hazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Strong reducing agent. Corrosive.
-    May explode in fire.
-environmental_impact:
-  aquatic_toxicity: 'Very toxic to aquatic life. LC50 (fish, 96h): 0.09-0.28 mg/L. Toxic at parts-per-million levels.'
-  biodegradability: Readily biodegradable (>70% in 28 days). Oxidizes to acrylic acid and CO2.
-  bioaccumulation: 'Low bioaccumulation. Log Kow: 0.01. Does not accumulate.'
-  soil_mobility: High mobility. Volatilizes rapidly from soil. Does not adsorb.
-  atmospheric_fate: 'Photolyzes rapidly via hydroxyl radicals. Atmospheric half-life: 7-20 hours. Contributes to ozone formation.'
-  ozone_depletion: false
-  global_warming_potential: null
-  reportable_releases:
-    water: 1 lb to navigable waters - IMMEDIATELY reportable
-    air: 1 lb/day (CERCLA RQ)
-detection_monitoring:
-  sensor_types:
-  - Electrochemical
-  - Photoionization detector (PID)
-  - Metal oxide semiconductor
-  - Infrared
-  detection_range: 0-10 ppm typical (must detect sub-ppm)
-  alarm_setpoints:
-    low: 0.1 ppm (OSHA PEL/NIOSH REL)
-    high: 0.3 ppm (NIOSH STEL)
-    evacuate: 2 ppm (NIOSH IDLH) - IMMEDIATELY DANGEROUS
-  colorimetric_tubes:
-  - Dräger Acrolein 0.5/a
-  - Gastec 92
-  analytical_methods:
-  - method: NIOSH 2501
-    technique: GC-FID
-    detection_limit: 0.002 ppm
-  - method: OSHA Method 78
-    technique: HPLC
-    detection_limit: 0.01 ppm
-  odor_threshold: 0.16-1.0 ppm - provides warning BUT overlaps toxic range. DO NOT rely on odor alone.
+health_effects_keywords:
+- severe_respiratory_irritation
+- pulmonary_edema
+- eye_irritation
+- lacrimation
+monitoring_required: true
+typical_concentration_range: 0.5-5 mg/m³
+sources_in_laser_cleaning:
+- acrylic_decomposition
+- fat_pyrolysis
+- glycerin_breakdown
+relationships:
+  safety:
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 0.1
+        osha_pel_mg_m3: 0.25
+        niosh_rel_ppm: 0.1
+        niosh_rel_mg_m3: 0.25
+        acgih_tlv_ppm: 0.1
+        acgih_tlv_mg_m3: 0.23
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 0.1 ppm (0.25 mg/m³)
+            stel_15min: null
+            ceiling: null
+          niosh_rel:
+            twa_8hr: 0.1 ppm (0.25 mg/m³)
+            stel_15min: 0.3 ppm (0.8 mg/m³) - 15 min
+            ceiling: null
+            idlh: 2 ppm
+          acgih_tlv:
+            twa_8hr: 0.1 ppm
+            stel_15min: null
+            ceiling: null
+          biological_exposure_indices: []
+      _section:
+        title: Exposure Limits
+        description: Regulatory exposure thresholds and safe concentration levels
+        icon: gauge
+        order: 4
+        variant: warning
+  chemical_properties:
+    presentation: descriptive
+    items:
+    - type: chemical_properties
+      id: acrolein-physical-data
+    _section:
+      title: Chemical Properties
+      description: Fundamental chemical characteristics and behavior
+      icon: microscope
+      order: 1
+      variant: default
+  health_effects: *id001
+  environmental_impact:
+    presentation: descriptive
+    items:
+    - aquatic_toxicity: 'Very toxic to aquatic life. LC50 (fish, 96h): 0.09-0.28 mg/L. Toxic at parts-per-million levels.'
+      biodegradability: Readily biodegradable (>70% in 28 days). Oxidizes to acrylic acid and CO2.
+      bioaccumulation: 'Low bioaccumulation. Log Kow: 0.01. Does not accumulate.'
+      soil_mobility: High mobility. Volatilizes rapidly from soil. Does not adsorb.
+      atmospheric_fate: 'Photolyzes rapidly via hydroxyl radicals. Atmospheric half-life: 7-20 hours. Contributes to ozone
+        formation.'
+      ozone_depletion: false
+      global_warming_potential: null
+      reportable_releases:
+        water: 1 lb to navigable waters - IMMEDIATELY reportable
+        air: 1 lb/day (CERCLA RQ)
+    _section:
+      title: Environmental Impact
+      description: Environmental effects and ecological considerations
+      icon: wind
+      order: 8
+      variant: warning
+  detection_monitoring:
+    presentation: descriptive
+    items:
+    - sensor_types:
+      - Electrochemical
+      - Photoionization detector (PID)
+      - Metal oxide semiconductor
+      - Infrared
+      detection_range: 0-10 ppm typical (must detect sub-ppm)
+      alarm_setpoints:
+        low: 0.1 ppm (OSHA PEL/NIOSH REL)
+        high: 0.3 ppm (NIOSH STEL)
+        evacuate: 2 ppm (NIOSH IDLH) - IMMEDIATELY DANGEROUS
+      colorimetric_tubes:
+      - Dräger Acrolein 0.5/a
+      - Gastec 92
+      analytical_methods:
+      - method: NIOSH 2501
+        technique: GC-FID
+        detection_limit: 0.002 ppm
+      - method: OSHA Method 78
+        technique: HPLC
+        detection_limit: 0.01 ppm
+      odor_threshold: 0.16-1.0 ppm - provides warning BUT overlaps toxic range. DO NOT rely on odor alone.
+    _section:
+      title: Detection & Monitoring
+      description: Methods and equipment for detecting and monitoring this compound
+      icon: gauge
+      order: 6
+      variant: default
+  ppe_requirements:
+    presentation: descriptive
+    items:
+    - respiratory: Full-face pressure-demand SCBA or supplied-air respirator for >0.1 ppm. Air-purifying respirator with organic
+        vapor cartridge acceptable for ≤0.1 ppm with escape provisions.
+      skin: Nitrile or butyl rubber gloves, chemical-resistant suit. Acrolein causes severe skin burns - minimize exposure.
+      eye: Chemical safety goggles, full face shield. Extremely irritating to eyes.
+      minimum_level: Level B minimum for any concentration >0.1 ppm or unknown concentrations
+      special_notes: EXTREMELY IRRITATING at sub-ppm levels. Eye and respiratory irritation immediate. Lachrymator (tear gas
+        properties). Self-rescue respirators may be inadequate - use supplied air.
+    _section:
+      title: PPE Requirements
+      description: Personal protective equipment needed for safe handling
+      icon: shield
+      order: 5
+      variant: warning
+  emergency_response:
+    presentation: descriptive
+    items:
+    - fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
+        in fire, releasing toxic gases.
+      fire_suppression: EVACUATE - extremely toxic fumes. Use unmanned equipment. Dry chemical, CO2, alcohol-resistant foam.
+        Water spray to cool containers from safe distance. Do not use water directly on liquid.
+      spill_procedures: EVACUATE IMMEDIATELY. Extremely hazardous. SCBA MANDATORY. Eliminate ignition sources. Ventilate area.
+        Contain with sand/earth. Neutralize with sodium bisulfite solution. Absorb with inert material. Dispose as hazardous
+        waste.
+      exposure_immediate_actions: Remove to fresh air immediately. Severe eye/respiratory irritation likely. Flush eyes with
+        water for 15+ minutes. Remove contaminated clothing. Wash skin thoroughly. Seek medical attention immediately - potential
+        for delayed pulmonary edema.
+      environmental_hazards: Toxic to aquatic life. Volatilizes rapidly from water. Report spills >1 lb. Keep out of waterways.
+      special_hazards: EXTREMELY TOXIC AND IRRITATING. Lachrymator - causes immediate tearing. Severe respiratory irritant
+        - can cause pulmonary edema (delayed 24-48 hours). Polymerizes violently when contaminated. Suspected carcinogen.
+        Fire produces deadly acrolein and formaldehyde.
+    _section:
+      title: Emergency Response
+      description: First aid and emergency procedures for exposure incidents
+      icon: alert-triangle
+      order: 7
+      variant: danger
+  produced_from_contaminants:
+    presentation: card
+    items:
+    - id: industrial-oil-contamination
+      frequency: common
+      severity: high
+      typical_context: Thermal decomposition of fats and oils
+      intensity: very_negative
+    - id: quench-oil-contamination
+      frequency: common
+      severity: high
+      typical_context: Thermal decomposition of quenching oils
+      intensity: very_negative
+    - id: cutting-fluid-contamination
+      frequency: common
+      severity: high
+      typical_context: Thermal breakdown of oil-based cutting fluids
+      intensity: very_negative
+    - id: plastic-residue-contamination
+      frequency: occasional
+      severity: moderate
+      typical_context: Pyrolysis of certain polymers
+      intensity: negative
+    _section:
+      title: Produced From Contaminants
+      description: Contaminants that generate this compound during laser cleaning
+      icon: droplet
+      order: 9
+      variant: default
+  produced_from_materials:
+    presentation: card
+    items:
+    - id: ceramic-matrix-composites-cmcs-laser-cleaning
+    - id: epoxy-resin-composites-laser-cleaning
+    - id: metal-matrix-composites-mmcs-laser-cleaning
+    - id: phenolic-resin-composites-laser-cleaning
+    - id: polyester-resin-composites-laser-cleaning
+    - id: urethane-composites-laser-cleaning
+    _section:
+      title: Produced From Materials
+      description: Materials that may release this compound during laser cleaning
+      icon: users
+      order: 10
+      variant: default
+  physical_properties:
+    presentation: descriptive
+    items:
+    - boiling_point: 52.7°C (127°F)
+      melting_point: -87.7°C (-126°F)
+      vapor_pressure: 210 mmHg @ 20°C
+      vapor_density: 1.94 (Air=1)
+      specific_gravity: '0.84'
+      flash_point: -26°C (-15°F)
+      autoignition_temp: 234°C (453°F)
+      explosive_limits: 'LEL: 2.8%, UEL: 31%'
+      appearance: Colorless to pale yellow liquid
+      odor: Pungent, acrid, disagreeable odor - IMMEDIATE WARNING at 0.1 ppm
+    _section:
+      title: Physical Properties
+      description: Physical characteristics and state information
+      icon: gauge
+      order: 2
+      variant: default
+  storage_requirements:
+    presentation: descriptive
+    items:
+    - temperature_range: Store below 25°C, refrigerate if possible. Keep away from heat.
+      ventilation: 'Outdoor storage preferred. Indoor: explosion-proof ventilation with emergency backup. Gas detection mandatory.'
+      incompatibilities:
+      - Oxidizers
+      - Acids
+      - Bases
+      - Ammonia
+      - Amines
+      - Sulfur dioxide
+      - Metal salts
+      - Light (polymerization catalyst)
+      container_material: Stainless steel or glass with PTFE seals. Stabilized with hydroquinone. Never use copper or brass.
+      segregation: Isolate from all other chemicals. Separate from oxidizers by 20 feet. Flammable storage cabinet.
+      quantity_limits: Minimize on-site quantities. Many facilities limit to <10 gallons.
+      special_requirements: 'CRITICAL: Store with stabilizer (hydroquinone 0.1-0.25%). Check stabilizer regularly. Gas detection
+        system MANDATORY. Keep refrigerated. Store away from light. Emergency eyewash/shower within 10 seconds. Post "EXTREMELY
+        FLAMMABLE" and "POISON" signs.'
+    _section:
+      title: Storage Requirements
+      description: Proper storage conditions and handling precautions
+      icon: alert-triangle
+      order: 13
+      variant: warning
+  regulatory_classification:
+    presentation: descriptive
+    items:
+    - un_number: UN1092
+      dot_hazard_class: 6.1 (Toxic), 3 (Flammable liquid)
+      dot_label: Poison, Flammable Liquid
+      nfpa_codes:
+        health: 4
+        flammability: 4
+        reactivity: 3
+        special: null
+      epa_hazard_categories:
+      - Acute toxicity (fatal if inhaled)
+      - Flammability
+      - Skin corrosion
+      - Serious eye damage
+      - Suspected carcinogen
+      sara_title_iii: true
+      cercla_rq: 1 pound (0.454 kg)
+      rcra_code: P003
+    _section:
+      title: Regulatory Classification
+      description: Hazard classifications and regulatory designations
+      icon: file-text
+      order: 12
+      variant: default
+  reactivity:
+    presentation: descriptive
+    items:
+    - stability: UNSTABLE. Polymerizes readily, especially when contaminated or exposed to light, heat, acids, or bases. MUST
+        be stabilized.
+      polymerization: Violent exothermic polymerization possible. Stabilizer (hydroquinone) required. Check stabilizer level
+        before handling.
+      incompatible_materials:
+      - Strong oxidizers
+      - Strong acids
+      - Strong bases
+      - Ammonia
+      - Amines
+      - Sulfur dioxide
+      - Metal salts (iron, copper)
+      - Light
+      - Air
+      hazardous_decomposition:
+      - Carbon monoxide
+      - Carbon dioxide
+      - Formaldehyde
+      - Acrolein vapors
+      - Acrylic acid
+      conditions_to_avoid:
+      - Heat
+      - Light
+      - Oxidizers
+      - Acids
+      - Bases
+      - Contamination
+      - Sparks
+      - Flames
+      reactivity_hazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Strong reducing agent.
+        Corrosive. May explode in fire.
+    _section:
+      title: Reactivity
+      description: Chemical reactivity and compatibility with other substances
+      icon: flame
+      order: 11
+      variant: warning
+  synonyms_identifiers:
+    presentation: descriptive
+    items:
+    - synonyms:
+      - Acrylaldehyde
+      - 2-Propenal
+      - Prop-2-enal
+      - Aqualin
+      - Biocide
+      common_trade_names:
+      - Magnacide
+      - Slimicide
+      other_identifiers:
+        rtecs_number: AS1050000
+        ec_number: 203-453-4
+        pubchem_cid: '7847'
+    _section:
+      title: Synonyms & Identifiers
+      description: Alternative names and chemical identifiers (CAS numbers)
+      icon: file-text
+      order: 14
+      variant: default
+  operational:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: acrolein-toxicology
+      _section:
+        title: Health Effects
+        description: Potential health impacts from exposure
+        icon: activity
+        order: 1
+        variant: warning
 title: Acrolein (C₃H₄O)
-seo_description: Acrolein's sharp, irritating odor hits first, marking it as a highly reactive compound that demands careful
-  handling in any setting.
-micro: Acrolein's sharp, irritating odor hits first, marking it as a highly reactive compound that demands careful handling
-  in any setting. This volatility turns it into a colorless gas under normal conditions, prone to rapid dispersion and making
-  containment a constant challenge during storage or transport.
+subcategory: aldehyde

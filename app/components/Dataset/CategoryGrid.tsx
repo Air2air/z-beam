@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { getGridClasses } from '@/app/utils/gridConfig';
+import { getGridClasses, GRID_GAP_RESPONSIVE } from '@/app/utils/gridConfig';
 import { 
   PackageIcon, 
   FileIcon, 
@@ -48,7 +48,7 @@ export default function CategoryGrid({ categoryStats, materials: _materials }: C
   };
 
   return (
-    <div className={getGridClasses({ columns: 3, gap: 'md' })}>
+    <div className={`${getGridClasses({ columns: 3 })} ${GRID_GAP_RESPONSIVE}`}>
       {categories.map(([category, count]) => {
         const Icon = categoryIcons[category] || PackageIcon;
         const colors = categoryColors[category] || categoryColors.metal;

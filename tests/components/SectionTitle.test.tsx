@@ -118,6 +118,8 @@ describe('SectionTitle', () => {
       const { container } = render(<SectionTitle title="Title" />);
       const img = container.querySelector('img[src="/images/logo/logo-zbeam.png"]');
       expect(img).toBeInTheDocument();
+      expect(img).toHaveAttribute('width', '150');
+      expect(img).toHaveAttribute('height', '50');
     });
 
     it('has correct dimensions class', () => {
@@ -125,6 +127,18 @@ describe('SectionTitle', () => {
       const img = container.querySelector('img[src="/test-image.jpg"]');
       const thumbnailContainer = img?.parentElement;
       expect(thumbnailContainer).toHaveClass('w-24', 'h-14');
+    });
+
+    it('fallback logo has correct styling', () => {
+      const { container } = render(<SectionTitle title="Title" />);
+      const img = container.querySelector('img[src="/images/logo/logo-zbeam.png"]');
+      expect(img).toHaveClass('opacity-40', 'group-hover:opacity-100', 'transition-opacity');
+    });
+
+    it('fallback container has group class for hover effects', () => {
+      const { container } = render(<SectionTitle title="Title" />);
+      const fallbackContainer = container.querySelector('.bg-tertiary.group');
+      expect(fallbackContainer).toBeInTheDocument();
     });
 
     it('has rounded class without border', () => {

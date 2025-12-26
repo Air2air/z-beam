@@ -2,8 +2,8 @@ id: rosewood-laser-cleaning
 name: Rosewood
 title: Rosewood Laser Cleaning
 category: wood
-datePublished: '2025-12-23T00:56:27.692171Z'
-dateModified: '2025-12-23T00:56:27.692171Z'
+datePublished: '2025-12-25T21:16:04.834407Z'
+dateModified: '2025-12-25T21:16:04.834407Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/wood/hardwood/rosewood-laser-cleaning
@@ -21,9 +21,12 @@ breadcrumb:
 description: We've found Rosewood excels in laser cleaning, thanks to its dense structure and strong absorption compared to
   softer woods. This lets us strip away grime from cultural artifacts or instruments efficiently while preserving the natural
   oils that resist decay—just ensure controlled passes to avoid surface charring.
-micro: We've found Rosewood excels in laser cleaning, thanks to its dense structure and strong absorption compared to softer
-  woods. This lets us strip away grime from cultural artifacts or instruments efficiently while preserving the natural oils
-  that resist decay—just ensure controlled passes to avoid surface charring.
+micro:
+  before: At 1000x magnification, the rosewood surface shows heavy contamination with dark particles and a cloudy film obscuring
+    its natural grain. You can see how debris fills the wood's pores completely.
+  after: Laser cleaning removes all that buildup and restores the original surface beautifully. Now you clearly observe the
+    intricate grain patterns and rich color beneath, which is exactly what we want for high-end applications because it reveals
+    the true quality of this strong material without any damage to its structure.
 faq:
 - answer: For rosewood's dense, oil-rich structure that chars easily under heat, particularly when processing, apply a 1064
     nm wavelength at 4.5 J/cm² fluence to selectively remove contaminants. Combine this with 100 ns pulses of 45 W power,
@@ -133,57 +136,7 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 subcategory: hardwood
-applications:
-- Aerospace
-- Automotive
-- Marine
-- Cultural Heritage
-- Musical Instruments
-- Medical Equipment
-- Luxury Manufacturing
-- Energy Sector
-- Electronics Manufacturing
-- Architectural Restoration
 characteristics:
   crystallineStructure:
     allowedValues:
@@ -387,5 +340,78 @@ contamination:
   - aluminum_oxidation
   - uv_chalking
   conditional: {}
-seo_description: We've found Rosewood excels in laser cleaning, thanks to its dense structure and strong absorption compared
-  to softer woods.
+card:
+  default:
+    heading: Rosewood
+    subtitle: wood / hardwood
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Aerospace
+      - Automotive
+      - Marine
+      - Cultural Heritage
+      - Musical Instruments
+      - Medical Equipment
+      - Luxury Manufacturing
+      - Energy Sector
+      - Electronics Manufacturing
+      - Architectural Restoration

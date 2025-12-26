@@ -2,8 +2,8 @@
 'use client';
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { Title } from '../Title';
 import { Button } from '../Button';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 interface Props {
   children: ReactNode;
@@ -52,7 +52,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
       return (
         <div className="error-boundary-fallback p-6 bg-red-950 border border-red-200800 rounded-md">
-          <Title level="section" title="Something went wrong" className="text-lg text-red-800200 mb-2" />
+          <SectionTitle title="Something went wrong" className="text-red-800200" />
           <p className="text-red-600300 mb-4">
             {this.props.componentName 
               ? `There was an error loading the ${this.props.componentName} component.`

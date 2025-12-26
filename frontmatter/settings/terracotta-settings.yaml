@@ -1,7 +1,7 @@
 id: terracotta-settings
 name: Terracotta
-datePublished: '2025-12-22T23:37:08.893503Z'
-dateModified: '2025-12-22T23:37:08.893503Z'
+datePublished: '2025-12-25T21:16:33.074791Z'
+dateModified: '2025-12-25T21:16:33.074791Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/masonry/concrete/terracotta-settings
@@ -16,6 +16,18 @@ breadcrumb:
   href: /settings/masonry/concrete
 - label: Terracotta
   href: /settings/masonry/concrete/terracotta-settings
+description: 'When laser cleaning terracotta, watch out for its porous nature right from the start—it can trap heat unevenly
+  and lead to cracks if you''re not careful. I''ve seen this happen when folks push too hard too soon, so begin by testing
+  a small area with gentle pulses to gauge how the surface responds. This material tends to absorb laser energy moderately
+  well, which helps remove dirt and grime without much effort, but its low heat spreading means you should keep dwell times
+  short to avoid localized overheating.
+
+
+  Move to a multi-pass approach next, starting low on power and building up only as needed. Terracotta''s relative fragility
+  compared to denser stones calls for wider scan overlaps, ensuring even coverage without stressing the structure. What sets
+  it apart is that baked-clay makeup, so it cleans up beautifully for heritage pieces but demands you pause between passes
+  to let it cool. Avoid high speeds early on; slower ones prevent surface pitting. In my experience, this setup preserves
+  the earthy texture while stripping away years of buildup safely.'
 author:
   id: 1
   name: Yi-Chun Lin
@@ -44,55 +56,80 @@ author:
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   persona_file: taiwan_persona.yaml
   formatting_file: taiwan_formatting.yaml
+card:
+  default:
+    heading: ''
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: success
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
 relationships:
-  regulatory_standards:
-    _section:
-      title: Regulatory Compliance
-      description: Industry standards and regulations applicable to these settings
-      order: 3
-      variant: reference
-      icon: book
-    items:
-    - type: regulatory_standards
-      id: osha-ppe-requirements
+  technical:
+    works_on_materials:
       presentation: card
-    - type: regulatory_standards
-      id: ansi-z136-1-laser-safety
+      items:
+      - id: terracotta-laser-cleaning
+        effectiveness: high
+      _section:
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
+        variant: default
+    removes_contaminants:
       presentation: card
-  optimized_for_materials:
-    _section:
-      title: Applicable Materials
-      description: Materials that can be safely cleaned using these laser parameters
-      order: 1
-      variant: relationship
-      icon: cube
-    items:
-    - id: terracotta-laser-cleaning
-      effectiveness: high
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
       presentation: card
-      level: high
-      valence: positive
-      url: /materials/masonry/concrete/terracotta-laser-cleaning
-  removes_contaminants:
-    _section:
-      title: Effective Against
-      description: Contamination types that can be removed using these settings
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: rust-oxidation-contamination
-      effectiveness: high
-      presentation: card
-      level: high
-      valence: positive
-      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
-    - id: adhesive-residue-contamination
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: moisture-spalling
+          type: challenge
+        - id: low-thermal-diffusivity
+          type: challenge
+        contamination_challenges:
+        - id: paint-coating-removal
+          type: challenge
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+title: Terracotta Settings
+category: masonry
+subcategory: concrete
 machine_settings:
   powerRange:
     description: Optimal average power for Terracotta surface cleaning without thermal damage
@@ -216,132 +253,3 @@ machine_settings:
     unit: '%'
     description: 'Ensures uniform coverage on porous terracotta; 70% optimal to avoid gaps or uneven heating. Source: Process
       optimization in laser scanning studies (e.g., Salonitis et al., 2013, Opt. Lasers Eng.).'
-challenges:
-  thermal_management:
-  - challenge: Moisture-induced spalling and explosive failure
-    severity: critical
-    threshold_temperature: Steam formation >100°C with trapped moisture
-    impact: Trapped moisture converts to steam causing explosive surface spalling
-    solutions:
-    - Test moisture content before cleaning (>5% moisture requires drying)
-    - Use pulse mode with 10-15 second cooling for wet materials
-    - Reduce power by 50-60% for damp masonry
-    - Allow 24-48 hours drying after rain before laser cleaning
-    - Monitor for popping sounds or surface lifting; stop immediately
-  - challenge: Low thermal diffusivity and heat accumulation
-    severity: high
-    property_value: 0.1-1.0 mm²/s (3-10x slower than metals)
-    impact: Heat concentrates in surface layer causing thermal stress
-    solutions:
-    - Increase cooling time between passes (8-12 seconds)
-    - Use low repetition rates (<20 kHz)
-    - Defocused beam reduces peak intensity
-    - Multiple gentle passes preferred over aggressive single pass
-  surface_characteristics:
-  - challenge: High porosity and deep contamination
-    severity: high
-    porosity_range: 10-25% (brick and concrete highly porous)
-    impact: Contaminants penetrate deep into porous structure
-    solutions:
-    - Multiple progressive passes with power increase (50W → 80W → 100W)
-    - Reduce scan speed for deeper penetration (400-600 mm/s)
-    - Chemical pre-treatment for biological growth (algae, lichen)
-    - Expect 3-5 passes for complete cleaning vs 1-2 for dense materials
-  - challenge: Surface heterogeneity and aggregate exposure
-    severity: medium
-    impact: Mixed composition (cement matrix, aggregates, voids) causes variable absorption
-    solutions:
-    - Use moderate power (70-90W) suitable for both matrix and aggregates
-    - Crosshatch scan pattern for uniform coverage
-    - Monitor for differential ablation; adjust power if aggregates become prominent
-    - Aged masonry more challenging than new construction
-  contamination_challenges:
-  - challenge: Paint and coating removal from porous substrate
-    severity: medium
-    impact: Paint penetrates into pores requiring deep cleaning without substrate damage
-    solutions:
-    - First pass 100W fast (1500 mm/s) for surface paint layer
-    - Second pass 70W slow (800 mm/s) for paint in pores
-    - Third pass 50W very slow (500 mm/s) for residual staining
-    - Chemical stripping pre-treatment reduces laser exposure
-    - Heritage masonry requires gentler approach (max 60W)
-description: 'When laser cleaning terracotta, watch out for its porous nature right from the start—it can trap heat unevenly
-  and lead to cracks if you''re not careful. I''ve seen this happen when folks push too hard too soon, so begin by testing
-  a small area with gentle pulses to gauge how the surface responds. This material tends to absorb laser energy moderately
-  well, which helps remove dirt and grime without much effort, but its low heat spreading means you should keep dwell times
-  short to avoid localized overheating.
-
-
-  Move to a multi-pass approach next, starting low on power and building up only as needed. Terracotta''s relative fragility
-  compared to denser stones calls for wider scan overlaps, ensuring even coverage without stressing the structure. What sets
-  it apart is that baked-clay makeup, so it cleans up beautifully for heritage pieces but demands you pause between passes
-  to let it cool. Avoid high speeds early on; slower ones prevent surface pitting. In my experience, this setup preserves
-  the earthy texture while stripping away years of buildup safely.'
-category: masonry
-subcategory: concrete
-title: Terracotta Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Zap } from 'lucide-react';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { PropertyBars } from '../PropertyBars/PropertyBars';
+import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
 
 interface LaserMaterialInteractionProps {
   materialName: string;
@@ -15,7 +14,7 @@ interface LaserMaterialInteractionProps {
 /**
  * LaserMaterialInteraction Component
  * 
- * Displays laser-material interaction properties including:
+ * Displays laser-material interaction properties using PropertyGrid with:
  * - Thermal Conductivity
  * - Thermal Diffusivity
  * - Absorption Coefficient
@@ -63,17 +62,14 @@ export function LaserMaterialInteraction({
     : undefined;
 
   return (
-    <SectionContainer
-      title="Laser-Material Interaction"
+    <PropertyGrid
+      metadata={metadata}
+      dataSource="materialProperties"
+      title={`${materialName} laser-related properties`}
       icon={<Zap className="w-5 h-5 text-orange-500" />}
-      actionText={settingsUrl ? "Settings" : undefined}
+      actionText={settingsUrl ? `${materialName} machine settings` : undefined}
       actionUrl={settingsUrl}
       className={`mb-8 ${className}`}
-    >
-      <PropertyBars
-        metadata={metadata}
-        dataSource="materialProperties"
-      />
-    </SectionContainer>
+    />
   );
 }

@@ -24,11 +24,10 @@ export interface AggregateStats {
  */
 async function fetchMaterialDataset(slug: string): Promise<any | null> {
   try {
-    const fullSlug = slug.endsWith('-laser-cleaning') ? slug : `${slug}-laser-cleaning`;
-    const response = await fetch(`/datasets/materials/${fullSlug}.json`);
+    const response = await fetch(`/datasets/materials/${slug}.json`);
     
     if (!response.ok) {
-      console.warn(`Failed to fetch dataset for ${fullSlug}`);
+      console.warn(`Failed to fetch dataset for ${slug}`);
       return null;
     }
     

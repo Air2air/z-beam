@@ -6,7 +6,7 @@ import { PackageIcon, FileIcon } from '@/app/components/Buttons';
 import { Button } from '@/app/components/Button';
 import { DatasetCard } from './DatasetCard';
 import { DownloadCard } from './DownloadCard';
-import { getGridClasses } from '@/app/config/site';
+import { getGridClasses, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
 import { triggerBlobDownload } from '@/app/utils/downloadUtils';
 import type { BulkDownloadProps } from '@/types/centralized';
@@ -191,7 +191,7 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
         <h3 className="text-xl text-secondary font-bold mb-4">
           Category Bundles
         </h3>
-        <div className={getGridClasses({ columns: 3, gap: "md" })}>
+        <div className={`${getGridClasses({ columns: 3 })} ${GRID_GAP_RESPONSIVE}`}>
           {categories.map(([category, count]) => {
             // Get first material from category for hero image
             const categoryMaterials = materials.filter(m => m.category === category);

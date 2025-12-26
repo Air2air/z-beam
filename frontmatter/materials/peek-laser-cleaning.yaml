@@ -2,8 +2,8 @@ id: peek-laser-cleaning
 name: PEEK
 title: PEEK Laser Cleaning
 category: plastic
-datePublished: '2025-12-23T00:56:28.755411Z'
-dateModified: '2025-12-23T00:56:28.755411Z'
+datePublished: '2025-12-25T21:16:05.702895Z'
+dateModified: '2025-12-25T21:16:05.702895Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/plastic/thermoplastic/peek-laser-cleaning
@@ -21,8 +21,10 @@ breadcrumb:
 description: The secret to PEEK's success is its remarkable resistance to intense heat and aggressive chemicals, all without
   losing its structural integrity, making it perfect for rigorous industrial applications where ordinary plastics would quickly
   fail.
-micro: The secret to PEEK's success is its remarkable resistance to intense heat and aggressive chemicals, all without losing
-  its structural integrity, making it perfect for rigorous industrial applications where ordinary plastics would quickly fail.
+micro:
+  before: PEEK laser cleaning requires careful parameter selection to optimize contamination removal while preserving substrate
+    integrity.
+  after: ''
 faq:
 - question: How do I safely start laser cleaning PEEK parts without causing damage?
   answer: You must begin by selecting a low-power laser setting to match PEEK's heat resistance, ensuring the beam gently
@@ -72,35 +74,6 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
 subcategory: thermoplastic
 properties:
   material_characteristics:
@@ -252,12 +225,6 @@ properties:
       confidence: 95
       researched_date: '2025-11-24T12:57:51.142881'
       needs_validation: true
-settings_description: When laser cleaning PEEK, you'll want to tackle its low absorption of laser energy first. This thermoplastic
-  stays mostly transparent to the beam, so heat builds up slowly but can suddenly degrade the surface if you're not careful.
-  Start with lower power settings to gently remove contaminants without melting the material. Make sure you use short pulses—they
-  help control the heat and prevent cracking on this strong, non-porous plastic. Watch out mid-process for any discoloration;
-  dial back the speed right away to avoid weakening its heat resistance. Adjust scans to overlap minimally, bringing back
-  a clean finish while keeping PEEK's durability intact.
 components:
   micro:
     before: When examining the contaminated PEEK surface at 1000x, you spot thick layers of debris clinging everywhere. Dark
@@ -280,5 +247,48 @@ contamination:
     industrial_oil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
-seo_description: The secret to PEEK's success is its remarkable resistance to intense heat and aggressive chemicals, all without
-  losing its structural integrity, making it...
+card:
+  default:
+    heading: PEEK
+    subtitle: plastic / thermoplastic
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default

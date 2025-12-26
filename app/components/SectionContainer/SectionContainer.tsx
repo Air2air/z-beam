@@ -45,8 +45,8 @@ export function SectionContainer({
   
   // Variant-specific styles
   const variantClasses = {
-    default: 'section-container-default py-4',
-    dark: 'section-container-dark bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-4 md:px-5 py-4 md:py-5 mb-8',
+    default: 'section-container-default py-2 sm:py-4',
+    dark: 'section-container-dark bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-3 sm:px-4 md:px-5 py-3 sm:py-4 md:py-5 mb-4 sm:mb-8',
   };
   
   // Title color based on variant - removed for global CSS inheritance
@@ -76,7 +76,7 @@ export function SectionContainer({
         aria-labelledby={title ? `section-${sectionId}` : undefined}
       >
         {title && (
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
             <div className="flex items-center space-x-3">
               {icon}
               <h2
@@ -105,7 +105,7 @@ export function SectionContainer({
       aria-labelledby={title ? `section-${sectionId}` : undefined}
     >
       {title && (
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
           <div className="flex items-center space-x-3">
             {icon}
             <h2

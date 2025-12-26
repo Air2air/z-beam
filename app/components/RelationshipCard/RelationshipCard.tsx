@@ -1,142 +1,152 @@
 /**
  * @component RelationshipCard
- * @purpose Displays relationship cards with icon, label, and severity-based styling
- * @dependencies @/types (ArticleMetadata), @/app/utils/constants
+ * @purpose Displays relationship cards with card schema, metrics, and context-aware styling
+ * @dependencies @/types (CardVariant, RelationshipItem), @/app/utils/entityLookup
  * @related Card.tsx, DataGrid.tsx, CompoundSafetyGrid.tsx
- * @complexity Low (focused component for relationship display)
- * @aiContext Use for domain linkages, hazardous compounds, and related items with severity
+ * @complexity Medium (entity lookup with card schema rendering)
+ * @aiContext Use for relationship displays with ID-based entity lookup and card presentation
  */
 
 "use client";
 
 import Link from "next/link";
-import { ArticleMetadata } from "@/types";
-import { SITE_CONFIG } from "@/app/config/site";
+import { resolveCardData, resolveEntityUrl } from "@/app/utils/entityLookup";
+import { SEVERITY_COLORS, type RelationshipItem, type CardVariant } from "@/types";
 
 export interface RelationshipCardProps {
-  frontmatter?: ArticleMetadata;
-  href: string;
-  title?: string;
-  subject?: string;
-  severity?: string;
+  item: RelationshipItem;        // NEW: ID-based relationship item
+  context?: string;               // NEW: Card context (e.g., 'contamination_context')
+  contentType?: string;           // Optional: Content type hint for faster lookup
   className?: string;
 }
 
 export function RelationshipCard({
-  frontmatter,
-  href,
-  title: explicitTitle,
-  subject: explicitSubject,
-  severity: explicitSeverity,
+  item,
+  context = 'default',
+  contentType,
   className = "",
 }: RelationshipCardProps) {
-  // Use explicit props first, then fallback to frontmatter
-  const title = explicitTitle || frontmatter?.title || '';
-  const subject = explicitSubject || frontmatter?.subject || '';
-  const severity = explicitSeverity || (frontmatter as any)?.severity;
-
-  // Safety check: href is required for Link component
-  if (!href) {
-    console.error('RelationshipCard received undefined href for:', subject || title || 'unknown');
-    return null;
+  // Load card data from entity frontmatter
+  const cardData = resolveCardData(item.id, context, contentType);
+  
+  // Derive URL from entity's full_path
+  const url = resolveEntityUrl(item.id, contentType);
+  
+  // Fallback if card data not found
+  if (!cardData) {
+    console.warn(`Card data not found for entity: ${item.id}`);
+    return (
+      <div className="rounded-md border border-gray-500 bg-gray-900/20 p-4">
+        <div className="text-gray-400">Entity not found: {item.id}</div>
+      </div>
+    );
   }
-
-  // Create absolute URL for SEO Infrastructure structured data
-  const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href || ''}`;
-
-  // Apply severity-based styling (matching risk card style)
-  const relationshipStyles = severity
-    ? severity === 'low'
-      ? {
-          text: 'text-green-400',
-          bg: 'bg-green-900/20',
-          border: 'border-green-500',
-        }
-      : severity === 'moderate'
-      ? {
-          text: 'text-yellow-400',
-          bg: 'bg-yellow-900/20',
-          border: 'border-yellow-500',
-        }
-      : severity === 'high' || severity === 'severe'
-      ? {
-          text: 'text-red-400',
-          bg: 'bg-red-900/20',
-          border: 'border-red-500',
-        }
-      : {
-          text: 'text-gray-400',
-          bg: 'bg-gray-900/20',
-          border: 'border-gray-500',
-        }
-    : {
-        text: 'text-gray-400',
-        bg: 'bg-gray-900/20',
-        border: 'border-gray-500',
-      };
+  
+  // Get severity-based styling
+  const severityStyle = SEVERITY_COLORS[cardData.severity];
 
   return (
     <Link
-      href={href}
+      href={url}
       className={`
-        group rounded-md border p-4 transition-all duration-200
-        hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
-        ${relationshipStyles.text} ${relationshipStyles.bg} ${relationshipStyles.border}
+        group block rounded-lg border transition-all duration-200
+        hover:shadow-lg hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+        ${severityStyle.border}
         ${className}
       `}
-      aria-label={`View details for ${subject || title}`}
+      aria-label={`View details for ${cardData.heading}`}
     >
-      <article
-        role="article"
-        itemScope
-        itemType="https://schema.org/Article"
-      >
-        {/* SEO Infrastructure: Schema.org structured data */}
-        <meta itemProp="url" content={absoluteUrl} />
-        <meta itemProp="headline" content={subject || title} />
-        {frontmatter?.description && (
-          <meta itemProp="description" content={frontmatter.description} />
-        )}
-        {frontmatter?.datePublished && (
-          <meta itemProp="datePublished" content={frontmatter.datePublished} />
-        )}
-        {frontmatter?.lastModified && (
-          <meta itemProp="dateModified" content={frontmatter.lastModified} />
-        )}
-        {frontmatter?.author && (
-          <meta 
-            itemProp="author" 
-            content={typeof frontmatter.author === 'string' ? frontmatter.author : frontmatter.author.name} 
-          />
-        )}
-
-        {/* Risk card style with icon and severity display */}
-        <div className="flex items-center gap-3 mb-2">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="lucide lucide-alert-triangle w-6 h-6" 
-            aria-hidden="true"
+      <div className={`h-full p-6 ${severityStyle.bg}`}>
+        {/* Badge */}
+        <div className="mb-4">
+          <span
+            className={`
+              inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
+              ${getBadgeColors(cardData.badge.variant)}
+            `}
           >
-            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-            <line x1="12" y1="9" x2="12" y2="13" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
-          </svg>
-          <div>
-            <div className="text-sm text-gray-400">{subject || title}</div>
-            {severity && (
-              <div className="text-xl font-semibold capitalize">{severity}</div>
+            {cardData.badge.text}
+          </span>
+        </div>
+        
+        {/* Metric */}
+        <div className="mb-6">
+          <div className="flex items-baseline gap-1">
+            <span className="text-4xl font-bold text-white">
+              {cardData.metric.value}
+            </span>
+            {cardData.metric.unit && (
+              <span className="text-2xl font-medium text-white/80">
+                {cardData.metric.unit}
+              </span>
             )}
           </div>
+          <div className="mt-1 text-sm text-white/70">
+            {cardData.metric.legend}
+          </div>
         </div>
-      </article>
+        
+        {/* Icon (optional) */}
+        {cardData.icon && (
+          <div className="mb-4 text-white/60">
+            {/* TODO: Integrate lucide icons dynamically */}
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+              className="opacity-60"
+              aria-hidden="true"
+            >
+              {/* Placeholder - replace with dynamic icon rendering */}
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </div>
+        )}
+        
+        {/* Heading & Subtitle (at bottom) */}
+        <div className="border-t border-white/20 pt-4">
+          <h3 className="text-xl font-semibold text-white">
+            {cardData.heading}
+          </h3>
+          <p className="mt-1 text-sm text-white/80">
+            {cardData.subtitle}
+          </p>
+        </div>
+        
+        {/* Relationship metadata (if present) */}
+        {(item.frequency || item.severity) && (
+          <div className="mt-3 flex gap-2 text-xs text-white/60">
+            {item.frequency && (
+              <span className="capitalize">{item.frequency.replace('_', ' ')}</span>
+            )}
+            {item.frequency && item.severity && <span>•</span>}
+            {item.severity && (
+              <span className="capitalize">{item.severity} severity</span>
+            )}
+          </div>
+        )}
+      </div>
     </Link>
   );
+}
+
+/**
+ * Get badge colors based on variant
+ */
+function getBadgeColors(variant: string): string {
+  const badgeColors = {
+    success: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+    warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
+    danger: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
+    info: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+    technical: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
+  };
+  
+  return badgeColors[variant as keyof typeof badgeColors] || badgeColors.info;
 }

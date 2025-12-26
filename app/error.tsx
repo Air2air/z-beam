@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { Button } from './components/Button';
-import { Title } from './components/Title';
+import { SectionTitle } from './components/SectionTitle/SectionTitle';
 
 export default function Error({
   error,
@@ -18,7 +18,7 @@ export default function Error({
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
-      <Title level="section" title="Something went wrong!" />
+      <SectionTitle title="Something went wrong!" alignment="center" />
       <p className="text-gray-600 text-center max-w-md">
         An error occurred while rendering this page. Please try again.
       </p>

@@ -1,5 +1,7 @@
 // app/components/DiagnosticCenter/TroubleshootingTab.tsx
 
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+
 interface Issue {
   symptom: string;
   causes: string[];
@@ -83,7 +85,7 @@ export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
             </div>
             
             {/* Verification & Prevention - Side by Side */}
-            <div className="grid md:grid-cols-2 gap-3">
+            <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
               <div className="bg-orange-900/10 rounded-md p-3 border border-orange-900/30">
                 <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

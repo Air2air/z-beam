@@ -1,7 +1,7 @@
 id: serpentine-settings
 name: Serpentine
-datePublished: '2025-12-22T23:37:08.214282Z'
-dateModified: '2025-12-22T23:37:08.214282Z'
+datePublished: '2025-12-25T21:16:32.850035Z'
+dateModified: '2025-12-25T21:16:32.850035Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/stone/sedimentary/serpentine-settings
@@ -16,6 +16,13 @@ breadcrumb:
   href: /settings/stone/sedimentary
 - label: Serpentine
   href: /settings/stone/sedimentary/serpentine-settings
+description: When laser cleaning Serpentine, you'll want to address its relative softness first. This stone scratches easily
+  compared to harder granites. Start with reduced power to prevent surface pitting. Its low heat spreading means energy stays
+  local. Adjust scan speeds higher to avoid hot spots. Serpentine absorbs laser light well unlike reflective marbles. This
+  speeds removal of dirt but risks quick heating. Use multiple light passes to control buildup. The material's slight porosity
+  holds grime deep. Pre-test on edges reveals weak spots. Overlap beams carefully to restore even texture. Serpentine differs
+  from dense limestones by flexing under stress. Lower fluence helps maintain its natural layers. Watch for cracking in thin
+  sections. Always finish with a cooling interval to reduce thermal shock.
 author:
   id: 4
   name: Todd Dunning
@@ -44,67 +51,100 @@ author:
   - https://spie.org/profile/Todd.Dunning
   persona_file: usa_persona.yaml
   formatting_file: usa_formatting.yaml
+card:
+  default:
+    heading: ''
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: success
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
 relationships:
-  regulatory_standards:
-    _section:
-      title: Regulatory Compliance
-      description: Industry standards and regulations applicable to these settings
-      order: 3
-      variant: reference
-      icon: book
-    items:
-    - type: regulatory_standards
-      id: osha-ppe-requirements
+  technical:
+    works_on_materials:
       presentation: card
-    - type: regulatory_standards
-      id: ansi-z136-1-laser-safety
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
+        variant: default
+    removes_contaminants:
       presentation: card
-  optimized_for_materials:
-    _section:
-      title: Applicable Materials
-      description: Materials that can be safely cleaned using these laser parameters
-      order: 1
-      variant: relationship
-      icon: cube
-    items:
-    - id: oak-laser-cleaning
-      effectiveness: medium
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
       presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/oak-laser-cleaning
-    - id: maple-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/hardwood/maple-laser-cleaning
-    - id: pine-laser-cleaning
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /materials/wood/softwood/pine-laser-cleaning
-  removes_contaminants:
-    _section:
-      title: Effective Against
-      description: Contamination types that can be removed using these settings
-      order: 2
-      variant: relationship
-      icon: droplet
-    items:
-    - id: rust-oxidation-contamination
-      effectiveness: high
-      presentation: card
-      level: high
-      valence: positive
-      url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
-    - id: adhesive-residue-contamination
-      effectiveness: medium
-      presentation: card
-      level: moderate
-      valence: positive
-      url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - challenge: Thermal shock and microcracking
+          severity: critical
+          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          impact: Natural stone contains microfissures that propagate under thermal stress
+          solutions:
+          - Use pulse mode with 8-12 second cooling between passes
+          - Reduce power by 40-50% for weathered or damaged stone
+          - Preheat substrate if possible to reduce thermal gradients
+          - Granite more resistant than marble; sandstone most vulnerable
+          - Monitor for surface crazing; stop immediately if cracks appear
+        - challenge: Moisture-induced spalling
+          severity: high
+          threshold_temperature: Steam formation >100°C with trapped moisture
+          impact: Porous stone traps moisture that explosively converts to steam
+          solutions:
+          - Test moisture content before cleaning (>3% requires drying)
+          - Allow 48-72 hours drying after rain before laser cleaning
+          - Reduce power by 50% for damp stone
+          - Use pulse mode with extended cooling (15-20 seconds)
+          - Heritage stone requires especially gentle approach
+        contamination_challenges:
+        - id: biological-growth
+          type: challenge
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+title: Serpentine Settings
+category: stone
+subcategory: sedimentary
 machine_settings:
   powerRange:
     description: Optimal average power for Serpentine cleaning without thermal damage
@@ -225,129 +265,3 @@ machine_settings:
     description: 'Ensures uniform coverage without excessive overlap-induced heating on serpentine; 50-70% optimal for even
       contaminant removal. Source: Process optimization studies in laser scanning (e.g., Stournaras et al., J. Manuf. Process.,
       2015).'
-challenges:
-  thermal_management:
-  - challenge: Thermal shock and microcracking
-    severity: critical
-    threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-    impact: Natural stone contains microfissures that propagate under thermal stress
-    solutions:
-    - Use pulse mode with 8-12 second cooling between passes
-    - Reduce power by 40-50% for weathered or damaged stone
-    - Preheat substrate if possible to reduce thermal gradients
-    - Granite more resistant than marble; sandstone most vulnerable
-    - Monitor for surface crazing; stop immediately if cracks appear
-  - challenge: Moisture-induced spalling
-    severity: high
-    threshold_temperature: Steam formation >100°C with trapped moisture
-    impact: Porous stone traps moisture that explosively converts to steam
-    solutions:
-    - Test moisture content before cleaning (>3% requires drying)
-    - Allow 48-72 hours drying after rain before laser cleaning
-    - Reduce power by 50% for damp stone
-    - Use pulse mode with extended cooling (15-20 seconds)
-    - Heritage stone requires especially gentle approach
-  surface_characteristics:
-  - challenge: Weathering and surface degradation
-    severity: high
-    impact: Aged stone has weaker surface layer more susceptible to damage
-    solutions:
-    - Reduce power 40-60% for weathered stone vs fresh stone
-    - Test on inconspicuous area first
-    - Multiple gentle passes (4-6 at 40-60W) preferred
-    - Monitor for powdering or flaking; adjust power immediately
-    - Heritage conservation requires documentation and testing
-  - challenge: Mineral composition heterogeneity
-    severity: medium
-    impact: Mixed minerals have different absorption and damage thresholds
-    solutions:
-    - Use moderate power (60-80W) suitable for both light and dark minerals
-    - Crosshatch scan pattern for uniform coverage
-    - Avoid dwelling on dark minerals (feldspar, mica) which absorb more energy
-    - Quartzite and marble more homogeneous than granite
-  contamination_challenges:
-  - challenge: Biological growth and deep staining
-    severity: medium
-    porosity_range: 0.5-25% (sandstone highly porous)
-    impact: Algae, lichen, and pollution penetrate deep into porous structure
-    solutions:
-    - First pass 80W fast (1200 mm/s) for surface growth
-    - Second pass 60W slow (700 mm/s) for roots and stains
-    - Third pass 40W very slow (400 mm/s) for deep staining
-    - Chemical biocide pre-treatment kills roots and reduces laser exposure
-    - Dense stones (granite, marble) clean in 1-2 passes vs 3-4 for porous stones
-description: When laser cleaning Serpentine, you'll want to address its relative softness first. This stone scratches easily
-  compared to harder granites. Start with reduced power to prevent surface pitting. Its low heat spreading means energy stays
-  local. Adjust scan speeds higher to avoid hot spots. Serpentine absorbs laser light well unlike reflective marbles. This
-  speeds removal of dirt but risks quick heating. Use multiple light passes to control buildup. The material's slight porosity
-  holds grime deep. Pre-test on edges reveals weak spots. Overlap beams carefully to restore even texture. Serpentine differs
-  from dense limestones by flexing under stress. Lower fluence helps maintain its natural layers. Watch for cracking in thin
-  sections. Always finish with a cooling interval to reduce thermal shock.
-category: stone
-subcategory: sedimentary
-title: Serpentine Settings
-regulatory_standards_detail:
-- id: osha-ppe-requirements
-  title: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  short_title: OSHA PPE Requirements
-  authority: OSHA
-  authority_full: Occupational Safety and Health Administration
-  agency_type: federal
-  country: United States
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  image: /images/logo/logo-org-osha.png
-  description: Federal requirements for personal protective equipment in construction and industrial operations
-  scope: Eye protection, respiratory protection, protective clothing
-  applicability:
-  - All workplaces using laser equipment
-  - Operators and nearby personnel
-  - Maintenance personnel
-  compliance_requirements:
-  - Laser safety eyewear rated for wavelength
-  - Protective clothing for skin exposure risk
-  - Respiratory protection for fume/particulate exposure
-  - Employer-provided PPE at no cost to employees
-  - PPE training and fit testing
-  compliance_level: mandatory
-  enforcement: OSHA inspections and citations
-  penalties: Up to $15,625 per serious violation
-  effective_date: 1971-04-28
-  last_amended: 2023-01-23
-  jurisdiction: United States (federal)
-  related_standards:
-  - ansi-z87-1-eye-protection
-  - ansi-z136-1-laser-safety
-  category: workplace_safety
-- id: ansi-z136-1-laser-safety
-  title: ANSI Z136.1 - Safe Use of Lasers
-  short_title: ANSI Laser Safety Standard
-  authority: ANSI
-  authority_full: American National Standards Institute
-  agency_type: standards_body
-  country: United States
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-  description: Comprehensive safety standard for laser operation, maintenance, and safety programs
-  scope: Hazard evaluation, control measures, safety procedures, training
-  applicability:
-  - All laser operators and safety officers
-  - Laser safety programs
-  - Facility design and operations
-  compliance_requirements:
-  - Laser safety officer designation
-  - Hazard evaluation and classification
-  - Nominal hazard zone calculation
-  - Standard operating procedures
-  - Laser safety training program
-  - Medical surveillance for high-power operations
-  - Controlled access to laser areas
-  compliance_level: recommended
-  adoption: Widely adopted, referenced by OSHA
-  effective_date: 2022-08-01
-  edition: 2022 edition
-  replaces: ANSI Z136.1-2014
-  jurisdiction: International (US-origin)
-  related_standards:
-  - iec-60825-laser-safety
-  - osha-ppe-requirements
-  category: operational_safety

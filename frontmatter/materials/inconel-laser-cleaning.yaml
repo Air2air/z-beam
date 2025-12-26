@@ -2,8 +2,8 @@ id: inconel-laser-cleaning
 name: Inconel
 title: Inconel Laser Cleaning
 category: metal
-datePublished: '2025-12-23T00:56:26.725020Z'
-dateModified: '2025-12-23T00:56:26.725020Z'
+datePublished: '2025-12-25T21:16:03.881614Z'
+dateModified: '2025-12-25T21:16:03.881614Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/specialty/inconel-laser-cleaning
@@ -21,9 +21,11 @@ breadcrumb:
 description: Inconel, this nickel-based superalloy, manifests tenacious resistance to oxidation and corrosion, rendering it
   suitable for aerospace components. In laser cleaning applications, its thermal stability enables precise contaminant removal,
   yet high reflectivity challenges efficient energy absorption, it seems.
-micro: Inconel, this nickel-based superalloy, manifests tenacious resistance to oxidation and corrosion, rendering it suitable
-  for aerospace components. In laser cleaning applications, its thermal stability enables precise contaminant removal, yet
-  high reflectivity challenges efficient energy absorption, it seems.
+micro:
+  before: Before laser cleaning, the contaminated surface shows dark oxidation and scattered particles embedded in the material.
+    The buildup obscures the underlying metal grain structure completely.
+  after: Laser treatment removes this surface contamination effectively. It restores a clean metallic appearance by exposing
+    the uniform, fine-grained texture of the base Inconel alloy without damaging it.
 faq:
 - answer: When dealing with Inconel, it's essential to select a 1064 nm wavelength paired with nanosecond pulses of about
     10 ns, enabling oxide ablation without substrate melting. Keep fluence around 2.5 J/cm² and scanning speed at 500 mm/s.
@@ -127,55 +129,7 @@ author:
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-relationships:
-  contaminated_by:
-    _section:
-      title: Common Contaminants
-      description: Types of contamination typically found on this material
-      order: 1
-      variant: relationship
-      icon: droplet
-    items:
-    - id: industrial-oil-contamination
-      presentation: card
-  regulatory:
-    _section:
-      title: Regulatory Standards
-      description: Industry standards and regulations applicable to this material
-      order: 2
-      variant: reference
-      icon: book
-    items:
-    - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-      image: /images/logo/logo-org-fda.png
-      longName: Food and Drug Administration
-      name: FDA
-      url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-    - description: ANSI Z136.1 - Safe Use of Lasers
-      image: /images/logo/logo-org-ansi.png
-      longName: American National Standards Institute
-      name: ANSI
-      url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    - description: IEC 60825 - Safety of Laser Products
-      image: /images/logo/logo-org-iec.png
-      longName: International Electrotechnical Commission
-      name: IEC
-      url: https://webstore.iec.ch/publication/3587
-    - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-      image: /images/logo/logo-org-osha.png
-      longName: Occupational Safety and Health Administration
-      name: OSHA
-      url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 subcategory: specialty
-applications:
-- Aerospace
-- Chemical Processing
-- Gas Turbines
-- Nuclear
-- Oil & Gas
-- Power Generation
-- Rocket Engines
-- Space
 characteristics:
   crystallineStructure:
     allowedValues:
@@ -411,5 +365,76 @@ contamination:
   - copper_patina
   - aluminum_oxidation
   conditional: {}
-seo_description: Inconel, this nickel-based superalloy, manifests tenacious resistance to oxidation and corrosion, rendering
-  it suitable for aerospace components.
+card:
+  default:
+    heading: Inconel
+    subtitle: metal / specialty
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+relationships:
+  technical:
+    contaminated_by:
+      presentation: card
+      items:
+      - id: industrial-oil-contamination
+      _section:
+        title: Common Contaminants
+        description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 2
+        variant: default
+  operational:
+    industry_applications:
+      presentation: card
+      _section:
+        title: Industry Applications
+        description: Industries and sectors where this material is commonly used
+        icon: building-2
+        order: 3
+        variant: default
+      items:
+      - Aerospace
+      - Chemical Processing
+      - Gas Turbines
+      - Nuclear
+      - Oil & Gas
+      - Power Generation
+      - Rocket Engines
+      - Space

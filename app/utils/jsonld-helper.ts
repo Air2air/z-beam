@@ -222,12 +222,14 @@ function createTechnicalArticleSchema(data: any) {
         ...(images?.hero?.url ? [{
           '@type': 'ImageObject',
           url: `${baseUrl}${images.hero.url}`,
-          micro: images.hero.alt || micro?.description
+          micro: images.hero.alt || micro?.description,
+          creator: author?.name || SITE_CONFIG.shortName
         }] : []),
         ...(images?.micro?.url ? [{
           '@type': 'ImageObject',
           url: `${baseUrl}${images.micro.url}`,
-          micro: images.micro.alt || micro?.description
+          micro: images.micro.alt || micro?.description,
+          creator: author?.name || SITE_CONFIG.shortName
         }] : [])
       ]
     }),
@@ -305,7 +307,8 @@ function createMaterialProductSchema(data: any) {
     productImages.push({
       '@type': 'ImageObject',
       url: `${baseUrl}${images.hero.url}`,
-      micro: images.hero.alt || description
+      micro: images.hero.alt || description,
+      creator: author?.name || SITE_CONFIG.shortName
     });
   }
   // Add micro image for detailed surface view
@@ -313,7 +316,8 @@ function createMaterialProductSchema(data: any) {
     productImages.push({
       '@type': 'ImageObject',
       url: `${baseUrl}${images.micro.url}`,
-      micro: images.micro.alt || `Detailed microscopic view of ${materialName} surface after laser cleaning`
+      micro: images.micro.alt || `Detailed microscopic view of ${materialName} surface after laser cleaning`,
+      creator: author?.name || SITE_CONFIG.shortName
     });
   }
   
@@ -493,7 +497,8 @@ function createHowToSchema(data: any) {
       image: {
         '@type': 'ImageObject',
         url: `${baseUrl}${images.micro.url}`,
-        micro: images.micro.alt || `Detailed result of laser cleaning ${materialName}`
+        micro: images.micro.alt || `Detailed result of laser cleaning ${materialName}`,
+        creator: author?.name || SITE_CONFIG.shortName
       }
     }),
     

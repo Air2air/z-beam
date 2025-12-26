@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { FactorCardConfig } from './types';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 interface StatusSummaryData {
   power: number;
@@ -133,7 +134,7 @@ export const AnalysisCards: React.FC<AnalysisCardsProps> = ({
   const gridClasses = `${xsClass} ${smClass} ${mdClass} ${lgClass}`;
 
   return (
-    <div className={`grid gap-4 ${gridClasses} ${className}`}>
+    <div className={`grid ${GRID_GAP_RESPONSIVE} ${gridClasses} ${className}`}>
       {statusSummary && (
         <StatusSummaryCard key={`summary-${statusSummary.power}-${statusSummary.pulse}-${statusSummary.level}`} {...statusSummary} />
       )}

@@ -13,6 +13,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useMicroParsing } from './useMicroParsing';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { MicroDataStructure, MicroProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
@@ -105,7 +106,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
 
   return (
     <SectionContainer 
-      title={`${capitalizedMaterial} surface magnification`}
+      title={`${capitalizedMaterial} 500-1000x surface magnification`}
       bgColor="transparent"
       radius={false}
     >
@@ -134,7 +135,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
               {/* Quality Metrics Overlay */}
               {microData.quality_metrics && imageLoaded && (
                 <div className="absolute bottom-4 left-0 right-0 px-4">
-                  <div className="grid-micro gap-2">
+                  <div className={`grid-micro ${GRID_GAP_RESPONSIVE}`}>
                     {Object.entries(microData.quality_metrics)
                       .filter(([key]) => key !== 'substrate_integrity')
                       .map(([key, value]) => (
@@ -172,7 +173,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
 
         {/* Before/After Content */}
         {(microData.before || microData.after) && (
-          <div className="grid-2col-md gap-6">
+          <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
             {microData.before && (
               <div className="p-6 md:p-8 card-background rounded-md">
                 <h4>

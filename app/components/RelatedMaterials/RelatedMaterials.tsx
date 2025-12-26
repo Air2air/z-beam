@@ -40,9 +40,9 @@ export async function RelatedMaterials({
   return (
     <SectionContainer
       variant="default"
-      title={`Related ${formattedCategory} › ${formattedSubcategory} Materials`}
+      title={`Other ${formattedSubcategory} Materials`}
       icon={getSectionIcon('related-materials')}
-      actionText="Show all"
+      actionText={formattedSubcategory}
       actionUrl={`/search?q=${encodeURIComponent(category)}`}
     >
       <CardGridSSR

@@ -2,6 +2,7 @@
 'use client';
 
 import React from 'react';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
 interface HeatStatusData {
   peakTemp: number;
@@ -191,7 +192,7 @@ export const HeatAnalysisCards: React.FC<HeatAnalysisCardsProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${className}`}>
+    <div className={`grid ${GRID_GAP_RESPONSIVE} grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${className}`}>
       <HeatStatusCard {...statusData} />
       {factors.map((factor) => (
         <HeatFactorCard key={factor.label} {...factor} />

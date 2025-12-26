@@ -23,6 +23,7 @@ import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { GridSection } from '../GridSection';
 import { CompoundSafetyGrid } from '../CompoundSafetyGrid';
+import { Collapsible } from '../Collapsible';
 import { RiskCard } from '../RiskCard/RiskCard';
 import { InfoCard } from '../InfoCard/InfoCard';
 import { EnhancedCompound } from '@/app/utils/gridMappers';
@@ -33,12 +34,16 @@ interface SafetyDataPanelProps {
   safetyData: any;
   compounds?: EnhancedCompound[];  // Enhanced compound data from produces_compounds field
   className?: string;
+  collapsible?: boolean;  // NEW: Enable collapsible mode for risk cards
+  entityName?: string;  // Name of contaminant/compound for title
 }
 
 export function SafetyDataPanel({ 
   safetyData, 
   compounds = [],  // Enhanced compound data from produces_compounds top-level field
-  className = '' 
+  className = '',
+  collapsible = false,  // NEW: Default to false for backward compatibility
+  entityName  // Name of contaminant/compound for title
 }: SafetyDataPanelProps) {
   if (!safetyData) return null;
 
@@ -49,6 +54,111 @@ export function SafetyDataPanel({
   // Check if this is compound data (has storage_requirements, regulatory_classification, etc.)
   // vs contaminant data (has fire_explosion_risk, toxic_gas_risk, etc.)
   const isCompoundData = !!(safetyData.storage_requirements || safetyData.regulatory_classification || safetyData.workplace_exposure);
+
+  // Convert safety data to collapsible format
+  const collapsibleItems = [];
+  
+  if (collapsible) {
+    const safetyDataObj: Record<string, any> = {};
+    
+    if (safetyData.fire_explosion_risk) {
+      safetyDataObj.fire_explosion_risk = {
+        severity: safetyData.fire_explosion_risk.severity || safetyData.fire_explosion_risk,
+        description: safetyData.fire_explosion_risk.description,
+        mitigation: safetyData.fire_explosion_risk.mitigation
+      };
+    }
+    
+    if (safetyData.toxic_gas_risk) {
+      safetyDataObj.toxic_gas_risk = {
+        severity: safetyData.toxic_gas_risk.severity || safetyData.toxic_gas_risk,
+        description: safetyData.toxic_gas_risk.description,
+        mitigation: safetyData.toxic_gas_risk.mitigation
+      };
+    }
+    
+    if (safetyData.visibility_hazard) {
+      safetyDataObj.visibility_hazard = {
+        severity: safetyData.visibility_hazard.severity || safetyData.visibility_hazard,
+        description: safetyData.visibility_hazard.description,
+        mitigation: safetyData.visibility_hazard.mitigation
+      };
+    }
+    
+    if (safetyData.ppe_requirements) {
+      const ppeItem = safetyData.ppe_requirements.items?.[0] || safetyData.ppe_requirements;
+      safetyDataObj.ppe_requirements = {
+        respiratory: ppeItem.respiratory,
+        eye_protection: ppeItem.eye_protection || ppeItem.eye,
+        skin_protection: ppeItem.skin_protection || ppeItem.skin,
+        rationale: ppeItem.rationale
+      };
+    }
+    
+    if (safetyData.ventilation_requirements) {
+      const ventItem = safetyData.ventilation_requirements.items?.[0] || safetyData.ventilation_requirements;
+      safetyDataObj.ventilation_requirements = {
+        minimum_air_changes_per_hour: ventItem.minimum_air_changes_per_hour,
+        exhaust_velocity_m_s: ventItem.exhaust_velocity_m_s,
+        filtration_type: ventItem.filtration_type,
+        rationale: ventItem.rationale
+      };
+    }
+    
+    if (safetyData.particulate_generation) {
+      safetyDataObj.particulate_generation = {
+        respirable_fraction: safetyData.particulate_generation.respirable_fraction,
+        size_range_um: safetyData.particulate_generation.size_range_um
+      };
+    }
+    
+    // Add compound-specific safety data
+    if (safetyData.storage_requirements) {
+      const storageItem = safetyData.storage_requirements.items?.[0] || safetyData.storage_requirements;
+      safetyDataObj.storage_requirements = storageItem;
+    }
+    
+    if (safetyData.regulatory_classification) {
+      const regItem = safetyData.regulatory_classification.items?.[0] || safetyData.regulatory_classification;
+      safetyDataObj.regulatory_classification = regItem;
+    }
+    
+    if (safetyData.workplace_exposure) {
+      const workplaceItem = safetyData.workplace_exposure.items?.[0] || safetyData.workplace_exposure;
+      safetyDataObj.workplace_exposure = workplaceItem;
+    }
+    
+    if (safetyData.reactivity) {
+      const reactivityItem = safetyData.reactivity.items?.[0] || safetyData.reactivity;
+      safetyDataObj.reactivity = reactivityItem;
+    }
+    
+    if (safetyData.environmental_impact) {
+      const envItem = safetyData.environmental_impact.items?.[0] || safetyData.environmental_impact;
+      safetyDataObj.environmental_impact = envItem;
+    }
+    
+    if (safetyData.detection_monitoring) {
+      const detectionItem = safetyData.detection_monitoring.items?.[0] || safetyData.detection_monitoring;
+      safetyDataObj.detection_monitoring = detectionItem;
+    }
+    
+    if (Object.keys(safetyDataObj).length > 0) {
+      collapsibleItems.push(safetyDataObj);
+    }
+  }
+
+  if (collapsible && collapsibleItems.length > 0) {
+    return (
+      <Collapsible
+        items={collapsibleItems}
+        sectionMetadata={{
+          title: entityName ? `${entityName} safety information` : "Safety Information",
+          description: isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"
+        }}
+      />
+    );
+  }
 
   return (
     <SectionContainer variant="default" className={`py-12 ${className}`}>
@@ -90,142 +200,200 @@ export function SafetyDataPanel({
           )}
 
           {/* PPE Requirements Card - Works for both contaminants and compounds */}
-          {safetyData.ppe_requirements && (
-            <InfoCard
-              icon={Shield}
-              title="PPE Requirements"
-              data={[
-                safetyData.ppe_requirements.respiratory && {
-                  label: 'Respiratory',
-                  value: safetyData.ppe_requirements.respiratory
-                },
-                (safetyData.ppe_requirements.eye_protection || safetyData.ppe_requirements.eye) && {
-                  label: 'Eye Protection',
-                  value: safetyData.ppe_requirements.eye_protection || safetyData.ppe_requirements.eye
-                },
-                (safetyData.ppe_requirements.skin_protection || safetyData.ppe_requirements.skin) && {
-                  label: 'Skin Protection',
-                  value: safetyData.ppe_requirements.skin_protection || safetyData.ppe_requirements.skin
-                },
-                safetyData.ppe_requirements.minimum_level && {
-                  label: 'Minimum Level',
-                  value: safetyData.ppe_requirements.minimum_level
-                }
-              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
-            />
-          )}
+          {safetyData.ppe_requirements && (() => {
+            const ppeItem = safetyData.ppe_requirements.items?.[0] || safetyData.ppe_requirements;
+            return (
+              <InfoCard
+                icon={Shield}
+                title={safetyData.ppe_requirements._section?.title || "PPE Requirements"}
+                data={[
+                  ppeItem.respiratory && {
+                    label: 'Respiratory',
+                    value: ppeItem.respiratory
+                  },
+                  (ppeItem.eye_protection || ppeItem.eye) && {
+                    label: 'Eye Protection',
+                    value: ppeItem.eye_protection || ppeItem.eye
+                  },
+                  (ppeItem.skin_protection || ppeItem.skin) && {
+                    label: 'Skin Protection',
+                    value: ppeItem.skin_protection || ppeItem.skin
+                  },
+                  ppeItem.minimum_level && {
+                    label: 'Minimum Level',
+                    value: ppeItem.minimum_level
+                  },
+                  ppeItem.additional_requirements && {
+                    label: 'Additional',
+                    value: ppeItem.additional_requirements
+                  }
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            );
+          })()}
 
           {/* Storage Requirements Card - Compound-specific */}
-          {isCompoundData && safetyData.storage_requirements && (
-            <InfoCard
-              icon={Shield}
-              title="Storage Requirements"
-              data={[
-                safetyData.storage_requirements.temperature_range && {
-                  label: 'Temperature',
-                  value: safetyData.storage_requirements.temperature_range
-                },
-                safetyData.storage_requirements.ventilation && {
-                  label: 'Ventilation',
-                  value: safetyData.storage_requirements.ventilation
-                },
-                safetyData.storage_requirements.container_material && {
-                  label: 'Container Material',
-                  value: safetyData.storage_requirements.container_material
-                }
-              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
-            />
-          )}
+          {isCompoundData && safetyData.storage_requirements && (() => {
+            const storageItem = safetyData.storage_requirements.items?.[0] || safetyData.storage_requirements;
+            return (
+              <InfoCard
+                icon={Shield}
+                title={safetyData.storage_requirements._section?.title || "Storage Requirements"}
+                data={[
+                  storageItem.temperature_range && {
+                    label: 'Temperature',
+                    value: storageItem.temperature_range
+                  },
+                  storageItem.ventilation && {
+                    label: 'Ventilation',
+                    value: storageItem.ventilation
+                  },
+                  storageItem.container_material && {
+                    label: 'Container Material',
+                    value: storageItem.container_material
+                  },
+                  storageItem.segregation && {
+                    label: 'Segregation',
+                    value: storageItem.segregation
+                  },
+                  storageItem.incompatibilities && storageItem.incompatibilities.length > 0 && {
+                    label: 'Incompatibilities',
+                    value: storageItem.incompatibilities.slice(0, 3).join(', ') + (storageItem.incompatibilities.length > 3 ? '...' : '')
+                  }
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            );
+          })()}
 
           {/* Regulatory Classification Card - Compound-specific */}
-          {isCompoundData && safetyData.regulatory_classification && (
-            <InfoCard
-              icon={AlertTriangle}
-              title="Regulatory Classification"
-              data={[
-                safetyData.regulatory_classification.un_number && {
-                  label: 'UN Number',
-                  value: safetyData.regulatory_classification.un_number
-                },
-                safetyData.regulatory_classification.dot_hazard_class && {
-                  label: 'DOT Hazard Class',
-                  value: safetyData.regulatory_classification.dot_hazard_class
-                },
-                safetyData.regulatory_classification.nfpa_codes && {
-                  label: 'NFPA',
-                  value: `H:${safetyData.regulatory_classification.nfpa_codes.health} F:${safetyData.regulatory_classification.nfpa_codes.flammability} R:${safetyData.regulatory_classification.nfpa_codes.reactivity}`
-                }
-              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
-            />
-          )}
+          {isCompoundData && safetyData.regulatory_classification && (() => {
+            const regItem = safetyData.regulatory_classification.items?.[0] || safetyData.regulatory_classification;
+            return (
+              <InfoCard
+                icon={AlertTriangle}
+                title={safetyData.regulatory_classification._section?.title || "Regulatory Classification"}
+                data={[
+                  regItem.un_number && {
+                    label: 'UN Number',
+                    value: regItem.un_number
+                  },
+                  regItem.dot_hazard_class && {
+                    label: 'DOT Hazard Class',
+                    value: regItem.dot_hazard_class
+                  },
+                  regItem.dot_label && {
+                    label: 'DOT Label',
+                    value: regItem.dot_label
+                  },
+                  regItem.nfpa_codes && {
+                    label: 'NFPA',
+                    value: `H:${regItem.nfpa_codes.health} F:${regItem.nfpa_codes.flammability} R:${regItem.nfpa_codes.reactivity}`
+                  }
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            );
+          })()}
 
           {/* Workplace Exposure Card - Compound-specific */}
-          {isCompoundData && safetyData.workplace_exposure && (
-            <InfoCard
-              icon={Wind}
-              title="Exposure Limits"
-              data={[
-                safetyData.workplace_exposure.osha_pel?.twa_8hr && {
-                  label: 'OSHA PEL (8hr)',
-                  value: `${safetyData.workplace_exposure.osha_pel.twa_8hr} ppm`
-                },
-                safetyData.workplace_exposure.niosh_rel?.twa_8hr && {
-                  label: 'NIOSH REL (8hr)',
-                  value: `${safetyData.workplace_exposure.niosh_rel.twa_8hr} ppm`
-                },
-                safetyData.workplace_exposure.niosh_rel?.idlh && {
-                  label: 'IDLH',
-                  value: `${safetyData.workplace_exposure.niosh_rel.idlh} ppm`
-                }
-              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
-            />
-          )}
+          {isCompoundData && safetyData.workplace_exposure && (() => {
+            const expItem = safetyData.workplace_exposure.items?.[0] || safetyData.workplace_exposure;
+            return (
+              <InfoCard
+                icon={Wind}
+                title={safetyData.workplace_exposure._section?.title || "Workplace Exposure"}
+                data={[
+                  expItem.osha_pel?.twa_8hr && {
+                    label: 'OSHA PEL (8hr TWA)',
+                    value: `${expItem.osha_pel.twa_8hr} ${expItem.osha_pel.unit || 'ppm'}`
+                  },
+                  expItem.niosh_rel?.twa_8hr && {
+                    label: 'NIOSH REL (8hr TWA)',
+                    value: `${expItem.niosh_rel.twa_8hr} ${expItem.niosh_rel.unit || 'ppm'}`
+                  },
+                  expItem.niosh_rel?.ceiling && {
+                    label: 'NIOSH Ceiling',
+                    value: `${expItem.niosh_rel.ceiling} ${expItem.niosh_rel.unit || 'ppm'}`
+                  },
+                  expItem.niosh_rel?.idlh && {
+                    label: 'IDLH',
+                    value: `${expItem.niosh_rel.idlh} ${expItem.niosh_rel.unit || 'ppm'}`
+                  },
+                  expItem.acgih_tlv?.twa_8hr && {
+                    label: 'ACGIH TLV (8hr TWA)',
+                    value: `${expItem.acgih_tlv.twa_8hr} ${expItem.acgih_tlv.unit || 'ppm'}`
+                  }
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            );
+          })()}
 
           {/* Detection/Monitoring Card */}
-          {safetyData.detection_monitoring && (
-            <InfoCard
-              icon={Eye}
-              title="Detection & Monitoring"
-              data={[
-                safetyData.detection_monitoring.sensor_types && {
-                  label: 'Sensors',
-                  value: Array.isArray(safetyData.detection_monitoring.sensor_types) 
-                    ? safetyData.detection_monitoring.sensor_types.join(', ')
-                    : safetyData.detection_monitoring.sensor_types
-                },
-                safetyData.detection_monitoring.detection_range && {
-                  label: 'Range',
-                  value: safetyData.detection_monitoring.detection_range
-                },
-                safetyData.detection_monitoring.alarm_setpoints?.low && {
-                  label: 'Low Alarm',
-                  value: `${safetyData.detection_monitoring.alarm_setpoints.low} ppm`
-                }
-              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
-            />
-          )}
+          {safetyData.detection_monitoring && (() => {
+            const detItem = safetyData.detection_monitoring.items?.[0] || safetyData.detection_monitoring;
+            return (
+              <InfoCard
+                icon={Eye}
+                title={safetyData.detection_monitoring._section?.title || "Detection & Monitoring"}
+                data={[
+                  (detItem.detection_method || detItem.sensor_types) && {
+                    label: 'Detection Method',
+                    value: detItem.detection_method || (Array.isArray(detItem.sensor_types) 
+                      ? detItem.sensor_types.join(', ')
+                      : detItem.sensor_types)
+                  },
+                  (detItem.monitoring_frequency || detItem.detection_range) && {
+                    label: 'Monitoring',
+                    value: detItem.monitoring_frequency || detItem.detection_range
+                  },
+                  detItem.alarm_setpoints?.low && {
+                    label: 'Low Alarm',
+                    value: `${detItem.alarm_setpoints.low} ${detItem.alarm_setpoints.unit || 'ppm'}`
+                  },
+                  detItem.alarm_setpoints?.high && {
+                    label: 'High Alarm',
+                    value: `${detItem.alarm_setpoints.high} ${detItem.alarm_setpoints.unit || 'ppm'}`
+                  },
+                  detItem.calibration_frequency && {
+                    label: 'Calibration',
+                    value: detItem.calibration_frequency
+                  }
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            );
+          })()}
 
           {/* Reactivity Card - Compound-specific */}
-          {isCompoundData && safetyData.reactivity && (
-            <InfoCard
-              icon={Flame}
-              title="Reactivity"
-              data={[
-                safetyData.reactivity.stability && {
-                  label: 'Stability',
-                  value: safetyData.reactivity.stability
-                },
-                safetyData.reactivity.polymerization && {
-                  label: 'Polymerization',
-                  value: safetyData.reactivity.polymerization
-                },
-                safetyData.reactivity.reactivity_hazard && {
-                  label: 'Hazard',
-                  value: safetyData.reactivity.reactivity_hazard
-                }
-              ].filter(Boolean) as Array<{ label: string; value: string | number }>}
-            />
-          )}
+          {isCompoundData && safetyData.reactivity && (() => {
+            const reactivityItem = safetyData.reactivity.items?.[0] || safetyData.reactivity;
+            return (
+              <InfoCard
+                icon={Flame}
+                title={safetyData.reactivity._section?.title || "Reactivity"}
+                data={[
+                  reactivityItem.stability && {
+                    label: 'Stability',
+                    value: reactivityItem.stability
+                  },
+                  reactivityItem.polymerization && {
+                    label: 'Polymerization',
+                    value: reactivityItem.polymerization
+                  },
+                  reactivityItem.reactivity_hazard && {
+                    label: 'Hazard',
+                    value: reactivityItem.reactivity_hazard
+                  },
+                  reactivityItem.incompatible_materials && reactivityItem.incompatible_materials.length > 0 && {
+                    label: 'Incompatible Materials',
+                    value: reactivityItem.incompatible_materials.slice(0, 3).join(', ') + (reactivityItem.incompatible_materials.length > 3 ? '...' : '')
+                  },
+                  reactivityItem.hazardous_decomposition && reactivityItem.hazardous_decomposition.length > 0 && {
+                    label: 'Hazardous Decomposition',
+                    value: reactivityItem.hazardous_decomposition.join(', ')
+                  }
+                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
+              />
+            );
+          })()}
 
           {/* Ventilation Requirements Card - Contaminant-specific */}
           {!isCompoundData && safetyData.ventilation_requirements && (

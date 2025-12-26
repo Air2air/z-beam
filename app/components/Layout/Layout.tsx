@@ -9,7 +9,7 @@ import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import MicroSkeleton from '../Micro/MicroSkeleton';
-import { PropertyBars } from '../PropertyBars/PropertyBars';
+import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Settings } from 'lucide-react';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
@@ -48,17 +48,13 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       machineSettings: component.config.machineSettings || {} 
     };
     return (
-      <SectionContainer 
+      <PropertyGrid
         key={type}
+        metadata={metricsMetadata}
+        dataSource="machineSettings"
         title={component.config.title || 'Machine Settings'}
-        className="mb-8"
-      >
-        <PropertyBars 
-          metadata={metricsMetadata} 
-          dataSource="machineSettings" 
-          className={component.config.className || ''}
-        />
-      </SectionContainer>
+        className={`mb-8 ${component.config.className || ''}`}
+      />
     );
   }
 
@@ -73,17 +69,13 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       properties: properties
     };
     return (
-      <SectionContainer 
+      <PropertyGrid
         key={type}
+        metadata={propertiesMetadata}
+        dataSource="materialProperties"
         title={component.config.title || 'Material Properties'}
-        className="mb-8"
-      >
-        <PropertyBars 
-          metadata={propertiesMetadata} 
-          dataSource="materialProperties"
-          className={component.config.className || ''}
-        />
-      </SectionContainer>
+        className={`mb-8 ${component.config.className || ''}`}
+      />
     );
   }
 
