@@ -140,11 +140,11 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   
   const authorName = getAuthorName(metadata.author);
   
-  // Extract SEO metadata from frontmatter (if present)
+  // Extract SEO metadata (if present)
   const seoMetadata = 'seo' in metadata ? (metadata as any).seo : undefined;
   
   // SEO-optimized title and description for material/settings/contaminant pages
-  // Priority 1: Use pre-generated SEO metadata from frontmatter
+  // Priority 1: Use pre-generated SEO metadata
   // Priority 2: Use dynamic formatters as fallback
   let seoTitle = title || '';
   let seoDescription = description || '';
@@ -303,7 +303,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       locale: 'en_US',
       determiner: 'auto', // Improves how the link appears in social shares
       
-      // Use hero image for OpenGraph with frontmatter dimensions
+      // Use hero image for OpenGraph with metadata dimensions
       images: heroImageUrl ? [{
         url: heroImageUrl,
         alt: heroImageAlt,

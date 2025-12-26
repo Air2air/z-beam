@@ -196,7 +196,7 @@ export function mapSettingsLinkageToGrid(linkage: Relationship): GridItem {
 }
 
 // ============================================================================
-// Simple Frontmatter Types and Mappers (for test compatibility)
+// Simple Metadata Types and Mappers (for test compatibility)
 // ============================================================================
 // Types now imported from @/types/centralized
 

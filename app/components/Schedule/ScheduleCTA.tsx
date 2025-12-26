@@ -1,16 +1,16 @@
-// app/components/Booking/BookingCTA.tsx
+// app/components/Schedule/ScheduleCTA.tsx
 'use client';
 
 import Link from 'next/link';
 import { CalendarIcon } from '@/app/components/Buttons';
 import { trackEvent } from '@/app/utils/analytics';
 
-interface BookingCTAProps {
+interface ScheduleCTAProps {
   variant?: 'default' | 'compact';
   className?: string;
 }
 
-export function BookingCTA({ variant = 'default', className = '' }: BookingCTAProps) {
+export function BookingCTA({ variant = 'default', className = '' }: ScheduleCTAProps) {
   const handleClick = () => {
     trackEvent('booking_cta_clicked', {
       event_category: 'Booking',

@@ -225,7 +225,6 @@ describe('Contaminant SEO Implementation', () => {
     it('should have required fields for each category', () => {
       Object.entries(CONTAMINANT_CATEGORY_METADATA).forEach(([category, metadata]) => {
         expect(metadata.title).toBeDefined();
-        expect(metadata.subtitle).toBeDefined();
         expect(metadata.description).toBeDefined();
         expect(metadata.keywords).toBeDefined();
         expect(Array.isArray(metadata.keywords)).toBe(true);

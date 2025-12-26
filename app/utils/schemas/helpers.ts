@@ -109,9 +109,11 @@ export function hasServiceData(data: any): boolean {
   const title = typeof data.title === 'string' ? data.title : '';
   const meta = getMetadata(data) as any;
   
-  // New frontmatter format: serviceOffering.isEnabled = true
+  // New frontmatter format: serviceOffering.isEnabled = true or enabled = true
   if (meta.serviceOffering?.isEnabled === true) return true;
   if (data.serviceOffering?.isEnabled === true) return true;
+  if (meta.serviceOffering?.enabled === true) return true;
+  if (data.serviceOffering?.enabled === true) return true;
   
   // Legacy formats
   return !!(

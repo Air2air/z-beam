@@ -5,7 +5,7 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Button } from '../Button';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 
-interface Props {
+interface ErrorBoundaryProps {
   children: ReactNode;
   fallback?: ReactNode;
   componentName?: string;
@@ -17,8 +17,8 @@ interface State {
   error?: Error;
 }
 
-export class ErrorBoundary extends Component<Props, State> {
-  constructor(props: Props) {
+export class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }

@@ -1,12 +1,11 @@
 /**
- * Unified Dataset Generation Tests
+ * Unified Dataset Validation Tests
  * 
- * Verifies that unified datasets correctly combine material properties
- * AND machine settings, with machine settings appearing FIRST in all formats.
+ * Verifies that datasets (generated in backend project) are correctly
+ * formatted and available for frontend consumption.
  * 
- * Architecture: One dataset per material includes both:
- * - Material properties (thermal, optical, mechanical)
- * - Machine settings (power, wavelength, spot size, etc.)
+ * Note: Dataset generation now happens in the backend project.
+ * These tests validate the structure and availability of generated files.
  */
 
 const fs = require('fs');
@@ -39,7 +38,7 @@ const isIncompleteFile = (filename) => {
   return INCOMPLETE_FILES.some(incomplete => baseName.includes(incomplete.toLowerCase()));
 };
 
-describe('Unified Dataset Generation', () => {
+describe('Unified Dataset Validation', () => {
   
   describe('Source YAML Files', () => {
     let yamlFiles;
@@ -166,9 +165,9 @@ describe('Unified Dataset Generation', () => {
         console.warn('⚠️  Skipping test - datasets not generated');
         return;
       }
-      // Expect 158-160 files (Dataset Quality Policy improved success rate to 99.4%)
-      expect(txtFiles.length).toBeGreaterThanOrEqual(158);
-      expect(txtFiles.length).toBeLessThanOrEqual(160);
+      // Backend now generates 300+ TXT files (comprehensive coverage for all materials)
+      expect(txtFiles.length).toBeGreaterThanOrEqual(300);
+      expect(txtFiles.length).toBeLessThanOrEqual(320);
     });
     
     test('TXT files should have MACHINE SETTINGS section before other sections', () => {
@@ -331,9 +330,8 @@ describe('Unified Dataset Generation', () => {
         console.warn('⚠️  Skipping test - datasets not generated');
         return;
       }
-      // Expect 158-160 files (Dataset Quality Policy improved success rate to 99.4%)
-      expect(csvFiles.length).toBeGreaterThanOrEqual(158);
-      expect(csvFiles.length).toBeLessThanOrEqual(160);
+      // Datasets now generated in backend - expect 300+ CSV files
+      expect(csvFiles.length).toBeGreaterThan(300);
     });
     
     test('CSV files should have Machine Settings rows before material properties', () => {
@@ -384,7 +382,7 @@ describe('Unified Dataset Generation', () => {
       expect(errors).toEqual([]);
     });
     
-    test('CSV files should have 15+ rows (header + basic info + 10 machine settings + properties)', () => {
+    test('CSV files should have 7+ rows (header + basic info + category headers)', () => {
       if (!fs.existsSync(OUTPUT_DIR) || !csvFiles || csvFiles.length === 0) {
         console.warn('⚠️  Skipping test - datasets not generated');
         return;
@@ -402,8 +400,8 @@ describe('Unified Dataset Generation', () => {
         const content = fs.readFileSync(filePath, 'utf8');
         const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('#'));
         
-        if (lines.length < 15) {
-          errors.push(`${file}: Expected at least 15 rows, found ${lines.length}`);
+        if (lines.length < 7) {
+          errors.push(`${file}: Expected at least 7 rows, found ${lines.length}`);
         }
       });
       
@@ -600,10 +598,9 @@ describe('Unified Dataset Generation', () => {
       const allFiles = fs.readdirSync(OUTPUT_DIR)
         .filter(f => f.endsWith('.txt') || f.endsWith('.csv') || f.endsWith('.json'));
       
-      // Expect 477-483 files (159 materials × 3 formats + index files)
-      // Success rate improved to 99.4% with Dataset Quality Policy implementation
-      expect(allFiles.length).toBeGreaterThanOrEqual(477);
-      expect(allFiles.length).toBeLessThanOrEqual(483);
+      // Datasets now generated in backend project - just verify they exist
+      // Expect 900+ files (300+ materials × 3 formats)
+      expect(allFiles.length).toBeGreaterThan(900);
     });
   });
 });

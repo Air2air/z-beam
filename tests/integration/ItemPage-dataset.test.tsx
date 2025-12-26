@@ -100,8 +100,10 @@ describe('ItemPage → Dataset Schema Integration', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    // Reset getArticle mock to return original materialArticle
-    mockConfig.getArticle = jest.fn().mockResolvedValue(materialArticle);
+    // Create fresh copy of materialArticle to avoid mutation between tests
+    // ItemPage.tsx mutates article.metadata directly, so each test needs a clean copy
+    const freshMaterial = JSON.parse(JSON.stringify(materialArticle));
+    mockConfig.getArticle = jest.fn().mockResolvedValue(freshMaterial);
   });
 
   it('should generate Dataset schema when ItemPage loads material with settings', async () => {

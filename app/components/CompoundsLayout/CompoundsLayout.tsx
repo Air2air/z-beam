@@ -86,7 +86,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
         category: metadata.category || '',
         subcategory: metadata.subcategory || '',
         description: metadata.description || '',
-        url: metadata.full_path, // Must have full_path in frontmatter
+        url: metadata.full_path, // Must have full_path in metadata
         image: metadata.images?.hero?.url || '',
       };
     })

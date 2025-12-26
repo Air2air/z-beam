@@ -3,8 +3,8 @@ name: Sulfur Dioxide
 display_name: Sulfur Dioxide (SO₂)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-24T23:09:10.155732Z'
-dateModified: '2025-12-24T23:09:10.155732Z'
+datePublished: '2025-12-21T19:35:02.550342Z'
+dateModified: '2025-12-21T19:35:02.550342Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
@@ -19,19 +19,93 @@ breadcrumb:
   href: /compounds/toxic_gas/acid_gas
 - label: Sulfur Dioxide
   href: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
-page_title: 'Sulfur Dioxide: Toxic Metal Fumes'
-meta_description: 'Sulfur Dioxide: Toxic Metal Fumes from metal processing. Requires enclosed extraction.'
 chemical_formula: SO₂
 cas_number: 7446-09-5
 molecular_weight: 64.06
-health_effects: &id001
-  presentation: card
-  items:
-  - type: health_effects
-    id: sulfur-dioxide-toxicology
+description: null
 exposure_guidelines: null
 detection_methods: null
 first_aid: null
+exposure_limits:
+  osha_pel_ppm: 5
+  osha_pel_mg_m3: 13
+  niosh_rel_ppm: 2
+  niosh_rel_mg_m3: 5
+  acgih_tlv_ppm: 0.25
+  acgih_tlv_mg_m3: 0.65
+health_effects_keywords:
+- respiratory_irritation
+- bronchospasm
+- asthma_trigger
+- pulmonary_edema
+monitoring_required: true
+typical_concentration_range: 2-10 mg/m³
+sources_in_laser_cleaning:
+- sulfur_containing_compound_oxidation
+- vulcanized_rubber_decomposition
+- sulfide_coating_removal
+relationships:
+  produced_by_contaminants:
+  - id: rubber-residue-contamination
+    title: Rubber Compound Residue
+    url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+    image: /images/contaminants/organic-residue/polymer/rubber-residue.jpg
+    frequency: common
+    severity: moderate
+    typical_context: Vulcanized rubber contains sulfur compounds
+  - id: industrial-oil-contamination
+    title: Industrial Oil / Grease Buildup
+    url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+    image: /images/contaminants/organic-residue/petroleum/industrial-oil.jpg
+    frequency: occasional
+    severity: low
+    typical_context: Sulfur additives in some lubricants
+  chemical_properties:
+  - type: chemical_properties
+    id: sulfur-dioxide-physical-data
+  health_effects: null
+  environmental_impact:
+  - type: environmental_impact
+    id: sulfur-dioxide-environmental-data
+  detection_monitoring:
+  - type: detection_monitoring
+    id: sulfur-dioxide-monitoring-methods
+  ppe_requirements:
+  - type: ppe_requirements
+    id: irritant-gas-high-concentration
+    overrides:
+      specific_compound: Sulfur Dioxide
+      pel_ppm: 5
+  emergency_response:
+    fire_hazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition
+      products in fire.
+    fire_suppression: If cylinder involved in fire, evacuate immediately - explosion
+      hazard. Cool cylinders with water spray from maximum distance. Let fire burn
+      out if possible.
+    spill_procedures: 'EVACUATE. Ventilate area. SCBA for >100 ppm. Neutralize with
+      soda ash or lime. Contain with dry sand or earth. For liquid: cryogenic hazard
+      - specialized equipment needed.'
+    exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with
+      water for 15 minutes. If inhaled: administer oxygen. Seek medical attention
+      - risk of bronchospasm and delayed pulmonary edema. For asthmatics: MEDICAL
+      EMERGENCY.'
+    environmental_hazards: Major contributor to acid rain. Toxic to vegetation. Acidifies
+      water bodies. Report releases >1 lb.
+    special_hazards: Severe respiratory and eye irritant. Triggers asthma attacks.
+      Forms sulfurous acid with moisture. Corrosive to tissues. May cause bronchospasm
+      and pulmonary edema. Cryogenic liquid causes frostbite.
+  physical_properties:
+    boiling_point: -10.0°C (14°F)
+    melting_point: -75.5°C (-103.9°F)
+    vapor_pressure: 2538 mmHg @ 21°C
+    vapor_density: 2.26 (Air=1)
+    specific_gravity: 1.43 (liquid @ 0°C)
+    flash_point: Not applicable (non-flammable)
+    autoignition_temp: Not applicable
+    explosive_limits: Not applicable
+    appearance: Colorless gas, colorless liquid under pressure
+    odor: Pungent, suffocating odor @ 0.3-1 ppm
+subcategory: acid_gas
 author:
   id: 2
   name: Alessandro Moretti
@@ -54,314 +128,241 @@ author:
   - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's
+    Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
-health_effects_keywords:
-- respiratory_irritation
-- bronchospasm
-- asthma_trigger
-- pulmonary_edema
-monitoring_required: true
-typical_concentration_range: 2-10 mg/m³
-sources_in_laser_cleaning:
-- sulfur_containing_compound_oxidation
-- vulcanized_rubber_decomposition
-- sulfide_coating_removal
-relationships:
-  safety:
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: 5
-        osha_pel_mg_m3: 13
-        niosh_rel_ppm: 2
-        niosh_rel_mg_m3: 5
-        acgih_tlv_ppm: 0.25
-        acgih_tlv_mg_m3: 0.65
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 5 ppm (13 mg/m³)
-            stel_15min: null
-            ceiling: null
-          niosh_rel:
-            twa_8hr: 2 ppm (5 mg/m³)
-            stel_15min: 5 ppm (13 mg/m³) - 15 min
-            ceiling: null
-            idlh: 100 ppm
-          acgih_tlv:
-            twa_8hr: 0.25 ppm
-            stel_15min: null
-            ceiling: null
-          biological_exposure_indices: []
-      _section:
-        title: Exposure Limits
-        description: Regulatory exposure thresholds and safe concentration levels
-        icon: gauge
-        order: 4
-        variant: warning
-  chemical_properties:
-    presentation: descriptive
-    items:
-    - type: chemical_properties
-      id: sulfur-dioxide-physical-data
-    _section:
-      title: Chemical Properties
-      description: Fundamental chemical characteristics and behavior
-      icon: microscope
-      order: 1
-      variant: default
-  health_effects: *id001
-  environmental_impact:
-    presentation: descriptive
-    items:
-    - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 100-180 mg/L. Forms acidic solutions.'
-      biodegradability: Reacts in atmosphere. Oxidizes to sulfuric acid. Not biodegradable.
-      bioaccumulation: Does not bioaccumulate.
-      soil_mobility: High mobility as gas. Deposits as sulfates. Contributes to soil acidification.
-      atmospheric_fate: 'Oxidizes to sulfur trioxide then sulfuric acid. Major acid rain precursor. Atmospheric residence:
-        hours to days.'
-      ozone_depletion: false
-      global_warming_potential: null
-      reportable_releases:
-        water: 1 lb to navigable waters
-        air: 1 lb/day (CERCLA RQ)
-    _section:
-      title: Environmental Impact
-      description: Environmental effects and ecological considerations
-      icon: wind
-      order: 8
-      variant: warning
-  detection_monitoring:
-    presentation: descriptive
-    items:
-    - sensor_types:
-      - Electrochemical
-      - UV fluorescence
-      - Infrared
-      detection_range: 0-50 ppm typical
-      alarm_setpoints:
-        low: 2 ppm (NIOSH REL)
-        high: 5 ppm (OSHA PEL/NIOSH STEL)
-        evacuate: 100 ppm (NIOSH IDLH)
-      colorimetric_tubes:
-      - Dräger SO2 0.1/a
-      - Gastec 5L
-      - Kitagawa 103
-      analytical_methods:
-      - method: NIOSH 6004
-        technique: Ion chromatography
-        detection_limit: 0.05 ppm
-      - method: OSHA ID-104
-        technique: Ion chromatography
-        detection_limit: 0.02 ppm
-      odor_threshold: 0.3-1 ppm - provides adequate warning below toxic levels
-    _section:
-      title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
-      icon: gauge
-      order: 6
-      variant: default
-  ppe_requirements:
-    presentation: descriptive
-    items:
-    - respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations. Air-purifying with acid gas cartridge
-        acceptable for ≤5 ppm with escape provisions.
-      skin: Nitrile gloves for liquid contact (cryogenic hazard). Thermal protection for liquefied SO2.
-      eye: Chemical safety goggles, face shield for liquid contact
-      minimum_level: Level C for known <5 ppm, Level B for >5 ppm or liquefied SO2
-      special_notes: Extremely irritating to eyes and respiratory tract. Cryogenic liquid causes frostbite. Asthma trigger
-        - asthmatics extremely sensitive.
-    _section:
-      title: PPE Requirements
-      description: Personal protective equipment needed for safe handling
-      icon: shield
-      order: 5
-      variant: warning
-  emergency_response:
-    presentation: descriptive
-    items:
-    - fire_hazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition products in fire.
-      fire_suppression: If cylinder involved in fire, evacuate immediately - explosion hazard. Cool cylinders with water spray
-        from maximum distance. Let fire burn out if possible.
-      spill_procedures: 'EVACUATE. Ventilate area. SCBA for >100 ppm. Neutralize with soda ash or lime. Contain with dry sand
-        or earth. For liquid: cryogenic hazard - specialized equipment needed.'
-      exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. If inhaled: administer
-        oxygen. Seek medical attention - risk of bronchospasm and delayed pulmonary edema. For asthmatics: MEDICAL EMERGENCY.'
-      environmental_hazards: Major contributor to acid rain. Toxic to vegetation. Acidifies water bodies. Report releases
-        >1 lb.
-      special_hazards: Severe respiratory and eye irritant. Triggers asthma attacks. Forms sulfurous acid with moisture. Corrosive
-        to tissues. May cause bronchospasm and pulmonary edema. Cryogenic liquid causes frostbite.
-    _section:
-      title: Emergency Response
-      description: First aid and emergency procedures for exposure incidents
-      icon: alert-triangle
-      order: 7
-      variant: danger
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: rubber-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Vulcanized rubber contains sulfur compounds
-      intensity: negative
-    - id: industrial-oil-contamination
-      frequency: occasional
-      severity: low
-      typical_context: Sulfur additives in some lubricants
-      intensity: slightly_negative
-    _section:
-      title: Produced From Contaminants
-      description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  produced_from_materials:
-    presentation: card
-    items:
-    - id: cast-iron-laser-cleaning
-    - id: iron-laser-cleaning
-    - id: rubber-laser-cleaning
-    - id: stainless-steel-304-laser-cleaning
-    - id: stainless-steel-316-laser-cleaning
-    - id: stainless-steel-laser-cleaning
-    - id: steel-laser-cleaning
-    - id: tool-steel-laser-cleaning
-    _section:
-      title: Produced From Materials
-      description: Materials that may release this compound during laser cleaning
-      icon: users
-      order: 10
-      variant: default
-  physical_properties:
-    presentation: descriptive
-    items:
-    - boiling_point: -10.0°C (14°F)
-      melting_point: -75.5°C (-103.9°F)
-      vapor_pressure: 2538 mmHg @ 21°C
-      vapor_density: 2.26 (Air=1)
-      specific_gravity: 1.43 (liquid @ 0°C)
-      flash_point: Not applicable (non-flammable)
-      autoignition_temp: Not applicable
-      explosive_limits: Not applicable
-      appearance: Colorless gas, colorless liquid under pressure
-      odor: Pungent, suffocating odor @ 0.3-1 ppm
-    _section:
-      title: Physical Properties
-      description: Physical characteristics and state information
-      icon: gauge
-      order: 2
-      variant: default
-  storage_requirements:
-    presentation: descriptive
-    items:
-    - temperature_range: Store cylinders <52°C. Liquefied SO2 requires cryogenic storage.
-      ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. SO2 gas detection mandatory.'
-      incompatibilities:
-      - Potassium chlorate
-      - Alkali metals
-      - Sodium hydride
-      - Metal oxides
-      - Aluminum
-      - Halogens
-      container_material: Steel cylinders. Stainless steel for liquid.
-      segregation: Separate from incompatibles. Corrosive gas storage area.
-      quantity_limits: Per fire code. Many facilities limit indoor storage.
-      special_requirements: 'Cylinder restraints mandatory. Leak detection system required. Post "CORROSIVE GAS" signs. Emergency
-        procedures posted. For liquid: cryogenic handling equipment.'
-    _section:
-      title: Storage Requirements
-      description: Proper storage conditions and handling precautions
-      icon: alert-triangle
-      order: 13
-      variant: warning
-  regulatory_classification:
-    presentation: descriptive
-    items:
-    - un_number: UN1079
-      dot_hazard_class: 2.3 (Toxic gas)
-      dot_label: Poison Gas
-      nfpa_codes:
-        health: 3
-        flammability: 0
-        reactivity: 0
-        special: null
-      epa_hazard_categories:
-      - Acute toxicity (inhalation)
-      - Skin corrosion
-      - Serious eye damage
-      sara_title_iii: true
-      cercla_rq: 1 pound (0.454 kg)
-      rcra_code: null
-    _section:
-      title: Regulatory Classification
-      description: Hazard classifications and regulatory designations
-      icon: file-text
-      order: 12
-      variant: default
-  reactivity:
-    presentation: descriptive
-    items:
-    - stability: Stable under normal conditions.
-      polymerization: Will not polymerize
-      incompatible_materials:
-      - Potassium chlorate
-      - Alkali metals
-      - Metal oxides
-      - Halogens
-      - Ammonia
-      - Acetylene
-      - Aluminum
-      hazardous_decomposition:
-      - Sulfur oxides
-      - Sulfuric acid mist
-      conditions_to_avoid:
-      - Heat
-      - Moisture (forms sulfurous acid)
-      - Incompatible materials
-      reactivity_hazard: Reacts with water to form sulfurous acid (corrosive). Reacts violently with metal oxides and alkali
-        metals.
-    _section:
-      title: Reactivity
-      description: Chemical reactivity and compatibility with other substances
-      icon: flame
-      order: 11
-      variant: warning
-  synonyms_identifiers:
-    presentation: descriptive
-    items:
-    - synonyms:
-      - Sulfurous anhydride
-      - Sulfur oxide
-      - SO2
-      - Sulphur dioxide
-      common_trade_names: []
-      other_identifiers:
-        rtecs_number: WS4550000
-        ec_number: 231-195-2
-        pubchem_cid: '1119'
-    _section:
-      title: Synonyms & Identifiers
-      description: Alternative names and chemical identifiers (CAS numbers)
-      icon: file-text
-      order: 14
-      variant: default
-  operational:
-    health_effects:
-      presentation: card
-      items:
-      - type: health_effects
-        id: sulfur-dioxide-toxicology
-      _section:
-        title: Health Effects
-        description: Potential health impacts from exposure
-        icon: activity
-        order: 1
-        variant: warning
+ppe_requirements:
+  respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations.
+    Air-purifying with acid gas cartridge acceptable for ≤5 ppm with escape provisions.
+  skin: Nitrile gloves for liquid contact (cryogenic hazard). Thermal protection for
+    liquefied SO2.
+  eye: Chemical safety goggles, face shield for liquid contact
+  minimum_level: Level C for known <5 ppm, Level B for >5 ppm or liquefied SO2
+  special_notes: Extremely irritating to eyes and respiratory tract. Cryogenic liquid
+    causes frostbite. Asthma trigger - asthmatics extremely sensitive.
+storage_requirements:
+  temperature_range: Store cylinders <52°C. Liquefied SO2 requires cryogenic storage.
+  ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency
+    backup. SO2 gas detection mandatory.'
+  incompatibilities:
+  - Potassium chlorate
+  - Alkali metals
+  - Sodium hydride
+  - Metal oxides
+  - Aluminum
+  - Halogens
+  container_material: Steel cylinders. Stainless steel for liquid.
+  segregation: Separate from incompatibles. Corrosive gas storage area.
+  quantity_limits: Per fire code. Many facilities limit indoor storage.
+  special_requirements: 'Cylinder restraints mandatory. Leak detection system required.
+    Post "CORROSIVE GAS" signs. Emergency procedures posted. For liquid: cryogenic
+    handling equipment.'
+regulatory_classification:
+  un_number: UN1079
+  dot_hazard_class: 2.3 (Toxic gas)
+  dot_label: Poison Gas
+  nfpa_codes:
+    health: 3
+    flammability: 0
+    reactivity: 0
+    special: null
+  epa_hazard_categories:
+  - Acute toxicity (inhalation)
+  - Skin corrosion
+  - Serious eye damage
+  sara_title_iii: true
+  cercla_rq: 1 pound (0.454 kg)
+  rcra_code: null
+workplace_exposure:
+  osha_pel:
+    twa_8hr: 5 ppm (13 mg/m³)
+    stel_15min: null
+    ceiling: null
+  niosh_rel:
+    twa_8hr: 2 ppm (5 mg/m³)
+    stel_15min: 5 ppm (13 mg/m³) - 15 min
+    ceiling: null
+    idlh: 100 ppm
+  acgih_tlv:
+    twa_8hr: 0.25 ppm
+    stel_15min: null
+    ceiling: null
+  biological_exposure_indices: []
+synonyms_identifiers:
+  synonyms:
+  - Sulfurous anhydride
+  - Sulfur oxide
+  - SO2
+  - Sulphur dioxide
+  common_trade_names: []
+  other_identifiers:
+    rtecs_number: WS4550000
+    ec_number: 231-195-2
+    pubchem_cid: '1119'
+reactivity:
+  stability: Stable under normal conditions.
+  polymerization: Will not polymerize
+  incompatible_materials:
+  - Potassium chlorate
+  - Alkali metals
+  - Metal oxides
+  - Halogens
+  - Ammonia
+  - Acetylene
+  - Aluminum
+  hazardous_decomposition:
+  - Sulfur oxides
+  - Sulfuric acid mist
+  conditions_to_avoid:
+  - Heat
+  - Moisture (forms sulfurous acid)
+  - Incompatible materials
+  reactivity_hazard: Reacts with water to form sulfurous acid (corrosive). Reacts
+    violently with metal oxides and alkali metals.
+environmental_impact:
+  aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 100-180 mg/L. Forms
+    acidic solutions.'
+  biodegradability: Reacts in atmosphere. Oxidizes to sulfuric acid. Not biodegradable.
+  bioaccumulation: Does not bioaccumulate.
+  soil_mobility: High mobility as gas. Deposits as sulfates. Contributes to soil acidification.
+  atmospheric_fate: 'Oxidizes to sulfur trioxide then sulfuric acid. Major acid rain
+    precursor. Atmospheric residence: hours to days.'
+  ozone_depletion: false
+  global_warming_potential: null
+  reportable_releases:
+    water: 1 lb to navigable waters
+    air: 1 lb/day (CERCLA RQ)
+detection_monitoring:
+  sensor_types:
+  - Electrochemical
+  - UV fluorescence
+  - Infrared
+  detection_range: 0-50 ppm typical
+  alarm_setpoints:
+    low: 2 ppm (NIOSH REL)
+    high: 5 ppm (OSHA PEL/NIOSH STEL)
+    evacuate: 100 ppm (NIOSH IDLH)
+  colorimetric_tubes:
+  - Dräger SO2 0.1/a
+  - Gastec 5L
+  - Kitagawa 103
+  analytical_methods:
+  - method: NIOSH 6004
+    technique: Ion chromatography
+    detection_limit: 0.05 ppm
+  - method: OSHA ID-104
+    technique: Ion chromatography
+    detection_limit: 0.02 ppm
+  odor_threshold: 0.3-1 ppm - provides adequate warning below toxic levels
 title: Sulfur Dioxide (SO₂)
-subcategory: acid_gas
+ppe_requirements_detail:
+  id: irritant-gas-high-concentration
+  hazard_type: irritant_gas
+  concentration_range: '>25 ppm or unknown'
+  exposure_duration: any
+  minimum_protection_level: Level B
+  idlh_atmosphere: potentially
+  respiratory:
+    primary:
+      equipment: Self-contained breathing apparatus (SCBA)
+      type: Pressure-demand, positive-pressure
+      standard: NIOSH 42 CFR 84
+      air_supply: Compressed breathing air (Grade D minimum)
+      duration: 30-60 minutes typical
+      condition: MANDATORY for >25 ppm or unknown concentrations
+      maintenance: Daily inspection, annual certification
+    alternative:
+      equipment: Supplied-air respirator with escape bottle
+      type: Pressure-demand mode
+      condition: Only if continuous air supply verified
+      escape_bottle: 5-minute minimum escape time
+  skin:
+    suit:
+      equipment: Level B chemical protective suit
+      material: Butyl rubber, Viton, or multilayer
+      standard: NFPA 1991 Level B
+      condition: Fully encapsulating when >25 ppm
+      splash_protection: Liquid-tight seams
+    gloves:
+      material: Butyl rubber (inner) + outer chemical glove
+      thickness: '>25 mil combined'
+      breakthrough_time: '>8 hours'
+      tape_seal: Taped to suit sleeves
+    boots:
+      equipment: Chemical-resistant boots
+      material: Match suit material
+      condition: Integrated or taped to suit
+  eye:
+    equipment: Full-face respirator facepiece (part of SCBA)
+    backup: Chemical goggles worn under facepiece
+    condition: Full face and eye protection mandatory
+  special_requirements:
+  - Buddy system mandatory - never work alone
+  - Continuous air monitoring with audible alarms
+  - Decontamination area established before entry
+  - Emergency escape routes identified
+  - Communication system established
+  - Entry permit required for confined spaces
+  - Standby rescue team with equivalent PPE
+  entry_procedures:
+  - Pre-entry medical clearance for SCBA use
+  - Equipment inspection checklist
+  - Atmosphere testing before and during entry
+  - Continuous air monitoring
+  - Time limits for SCBA air supply
+  - Backup SCBA or escape respirator available
+  decontamination:
+    primary:
+    - Gross decontamination in hot zone
+    - Suit and equipment wash-down
+    - Methodical removal in decon area
+    - Inner clothing removal last
+    secondary:
+    - Shower immediately after doffing
+    - Wash with soap and water for 15 minutes
+    - Medical evaluation if exposure suspected
+    disposal:
+    - All PPE as hazardous waste unless decontaminated
+    - SCBA facepieces cleaned and disinfected
+    - Suits inspected for damage before reuse
+  training_required:
+  - HAZWOPER 40-hour or equivalent
+  - SCBA qualification and practice
+  - Level B suit donning and doffing
+  - Decontamination procedures
+  - Emergency egress procedures
+  medical_surveillance:
+    required: true
+    frequency: Annual minimum
+    requirements:
+    - Respiratory medical clearance
+    - SCBA fit testing (annual)
+    - Exposure monitoring records
+  limitations:
+  - SCBA air supply limits operation time
+  - Heat stress significant in chemical suits
+  - Dexterity and mobility reduced
+  - Communication may be impaired
+  - Exit buddy system required
+  specific_compound: Sulfur Dioxide
+  pel_ppm: 5
+compound_description: Handling sulfur dioxide starts with recognizing its role as
+  a sharp, irritating gas that demands careful containment in any setup. Workers suit
+  up, seal tanks tight, and monitor flows to avoid leaks that could sting eyes or
+  choke lungs. This stuff mixes easily into water, turning acidic fast, which makes
+  it a go-to for crafting other chemicals in vast factories. Factories pump it through
+  pipes for making sulfuric acid, the backbone of fertilizers and batteries, or blend
+  it into paper bleaching to brighten whites without harsh leftovers. In food spots,
+  a dash preserves fruits and drinks, keeping spoilage at bay longer. Now, shift to
+  laser cleaning—beams tuned to its vibes zap through air laced with this gas, breaking
+  down grime on surfaces or scrubbing pollutants from exhaust streams. The gas absorbs
+  light pulses eagerly, sparking reactions that lift soot and residues clean off metals
+  or stones, all while staying reactive enough to bind with junk in the air. It's
+  tricky, though; that toxicity lingers, so ventilation stays key during these high-tech
+  wipes. Overall, sulfur dioxide powers heavy industry yet calls for respect in every
+  step.

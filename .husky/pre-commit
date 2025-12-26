@@ -5,7 +5,27 @@
 
 echo "🔍 Running pre-commit checks..."
 
-# 1. Validate YAML frontmatter schemas
+# 1. Check naming conventions
+echo "\n📝 Checking naming conventions..."
+
+# Check for .frontmatter references (should be .metadata)
+if grep -r "\.frontmatter\." app/ --include="*.ts" --include="*.tsx" 2>/dev/null | grep -v "test" > /dev/null; then
+  echo "❌ ERROR: Found .frontmatter references. Use .metadata instead."
+  echo "   Files:"
+  grep -r "\.frontmatter\." app/ --include="*.ts" --include="*.tsx" 2>/dev/null | grep -v "test" | head -5
+  echo "   See: docs/08-development/NAMING_CONVENTIONS.md"
+  exit 1
+fi
+
+# Check for duplicate type definitions
+duplicate_types=$(grep -r "^interface IconProps\|^interface BadgeProps\|^interface CardProps" app/ --include="*.ts" --include="*.tsx" 2>/dev/null | wc -l | tr -d ' ')
+if [ "$duplicate_types" -gt 0 ]; then
+  echo "⚠️  WARNING: Found potential duplicate type definitions"
+  echo "   Import from @/types instead of defining locally"
+  echo "   Run: npm test -- tests/types/centralized.test.ts"
+fi
+
+# 2. Validate YAML frontmatter schemas
 echo "\n📄 Validating YAML schemas..."
 node scripts/validate-yaml-schemas.js
 if [ $? -ne 0 ]; then
@@ -13,7 +33,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# 2. TypeScript type checking
+# 3. TypeScript type checking
 echo "\n📘 Running TypeScript type check..."
 npx tsc --noEmit --skipLibCheck
 if [ $? -ne 0 ]; then
@@ -21,7 +41,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# 3. Run quick smoke tests (only fast unit tests)
+# 4. Run quick smoke tests (only fast unit tests)
 echo "\n🧪 Running smoke tests..."
 npm test -- --testPathPattern="tests/unit" --maxWorkers=2 --bail
 if [ $? -ne 0 ]; then

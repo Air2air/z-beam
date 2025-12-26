@@ -33,7 +33,7 @@ describe('Build-Time Requirements Enforcement', () => {
       
       // Must include critical scripts
       expect(prebuild).toContain('validate:content');
-      expect(prebuild).toContain('generate:datasets');
+      // Note: generate:datasets now handled in backend project
     });
 
     it('should have build script that runs prebuild automatically', () => {
@@ -66,11 +66,7 @@ describe('Build-Time Requirements Enforcement', () => {
   });
 
   describe('Critical Script Definitions', () => {
-    it('should define generate:datasets script', () => {
-      expect(packageJson.scripts['generate:datasets']).toBeDefined();
-      // Script uses tsx for TypeScript and node for JavaScript
-      expect(packageJson.scripts['generate:datasets']).toMatch(/generate-datasets/);
-    });
+    // Note: generate:datasets script removed - now handled in backend project
 
     it('should define validate:content script', () => {
       expect(packageJson.scripts['validate:content']).toBeDefined();
@@ -101,7 +97,7 @@ describe('Build-Time Requirements Enforcement', () => {
       
       // Vercel build must validate before building
       expect(vercelBuild).toContain('validate:content');
-      expect(vercelBuild).toContain('generate:datasets');
+      // Note: generate:datasets now handled in backend project
       expect(vercelBuild).toContain('next build');
     });
 
@@ -293,10 +289,7 @@ describe('Build-Time Requirements Enforcement', () => {
 describe('Script File Existence', () => {
   const scriptsDir = path.join(process.cwd(), 'scripts');
 
-  it('should have generate-datasets.ts script', () => {
-    const scriptPath = path.join(scriptsDir, 'generate-datasets.ts');
-    expect(fs.existsSync(scriptPath)).toBe(true);
-  });
+  // Note: generate-datasets.ts moved to backend project
 
   it('should have validate-metadata-sync.js script', () => {
     const scriptPath = path.join(scriptsDir, 'validation', 'content', 'validate-metadata-sync.js');

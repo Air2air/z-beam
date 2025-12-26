@@ -36,17 +36,24 @@
 - ❌ NO hardcoded values/defaults (use config/dynamic calc)
 - ❌ NO rewriting working code (minimal surgical fixes only)
 - ❌ **NO duplicate type definitions** (use @/types exclusively) 🔥 **MANDATORY (Dec 21, 2025)**
+- ❌ **NO .frontmatter references** (use .metadata instead) 🔥 **MANDATORY (Dec 26, 2025)**
 
 **TIER 2: Quality-Critical** (Will cause bugs)
 - ❌ NO expanding scope (fix X means fix ONLY X)
 - ✅ ALWAYS fail-fast on config (throw exceptions)
 - ✅ ALWAYS log to terminal (comprehensive dual logging)
 - ✅ **ALWAYS import types from @/types** (never create local interfaces) 🔥 **MANDATORY (Dec 21, 2025)**
+- ✅ **ALWAYS use article.metadata** (never article.frontmatter or article.data) 🔥 **MANDATORY (Dec 26, 2025)**
+- ✅ **ALWAYS create named Props interfaces** (ComponentNameProps) 🔥 **REQUIRED (Dec 26, 2025)**
+- ✅ **ALWAYS use is/has/can prefixes** for boolean props (isLoading, not loading) 🔥 **REQUIRED (Dec 26, 2025)**
 
 **TIER 3: Evidence & Honesty** (Will lose trust)
 - ✅ ALWAYS provide evidence (test output, commits)
 - ✅ ALWAYS be honest (acknowledge limitations)
 - 🔥 NEVER report success when quality gates fail
+- 🔥 **NEVER create local type definitions** (import from @/types)
+
+**📖 Complete Naming Guide**: `docs/08-development/NAMING_CONVENTIONS.md`
 
 **Full Details**: See TIER PRIORITIES section below + `docs/08-development/`
 

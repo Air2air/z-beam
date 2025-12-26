@@ -5,35 +5,35 @@
  * Part of the SEO Infrastructure layer that generates navigation hierarchy
  * for both user navigation and search engine understanding.
  * 
- * @purpose Centralized breadcrumb handling from explicit frontmatter
- * @usage Import generateBreadcrumbs() and pass frontmatter + pathname
- * @priority Explicit breadcrumb array in frontmatter only
+ * @purpose Centralized breadcrumb handling from explicit metadata
+ * @usage Import generateBreadcrumbs() and pass metadata + pathname
+ * @priority Explicit breadcrumb array in metadata only
  * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
  */
 
 import { ArticleMetadata, BreadcrumbItem } from '@/types';
 
 /**
- * Generate breadcrumb navigation from explicit frontmatter only
+ * Generate breadcrumb navigation from explicit metadata only
  * 
- * All breadcrumbs must be explicitly defined in YAML frontmatter.
+ * All breadcrumbs must be explicitly defined in YAML metadata.
  * No auto-generation or URL parsing fallbacks.
  * 
- * @param frontmatter - Article metadata from YAML frontmatter
+ * @param metadata - Article metadata from YAML
  * @param pathname - Current URL pathname (unused, kept for backward compatibility)
  * @returns Array of breadcrumb items with label and href
  */
 export function generateBreadcrumbs(
-  frontmatter: Partial<ArticleMetadata> | null,
+  metadata: Partial<ArticleMetadata> | null,
   _pathname: string
 ): BreadcrumbItem[] {
   // Default fallback: Home only
   const defaultBreadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
   
-  // Use explicit breadcrumb array from frontmatter
-  if (frontmatter?.breadcrumb && Array.isArray(frontmatter.breadcrumb)) {
+  // Use explicit breadcrumb array from metadata
+  if (metadata?.breadcrumb && Array.isArray(metadata.breadcrumb)) {
     // Validate that breadcrumb items have required fields
-    const validBreadcrumbs = frontmatter.breadcrumb.filter(
+    const validBreadcrumbs = metadata.breadcrumb.filter(
       (item: any) => item && typeof item.label === 'string' && typeof item.href === 'string'
     );
     

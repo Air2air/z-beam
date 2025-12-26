@@ -138,7 +138,7 @@ export function Layout(props: LayoutProps) {
           <PageTitle 
             level="page" 
             title={title || metadata?.title || 'Article'} 
-            description={(() => {
+            page_description={(() => {
               const desc = metadata?.description || metadata?.contamination_description;
               if (typeof desc === 'object' && desc !== null && 'before' in desc) {
                 return (desc as { before?: string }).before;
@@ -201,7 +201,7 @@ export function Layout(props: LayoutProps) {
           <PageTitle 
             level="page" 
             title={title} 
-            description={props.description} 
+            page_description={props.description} 
             rightContent={props.rightContent}
           />
         )

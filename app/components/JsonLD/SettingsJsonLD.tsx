@@ -53,10 +53,14 @@ export function SettingsJsonLD({
     return null;
   }
 
-  // Transform settings data to match SchemaFactory expectations
-  const schemaData = prepareSchemaData(settings, category, subcategory);
+  // Extract material name from settings slug (remove -settings suffix)
+  const materialSlug = slug.replace(/-settings$/, '-laser-cleaning');
   
-  // Build full slug path for SchemaFactory
+  // Transform settings data to match SchemaFactory expectations
+  // Pass canonical dataset URL so Dataset @id points to materials page, not settings page
+  const schemaData = prepareSchemaData(settings, category, subcategory, materialSlug);
+  
+  // Build full slug path for SchemaFactory (settings page URL)
   const fullSlug = `settings/${category}/${subcategory}/${slug}`;
   
   // Generate comprehensive schemas using SchemaFactory
@@ -86,8 +90,9 @@ export function SettingsJsonLD({
 /**
  * Transform SettingsMetadata into SchemaFactory-compatible format
  * Enriches settings data with E-E-A-T signals and structured content
+ * @param materialSlug - Material slug for canonical dataset URL (e.g., 'oak-laser-cleaning')
  */
-function prepareSchemaData(settings: SettingsMetadata, category: string, subcategory: string): any {
+function prepareSchemaData(settings: SettingsMetadata, category: string, subcategory: string, materialSlug: string): any {
   // Extract citations from research_library (it's a Record, not an array)
   const citations: any[] = [];
   if (settings.research_library) {
@@ -137,6 +142,9 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
       
       // Settings-specific data - pass machineSettings directly for Dataset schema
       machineSettings: settings.machineSettings,
+      
+      // Canonical dataset URL for Dataset @id (points to materials page, not settings)
+      canonicalDatasetUrl: `${category}/${subcategory}/${materialSlug}`,
       
       // Enhanced E-E-A-T signals
       eeat,

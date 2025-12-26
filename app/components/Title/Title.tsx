@@ -25,7 +25,7 @@ export function Title({
   alignment = 'left',
   className = '',
   id,
-  description,
+  page_description,
   rightContent,
   
   // WCAG & Accessibility Props
@@ -93,7 +93,7 @@ export function Title({
   const titleId = id || `${level}-title-${normalizedTitle}-${titleHash}`;
   
   // Generate IDs for related elements
-  const descriptionId = description ? `${titleId}-description` : undefined;
+  const descriptionId = page_description ? `${titleId}-description` : undefined;
   const skipLinkId = skipLink ? `${titleId}-skip` : undefined;
   
   // Base classes for all titles with enhanced accessibility
@@ -165,7 +165,7 @@ export function Title({
     '@type': 'WebPageElement',
     '@id': `#${titleId}`,
     'name': title,
-    'description': description,
+    'description': page_description,
     'headline': level === 'page' ? title : undefined,
     'about': context,
     'keywords': searchKeywords.join(', '),
@@ -198,7 +198,7 @@ export function Title({
         existingScript?.remove();
       };
     }
-  }, [titleId, searchKeywords, title, description]);
+  }, [titleId, searchKeywords, title, page_description]);
   
   return (
     <>
@@ -231,7 +231,7 @@ export function Title({
               role={role || config.role}
               aria-level={config.ariaLevel}
               aria-label={ariaLabel}
-              aria-describedby={description ? descriptionId : ariaDescribedby}
+              aria-describedby={page_description ? descriptionId : ariaDescribedby}
               aria-labelledby={ariaLabelledby}
               tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
               onFocus={onFocus}
@@ -243,12 +243,12 @@ export function Title({
               {title}
             </Tag>
             
-            {description && (
+            {page_description && (
               <p 
                 id={descriptionId}
                 className="mt-3"
               >
-                {description}
+                {page_description}
               </p>
             )}
           </div>

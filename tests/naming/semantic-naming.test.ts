@@ -10,7 +10,7 @@
 import { describe, test, expect } from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
-import glob from 'glob';
+import { globSync } from 'glob';
 
 const ROOT_DIR = path.join(__dirname, '../..');
 
@@ -28,7 +28,7 @@ const EXCLUDE_PATTERNS = [
  * Find TypeScript files matching pattern
  */
 function findFiles(pattern: string): string[] {
-  return glob.sync(pattern, {
+  return globSync(pattern, {
     ignore: EXCLUDE_PATTERNS,
     cwd: ROOT_DIR,
     absolute: true

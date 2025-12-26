@@ -1,5 +1,5 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData, ChemicalProperties } from '@/types';
+import { MaterialType, BadgeData, ChemicalProperties, ArticleMetadata } from '@/types';
 import { capitalizeWords } from './formatting';
 import { getMaterialColor } from './badgeColors';
 
@@ -79,7 +79,7 @@ export function getDisplayName(item: {
 
 export function getBadgeFromItem(item: {
   badge?: BadgeData;
-  frontmatter?: {
+  metadata?: {
     subject?: string;
     category?: string;
     commentMetadata?: { Subject?: string };
@@ -89,10 +89,10 @@ export function getBadgeFromItem(item: {
   // If the item already has a badge, use it
   if (item.badge) return item.badge;
 
-  // Extract from frontmatter
-  const fm = item.frontmatter || {};
+  // Extract from metadata
+  const fm = item.metadata || {};
   
-  // Look for subject in frontmatter
+  // Look for subject in metadata
   const subject = normalizeString(fm.subject);
   
   // Special handling for known materials
@@ -157,8 +157,7 @@ export function getBadgeFromItem(item: {
 }
 
 export function getChemicalProperties(item: {
-  metadata?: { chemicalProperties?: ChemicalProperties };
-  frontmatter?: {
+  metadata?: { 
     chemicalProperties?: ChemicalProperties;
     chemicalSymbol?: string;
     chemicalFormula?: string;
@@ -201,7 +200,7 @@ export function getChemicalProperties(item: {
       }
     }
     
-    // Look for individual chemical properties in frontmatter
+    // Look for individual chemical properties in metadata
     if (item.metadata.chemicalSymbol || 
         item.metadata.chemicalFormula || 
         item.metadata.formula) {

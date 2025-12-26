@@ -15,21 +15,21 @@ describe('Schema Validator', () => {
     it('returns invalid for null schema', () => {
       const result = validateSchema(null);
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Schema is null or undefined');
     });
 
     it('returns invalid for undefined schema', () => {
       const result = validateSchema(undefined);
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Schema is null or undefined');
     });
 
     it('returns invalid for non-object schema', () => {
       const result = validateSchema('not an object');
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Schema is not a valid object');
     });
 
@@ -42,14 +42,14 @@ describe('Schema Validator', () => {
     it('returns error for invalid Schema.org type', () => {
       const result = validateSchema({ '@type': 'Material' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors[0]).toContain('Invalid @type "Material"');
     });
 
     it('validates Article required properties', () => {
       const result = validateSchema({ '@type': 'Article' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "headline" property for Article');
       expect(result.errors).toContain('Missing required "author" property for Article');
       expect(result.errors).toContain('Missing required "datePublished" property for Article');
@@ -65,21 +65,21 @@ describe('Schema Validator', () => {
         about: 'Topic'
       });
       
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
       expect(result.errors).toHaveLength(0);
     });
 
     it('validates TechArticle required properties', () => {
       const result = validateSchema({ '@type': 'TechArticle' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "headline" property for TechArticle');
     });
 
     it('validates Product required properties', () => {
       const result = validateSchema({ '@type': 'Product' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "name" property for Product');
       expect(result.errors).toContain('Missing required "description" property for Product');
     });
@@ -91,7 +91,7 @@ describe('Schema Validator', () => {
         description: 'A test product'
       });
       
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
       expect(result.warnings).toContain('Product missing offers (price/availability information)');
       expect(result.warnings).toContain('Product missing brand');
     });
@@ -112,7 +112,7 @@ describe('Schema Validator', () => {
     it('validates HowTo required properties', () => {
       const result = validateSchema({ '@type': 'HowTo' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "name" property for HowTo');
       expect(result.errors).toContain('Missing required "step" property for HowTo');
     });
@@ -120,7 +120,7 @@ describe('Schema Validator', () => {
     it('validates Dataset required properties', () => {
       const result = validateSchema({ '@type': 'Dataset' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "name" property for Dataset');
       expect(result.errors).toContain('Missing required "description" property for Dataset');
     });
@@ -128,28 +128,28 @@ describe('Schema Validator', () => {
     it('validates FAQPage required properties', () => {
       const result = validateSchema({ '@type': 'FAQPage' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "mainEntity" property for FAQPage');
     });
 
     it('validates Person required properties', () => {
       const result = validateSchema({ '@type': 'Person' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "name" property for Person');
     });
 
     it('validates BreadcrumbList required properties', () => {
       const result = validateSchema({ '@type': 'BreadcrumbList' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "itemListElement" property for BreadcrumbList');
     });
 
     it('validates WebPage required properties', () => {
       const result = validateSchema({ '@type': 'WebPage' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "name" property for WebPage');
       expect(result.errors).toContain('Missing required "url" property for WebPage');
     });
@@ -157,7 +157,7 @@ describe('Schema Validator', () => {
     it('validates VideoObject required properties', () => {
       const result = validateSchema({ '@type': 'VideoObject' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('Missing required "name" property for VideoObject');
       expect(result.errors).toContain('Missing required "thumbnailUrl" property for VideoObject');
       expect(result.errors).toContain('Missing required "uploadDate" property for VideoObject');
@@ -184,7 +184,7 @@ describe('Schema Validator', () => {
         uploadDate: '2024-01-15T00:00:00Z'
       });
       
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
     });
 
     it('accepts valid VideoObject uploadDate with offset timezone', () => {
@@ -196,7 +196,7 @@ describe('Schema Validator', () => {
         uploadDate: '2024-01-15T00:00:00+00:00'
       });
       
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
     });
   });
 
@@ -265,14 +265,14 @@ describe('Schema Validator', () => {
     it('validates single schema without @graph', () => {
       const result = validateGraphSchemas({ '@type': 'Article' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors[0]).toContain('Missing required');
     });
 
     it('returns error for non-array @graph', () => {
       const result = validateGraphSchemas({ '@graph': 'not an array' });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors).toContain('@graph must be an array');
     });
 
@@ -285,7 +285,7 @@ describe('Schema Validator', () => {
         ]
       });
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors.some(e => e.includes('[0]'))).toBe(true);
       expect(result.errors.some(e => e.includes('[1]'))).toBe(true);
     });
@@ -306,7 +306,7 @@ describe('Schema Validator', () => {
         ]
       });
       
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
       expect(result.errors).toHaveLength(0);
     });
 
@@ -336,7 +336,7 @@ describe('Schema Validator', () => {
         '@graph': [{ '@type': 'WebPage', name: 'Test', url: 'https://test.com' }]
       }, 'Test Graph', false);
       
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
     });
   });
 });
@@ -356,7 +356,7 @@ describe('Schema Type Validation', () => {
   validSchemas.forEach(({ type, schema }) => {
     it(`passes valid ${type} with required properties`, () => {
       const result = validateSchema(schema);
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
     });
   });
 
@@ -365,7 +365,7 @@ describe('Schema Type Validation', () => {
   invalidTypes.forEach(type => {
     it(`rejects invalid type: ${type}`, () => {
       const result = validateSchema({ '@type': type });
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors[0]).toContain('Invalid @type');
     });
   });

@@ -47,7 +47,7 @@ export function SectionTitle({
   const showFallback = !thumbnail || imageError;
 
   const thumbnailContent = (
-    <div className={`w-24 h-14 rounded overflow-hidden shadow-md ${thumbnailLink ? 'transition-transform duration-200 group-hover:scale-105' : ''}`}>
+    <div className={`w-24 h-14 rounded overflow-hidden shadow-md ${thumbnailLink ? 'cursor-pointer transition-transform duration-200 group-hover:scale-105' : ''}`}>
       {!showFallback ? (
         <Image
           src={thumbnail!}
@@ -58,14 +58,13 @@ export function SectionTitle({
           onError={() => setImageError(true)}
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-tertiary">
+        <div className="w-full h-full flex items-center justify-center bg-tertiary group">
           <Image
             src="/images/logo/logo-zbeam.png"
             alt=""
-            width={32}
-            height={32}
-            className="object-contain"
-            style={{ filter: 'brightness(0) saturate(100%) invert(53%) sepia(89%) saturate(2476%) hue-rotate(1deg) brightness(103%) contrast(101%)' }}
+            width={150}
+            height={50}
+            className="opacity-40 group-hover:opacity-100 transition-opacity"
           />
         </div>
       )}
@@ -86,10 +85,10 @@ export function SectionTitle({
         </h2>
         
         {subtitle && (
-          <p id={subtitleId} className={`text-sm text-muted mt-2 ${alignmentClasses[alignment]}`}>
+          <p id={subtitleId} className={`text-sm text-muted mt-2 ${alignmentClasses[alignment]}`} role="doc-subtitle">
             {subtitle}
           </p>
-        )}
+        )})
         
         {description && (
           <p className={`text-base text-primary mt-2 ${alignmentClasses[alignment]}`}>
@@ -98,14 +97,13 @@ export function SectionTitle({
         )}
       </div>
       
-      {thumbnail && (
-        thumbnailLink ? (
-          <Link href={thumbnailLink} className="group" aria-label={`View ${thumbnailAlt || 'material'} page`}>
-            {thumbnailContent}
-          </Link>
-        ) : (
-          <div aria-hidden="true">{thumbnailContent}</div>
-        )
+      {/* Thumbnail area - shows actual thumbnail or fallback logo */}
+      {thumbnailLink ? (
+        <Link href={thumbnailLink} className="group" aria-label={`View ${thumbnailAlt || 'material'} page`}>
+          {thumbnailContent}
+        </Link>
+      ) : (
+        <div aria-hidden="true">{thumbnailContent}</div>
       )}
     </div>
   );

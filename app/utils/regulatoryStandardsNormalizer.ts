@@ -3,7 +3,7 @@
  * @purpose Automatically resolves "Unknown" regulatory standard names by extracting
  *          organization abbreviations from descriptions
  * @dependencies None (pure function)
- * @usage Import normalizeRegulatoryStandards and apply to frontmatter.regulatoryStandards
+ * @usage Import normalizeRegulatoryStandards and apply to metadata.regulatoryStandards
  */
 
 import type { RegulatoryStandard } from '@/types';
@@ -115,7 +115,7 @@ function identifyOrg(description: string): { name: string; longName: string; ima
 
 /**
  * Normalize regulatory standards by resolving "Unknown" names
- * @param standards - Array of regulatory standards from frontmatter
+ * @param standards - Array of regulatory standards from metadata
  * @returns Normalized array with Unknown entries resolved where possible
  */
 export function normalizeRegulatoryStandards(
