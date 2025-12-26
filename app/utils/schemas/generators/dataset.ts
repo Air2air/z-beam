@@ -5,6 +5,7 @@
 
 import { SITE_CONFIG } from '../../constants';
 import { createAuthorReference } from './person';
+import type { Author } from '@/types';
 import type { SchemaContext, AuthorData, PropertyValue } from './types';
 
 export interface DatasetSchemaOptions {
@@ -16,6 +17,7 @@ export interface DatasetSchemaOptions {
   machineSettings?: Record<string, any>; // For Settings pages
   modifiedDate?: string;
   license?: string;
+  canonicalDatasetUrl?: string; // Override for settings pages to use materials dataset URL
 }
 
 /**
@@ -30,10 +32,13 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
     materialProperties = {},
     machineSettings,
     modifiedDate,
-    license = 'https://creativecommons.org/licenses/by/4.0/'
+    license = 'https://creativecommons.org/licenses/by/4.0/',
+    canonicalDatasetUrl
   } = options;
   
   const { baseUrl, pageUrl, currentDate } = context;
+  // Use canonical dataset URL if provided (for settings pages), otherwise use pageUrl
+  const datasetUrl = canonicalDatasetUrl || pageUrl;
   const modDate = modifiedDate || currentDate || new Date().toISOString();
   
   // Calculate property count and build measurements
@@ -123,7 +128,7 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
   
   return {
     '@type': 'Dataset',
-    '@id': `${pageUrl}#dataset`,
+    '@id': `${datasetUrl}#dataset`,
     name: isSettingsPage ? `${name} Laser Cleaning Parameters` : `${name} Material Properties Dataset`,
     description: datasetDescription,
     
@@ -152,7 +157,7 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
     distribution: {
       '@type': 'DataDownload',
       encodingFormat: 'application/json',
-      contentUrl: `${pageUrl}/dataset.json`
+      contentUrl: `${datasetUrl}/dataset.json`
     },
     
     // Measurements

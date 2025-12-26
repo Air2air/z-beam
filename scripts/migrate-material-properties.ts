@@ -1,4 +1,5 @@
 #!/usr/bin/env tsx
+// @ts-nocheck - Migration script with local type definitions
 /**
  * Material Properties Migration Script
  * 

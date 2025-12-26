@@ -4,6 +4,7 @@
  */
 
 import { createAuthorReference } from './person';
+import type { Author } from '@/types';
 import type { SchemaContext, AuthorData, ImageData } from './types';
 
 export interface HowToStep {

@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from './constants';
+import type { Author } from '@/types';
 import {
   generatePersonSchema,
   generateArticleSchema,
@@ -41,27 +42,27 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
       return null;
     }
     
-    const frontmatter = articleData.frontmatter || articleData;
+    const metadata = articleData.metadata || articleData;
     
     // Extract data
-    const materialProperties = frontmatter.materialProperties || {};
-    const machineSettings = frontmatter.machineSettings || {};
-    const author = frontmatter.author || {};
-    const images = frontmatter.images || {};
-    const applications = frontmatter.applications || [];
-    const regulatoryStandards = frontmatter.regulatoryStandards || [];
-    const micro = frontmatter.micro || {};
-    const faq = frontmatter.faq || [];
+    const materialProperties = metadata.materialProperties || {};
+    const machineSettings = metadata.machineSettings || {};
+    const author = metadata.author || {};
+    const images = metadata.images || {};
+    const applications = metadata.applications || [];
+    const regulatoryStandards = metadata.regulatoryStandards || [];
+    const micro = metadata.micro || {};
+    const faq = metadata.faq || [];
     
-    const title = frontmatter.title || 'Material Guide';
-    const description = frontmatter.description || '';
-    const subtitle = frontmatter.subtitle || '';
-    const materialName = frontmatter.name || title.replace(/\s*Laser Cleaning$/i, '');
-    const category = frontmatter.category || 'material';
-    const subcategory = frontmatter.subcategory || '';
+    const title = metadata.title || 'Material Guide';
+    const description = metadata.description || '';
+    const subtitle = metadata.subtitle || '';
+    const materialName = metadata.name || title.replace(/\s*Laser Cleaning$/i, '');
+    const category = metadata.category || 'material';
+    const subcategory = metadata.subcategory || '';
     
-    const publishDate = frontmatter.datePublished || frontmatter.lastModified;
-    const modifiedDate = frontmatter.dateModified || frontmatter.lastModified;
+    const publishDate = metadata.datePublished || metadata.lastModified;
+    const modifiedDate = metadata.dateModified || metadata.lastModified;
     
     // Create context
     const context = createContext(slug);

@@ -541,7 +541,129 @@ interface User { ... }
 
 ---
 
-## 15. When in Doubt
+## 15. Enforcement & Validation
+
+### Automated Checks
+```bash
+# Check for naming violations
+npm run lint:naming
+
+# Fix auto-fixable issues
+npm run lint:naming --fix
+```
+
+### Common Violations
+```typescript
+// ❌ VIOLATIONS
+article.frontmatter.title     // Use .metadata not .frontmatter
+interface Props { ... }        // Use ComponentNameProps pattern
+loading: boolean              // Use isLoading with prefix
+expertise: string[]           // Use expertiseAreas for clarity
+
+// ✅ CORRECT
+article.metadata.title
+interface ComponentNameProps { ... }
+isLoading: boolean
+expertiseAreas: string[]
+```
+
+### ESLint Rules (Recommended)
+```javascript
+// .eslintrc.js
+rules: {
+  'no-frontmatter-property': 'error',  // Ban .frontmatter usage
+  'boolean-prefix-required': 'error',  // Require is/has/can/should
+  'interface-naming': 'error',         // Enforce ComponentNameProps
+  'array-plural-naming': 'warn',       // Suggest plural for arrays
+}
+```
+
+---
+
+## 16. Automated Enforcement
+
+### Validation Scripts
+**Location**: `scripts/validation/`  
+**Integration**: Runs automatically in `prebuild` hook
+
+```bash
+# Semantic naming validation
+npm run validate:naming:semantic
+
+# Type import validation
+npm run validate:types
+
+# Run all validations
+npm run validate:all
+```
+
+### What Gets Checked
+
+#### 1. Semantic Naming (`validate:naming:semantic`)
+- ❌ **Fails build**: `.frontmatter` usage (should use `.metadata`)
+- ❌ **Fails build**: Generic `Props` interfaces (should use `ComponentNameProps`)
+- ⚠️  **Warns**: Boolean props without `is/has/can/should` prefixes
+- ⚠️  **Warns**: Array fields with singular naming
+
+#### 2. Type Imports (`validate:types`)
+- ❌ **Fails build**: Duplicate type definitions (IconProps, Author, etc.)
+- ❌ **Fails build**: Using centralized types without importing from `@/types`
+- ℹ️  **Suggests**: Local Props types that could be centralized
+
+### Test Suite
+**Location**: `tests/naming/semantic-naming.test.ts`
+
+```bash
+# Run naming tests
+npm test tests/naming
+
+# Part of full test suite
+npm test
+```
+
+### Pre-Deployment Flow
+```
+git push
+  ↓
+Vercel Build Triggered
+  ↓
+npm run prebuild
+  ├─ validate:content        ✓ Frontmatter, metadata
+  ├─ validate:naming:semantic ✓ Terminology, Props
+  └─ validate:types          ✓ Type duplicates
+  ↓
+[If violations] → ❌ Build fails
+[If clean]      → ✓ Continue to next build
+```
+
+### Documentation
+See [VALIDATION_INFRASTRUCTURE.md](./VALIDATION_INFRASTRUCTURE.md) for complete validation system details.
+
+---
+
+## 17. Migration Notes
+
+### Recent Changes (December 26, 2025)
+- ✅ **Spec renamed**: `BACKEND_FRONTMATTER_SPEC.md` → `BACKEND_METADATA_SPEC.md`
+- ✅ **Terminology**: `frontmatter` → `metadata` (programmatic access)
+- ✅ **Author fields**: `expertise` → `expertiseAreas`, `credentials` → `credentialsList`
+- ✅ **Props naming**: Generic `Props` → `ComponentNameProps` pattern
+- ✅ **Boolean naming**: Ambiguous names → `is/has/can/should` prefixes
+- ✅ **Validation**: Automated enforcement via `prebuild` hook
+
+### Backward Compatibility
+```typescript
+// Legacy support (deprecated)
+/** @deprecated Use expertiseAreas instead */
+expertise?: string | string[];
+
+/** @deprecated Use credentialsList instead */
+credentials?: string[];
+```
+
+---
+
+## 18. When in Doubt
 
 ### Principles
 1. **Clarity over brevity**: `isUserAuthenticated` > `auth`
@@ -557,12 +679,14 @@ interface User { ... }
 
 ---
 
-## 16. Resources
+## 19. Resources
 
-- **Full Audit**: `docs/reference/SEMANTIC_NAMING_AUDIT.md`
-- **Type System**: `types/centralized.ts`
+- **Metadata Spec**: `docs/reference/BACKEND_METADATA_SPEC.md` (renamed from FRONTMATTER)
+- **Type System**: `types/centralized.ts` (single source of truth for all types)
+- **Validation**: `docs/08-development/VALIDATION_INFRASTRUCTURE.md` (enforcement details)
 - **AI Instructions**: `.github/copilot-instructions.md`
 - **Style Guide**: Follow TypeScript + React best practices
+- **Testing**: Component tests validate proper naming patterns
 
 ---
 

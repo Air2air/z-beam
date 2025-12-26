@@ -137,14 +137,9 @@ export interface MaterialPropertyValue {
   metadata?: Record<string, unknown>;
 }
 
-export interface MaterialProperties {
-  [category: string]: {
-    label?: string;
-    description?: string;
-    properties?: Record<string, MaterialPropertyValue>;
-    [key: string]: unknown;
-  } | Record<string, MaterialPropertyValue>;
-}
+// Import MaterialProperties from centralized types
+import type { MaterialProperties } from '@/types';
+export type { MaterialProperties };
 
 // Frontmatter types
 export interface FrontmatterBase {

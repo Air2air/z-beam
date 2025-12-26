@@ -51,16 +51,26 @@ export interface Author {
   slug?: string; // Added from AuthorMetadata for routing
   name: string;
   title?: string;
-  expertise?: string | string[]; // Support both string and array formats
-  specialties?: string[]; // Added from AuthorMetadata
+  
+  // Expertise fields (new and legacy)
+  expertiseAreas?: string | string[]; // Support both string and array formats (plural for array)
+  /** @deprecated Use expertiseAreas instead */
+  expertise?: string | string[]; // Legacy field for backward compatibility
+  
+  specialties?: string[]; // Array of specializations
   country?: string;
   image?: string;
   bio?: string;
   email?: string;
   linkedin?: string;
   publishedArticles?: string[] | number; // Support both article list and count
-  education?: string[]; // Added from AuthorMetadata
-  articleType?: "author"; // Added from AuthorMetadata
+  
+  // Education fields (new and legacy)
+  educationList?: string[]; // Array of education credentials (plural)
+  /** @deprecated Use educationList instead */
+  education?: string[]; // Legacy field for backward compatibility
+  
+  articleType?: "author"; // Article type marker
   profile?: {
     description?: string;
     expertiseAreas?: string[];
@@ -72,7 +82,12 @@ export interface Author {
   
   // Enhanced author object fields
   affiliation?: string;
-  credentials?: string[];
+  
+  // Credentials fields (new and legacy)
+  credentialsList?: string[]; // Array of credentials (plural)
+  /** @deprecated Use credentialsList instead */
+  credentials?: string[]; // Legacy field for backward compatibility
+  
   experience_years?: number;
   verification_level?: 'verified' | 'expert' | 'industry_leader' | 'academic';
   research_focus?: string[];
@@ -687,7 +702,7 @@ export interface TitleProps {
   alignment?: 'left' | 'center' | 'right';
   className?: string;
   id?: string;
-  description?: string;
+  page_description?: string;
   rightContent?: ReactNode;
   
   // WCAG & Accessibility Props
