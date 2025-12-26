@@ -102,10 +102,7 @@ export function mapMaterialLinkageToGrid(linkage: Relationship): GridItem {
       category: linkage.category,
       severity: linkage.severity,
       subject: linkage.severity,
-    },
-    metadata: {
       frequency: linkage.frequency,
-      severity: linkage.severity,
       typical_context: linkage.typical_context,
     },
   };
@@ -136,10 +133,7 @@ export function mapContaminantLinkageToGrid(linkage: Relationship): GridItem {
       },
       severity: linkage.severity,
       subject: linkage.title,
-    },
-    metadata: {
       frequency: linkage.frequency,
-      severity: linkage.severity,
       typical_context: linkage.typical_context,
     },
   };
@@ -168,10 +162,7 @@ export function mapCompoundLinkageToGrid(linkage: Relationship): GridItem {
       category: linkage.category,
       severity: linkage.severity,
       subject: linkage.severity,  // Show severity as subject
-    },
-    metadata: {
       frequency: linkage.frequency,
-      severity: linkage.severity,
       typical_context: linkage.typical_context,
     },
   };
@@ -198,8 +189,6 @@ export function mapSettingsLinkageToGrid(linkage: Relationship): GridItem {
         }
       },
       category: linkage.category,
-    },
-    metadata: {
       frequency: linkage.frequency,
       typical_context: linkage.typical_context,
     },
