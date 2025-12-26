@@ -95,9 +95,10 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
       condition: () => !!metadata?.images?.micro?.url,
       props: {}
     },
-    // DUMP ALL RELATIONSHIPS FOR ANALYSIS
+    // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only)
     {
       component: RelationshipsDump,
+      condition: () => process.env.NODE_ENV === 'development',
       props: {
         relationships,
         entityName: materialName,

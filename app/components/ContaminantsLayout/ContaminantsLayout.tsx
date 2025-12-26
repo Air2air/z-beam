@@ -160,9 +160,10 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
         sectionMetadata: laserProperties?.metadata,
       }
     },
-    // DUMP ALL RELATIONSHIPS FOR ANALYSIS
+    // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only)
     {
       component: RelationshipsDump,
+      condition: () => process.env.NODE_ENV === 'development',
       props: {
         relationships,
         entityName: contaminantName,

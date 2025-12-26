@@ -251,9 +251,10 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
         }
       };
     }),
-    // DUMP ALL RELATIONSHIPS FOR ANALYSIS
+    // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only)
     {
       component: RelationshipsDump,
+      condition: () => process.env.NODE_ENV === 'development',
       props: {
         relationships,
         entityName: compoundName
