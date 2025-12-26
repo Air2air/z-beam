@@ -1,361 +1,77 @@
-id: nitrogen-oxides-compound
-name: Nitrogen Oxides
-display_name: NOₓ
-category: toxic_gas
-hazard_class: toxic
-datePublished: '2025-12-21T19:35:02.536417Z'
-dateModified: '2025-12-21T19:35:02.536417Z'
-content_type: compounds
-schema_version: 5.0.0
-full_path: /compounds/toxic-gas/oxidizing-gas/nitrogen-oxides-compound
-breadcrumb:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Toxic Gas
-  href: /compounds/toxic_gas
-- label: Oxidizing Gas
-  href: /compounds/toxic_gas/oxidizing_gas
-- label: Nitrogen Oxides
-  href: /compounds/toxic-gas/oxidizing-gas/nitrogen-oxides-compound
-chemical_formula: NOx
-cas_number: Various
-molecular_weight: null
-description: null
-exposure_guidelines: null
-detection_methods: null
-first_aid: null
-exposure_limits:
-  osha_pel_ppm: 25
-  osha_pel_mg_m3: 9
-  niosh_rel_ppm: null
-  niosh_rel_mg_m3: 1.8
-  acgih_tlv_ppm: 3
-  acgih_tlv_mg_m3: 5.6
-health_effects_keywords:
-- respiratory_irritation
-- pulmonary_edema
-- bronchitis
-- delayed_effects
-monitoring_required: true
-typical_concentration_range: 1-10 mg/m³
-sources_in_laser_cleaning:
-- high_energy_laser_interaction
-- nitrogen_compound_oxidation
-- atmospheric_nitrogen_fixation
-relationships:
-  produced_by_contaminants:
-  - id: rust-oxidation-contamination
-    title: Rust / Iron Oxide Formation
-    url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
-    image: /images/contaminants/rust-oxidation.jpg
-    frequency: common
-    severity: low
-    typical_context: High-temperature iron oxide reactions with nitrogen
-  chemical_properties:
-  - type: chemical_properties
-    id: nitrogen-oxides-physical-data
-  health_effects: null
-  environmental_impact:
-  - type: environmental_impact
-    id: nitrogen-oxides-environmental-data
-  detection_monitoring:
-  - type: detection_monitoring
-    id: nitrogen-oxides-monitoring-methods
-  ppe_requirements:
-  - type: ppe_requirements
-    id: irritant-gas-low-concentration
-    overrides:
-      specific_compound: Nitrogen Oxides
-      pel_ppm: 25
-  emergency_response:
-    fire_hazard: Non-flammable but supports combustion. Strong oxidizer. Increases
-      fire intensity. May explode when heated.
-    fire_suppression: Do not fight fire if gas cylinder involved - extreme explosion
-      risk. Evacuate. Cool cylinders with water spray from safe distance. Let fire
-      burn out.
-    spill_procedures: 'EVACUATE. Liquid NO2/N2O4: extreme hazard. Ventilate area.
-      SCBA mandatory. Contain with soda ash or lime neutralization. Never use water
-      directly on liquid NOx.'
-    exposure_immediate_actions: Remove to fresh air immediately. Administer 100% oxygen.
-      Severe respiratory irritation likely. Monitor for delayed pulmonary edema (6-72
-      hours). Seek immediate medical attention - hospitalize for observation even
-      if asymptomatic.
-    environmental_hazards: Contributes to acid rain, smog, ozone formation. Toxic
-      to vegetation. Report significant releases.
-    special_hazards: DELAYED PULMONARY EDEMA - asymptomatic period 6-72 hours then
-      sudden respiratory failure. NO converts to NO2 in air (more toxic). Strong oxidizer.
-      Corrosive to respiratory tract. May explode under pressure.
-  physical_properties:
-    boiling_point: 'NO: -151.7°C, NO2: 21.2°C, N2O4: 21.2°C'
-    melting_point: 'NO: -163.6°C, NO2: -11.2°C'
-    vapor_pressure: 'NO: >760 mmHg @ 20°C (gas), NO2: 760 mmHg @ 21°C'
-    vapor_density: 'NO: 1.04 (Air=1), NO2: 1.58 (Air=1)'
-    specific_gravity: 'NO2: 1.45 (liquid @ 21°C)'
-    flash_point: Not applicable (non-flammable)
-    autoignition_temp: Not applicable
-    explosive_limits: Not applicable (supports combustion)
-    appearance: 'NO: colorless gas, NO2: reddish-brown gas, N2O4: colorless liquid/gas'
-    odor: 'NO2: pungent, irritating odor @ 0.1-1 ppm. NO: odorless'
-subcategory: oxidizing_gas
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  country_display: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
-    in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
-ppe_requirements:
-  respiratory: SCBA or positive-pressure supplied-air respirator for >1 ppm NO2 or
-    unknown concentrations. Air-purifying with acid gas cartridge acceptable for ≤1
-    ppm NO2 only.
-  skin: Nitrile or butyl rubber gloves for liquid contact. Chemical-resistant clothing
-    if high concentrations.
-  eye: Chemical safety goggles, face shield for high concentrations
-  minimum_level: Level C for known <1 ppm NO2, Level B for >1 ppm or NO/NO2 mixtures
-  special_notes: NO2 is brown gas, NO is colorless. Both highly toxic. Delayed pulmonary
-    edema possible 6-72 hours after exposure. STEL critical - short exposures very
-    dangerous.
-storage_requirements:
-  temperature_range: Store cylinders <52°C. Keep away from heat.
-  ventilation: 'Outdoor storage strongly preferred. Indoor: mechanical ventilation
-    with emergency backup. NOx gas detection mandatory.'
-  incompatibilities:
-  - Flammable materials
-  - Combustible materials
-  - Reducing agents
-  - Ammonia
-  - Carbon disulfide
-  - Hydrogen sulfide
-  - Petroleum products
-  container_material: Steel cylinders for compressed gas. Stainless steel or glass
-    for liquid.
-  segregation: Separate from flammables and combustibles by 20 feet or firewall. Oxidizer
-    storage area.
-  quantity_limits: 'Per fire code: limit cylinders in buildings. Many facilities store
-    outdoors only.'
-  special_requirements: Cylinder restraints mandatory. Leak detection system required.
-    Post "OXIDIZER" and "POISON GAS" signs. Emergency procedures posted. Monitor cylinder
-    integrity regularly.
-regulatory_classification:
-  un_number: UN1067 (nitrogen dioxide/dinitrogen tetroxide), UN2201 (nitrous oxide)
-  dot_hazard_class: 2.3 (Toxic gas), 5.1 (Oxidizer)
-  dot_label: Poison Gas, Oxidizer
-  nfpa_codes:
-    health: 3
-    flammability: 0
-    reactivity: 0
-    special: OX (Oxidizer)
-  epa_hazard_categories:
-  - Acute toxicity (inhalation)
-  - Oxidizing gas
-  - Corrosive
-  sara_title_iii: true
-  cercla_rq: 10 pounds (4.54 kg) for NO2
-  rcra_code: P078 (nitrogen dioxide)
-workplace_exposure:
-  osha_pel:
-    twa_8hr: null
-    stel_15min: null
-    ceiling: 5 ppm (NO2), 25 ppm (NO)
-  niosh_rel:
-    twa_8hr: null
-    stel_15min: 1 ppm (NO2) - 15 min ceiling
-    ceiling: null
-    idlh: 20 ppm (NO2), 100 ppm (NO)
-  acgih_tlv:
-    twa_8hr: 0.2 ppm (NO2), 25 ppm (NO)
-    stel_15min: 1 ppm (NO2)
-    ceiling: null
-  biological_exposure_indices:
-  - metabolite: Methemoglobin
-    specimen: Blood
-    timing: During or end of shift
-    bei_value: <1.5% of hemoglobin (NO exposure)
-  - metabolite: Nitrate/Nitrite
-    specimen: Urine
-    timing: End of shift
-    bei_value: Establish baseline
-synonyms_identifiers:
-  synonyms:
-  - NOx
-  - Nitrogen dioxide (NO2)
-  - Nitric oxide (NO)
-  - Dinitrogen tetroxide (N2O4)
-  - Nitrogen peroxide
-  common_trade_names: []
-  other_identifiers:
-    rtecs_number: QW9800000 (NO2)
-    ec_number: 233-272-6 (NO2)
-    pubchem_cid: 3032552 (NOx)
-reactivity:
-  stability: NO2/N2O4 equilibrium temperature-dependent. May decompose under heat/pressure.
-  polymerization: Will not polymerize
-  incompatible_materials:
-  - Reducing agents
-  - Flammable materials
-  - Organic materials
-  - Ammonia
-  - Carbon disulfide
-  - Hydrogen sulfide
-  - Petroleum
-  - Alcohols
-  hazardous_decomposition:
-  - Nitrogen
-  - Oxygen
-  - Toxic nitrogen oxides
-  conditions_to_avoid:
-  - Heat
-  - Pressure
-  - Incompatible materials
-  - Moisture (forms corrosive acids)
-  reactivity_hazard: Strong oxidizer. Reacts violently with reducing agents and combustibles.
-    Forms nitric acid with water. May explode under heat/pressure.
-environmental_impact:
-  aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): varies by species and
-    form. Forms acidic solutions.'
-  biodegradability: Reacts in atmosphere. Converts to nitric acid. Not biodegradable.
-  bioaccumulation: Does not bioaccumulate.
-  soil_mobility: High mobility as gas. Deposits as nitrates. Contributes to soil acidification.
-  atmospheric_fate: 'Photochemical reactions produce ozone. Forms nitric acid with
-    water vapor. Contributes to acid rain. Residence time: hours to days.'
-  ozone_depletion: true
-  global_warming_potential: 'N2O: 298 (CO2=1)'
-  reportable_releases:
-    water: 10 lbs NO2 to navigable waters
-    air: 10 lbs/day NO2 (CERCLA RQ)
-detection_monitoring:
-  sensor_types:
-  - Electrochemical
-  - Chemiluminescence
-  - NDIR
-  - Metal oxide
-  detection_range: 0-50 ppm typical
-  alarm_setpoints:
-    low: 1 ppm (NIOSH STEL for NO2)
-    high: 5 ppm (OSHA ceiling for NO2)
-    evacuate: 20 ppm (NIOSH IDLH for NO2)
-  colorimetric_tubes:
-  - Dräger NO2 0.5/a
-  - Gastec 9L
-  - Kitagawa 175
-  analytical_methods:
-  - method: NIOSH 6014
-    technique: Spectrophotometry
-    detection_limit: 0.01 ppm (NO2)
-  - method: OSHA ID-182
-    technique: Ion chromatography
-    detection_limit: 0.007 ppm
-  odor_threshold: 'NO2: 0.1-1 ppm (provides warning but overlaps toxic range). NO:
-    odorless (NO WARNING).'
-title: NOₓ
-ppe_requirements_detail:
-  id: irritant-gas-low-concentration
-  hazard_type: irritant_gas
-  concentration_range: <25 ppm
-  exposure_duration: short_term
-  minimum_protection_level: Level C
-  respiratory:
-    primary:
-      equipment: NIOSH-approved organic vapor respirator
-      standard: NIOSH 42 CFR 84
-      filter_type: Organic vapor cartridge
-      condition: For concentrations <25 ppm
-      fit_test_required: true
-      change_schedule: Per manufacturer guidance or saturation
-    upgrade_conditions:
-    - trigger: Concentration >25 ppm
-      equipment: Self-contained breathing apparatus (SCBA)
-    - trigger: Unknown concentration
-      equipment: SCBA or supplied-air respirator
-    - trigger: Oxygen deficient atmosphere (<19.5%)
-      equipment: SCBA (pressure-demand mode)
-  skin:
-    gloves:
-      material: Nitrile or butyl rubber
-      thickness: 15-18 mil minimum
-      standard: ANSI/ISEA 105
-      breakthrough_time: '>480 minutes'
-      condition: All handling operations
-    body:
-      equipment: Chemical-resistant apron or coveralls
-      material: Tyvek or equivalent polymer-laminate
-      standard: ANSI/ISEA 101
-      condition: Splash potential or prolonged exposure
-    footwear:
-      equipment: Chemical-resistant boots
-      material: Nitrile or PVC
-      condition: Floor contamination or large spills
-  eye:
-    primary:
-      equipment: Chemical safety goggles
-      type: Indirect vents, sealed to face
-      standard: ANSI Z87.1
-      marking: Z87+ for impact protection
-      condition: All operations with exposure potential
-    secondary:
-      equipment: Face shield
-      condition: Splash hazard or container transfer
-      use: Over goggles, not replacement
-  special_requirements:
-  - Work in well-ventilated area or use local exhaust ventilation
-  - Eliminate all ignition sources within 50 feet
-  - Emergency shower and eyewash within 10 seconds travel time
-  - Prohibit eating, drinking, smoking in contaminated areas
-  - Wash hands thoroughly before eating or drinking
-  decontamination:
-  - Remove contaminated clothing immediately
-  - Wash skin with soap and water
-  - Launder contaminated clothing separately
-  - Do not reuse until properly decontaminated
-  training_required:
-  - Respiratory protection program
-  - Chemical hazard awareness
-  - PPE donning and doffing procedures
-  - Emergency response procedures
-  medical_surveillance:
-    required: false
-    recommended: Annual respiratory fitness evaluation
-  limitations:
-  - Not for IDLH (Immediately Dangerous to Life or Health) atmospheres
-  - Not for oxygen-deficient environments
-  - Air-purifying respirators do not supply oxygen
-  specific_compound: Nitrogen Oxides
-  pel_ppm: 25
-compound_description: 'Nitrogen oxides hit hard as toxic gases. They mix into the
-  air, turning sharp and reactive. Color shifts from clear to rusty red-brown in some
-  forms. These gases bond fast, sparking changes in fuels or chemicals.
+name: nitrogen-oxides-compound
+slug: nitrogen-oxides-compound
+title: nitrogen-oxides-compound
+ppe_requirements: 'Handling nitrogen oxides demands solid PPE setups. I''ve dealt
+  with similar toxic gases before—proper gear prevents nasty burns or lung hits. Start
+  with a full-face respirator fitted tight; it blocks inhalation of those irritants
+  right away. Why? These compounds corrode airways fast if breathed in. Avoid cheap
+  masks—they leak and fail under exposure.
 
 
-  Workers know them in factories. They fuel nitric acid production, key for fertilizers
-  and explosives. Auto engines spew them out, so scrubbers trap the mess. Power plants
-  rely on them for combustion tweaks, boosting efficiency without waste.
+  Pair that with chemical-resistant gloves, thick and nitrile-based for grip without
+  soaking through. Skin contact stings bad, so double up if splashing risks high.
+  Eye protection? Goggles sealed against vapors; regular glasses let fumes creep in,
+  causing instant tears or worse.
 
 
-  Laser cleaning shines here. Pulses zap residues laced with these oxides. Surfaces
-  gleam clean, free from stubborn films. Why? Lasers break bonds gently, avoiding
-  deep damage. Skip harsh chemicals—lasers cut through toxins safer. But watch out:
-  poor setup scatters gases, worsening fumes. Always vent right, or risks climb.'
+  Full-body suits or aprons shield clothes and skin from spills—durable ones that
+  don''t tear easily. In industrial spots, add hoods or helmets for head coverage
+  during mixing or cleaning ops. For laser cleaning tasks, ensure gear withstands
+  heat flashes without melting.
+
+
+  Ventilation hoods help too, but PPE stays primary. Train up—fit tests save lives.
+  Skip shortcuts; one slip turns a shift sour.'
+exposure_guidelines: 'While nitrogen oxides might seem innocuous in trace amounts
+  from everyday combustion, their true danger emerges in confined or industrial settings
+  where they build up as a sharp, irritating toxic gas. Workers handling welding torches
+  or combustion engines often face the brunt, coughing and feeling throat burns from
+  even brief whiffs that linger in poorly ventilated spaces. To stay safe, always
+  prioritize strong airflow systems that whisk away these fumes before they concentrate,
+  and layer on protective gear like fitted respirators designed to filter out gaseous
+  irritants—think full-face masks over basic coverings for heavier exposure risks.
+  If someone starts wheezing, clutching their chest, or showing bluish skin tones
+  after being near sources like nitric acid reactions, get them to fresh air immediately
+  and seek medical help without delay, as delayed effects can inflame lungs deeply.
+  In laser cleaning operations, where these compounds might arise from material vaporization,
+  extra caution shines through: isolate the workspace with enclosures that capture
+  vapors, monitor air quality qualitatively through routine checks for that telltale
+  acrid odor, and train teams to recognize early signs like eye watering or headaches
+  that signal it''s time to pause and reassess. Overall, embedding these habits into
+  daily routines turns potential hazards into manageable routines, safeguarding health
+  amid the grit of industrial applications.'
+first_aid: Dealing with nitrogen oxide exposure hits hard because these compounds
+  act fast as irritants, turning a simple mishap into a real ordeal if not addressed
+  right away. Get the person out of the contaminated area immediately—fresh air is
+  your first line of defense, and it works by diluting the gas quickly, preventing
+  deeper lung damage that could linger for days. Why rush this step? These gases cling
+  to the respiratory system, causing swelling and burns that worsen without oxygen
+  flow, so never delay hauling them to a clear space, even if they seem okay at first.
+  Avoid giving them anything by mouth, like water or food, since it might trigger
+  vomiting and pull more toxins downward; instead, loosen tight clothing around the
+  neck and chest to ease breathing without forcing anything. If coughing or choking
+  kicks in, keep them calm and upright—propping against something stable helps circulation
+  without straining the body further. Call for medical pros right off; they handle
+  the rest with oxygen support or monitoring, because self-treatment falls short against
+  the sneaky buildup of effects like fluid in the lungs. What to steer clear of? Don't
+  play hero by sticking around the source yourself, and skip home remedies like milk,
+  which do nothing but waste time in the face of such a potent irritant.
+detection_methods: 'Spotting nitrogen oxides in the air demands smart, straightforward
+  techniques that catch these sneaky toxic gases without much fuss. Electrochemical
+  sensors top my list because they react directly with the compounds, shifting electrical
+  signals in a way that''s quick and dependable for everyday checks in workshops or
+  labs—though you steer clear of humid spots where false readings creep in. Infrared
+  spectroscopy works wonders too, absorbing specific light wavelengths to pinpoint
+  the gases amid other vapors, ideal for monitoring industrial exhausts where buildup
+  could turn hazardous; just avoid dusty environments that scatter the beams and muddy
+  results.
+
+
+  For tougher setups, like cleaning grimy surfaces laced with residues, laser-based
+  methods shine by zapping tiny samples to spark detectable glows from the oxides''
+  unique signatures—effective for precise industrial applications without spreading
+  contaminants. Photoacoustic detection adds another layer, turning gas absorption
+  into audible pulses that sensors pick up cleanly in enclosed spaces, but it''s best
+  skipped in noisy factories to prevent interference. Overall, combining these keeps
+  things safe and efficient, focusing on real-world reliability over fancy gear that
+  might fail under pressure.'
