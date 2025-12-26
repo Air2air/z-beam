@@ -43,10 +43,10 @@ const CookieConsent = dynamic(() => import("./components/CookieConsent").then(mo
 });
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
-import { SchemaRegistry } from "./utils/schemas/registry";
+import { schemaRegistry } from "./utils/schemas/registry";
 
 // Generate the business schema using centralized registry
-const organizationSchema = SchemaRegistry.business();
+const organizationSchema = schemaRegistry.business();
 
 // Define viewport manually since Viewport type is not exported from next
 export const viewport = {
@@ -138,7 +138,7 @@ export const metadata = {
 };
 
 // Website schema using centralized registry
-const websiteSchema = SchemaRegistry.website();
+const websiteSchema = schemaRegistry.website();
 
 export default async function RootLayout({
   children,

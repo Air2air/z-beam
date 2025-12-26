@@ -4,7 +4,7 @@ import { ContentSection } from "../components/ContentCard";
 import { ScheduleCards } from "../components/Schedule/ScheduleCards";
 import { SITE_CONFIG } from "@/app/config";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
-import { SchemaRegistry } from "@/app/utils/schemas/registry";
+import { schemaRegistry } from "@/app/utils/schemas/registry";
 import fs from 'fs/promises';
 import path from 'path';
 import yaml from 'js-yaml';
@@ -50,7 +50,7 @@ export default async function ServicesPage() {
   const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { contentCards?: any[] };
   
   // Generate schemas using centralized registry
-  const serviceSchema = SchemaRegistry.getPageSchemas('services', {
+  const serviceSchema = schemaRegistry.getPageSchemas('services', {
     pricing,
     description: 'Professional on-site laser cleaning service with experienced technicians and state-of-the-art equipment. Specializing in industrial surface preparation, rust removal, coating removal, and precision cleaning for aerospace, automotive, and manufacturing industries.',
     video: pageConfig.video, // Include video data if present in YAML
