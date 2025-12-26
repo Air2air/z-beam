@@ -41,23 +41,23 @@ describe('layoutHelpers', () => {
 
   describe('getRiskColor', () => {
     it('returns correct color for critical risk', () => {
-      expect(getRiskColor('critical')).toBe('text-red-400 bg-red-900/20 border-red-500');
+      expect(getRiskColor('critical')).toBe('text-red-400 bg-red-900/40 border-red-500');
     });
 
     it('returns correct color for high risk', () => {
-      expect(getRiskColor('high')).toBe('text-red-400 bg-red-900/20 border-red-500');
+      expect(getRiskColor('high')).toBe('text-red-400 bg-red-900/40 border-red-500');
     });
 
     it('returns correct color for moderate risk', () => {
-      expect(getRiskColor('moderate')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
+      expect(getRiskColor('moderate')).toBe('text-yellow-400 bg-yellow-900/40 border-yellow-500');
     });
 
     it('returns correct color for medium risk', () => {
-      expect(getRiskColor('medium')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
+      expect(getRiskColor('medium')).toBe('text-yellow-400 bg-yellow-900/40 border-yellow-500');
     });
 
     it('returns correct color for low risk', () => {
-      expect(getRiskColor('low')).toBe('text-green-400 bg-green-900/20 border-green-500');
+      expect(getRiskColor('low')).toBe('text-green-400 bg-green-900/40 border-green-500');
     });
 
     it('returns correct color for none risk level', () => {
@@ -69,11 +69,11 @@ describe('layoutHelpers', () => {
     });
 
     it('is case-insensitive', () => {
-      expect(getRiskColor('HIGH')).toBe('text-red-400 bg-red-900/20 border-red-500');
-      expect(getRiskColor('High')).toBe('text-red-400 bg-red-900/20 border-red-500');
-      expect(getRiskColor('CRITICAL')).toBe('text-red-400 bg-red-900/20 border-red-500');
-      expect(getRiskColor('MoDerAtE')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
-      expect(getRiskColor('MeDiUm')).toBe('text-yellow-400 bg-yellow-900/20 border-yellow-500');
+      expect(getRiskColor('HIGH')).toBe('text-red-400 bg-red-900/40 border-red-500');
+      expect(getRiskColor('High')).toBe('text-red-400 bg-red-900/40 border-red-500');
+      expect(getRiskColor('CRITICAL')).toBe('text-red-400 bg-red-900/40 border-red-500');
+      expect(getRiskColor('MoDerAtE')).toBe('text-yellow-400 bg-yellow-900/40 border-yellow-500');
+      expect(getRiskColor('MeDiUm')).toBe('text-yellow-400 bg-yellow-900/40 border-yellow-500');
       expect(getRiskColor('NONE')).toBe('text-gray-400 bg-gray-800/50 border-gray-600');
     });
   });

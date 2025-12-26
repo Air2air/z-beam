@@ -29,9 +29,9 @@ function SeverityBadge({ severity }: { severity?: 'low' | 'medium' | 'high' }) {
   if (!severity) return null;
   
   const colors = {
-    low: 'bg-orange-900 text-orange-200',
-    medium: 'bg-yellow-900 text-yellow-200',
-    high: 'bg-red-900 text-red-200'
+    low: 'bg-orange-800 text-orange-100',
+    medium: 'bg-yellow-800 text-yellow-100',
+    high: 'bg-red-800 text-red-100'
   };
   
   return (

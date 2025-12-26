@@ -225,12 +225,12 @@ export function getRiskColor(risk: string) {
   switch (risk?.toLowerCase()) {
     case 'high':
     case 'critical':
-      return 'text-red-400 bg-red-900/20 border-red-500';
+      return 'text-red-400 bg-red-900/40 border-red-500';
     case 'moderate':
     case 'medium':
-      return 'text-yellow-400 bg-yellow-900/20 border-yellow-500';
+      return 'text-yellow-400 bg-yellow-900/40 border-yellow-500';
     case 'low':
-      return 'text-green-400 bg-green-900/20 border-green-500';
+      return 'text-green-400 bg-green-900/40 border-green-500';
     case 'none':
       return 'text-gray-400 bg-gray-800/50 border-gray-600';
     default:
@@ -253,21 +253,4 @@ export function getOptimalRange(
   const optMin = min + range * 0.35;
   const optMax = min + range * 0.65;
   return [optMin, optMax];
-}
-
-/**
- * Get enrichment metadata (title and description) from frontmatter
- * Falls back to provided defaults if not found
- */
-export function getEnrichmentMetadata(
-  metadata: any,
-  enrichmentKey: string,
-  defaultTitle: string,
-  defaultDescription: string
-): { title: string; description: string } {
-  const enrichment = metadata?.enrichments?.[enrichmentKey];
-  return {
-    title: enrichment?.title || defaultTitle,
-    description: enrichment?.description || defaultDescription,
-  };
 }

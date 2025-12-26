@@ -53,14 +53,14 @@ export function Thumbnail({
           onError={() => setImageError(true)}
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-tertiary">
+        <div className="w-full h-full flex items-center justify-center bg-tertiary group">
           <Image
             src="/images/logo/logo-zbeam.png"
-            alt="No image available"
-            width={60}
-            height={60}
-            className="object-contain text-orange-500"
-            style={{ filter: 'brightness(0) saturate(100%) invert(53%) sepia(89%) saturate(2476%) hue-rotate(1deg) brightness(103%) contrast(101%)' }}
+            alt="Z-Beam Logo"
+            width={150}
+            height={50}
+            className="object-contain h-[30%] w-auto opacity-40 group-hover:opacity-100 -translate-y-[40%] transition-opacity duration-300"
+            priority
           />
         </div>
       )}

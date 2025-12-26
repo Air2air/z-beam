@@ -26,7 +26,7 @@ export type CardVariant = 'default' | 'featured' | 'relationship';
 export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
   default: {
     // Layout
-    padding: "px-3 py-3 md:px-4 md:py-2.5",
+    padding: "px-3 py-1 md:px-4 md:py-2.5",
     imageHeight: "h-[6.75rem] md:h-[7.5rem]", // Fixed height for default cards
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
     
@@ -37,14 +37,14 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     // Appearance
     cardClass: "rounded-md shadow-md overflow-hidden",
     hoverEffect: "card-enhanced-hover",
-    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-80",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects
     transitionClass: "transition-all duration-300 ease-out",
   },
   featured: {
     // Layout
-    padding: "px-3 py-3 md:px-4 md:py-2.5",
+    padding: "px-3 py-1 md:px-4 md:py-2.5",
     imageHeight: "h-full", // Full height for featured cards - image expands to fill card
     cardHeight: "h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem]",
     
@@ -55,14 +55,14 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     // Appearance
     cardClass: "rounded-md shadow-md overflow-hidden",
     hoverEffect: "card-enhanced-hover",
-    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-80",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects
     transitionClass: "transition-all duration-300 ease-out",
   },
   relationship: {
     // Layout - same as default for relationship cards
-    padding: "px-3 py-3 md:px-4 md:py-2.5",
+    padding: "px-3 py-1 md:px-4 md:py-2.5",
     imageHeight: "h-[6.75rem] md:h-[7.5rem]",
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]",
     
@@ -73,7 +73,7 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariantConfig> = {
     // Appearance - subtle differences for relationship context
     cardClass: "rounded-md shadow-md overflow-hidden",
     hoverEffect: "card-enhanced-hover",
-    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-80",
     transitionClass: "transition-all duration-300 ease-out",
   }
 } as const;
