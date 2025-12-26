@@ -343,7 +343,7 @@ export function Collapsible({
                     </summary>
                     <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[1000px] group-open:opacity-100">
                       <div className="px-4 py-3 md:px-6 md:py-4 text-base font-light">
-                        <NestedProperties data={nestedData} borderColor={borderColor} bgColor={bgColor.replace(/\/\d+$/, '')} />
+                        {nestedData && <NestedProperties data={nestedData as Record<string, any>} borderColor={borderColor} bgColor={bgColor.replace(/\/\d+$/, '')} />}
                       </div>
                     </div>
                   </details>
@@ -407,7 +407,7 @@ export function Collapsible({
       <SectionContainer
         title={sectionMetadata.title}
         description={sectionMetadata.description}
-        variant={sectionMetadata.variant}
+        variant={sectionMetadata.variant as 'default' | 'dark' | undefined}
         className="mb-8"
       >
         {content}
