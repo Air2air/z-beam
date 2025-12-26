@@ -39,9 +39,100 @@
       "skipBlankLines": true,
       "skipComments": true
     }],
-    "max-depth": ["warn", 4]
+    "max-depth": ["warn", 4],
+    
+    // Naming conventions enforcement
+    "@typescript-eslint/naming-convention": ["error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      },
+      {
+        "selector": "typeAlias",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "variable",
+        "modifiers": ["const"],
+        "format": ["UPPER_CASE", "camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "function",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow",
+        "filter": {
+          "regex": "^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)$",
+          "match": false
+        }
+      },
+      {
+        "selector": "function",
+        "filter": {
+          "regex": "^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)$",
+          "match": true
+        },
+        "format": ["UPPER_CASE"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase", "snake_case", "PascalCase"],
+        "leadingUnderscore": "allow",
+        "filter": {
+          "regex": "^(research_library|material_challenges|page_description|Icon|IconComponent)$",
+          "match": true
+        }
+      },
+      {
+        "selector": "property",
+        "filter": {
+          "regex": "^(loading|disabled|visible|hidden|enabled|active|selected|checked|required|valid|open|closed)$",
+          "match": true
+        },
+        "format": [],
+        "custom": {
+          "regex": "^is[A-Z]|^has[A-Z]|^can[A-Z]",
+          "match": true
+        }
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "snake_case", "PascalCase", "UPPER_CASE"],
+        "leadingUnderscore": "allow",
+        "filter": {
+          "regex": "^(meta_description|contamination_description|page_description)$",
+          "match": true
+        }
+      }
+    ]
   },
   "overrides": [
+    {
+      "files": [
+        "**/app/config/site.ts",
+        "**/app/datasets/**/*.ts",
+        "**/app/utils/frontmatterValidation.ts",
+        "**/app/utils/errorSystem.ts",
+        "**/app/utils/metadata/**/*.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/naming-convention": "warn"
+      }
+    },
     {
       "files": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts"],
       "rules": {
