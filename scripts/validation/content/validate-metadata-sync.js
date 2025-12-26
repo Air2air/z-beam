@@ -65,6 +65,10 @@ class MetadataValidator {
       // Check required fields
       const requiredFields = REQUIRED_FIELDS[type] || REQUIRED_FIELDS.material;
       const missingFields = requiredFields.filter(field => {
+        // Special handling for description field - pages can use either page_description or meta_description
+        if (field === 'page_description' && type === 'page') {
+          return !data.page_description && !data.meta_description;
+        }
         const value = this.getNestedValue(data, field);
         return !value;
       });
