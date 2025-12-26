@@ -643,10 +643,13 @@ async function validateDatasetQuality(page, pageInfo, schemaTypes) {
         `  Missing parameters: ${validation.missing.join(', ')}`, 
         pageInfo.url
       );
-      addResult('datasetQuality', 'error', 
-        `  📁 Frontmatter checked: ${frontmatterPaths.map(p => path.basename(p)).join(', ')}`, 
-        pageInfo.url
-      );
+      const checkedPaths = [settingsPath, materialPath].filter(Boolean);
+      if (checkedPaths.length > 0) {
+        addResult('datasetQuality', 'error', 
+          `  📁 Frontmatter checked: ${checkedPaths.map(p => path.basename(p)).join(', ')}`, 
+          pageInfo.url
+        );
+      }
     }
     
     for (const warning of validation.warnings) {
@@ -690,8 +693,8 @@ function parseSimpleYAML(content) {
     
     const indent = line.search(/\S/);
     
-    // Top-level sections
-    if (line.match(/^machineSettings:/)) {
+    // Top-level sections (handle both camelCase and snake_case)
+    if (line.match(/^(machineSettings|machine_settings):/)) {
       currentSection = 'machineSettings';
       currentKey = null;
       currentSubsection = null;
