@@ -69,7 +69,7 @@ describe('Centralized Types - Micro System', () => {
 
   test('MicroProps should support all component configurations', () => {
     const microProps: MicroProps = {
-      frontmatter: {
+      metadata: {
         micro: {
           before: 'Before text content',
           after: 'After text content'
@@ -86,9 +86,9 @@ describe('Centralized Types - Micro System', () => {
       }
     };
 
-    expect(microProps.frontmatter.micro?.before).toBe('Before text content');
-    expect(microProps.frontmatter.micro?.after).toBe('After text content');
-    expect(microProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
+    expect(microProps.metadata.micro?.before).toBe('Before text content');
+    expect(microProps.metadata.micro?.after).toBe('After text content');
+    expect(microProps.metadata?.images?.micro?.url).toBe('test-image.jpg');
     expect(microProps.config?.showTechnicalDetails).toBe(true);
   });
 
@@ -226,7 +226,7 @@ describe('Centralized Types - Type Safety', () => {
     };
 
     const minimalProps: MicroProps = {
-      frontmatter: {
+      metadata: {
         micro: {
           before: 'Minimal content'
         }
@@ -235,7 +235,7 @@ describe('Centralized Types - Type Safety', () => {
     };
 
     expect(minimalMicro).toBeDefined();
-    expect(minimalProps.frontmatter.micro?.before).toBe('Minimal content');
+    expect(minimalProps.metadata.micro?.before).toBe('Minimal content');
   });
 
   test('should maintain interface inheritance', () => {
@@ -257,7 +257,7 @@ describe('Centralized Types - Export Validation', () => {
     // This test ensures all types are properly exported from the centralized file
     // The fact that we can import and use these types without errors proves they're exported correctly
     const testMicro: MicroDataStructure = {};
-    const testProps: MicroProps = { frontmatter: {} };
+    const testProps: MicroProps = { metadata: {} };
     const testMetrics: QualityMetrics = {};
     const testGridProps: MetricsGridProps = { 
       metadata: { title: 'Test', slug: 'test' },
@@ -296,14 +296,14 @@ describe('Centralized Types - Export Validation', () => {
     };
 
     const complexProps: MicroProps = {
-      frontmatter: complexData,
+      metadata: complexData,
       config: {
         showTechnicalDetails: true,
         showMetadata: true
       }
     };
 
-    expect(complexProps.frontmatter.author_object?.verification_level).toBe('expert');
+    expect(complexProps.metadata.author_object?.verification_level).toBe('expert');
   });
 });
 

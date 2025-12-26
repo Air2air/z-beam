@@ -27,8 +27,8 @@ jest.mock('@/app/components/CardGrid/CardGrid', () => ({
     <div data-testid="card-grid">
       {items?.map((item, index) => (
         <div key={index} data-testid="grid-item">
-          <a href={item.href}>{item.frontmatter?.title || 'No title'}</a>
-          {item.frontmatter?.subject && <p>{item.frontmatter.subject}</p>}
+          <a href={item.href}>{item.metadata?.title || 'No title'}</a>
+          {item.metadata?.subject && <p>{item.metadata.subject}</p>}
         </div>
       ))}
     </div>
@@ -66,7 +66,8 @@ describe('Relationship Component', () => {
         title: 'Test Material',
         url: '/materials/test',
         material_type: 'Metal',
-        micro: 'Test micro content'
+        micro: 'Test micro content',
+        metadata: { title: 'Test Material' }
       }];
 
       render(
@@ -87,7 +88,8 @@ describe('Relationship Component', () => {
         title: 'Test Contaminant',
         url: '/contaminants/test',
         contaminant_category: 'Organic',
-        micro: 'Test micro content'
+        micro: 'Test micro content',
+        metadata: { title: 'Test Contaminant' }
       }];
 
       render(
@@ -106,7 +108,8 @@ describe('Relationship Component', () => {
         title: 'Test Material',
         url: '/materials/test',
         material_type: 'Metal',
-        micro: 'Test micro content'
+        micro: 'Test micro content',
+        metadata: { title: 'Test Material' }
       }];
 
       render(
@@ -146,7 +149,8 @@ describe('Relationship Component', () => {
         title: 'Aluminum',
         url: '/materials/aluminum',
         material_type: 'Metal',
-        micro: 'Lightweight metal for aerospace'
+        micro: 'Lightweight metal for aerospace',
+        metadata: { title: 'Aluminum', subject: 'Aluminum' }
       }];
 
       render(
@@ -168,13 +172,15 @@ describe('Relationship Component', () => {
           title: 'Aluminum',
           url: '/materials/aluminum',
           material_type: 'Metal',
-          micro: 'Lightweight metal'
+          micro: 'Lightweight metal',
+          metadata: { title: 'Aluminum', subject: 'Aluminum' }
         },
         {
           title: 'Steel',
           url: '/materials/steel',
           material_type: 'Metal',
-          micro: 'Strong alloy'
+          micro: 'Strong alloy',
+          metadata: { title: 'Steel', subject: 'Steel' }
         }
       ];
 
@@ -198,13 +204,15 @@ describe('Relationship Component', () => {
           title: 'Zinc',
           url: '/materials/zinc',
           material_type: 'Metal',
-          micro: 'Protective coating'
+          micro: 'Protective coating',
+          metadata: { title: 'Zinc', subject: 'Zinc' }
         },
         {
           title: 'Aluminum',
           url: '/materials/aluminum',
           material_type: 'Metal',
-          micro: 'Lightweight metal'
+          micro: 'Lightweight metal',
+          metadata: { title: 'Aluminum', subject: 'Aluminum' }
         }
       ];
 
@@ -230,7 +238,8 @@ describe('Relationship Component', () => {
         title: 'Test Material',
         url: '/materials/test',
         material_type: 'Metal',
-        micro: 'Test micro'
+        micro: 'Test micro',
+        metadata: { title: 'Test Material' }
       }];
 
       render(
@@ -295,7 +304,8 @@ describe('Relationship Component', () => {
         title: 'Test Material',
         url: '/materials/test',
         material_type: 'Metal',
-        micro: 'Test micro'
+        micro: 'Test micro',
+        metadata: { title: 'Test Material' }
       }];
 
       render(
@@ -316,7 +326,8 @@ describe('Relationship Component', () => {
         title: 'Test Material',
         url: '/materials/test',
         material_type: 'Metal',
-        micro: 'Test micro'
+        micro: 'Test micro',
+        metadata: { title: 'Test Material' }
       }];
 
       render(
@@ -339,7 +350,8 @@ describe('Relationship Component', () => {
         title: 'Aluminum',
         url: '/materials/aluminum',
         material_type: 'Metal',
-        micro: 'Lightweight metal'
+        micro: 'Lightweight metal',
+        metadata: { title: 'Aluminum', subject: 'Aluminum' }
       }];
 
       render(
@@ -362,7 +374,8 @@ describe('Relationship Component', () => {
         title: 'Rust',
         url: '/contaminants/rust',
         contaminant_category: 'Corrosion',
-        micro: 'Iron oxide formation'
+        micro: 'Iron oxide formation',
+        metadata: { title: 'Rust', subject: 'Rust' }
       }];
 
       render(
@@ -385,7 +398,8 @@ describe('Relationship Component', () => {
         title: 'Steel',
         url: '/materials/steel',
         material_type: 'Metal',
-        micro: 'Strong alloy'
+        micro: 'Strong alloy',
+        metadata: { title: 'Steel', subject: 'Steel' }
       }];
 
       render(
@@ -409,7 +423,8 @@ describe('Relationship Component', () => {
       const mockData: RelatedMaterial[] = [{
         title: 'Test Material',
         url: '/materials/test',
-        material_type: 'Metal'
+        material_type: 'Metal',
+        metadata: { title: 'Test Material' }
         // micro is optional and omitted
       }];
 
@@ -429,7 +444,8 @@ describe('Relationship Component', () => {
         title: `Material ${i}`,
         url: `/materials/material-${i}`,
         material_type: 'Metal',
-        micro: `Description ${i}`
+        micro: `Description ${i}`,
+        metadata: { title: `Material ${i}`, subject: `Material ${i}` }
       }));
 
       render(

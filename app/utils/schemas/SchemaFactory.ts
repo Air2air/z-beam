@@ -1832,7 +1832,7 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
       : mainImage.creator;
   } else {
     // Use page author as creator if available
-    const author = data.frontmatter?.author || data.author;
+    const author = data.metadata?.author || data.frontmatter?.author || data.author;
     if (author && author.name) {
       imageObject.creator = {
         '@type': 'Person',
@@ -1843,8 +1843,8 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
   }
 
   // Add VisualArtwork schema for contaminants with appearance data
-  // Leverages visual_characteristics.appearance_on_categories from frontmatter
-  const frontmatter = data.frontmatter || data;
+  // Leverages visual_characteristics.appearance_on_categories from metadata/frontmatter
+  const frontmatter = data.metadata || data.frontmatter || data;
   const visualChars = frontmatter.visual_characteristics;
   
   if (visualChars?.appearance_on_categories) {
@@ -1999,6 +1999,11 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   // Dataset naming: IDs already include proper suffixes
   const datasetFolder = isContaminant ? 'contaminants' : 'materials';
   const datasetName = materialSlug;
+  
+  // For settings pages, use canonical dataset URL (points to materials page, not settings)
+  const canonicalUrl = frontmatter.canonicalDatasetUrl 
+    ? `${baseUrl}/datasets/materials/${frontmatter.canonicalDatasetUrl.split('/').pop()}`
+    : `${baseUrl}/datasets/${datasetFolder}/${datasetName}`;
 
   // **PHASE 1 ENHANCEMENT**: Load generated dataset file for enhanced data
   // These files contain: 20+ variableMeasured items, citation array, author E-E-A-T data, images
@@ -2250,7 +2255,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
 
   return {
     '@type': 'Dataset',
-    '@id': `${baseUrl}/datasets/${datasetFolder}/${datasetName}#dataset`,
+    '@id': `${canonicalUrl}#dataset`,
     'name': isContaminant 
       ? `${frontmatter.name || 'Contaminant'} Removal Dataset`
       : `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
@@ -2270,19 +2275,19 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
       {
         '@type': 'DataDownload',
         'encodingFormat': 'application/json',
-        'contentUrl': `${SITE_CONFIG.url}/datasets/${datasetFolder}/${datasetName}.json`,
+        'contentUrl': `${canonicalUrl}.json`,
         'name': 'JSON Dataset'
       },
       {
         '@type': 'DataDownload',
         'encodingFormat': 'text/csv',
-        'contentUrl': `${SITE_CONFIG.url}/datasets/${datasetFolder}/${datasetName}.csv`,
+        'contentUrl': `${canonicalUrl}.csv`,
         'name': 'CSV Dataset'
       },
       {
         '@type': 'DataDownload',
         'encodingFormat': 'text/plain',
-        'contentUrl': `${SITE_CONFIG.url}/datasets/${datasetFolder}/${datasetName}.txt`,
+        'contentUrl': `${canonicalUrl}.txt`,
         'name': 'Plain Text Dataset'
       }
     ],
@@ -2326,7 +2331,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
       '@type': 'Place',
       'name': 'Global'
     },
-    'url': `${baseUrl}/datasets/${datasetFolder}/${datasetName}`
+    'url': canonicalUrl
   };
 }
 

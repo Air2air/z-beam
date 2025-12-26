@@ -22,22 +22,22 @@ function extractArticleText(article: Article): string {
   
   // Add title
   if (article.title) textParts.push(article.title);
-  if (article.frontmatter?.title && typeof article.frontmatter.title === 'string') {
-    textParts.push(article.frontmatter.title);
+  if (article.metadata?.title && typeof article.metadata.title === 'string') {
+    textParts.push(article.metadata.title);
   }
   
   // Add description
   if (article.description) textParts.push(article.description);
-  if (article.frontmatter?.description && typeof article.frontmatter.description === 'string') {
-    textParts.push(article.frontmatter.description);
+  if (article.metadata?.description && typeof article.metadata.description === 'string') {
+    textParts.push(article.metadata.description);
   }
   
   // Add slug parts
   if (article.slug) textParts.push(article.slug.replace(/-/g, ' '));
   
   // Add keywords
-  if (article.frontmatter?.keywords && Array.isArray(article.frontmatter.keywords)) {
-    textParts.push(...article.frontmatter.keywords);
+  if (article.metadata?.keywords && Array.isArray(article.metadata.keywords)) {
+    textParts.push(...article.metadata.keywords);
   }
   
   return textParts.join(' ');
@@ -72,9 +72,9 @@ export function enrichArticle(article: Article): SearchableArticle {
     enriched.tags.push(enriched.author);
   }
   
-  // Ensure name is set from frontmatter if available
-  if (enriched.frontmatter?.name && !enriched.name && typeof enriched.frontmatter.name === 'string') {
-    enriched.name = enriched.frontmatter.name;
+  // Ensure name is set from metadata if available
+  if (enriched.metadata?.name && !enriched.name && typeof enriched.metadata.name === 'string') {
+    enriched.name = enriched.metadata.name;
   }
   
   // If no name is available yet, try to extract it from the slug
@@ -82,16 +82,16 @@ export function enrichArticle(article: Article): SearchableArticle {
     enriched.name = slugToDisplayName(enriched.slug);
   }
   
-  // 1. EXTRACT TAGS FROM FRONTMATTER
-  if (enriched.frontmatter) {
+  // 1. EXTRACT TAGS FROM METADATA
+  if (enriched.metadata) {
     // Add explicit tags
-    if (enriched.frontmatter.tags && Array.isArray(enriched.frontmatter.tags)) {
-      enriched.tags.push(...enriched.frontmatter.tags);
+    if (enriched.metadata.tags && Array.isArray(enriched.metadata.tags)) {
+      enriched.tags.push(...enriched.metadata.tags);
     }
     
     // Add keywords
-    if (enriched.frontmatter.keywords && Array.isArray(enriched.frontmatter.keywords)) {
-      enriched.frontmatter.keywords.forEach(keyword => {
+    if (enriched.metadata.keywords && Array.isArray(enriched.metadata.keywords)) {
+      enriched.metadata.keywords.forEach(keyword => {
         if (keyword && typeof keyword === 'string') {
           enriched.tags.push(keyword);
         }
@@ -99,28 +99,28 @@ export function enrichArticle(article: Article): SearchableArticle {
     }
     
     // Add category
-    if (enriched.frontmatter.category && typeof enriched.frontmatter.category === 'string') {
-      enriched.tags.push(enriched.frontmatter.category);
+    if (enriched.metadata.category && typeof enriched.metadata.category === 'string') {
+      enriched.tags.push(enriched.metadata.category);
       // Also add capitalized version for consistency
-      if (typeof enriched.frontmatter.category === 'string') {
-        const capitalizedCategory = capitalizeFirst(enriched.frontmatter.category);
+      if (typeof enriched.metadata.category === 'string') {
+        const capitalizedCategory = capitalizeFirst(enriched.metadata.category);
         enriched.tags.push(capitalizedCategory);
       }
     }
     
     // Add subject
-    if (enriched.frontmatter.subject && typeof enriched.frontmatter.subject === 'string') {
-      enriched.tags.push(enriched.frontmatter.subject);
+    if (enriched.metadata.subject && typeof enriched.metadata.subject === 'string') {
+      enriched.tags.push(enriched.metadata.subject);
     }
     
     // Add articleType
-    if (enriched.frontmatter.articleType && typeof enriched.frontmatter.articleType === 'string') {
-      enriched.tags.push(enriched.frontmatter.articleType);
+    if (enriched.metadata.articleType && typeof enriched.metadata.articleType === 'string') {
+      enriched.tags.push(enriched.metadata.articleType);
     }
     
-    // Add author name from frontmatter if it exists
-    if (enriched.frontmatter.author && typeof enriched.frontmatter.author === 'string') {
-      enriched.tags.push(enriched.frontmatter.author);
+    // Add author name from metadata if it exists
+    if (enriched.metadata.author && typeof enriched.metadata.author === 'string') {
+      enriched.tags.push(enriched.metadata.author);
     }
     
     // Parse raw content if it exists - EXTRACT TAGS FROM THE FIRST LINE

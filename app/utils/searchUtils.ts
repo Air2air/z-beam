@@ -58,14 +58,14 @@ export function normalizeTag(tag: string): string {
 
 export function getDisplayName(item: {
   name?: string;
-  frontmatter?: { name?: string; title?: string };
+  metadata?: { name?: string; title?: string };
   title?: string;
   slug?: string;
 }): string {
   // Try to get the name from different sources in priority order
   if (item.name) return item.name;
-  if (item.frontmatter?.name) return item.frontmatter.name;
-  if (item.frontmatter?.title) return item.frontmatter.title;
+  if (item.metadata?.name) return item.metadata.name;
+  if (item.metadata?.title) return item.metadata.title;
   if (item.title) return item.title;
   
   // If no name or title, try to create one from the slug
@@ -173,22 +173,22 @@ export function getChemicalProperties(item: {
     return item.metadata.chemicalProperties;
   }
   
-  // Otherwise try to extract from frontmatter
-  if (item.frontmatter) {
-    // Try to find chemical properties in frontmatter
-    if (item.frontmatter.chemicalProperties) {
-      return item.frontmatter.chemicalProperties;
+  // Otherwise try to extract from metadata
+  if (item.metadata) {
+    // Try to find chemical properties in metadata
+    if (item.metadata.chemicalProperties) {
+      return item.metadata.chemicalProperties;
     }
     
     // Try to infer from subject if it's a known material (check this first before individual fields)
-    if (item.frontmatter.subject) {
-      const subject = normalizeString(item.frontmatter.subject);
+    if (item.metadata.subject) {
+      const subject = normalizeString(item.metadata.subject);
       
       if (subject === "alumina") {
         return {
           symbol: "Al",
           formula: "Al₂O₃",
-          materialType: item.frontmatter.materialType || toMaterialType(item.frontmatter.category) || "ceramic"
+          materialType: item.metadata.materialType || toMaterialType(item.metadata.category) || "ceramic"
         };
       }
       
@@ -196,19 +196,19 @@ export function getChemicalProperties(item: {
         return {
           symbol: "Si",
           formula: "Si₃N₄",
-          materialType: item.frontmatter.materialType || toMaterialType(item.frontmatter.category) || "ceramic"
+          materialType: item.metadata.materialType || toMaterialType(item.metadata.category) || "ceramic"
         };
       }
     }
     
     // Look for individual chemical properties in frontmatter
-    if (item.frontmatter.chemicalSymbol || 
-        item.frontmatter.chemicalFormula || 
-        item.frontmatter.formula) {
+    if (item.metadata.chemicalSymbol || 
+        item.metadata.chemicalFormula || 
+        item.metadata.formula) {
       return {
-        symbol: item.frontmatter.chemicalSymbol,
-        formula: item.frontmatter.chemicalFormula || item.frontmatter.formula,
-        materialType: item.frontmatter.materialType || toMaterialType(item.frontmatter.category)
+        symbol: item.metadata.chemicalSymbol,
+        formula: item.metadata.chemicalFormula || item.metadata.formula,
+        materialType: item.metadata.materialType || toMaterialType(item.metadata.category)
       };
     }
   }

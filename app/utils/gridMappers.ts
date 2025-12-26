@@ -91,7 +91,7 @@ export function mapMaterialLinkageToGrid(linkage: Relationship): GridItem {
     imageUrl: linkage.image,
     imageAlt: linkage.title,
     category: linkage.category,
-    frontmatter: {
+    metadata: {
       title: linkage.title,
       images: {
         hero: {
@@ -123,7 +123,7 @@ export function mapContaminantLinkageToGrid(linkage: Relationship): GridItem {
     imageUrl: linkage.image,
     imageAlt: linkage.title,
     category: linkage.category,
-    frontmatter: {
+    metadata: {
       title: linkage.title,
       slug: linkage.id,
       category: linkage.category,
@@ -157,7 +157,7 @@ export function mapCompoundLinkageToGrid(linkage: Relationship): GridItem {
     imageUrl: linkage.image,
     imageAlt: linkage.title,
     category: linkage.category,
-    frontmatter: {
+    metadata: {
       title: linkage.title,
       images: {
         hero: {
@@ -189,7 +189,7 @@ export function mapSettingsLinkageToGrid(linkage: Relationship): GridItem {
     imageUrl: linkage.image,
     imageAlt: linkage.title,
     category: linkage.category,
-    frontmatter: {
+    metadata: {
       title: linkage.title,
       images: {
         hero: {
@@ -220,12 +220,11 @@ export function mapMaterialToGrid(material: RelatedMaterial): GridItem {
   return {
     slug,
     href: material.url,
-    frontmatter: {
+    metadata: {
       title: material.title,
       category: material.material_type || '',
       subject: material.micro || '',
     },
-    metadata: {},
   };
 }
 
@@ -238,12 +237,11 @@ export function mapContaminantToGrid(contaminant: RelatedContaminant): GridItem 
   return {
     slug,
     href: contaminant.url,
-    frontmatter: {
+    metadata: {
       title: contaminant.title,
       category: contaminant.contaminant_category || '',
       subject: contaminant.micro || '',
     },
-    metadata: {},
   };
 }
 
@@ -256,11 +254,10 @@ export function mapSettingToGrid(setting: RelatedSetting): GridItem {
   return {
     slug,
     href: setting.url,
-    frontmatter: {
+    metadata: {
       title: setting.title,
       category: setting.setting_category || '',
       subject: setting.micro || '',
     },
-    metadata: {},
   };
 }

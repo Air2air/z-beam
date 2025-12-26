@@ -124,11 +124,10 @@ describe('Author Architecture Tests', () => {
         const result = await getArticle('aluminum-laser-cleaning');
         
         expect(result).toBeDefined();
-        expect(result.frontmatter).toBeDefined();
         expect(result.metadata).toBeDefined();
         
         // Check if author is properly loaded
-        if (result.frontmatter.author) {
+        if (result.metadata.author) {
           expect(result.metadata.author).toBeDefined();
           expect(result.metadata.author.name).toBe('Ikmanda Roswati');
           expect(result.metadata.author.title).toBe('Ph.D.');
@@ -145,11 +144,10 @@ describe('Author Architecture Tests', () => {
         const result = await getArticle('copper-laser-cleaning');
         
         expect(result).toBeDefined();
-        expect(result.frontmatter).toBeDefined();
         expect(result.metadata).toBeDefined();
         
         // Check if author is properly loaded
-        if (result.frontmatter.author) {
+        if (result.metadata.author) {
           expect(result.metadata.author).toBeDefined();
           expect(result.metadata.author.name).toBe('Todd Dunning');
           expect(result.metadata.author.title).toBe('MA');
@@ -332,9 +330,9 @@ describe('Author Architecture Tests', () => {
       // The getArticle function should load author info and merge it
       try {
         const result = await getArticle('aluminum-laser-cleaning');
-        if (result && result.frontmatter.author) {
+        if (result && result.metadata.author) {
           expect(result.metadata.author).toBeDefined();
-          expect(result.metadata.author.name).toBe(result.frontmatter.author);
+          expect(result.metadata.author.name).toBe(result.metadata.author);
         }
       } catch (error) {
         console.log('Article not found, skipping integration test');

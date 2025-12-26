@@ -619,7 +619,7 @@ describe('Edge Cases', () => {
 
 describe('ImageObject Schema with License Metadata', () => {
   const imageData = {
-    frontmatter: {
+    metadata: {
       title: 'Aluminum Laser Cleaning',
       description: 'Professional guide to cleaning aluminum',
       images: {
@@ -698,11 +698,11 @@ describe('ImageObject Schema with License Metadata', () => {
 
   it('uses image-specific license when provided', () => {
     const dataWithCustomLicense = {
-      frontmatter: {
-        ...imageData.frontmatter,
+      metadata: {
+        ...imageData.metadata,
         images: {
           hero: {
-            ...imageData.frontmatter.images.hero,
+            ...imageData.metadata.images.hero,
             license: 'https://example.com/custom-license',
             creditText: 'Custom Credit',
             copyrightNotice: '© 2024 Custom Notice'

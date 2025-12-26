@@ -34,11 +34,11 @@ describe('Article Enrichment Utils', () => {
       expect(result.href).toBe('/silicon-carbide-laser-cleaning');
     });
 
-    test('should extract tags from frontmatter', () => {
+    test('should extract tags from metadata', () => {
       const article = {
         slug: 'test-article',
         title: 'Test Article',
-        frontmatter: {
+        metadata: {
           tags: ['Industrial', 'Precision'],
           keywords: ['manufacturing', 'automation'],
           category: 'electronics',
@@ -59,10 +59,10 @@ describe('Article Enrichment Utils', () => {
       expect(result.tags).toContain('technical');
     });
 
-    test('should handle frontmatter author', () => {
+    test('should handle metadata author', () => {
       const article = {
         slug: 'test-article',
-        frontmatter: {
+        metadata: {
           author: 'Jane Doe',
           name: 'Custom Name'
         }
@@ -112,7 +112,7 @@ describe('Article Enrichment Utils', () => {
         slug: 'laser-cleaning',
         title: 'Laser Cleaning',
         author: 'Dr. Smith',
-        frontmatter: {
+        metadata: {
           tags: ['Laser', 'Cleaning'],
           author: 'Dr. Smith'
         }

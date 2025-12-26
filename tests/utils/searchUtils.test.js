@@ -91,27 +91,27 @@ describe('Search Utils', () => {
       const item = {
         name: 'Primary Name',
         title: 'Secondary Title',
-        frontmatter: { name: 'Frontmatter Name', title: 'Frontmatter Title' },
+        metadata: { name: 'Metadata Name', title: 'Metadata Title' },
         slug: 'test-slug'
       };
 
       expect(getDisplayName(item)).toBe('Primary Name');
     });
 
-    test('should fallback to frontmatter name', () => {
+    test('should fallback to metadata name', () => {
       const item = {
         title: 'Secondary Title',
-        frontmatter: { name: 'Frontmatter Name', title: 'Frontmatter Title' },
+        metadata: { name: 'Metadata Name', title: 'Metadata Title' },
         slug: 'test-slug'
       };
 
-      expect(getDisplayName(item)).toBe('Frontmatter Name');
+      expect(getDisplayName(item)).toBe('Metadata Name');
     });
 
-    test('should fallback to frontmatter title', () => {
+    test('should fallback to metadata title', () => {
       const item = {
         title: 'Secondary Title',
-        frontmatter: { title: 'Frontmatter Title' },
+        metadata: { title: 'Metadata Title' },
         slug: 'test-slug'
       };
 
@@ -301,7 +301,7 @@ describe('Search Utils', () => {
 
     test('should use formula as fallback for chemicalFormula', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           chemicalSymbol: 'Fe',
           formula: 'Fe₂O₃',
           category: 'compound'
@@ -319,7 +319,7 @@ describe('Search Utils', () => {
 
     test('should infer properties for known materials', () => {
       const aluminaItem = {
-        frontmatter: {
+        metadata: {
           subject: 'alumina',
           category: 'ceramic'
         }
@@ -336,7 +336,7 @@ describe('Search Utils', () => {
 
     test('should infer properties for silicon nitride', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           subject: 'Silicon Nitride',
           category: 'ceramic'
         }
@@ -353,7 +353,7 @@ describe('Search Utils', () => {
 
     test('should return null for items without chemical information', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           title: 'Some Article'
         }
       };
@@ -363,7 +363,7 @@ describe('Search Utils', () => {
 
     test('should handle case insensitive subject matching', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           subject: 'ALUMINA',
           category: 'ceramic'
         }
@@ -381,19 +381,19 @@ describe('Search Utils', () => {
 
   describe('material type mapping', () => {
     test('should map metal to alloy', () => {
-      const item = { frontmatter: { category: 'metal' } };
+      const item = { metadata: { category: 'metal' } };
       const badge = getBadgeFromItem(item);
       expect(badge.materialType).toBe('alloy');
     });
 
     test('should map plastic to polymer', () => {
-      const item = { frontmatter: { category: 'plastic' } };
+      const item = { metadata: { category: 'plastic' } };
       const badge = getBadgeFromItem(item);
       expect(badge.materialType).toBe('polymer');
     });
 
     test('should map unknown types to other', () => {
-      const item = { frontmatter: { category: 'unknown-material' } };
+      const item = { metadata: { category: 'unknown-material' } };
       const badge = getBadgeFromItem(item);
       expect(badge.materialType).toBe('other');
     });
