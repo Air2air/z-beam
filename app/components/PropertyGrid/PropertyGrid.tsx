@@ -74,7 +74,7 @@ export function PropertyGrid({
   // Auto-generate title if not provided
   const displayTitle = title || (
     dataSource === 'machineSettings'
-      ? (materialName ? `${materialName} Machine Settings` : 'Machine Settings')
+      ? 'Machine Settings'
       : (materialName ? `${materialName} Properties` : 'Properties')
   );
 

@@ -1,28 +1,8 @@
-/**
- * @component SectionContainer
- * @purpose Base reusable container for sections with integrated title and styling
- * @dependencies None - accepts children for maximum flexibility
- * @accessibility WCAG 2.1 AA with semantic HTML, ARIA landmarks, unique IDs
- * @aiContext Base component for section containers with two variants:
- *           - Default: Lightweight, no padding or background (for RelatedMaterials, etc.)
- *           - Dark: Rich dark gradient with padding (for ParameterRelationships, etc.)
- * 
- * @usage
- * // Direct usage (legacy support)
- * <SectionContainer title="Lanthanide" bgColor="transparent">
- *   <CardGridSSR slugs={lanthanideSlugs} columns={3} />
- * </SectionContainer>
- * 
- * // Preferred: Use explicit variant prop
- * <SectionContainer variant="default" title="Related Materials">
- *   <CardGridSSR slugs={slugs} />
- * </SectionContainer>
- */
 import React from 'react';
 import { Button } from '../Button';
-import type { SectionContainerProps, SectionContainerBaseProps } from '@/types/centralized';
+import type { SectionContainerBaseProps } from '@/types/centralized';
 
-interface SectionContainerInternalProps extends SectionContainerBaseProps {
+interface SectionContainerProps extends SectionContainerBaseProps {
   variant?: 'default' | 'dark';
 }
 
@@ -34,71 +14,14 @@ export function SectionContainer({
   className = '',
   variant = 'default',
   children,
-  // Legacy props for backward compatibility
-  bgColor,
-  horizPadding,
-  radius,
-  action,
-}: SectionContainerInternalProps & Partial<SectionContainerProps>) {
-  // Generate unique ID from title for accessibility
+}: SectionContainerProps) {
   const sectionId = title ? title.toLowerCase().replace(/\s+/g, '-') : 'section';
   
-  // Variant-specific styles
   const variantClasses = {
-    default: 'section-container-default py-2 sm:py-4',
-    dark: 'section-container-dark bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-3 sm:px-4 md:px-5 py-3 sm:py-4 md:py-5 mb-4 sm:mb-8',
+    default: 'py-3 sm:py-4',
+    dark: 'bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-4 md:px-5 py-4 md:py-5 mb-6 sm:mb-8',
   };
   
-  // Title color based on variant - removed for global CSS inheritance
-  const titleColor = variant === 'dark' ? '' : '';
-  
-  // Legacy support: if bgColor/horizPadding/radius provided, use old logic
-  if (bgColor !== undefined || horizPadding !== undefined || radius !== undefined) {
-    const bgColorClasses = {
-      transparent: '',
-      default: 'bg-secondary',
-      body: 'bg-gray-50',
-      'gray-50': 'bg-secondary',
-      'gray-100': 'bg-primary',
-      'gradient-dark': 'bg-gradient-to-b from-gray-900 to-gray-700',
-    };
-    
-    return (
-      <section
-        className={`
-          section-container
-          ${bgColorClasses[bgColor || 'transparent']}
-          ${horizPadding ? 'px-4 md:px-5' : ''}
-          ${radius ? 'rounded-md' : ''}
-          ${bgColor !== 'transparent' ? 'py-4 md:py-5' : 'py-4'}
-          ${className}
-        `.trim().replace(/\s+/g, ' ')}
-        aria-labelledby={title ? `section-${sectionId}` : undefined}
-      >
-        {title && (
-          <div className="flex items-center justify-between mb-4 sm:mb-6">
-            <div className="flex items-center space-x-3">
-              {icon}
-              <h2
-                id={`section-${sectionId}`}
-                className={`section-title text-xl font-semibold ${titleColor}`}
-              >
-                {title}
-              </h2>
-            </div>
-            {action && (
-              <div className="flex-shrink-0">
-                {action}
-              </div>
-            )}
-          </div>
-        )}
-        {children}
-      </section>
-    );
-  }
-  
-  // New variant-based rendering
   return (
     <section
       className={`${variantClasses[variant]} ${className}`.trim()}
@@ -108,28 +31,17 @@ export function SectionContainer({
         <div className="flex items-center justify-between mb-4 sm:mb-6">
           <div className="flex items-center space-x-3">
             {icon}
-            <h2
-              id={`section-${sectionId}`}
-              className={`section-title text-xl font-semibold ${titleColor}`}
-            >
+            <h2 id={`section-${sectionId}`} className="text-xl font-semibold">
               {title}
             </h2>
           </div>
           {actionText && actionUrl && (
-            <div className="flex-shrink-0">
-              <Button
-                variant="primary"
-                size="md"
-                href={actionUrl}
-                showIcon={true}
-              >
-                {actionText}
-              </Button>
-            </div>
+            <Button variant="primary" size="md" href={actionUrl} showIcon>
+              {actionText}
+            </Button>
           )}
         </div>
       )}
-      
       {children}
     </section>
   );

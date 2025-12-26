@@ -32,15 +32,10 @@ export function MachineSettings({ metadata, materialName, materialLink }: Machin
     return null;
   }
 
-  const title = materialName 
-    ? `${materialName} Machine Settings`
-    : 'Machine Settings';
-
   return (
     <PropertyGrid
       metadata={metadata}
       dataSource="machineSettings"
-      title={title}
       icon={getSectionIcon('machine-settings')}
       actionText={materialLink ? "Material" : undefined}
       actionUrl={materialLink}

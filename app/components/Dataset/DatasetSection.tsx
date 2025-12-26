@@ -1,7 +1,6 @@
-// app/components/Dataset/DatasetSection.tsx
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FileIcon } from '@/app/components/Buttons';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
@@ -26,7 +25,6 @@ export default function DatasetSection({
   const [copied, setCopied] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
 
-  // Handle download
   const handleDownload = async () => {
     try {
       setIsDownloading(true);
@@ -39,7 +37,6 @@ export default function DatasetSection({
     }
   };
 
-  // Copy download URL
   const copyDownloadUrl = async () => {
     const textToCopy = !getDirectLink
       ? `${title} - ${description}`
@@ -53,29 +50,20 @@ export default function DatasetSection({
   const _directLink = getDirectLink?.(downloadFormat);
 
   return (
-    <div className="dataset-card bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-      {/* Header */}
+    <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
       <SectionTitle 
         title={title}
         description={description}
         icon={getSectionIcon('dataset')}
       />
 
-      {/* Stats Grid */}
-      <div className={`dataset-stats-grid grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 ${GRID_GAP_RESPONSIVE} mb-6`}>
+      <div className={`grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 ${GRID_GAP_RESPONSIVE} mb-6`}>
         {stats.map((stat, index) => (
-          <div 
-            key={index} 
-            className="dataset-stat-card bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600 p-1 h-[60px] flex flex-col items-center justify-center"
-          >
-            <div 
-              className="dataset-stat-value text-lg md:text-xl font-bold text-center text-gray-900 dark:text-white"
-            >
+          <div key={index} className="bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-200 dark:border-gray-600 p-1 h-[60px] flex flex-col items-center justify-center">
+            <div className="text-lg md:text-xl font-bold text-center text-gray-900 dark:text-white">
               {stat.value}
             </div>
-            <div 
-              className="dataset-stat-label text-xs text-center mt-0.5 text-gray-600 dark:text-gray-400"
-            >
+            <div className="text-xs text-center mt-0.5 text-gray-600 dark:text-gray-400">
               {stat.label}
             </div>
           </div>
@@ -93,26 +81,16 @@ export default function DatasetSection({
         showCopyButton={false}
       />
 
-      {/* Navigation Links (conditional based on context) */}
       {(categoryLink || fullDatasetLink) && (
         <div className="mt-4 pt-4 space-y-2">
-          {/* Category Link (shown on material pages) */}
           {categoryLink && (
-            <a
-              href={categoryLink.href}
-              className="text-sm text-blue-600400 hover:underline flex items-center space-x-1"
-            >
+            <a href={categoryLink.href} className="text-sm text-blue-600 hover:underline flex items-center gap-1">
               <FileIcon className="w-4 h-4" />
               <span>{categoryLink.label}</span>
             </a>
           )}
-          
-          {/* Full Dataset Link (shown on category pages) */}
           {fullDatasetLink && (
-            <a
-              href="/datasets"
-              className="text-sm text-blue-600400 hover:underline flex items-center space-x-1"
-            >
+            <a href="/datasets" className="text-sm text-blue-600 hover:underline flex items-center gap-1">
               <FileIcon className="w-4 h-4" />
               <span>View complete materials database (138+ materials)</span>
             </a>
@@ -120,17 +98,10 @@ export default function DatasetSection({
         </div>
       )}
 
-      {/* License Info */}
       <div className="mt-4 pt-3">
         <p className="text-xs text-muted">
-          <span className="font-medium">License:</span> Creative Commons BY 4.0 • 
-          Free to use with attribution • 
-          <a 
-            href="https://creativecommons.org/licenses/by/4.0/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600400 hover:underline ml-1"
-          >
+          <span className="font-medium">License:</span> Creative Commons BY 4.0 • Free to use with attribution • 
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-1">
             Learn more
           </a>
         </p>

@@ -5,7 +5,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
-import { Title } from '../Title';
+import { PageTitle } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import MicroSkeleton from '../Micro/MicroSkeleton';
@@ -105,7 +105,7 @@ export function Layout(props: LayoutProps) {
     return (
       <main className={containerClass} id="main-content" role="main">
         <div className="text-center py-12">
-          <Title level="page" title={title || 'Content Not Available'} />
+          <PageTitle level="page" title={title || 'Content Not Available'} />
           <p className="text-muted">
             This page is currently being prepared. Please check back later.
           </p>
@@ -134,7 +134,7 @@ export function Layout(props: LayoutProps) {
             showAvatar showCredentials showCountry showSpecialties
             className="mb-4"
           />
-          <Title 
+          <PageTitle 
             level="page" 
             title={title || metadata?.title || 'Article'} 
             description={(() => {
@@ -197,7 +197,7 @@ export function Layout(props: LayoutProps) {
       ) : (
         /* Regular page title */
         title && (
-          <Title 
+          <PageTitle 
             level="page" 
             title={title} 
             description={props.description} 

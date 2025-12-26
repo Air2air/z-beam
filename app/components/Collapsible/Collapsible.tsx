@@ -12,6 +12,7 @@
 
 import React from 'react';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { Badge } from '../Badge/Badge';
 import type { RelationshipSection } from '@/types';
 import { 
   LayersIcon, 
@@ -161,6 +162,75 @@ function getTextColor(cardStyle: string): string {
 }
 
 /**
+ * Get severity order for sorting (lower number = higher priority)
+ * Returns the sort priority for a given severity level
+ */
+function getSeverityOrder(severity: string): number {
+  const severityLower = severity?.toLowerCase() || '';
+  if (severityLower === 'extreme') return 0;
+  if (severityLower === 'high') return 1;
+  if (severityLower === 'moderate') return 2;
+  if (severityLower === 'low') return 3;
+  return 999; // non-severity items come last
+}
+
+/**
+ * Extract severity from category data
+ */
+function extractSeverity(categoryData: any): string | null {
+  if (!categoryData) return null;
+  if (typeof categoryData === 'string') return categoryData;
+  if (typeof categoryData === 'object' && categoryData.severity) {
+    return typeof categoryData.severity === 'string' 
+      ? categoryData.severity 
+      : categoryData.severity.severity || null;
+  }
+  return null;
+}
+
+/**
+ * Sort entries by severity (extreme first, then high, moderate, low)
+ * Non-risk items come after severity items in alphabetical order
+ */
+function sortEntriesBySeverity(entries: [string, any][]): [string, any][] {
+  return entries.sort((a, b) => {
+    const [keyA, dataA] = a;
+    const [keyB, dataB] = b;
+    
+    // Check if these are risk/hazard categories
+    const isRiskA = keyA.includes('risk') || keyA.includes('hazard');
+    const isRiskB = keyB.includes('risk') || keyB.includes('hazard');
+    
+    if (isRiskA && isRiskB) {
+      // Both are risks - sort by severity
+      const severityA = extractSeverity(dataA);
+      const severityB = extractSeverity(dataB);
+      const orderA = getSeverityOrder(severityA || '');
+      const orderB = getSeverityOrder(severityB || '');
+      return orderA - orderB;
+    }
+    
+    if (isRiskA && !isRiskB) return -1; // Risks come first
+    if (!isRiskA && isRiskB) return 1;  // Risks come first
+    
+    // Neither are risks - alphabetical order
+    return keyA.localeCompare(keyB);
+  });
+}
+
+/**
+ * Get badge variant based on severity level
+ */
+function getSeverityBadgeVariant(severity: string | null): 'danger' | 'warning' | 'success' | 'secondary' {
+  if (!severity) return 'secondary';
+  const severityLower = severity.toLowerCase();
+  if (severityLower === 'extreme' || severityLower === 'high') return 'danger';
+  if (severityLower === 'moderate') return 'warning';
+  if (severityLower === 'low') return 'success';
+  return 'secondary';
+}
+
+/**
  * Get hover background class - only apply gray overlay if no severity color is present
  */
 function getHoverClass(cardStyle: string): string {
@@ -295,8 +365,10 @@ export function Collapsible({
   const content = (
     <div className={`space-y-2 ${className}`} role="list">
       {items.map((item, itemIndex) => {
-        // Each item can have multiple category keys
-        return Object.entries(item).map(([categoryKey, categoryData]) => {
+        // Each item can have multiple category keys - sort them by severity
+        const sortedEntries = sortEntriesBySeverity(Object.entries(item));
+        
+        return sortedEntries.map(([categoryKey, categoryData]) => {
           // Skip internal fields
           if (categoryKey.startsWith('_') || !categoryData || typeof categoryData !== 'object') {
             return null;
@@ -314,6 +386,8 @@ export function Collapsible({
               const textColor = getTextColor(cardStyle);
               const bgColor = getBackgroundColor(cardStyle);
               const hoverClass = getHoverClass(cardStyle);
+              const severity = extractSeverity(nestedData);
+              const badgeVariant = getSeverityBadgeVariant(severity);
               
               return (
                 <div key={`${itemIndex}-${categoryKey}-${nestedKey}`} role="listitem">
@@ -322,12 +396,18 @@ export function Collapsible({
                       className={`cursor-pointer px-4 py-3 md:px-6 md:py-4 font-normal flex items-center justify-between ${hoverClass} list-none transition-all duration-200`}
                       aria-label={`Expand ${displayTitle}`}
                     >
-                      <span className="text-base font-light flex items-center">
+                      <span className="text-base font-light flex items-center gap-2">
                         {icon}
                         <span className="font-semibold">{displayTitle}</span>
                       </span>
-                      <svg
-                        className={`w-5 h-5 ${textColor} flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180`}
+                      <div className="flex items-center gap-2">
+                        {severity && (
+                          <Badge variant={badgeVariant} size="sm" className="!bg-gray-900/20 !rounded-md !text-gray-100 !text-sm">
+                            {severity}
+                          </Badge>
+                        )}
+                        <svg
+                          className={`w-5 h-5 ${textColor} flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -339,7 +419,8 @@ export function Collapsible({
                           strokeWidth={2}
                           d="M19 9l-7 7-7-7"
                         />
-                      </svg>
+                        </svg>
+                      </div>
                     </summary>
                     <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[1000px] group-open:opacity-100">
                       <div className="px-4 py-3 md:px-6 md:py-4 text-base font-light">
@@ -359,6 +440,8 @@ export function Collapsible({
           const textColor = getTextColor(cardStyle);
           const bgColor = getBackgroundColor(cardStyle);
           const hoverClass = getHoverClass(cardStyle);
+          const severity = extractSeverity(categoryData);
+          const badgeVariant = getSeverityBadgeVariant(severity);
 
           return (
             <div key={`${itemIndex}-${categoryKey}`} role="listitem">
@@ -367,12 +450,18 @@ export function Collapsible({
                   className={`cursor-pointer px-4 py-3 md:px-6 md:py-4 font-normal flex items-center justify-between ${hoverClass} list-none transition-all duration-200`}
                   aria-label={`Expand ${displayTitle}`}
                 >
-                  <span className="text-base font-light flex items-center">
+                  <span className="text-base font-light flex items-center gap-2">
                     {icon}
                     <span className="font-semibold">{displayTitle}</span>
                   </span>
-                  <svg
-                    className={`w-5 h-5 ${textColor} flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180`}
+                  <div className="flex items-center gap-2">
+                    {severity && (
+                      <Badge variant={badgeVariant} size="sm" className="!bg-gray-900/20 !rounded-md !text-gray-100 !text-sm">
+                        {severity}
+                      </Badge>
+                    )}
+                    <svg
+                      className={`w-5 h-5 ${textColor} flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -384,7 +473,8 @@ export function Collapsible({
                       strokeWidth={2}
                       d="M19 9l-7 7-7-7"
                     />
-                  </svg>
+                    </svg>
+                  </div>
                 </summary>
                 <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[1000px] group-open:opacity-100">
                   <div className="px-4 py-3 md:px-6 md:py-4 text-base font-light">
