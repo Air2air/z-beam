@@ -98,7 +98,7 @@ export function Navbar() {
       </a>
       
       {/* The main container for the entire header/navbar, spans full width */}
-      <header className="w-full shadow-md z-50 relative md:h-20" style={{ backgroundColor: '#2d3441' }} role="banner">{/* Role for better screen reader support */}
+      <header className="w-full shadow-md z-50 relative h-20 md:h-20" style={{ backgroundColor: '#2d3441' }} role="banner">{/* Role for better screen reader support */}
         {/* Van image superimposed over nav bar - clickable link to contact */}
         <Link 
           href="/contact" 
