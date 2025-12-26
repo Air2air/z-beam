@@ -104,7 +104,7 @@ export function validateFrontmatterRelationships(
       section.path
     );
 
-    if (!validation.valid) {
+    if (!validation.isValid) {
       for (const error of validation.errors) {
         // Missing _section is a warning, not error
         if (error.includes('Missing _section metadata')) {

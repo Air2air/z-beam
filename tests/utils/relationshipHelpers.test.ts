@@ -228,14 +228,14 @@ describe('relationshipHelpers', () => {
     it('should return valid for properly structured section', () => {
       const result = validateRelationshipSection(mockRelationships, 'safety.exposure_limits');
       
-      expect(result.valid).toBe(true);
+      expect(result.isValid).toBe(true);
       expect(result.errors).toHaveLength(0);
     });
 
     it('should detect missing _section metadata', () => {
       const result = validateRelationshipSection(mockRelationships, 'missing_metadata');
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors.some(e => e.includes('Missing _section metadata'))).toBe(true);
     });
 
@@ -252,7 +252,7 @@ describe('relationshipHelpers', () => {
       
       const result = validateRelationshipSection(incompleteData, 'test');
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors.some(e => e.includes('title'))).toBe(true);
       expect(result.errors.some(e => e.includes('order'))).toBe(true);
       expect(result.errors.some(e => e.includes('icon'))).toBe(true);
@@ -261,7 +261,7 @@ describe('relationshipHelpers', () => {
     it('should return error for non-existent path', () => {
       const result = validateRelationshipSection(mockRelationships, 'non.existent.path');
       
-      expect(result.valid).toBe(false);
+      expect(result.isValid).toBe(false);
       expect(result.errors.some(e => e.includes('not found'))).toBe(true);
     });
 

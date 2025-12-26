@@ -22,7 +22,7 @@ export interface RelationshipSectionData<T = any> {
 /**
  * Safely access a relationship section from nested object structure
  * 
- * @param relationships - The root relationships object from frontmatter
+ * @param relationships - The root relationships object from metadata
  * @param path - Dot-notation path to the section (e.g., 'safety.exposure_limits')
  * @returns Structured data with items and metadata, or null if path doesn't exist
  * 
@@ -222,14 +222,14 @@ export function getAllRelationshipSections(
 export function validateRelationshipSection(
   relationships: any,
   path: string
-): { valid: boolean; errors: string[] } {
+): { isValid: boolean; errors: string[] } {
   const errors: string[] = [];
 
   const section = getRelationshipSection(relationships, path);
   
   if (!section) {
     errors.push(`Section not found at path: ${path}`);
-    return { valid: false, errors };
+    return { isValid: false, errors };
   }
 
   // Check for _section metadata
@@ -259,7 +259,7 @@ export function validateRelationshipSection(
   }
 
   return {
-    valid: errors.length === 0,
+    isValid: errors.length === 0,
     errors
   };
 }
