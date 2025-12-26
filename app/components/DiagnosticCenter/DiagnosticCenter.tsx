@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { PreventionTab } from './PreventionTab';
 import { TroubleshootingTab } from './TroubleshootingTab';
 import { QuickReferenceTab } from './QuickReferenceTab';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
@@ -38,7 +39,7 @@ export function DiagnosticCenter({
   const safeMaterialName = materialName || 'material';
   
   return (
-    <section className="mb-8">
+    <SectionContainer className="mb-8">
       <SectionTitle
         title="Diagnostic & Prevention Center"
         icon={getSectionIcon('diagnostic')}
@@ -116,6 +117,6 @@ export function DiagnosticCenter({
           <QuickReferenceTab challenges={challenges} issues={issues} />
         )}
       </div>
-    </section>
+    </SectionContainer>
   );
 }

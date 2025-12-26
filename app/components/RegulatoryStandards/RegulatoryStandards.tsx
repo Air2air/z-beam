@@ -44,6 +44,7 @@ export function RegulatoryStandards({
       <SectionTitle 
         title={title}
         icon={getSectionIcon('regulatory')}
+        description="Industry standards and compliance requirements for safe laser cleaning operations"
         thumbnail={heroImage}
         thumbnailLink={thumbnailLink}
       />

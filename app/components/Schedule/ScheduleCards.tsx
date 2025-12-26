@@ -6,11 +6,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ScheduleCards.module.css';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { GRID_GAP_RESPONSIVE, CARD_HEADER_CLASSES } from '@/app/config/site';
 
 export function ScheduleCards() {
   return (
-    <div className={`grid grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
+    <SectionContainer>
+      <div className={`grid grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
       {/* Schedule Service Card */}
       <Link
         href="/schedule"
@@ -115,5 +117,6 @@ export function ScheduleCards() {
         </article>
       </Link>
     </div>
+    </SectionContainer>
   );
 }

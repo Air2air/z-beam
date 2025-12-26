@@ -3,6 +3,7 @@
 import { Card } from '@/app/components/Card/Card';
 import { Button } from '@/app/components/Button';
 import { triggerDownload } from '@/app/utils/downloadUtils';
+import { formatDataPointCount } from '@/app/utils/formatting';
 import type { DatasetCardProps } from '@/types/centralized';
 
 export function DatasetCard({

@@ -2530,14 +2530,18 @@ export interface MaterialFiltersProps {
  * Reusable container for sections with integrated title and styling
  */
 export interface SectionContainerProps {
-  title: string;
+  title?: string;
+  description?: string;
   bgColor?: 'transparent' | 'default' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
   horizPadding?: boolean;
   radius?: boolean;
   icon?: ReactNode;
   action?: ReactNode; // Optional action button/element on right side of title
+  actionText?: string; // Legacy: Text for action button (deprecated, use action prop)
+  actionUrl?: string; // Legacy: URL for action button (deprecated, use action prop)
   className?: string;
   children: ReactNode;
+  variant?: 'default' | 'dark';
 }
 
 /**

@@ -19,7 +19,6 @@ export * from './logger';
 // =============================================================================
 export * from './contentAPI';
 export * from './yamlSanitizer';
-export * from './authorParser';
 export * from './articleEnrichment';
 
 // =============================================================================

@@ -186,7 +186,7 @@ export function getAllRelationshipSections(
       const currentPath = pathPrefix ? `${pathPrefix}.${key}` : key;
 
       // If it has items array, it's a section
-      if (Array.isArray(value.items)) {
+      if (typeof value === 'object' && value !== null && 'items' in value && Array.isArray((value as any).items)) {
         const sectionData = getRelationshipSection(relationships, currentPath);
         if (sectionData) {
           sections.push({

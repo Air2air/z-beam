@@ -10,6 +10,7 @@ import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import MicroSkeleton from '../Micro/MicroSkeleton';
 import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
+import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Settings } from 'lucide-react';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';

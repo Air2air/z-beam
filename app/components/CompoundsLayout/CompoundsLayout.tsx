@@ -35,13 +35,13 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   const sourceContaminantsRaw = relationships?.technical?.produced_from_contaminants || relationships?.produced_from_contaminants || relationships?.produced_by_contaminants || relationships?.source_contaminants;
   const sourceContaminants = (Array.isArray(sourceContaminantsRaw) 
     ? sourceContaminantsRaw 
-    : (sourceContaminantsRaw?.items || [])).filter(item => item != null);
+    : (sourceContaminantsRaw?.items || [])).filter((item: any) => item != null);
 
   // Source materials that produce this compound (check technical group first)
   const sourceMaterialsRaw = relationships?.technical?.produced_from_materials || relationships?.produced_from_materials;
   const sourceMaterials = (Array.isArray(sourceMaterialsRaw)
     ? sourceMaterialsRaw
-    : (sourceMaterialsRaw?.items || [])).filter(item => item != null);
+    : (sourceMaterialsRaw?.items || [])).filter((item: any) => item != null);
 
   // Enrich minimal references with full contaminant data
   const enrichedContaminants = await Promise.all(

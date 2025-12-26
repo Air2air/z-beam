@@ -1,2 +1,3 @@
-export { RelationshipCardGrid, RelationshipSection } from './RelationshipCardGrid';
-export type { RelationshipCardGridProps, RelationshipSectionProps } from './RelationshipCardGrid';
+// RelationshipCardGrid has been deprecated and removed
+// Use CardGrid with relationship data instead
+export {};

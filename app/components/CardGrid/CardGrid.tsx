@@ -445,7 +445,7 @@ export function CardGrid({
     // Always wrap in SectionContainer
     return (
       <SectionContainer 
-        title={displayTitle}
+        title={displayTitle || ''}
         className={`article-grid article-grid--category-grouped ${className}`}
       >
         {groupedContent}
@@ -488,7 +488,7 @@ export function CardGrid({
   // Always wrap in SectionContainer
   return (
     <SectionContainer 
-      title={title || heading}
+      title={title || heading || ''}
       className={`article-grid article-grid--simple ${className}`}
     >
       {content}

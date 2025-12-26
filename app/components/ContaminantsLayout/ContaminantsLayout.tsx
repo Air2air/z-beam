@@ -10,7 +10,6 @@ import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
 import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
 import { Collapsible } from '../Collapsible';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
-import { materialLinkageToGridItem, compoundLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { convertCitationsToStandards } from '@/app/utils/layoutHelpers';
 import { getCompoundArticle, getContaminantArticle, getArticle } from '@/app/utils/contentAPI';
@@ -104,7 +103,18 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
       component: CardGrid,
       condition: enrichedCompounds.length > 0,
       props: {
-        items: enrichedCompounds.map(compoundLinkageToGridItem),
+        items: enrichedCompounds.filter((c): c is NonNullable<typeof c> => c != null).map(c => ({
+          slug: c.id,
+          href: c.url,
+          title: c.title,
+          imageUrl: c.image,
+          imageAlt: c.title,
+          category: c.category,
+          metadata: {
+            phase: c.phase,
+            hazard_level: c.hazard_level,
+          },
+        })),
         title: `Compounds produced by ${contaminantName}`,
         description: producesCompoundsSection?.metadata?.description || 'Compounds produced during laser removal with exposure limits and required safety controls',
         variant: 'relationship' as const,
@@ -134,7 +144,14 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
       component: CardGrid,
       condition: enrichedMaterials.length > 0,
       props: {
-        items: enrichedMaterials.map(materialLinkageToGridItem),
+        items: enrichedMaterials.filter((m): m is NonNullable<typeof m> => m != null).map(m => ({
+          slug: m.id,
+          href: m.url,
+          title: m.title,
+          imageUrl: m.image,
+          imageAlt: m.title,
+          category: m.category,
+        })),
         title: `Materials affected by ${contaminantName}`,
         description: affectsMaterialsSection?.metadata?.description || 'Materials where this contaminant is commonly present',
         variant: 'relationship' as const,
@@ -142,7 +159,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
     },
     // Visual characteristics - collapsible or descriptive based on presentation
     {
-      component: visualCharacteristics?.presentation === 'collapsible' ? Collapsible : DescriptiveDataPanel,
+      component: visualCharacteristics?.presentation === 'descriptive' ? Collapsible : DescriptiveDataPanel,
       condition: !!visualCharacteristics,
       props: {
         items: visualCharacteristics?.items || [],

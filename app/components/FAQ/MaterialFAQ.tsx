@@ -56,6 +56,7 @@ export function MaterialFAQ({
       <SectionTitle 
         title={`${materialName} Laser Cleaning FAQs`}
         icon={getSectionIcon('faq')}
+        description="Common questions and expert answers about laser cleaning this material"
         thumbnail={heroImage}
         thumbnailLink={thumbnailLink}
       />

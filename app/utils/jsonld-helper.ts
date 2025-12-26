@@ -259,7 +259,7 @@ function createTechnicalArticleSchema(data: any) {
 
 // 2. Material Product Schema (E-E-A-T: Authoritativeness with verified data)
 function createMaterialProductSchema(data: any) {
-  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, images } = data;
+  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, images, author } = data;
   
   // Extract properties from categorized structure
   const properties: any[] = [];
@@ -428,7 +428,7 @@ function createMaterialProductSchema(data: any) {
 
 // 3. HowTo Schema (E-E-A-T: Experience with detailed process)
 function createHowToSchema(data: any) {
-  const { materialName, machineSettings, pageUrl } = data;
+  const { materialName, machineSettings, pageUrl, images, author } = data;
   
   // Build steps from machine settings
   const steps: any[] = [];
@@ -477,7 +477,6 @@ function createHowToSchema(data: any) {
   }
   
   const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
-  const { images } = data;
   
   return steps.length > 0 ? {
     '@type': 'HowTo',

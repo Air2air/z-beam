@@ -18,6 +18,7 @@ export {
   GRID_SECTION_SPACING,
   SECTION_HEADER_CLASSES,
   CATEGORY_HEADER_CLASSES,
+  GRID_GAP_RESPONSIVE,
   getGridClasses,
   createSectionHeader,
   createCategoryHeader

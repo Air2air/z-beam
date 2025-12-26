@@ -304,8 +304,7 @@ export function SettingsLayout({
       />
 
       {/* Material Safety Heatmap */}
-      <div className="mb-8">
-        <MaterialSafetyHeatmap 
+      <MaterialSafetyHeatmap 
               materialName={settings.name}
               thumbnail={heroImage}
               materialLink={materialLink}
@@ -372,11 +371,9 @@ export function SettingsLayout({
                 spotDiameter: findParam('spotSize')?.value || 300, // μm
               }}
             />
-          </div>
 
         {/* Energy Coupling Heatmap - Shows laser energy transfer efficiency */}
-        <div className="mb-8">
-            <EnergyCouplingHeatmap 
+        <EnergyCouplingHeatmap 
               materialName={settings.name}
               thumbnail={heroImage}
               materialLink={materialLink}
@@ -414,11 +411,9 @@ export function SettingsLayout({
                 spotDiameter: findParam('spotSize')?.value || 300,
               }}
             />
-          </div>
 
         {/* Thermal Stress Heatmap - Shows thermal stress and distortion risk */}
-        <div className="mb-8">
-            <ThermalStressHeatmap 
+        <ThermalStressHeatmap 
               materialName={settings.name}
               thumbnail={heroImage}
               materialLink={materialLink}
@@ -463,11 +458,9 @@ export function SettingsLayout({
                 density: materialProps?.material_characteristics?.density?.value,
               }}
             />
-          </div>
 
         {/* Process Effectiveness Heatmap */}
-        <div className="mb-8">
-            <ProcessEffectivenessHeatmap 
+        <ProcessEffectivenessHeatmap 
               materialName={settings.name}
               thumbnail={heroImage}
               materialLink={materialLink}
@@ -534,7 +527,6 @@ export function SettingsLayout({
                 spotDiameter: findParam('spotSize')?.value || 300, // μm
               }}
             />
-          </div>
 
         {/* Heat Buildup Simulator */}
         <HeatBuildup 
@@ -575,13 +567,11 @@ export function SettingsLayout({
 
       {/* Settings FAQ and Troubleshooting */}
       {(settings.help || settings.machineSettings?.material_challenges) && (
-        <div className="mb-8">
-          <FAQSettings
-            materialName={settings.name}
-            help={settings.help}
-            material_challenges={settings.machineSettings?.material_challenges}
-          />
-        </div>
+        <FAQSettings
+          materialName={settings.name}
+          help={settings.help}
+          material_challenges={settings.machineSettings?.material_challenges}
+        />
       )}
 
       {/* Dataset Download Section */}
