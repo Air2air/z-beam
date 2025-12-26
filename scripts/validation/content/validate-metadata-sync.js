@@ -23,14 +23,14 @@ const PAGES_DIR = path.join(process.cwd(), 'static-pages');
 
 // Required fields for complete metadata
 const REQUIRED_FIELDS = {
-  material: ['name', 'title', 'description', 'category', 'images', 'author'],
-  page: ['title', 'description']
+  material: ['name', 'title', 'page_description', 'category', 'images', 'author'],
+  page: ['title', 'page_description']
 };
 
 // Fields that should match between frontmatter and JSON-LD
 const CRITICAL_SYNC_FIELDS = [
   'title',
-  'description',
+  'page_description',
   'author.name',
   'images.hero.url',
   'images.micro.url',
