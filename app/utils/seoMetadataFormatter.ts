@@ -219,7 +219,7 @@ export function formatSettingsDescription(config: MetadataConfig): string {
  * Extract key property from material description
  * Looks for: reflectivity, strength, conductivity, density, hardness, etc.
  */
-function _extractKeyProperty(description?: string): string {
+function extractKeyProperty(description?: string): string {
   if (!description) return '';
   
   // Property keywords to search for
@@ -278,7 +278,7 @@ function _extractKeyProperty(description?: string): string {
  * Extract key consideration from settings description
  * Looks for: challenges, considerations, requirements
  */
-function _extractKeyConsideration(description?: string): string {
+function extractKeyConsideration(description?: string): string {
   if (!description) return '';
   
   // Keywords indicating important considerations

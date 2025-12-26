@@ -1,20 +1,23 @@
 /**
  * Schema Data Access Helpers
  * 
- * Provides normalized access to frontmatter/metadata across different data structures.
- * Handles inconsistency between contentAPI (returns metadata) and static pages (use frontmatter).
+ * Provides normalized access to metadata/frontmatter across different data structures.
+ * Handles inconsistency between contentAPI (returns metadata) and static pages (legacy frontmatter).
+ * 
+ * @terminology Updated Dec 26, 2025: "metadata" is now canonical, "frontmatter" supported for backward compatibility
  */
 
 /**
- * Safely access frontmatter from various data structures
+ * Safely access metadata from various data structures
  * 
  * Priority order:
  * 1. Settings objects with machineSettings at top level (return directly)
- * 2. data.frontmatter (Material/Contaminant pages from contentAPI)
- * 3. data.pageConfig (legacy structure)
- * 4. data itself (fallback - the object IS the frontmatter)
+ * 2. data.metadata (preferred - new standard)
+ * 3. data.frontmatter (legacy - backward compatibility)
+ * 4. data.pageConfig (legacy structure)
+ * 5. data itself (fallback - the object IS the metadata)
  * 
- * Settings pages pass the SettingsMetadata object directly, which IS the frontmatter.
+ * Settings pages pass the SettingsMetadata object directly, which IS the metadata.
  * They have machineSettings at the top level with no nesting.
  */
 export function getMetadata(data: any): Record<string, unknown> {
@@ -106,9 +109,9 @@ export function hasServiceData(data: any): boolean {
   const title = typeof data.title === 'string' ? data.title : '';
   const meta = getMetadata(data) as any;
   
-  // New frontmatter format: serviceOffering.enabled = true
-  if (meta.serviceOffering?.enabled === true) return true;
-  if (data.serviceOffering?.enabled === true) return true;
+  // New frontmatter format: serviceOffering.isEnabled = true
+  if (meta.serviceOffering?.isEnabled === true) return true;
+  if (data.serviceOffering?.isEnabled === true) return true;
   
   // Legacy formats
   return !!(
@@ -142,7 +145,7 @@ export function hasMultipleServices(data: any): boolean {
   const offerings = Array.isArray(data.serviceOfferings) ? data.serviceOfferings : [];
   const metaOfferings = Array.isArray(meta.serviceOfferings) ? meta.serviceOfferings : [];
   // Singular serviceOffering counts as 1
-  const hasSingular = meta.serviceOffering?.enabled || data.serviceOffering?.enabled ? 1 : 0;
+  const hasSingular = meta.serviceOffering?.isEnabled || data.serviceOffering?.isEnabled ? 1 : 0;
   return (services.length + offerings.length + metaOfferings.length + hasSingular) > 1;
 }
 

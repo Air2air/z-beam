@@ -238,7 +238,7 @@ export interface ServiceOfferingMaterialSpecific {
  */
 export interface ServiceOffering {
   /** Enable service schema generation */
-  enabled: boolean;
+  isEnabled: boolean;
   /** Service type - maps to SITE_CONFIG.pricing key */
   type: 'professionalCleaning' | 'equipmentRental';
   /** Material-specific service details */

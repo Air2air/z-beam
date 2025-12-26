@@ -12,7 +12,7 @@
  */
 
 export interface SchemaValidationResult {
-  valid: boolean;
+  isValid: boolean;
   errors: string[];
   warnings: string[];
   schemaType?: string;
@@ -59,7 +59,7 @@ export function validateSchema(schema: any): SchemaValidationResult {
   
   if (!schema) {
     return {
-      valid: false,
+      isValid: false,
       errors: ['Schema is null or undefined'],
       warnings: [],
     };
@@ -68,7 +68,7 @@ export function validateSchema(schema: any): SchemaValidationResult {
   // Check if it's valid JSON (should already be an object)
   if (typeof schema !== 'object') {
     return {
-      valid: false,
+      isValid: false,
       errors: ['Schema is not a valid object'],
       warnings: [],
     };
@@ -142,7 +142,7 @@ export function validateSchema(schema: any): SchemaValidationResult {
   }
   
   return {
-    valid: errors.length === 0,
+    isValid: errors.length === 0,
     errors,
     warnings,
     schemaType,
@@ -164,7 +164,7 @@ export function validateGraphSchemas(graphSchema: any): SchemaValidationResult {
   
   if (!Array.isArray(graphs)) {
     errors.push('@graph must be an array');
-    return { valid: false, errors, warnings };
+    return { isValid: false, errors, warnings };
   }
   
   // Validate each schema in the graph
@@ -177,7 +177,7 @@ export function validateGraphSchemas(graphSchema: any): SchemaValidationResult {
   });
   
   return {
-    valid: errors.length === 0,
+    isValid: errors.length === 0,
     errors,
     warnings,
   };
@@ -191,10 +191,10 @@ export function logValidationResults(
   label: string = 'Schema'
 ): void {
   if (process.env.NODE_ENV === 'development') {
-    if (result.valid && result.warnings.length === 0) {
+    if (result.isValid && result.warnings.length === 0) {
       console.log(`✅ ${label}: Valid`);
     } else {
-      if (!result.valid) {
+      if (!result.isValid) {
         console.error(`❌ ${label}: Validation failed`);
         result.errors.forEach(err => console.error(`   • ${err}`));
       }

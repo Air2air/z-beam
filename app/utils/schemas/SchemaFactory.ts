@@ -1188,7 +1188,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
   // Check for new frontmatter serviceOffering format
   const serviceOffering = (meta.serviceOffering || data.serviceOffering) as ServiceOffering | undefined;
   
-  if (serviceOffering?.enabled) {
+  if (serviceOffering?.isEnabled) {
     // Build Service schema from frontmatter serviceOffering
     const serviceType = serviceOffering.type || 'professionalCleaning';
     const pricing = SITE_CONFIG.pricing[serviceType as keyof typeof SITE_CONFIG.pricing];
@@ -2001,7 +2001,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   const datasetName = materialSlug;
   
   // For settings pages, use canonical dataset URL (points to materials page, not settings)
-  const canonicalUrl = frontmatter.canonicalDatasetUrl 
+  const canonicalUrl = frontmatter.canonicalDatasetUrl && typeof frontmatter.canonicalDatasetUrl === 'string'
     ? `${baseUrl}/datasets/materials/${frontmatter.canonicalDatasetUrl.split('/').pop()}`
     : `${baseUrl}/datasets/${datasetFolder}/${datasetName}`;
 

@@ -7,9 +7,9 @@
  * @example
  * ```typescript
  * // In any page:
- * import { SchemaRegistry } from '@/app/utils/schemas/registry';
+ * import { schemaRegistry } from '@/app/utils/schemas/registry';
  * 
- * const schemas = SchemaRegistry.getPageSchemas('services', { 
+ * const schemas = schemaRegistry.getPageSchemas('services', { 
  *   pricing, 
  *   services 
  * });
@@ -240,7 +240,7 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
 // Schema Registry - Page-Specific Schema Bundles
 // ============================================================================
 
-export const SchemaRegistry = {
+export const schemaRegistry = {
   /**
    * Get all schemas for a specific page type
    * Returns a @graph structure with all relevant schemas
@@ -362,4 +362,4 @@ export const SchemaRegistry = {
   faq: generateFAQSchema
 };
 
-export default SchemaRegistry;
+export default schemaRegistry;
