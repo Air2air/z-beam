@@ -55,7 +55,7 @@ export interface SchemaGeneratorOptions {
   /** Priority level for schema ordering (higher = generated first) */
   priority?: number;
   /** Whether this schema is required for the page */
-  required?: boolean;
+  isRequired?: boolean;
   /** Condition function to determine if schema should be generated */
   condition?: (data: SchemaData, context: SchemaContext) => boolean;
 }
@@ -144,7 +144,7 @@ export class SchemaFactory {
       generator,
       options: {
         priority: 0,
-        required: false,
+        isRequired: false,
         ...options
       }
     };
@@ -179,12 +179,12 @@ export class SchemaFactory {
         if (schema) {
           this.cache.set(name, schema);
           schemas.push(schema);
-        } else if (options.required) {
+        } else if (options.isRequired) {
           console.warn(`Required schema "${name}" returned null`);
         }
       } catch (error) {
         console.error(`Error generating schema "${name}":`, error);
-        if (options.required) {
+        if (options.isRequired) {
           throw error;
         }
       }
@@ -203,7 +203,7 @@ export class SchemaFactory {
    */
   private registerDefaultSchemas(): void {
     // Core schemas (high priority)
-    this.register('WebPage', generateWebPageSchema, { priority: 100, required: true });
+    this.register('WebPage', generateWebPageSchema, { priority: 100, isRequired: true });
     this.register('BreadcrumbList', generateBreadcrumbSchema, { priority: 90 });
     this.register('Organization', generateOrganizationSchema, { priority: 85 });
 
