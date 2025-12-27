@@ -177,7 +177,7 @@ Found in debug/utility components:
 
 | File | Interface | Purpose | Status |
 |------|-----------|---------|--------|
-| `TagDebug.tsx` | `TagData` | Debug component data | ✅ Debug-only, acceptable |
+
 | `FrontmatterDebug.tsx` | `Document` | Debug component data | ✅ Debug-only, acceptable |
 | `BadgeSymbol.tsx` | `BadgeSymbolProps` | Component props | ✅ Simple, acceptable |
 

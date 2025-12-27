@@ -133,7 +133,7 @@ describe('Build-Time Requirements Enforcement', () => {
       expect(jsonFiles.length).toBe(txtFiles.length);
     });
 
-    it('should validate dataset file structure', () => {
+    it('should validate dataset file structure (hybrid v2.0 + v3.0 format)', () => {
       const datasetDir = path.join(process.cwd(), 'public', 'datasets', 'materials');
       const files = fs.readdirSync(datasetDir).filter(f => f.endsWith('.json') && f !== 'index.json');
       
@@ -143,32 +143,42 @@ describe('Build-Time Requirements Enforcement', () => {
       const sampleFile = path.join(datasetDir, files[0]);
       const content = JSON.parse(fs.readFileSync(sampleFile, 'utf-8'));
       
-      // Validate basic schema structure (old format until regenerated)
+      // Base Schema.org validation
       expect(content['@context']).toBe('https://schema.org');
       expect(content['@type']).toBe('Dataset');
       expect(content.name).toBeDefined();
-      expect(content.version).toBeDefined();
-      expect(content.license).toBeDefined();
-      expect(content.creator).toBeDefined();
       
-      // Enhanced fields (will be present after next dataset generation)
-      if (content.publisher) {
-        expect(content.publisher).toBeDefined();
-        expect(content.keywords).toBeDefined();
-        expect(content.dataQuality).toBeDefined();
-        
-        // Distribution array must have all 3 formats
-        if (content.distribution) {
-          expect(content.distribution).toHaveLength(3);
-          const formats = content.distribution.map((d: any) => d.encodingFormat);
-          expect(formats).toContain('application/json');
-          expect(formats).toContain('text/csv');
-          expect(formats).toContain('text/plain');
+      // Hybrid format: Contains BOTH v2.0 and v3.0 fields
+      // v2.0 fields (backward compatibility)
+      expect(content.variableMeasured).toBeDefined();
+      expect(Array.isArray(content.variableMeasured)).toBe(true);
+      expect(content.keywords).toBeDefined();
+      expect(content.distribution).toBeDefined();
+      
+      // v3.0 fields (new structure)
+      expect(content.version).toBe('3.0');
+      expect(content.creator).toBeDefined();
+      expect(content.publisher).toBeDefined();
+      
+      // v3.0: Check for nested material/contaminant object
+      const hasMaterialData = content.material || content.contaminant;
+      expect(hasMaterialData).toBeDefined();
+      
+      // v3.0: Properties should be nested objects with value/unit structure
+      if (content.material) {
+        expect(content.material.machineSettings || content.material.materialProperties).toBeDefined();
+        // Verify nested structure has value/unit/min/max
+        if (content.material.materialProperties) {
+          const firstProp = Object.values(content.material.materialProperties)[0] as any;
+          if (firstProp && typeof firstProp === 'object') {
+            expect(firstProp).toHaveProperty('value');
+            expect(firstProp).toHaveProperty('unit');
+          }
         }
       }
-      
-      // variableMeasured should exist (populated or empty array)
-      expect(content.variableMeasured).toBeDefined();
+      if (content.contaminant) {
+        expect(content.contaminant.properties || content.contaminant.removalTechniques).toBeDefined();
+      }
     });
   });
 

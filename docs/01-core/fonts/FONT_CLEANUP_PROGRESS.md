@@ -37,7 +37,7 @@
 
 **Debug Components** (~30 instances)
 - `app/components/Debug/FrontmatterDebug.tsx` - 10 instances
-- `app/components/Debug/TagDebug.tsx` - 10 instances  
+  
 - `app/components/Debug/FrontmatterNameChecker.tsx` - 5 instances
 - `app/components/Layout/DebugLayout.tsx` - 7 instances
 

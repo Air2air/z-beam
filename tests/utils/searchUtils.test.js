@@ -115,7 +115,7 @@ describe('Search Utils', () => {
         slug: 'test-slug'
       };
 
-      expect(getDisplayName(item)).toBe('Frontmatter Title');
+      expect(getDisplayName(item)).toBe('Metadata Title');
     });
 
     test('should fallback to title', () => {
@@ -160,7 +160,7 @@ describe('Search Utils', () => {
 
     test('should create badge for alumina', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           subject: 'alumina',
           category: 'ceramic'
         }
@@ -178,7 +178,7 @@ describe('Search Utils', () => {
 
     test('should create badge for silicon nitride', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           subject: 'silicon nitride',
           category: 'ceramic'
         }
@@ -196,7 +196,7 @@ describe('Search Utils', () => {
 
     test('should handle commentMetadata subject', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           commentMetadata: {
             Subject: 'Alumina'
           },
@@ -216,7 +216,7 @@ describe('Search Utils', () => {
 
     test('should create generic badge from category', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           category: 'polymer'
         }
       };
@@ -265,25 +265,25 @@ describe('Search Utils', () => {
       expect(getChemicalProperties(item)).toBe(existingProps);
     });
 
-    test('should return chemical properties from frontmatter', () => {
-      const frontmatterProps = {
+    test('should return chemical properties from metadata', () => {
+      const metadataProps = {
         symbol: 'Zr',
         formula: 'ZrO₂',
         materialType: 'ceramic'
       };
 
       const item = {
-        frontmatter: {
-          chemicalProperties: frontmatterProps
+        metadata: {
+          chemicalProperties: metadataProps
         }
       };
 
-      expect(getChemicalProperties(item)).toBe(frontmatterProps);
+      expect(getChemicalProperties(item)).toEqual(metadataProps);
     });
 
-    test('should construct properties from individual frontmatter fields', () => {
+    test('should construct properties from individual metadata fields', () => {
       const item = {
-        frontmatter: {
+        metadata: {
           chemicalSymbol: 'Cu',
           chemicalFormula: 'CuO',
           materialType: 'compound'

@@ -4,6 +4,11 @@
  * Tests the complete rendered material page to verify Dataset schema appears in HTML
  * This validates the entire pipeline from content loading through render
  * 
+ * **IMPORTANT**: These tests validate v3.0 format expectations.
+ * **Current Status**: Implementation still generates v2.0 format (variableMeasured arrays).
+ * **Migration Needed**: Update dataset generator and SchemaFactory to v3.0 nested object format.
+ * **See**: docs/UPDATED_DATASET_SPECIFICATION_DEC27_2025.md for complete specification
+ * 
  * @jest-environment node
  */
 
@@ -65,7 +70,7 @@ describe('Material Page Dataset Schema E2E', () => {
     expect(datasetSchema).toBeDefined();
   });
 
-  (skipE2E ? it.skip : it)('Dataset schema should contain machineSettings in variableMeasured', async () => {
+  (skipE2E ? it.skip : it)('Dataset schema should contain machineSettings (v3.0 nested format)', async () => {
     await page.goto(`${baseUrl}/materials/metal/non-ferrous/aluminum-laser-cleaning`, {
       waitUntil: 'networkidle0',
       timeout: 10000
@@ -78,20 +83,16 @@ describe('Material Page Dataset Schema E2E', () => {
 
     const datasetSchema = jsonLdData['@graph'].find((item: any) => item['@type'] === 'Dataset');
     
-    expect(datasetSchema.variableMeasured).toBeDefined();
-    expect(Array.isArray(datasetSchema.variableMeasured)).toBe(true);
-    expect(datasetSchema.variableMeasured.length).toBeGreaterThan(0);
+    // v3.0: Check nested material.machineSettings object (not variableMeasured array)
+    expect(datasetSchema.material).toBeDefined();
+    expect(datasetSchema.material.machineSettings).toBeDefined();
 
-    // Check for machineSettings properties
-    const machineSettingsProps = ['powerRange', 'wavelength', 'spotSize', 'repetitionRate'];
-    const foundProps = datasetSchema.variableMeasured.filter((v: any) =>
-      machineSettingsProps.includes(v.propertyID)
-    );
-
-    expect(foundProps.length).toBeGreaterThan(0);
+    // Check for machineSettings properties in nested structure
+    const settings = datasetSchema.material.machineSettings;
+    expect(settings.laserPower || settings.wavelength || settings.spotSize).toBeDefined();
   });
 
-  (skipE2E ? it.skip : it)('Dataset schema should contain materialProperties in variableMeasured', async () => {
+  (skipE2E ? it.skip : it)('Dataset schema should contain materialProperties (v3.0 nested format)', async () => {
     await page.goto(`${baseUrl}/materials/metal/non-ferrous/aluminum-laser-cleaning`, {
       waitUntil: 'networkidle0',
       timeout: 10000
@@ -104,42 +105,44 @@ describe('Material Page Dataset Schema E2E', () => {
 
     const datasetSchema = jsonLdData['@graph'].find((item: any) => item['@type'] === 'Dataset');
 
-    // Check for materialProperties
-    const materialProps = ['density', 'meltingPoint', 'thermalConductivity'];
-    const foundProps = datasetSchema.variableMeasured.filter((v: any) =>
-      materialProps.some(prop => v.propertyID?.includes(prop))
-    );
-
-    expect(foundProps.length).toBeGreaterThan(0);
-  });
-
-  (skipE2E ? it.skip : it)('variableMeasured entries should have correct PropertyValue structure', async () => {
-    await page.goto(`${baseUrl}/materials/metal/non-ferrous/aluminum-laser-cleaning`, {
-      waitUntil: 'networkidle0',
-      timeout: 10000
-    });
-
-    const jsonLdData = await page.evaluate(() => {
-      const script = document.querySelector('script[type="application/ld+json"]');
-      return script ? JSON.parse(script.textContent || '{}') : null;
-    });
-
-    const datasetSchema = jsonLdData['@graph'].find((item: any) => item['@type'] === 'Dataset');
-    const firstVariable = datasetSchema.variableMeasured[0];
-
-    // Verify PropertyValue structure
-    expect(firstVariable['@type']).toBe('PropertyValue');
-    expect(firstVariable.propertyID).toBeDefined();
-    expect(firstVariable.name).toBeDefined();
-    expect(firstVariable.value).toBeDefined();
-    expect(firstVariable.unitText).toBeDefined();
+    // v3.0: Check nested material.materialProperties object
+    expect(datasetSchema.material).toBeDefined();
+    expect(datasetSchema.material.materialProperties).toBeDefined();
     
-    // Should have min/max for ranges
-    if (firstVariable.minValue !== undefined) {
-      expect(typeof firstVariable.minValue).toBe('number');
-    }
-    if (firstVariable.maxValue !== undefined) {
-      expect(typeof firstVariable.maxValue).toBe('number');
+    // Check for nested property groups
+    const props = datasetSchema.material.materialProperties;
+    expect(props.materialCharacteristics || props.laserMaterialInteraction).toBeDefined();
+  });
+
+  (skipE2E ? it.skip : it)('property values should have correct v3.0 structure', async () => {
+    await page.goto(`${baseUrl}/materials/metal/non-ferrous/aluminum-laser-cleaning`, {
+      waitUntil: 'networkidle0',
+      timeout: 10000
+    });
+
+    const jsonLdData = await page.evaluate(() => {
+      const script = document.querySelector('script[type="application/ld+json"]');
+      return script ? JSON.parse(script.textContent || '{}') : null;
+    });
+
+    const datasetSchema = jsonLdData['@graph'].find((item: any) => item['@type'] === 'Dataset');
+    
+    // v3.0: Properties are nested objects, not PropertyValue arrays
+    const settings = datasetSchema.material?.machineSettings;
+    if (settings) {
+      const firstProp = Object.values(settings)[0] as any;
+      
+      // Verify v3.0 property structure: {value, unit, min?, max?, confidence?}
+      expect(firstProp.value).toBeDefined();
+      expect(firstProp.unit).toBeDefined();
+      
+      // Should have min/max for ranges
+      if (firstProp.min !== undefined) {
+        expect(typeof firstProp.min).toBe('number');
+      }
+      if (firstProp.max !== undefined) {
+        expect(typeof firstProp.max).toBe('number');
+      }
     }
   });
 
@@ -160,7 +163,7 @@ describe('Material Page Dataset Schema E2E', () => {
     expect(datasetSchema['@id']).toMatch(/\/datasets\/materials\/aluminum-laser-cleaning#dataset$/);
   });
 
-  (skipE2E ? it.skip : it)('Dataset schema should include required Google properties', async () => {
+  (skipE2E ? it.skip : it)('Dataset schema should include required properties (v3.0 minimal format)', async () => {
     await page.goto(`${baseUrl}/materials/metal/non-ferrous/aluminum-laser-cleaning`, {
       waitUntil: 'networkidle0',
       timeout: 10000
@@ -173,24 +176,18 @@ describe('Material Page Dataset Schema E2E', () => {
 
     const datasetSchema = jsonLdData['@graph'].find((item: any) => item['@type'] === 'Dataset');
 
-    // Required by Google
+    // v3.0 minimal required fields
     expect(datasetSchema.name).toBeDefined();
     expect(datasetSchema.description).toBeDefined();
-    expect(datasetSchema.license).toBeDefined();
     expect(datasetSchema.creator).toBeDefined();
+    expect(datasetSchema.publisher).toBeDefined();
+    expect(datasetSchema.version).toBeDefined();
     
-    // Distribution for downloads
-    expect(datasetSchema.distribution).toBeDefined();
-    expect(Array.isArray(datasetSchema.distribution)).toBe(true);
-    expect(datasetSchema.distribution.length).toBeGreaterThan(0);
-    
-    // First distribution should have DataDownload type
-    expect(datasetSchema.distribution[0]['@type']).toBe('DataDownload');
-    expect(datasetSchema.distribution[0].contentUrl).toBeDefined();
-    expect(datasetSchema.distribution[0].encodingFormat).toBeDefined();
+    // v3.0: distribution, license, keywords removed from current format
+    // These were part of v2.0 comprehensive Schema.org format
   });
 
-  (skipE2E ? it.skip : it)('should work for different material types (Steel)', async () => {
+  (skipE2E ? it.skip : it)('should work for different material types (Steel) - v3.0 format', async () => {
     await page.goto(`${baseUrl}/materials/metal/ferrous/steel-laser-cleaning`, {
       waitUntil: 'networkidle0',
       timeout: 10000
@@ -203,8 +200,8 @@ describe('Material Page Dataset Schema E2E', () => {
 
     const datasetSchema = jsonLdData['@graph'].find((item: any) => item['@type'] === 'Dataset');
     expect(datasetSchema).toBeDefined();
-    expect(datasetSchema.variableMeasured).toBeDefined();
-    expect(datasetSchema.variableMeasured.length).toBeGreaterThan(0);
+    expect(datasetSchema.material).toBeDefined();
+    expect(datasetSchema.material.machineSettings || datasetSchema.material.materialProperties).toBeDefined();
   });
 
   (skipE2E ? it.skip : it)('should NOT include Dataset schema for material without properties or settings', async () => {
@@ -226,12 +223,13 @@ describe('Material Page Dataset Schema E2E', () => {
     // This test validates conditional logic - if material has properties OR settings, Dataset appears
     // If neither, Dataset should be absent
     if (datasetSchema) {
-      // If present, must have at least one variableMeasured entry
-      expect(datasetSchema.variableMeasured.length).toBeGreaterThan(0);
+      // v3.0: If present, must have material object with properties or settings
+      expect(datasetSchema.material).toBeDefined();
+      expect(datasetSchema.material.machineSettings || datasetSchema.material.materialProperties).toBeDefined();
     }
   });
 
-  (skipE2E ? it.skip : it)('should pass Google Rich Results validation structure', async () => {
+  (skipE2E ? it.skip : it)('should have valid v3.0 Dataset structure', async () => {
     await page.goto(`${baseUrl}/materials/metal/non-ferrous/aluminum-laser-cleaning`, {
       waitUntil: 'networkidle0',
       timeout: 10000
@@ -244,23 +242,24 @@ describe('Material Page Dataset Schema E2E', () => {
 
     const datasetSchema = jsonLdData['@graph'].find((item: any) => item['@type'] === 'Dataset');
 
-    // Google Rich Results requirements
+    // v3.0 streamlined format validation
     expect(datasetSchema['@type']).toBe('Dataset');
     expect(datasetSchema.name).toBeTruthy();
     expect(datasetSchema.description).toBeTruthy();
     
-    // License should be URL or CreativeWork
-    expect(datasetSchema.license).toBeTruthy();
-    
-    // Creator should be Person or Organization
+    // Creator should be Organization
     expect(datasetSchema.creator).toBeTruthy();
-    expect(datasetSchema.creator['@type']).toMatch(/Person|Organization/);
+    expect(datasetSchema.creator['@type']).toBe('Organization');
     
-    // VariableMeasured should be PropertyValue array
-    expect(Array.isArray(datasetSchema.variableMeasured)).toBe(true);
-    datasetSchema.variableMeasured.forEach((variable: any) => {
-      expect(variable['@type']).toBe('PropertyValue');
-      expect(variable.name).toBeTruthy();
-    });
+    // Publisher should be Organization
+    expect(datasetSchema.publisher).toBeTruthy();
+    expect(datasetSchema.publisher['@type']).toBe('Organization');
+    
+    // v3.0: Material data should be nested object (not variableMeasured array)
+    expect(datasetSchema.material).toBeTruthy();
+    expect(typeof datasetSchema.material).toBe('object');
   });
 });
+
+// Note: v3.0 format removed variableMeasured, citation, distribution, license, keywords
+// See: docs/UPDATED_DATASET_SPECIFICATION_DEC27_2025.md for complete v2.0 vs v3.0 comparison

@@ -219,23 +219,21 @@ export function PageTitle({
         aria-labelledby={titleId}
       >
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-          <Tag
-            ref={titleRef}
-            id={titleId}
-            className={combinedClasses}
-            role={role || config.role}
-            aria-level={config.ariaLevel}
-            aria-label={ariaLabel}
-            aria-describedby={page_description ? descriptionId : ariaDescribedby}
-            tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onKeyDown={handleKeyDown}
-            {...(level === 'page' ? { itemProp: 'headline' } : {})}
-            {...rest}
-          >
-            {title}
-          </Tag>
+          {React.createElement(Tag, {
+            ref: titleRef,
+            id: titleId,
+            className: combinedClasses,
+            role: role || config.role,
+            'aria-level': config.ariaLevel,
+            'aria-label': ariaLabel,
+            'aria-describedby': page_description ? descriptionId : ariaDescribedby,
+            tabIndex: tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1,
+            onFocus: onFocus,
+            onBlur: onBlur,
+            onKeyDown: handleKeyDown,
+            ...(level === 'page' ? { itemProp: 'headline' } : {}),
+            ...rest
+          }, title)}
           
           {(rightContent !== undefined ? rightContent : level === 'page') && (
             <div className="hidden sm:flex flex-shrink-0">

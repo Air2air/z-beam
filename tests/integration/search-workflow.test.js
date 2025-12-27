@@ -13,7 +13,7 @@ describe('Search Workflow Integration', () => {
         title: 'Alumina Laser Cleaning Process',
         description: 'Advanced ceramic cleaning using precision laser technology',
         author: 'Dr. Materials',
-        frontmatter: {
+        metadata: {
           subject: 'alumina',
           category: 'ceramic',
           tags: ['Industrial', 'Precision'],
@@ -52,7 +52,7 @@ describe('Search Workflow Integration', () => {
       const rawArticle = {
         slug: 'silicon-carbide-semiconductor-processing',
         title: 'Silicon Carbide Semiconductor Processing',
-        frontmatter: {
+        metadata: {
           subject: 'silicon carbide',
           category: 'semiconductor',
           articleType: 'technical-guide'
@@ -100,17 +100,17 @@ describe('Search Workflow Integration', () => {
         {
           slug: 'ceramic-laser-cleaning',
           title: 'Ceramic Cleaning',
-          frontmatter: { category: 'ceramic', subject: 'alumina' }
+          metadata: { category: 'ceramic', subject: 'alumina' }
         },
         {
           slug: 'metal-surface-treatment',
           title: 'Metal Treatment', 
-          frontmatter: { category: 'metal' }
+          metadata: { category: 'metal' }
         },
         {
           slug: 'polymer-precision-manufacturing',
           title: 'Polymer Manufacturing',
-          frontmatter: { category: 'polymer' }
+          metadata: { category: 'polymer' }
         }
       ];
 
@@ -147,7 +147,7 @@ describe('Search Workflow Integration', () => {
         title: 'Industrial Ceramic Laser Cleaning for Precision Manufacturing Applications',
         description: 'Advanced contaminant removal using laser ablation for medical device surface treatment',
         author: 'Engineering Team',
-        frontmatter: {
+        metadata: {
           subject: 'alumina',
           category: 'ceramic',
           tags: ['Quality Control', 'FDA-Approved'],
@@ -195,8 +195,8 @@ describe('Search Workflow Integration', () => {
       const conflictedArticle = {
         name: 'Override Name',
         slug: 'different-material-name',
-        frontmatter: {
-          name: 'Frontmatter Name',
+        metadata: {
+          name: 'Metadata Name',
           title: 'Yet Another Title'
         }
       };
@@ -214,7 +214,7 @@ describe('Search Workflow Integration', () => {
         slug: '',
         title: null,
         description: undefined,
-        frontmatter: {
+        metadata: {
           tags: [],
           keywords: null,
           category: ''
@@ -235,7 +235,7 @@ describe('Search Workflow Integration', () => {
     test('should handle malformed frontmatter gracefully', () => {
       const malformedArticle = {
         slug: 'test-article',
-        frontmatter: {
+        metadata: {
           tags: 'should-be-array', // Wrong type
           keywords: { invalid: 'object' }, // Wrong type
           category: ['should', 'be', 'string'] // Wrong type
@@ -258,16 +258,14 @@ describe('Search Workflow Integration', () => {
         title: 'Zirconium Oxide in Biomedical Applications: Surface Treatment for Implant Components',
         description: 'Comprehensive analysis of ZrO₂ ceramic surface modification using laser cleaning techniques for enhanced biocompatibility in surgical implants.',
         author: 'Todd Dunning',
-        frontmatter: {
+        metadata: {
           subject: 'zirconium oxide',
           category: 'ceramic',
           tags: ['Biomedical', 'FDA-Approved', 'Research'],
           keywords: ['implant', 'biocompatible', 'surgical', 'medical-grade'],
           articleType: 'research-paper',
           chemicalFormula: 'ZrO₂',
-          materialType: 'ceramic'
-        },
-        metadata: {
+          materialType: 'ceramic',
           chemicalProperties: {
             symbol: 'Zr',
             formula: 'ZrO₂',

@@ -35,7 +35,7 @@ The `fix:recurring` script automatically handles these common issues:
    - `getDisplayName`, `getBadgeFromItem`, `getChemicalProperties`
    - Ensures compatibility with dynamic data structures
 
-3. **tagDebug.ts getAuthorName function**
+3. **Author utility functions**
    - Handles Article type compatibility
 
 4. **Next.js 15 page parameters**

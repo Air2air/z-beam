@@ -41,7 +41,7 @@ export function ListingPage({
       <JsonLD data={schemas} />
       <Layout 
         title={pageTitle} 
-        description={pageDescription} 
+        page_description={pageDescription} 
         metadata={metadata as any}
         slug={config.rootPath}
       >

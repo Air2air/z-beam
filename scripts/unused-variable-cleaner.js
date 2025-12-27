@@ -100,9 +100,9 @@ class UnusedVariableCleaner {
       'AuthorData', 'showBio', 'showEmail', 'showLinkedIn',
       'content', 'materialType', 'isFeatured', 'error',
       'heading', 'getArticleBySlug', 'Article', 'Card',
-      'tagItemCounts', 'createMetadata', 'useEffect',
-      'inferTags', 'title', '_', 'matterError',
-      'MaterialProperties', 'articlesWithTags'
+      'createMetadata', 'useEffect',
+      'title', '_', 'matterError',
+      'MaterialProperties'
     ];
 
     for (const varName of knownUnusedVars) {
@@ -175,7 +175,7 @@ class UnusedVariableCleaner {
       'app/components/List/List.tsx',
       'app/components/SectionCard/SectionCardList.tsx',
       'app/components/Thumbnail/Thumbnail.tsx',
-      'app/components/UI/TagFilter.tsx',
+
       'app/contact/page.tsx',
       'app/search/search-client.tsx',
       'app/services/page.tsx',
@@ -185,7 +185,7 @@ class UnusedVariableCleaner {
       'app/utils/formatting.ts',
       'app/utils/contentAPI.ts',
       'app/utils/searchUtils.ts',
-      'app/utils/tagDebug.ts'
+
     ];
 
     let totalFilesProcessed = 0;

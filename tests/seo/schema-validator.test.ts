@@ -326,7 +326,7 @@ describe('Schema Validator', () => {
     it('returns validation result', () => {
       const result = validateAndLogSchema({ '@type': 'Article' }, 'Test', false);
       
-      expect(result).toHaveProperty('valid');
+      expect(result).toHaveProperty('isValid');
       expect(result).toHaveProperty('errors');
       expect(result).toHaveProperty('warnings');
     });

@@ -19,12 +19,12 @@ jest.mock('../../app/search/search-client', () => {
   };
 });
 
-// Mock Layout component to capture title and description
+// Mock Layout component to capture title and page_description
 jest.mock('../../app/components/Layout/Layout', () => ({
-  Layout: ({ title, description, children }: any) => (
+  Layout: ({ title, page_description, children }: any) => (
     <div data-testid="layout">
       <h1 data-testid="layout-title">{title}</h1>
-      <p data-testid="layout-description">{description}</p>
+      <p data-testid="layout-description">{page_description}</p>
       {children}
     </div>
   ),

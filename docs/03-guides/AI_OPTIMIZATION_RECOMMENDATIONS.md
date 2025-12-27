@@ -85,7 +85,7 @@ Create `/docs/COMPONENT_MAP.md`:
 # Component Relationship Map
 
 ## Core Components
-- `CardGrid` → Uses: `Card`, `TagFilter` → Types: `CardGridProps`, `CardItem`
+- `CardGrid` → Uses: `Card` → Types: `CardGridProps`, `CardItem`
 - `Card` → Uses: `Thumbnail`, `BadgeSymbol` → Types: `CardProps`, `BadgeData`
 - `Micro` → Uses: `MetricsCard`, `TechnicalDetails` → Types: `MicroProps`
 

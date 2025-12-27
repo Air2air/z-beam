@@ -89,7 +89,7 @@ export function SectionTitle({
           <p id={subtitleId} className={`text-sm text-muted mt-2 ${alignmentClasses[alignment]}`} role="doc-subtitle">
             {subtitle}
           </p>
-        )})
+        )}
         
         {description && (
           <p className={`text-base text-primary mt-2 ${alignmentClasses[alignment]}`}>

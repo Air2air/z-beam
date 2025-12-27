@@ -213,7 +213,7 @@ export default async function RentalPage() {
       <JsonLD data={rentalSchema} />
       <Layout
         title={pageConfig.title || "Laser Cleaning Equipment Rental"}
-        description={pageConfig.description || metadata.description}
+        page_description={pageConfig.description || metadata.description}
         metadata={pageConfig}
         slug="rental"
       >

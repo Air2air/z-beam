@@ -18,7 +18,7 @@ Layout.tsx (app/components/Layout/)
 ### **Grid & Display Components**
 ```
 CardGrid.tsx (app/components/CardGrid/) ⭐ HIGH COMPLEXITY
-├── Uses: Card.tsx, TagFilter.tsx, @/utils/formatting
+├── Uses: Card.tsx, @/utils/formatting
 ├── Types: CardGridProps, CardItem (centralized)
 ├── Modes: simple | category-grouped | search-results
 ├── Purpose: Unified article grid display
@@ -49,12 +49,6 @@ MetricsCard.tsx (app/components/MetricsCard/)
 
 ### **UI & Utility Components**
 ```
-TagFilter.tsx (app/components/UI/)
-├── Uses: Link (Next.js), @/utils/routing
-├── Types: TagFilterProps (centralized)
-├── Purpose: Tag-based filtering interface
-└── AI Note: Can work with or without item counts
-
 ProgressBar.tsx (app/components/ProgressBar/)
 ├── Uses: @/utils/formatting (cleanupFloat), SITE_CONFIG
 ├── Types: ProgressBarProps (centralized)  

@@ -62,7 +62,7 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   return (
     <Layout 
       title={getTitle()}
-      description={getSubtitle()}
+      page_description={getSubtitle()}
     >
       <SearchClient initialArticles={initialArticles} />
     </Layout>

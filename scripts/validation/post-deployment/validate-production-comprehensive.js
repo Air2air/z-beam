@@ -372,8 +372,9 @@ async function checkContentSchemas() {
   
   const samplePages = [
     { url: '/materials/metal/ferrous/steel-laser-cleaning', type: 'Material', expectedSchemas: ['Dataset', 'Product', 'TechnicalArticle'] },
-    { url: '/materials/metal/nonferrous/aluminum-laser-cleaning', type: 'Material-Alt', expectedSchemas: ['Dataset', 'Product', 'TechnicalArticle'] },
-    { url: '/contaminants/environmental/rust-oxidation-contamination', type: 'Contaminant', expectedSchemas: ['Dataset', 'Product', 'ChemicalSubstance'] }
+    { url: '/materials/metal/non-ferrous/aluminum-laser-cleaning', type: 'Material', expectedSchemas: ['Dataset', 'Product', 'TechnicalArticle'] },
+    { url: '/contaminants/oxidation/ferrous/rust-oxidation-contamination', type: 'Contaminant', expectedSchemas: ['Dataset', 'Product', 'ChemicalSubstance'] },
+    { url: '/compounds/metal-fume/metal-oxide/iron-oxide-compound', type: 'Compound', expectedSchemas: ['Dataset', 'Product', 'ChemicalSubstance'] }
   ];
   
   for (const page of samplePages) {

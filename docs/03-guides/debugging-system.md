@@ -52,7 +52,6 @@ fetch('/api/debug?category=thumbnails&slug=example-article')
 The debugging system includes several React components that can be imported and used in your own debugging tools:
 
 - `DebugLayout` - Consistent layout for debug pages
-- `TagDebug` - Tag system debugging component
 - `FrontmatterDebug` - Frontmatter inspection component
 - `FrontmatterNameChecker` - Tool to check frontmatter field names
 
@@ -60,13 +59,13 @@ Example usage:
 
 ```jsx
 import { DebugLayout } from '@/app/components/Debug/DebugLayout';
-import { TagDebug } from '@/app/components/Debug/TagDebug';
+import { FrontmatterDebug } from '@/app/components/Debug/FrontmatterDebug';
 
 export default function CustomDebugPage() {
   return (
     <DebugLayout>
       <h1>Custom Debug Page</h1>
-      <TagDebug />
+      <FrontmatterDebug />
     </DebugLayout>
   );
 }

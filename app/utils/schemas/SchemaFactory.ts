@@ -2351,14 +2351,17 @@ function generateChemicalSubstanceSchema(data: any, context: SchemaContext): Sch
   const metadata = (data.frontmatter || {}) as Record<string, unknown>;
   const compoundData = metadata as any;
   
-  // Only generate for compound pages with chemical formula
-  if (!compoundData.chemical_formula && !compoundData.chemicalFormula) {
+  // Only generate for compound/contaminant pages with chemical formula or composition
+  const chemicalFormula = compoundData.chemical_formula || compoundData.chemicalFormula;
+  const composition = compoundData.composition;
+  
+  if (!chemicalFormula && !composition) {
     return null;
   }
   
   const name = (compoundData.title || compoundData.name || data.title) as string;
   const description = (compoundData.description || data.description || '') as string;
-  const chemicalFormula = compoundData.chemical_formula || compoundData.chemicalFormula;
+  const chemicalComposition = chemicalFormula || (Array.isArray(composition) ? composition.join(', ') : composition);
   
   // Build base schema
   const schema: any = {
@@ -2367,7 +2370,7 @@ function generateChemicalSubstanceSchema(data: any, context: SchemaContext): Sch
     'name': name,
     'description': description,
     'url': pageUrl,
-    'chemicalComposition': chemicalFormula,
+    'chemicalComposition': chemicalComposition,
     'inLanguage': 'en-US',
     
     // Provider/source organization

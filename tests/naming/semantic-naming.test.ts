@@ -84,9 +84,12 @@ describe('Semantic Naming Conventions', () => {
       expect(content).toContain('metadata');
       expect(content).toContain('frontmatter');
       
-      // Should prioritize metadata over frontmatter
-      const metadataCheck = /data\.metadata\s*\|\|/;
-      expect(content).toMatch(metadataCheck);
+      // Should check metadata before frontmatter (priority order)
+      const metadataIndex = content.indexOf('data.metadata');
+      const frontmatterIndex = content.indexOf('data.frontmatter');
+      expect(metadataIndex).toBeGreaterThan(0);
+      expect(frontmatterIndex).toBeGreaterThan(0);
+      expect(metadataIndex).toBeLessThan(frontmatterIndex);
     });
   });
   

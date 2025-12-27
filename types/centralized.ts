@@ -741,7 +741,8 @@ export interface LayoutProps {
   slug?: string;
   children?: ReactNode;
   title?: string;
-  description?: string;
+  description?: string; // Page description (SEO)
+  page_description?: string; // Alternative name for page description
   rightContent?: ReactNode;
   className?: string;
   customHeroOverlay?: boolean; // Enable custom overlay on Hero (homepage only)

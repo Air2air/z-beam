@@ -128,7 +128,7 @@ class TargetedTypeFixer {
         description: 'Search results items array'
       },
       
-      // Author function in tagDebug
+      // Author utility functions
       {
         pattern: /function\s+getAuthorName\s*\(\s*article:\s*any\s*\)/g,
         replacement: 'function getAuthorName(article: Record<string, unknown>)',
