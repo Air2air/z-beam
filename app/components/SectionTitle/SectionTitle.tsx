@@ -42,7 +42,8 @@ export function SectionTitle({
     right: 'text-right',
   };
 
-  const headingId = id || `section-${title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`;
+  // Remove parentheses, brackets, and special chars from chemical formulas before generating ID
+  const headingId = id || `section-${title.toLowerCase().replace(/[()[\]]/g, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`;
   const subtitleId = subtitle ? `${headingId}-subtitle` : undefined;
   const showFallback = !thumbnail || imageError;
 

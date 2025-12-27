@@ -16,7 +16,7 @@ function loadMachineSettings(materialSlug: string): Record<string, any> | null {
   const settingsDir = path.join(process.cwd(), 'frontmatter', 'settings');
   const potentialFiles = [
     `${materialSlug}-settings.yaml`,
-    `${materialSlug}-laser-cleaning-settings.yaml`
+    `${materialSlug}-material-dataset-settings.yaml`
   ];
   
   for (const file of potentialFiles) {

@@ -17,7 +17,7 @@ Consolidated material datasets to provide unified, comprehensive data access fro
 #### After
 - **Unified dataset per material**
 - Both pages include material properties AND machine settings
-- Single consolidated dataset URL: `/datasets/materials/{material}-laser-cleaning.json`
+- Single consolidated dataset URL: `/datasets/materials/{material}-material-dataset.json`
 - Dataset `@id` uses canonical dataset URL (not page URL)
 
 ### 2. Schema Condition Enhancement
@@ -36,8 +36,8 @@ this.register('Dataset', generateDatasetSchema, {
 ### 3. Dataset Generator Improvements
 
 **Key Changes:**
-- Normalizes slugs by removing both `-laser-cleaning` and `-settings` suffixes
-- Creates single base name for unified datasets (e.g., `oak-laser-cleaning`)
+- Normalizes slugs by removing both `-material-dataset` and `-settings` suffixes
+- Creates single base name for unified datasets (e.g., `oak-material-dataset`)
 - Builds comprehensive `variableMeasured` array with both:
   - Machine settings (11 parameters when available)
   - Material properties (all categories when available)
@@ -62,7 +62,7 @@ if (settings?.machineSettings) {
 #### Settings Pages (`app/settings/[category]/[subcategory]/[slug]/page.tsx`)
 ```typescript
 // Load material properties from corresponding material file
-const materialArticle = await getArticleBySlug(`${material}-laser-cleaning`);
+const materialArticle = await getArticleBySlug(`${material}-material-dataset`);
 if (materialProps) {
   settings.materialProperties = materialProps;
 }
@@ -121,12 +121,12 @@ Updated `app/components/SettingsLayout/SettingsLayout.tsx`:
 
 ### Oak Material - Unified Dataset
 
-Both `/materials/wood/hardwood/oak-laser-cleaning` and `/settings/wood/hardwood/oak` generate:
+Both `/materials/wood/hardwood/oak-material-dataset` and `/settings/wood/hardwood/oak` generate:
 
 ```json
 {
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/datasets/materials/oak-material-dataset#dataset",
   "name": "Oak Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning dataset for Oak. Includes validated machine parameters and material properties for optimal cleaning results.",
   "variableMeasured": [
@@ -158,23 +158,23 @@ Both `/materials/wood/hardwood/oak-laser-cleaning` and `/settings/wood/hardwood/
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/oak-material-dataset.json",
       "name": "JSON Dataset"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/oak-material-dataset.csv",
       "name": "CSV Dataset"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/oak-material-dataset.txt",
       "name": "Plain Text Dataset"
     }
   ],
-  "url": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning",
+  "url": "https://www.z-beam.com/datasets/materials/oak-material-dataset",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -258,7 +258,7 @@ npm run build
 
 1. Deploy to production
 2. Verify schemas in production with:
-   - https://www.z-beam.com/materials/wood/hardwood/oak-laser-cleaning
+   - https://www.z-beam.com/materials/wood/hardwood/oak-material-dataset
    - https://www.z-beam.com/settings/wood/hardwood/oak
 3. Check Google Dataset Search indexing
 4. Monitor for any build or runtime errors

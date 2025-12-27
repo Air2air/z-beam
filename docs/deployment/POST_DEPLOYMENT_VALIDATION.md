@@ -126,9 +126,9 @@ Sample pages checked:
 ### 5. Dataset Files (4 samples)
 **Score**: 100%
 
-- ✅ steel-laser-cleaning.json
-- ✅ steel-laser-cleaning.csv
-- ✅ aluminum-laser-cleaning.json
+- ✅ steel-material-dataset.json
+- ✅ steel-material-dataset.csv
+- ✅ aluminum-material-dataset.json
 - ✅ steel-settings.json
 
 ### 6. Sitemap (5 checks)

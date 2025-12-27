@@ -234,7 +234,7 @@ describe('SettingsJsonLD Component - Merged Schema Generation', () => {
       const datasetSchema = schemas['@graph'].find((s: any) => s['@type'] === 'Dataset');
 
       expect(datasetSchema).toBeDefined();
-      expect(datasetSchema['@id']).toContain('/datasets/materials/oak-laser-cleaning#dataset');
+      expect(datasetSchema['@id']).toContain('/datasets/materials/oak-material-dataset#dataset');
       expect(datasetSchema.name).toContain('Oak');
       expect(datasetSchema.variableMeasured).toBeInstanceOf(Array);
 
@@ -257,14 +257,14 @@ describe('SettingsJsonLD Component - Merged Schema Generation', () => {
       }
 
       // Verify unified dataset URL (accepts both localhost and production)
-      expect(datasetSchema.url).toMatch(/^https?:\/\/(www\.z-beam\.com|localhost:3000)\/datasets\/materials\/oak-laser-cleaning$/);
+      expect(datasetSchema.url).toMatch(/^https?:\/\/(www\.z-beam\.com|localhost:3000)\/datasets\/materials\/oak-material-dataset$/);
       
       // Verify distribution URLs
       expect(datasetSchema.distribution).toBeInstanceOf(Array);
       const jsonDownload = datasetSchema.distribution.find((d: any) => 
         d.encodingFormat === 'application/json'
       );
-      expect(jsonDownload.contentUrl).toContain('oak-laser-cleaning.json');
+      expect(jsonDownload.contentUrl).toContain('oak-material-dataset.json');
     });
 
     it('should use canonical dataset @id regardless of page type', () => {
@@ -282,7 +282,7 @@ describe('SettingsJsonLD Component - Merged Schema Generation', () => {
       const datasetSchema = schemas['@graph'].find((s: any) => s['@type'] === 'Dataset');
 
       // Dataset @id should point to materials dataset, not settings page
-      expect(datasetSchema['@id']).toMatch(/^https?:\/\/(www\.z-beam\.com|localhost:3000)\/datasets\/materials\/oak-laser-cleaning#dataset$/);
+      expect(datasetSchema['@id']).toMatch(/^https?:\/\/(www\.z-beam\.com|localhost:3000)\/datasets\/materials\/oak-material-dataset#dataset$/);
       expect(datasetSchema['@id']).not.toContain('settings');
     });
   });

@@ -209,7 +209,7 @@ export const SITE_CONFIG = {
     attribution: {
       required: true,
       format: 'Z-Beam ({year}). {materialName} Laser Cleaning Dataset. Retrieved from {url}',
-      example: 'Z-Beam (2025). Aluminum Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/datasets/materials/aluminum-laser-cleaning.json'
+      example: 'Z-Beam (2025). Aluminum Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/datasets/materials/aluminum-material-dataset.json'
     },
     metadata: {
       language: 'en-US',

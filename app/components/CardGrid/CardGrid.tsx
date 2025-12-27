@@ -53,8 +53,12 @@ export function CardGrid({
   showBadgeSymbols = true,
   loadBadgeSymbolData: _loadBadgeSymbolData = false,
   variant = 'default',
-  className = ""
+  className = "",
+  cardComponent: CustomCard
 }: CardGridProps) {
+  
+  // Use custom card component if provided, otherwise default to Card
+  const CardComponent = CustomCard || Card;
   
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -354,7 +358,7 @@ export function CardGrid({
                   {/* Category Items Grid */}
                   <div className={getGridClasses({ columns, gap })}>
                     {displayItems.map((item, index) => (
-                      <Card
+                      <CardComponent
                         key={`${category}-${item.slug}-${index}`}
                         frontmatter={{
                           title: item.title || slugToDisplayName(item.slug),
@@ -399,7 +403,7 @@ export function CardGrid({
             {filteredItems.length > 0 ? (
               <div className={getGridClasses({ columns, gap })}>
                 {filteredItems.map((item, index) => (
-                  <Card
+                  <CardComponent
                     key={`filtered-${item.slug}-${index}`}
                     frontmatter={{
                       title: item.title || slugToDisplayName(item.slug),
@@ -459,7 +463,7 @@ export function CardGrid({
       {/* Simple Grid */}
       <div className={getGridClasses({ columns, gap })}>
         {filteredItems.map((item, index) => (
-          <Card
+          <CardComponent
             key={`${item.slug}-${index}`}
             frontmatter={{
               title: item.title || slugToDisplayName(item.slug),

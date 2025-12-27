@@ -189,11 +189,11 @@ export const TIER2_IMPORTANT_PROPERTIES = {
 ### Manual Checks Performed
 ```bash
 # Check CSV formatting
-head -12 public/datasets/materials/aluminum-laser-cleaning.csv
+head -12 public/datasets/materials/aluminum-material-dataset.csv
 # ✅ All lines ≤80 characters
 
 # Check TXT alignment  
-head -30 public/datasets/materials/aluminum-laser-cleaning.txt
+head -30 public/datasets/materials/aluminum-material-dataset.txt
 # ✅ All separators exactly 80 characters
 
 # Verify generation success
@@ -206,9 +206,9 @@ npm run datasets:quality
 ```
 
 ### File Sampling
-- **aluminum-laser-cleaning.csv**: ✅ Clean formatting
-- **aluminum-laser-cleaning.txt**: ✅ Perfect alignment
-- **aluminum-laser-cleaning.json**: ✅ Full Schema.org compliance
+- **aluminum-material-dataset.csv**: ✅ Clean formatting
+- **aluminum-material-dataset.txt**: ✅ Perfect alignment
+- **aluminum-material-dataset.json**: ✅ Full Schema.org compliance
 - **aluminum-settings.json**: ✅ Consistent structure
 
 ---

@@ -10,7 +10,7 @@ Z-Beam maintains comprehensive **unified datasets** for all materials that combi
 
 ### Unified Dataset Approach (November 2025)
 
-- **One dataset per material** (e.g., `oak-laser-cleaning.json`)
+- **One dataset per material** (e.g., `oak-material-dataset.json`)
 - **Machine settings appear FIRST** in all formats (JSON, CSV, TXT)
 - **Includes both:**
   - **Machine settings** (power, wavelength, spot size, etc.) - **AT TOP**
@@ -25,11 +25,11 @@ Z-Beam maintains comprehensive **unified datasets** for all materials that combi
 
 ```yaml
 # Before: Separate datasets (deprecated)
-materials/oak-laser-cleaning.json  # Material properties only
+materials/oak-material-dataset.json  # Material properties only
 settings/oak-settings.json         # Machine settings only
 
 # After: Unified dataset (current architecture)
-datasets/materials/oak-laser-cleaning.json  # Machine settings FIRST + material properties
+datasets/materials/oak-material-dataset.json  # Machine settings FIRST + material properties
 ```
 
 Both page types reference the same unified dataset URL.
@@ -148,7 +148,7 @@ These commands are no longer needed with unified datasets:
 - **Content:** Machine settings (first) + material properties (comprehensive)
 - **Count:** 132 materials × 3 formats = 396 files
 - **Index:** `public/datasets/materials/index.json`
-- **Example:** `oak-laser-cleaning.json` (includes both settings and properties)
+- **Example:** `oak-material-dataset.json` (includes both settings and properties)
 - **Machine Settings:** Appear first in all formats for operator convenience
 
 ### Directory Structure
@@ -156,8 +156,8 @@ These commands are no longer needed with unified datasets:
 public/datasets/
 └── materials/
     ├── index.json                         # Catalog of all 132 materials
-    ├── oak-laser-cleaning.json           # Schema.org Dataset with variableMeasured
-    ├── oak-laser-cleaning.csv            # Machine,Settings rows first
+    ├── oak-material-dataset.json           # Schema.org Dataset with variableMeasured
+    ├── oak-material-dataset.csv            # Machine,Settings rows first
     ├── oak-laser-cleaning.txt            # MACHINE SETTINGS section first
     ├── aluminum-laser-cleaning.json
     ├── aluminum-laser-cleaning.csv

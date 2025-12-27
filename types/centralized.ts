@@ -1069,6 +1069,9 @@ export interface CardGridProps {
   // Card variant
   variant?: 'default' | 'featured' | 'relationship';
   
+  // Custom card component (overrides default Card component)
+  cardComponent?: React.ComponentType<CardProps>;
+  
   // Category grouping options (for mode: 'category-grouped')
   showSearch?: boolean;
   showCategoryFilter?: boolean;

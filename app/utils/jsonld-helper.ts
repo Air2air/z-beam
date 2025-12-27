@@ -556,7 +556,10 @@ function createDatasetSchema(data: any) {
   // Extract slug from pageUrl for dataset paths
   const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
   const slugMatch = pageUrl.match(/\/materials\/([^\/]+)\/([^\/]+)\/([^\/]+)/);
-  const datasetSlug = slugMatch ? slugMatch[3] : 'material';
+  const pageSlug = slugMatch ? slugMatch[3] : 'material';
+  // Transform page slug to dataset slug: remove -laser-cleaning/-settings, add -material-dataset
+  const baseSlug = pageSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '');
+  const datasetSlug = `${baseSlug}-material-dataset`;
   const datasetBasePath = `${baseUrl}/datasets/materials/${datasetSlug}`;
   
   return propertyCount > 0 ? {

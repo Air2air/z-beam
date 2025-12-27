@@ -23,10 +23,14 @@ export default function ContaminantDatasetDownloader({
   category = '',
   subcategory = '',
 }: ContaminantDatasetDownloaderProps) {
+  // Normalize slug for dataset lookup - use -contaminant-dataset suffix
+  const baseSlug = slug.replace(/-contamination$/, '').replace(/-contaminant-dataset$/, '').replace(/-compound$/, '');
+  const datasetSlug = `${baseSlug}-contaminant-dataset`;
+
   return (
     <DatasetDownloader
       itemName={contaminantName}
-      slug={slug}
+      slug={datasetSlug}
       category={category}
       subcategory={subcategory}
       datasetType="contaminants"

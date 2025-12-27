@@ -31,15 +31,10 @@ Runs before every build via `prebuild` hook:
 
 ```bash
 npm run validate:content  # Content structure validation
-npm run generate:datasets # Generate all dataset files
 ```
 
 **Critical Steps:**
 - **Content Validation**: Validates YAML frontmatter structure, naming conventions, metadata consistency
-- **Dataset Generation**: 
-  - Generates 396 material dataset files (JSON, CSV, TXT)
-  - Generates 396 settings dataset files (JSON, CSV, TXT)
-  - **REQUIREMENT**: All 9 machine parameters must be included in every settings file
 
 ### 2. Build
 ```bash
@@ -70,26 +65,6 @@ npm run validate:urls  # Validates JSON-LD URLs and schema
 | `npm run dev` | Development mode | ❌ No | ❌ No |
 | `npm run build:analyze` | Build with bundle analysis | ✅ Yes | ✅ Yes |
 
-### Dataset Generation
-
-```bash
-npm run generate:datasets
-```
-
-Runs two scripts sequentially:
-1. `tsx scripts/generate-datasets.ts` - Material datasets (396 files)
-2. `node scripts/generate-settings-datasets.js` - Settings datasets (396 files)
-
-**Output:**
-- `public/datasets/materials/*.{json,csv,txt}` - 132 materials × 3 formats
-- `public/datasets/settings/*.{json,csv,txt}` - 132 materials × 3 formats
-
-**Requirements:**
-- All 9 machine parameters must be present
-- Descriptions merged from material YAML files
-- No empty sections in output files
-- Consistent parameter ordering
-
 ### Validation Commands
 
 | Command | Purpose | When Run |
@@ -116,7 +91,7 @@ Runs two scripts sequentially:
 ```
 
 **Why `vercel-build`?**
-- `vercel-build` explicitly includes validation and dataset generation
+- `vercel-build` explicitly includes validation
 - Bypasses npm hooks to have full control over build order
 - Ensures consistency between local and platform builds
 
@@ -124,10 +99,10 @@ Runs two scripts sequentially:
 ```json
 {
   "scripts": {
-    "prebuild": "npm run validate:content && npm run generate:datasets",
+    "prebuild": "npm run validate:content && npm run validate:naming:semantic && npm run validate:types",
     "build": "next build",
     "postbuild": "npm run validate:urls",
-    "vercel-build": "npm run validate:content && npm run generate:datasets && next build"
+    "vercel-build": "npm run validate:content && next build"
   }
 }
 ```
@@ -139,8 +114,7 @@ Runs two scripts sequentially:
 Pre-flight validation includes:
 1. Quality checks (`npm run check`)
 2. Content validation (`npm run validate:content`)
-3. **Dataset generation** (`npm run generate:datasets`)
-4. Component tests (`npm run test:components`)
+3. Component tests (`npm run test:components`)
 
 Only after all pre-flight checks pass:
 - Deploys to Vercel
@@ -150,29 +124,16 @@ Only after all pre-flight checks pass:
 
 ### Common Issues
 
-**Empty Settings Files**
-- **Symptom**: Settings TXT files have empty parameter sections
-- **Cause**: Dataset generation didn't run or failed
-- **Fix**: Verify `generate:datasets` runs in prebuild
-- **Prevention**: Tests in `tests/dataset-generation.test.js`
-
 **Content Validation Errors**
 - **Symptom**: Build stops before compilation
 - **Cause**: Invalid YAML structure, missing fields, naming issues
 - **Fix**: Run `npm run validate:content` locally to see errors
 - **Prevention**: Pre-commit hooks, editor validation
 
-**Missing Dataset Files**
-- **Symptom**: 404 errors on dataset downloads
-- **Cause**: Dataset generation skipped or incomplete
-- **Fix**: Run `npm run generate:datasets` manually
-- **Prevention**: Verify 396 files exist in `public/datasets/`
-
 **Build Timeout on Vercel**
 - **Symptom**: Build exceeds time limit
-- **Cause**: Dataset generation + build takes too long
-- **Fix**: Consider caching strategies or incremental generation
-- **Current**: Both scripts complete in ~30 seconds
+- **Cause**: Build takes too long
+- **Fix**: Consider caching strategies or optimization
 
 ## Testing Build Process
 
@@ -182,22 +143,6 @@ Only after all pre-flight checks pass:
 npm run clean
 npm ci
 npm run build
-
-# Verify datasets generated
-ls -l public/datasets/materials/*.txt | wc -l  # Should be 132
-ls -l public/datasets/settings/*.txt | wc -l   # Should be 132
-```
-
-### Verify Dataset Content
-```bash
-# Run dataset validation tests
-npm run test:datasets
-
-# Check specific file
-head -50 public/datasets/settings/aluminum-settings.txt
-
-# Verify all parameters present
-grep -c "POWER RANGE:" public/datasets/settings/*.txt  # Should be 132
 ```
 
 ### Simulate Vercel Build
@@ -213,41 +158,30 @@ ls -lh .next
 
 ### Build Time Breakdown
 - Content validation: ~5 seconds
-- Dataset generation: ~30 seconds
-  - Material datasets: ~15 seconds
-  - Settings datasets: ~15 seconds
 - Next.js build: ~2-3 minutes
-- Total: ~3-4 minutes
+- Total: ~2-4 minutes
 
 ### Caching Strategy
-- Dataset files committed to repository
-- Only regenerate when YAML files change
 - Vercel caches node_modules and `.next` directory
-- Consider pre-generated datasets for faster builds
 
 ### Future Improvements
-1. **Incremental Generation**: Only regenerate changed materials
-2. **Parallel Processing**: Generate material and settings datasets concurrently
-3. **Build Cache**: Skip dataset generation if YAML unchanged
-4. **Validation Cache**: Cache validation results for unchanged files
+1. **Parallel Processing**: Run validations concurrently
+2. **Build Cache**: Skip validation for unchanged files
+3. **Validation Cache**: Cache validation results for unchanged files
 
 ## Troubleshooting
 
 ### Build Hangs
-Check if dataset generation is stuck:
+Check if validation is stuck:
 ```bash
-# Test dataset generation alone
-npm run generate:datasets
-
-# Monitor progress
-tsx scripts/generate-datasets.ts 2>&1 | tee dataset-generation.log
+# Test validation alone
+npm run validate:content
 ```
 
 ### Inconsistent Builds
 Ensure clean state:
 ```bash
 npm run clean
-rm -rf public/datasets
 npm run build
 ```
 
@@ -261,8 +195,6 @@ npm ci         # Clean install from package-lock
 ## References
 
 - Build scripts: `package.json`
-- Dataset generation: `scripts/generate-datasets.ts`, `scripts/generate-settings-datasets.js`
 - Validation: `scripts/validation/lib/run-content-validation.js`
 - Deployment: `scripts/deployment/deploy.sh`
 - Vercel config: `vercel.json`
-- Tests: `tests/dataset-generation.test.js`

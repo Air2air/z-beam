@@ -42,9 +42,63 @@ export default function DatasetDownloader({
     v.propertyID?.startsWith('machine_')
   ).length || 0;
 
+  // Calculate safety parameters for contaminants
+  const safetyCount = dataset?.variableMeasured?.filter((v: any) => 
+    v.propertyID?.startsWith('safety_') || v.propertyID?.startsWith('ppe_')
+  ).length || 0;
+
   // Calculate categories (from classification or keywords)
   const categoryCount = dataset?.material?.classification ? 
     Object.keys(dataset.material.classification).length : 0;
+
+  // Context-specific stats based on dataset type
+  const stats = datasetType === 'materials' ? [
+    {
+      value: variableCount,
+      label: 'Variables'
+    },
+    {
+      value: parameterCount,
+      label: 'Laser Parameters'
+    },
+    {
+      value: categoryCount,
+      label: 'Material Methods'
+    },
+    {
+      value: keywordCount,
+      label: 'Properties'
+    },
+    {
+      value: citationCount,
+      label: 'Standards'
+    },
+    {
+      value: distributionCount,
+      label: 'Formats'
+    }
+  ] : [
+    {
+      value: variableCount,
+      label: 'Variables'
+    },
+    {
+      value: safetyCount,
+      label: 'Safety Data'
+    },
+    {
+      value: keywordCount,
+      label: 'Characteristics'
+    },
+    {
+      value: citationCount,
+      label: 'References'
+    },
+    {
+      value: distributionCount,
+      label: 'Formats'
+    }
+  ];
 
   if (loading) {
     return (
@@ -59,36 +113,12 @@ export default function DatasetDownloader({
     <DatasetSection
         title={`${itemName} Dataset`}
         description={`Download ${itemName} properties, specifications, and parameters in machine-readable formats`}
-        stats={[
-          {
-            value: variableCount,
-            label: 'Variables'
-          },
-          {
-            value: parameterCount,
-            label: 'Laser Parameters'
-          },
-          {
-            value: categoryCount,
-            label: 'Material Methods'
-          },
-          {
-            value: keywordCount,
-            label: 'Visual Profiles'
-          },
-          {
-            value: citationCount,
-            label: 'Standards'
-          },
-          {
-            value: distributionCount,
-            label: 'Formats'
-          }
-        ]}
+        stats={stats}
         formats={['json', 'csv', 'txt']}
         onDownload={(format: 'json' | 'csv' | 'txt') => {
-          const baseSlug = slug.endsWith('-laser-cleaning') || slug.endsWith('-settings') ? slug : `${slug}-laser-cleaning`;
-          const fileName = `${baseSlug}.${format}`;
+          // Use slug directly - wrappers (MaterialDatasetDownloader/ContaminantDatasetDownloader) 
+          // already provide the correct filename format
+          const fileName = `${slug}.${format}`;
           const filePath = `/datasets/${datasetType}/${fileName}`;
           
           const link = document.createElement('a');
@@ -99,8 +129,8 @@ export default function DatasetDownloader({
           document.body.removeChild(link);
         }}
         getDirectLink={(format: 'json' | 'csv' | 'txt') => {
-          const baseSlug = slug.endsWith('-laser-cleaning') || slug.endsWith('-settings') ? slug : `${slug}-laser-cleaning`;
-          return `/datasets/${datasetType}/${baseSlug}.${format}`;
+          // Use slug directly - already in correct format from wrapper components
+          return `/datasets/${datasetType}/${slug}.${format}`;
         }}
         includes={[]}
         categoryLink={category ? {

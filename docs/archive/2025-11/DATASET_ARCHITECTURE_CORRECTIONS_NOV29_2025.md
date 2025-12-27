@@ -16,7 +16,7 @@
 - ✅ Added **Section 0: Data Architecture** documenting frontmatter structure
 - ✅ Documented file locations:
   - machineSettings → `/frontmatter/settings/[material]-settings.yaml`
-  - materialProperties → `/frontmatter/materials/[material]-laser-cleaning.yaml`
+  - materialProperties → `/frontmatter/materials/[material]-material-dataset.yaml`
 - ✅ Added required YAML structure with min/max examples
 - ✅ Documented current state (Nov 29, 2025): machineSettings exist but lack min/max
 - ✅ Added data entry requirements: ~2,544 data points need min/max values
@@ -61,14 +61,14 @@ const settingsData = parseSimpleYAML(yamlContent);
 machineSettings = settingsData.machineSettings || {};
 
 // 2. Load materialProperties from materials frontmatter  
-const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${pageData.name}-laser-cleaning.yaml`);
+const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${pageData.name}-material-dataset.yaml`);
 const materialData = parseSimpleYAML(yamlContent);
 materialProperties = materialData.materialProperties || materialData.properties || {};
 ```
 
 **Key Improvements**:
 - ✅ Checks settings frontmatter FIRST for machineSettings (not materials)
-- ✅ Uses correct file naming: `[material]-settings.yaml` and `[material]-laser-cleaning.yaml`
+- ✅ Uses correct file naming: `[material]-settings.yaml` and `[material]-material-dataset.yaml`
 - ✅ Separates machineSettings and materialProperties loading
 - ✅ Reports which specific files were checked in error messages
 
@@ -83,12 +83,12 @@ materialProperties = materialData.materialProperties || materialData.properties 
 
 **File Locations** (3 tests):
 - ✅ machineSettings in settings frontmatter (`aluminum-settings.yaml`)
-- ✅ materialProperties in materials frontmatter (`aluminum-laser-cleaning.yaml`)  
+- ✅ materialProperties in materials frontmatter (`aluminum-material-dataset.yaml`)  
 - ✅ Settings frontmatter structure validation
 
 **File Naming** (3 tests):
 - ✅ Settings pattern: `[material-slug]-settings.yaml`
-- ✅ Materials pattern: `[material-slug]-laser-cleaning.yaml`
+- ✅ Materials pattern: `[material-slug]-material-dataset.yaml`
 - ✅ Slug conversion examples (e.g., "Stainless Steel" → `stainless-steel-settings.yaml`)
 
 **Data Source Priority** (2 tests):
@@ -114,9 +114,9 @@ frontmatter/
 │   └── titanium-settings.yaml
 │
 └── materials/                         # materialProperties (Tier 2)
-    ├── aluminum-laser-cleaning.yaml
-    ├── stainless-steel-laser-cleaning.yaml
-    └── titanium-laser-cleaning.yaml
+    ├── aluminum-material-dataset.yaml
+    ├── stainless-steel-material-dataset.yaml
+    └── titanium-material-dataset.yaml
 ```
 
 ### File Content Structure
@@ -137,7 +137,7 @@ machineSettings:
   # ... (8 total Tier 1 parameters)
 ```
 
-**materials/aluminum-laser-cleaning.yaml**:
+**materials/aluminum-material-dataset.yaml**:
 ```yaml
 materialProperties:
   thermal:
@@ -200,7 +200,7 @@ powerRange:
 ### After (Correct Priority)
 ```
 1. Load machineSettings from /frontmatter/settings/[material]-settings.yaml
-2. Load materialProperties from /frontmatter/materials/[material]-laser-cleaning.yaml
+2. Load materialProperties from /frontmatter/materials/[material]-material-dataset.yaml
 3. Validate Tier 1 (machineSettings): All 8 parameters need min/max
 4. Validate Tier 2 (materialProperties): ≥80% completeness recommended
 ```

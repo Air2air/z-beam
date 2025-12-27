@@ -4,9 +4,11 @@
 import React from 'react';
 import { BaseContentLayout } from '../BaseContentLayout';
 import { CardGrid } from '../CardGrid';
+import { ContaminantCard } from '../ContaminantCard';
 import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
 import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
+import ContaminantDatasetDownloader from '../Dataset/ContaminantDatasetDownloader';
 import { InfoCard } from '../InfoCard/InfoCard';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
@@ -215,7 +217,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
           .map(contaminantLinkageToGridItem),
         title: sourceContaminantsRaw?._section?.title || 'Contaminant Sources',
         description: sourceContaminantsRaw?._section?.description || 'Contaminants that produce this compound during laser cleaning operations',
-        variant: 'relationship' as const,
+        cardComponent: ContaminantCard,
       }
     },
     {
@@ -258,6 +260,16 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
       props: {
         relationships,
         entityName: compoundName
+      }
+    },
+    // Dataset downloader at bottom
+    {
+      component: ContaminantDatasetDownloader,
+      props: {
+        contaminantName: compoundName,
+        slug: slug,
+        category: category,
+        subcategory: subcategory
       }
     },
     // ScheduleCards MUST be last section for all layouts

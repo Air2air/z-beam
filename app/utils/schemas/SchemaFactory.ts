@@ -2002,7 +2002,12 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   // For settings pages, use canonical dataset URL (points to materials page, not settings)
   const canonicalUrl = frontmatter.canonicalDatasetUrl && typeof frontmatter.canonicalDatasetUrl === 'string'
-    ? `${baseUrl}/datasets/materials/${frontmatter.canonicalDatasetUrl.split('/').pop()}`
+    ? (() => {
+        const slug = frontmatter.canonicalDatasetUrl.split('/').pop() || '';
+        const baseSlug = slug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '').replace(/-contamination$/, '').replace(/-contaminant-dataset$/, '').replace(/-material-dataset$/, '');
+        const suffix = isContaminant ? '-contaminant-dataset' : '-material-dataset';
+        return `${baseUrl}/datasets/${datasetFolder}/${baseSlug}${suffix}`;
+      })()
     : `${baseUrl}/datasets/${datasetFolder}/${datasetName}`;
 
   // **PHASE 1 ENHANCEMENT**: Load generated dataset file for enhanced data
