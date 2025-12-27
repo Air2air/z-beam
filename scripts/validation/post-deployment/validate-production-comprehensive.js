@@ -453,10 +453,10 @@ async function checkDatasetFiles() {
   console.log('   Check Vercel build settings if datasets are missing');
   
   const sampleDatasets = [
-    '/datasets/materials/steel-laser-cleaning.json',
-    '/datasets/materials/steel-laser-cleaning.csv',
-    '/datasets/materials/aluminum-laser-cleaning.json',
-    '/datasets/materials/aluminum-laser-cleaning.txt'
+    '/datasets/materials/steel-material-dataset.json',
+    '/datasets/materials/steel-material-dataset.csv',
+    '/datasets/materials/aluminum-material-dataset.json',
+    '/datasets/materials/aluminum-material-dataset.txt'
   ];
   
   for (const dataset of sampleDatasets) {
