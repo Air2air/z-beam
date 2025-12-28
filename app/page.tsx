@@ -70,6 +70,33 @@ export default async function HomePage() {
     const jsonLdSchema = {
       '@context': 'https://schema.org',
       '@graph': [
+        // Organization
+        {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}/#organization`,
+          name: SITE_CONFIG.name,
+          url: SITE_CONFIG.url,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE_CONFIG.url}/images/logo.png`,
+            width: 250,
+            height: 250
+          },
+          description: SITE_CONFIG.description,
+          contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'Customer Service',
+            email: SITE_CONFIG.contact.email,
+            telephone: SITE_CONFIG.contact.phone,
+            availableLanguage: 'en'
+          },
+          sameAs: [
+            SITE_CONFIG.social.facebook,
+            SITE_CONFIG.social.twitter,
+            SITE_CONFIG.social.linkedin,
+            SITE_CONFIG.social.youtube
+          ].filter(Boolean)
+        },
         // BreadcrumbList
         {
           '@type': 'BreadcrumbList',

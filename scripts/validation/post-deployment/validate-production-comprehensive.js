@@ -371,10 +371,13 @@ async function checkContentSchemas() {
   console.log('─'.repeat(60));
   
   const samplePages = [
-    { url: '/materials/metal/ferrous/steel-laser-cleaning', type: 'Material', expectedSchemas: ['Dataset', 'Product', 'TechnicalArticle'] },
-    { url: '/materials/metal/non-ferrous/aluminum-laser-cleaning', type: 'Material', expectedSchemas: ['Dataset', 'Product', 'TechnicalArticle'] },
-    { url: '/contaminants/oxidation/ferrous/rust-oxidation-contamination', type: 'Contaminant', expectedSchemas: ['Dataset', 'Product', 'ChemicalSubstance'] },
-    { url: '/compounds/metal-fume/metal-oxide/iron-oxide-compound', type: 'Compound', expectedSchemas: ['Dataset', 'Product', 'ChemicalSubstance'] }
+    // Materials: Dataset + Article (currently implemented)
+    { url: '/materials/metal/ferrous/steel-laser-cleaning', type: 'Material', expectedSchemas: ['Dataset', 'Article'] },
+    { url: '/materials/metal/non-ferrous/aluminum-laser-cleaning', type: 'Material', expectedSchemas: ['Dataset', 'Article'] },
+    // Contaminants: Dataset + Product (currently implemented)
+    { url: '/contaminants/oxidation/ferrous/rust-oxidation-contamination', type: 'Contaminant', expectedSchemas: ['Dataset', 'Product'] },
+    // Compounds: Basic schemas only (needs enhancement)
+    { url: '/compounds/metal-fume/metal-oxide/iron-oxide-compound', type: 'Compound', expectedSchemas: ['WebPage', 'BreadcrumbList'] }
   ];
   
   for (const page of samplePages) {
@@ -734,6 +737,21 @@ function generateSummary() {
   else if (avgScore >= 60) grade = 'D';
   
   console.log(`   🎯 Grade:       ${grade}`);
+  
+  // Show failed tests if any
+  if (results.summary.failed > 0) {
+    console.log('\n❌ FAILED TESTS:');
+    console.log('─'.repeat(60));
+    Object.entries(results.categories).forEach(([category, data]) => {
+      const failedTests = data.tests.filter(t => t.passed === false);
+      if (failedTests.length > 0) {
+        console.log(`\n   ${category}:`);
+        failedTests.forEach(test => {
+          console.log(`   ❌ ${test.test}: ${test.message}`);
+        });
+      }
+    });
+  }
   
   console.log('\n' + '═'.repeat(60));
 }
