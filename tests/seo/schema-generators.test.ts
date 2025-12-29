@@ -298,6 +298,26 @@ describe('SEO Schema Generators', () => {
       expect(schema).toHaveProperty('offers');
       expect(schema.offers).toHaveProperty('@type', 'Offer');
     });
+
+    it('includes required pricing for rich snippets', () => {
+      const schema = generateProductSchema(productOptions);
+      
+      // Google requires these fields for Product rich snippets
+      expect(schema.offers).toHaveProperty('price');
+      expect(schema.offers).toHaveProperty('priceCurrency', 'USD');
+      expect(schema.offers).toHaveProperty('availability');
+      expect(typeof schema.offers.price).toBe('number');
+      expect(schema.offers.price).toBeGreaterThan(0);
+    });
+
+    it('uses SITE_CONFIG pricing for service offers', () => {
+      const schema = generateProductSchema(productOptions);
+      
+      // Should use professional cleaning service rate from SITE_CONFIG
+      expect(schema.offers.price).toBe(390); // SITE_CONFIG.pricing.professionalCleaning.hourlyRate
+      expect(schema.offers.priceSpecification).toBeDefined();
+      expect(schema.offers.priceSpecification.unitText).toBe('hour');
+    });
   });
 
   describe('generateWebPageSchema', () => {

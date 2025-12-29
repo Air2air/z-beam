@@ -18,6 +18,7 @@ import { Button } from "../Button";
 import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
+import { getContentType } from '@/app/utils/relationshipHelpers';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 
@@ -136,7 +137,7 @@ export function CardGrid({
     if (filterBy && filterBy !== 'all') {
       filtered = filtered.filter(item => 
         item.category?.toLowerCase() === filterBy.toLowerCase() ||
-        (item.metadata && 'articleType' in item.metadata && typeof item.metadata.articleType === 'string' && item.metadata.articleType.toLowerCase() === filterBy.toLowerCase()) ||
+        (item.metadata && getContentType(item.metadata)?.toLowerCase() === filterBy.toLowerCase()) ||
         (typeof item.metadata?.category === 'string' && item.metadata.category.toLowerCase() === filterBy.toLowerCase())
       );
     }

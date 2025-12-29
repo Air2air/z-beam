@@ -3,8 +3,8 @@ name: Nanoparticulates
 display_name: Nanoparticulates
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T06:28:09.186866Z'
-dateModified: '2025-12-29T06:28:09.186866Z'
+datePublished: '2025-12-29T20:28:17.501201Z'
+dateModified: '2025-12-29T20:28:17.501201Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/nanomaterial/nanoparticulates-compound
@@ -156,56 +156,50 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: ceramic-coating-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of Ceramic Heat Barrier Coating
-      intensity: very_negative
-    - id: ceramic-glaze-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Ceramic Glaze Deposits
-      intensity: negative
-    - id: concrete-dust-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Concrete Dust Deposits
-      intensity: negative
-    - id: environmental-dust-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Environmental Dust Layer
-      intensity: negative
-    - id: passivation-defect-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Passivation Layer Irregularities
-      intensity: negative
-    - id: pvd-coating-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of PVD Coating Defects
-      intensity: very_negative
-    - id: semiconductor-residue-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Semiconductor Processing Residue
-      intensity: negative
-    - id: thermal-paste-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Thermal Compound Deposits
-      intensity: negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: ceramic-coating-contamination
+        frequency: unknown
+        severity: high
+        typical_context: Laser removal of Ceramic Heat Barrier Coating
+      - id: ceramic-glaze-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Ceramic Glaze Deposits
+      - id: concrete-dust-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Concrete Dust Deposits
+      - id: environmental-dust-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Environmental Dust Layer
+      - id: passivation-defect-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Passivation Layer Irregularities
+      - id: pvd-coating-contamination
+        frequency: unknown
+        severity: high
+        typical_context: Laser removal of PVD Coating Defects
+      - id: semiconductor-residue-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Semiconductor Processing Residue
+      - id: thermal-paste-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Thermal Compound Deposits
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: "Dealing with nanoparticulate compounds in industrial settings often brings up tricky safety hurdles because\
     \ these tiny particles can easily drift into the air or cling to surfaces, raising risks of inhalation or skin contact\
     \ during handling or processing. Engineers and workers turn to robust personal protective equipment to counter these issues,\
@@ -233,7 +227,6 @@ relationships:
       alt: Nanoparticulates microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Nanoparticulates
 subcategory: nanomaterial
 faq:
 - question: How can I effectively protect myself from nanoparticulate exposure while operating laser cleaning equipment in

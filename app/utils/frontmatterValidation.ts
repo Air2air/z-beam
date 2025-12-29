@@ -2,13 +2,42 @@
  * @file app/utils/frontmatterValidation.ts
  * @purpose Runtime validation for frontmatter structure
  * @created December 24, 2025
+ * @updated December 29, 2025 - Added support for new relationship structure
  * 
  * Provides dev-time validation to catch structural issues early.
  * Logs warnings for missing metadata, malformed items, etc.
  * Helps prevent runtime errors by catching issues at load time.
+ * 
+ * Supports both old structure (technical/safety/operational) and new structure
+ * (identity/interactions/operational/safety/environmental/detection_monitoring/visual)
+ * 
+ * @see docs/FRONTMATTER_RELATIONSHIPS_RESTRUCTURE.md
  */
 
 import { validateRelationshipSection, getAllRelationshipSections } from './relationshipHelpers';
+
+/**
+ * Valid relationship category names (both old and new structure)
+ */
+const VALID_CATEGORIES = new Set([
+  // Old structure
+  'technical',
+  'safety',
+  'operational',
+  'chemical_properties',
+  'environmental_impact',
+  'detection_monitoring',
+  'emergency_response',
+  'visual_characteristics',
+  // New structure
+  'identity',
+  'interactions',
+  'environmental',
+  'visual',
+  // Both old and new
+  'physical_properties',
+  'laser_properties',
+]);
 
 /**
  * Validation result for a single file
@@ -99,6 +128,17 @@ export function validateFrontmatterRelationships(
   }
 
   for (const section of sections) {
+    // Check if category is valid (both old and new structure)
+    const category = section.path.split('.')[0];
+    if (category && !VALID_CATEGORIES.has(category)) {
+      warnings.push({
+        severity: 'warning',
+        path: `${filename}:relationships.${section.path}`,
+        message: `Unknown relationship category: '${category}'. Expected one of: ${Array.from(VALID_CATEGORIES).join(', ')}`,
+        suggestion: 'Use a valid category name from old or new structure'
+      });
+    }
+
     const validation = validateRelationshipSection(
       frontmatter.relationships,
       section.path

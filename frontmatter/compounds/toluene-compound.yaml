@@ -3,8 +3,8 @@ name: Toluene
 display_name: Toluene (C₇H₈)
 category: solvent
 hazard_class: toxic
-datePublished: '2025-12-29T06:27:56.740531Z'
-dateModified: '2025-12-29T06:27:56.740531Z'
+datePublished: '2025-12-29T20:28:02.749665Z'
+dateModified: '2025-12-29T20:28:02.749665Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/solvent/aromatic-hydrocarbon/toluene-compound
@@ -179,7 +179,103 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
+  identity:
+    chemical_properties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: toluene-physical-data
+      _section:
+        section_title: Chemical Properties
+        section_description: Fundamental chemical characteristics and behavior
+        icon: microscope
+        order: 1
+        variant: default
+    physical_properties:
+      presentation: descriptive
+      items:
+      - boiling_point: 110.6°C (231°F)
+        melting_point: -95°C (-139°F)
+        vapor_pressure: 22 mmHg @ 20°C
+        vapor_density: 3.1 (Air=1)
+        specific_gravity: '0.867'
+        flash_point: 4°C (39°F) closed cup
+        autoignition_temp: 480°C (896°F)
+        explosive_limits: 'LEL: 1.1%, UEL: 7.1%'
+        appearance: Colorless liquid
+        odor: Sweet, pungent, benzene-like odor @ 0.16-40 ppm
+      _section:
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
+        icon: gauge
+        section_description: Physical characteristics and state information
+        order: 2
+        variant: default
+    synonyms_identifiers:
+      presentation: descriptive
+      items:
+      - synonyms:
+        - Methyl benzene
+        - Toluol
+        - Phenylmethane
+        - Methylbenzene
+        common_trade_names: []
+        other_identifiers:
+          rtecs_number: XS5250000
+          ec_number: 203-625-9
+          pubchem_cid: '1140'
+      _section:
+        section_title: Synonyms & Identifiers
+        description: Synonyms and chemical identifiers
+        icon: file-text
+        section_description: Alternative names and chemical identifiers (CAS numbers)
+        order: 14
+        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: toluene-toxicology
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: Organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
+        skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing. Toluene absorbs through skin.
+        eye: Chemical safety goggles, face shield for splash hazard.
+        minimum_level: Level C for <50 ppm, Level B for >50 ppm
+        special_notes: CNS depressant and neurotoxin. Abuse potential (inhalant). Skin absorption significant. Reproductive
+          toxin. Embryo/fetal toxicity concern.
+      _section:
+        section_title: PPE Requirements
+        description: Required safety equipment for handling this compound
+        icon: shield
+        section_description: Personal protective equipment needed for safe handling
+        order: 5
+        variant: warning
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Flammable liquid. Vapors heavier than air. May travel to ignition sources. Flash point very low.
+        fire_suppression: Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers.
+          Do not use water jet on liquid.
+        spill_procedures: Eliminate ignition sources. Ventilate area. Contain with sand or vermiculite. Absorb with activated
+          carbon. Dispose as hazardous waste.
+        exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water for 15 minutes. Remove contaminated clothing
+          immediately. Wash skin thoroughly. Seek medical attention - neurotoxin and reproductive toxin exposure. Monitor
+          for CNS depression.'
+        environmental_hazards: Toxic to aquatic life. Bioaccumulates moderately. Contaminates groundwater. Report spills >1000
+          lbs.
+        special_hazards: NEUROTOXIN - causes CNS depression, peripheral neuropathy, cognitive impairment. REPRODUCTIVE TOXIN
+          - embryo/fetal toxicity. Abuse potential (intentional inhalation). Chronic exposure causes hearing loss, vision
+          problems. Metabolized to benzyl alcohol and benzoic acid.
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: alert-triangle
+        section_description: First aid and emergency procedures for exposure incidents
+        order: 7
+        variant: danger
     exposure_limits:
       presentation: descriptive
       items:
@@ -217,298 +313,202 @@ relationships:
             timing: End of shift
             bei_value: 0.05 mg/L
       _section:
-        title: Exposure Limits
+        section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
         section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
-  chemical_properties:
-    presentation: descriptive
-    items:
-    - type: chemical_properties
-      id: toluene-physical-data
-    _section:
-      title: Chemical Properties
-      section_description: Fundamental chemical characteristics and behavior
-      icon: microscope
-      order: 1
-      variant: default
-  health_effects:
-    presentation: card
-    items:
-    - type: health_effects
-      id: toluene-toxicology
-  environmental_impact:
-    presentation: descriptive
-    items:
-    - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 5.5-40 mg/L depending on species.'
-      biodegradability: Readily biodegradable (>60% in 28 days).
-      bioaccumulation: 'Moderate bioaccumulation potential. BCF: 13-90. Log Kow: 2.69.'
-      soil_mobility: Moderate to high mobility. Volatilizes from soil surface. Adsorbs to organic matter.
-      atmospheric_fate: 'Photolyzes via hydroxyl radicals. Atmospheric half-life: 13 hours to 3 days. Contributes to ozone
-        formation.'
-      ozone_depletion: false
-      global_warming_potential: null
-      reportable_releases:
-        water: 1000 lbs to navigable waters
-        air: 1000 lbs/day (CERCLA RQ)
-    _section:
-      title: Environmental Impact
-      description: Toxicity, biodegradability, and environmental fate
-      icon: wind
-      section_description: Environmental effects and ecological considerations
-      order: 8
-      variant: warning
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store below 25°C. Keep away from heat.
+        ventilation: Local exhaust ventilation. Mechanical ventilation for large quantities.
+        incompatibilities:
+        - Strong oxidizers
+        - Nitric acid
+        - Sulfuric acid
+        - Chromic acid
+        - Halogens
+        container_material: Stainless steel or aluminum. Attacks some plastics and rubber.
+        segregation: Separate from oxidizers by 20 feet. Flammable liquid storage cabinet.
+        quantity_limits: Follow NFPA 30. Minimize quantities in work areas.
+        special_requirements: Post "FLAMMABLE LIQUID" signs. Secondary containment. Bonding and grounding for transfers. Emergency
+          eyewash/shower within 25 feet.
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: alert-triangle
+        section_description: Proper storage conditions and handling precautions
+        order: 13
+        variant: warning
+    regulatory_classification:
+      presentation: descriptive
+      items:
+      - un_number: UN1294
+        dot_hazard_class: 3 (Flammable liquid)
+        dot_label: Flammable Liquid
+        nfpa_codes:
+          health: 2
+          flammability: 3
+          reactivity: 0
+          special: null
+        epa_hazard_categories:
+        - Flammability
+        - Acute toxicity
+        - Neurotoxicity
+        - Reproductive toxicity
+        - Aquatic toxicity
+        sara_title_iii: true
+        cercla_rq: 1000 pounds (454 kg)
+        rcra_code: U220
+      _section:
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
+        icon: file-text
+        section_description: Hazard classifications and regulatory designations
+        order: 12
+        variant: default
+  environmental:
+    environmental_impact:
+      presentation: descriptive
+      items:
+      - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 5.5-40 mg/L depending on species.'
+        biodegradability: Readily biodegradable (>60% in 28 days).
+        bioaccumulation: 'Moderate bioaccumulation potential. BCF: 13-90. Log Kow: 2.69.'
+        soil_mobility: Moderate to high mobility. Volatilizes from soil surface. Adsorbs to organic matter.
+        atmospheric_fate: 'Photolyzes via hydroxyl radicals. Atmospheric half-life: 13 hours to 3 days. Contributes to ozone
+          formation.'
+        ozone_depletion: false
+        global_warming_potential: null
+        reportable_releases:
+          water: 1000 lbs to navigable waters
+          air: 1000 lbs/day (CERCLA RQ)
+      _section:
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
+        icon: wind
+        section_description: Environmental effects and ecological considerations
+        order: 8
+        variant: warning
   detection_monitoring:
-    presentation: descriptive
-    items:
-    - sensor_types:
-      - Photoionization detector (PID)
-      - Flame ionization detector (FID)
-      - Infrared
-      detection_range: 0-500 ppm typical
-      alarm_setpoints:
-        low: 20 ppm (ACGIH TLV)
-        high: 100 ppm (NIOSH REL)
-        evacuate: 500 ppm (NIOSH IDLH)
-      colorimetric_tubes:
-      - Dräger Toluene 5/a
-      - Gastec 122
-      - Kitagawa 118
-      analytical_methods:
-      - method: NIOSH 1501
-        technique: GC-FID
-        detection_limit: 0.01 ppm
-      - method: OSHA Method 111
-        technique: GC-FID
-        detection_limit: 0.005 ppm
-      odor_threshold: 0.16-40 ppm - provides early warning but wide range. Olfactory adaptation occurs.
-    _section:
-      title: Detection & Monitoring
-      description: Methods for detecting and measuring this compound
-      icon: gauge
-      section_description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: default
-  ppe_requirements:
-    presentation: descriptive
-    items:
-    - respiratory: Organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
-      skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing. Toluene absorbs through skin.
-      eye: Chemical safety goggles, face shield for splash hazard.
-      minimum_level: Level C for <50 ppm, Level B for >50 ppm
-      special_notes: CNS depressant and neurotoxin. Abuse potential (inhalant). Skin absorption significant. Reproductive
-        toxin. Embryo/fetal toxicity concern.
-    _section:
-      title: PPE Requirements
-      description: Required safety equipment for handling this compound
-      icon: shield
-      section_description: Personal protective equipment needed for safe handling
-      order: 5
-      variant: warning
-  emergency_response:
-    presentation: descriptive
-    items:
-    - fire_hazard: Flammable liquid. Vapors heavier than air. May travel to ignition sources. Flash point very low.
-      fire_suppression: Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers.
-        Do not use water jet on liquid.
-      spill_procedures: Eliminate ignition sources. Ventilate area. Contain with sand or vermiculite. Absorb with activated
-        carbon. Dispose as hazardous waste.
-      exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water for 15 minutes. Remove contaminated clothing
-        immediately. Wash skin thoroughly. Seek medical attention - neurotoxin and reproductive toxin exposure. Monitor for
-        CNS depression.'
-      environmental_hazards: Toxic to aquatic life. Bioaccumulates moderately. Contaminates groundwater. Report spills >1000
-        lbs.
-      special_hazards: NEUROTOXIN - causes CNS depression, peripheral neuropathy, cognitive impairment. REPRODUCTIVE TOXIN
-        - embryo/fetal toxicity. Abuse potential (intentional inhalation). Chronic exposure causes hearing loss, vision problems.
-        Metabolized to benzyl alcohol and benzoic acid.
-    _section:
-      title: Emergency Response
-      description: Procedures for spills, exposure, and incidents
-      icon: alert-triangle
-      section_description: First aid and emergency procedures for exposure incidents
-      order: 7
-      variant: danger
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: paint-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Vaporization of toluene-based paint solvents
-      intensity: negative
-    - id: graffiti-paint-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Release of toluene from spray paint
-      intensity: negative
-    - id: adhesive-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Release of toluene from adhesive formulations
-      intensity: negative
-    - id: rubber-residue-contamination
-      frequency: occasional
-      severity: low
-      typical_context: Thermal breakdown of aromatic rubber compounds
-      intensity: slightly_negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  produced_from_materials:
-    presentation: card
-    items:
-    - id: ceramic-matrix-composites-cmcs-laser-cleaning
-    - id: epoxy-resin-composites-laser-cleaning
-    - id: metal-matrix-composites-mmcs-laser-cleaning
-    - id: phenolic-resin-composites-laser-cleaning
-    - id: polyester-resin-composites-laser-cleaning
-    - id: urethane-composites-laser-cleaning
-    _section:
-      title: Produced From Materials
-      section_description: Materials that may release this compound during laser cleaning
-      icon: users
-      order: 10
-      variant: default
-  physical_properties:
-    presentation: descriptive
-    items:
-    - boiling_point: 110.6°C (231°F)
-      melting_point: -95°C (-139°F)
-      vapor_pressure: 22 mmHg @ 20°C
-      vapor_density: 3.1 (Air=1)
-      specific_gravity: '0.867'
-      flash_point: 4°C (39°F) closed cup
-      autoignition_temp: 480°C (896°F)
-      explosive_limits: 'LEL: 1.1%, UEL: 7.1%'
-      appearance: Colorless liquid
-      odor: Sweet, pungent, benzene-like odor @ 0.16-40 ppm
-    _section:
-      title: Physical Properties
-      description: Chemical and physical characteristics
-      icon: gauge
-      section_description: Physical characteristics and state information
-      order: 2
-      variant: default
-  storage_requirements:
-    presentation: descriptive
-    items:
-    - temperature_range: Store below 25°C. Keep away from heat.
-      ventilation: Local exhaust ventilation. Mechanical ventilation for large quantities.
-      incompatibilities:
-      - Strong oxidizers
-      - Nitric acid
-      - Sulfuric acid
-      - Chromic acid
-      - Halogens
-      container_material: Stainless steel or aluminum. Attacks some plastics and rubber.
-      segregation: Separate from oxidizers by 20 feet. Flammable liquid storage cabinet.
-      quantity_limits: Follow NFPA 30. Minimize quantities in work areas.
-      special_requirements: Post "FLAMMABLE LIQUID" signs. Secondary containment. Bonding and grounding for transfers. Emergency
-        eyewash/shower within 25 feet.
-    _section:
-      title: Storage Requirements
-      description: Safe storage conditions and compatibility
-      icon: alert-triangle
-      section_description: Proper storage conditions and handling precautions
-      order: 13
-      variant: warning
-  regulatory_classification:
-    presentation: descriptive
-    items:
-    - un_number: UN1294
-      dot_hazard_class: 3 (Flammable liquid)
-      dot_label: Flammable Liquid
-      nfpa_codes:
-        health: 2
-        flammability: 3
-        reactivity: 0
-        special: null
-      epa_hazard_categories:
-      - Flammability
-      - Acute toxicity
-      - Neurotoxicity
-      - Reproductive toxicity
-      - Aquatic toxicity
-      sara_title_iii: true
-      cercla_rq: 1000 pounds (454 kg)
-      rcra_code: U220
-    _section:
-      title: Regulatory Classification
-      description: DOT, UN, and NFPA hazard classifications
-      icon: file-text
-      section_description: Hazard classifications and regulatory designations
-      order: 12
-      variant: default
-  reactivity:
-    presentation: descriptive
-    items:
-    - stability: Stable under normal conditions.
-      polymerization: Will not polymerize
-      incompatible_materials:
-      - Strong oxidizers
-      - Nitric acid
-      - Sulfuric acid
-      - Chromic acid
-      - Halogens (chlorine, fluorine)
-      - Perchloric acid
-      - Aluminum chloride
-      hazardous_decomposition:
-      - Carbon monoxide
-      - Carbon dioxide
-      - Toxic fumes
-      - Irritating vapors
-      conditions_to_avoid:
-      - Heat
-      - Ignition sources
-      - Sparks
-      - Flames
-      - Strong oxidizers
-      reactivity_hazard: Reacts violently with strong oxidizers. May react explosively with dinitrogen tetroxide. Attacks
-        some plastics, rubber, and coatings.
-    _section:
-      title: Reactivity
-      description: Chemical reactivity and incompatibilities
-      icon: flame
-      section_description: Chemical reactivity and compatibility with other substances
-      order: 11
-      variant: warning
-  synonyms_identifiers:
-    presentation: descriptive
-    items:
-    - synonyms:
-      - Methyl benzene
-      - Toluol
-      - Phenylmethane
-      - Methylbenzene
-      common_trade_names: []
-      other_identifiers:
-        rtecs_number: XS5250000
-        ec_number: 203-625-9
-        pubchem_cid: '1140'
-    _section:
-      title: Synonyms & Identifiers
-      description: Synonyms and chemical identifiers
-      icon: file-text
-      section_description: Alternative names and chemical identifiers (CAS numbers)
-      order: 14
-      variant: default
-  operational:
-    health_effects:
+    detection_monitoring:
+      presentation: descriptive
+      items:
+      - sensor_types:
+        - Photoionization detector (PID)
+        - Flame ionization detector (FID)
+        - Infrared
+        detection_range: 0-500 ppm typical
+        alarm_setpoints:
+          low: 20 ppm (ACGIH TLV)
+          high: 100 ppm (NIOSH REL)
+          evacuate: 500 ppm (NIOSH IDLH)
+        colorimetric_tubes:
+        - Dräger Toluene 5/a
+        - Gastec 122
+        - Kitagawa 118
+        analytical_methods:
+        - method: NIOSH 1501
+          technique: GC-FID
+          detection_limit: 0.01 ppm
+        - method: OSHA Method 111
+          technique: GC-FID
+          detection_limit: 0.005 ppm
+        odor_threshold: 0.16-40 ppm - provides early warning but wide range. Olfactory adaptation occurs.
+      _section:
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
+        icon: gauge
+        section_description: Methods and equipment for detecting and monitoring this compound
+        order: 6
+        variant: default
+  interactions:
+    produced_from_contaminants:
       presentation: card
       items:
-      - type: health_effects
-        id: toluene-toxicology
+      - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
+        typical_context: Vaporization of toluene-based paint solvents
+      - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
+        typical_context: Release of toluene from spray paint
+      - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
+        typical_context: Release of toluene from adhesive formulations
+      - id: rubber-residue-contamination
+        frequency: occasional
+        severity: low
+        typical_context: Thermal breakdown of aromatic rubber compounds
       _section:
-        title: Health Effects
-        section_description: Potential health impacts from exposure
-        icon: activity
-        order: 1
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+    produced_from_materials:
+      presentation: card
+      items:
+      - id: ceramic-matrix-composites-cmcs-laser-cleaning
+      - id: epoxy-resin-composites-laser-cleaning
+      - id: metal-matrix-composites-mmcs-laser-cleaning
+      - id: phenolic-resin-composites-laser-cleaning
+      - id: polyester-resin-composites-laser-cleaning
+      - id: urethane-composites-laser-cleaning
+      _section:
+        section_title: Produced From Materials
+        section_description: Materials that may release this compound during laser cleaning
+        icon: users
+        order: 10
+        variant: default
+    reactivity:
+      presentation: descriptive
+      items:
+      - stability: Stable under normal conditions.
+        polymerization: Will not polymerize
+        incompatible_materials:
+        - Strong oxidizers
+        - Nitric acid
+        - Sulfuric acid
+        - Chromic acid
+        - Halogens (chlorine, fluorine)
+        - Perchloric acid
+        - Aluminum chloride
+        hazardous_decomposition:
+        - Carbon monoxide
+        - Carbon dioxide
+        - Toxic fumes
+        - Irritating vapors
+        conditions_to_avoid:
+        - Heat
+        - Ignition sources
+        - Sparks
+        - Flames
+        - Strong oxidizers
+        reactivity_hazard: Reacts violently with strong oxidizers. May react explosively with dinitrogen tetroxide. Attacks
+          some plastics, rubber, and coatings.
+      _section:
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
+        icon: flame
+        section_description: Chemical reactivity and compatibility with other substances
+        order: 11
         variant: warning
+  ppe_requirements: Handling toluene demands careful protection because its vapors can irritate skin and lungs while the liquid
+    itself absorbs through barriers if not shielded properly. Workers often reach for chemical-resistant gloves made from
+    materials that block organic solvents, ensuring hands stay safe during pouring or mixing tasks in industrial settings
+    like paint production or adhesive manufacturing. Eye protection comes next—sealed goggles prevent splashes that could
+    cause burning sensations, especially in workshops where toluene dissolves resins or cleans machinery parts. For breathing,
+    a respirator fitted with cartridges designed to trap organic vapors becomes essential in confined areas, guarding against
+    dizziness or headaches from prolonged exposure during solvent recovery processes. Full-body suits or aprons made of impermeable
+    fabrics add another layer, warding off spills that might occur while using toluene in fuel additives or as a precursor
+    in chemical synthesis. And don't overlook ventilation hoods or masks in laser cleaning operations, where the compound's
+    role in removing contaminants from surfaces requires extra caution to avoid inhaling fumes generated by the process. Overall,
+    combining these items creates a solid defense, allowing safe interaction with toluene's versatile yet hazardous nature
+    in everyday industrial applications.
   images:
     hero:
       url: /images/compound/toluene-compound-hero.jpg
@@ -520,7 +520,6 @@ relationships:
       alt: Toluene microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Toluene (C₇H₈)
 subcategory: aromatic_hydrocarbon
 faq:
 - question: As a laser cleaning operator using toluene to degrease surfaces before lasering, what are the key exposure limits

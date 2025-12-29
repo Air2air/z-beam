@@ -3,8 +3,8 @@ name: Hexavalent Chromium
 display_name: Chromium(VI)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-29T06:27:59.958477Z'
-dateModified: '2025-12-29T06:27:59.958477Z'
+datePublished: '2025-12-29T20:28:06.447407Z'
+dateModified: '2025-12-29T20:28:06.447407Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/heavy-metal/chromium-vi-compound
@@ -146,7 +146,110 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
+  identity:
+    chemical_properties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: chromium-vi-physical-data
+      _section:
+        section_title: Chemical Properties
+        section_description: Fundamental chemical characteristics and behavior
+        icon: microscope
+        order: 1
+        variant: default
+    physical_properties:
+      presentation: descriptive
+      items:
+      - boiling_point: 'Varies by compound (chromic acid: decomposes >250°C)'
+        melting_point: Varies by compound
+        vapor_pressure: Negligible at room temperature
+        vapor_density: Not applicable (metal/salt)
+        specific_gravity: 'Varies (chromic acid: 1.2)'
+        flash_point: Not applicable
+        autoignition_temp: Not applicable
+        explosive_limits: Not applicable
+        appearance: Yellow to orange-red crystalline solid (chromates), green solution (chromic acid)
+        odor: Odorless or faint acrid odor
+      _section:
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
+        icon: gauge
+        section_description: Physical characteristics and state information
+        order: 2
+        variant: default
+    synonyms_identifiers:
+      presentation: descriptive
+      items:
+      - synonyms:
+        - Hexavalent chromium
+        - Cr(VI)
+        - Chromate
+        - Chromic acid
+        - Potassium dichromate
+        - Sodium chromate
+        common_trade_names:
+        - Chrome plating chemicals
+        - Chromate conversion coatings
+        other_identifiers:
+          rtecs_number: GB6200000 (chromic acid)
+          ec_number: 231-889-5 (chromium trioxide)
+          pubchem_cid: '24425'
+      _section:
+        section_title: Synonyms & Identifiers
+        description: Synonyms and chemical identifiers
+        icon: file-text
+        section_description: Alternative names and chemical identifiers (CAS numbers)
+        order: 14
+        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: chromium-vi-toxicology
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: NIOSH-approved air-purifying respirator with P100 filters for ≤2.5 µg/m³. Powered air-purifying respirator
+          (PAPR) for ≤12.5 µg/m³. SCBA for >12.5 µg/m³ or unknown concentrations.
+        skin: Nitrile or neoprene gloves (>4mil thickness). Chemical-resistant clothing. Cr(VI) can cause allergic skin reactions
+          and ulcerations.
+        eye: Chemical safety goggles, face shield for dusty/spray operations
+        minimum_level: Level C for known concentrations <2.5 µg/m³, Level B for higher concentrations or welding/cutting operations
+        special_notes: CARCINOGEN and ALLERGEN. Prevent skin contact - causes sensitization. Welding/cutting stainless steel
+          generates Cr(VI) fume. Use wet methods to control dust. Medical surveillance required.
+      _section:
+        section_title: PPE Requirements
+        description: Required safety equipment for handling this compound
+        icon: shield
+        section_description: Personal protective equipment needed for safe handling
+        order: 5
+        variant: warning
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Non-combustible. Strong oxidizer - increases fire intensity. Chromates may explode when heated with organic
+          materials.
+        fire_suppression: Use agent appropriate for surrounding fire. Do not use water on dichromate fires. Wear SCBA.
+        spill_procedures: Evacuate area. Wear full PPE. Avoid dust generation. Reduce Cr(VI) to Cr(III) with sodium bisulfite
+          or ferrous sulfate before cleanup. Sweep/vacuum with HEPA filter. Dispose as hazardous waste. Decontaminate area
+          thoroughly.
+        exposure_immediate_actions: Remove contaminated clothing immediately. Wash skin with soap and water for 15 minutes.
+          If inhaled, move to fresh air. Seek medical attention immediately - inform physician of Cr(VI) exposure and potential
+          for delayed effects.
+        environmental_hazards: Toxic to aquatic life. Cr(VI) is highly mobile in groundwater. Can contaminate drinking water.
+          Report releases >5000 lbs.
+        special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, nasal septum perforation. Strong oxidizer
+          - reacts violently with combustibles. Corrosive to skin (ulcers/chrome holes). Potent allergen - can cause severe
+          dermatitis.
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: alert-triangle
+        section_description: First aid and emergency procedures for exposure incidents
+        order: 7
+        variant: danger
     exposure_limits:
       presentation: descriptive
       items:
@@ -180,307 +283,210 @@ relationships:
             timing: End of shift
             bei_value: <0.5 µg/L
       _section:
-        title: Exposure Limits
+        section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
         section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
-  chemical_properties:
-    presentation: descriptive
-    items:
-    - type: chemical_properties
-      id: chromium-vi-physical-data
-    _section:
-      title: Chemical Properties
-      section_description: Fundamental chemical characteristics and behavior
-      icon: microscope
-      order: 1
-      variant: default
-  health_effects:
-    presentation: card
-    items:
-    - type: health_effects
-      id: chromium-vi-toxicology
-  environmental_impact:
-    presentation: descriptive
-    items:
-    - aquatic_toxicity: 'Very toxic to aquatic life. LC50 (fish, 96h): 10-100 mg/L depending on species. Cr(VI) more toxic
-        than Cr(III).'
-      biodegradability: Not biodegradable. Cr(VI) can be reduced to less toxic Cr(III) by organic matter and reducing conditions.
-      bioaccumulation: Low bioaccumulation potential. Does not concentrate in food chain.
-      soil_mobility: High mobility in soil and groundwater as Cr(VI). Adsorbs less than Cr(III). Contaminates wells.
-      atmospheric_fate: Settles as particulate. Does not react in atmosphere. Washed out by rain.
-      ozone_depletion: false
-      global_warming_potential: null
-      reportable_releases:
-        water: 5000 lbs to navigable waters
-        air: 5000 lbs/day (CERCLA RQ for soluble Cr(VI))
-    _section:
-      title: Environmental Impact
-      description: Toxicity, biodegradability, and environmental fate
-      icon: wind
-      section_description: Environmental effects and ecological considerations
-      order: 8
-      variant: warning
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store at room temperature, avoid excessive heat
+        ventilation: Local exhaust ventilation. Store in well-ventilated area away from work areas.
+        incompatibilities:
+        - Combustible materials
+        - Organic materials
+        - Reducing agents
+        - Acids
+        - Bases
+        - Ammonia
+        - Hydrogen sulfide
+        container_material: Tightly sealed glass or plastic containers. Polyethylene or glass for chromic acid.
+        segregation: Separate from combustibles, organics, and reducing agents by 20 feet or firewall. Designated carcinogen
+          storage.
+        quantity_limits: Minimize quantities stored. OSHA requires carcinogen storage protocols.
+        special_requirements: Post "CANCER HAZARD" and "STRONG OXIDIZER" signs. Restrict access to authorized personnel. Secondary
+          containment for liquids. Inspect weekly for container integrity. Emergency eyewash/shower within 10 seconds.
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: alert-triangle
+        section_description: Proper storage conditions and handling precautions
+        order: 13
+        variant: warning
+    regulatory_classification:
+      presentation: descriptive
+      items:
+      - un_number: UN3288 (Toxic solid, inorganic, n.o.s.) or UN1755 (Chromic acid solution)
+        dot_hazard_class: 6.1 (Toxic) or 8 (Corrosive)
+        dot_label: Toxic or Corrosive
+        nfpa_codes:
+          health: 3
+          flammability: 0
+          reactivity: 1
+          special: OX (Oxidizer)
+        epa_hazard_categories:
+        - Carcinogenicity
+        - Acute toxicity
+        - Skin corrosion
+        - Respiratory sensitization
+        - Aquatic toxicity
+        sara_title_iii: true
+        cercla_rq: 5000 pounds (2270 kg) for soluble Cr(VI) compounds
+        rcra_code: D007 (chromium)
+      _section:
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
+        icon: file-text
+        section_description: Hazard classifications and regulatory designations
+        order: 12
+        variant: default
+  environmental:
+    environmental_impact:
+      presentation: descriptive
+      items:
+      - aquatic_toxicity: 'Very toxic to aquatic life. LC50 (fish, 96h): 10-100 mg/L depending on species. Cr(VI) more toxic
+          than Cr(III).'
+        biodegradability: Not biodegradable. Cr(VI) can be reduced to less toxic Cr(III) by organic matter and reducing conditions.
+        bioaccumulation: Low bioaccumulation potential. Does not concentrate in food chain.
+        soil_mobility: High mobility in soil and groundwater as Cr(VI). Adsorbs less than Cr(III). Contaminates wells.
+        atmospheric_fate: Settles as particulate. Does not react in atmosphere. Washed out by rain.
+        ozone_depletion: false
+        global_warming_potential: null
+        reportable_releases:
+          water: 5000 lbs to navigable waters
+          air: 5000 lbs/day (CERCLA RQ for soluble Cr(VI))
+      _section:
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
+        icon: wind
+        section_description: Environmental effects and ecological considerations
+        order: 8
+        variant: warning
   detection_monitoring:
-    presentation: descriptive
-    items:
-    - sensor_types:
-      - Particulate monitors
-      - Personal air sampling pumps
-      - Area monitors
-      - Colorimetric detection
-      detection_range: 0.0001-100 µg/m³
-      alarm_setpoints:
-        low: 0.2 µg/m³ (NIOSH REL certain compounds)
-        high: 5 µg/m³ (OSHA PEL)
-        evacuate: 15 mg/m³ (15,000 µg/m³) (NIOSH IDLH)
-      colorimetric_tubes:
-      - Dräger Chromium VI 0.1/a
-      - Gastec 171
-      analytical_methods:
-      - method: NIOSH 7600
-        technique: Visible absorption spectrophotometry
-        detection_limit: 0.02 µg/sample
-      - method: NIOSH 7605
-        technique: Ion chromatography
-        detection_limit: 0.05 µg/sample
-      - method: OSHA ID-215
-        technique: Visible spectrophotometry
-        detection_limit: 0.05 µg/sample
-      odor_threshold: Not applicable - no warning odor at hazardous levels
-    _section:
-      title: Detection & Monitoring
-      description: Methods for detecting and measuring this compound
-      icon: gauge
-      section_description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: default
-  ppe_requirements:
-    presentation: descriptive
-    items:
-    - respiratory: NIOSH-approved air-purifying respirator with P100 filters for ≤2.5 µg/m³. Powered air-purifying respirator
-        (PAPR) for ≤12.5 µg/m³. SCBA for >12.5 µg/m³ or unknown concentrations.
-      skin: Nitrile or neoprene gloves (>4mil thickness). Chemical-resistant clothing. Cr(VI) can cause allergic skin reactions
-        and ulcerations.
-      eye: Chemical safety goggles, face shield for dusty/spray operations
-      minimum_level: Level C for known concentrations <2.5 µg/m³, Level B for higher concentrations or welding/cutting operations
-      special_notes: CARCINOGEN and ALLERGEN. Prevent skin contact - causes sensitization. Welding/cutting stainless steel
-        generates Cr(VI) fume. Use wet methods to control dust. Medical surveillance required.
-    _section:
-      title: PPE Requirements
-      description: Required safety equipment for handling this compound
-      icon: shield
-      section_description: Personal protective equipment needed for safe handling
-      order: 5
-      variant: warning
-  emergency_response:
-    presentation: descriptive
-    items:
-    - fire_hazard: Non-combustible. Strong oxidizer - increases fire intensity. Chromates may explode when heated with organic
-        materials.
-      fire_suppression: Use agent appropriate for surrounding fire. Do not use water on dichromate fires. Wear SCBA.
-      spill_procedures: Evacuate area. Wear full PPE. Avoid dust generation. Reduce Cr(VI) to Cr(III) with sodium bisulfite
-        or ferrous sulfate before cleanup. Sweep/vacuum with HEPA filter. Dispose as hazardous waste. Decontaminate area thoroughly.
-      exposure_immediate_actions: Remove contaminated clothing immediately. Wash skin with soap and water for 15 minutes.
-        If inhaled, move to fresh air. Seek medical attention immediately - inform physician of Cr(VI) exposure and potential
-        for delayed effects.
-      environmental_hazards: Toxic to aquatic life. Cr(VI) is highly mobile in groundwater. Can contaminate drinking water.
-        Report releases >5000 lbs.
-      special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, nasal septum perforation. Strong oxidizer
-        - reacts violently with combustibles. Corrosive to skin (ulcers/chrome holes). Potent allergen - can cause severe
-        dermatitis.
-    _section:
-      title: Emergency Response
-      description: Procedures for spills, exposure, and incidents
-      icon: alert-triangle
-      section_description: First aid and emergency procedures for exposure incidents
-      order: 7
-      variant: danger
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: chrome-pitting-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Oxidation of chromium creates Cr(VI)
-      intensity: very_negative
-    - id: steel-corrosion-contamination
-      frequency: common
-      severity: high
-      typical_context: Oxidation of chromium in stainless steel
-      intensity: very_negative
-    - id: paint-residue-contamination
-      frequency: occasional
-      severity: high
-      typical_context: Chromate pigments in some paints
-      intensity: very_negative
-    - id: conversion-coating-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of Chemical Conversion Coating
-      intensity: very_negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  produced_from_materials:
-    presentation: card
-    items:
-    - id: chromium-laser-cleaning
-    - id: stainless-steel-304-laser-cleaning
-    - id: stainless-steel-316-laser-cleaning
-    - id: stainless-steel-laser-cleaning
-    _section:
-      title: Produced From Materials
-      section_description: Materials that may release this compound during laser cleaning
-      icon: users
-      order: 10
-      variant: default
-  physical_properties:
-    presentation: descriptive
-    items:
-    - boiling_point: 'Varies by compound (chromic acid: decomposes >250°C)'
-      melting_point: Varies by compound
-      vapor_pressure: Negligible at room temperature
-      vapor_density: Not applicable (metal/salt)
-      specific_gravity: 'Varies (chromic acid: 1.2)'
-      flash_point: Not applicable
-      autoignition_temp: Not applicable
-      explosive_limits: Not applicable
-      appearance: Yellow to orange-red crystalline solid (chromates), green solution (chromic acid)
-      odor: Odorless or faint acrid odor
-    _section:
-      title: Physical Properties
-      description: Chemical and physical characteristics
-      icon: gauge
-      section_description: Physical characteristics and state information
-      order: 2
-      variant: default
-  storage_requirements:
-    presentation: descriptive
-    items:
-    - temperature_range: Store at room temperature, avoid excessive heat
-      ventilation: Local exhaust ventilation. Store in well-ventilated area away from work areas.
-      incompatibilities:
-      - Combustible materials
-      - Organic materials
-      - Reducing agents
-      - Acids
-      - Bases
-      - Ammonia
-      - Hydrogen sulfide
-      container_material: Tightly sealed glass or plastic containers. Polyethylene or glass for chromic acid.
-      segregation: Separate from combustibles, organics, and reducing agents by 20 feet or firewall. Designated carcinogen
-        storage.
-      quantity_limits: Minimize quantities stored. OSHA requires carcinogen storage protocols.
-      special_requirements: Post "CANCER HAZARD" and "STRONG OXIDIZER" signs. Restrict access to authorized personnel. Secondary
-        containment for liquids. Inspect weekly for container integrity. Emergency eyewash/shower within 10 seconds.
-    _section:
-      title: Storage Requirements
-      description: Safe storage conditions and compatibility
-      icon: alert-triangle
-      section_description: Proper storage conditions and handling precautions
-      order: 13
-      variant: warning
-  regulatory_classification:
-    presentation: descriptive
-    items:
-    - un_number: UN3288 (Toxic solid, inorganic, n.o.s.) or UN1755 (Chromic acid solution)
-      dot_hazard_class: 6.1 (Toxic) or 8 (Corrosive)
-      dot_label: Toxic or Corrosive
-      nfpa_codes:
-        health: 3
-        flammability: 0
-        reactivity: 1
-        special: OX (Oxidizer)
-      epa_hazard_categories:
-      - Carcinogenicity
-      - Acute toxicity
-      - Skin corrosion
-      - Respiratory sensitization
-      - Aquatic toxicity
-      sara_title_iii: true
-      cercla_rq: 5000 pounds (2270 kg) for soluble Cr(VI) compounds
-      rcra_code: D007 (chromium)
-    _section:
-      title: Regulatory Classification
-      description: DOT, UN, and NFPA hazard classifications
-      icon: file-text
-      section_description: Hazard classifications and regulatory designations
-      order: 12
-      variant: default
-  reactivity:
-    presentation: descriptive
-    items:
-    - stability: Stable under normal conditions. Some compounds decompose when heated.
-      polymerization: Will not polymerize
-      incompatible_materials:
-      - Strong reducing agents
-      - Combustible materials
-      - Organic materials
-      - Acids with metals
-      - Bases
-      - Ammonia
-      - Sulfur
-      - Phosphorus
-      hazardous_decomposition:
-      - Chromium oxides
-      - Toxic fumes
-      - Oxygen (chromates)
-      conditions_to_avoid:
-      - Heat
-      - Incompatible materials
-      - Moisture (some compounds)
-      - Shock (chromates)
-      reactivity_hazard: STRONG OXIDIZER. Reacts violently with combustible materials, reducing agents. Chromates may explode
-        when heated. Corrosive to skin and metals.
-    _section:
-      title: Reactivity
-      description: Chemical reactivity and incompatibilities
-      icon: flame
-      section_description: Chemical reactivity and compatibility with other substances
-      order: 11
-      variant: warning
-  synonyms_identifiers:
-    presentation: descriptive
-    items:
-    - synonyms:
-      - Hexavalent chromium
-      - Cr(VI)
-      - Chromate
-      - Chromic acid
-      - Potassium dichromate
-      - Sodium chromate
-      common_trade_names:
-      - Chrome plating chemicals
-      - Chromate conversion coatings
-      other_identifiers:
-        rtecs_number: GB6200000 (chromic acid)
-        ec_number: 231-889-5 (chromium trioxide)
-        pubchem_cid: '24425'
-    _section:
-      title: Synonyms & Identifiers
-      description: Synonyms and chemical identifiers
-      icon: file-text
-      section_description: Alternative names and chemical identifiers (CAS numbers)
-      order: 14
-      variant: default
-  operational:
-    health_effects:
+    detection_monitoring:
+      presentation: descriptive
+      items:
+      - sensor_types:
+        - Particulate monitors
+        - Personal air sampling pumps
+        - Area monitors
+        - Colorimetric detection
+        detection_range: 0.0001-100 µg/m³
+        alarm_setpoints:
+          low: 0.2 µg/m³ (NIOSH REL certain compounds)
+          high: 5 µg/m³ (OSHA PEL)
+          evacuate: 15 mg/m³ (15,000 µg/m³) (NIOSH IDLH)
+        colorimetric_tubes:
+        - Dräger Chromium VI 0.1/a
+        - Gastec 171
+        analytical_methods:
+        - method: NIOSH 7600
+          technique: Visible absorption spectrophotometry
+          detection_limit: 0.02 µg/sample
+        - method: NIOSH 7605
+          technique: Ion chromatography
+          detection_limit: 0.05 µg/sample
+        - method: OSHA ID-215
+          technique: Visible spectrophotometry
+          detection_limit: 0.05 µg/sample
+        odor_threshold: Not applicable - no warning odor at hazardous levels
+      _section:
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
+        icon: gauge
+        section_description: Methods and equipment for detecting and monitoring this compound
+        order: 6
+        variant: default
+  interactions:
+    produced_from_contaminants:
       presentation: card
       items:
-      - type: health_effects
-        id: chromium-vi-toxicology
+      - id: chrome-pitting-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Oxidation of chromium creates Cr(VI)
+      - id: steel-corrosion-contamination
+        frequency: common
+        severity: high
+        typical_context: Oxidation of chromium in stainless steel
+      - id: paint-residue-contamination
+        frequency: occasional
+        severity: high
+        typical_context: Chromate pigments in some paints
+      - id: conversion-coating-contamination
+        frequency: unknown
+        severity: high
+        typical_context: Laser removal of Chemical Conversion Coating
       _section:
-        title: Health Effects
-        section_description: Potential health impacts from exposure
-        icon: activity
-        order: 1
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+    produced_from_materials:
+      presentation: card
+      items:
+      - id: chromium-laser-cleaning
+      - id: stainless-steel-304-laser-cleaning
+      - id: stainless-steel-316-laser-cleaning
+      - id: stainless-steel-laser-cleaning
+      _section:
+        section_title: Produced From Materials
+        section_description: Materials that may release this compound during laser cleaning
+        icon: users
+        order: 10
+        variant: default
+    reactivity:
+      presentation: descriptive
+      items:
+      - stability: Stable under normal conditions. Some compounds decompose when heated.
+        polymerization: Will not polymerize
+        incompatible_materials:
+        - Strong reducing agents
+        - Combustible materials
+        - Organic materials
+        - Acids with metals
+        - Bases
+        - Ammonia
+        - Sulfur
+        - Phosphorus
+        hazardous_decomposition:
+        - Chromium oxides
+        - Toxic fumes
+        - Oxygen (chromates)
+        conditions_to_avoid:
+        - Heat
+        - Incompatible materials
+        - Moisture (some compounds)
+        - Shock (chromates)
+        reactivity_hazard: STRONG OXIDIZER. Reacts violently with combustible materials, reducing agents. Chromates may explode
+          when heated. Corrosive to skin and metals.
+      _section:
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
+        icon: flame
+        section_description: Chemical reactivity and compatibility with other substances
+        order: 11
         variant: warning
+  ppe_requirements: "Handling chromium(VI) compounds demands careful attention to personal protective equipment, especially\
+    \ since these materials pose serious health risks as potent carcinogens through skin contact, inhalation, or accidental\
+    \ ingestion. Start by selecting impermeable gloves made from materials like nitrile or neoprene that resist penetration\
+    \ by the compound's corrosive nature, ensuring hands stay shielded during mixing or application in industrial settings\
+    \ like metal plating or pigment production. \n\nPair those with full-body coveralls or aprons crafted from heavy-duty,\
+    \ chemical-resistant fabrics to block splashes and dust from settling on clothing, which could lead to prolonged exposure\
+    \ over shifts in workshops where the compounds serve as oxidizing agents in dyes or leather tanning. Eye protection comes\
+    \ next—opt for sealed goggles or face shields that create a barrier against airborne particles, vital when grinding or\
+    \ formulating these vibrant, yet hazardous, substances that might release fine mists. \n\nFor breathing safety, a respirator\
+    \ fitted with cartridges designed to filter out hexavalent chromium vapors becomes essential, particularly in confined\
+    \ spaces during processes like welding or electroplating where fumes build up quickly. In scenarios involving laser cleaning\
+    \ of surfaces coated with these compounds, where heat could volatilize residues into the air, upgrade to powered air-purifying\
+    \ respirators that maintain positive pressure inside the mask, keeping contaminants at bay while allowing precise removal\
+    \ of industrial buildup without spreading toxins. \n\nFootwear rounds out the basics with chemical-resistant boots that\
+    \ prevent spills from soaking through, and always include donning procedures like layering protections in a designated\
+    \ clean area to avoid cross-contamination. Regular training on proper fit and maintenance keeps this gear effective, turning\
+    \ routine handling into a safer operation across applications from corrosion inhibitors to high-performance coatings."
   images:
     hero:
       url: /images/compound/chromium-vi-compound-hero.jpg
@@ -492,7 +498,6 @@ relationships:
       alt: Hexavalent Chromium microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Chromium(VI)
 subcategory: heavy_metal
 faq:
 - question: As a laser cleaning operator working on chromium-containing alloys like stainless steel, what personal protective

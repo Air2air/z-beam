@@ -3,8 +3,8 @@ name: Aluminum Oxide
 display_name: Aluminum Oxide (Al₂O₃)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2025-12-29T06:28:10.679462Z'
-dateModified: '2025-12-29T06:28:10.679462Z'
+datePublished: '2025-12-29T20:28:19.277199Z'
+dateModified: '2025-12-29T20:28:19.277199Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/aluminum-oxide-compound
@@ -137,50 +137,48 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: aluminum-oxidation-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Aluminum Oxidation
-      intensity: negative
-    - id: aluminum-oxidation-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Aluminum Oxidation
-      intensity: slightly_negative
-    - id: anodizing-defects-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Anodizing Layer Irregularities
-      intensity: negative
-    - id: anodizing-defects-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Anodizing Layer Irregularities
-      intensity: slightly_negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  produced_from_materials:
-    presentation: card
-    items:
-    - id: aluminum-bronze-laser-cleaning
-    - id: aluminum-laser-cleaning
-    - id: aluminum-nitride-laser-cleaning
-    - id: brass-laser-cleaning
-    - id: bronze-laser-cleaning
-    _section:
-      title: Produced From Materials
-      section_description: Materials that may release this compound during laser cleaning
-      icon: users
-      order: 10
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: aluminum-oxidation-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Aluminum Oxidation
+      - id: aluminum-oxidation-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Aluminum Oxidation
+      - id: anodizing-defects-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Anodizing Layer Irregularities
+      - id: anodizing-defects-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Anodizing Layer Irregularities
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+    produced_from_materials:
+      presentation: card
+      items:
+      - id: aluminum-bronze-laser-cleaning
+      - id: aluminum-laser-cleaning
+      - id: aluminum-nitride-laser-cleaning
+      - id: brass-laser-cleaning
+      - id: bronze-laser-cleaning
+      _section:
+        section_title: Produced From Materials
+        section_description: Materials that may release this compound during laser cleaning
+        icon: users
+        order: 10
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: 'Handling aluminum oxide particulates demands solid protection. Start with your setup—gloves on first
     to shield skin from sharp edges and irritation. These compounds cut like fine grit, so cover hands fully with durable,
     fitted pairs.
@@ -214,7 +212,6 @@ relationships:
       alt: Aluminum Oxide microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Aluminum Oxide (Al₂O₃)
 subcategory: metal_oxide
 faq:
 - question: As a laser cleaning operator, what respiratory protection should I use to avoid exposure to aluminum oxide (Al₂O₃)

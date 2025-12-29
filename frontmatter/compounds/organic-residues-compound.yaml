@@ -3,8 +3,8 @@ name: Organic Residues
 display_name: Organic Residues
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T06:28:09.931220Z'
-dateModified: '2025-12-29T06:28:09.931220Z'
+datePublished: '2025-12-29T20:28:18.427894Z'
+dateModified: '2025-12-29T20:28:18.427894Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/organic/organic-residues-compound
@@ -174,96 +174,82 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: aviation-sealant-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Aerospace Sealant Residue
-      intensity: negative
-    - id: brake-dust-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Brake Pad Dust Deposits
-      intensity: negative
-    - id: coolant-scale-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Engine Coolant Scale
-      intensity: negative
-    - id: corrosion-inhibitor-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Corrosion Inhibitor Coating
-      intensity: negative
-    - id: environmental-dust-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Environmental Dust Layer
-      intensity: negative
-    - id: hydraulic-fluid-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Hydraulic Fluid Contamination
-      intensity: negative
-    - id: medical-disinfectant-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Medical Disinfectant Residue
-      intensity: negative
-    - id: metal-polish-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Metal Polish Residue
-      intensity: negative
-    - id: mold-mildew-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Mold and Mildew Growth
-      intensity: negative
-    - id: pollen-deposit-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Pollen Accumulation
-      intensity: negative
-    - id: rubber-residue-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Rubber Compound Residue
-      intensity: negative
-    - id: semiconductor-residue-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Semiconductor Processing Residue
-      intensity: negative
-    - id: soap-scum-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Soap Scum Buildup
-      intensity: negative
-    - id: thread-locker-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Threadlocker Adhesive
-      intensity: negative
-    - id: undercoating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Automotive Undercoating
-      intensity: negative
-    - id: wax-buildup-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Wax Coating Buildup
-      intensity: negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: aviation-sealant-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Aerospace Sealant Residue
+      - id: brake-dust-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Brake Pad Dust Deposits
+      - id: coolant-scale-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Engine Coolant Scale
+      - id: corrosion-inhibitor-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Corrosion Inhibitor Coating
+      - id: environmental-dust-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Environmental Dust Layer
+      - id: hydraulic-fluid-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Hydraulic Fluid Contamination
+      - id: medical-disinfectant-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Medical Disinfectant Residue
+      - id: metal-polish-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Metal Polish Residue
+      - id: mold-mildew-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Mold and Mildew Growth
+      - id: pollen-deposit-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Pollen Accumulation
+      - id: rubber-residue-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Rubber Compound Residue
+      - id: semiconductor-residue-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Semiconductor Processing Residue
+      - id: soap-scum-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Soap Scum Buildup
+      - id: thread-locker-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Threadlocker Adhesive
+      - id: undercoating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Automotive Undercoating
+      - id: wax-buildup-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Wax Coating Buildup
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: 'Handling organic residue compounds in particulate form demands solid protection, especially in dusty
     workshops or cleanup jobs. Gloves made from nitrile or similar tough materials keep your hands safe from sticky buildup
     or mild irritants—I''ve seen folks skip them and end up with rashes that linger for days. Pair that with full-coverage
@@ -291,7 +277,6 @@ relationships:
       alt: Organic Residues microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Organic Residues
 subcategory: organic
 faq:
 - question: As a laser cleaning operator, what personal protective equipment should I use to protect against exposure to organic

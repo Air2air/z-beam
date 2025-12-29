@@ -15,6 +15,7 @@ import { Micro } from '../Micro/Micro';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
+import { getContaminatedBy, getRegulatoryStandards, getHeroImageUrl } from '@/app/utils/relationshipHelpers';
 import type { LayoutProps } from '@/types';
 import type { SectionConfig } from '../BaseContentLayout';
 
@@ -28,17 +29,17 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
   const materialName = metadata?.name || (metadata?.title as string) || slug;
   const thumbnailLink = `/materials/${category}/${subcategory}/${slug}`;
-  const heroImage = metadata?.images?.hero?.url;
+  const heroImage = getHeroImageUrl(metadata);
   
   // Configure sections for BaseContentLayout
-  // Access data from relationships
+  // Access data from relationships using standardized helpers
   const relationships = (metadata as any)?.relationships || {};
   const materialProperties = relationships?.materialProperties || (metadata as any)?.properties;
-  const regulatoryStandards = relationships?.regulatory?.items || relationships?.regulatory_standards?.items || relationships?.regulatory_standards || relationships?.regulatory || [];
+  const regulatoryStandards = getRegulatoryStandards(metadata);
   const applications = (metadata as any)?.applications;
 
-  // Extract contaminants from relationships and filter null items
-  const contaminatedByData = relationships?.technical?.contaminated_by || relationships?.contaminated_by || {};
+  // Extract contaminants using standardized helper (handles interactions → technical → legacy fallback)
+  const contaminatedByData = getContaminatedBy(metadata);
   const contaminantRefs = (contaminatedByData?.items || []).filter((item: any) => item != null);
   const contaminatedBySection = contaminatedByData?._section || {};
   
@@ -130,7 +131,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         maxItems: 6,
       }
     },
-    // Relationship cards for contaminated_by
+    // Relationship cards for contaminated_by (interactions.contaminated_by or technical.contaminated_by)
     {
       component: CardGrid,
       props: {

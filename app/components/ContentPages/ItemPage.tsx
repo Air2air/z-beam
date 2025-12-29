@@ -36,13 +36,14 @@ export async function ItemPage({
       notFound();
     }
     
-    // SETTINGS PAGES: Use SettingsLayout with SettingsMetadata structure
+    // SETTINGS PAGES: Use SettingsLayout with standardized metadata extraction
     if (config.type === 'settings') {
-      const settings = article as any; // SettingsMetadata type
+      // Extract metadata consistently with other content types
+      const metadata = article.metadata || article as any;
       
       // Verify category/subcategory match for settings
-      const settingsCategory = settings.category ? normalizeForUrl(settings.category) : undefined;
-      const settingsSubcategory = settings.subcategory ? normalizeForUrl(settings.subcategory) : undefined;
+      const settingsCategory = metadata.category ? normalizeForUrl(metadata.category) : undefined;
+      const settingsSubcategory = metadata.subcategory ? normalizeForUrl(metadata.subcategory) : undefined;
       
       if (settingsCategory && settingsSubcategory) {
         if (settingsCategory !== categorySlug || settingsSubcategory !== subcategorySlug) {
@@ -53,12 +54,12 @@ export async function ItemPage({
       return (
         <>
           <MaterialJsonLD 
-            article={settings} 
+            article={metadata} 
             slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`} 
           />
           <SettingsLayout 
-            metadata={settings}
-            materialProperties={(settings as any)?.relationships?.materialProperties}
+            metadata={metadata}
+            materialProperties={metadata?.relationships?.materialProperties}
             category={categorySlug}
             subcategory={subcategorySlug}
             slug={itemSlug}

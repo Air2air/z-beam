@@ -3,8 +3,8 @@ name: Zinc Oxide
 display_name: Zinc Oxide (ZnO)
 category: metal_fume
 hazard_class: irritant
-datePublished: '2025-12-29T06:27:58.249912Z'
-dateModified: '2025-12-29T06:27:58.249912Z'
+datePublished: '2025-12-29T20:28:04.647391Z'
+dateModified: '2025-12-29T20:28:04.647391Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/metal-fume/metal-oxide/zinc-oxide-compound
@@ -160,7 +160,103 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
+  identity:
+    chemical_properties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: zinc-oxide-physical-data
+      _section:
+        section_title: Chemical Properties
+        section_description: Fundamental chemical characteristics and behavior
+        icon: microscope
+        order: 1
+        variant: default
+    physical_properties:
+      presentation: descriptive
+      items:
+      - boiling_point: 1974°C (3585°F) - sublimes
+        melting_point: 1975°C (3587°F)
+        vapor_pressure: Negligible at room temperature
+        vapor_density: Not applicable (solid)
+        specific_gravity: '5.6'
+        flash_point: Not applicable
+        autoignition_temp: Not applicable
+        explosive_limits: Not applicable
+        appearance: White to yellowish-white powder
+        odor: Odorless
+      _section:
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
+        icon: gauge
+        section_description: Physical characteristics and state information
+        order: 2
+        variant: default
+    synonyms_identifiers:
+      presentation: descriptive
+      items:
+      - synonyms:
+        - Zinc white
+        - Chinese white
+        - Flowers of zinc
+        - Philosopher's wool
+        - ZnO
+        common_trade_names:
+        - Zincite
+        - Zinc oxide fume
+        other_identifiers:
+          rtecs_number: ZH4810000
+          ec_number: 215-222-5
+          pubchem_cid: '14806'
+      _section:
+        section_title: Synonyms & Identifiers
+        description: Synonyms and chemical identifiers
+        icon: file-text
+        section_description: Alternative names and chemical identifiers (CAS numbers)
+        order: 14
+        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: zinc-oxide-toxicology
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters for ≤50 mg/m³. PAPR for higher
+          concentrations. SCBA for unknown or emergency response.
+        skin: Leather or cotton gloves adequate for dust. Welding gloves for metal work.
+        eye: Safety glasses with side shields. Welding goggles/helmet for welding operations.
+        minimum_level: Level D for dust <10 mg/m³, Level C for >10 mg/m³ or welding fume
+        special_notes: Metal fume fever primary concern. Prevent inhalation during welding/cutting galvanized metal. Symptoms
+          develop 4-12 hours post-exposure. Well-ventilated work areas essential.
+      _section:
+        section_title: PPE Requirements
+        description: Required safety equipment for handling this compound
+        icon: shield
+        section_description: Personal protective equipment needed for safe handling
+        order: 5
+        variant: warning
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Non-combustible. May release toxic zinc oxide fume when heated above 1000°C.
+        fire_suppression: Use agent appropriate for surrounding fire. Wear SCBA - toxic fumes possible.
+        spill_procedures: Avoid generating dust. Sweep or vacuum with HEPA filter. Place in sealed containers. Dispose as
+          non-hazardous or hazardous depending on concentration and source.
+        exposure_immediate_actions: 'Remove from exposure. If metal fume fever suspected: rest, fluids, symptomatic treatment.
+          Symptoms self-limiting 24-48 hours. If severe: seek medical attention. Monitor respiratory function.'
+        environmental_hazards: Toxic to aquatic life. May contaminate soil/water. Generally low environmental risk.
+        special_hazards: 'METAL FUME FEVER: flu-like symptoms 4-12 hours post-exposure (fever, chills, nausea, muscle aches).
+          Self-limiting but recurrent with repeated exposure. Welding galvanized metal major exposure source.'
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: alert-triangle
+        section_description: First aid and emergency procedures for exposure incidents
+        order: 7
+        variant: danger
     exposure_limits:
       presentation: descriptive
       items:
@@ -194,275 +290,174 @@ relationships:
             timing: End of shift
             bei_value: <1.0 mg/L
       _section:
-        title: Exposure Limits
+        section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
         section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
-  chemical_properties:
-    presentation: descriptive
-    items:
-    - type: chemical_properties
-      id: zinc-oxide-physical-data
-    _section:
-      title: Chemical Properties
-      section_description: Fundamental chemical characteristics and behavior
-      icon: microscope
-      order: 1
-      variant: default
-  health_effects:
-    presentation: card
-    items:
-    - type: health_effects
-      id: zinc-oxide-toxicology
-  environmental_impact:
-    presentation: descriptive
-    items:
-    - aquatic_toxicity: 'Very toxic to aquatic life. LC50 (fish, 96h): 0.5-5 mg/L depending on pH and hardness. More toxic
-        in soft acidic water.'
-      biodegradability: Not biodegradable (inorganic).
-      bioaccumulation: 'Moderate bioaccumulation. BCF: 10-100. Essential element but toxic at high levels.'
-      soil_mobility: 'Low mobility. Adsorbs to soil particles. Persistence: indefinite.'
-      atmospheric_fate: Settles as particulate. Does not react in atmosphere.
-      ozone_depletion: false
-      global_warming_potential: null
-      reportable_releases:
-        water: 1000 lbs zinc compounds to navigable waters
-        air: 1000 lbs/day zinc compounds (CERCLA RQ)
-    _section:
-      title: Environmental Impact
-      description: Toxicity, biodegradability, and environmental fate
-      icon: wind
-      section_description: Environmental effects and ecological considerations
-      order: 8
-      variant: warning
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store at room temperature
+        ventilation: General ventilation adequate. Keep containers closed.
+        incompatibilities:
+        - Chlorinated rubber
+        - Linseed oil
+        - Magnesium
+        - Strong acids
+        container_material: Plastic or metal containers with tight lids.
+        segregation: None required for pure zinc oxide. Separate from incompatibles.
+        quantity_limits: None specified. Follow facility storage protocols.
+        special_requirements: Keep containers closed when not in use. Store in dry area. Prevent dust accumulation.
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: alert-triangle
+        section_description: Proper storage conditions and handling precautions
+        order: 13
+        variant: warning
+    regulatory_classification:
+      presentation: descriptive
+      items:
+      - un_number: None (not regulated as hazardous for transport)
+        dot_hazard_class: Not classified
+        dot_label: None
+        nfpa_codes:
+          health: 1
+          flammability: 0
+          reactivity: 0
+          special: null
+        epa_hazard_categories:
+        - Specific target organ toxicity (respiratory)
+        sara_title_iii: false
+        cercla_rq: 1000 pounds (454 kg) for zinc compounds
+        rcra_code: null
+      _section:
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
+        icon: file-text
+        section_description: Hazard classifications and regulatory designations
+        order: 12
+        variant: default
+  environmental:
+    environmental_impact:
+      presentation: descriptive
+      items:
+      - aquatic_toxicity: 'Very toxic to aquatic life. LC50 (fish, 96h): 0.5-5 mg/L depending on pH and hardness. More toxic
+          in soft acidic water.'
+        biodegradability: Not biodegradable (inorganic).
+        bioaccumulation: 'Moderate bioaccumulation. BCF: 10-100. Essential element but toxic at high levels.'
+        soil_mobility: 'Low mobility. Adsorbs to soil particles. Persistence: indefinite.'
+        atmospheric_fate: Settles as particulate. Does not react in atmosphere.
+        ozone_depletion: false
+        global_warming_potential: null
+        reportable_releases:
+          water: 1000 lbs zinc compounds to navigable waters
+          air: 1000 lbs/day zinc compounds (CERCLA RQ)
+      _section:
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
+        icon: wind
+        section_description: Environmental effects and ecological considerations
+        order: 8
+        variant: warning
   detection_monitoring:
-    presentation: descriptive
-    items:
-    - sensor_types:
-      - Particulate monitors (PM10/PM2.5)
-      - Personal air sampling pumps
-      - Area monitors
-      detection_range: 0.01-100 mg/m³
-      alarm_setpoints:
-        low: 2 mg/m³ (ACGIH TLV respirable)
-        high: 5 mg/m³ (NIOSH REL fume)
-        evacuate: 500 mg/m³ (NIOSH IDLH)
-      colorimetric_tubes: Not available - laboratory analysis required
-      analytical_methods:
-      - method: NIOSH 7030
-        technique: AAS (Atomic Absorption Spectroscopy)
-        detection_limit: 0.5 µg/sample
-      - method: NIOSH 7300
-        technique: ICP-AES (Inductively Coupled Plasma)
-        detection_limit: 0.1 µg/sample
-      - method: OSHA ID-121
-        technique: AAS
-        detection_limit: 0.3 µg/sample
-      odor_threshold: Not applicable - odorless
-    _section:
-      title: Detection & Monitoring
-      description: Methods for detecting and measuring this compound
-      icon: gauge
-      section_description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: default
-  ppe_requirements:
-    presentation: descriptive
-    items:
-    - respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters for ≤50 mg/m³. PAPR for higher concentrations.
-        SCBA for unknown or emergency response.
-      skin: Leather or cotton gloves adequate for dust. Welding gloves for metal work.
-      eye: Safety glasses with side shields. Welding goggles/helmet for welding operations.
-      minimum_level: Level D for dust <10 mg/m³, Level C for >10 mg/m³ or welding fume
-      special_notes: Metal fume fever primary concern. Prevent inhalation during welding/cutting galvanized metal. Symptoms
-        develop 4-12 hours post-exposure. Well-ventilated work areas essential.
-    _section:
-      title: PPE Requirements
-      description: Required safety equipment for handling this compound
-      icon: shield
-      section_description: Personal protective equipment needed for safe handling
-      order: 5
-      variant: warning
-  emergency_response:
-    presentation: descriptive
-    items:
-    - fire_hazard: Non-combustible. May release toxic zinc oxide fume when heated above 1000°C.
-      fire_suppression: Use agent appropriate for surrounding fire. Wear SCBA - toxic fumes possible.
-      spill_procedures: Avoid generating dust. Sweep or vacuum with HEPA filter. Place in sealed containers. Dispose as non-hazardous
-        or hazardous depending on concentration and source.
-      exposure_immediate_actions: 'Remove from exposure. If metal fume fever suspected: rest, fluids, symptomatic treatment.
-        Symptoms self-limiting 24-48 hours. If severe: seek medical attention. Monitor respiratory function.'
-      environmental_hazards: Toxic to aquatic life. May contaminate soil/water. Generally low environmental risk.
-      special_hazards: 'METAL FUME FEVER: flu-like symptoms 4-12 hours post-exposure (fever, chills, nausea, muscle aches).
-        Self-limiting but recurrent with repeated exposure. Welding galvanized metal major exposure source.'
-    _section:
-      title: Emergency Response
-      description: Procedures for spills, exposure, and incidents
-      icon: alert-triangle
-      section_description: First aid and emergency procedures for exposure incidents
-      order: 7
-      variant: danger
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: galvanize-corrosion-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Vaporization from galvanized coatings
-      intensity: very_negative
-    - id: zinc-plating-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Direct vaporization of zinc electroplating
-      intensity: very_negative
-    - id: brass-plating-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Zinc component of brass alloy
-      intensity: negative
-    - id: paint-residue-contamination
-      frequency: occasional
-      severity: low
-      typical_context: Zinc oxide pigments in paint
-      intensity: slightly_negative
-    - id: battery-corrosion-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Battery Leakage Corrosion
-      intensity: slightly_negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  physical_properties:
-    presentation: descriptive
-    items:
-    - boiling_point: 1974°C (3585°F) - sublimes
-      melting_point: 1975°C (3587°F)
-      vapor_pressure: Negligible at room temperature
-      vapor_density: Not applicable (solid)
-      specific_gravity: '5.6'
-      flash_point: Not applicable
-      autoignition_temp: Not applicable
-      explosive_limits: Not applicable
-      appearance: White to yellowish-white powder
-      odor: Odorless
-    _section:
-      title: Physical Properties
-      description: Chemical and physical characteristics
-      icon: gauge
-      section_description: Physical characteristics and state information
-      order: 2
-      variant: default
-  storage_requirements:
-    presentation: descriptive
-    items:
-    - temperature_range: Store at room temperature
-      ventilation: General ventilation adequate. Keep containers closed.
-      incompatibilities:
-      - Chlorinated rubber
-      - Linseed oil
-      - Magnesium
-      - Strong acids
-      container_material: Plastic or metal containers with tight lids.
-      segregation: None required for pure zinc oxide. Separate from incompatibles.
-      quantity_limits: None specified. Follow facility storage protocols.
-      special_requirements: Keep containers closed when not in use. Store in dry area. Prevent dust accumulation.
-    _section:
-      title: Storage Requirements
-      description: Safe storage conditions and compatibility
-      icon: alert-triangle
-      section_description: Proper storage conditions and handling precautions
-      order: 13
-      variant: warning
-  regulatory_classification:
-    presentation: descriptive
-    items:
-    - un_number: None (not regulated as hazardous for transport)
-      dot_hazard_class: Not classified
-      dot_label: None
-      nfpa_codes:
-        health: 1
-        flammability: 0
-        reactivity: 0
-        special: null
-      epa_hazard_categories:
-      - Specific target organ toxicity (respiratory)
-      sara_title_iii: false
-      cercla_rq: 1000 pounds (454 kg) for zinc compounds
-      rcra_code: null
-    _section:
-      title: Regulatory Classification
-      description: DOT, UN, and NFPA hazard classifications
-      icon: file-text
-      section_description: Hazard classifications and regulatory designations
-      order: 12
-      variant: default
-  reactivity:
-    presentation: descriptive
-    items:
-    - stability: Stable under normal conditions.
-      polymerization: Will not polymerize
-      incompatible_materials:
-      - Chlorinated rubber (fire risk)
-      - Linseed oil (spontaneous ignition)
-      - Magnesium (explosive)
-      - Strong acids (generates hydrogen)
-      hazardous_decomposition:
-      - Zinc oxide fume
-      - Zinc vapors at very high temperatures
-      conditions_to_avoid:
-      - High heat (>1000°C)
-      - Incompatible materials
-      - Chlorinated rubber mixtures
-      reactivity_hazard: Generally stable. Reacts with strong acids producing hydrogen gas. May ignite spontaneously with
-        linseed oil.
-    _section:
-      title: Reactivity
-      description: Chemical reactivity and incompatibilities
-      icon: flame
-      section_description: Chemical reactivity and compatibility with other substances
-      order: 11
-      variant: warning
-  synonyms_identifiers:
-    presentation: descriptive
-    items:
-    - synonyms:
-      - Zinc white
-      - Chinese white
-      - Flowers of zinc
-      - Philosopher's wool
-      - ZnO
-      common_trade_names:
-      - Zincite
-      - Zinc oxide fume
-      other_identifiers:
-        rtecs_number: ZH4810000
-        ec_number: 215-222-5
-        pubchem_cid: '14806'
-    _section:
-      title: Synonyms & Identifiers
-      description: Synonyms and chemical identifiers
-      icon: file-text
-      section_description: Alternative names and chemical identifiers (CAS numbers)
-      order: 14
-      variant: default
-  operational:
-    health_effects:
+    detection_monitoring:
+      presentation: descriptive
+      items:
+      - sensor_types:
+        - Particulate monitors (PM10/PM2.5)
+        - Personal air sampling pumps
+        - Area monitors
+        detection_range: 0.01-100 mg/m³
+        alarm_setpoints:
+          low: 2 mg/m³ (ACGIH TLV respirable)
+          high: 5 mg/m³ (NIOSH REL fume)
+          evacuate: 500 mg/m³ (NIOSH IDLH)
+        colorimetric_tubes: Not available - laboratory analysis required
+        analytical_methods:
+        - method: NIOSH 7030
+          technique: AAS (Atomic Absorption Spectroscopy)
+          detection_limit: 0.5 µg/sample
+        - method: NIOSH 7300
+          technique: ICP-AES (Inductively Coupled Plasma)
+          detection_limit: 0.1 µg/sample
+        - method: OSHA ID-121
+          technique: AAS
+          detection_limit: 0.3 µg/sample
+        odor_threshold: Not applicable - odorless
+      _section:
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
+        icon: gauge
+        section_description: Methods and equipment for detecting and monitoring this compound
+        order: 6
+        variant: default
+  interactions:
+    produced_from_contaminants:
       presentation: card
       items:
-      - type: health_effects
-        id: zinc-oxide-toxicology
+      - id: galvanize-corrosion-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Vaporization from galvanized coatings
+      - id: zinc-plating-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Direct vaporization of zinc electroplating
+      - id: brass-plating-contamination
+        frequency: common
+        severity: moderate
+        typical_context: Zinc component of brass alloy
+      - id: paint-residue-contamination
+        frequency: occasional
+        severity: low
+        typical_context: Zinc oxide pigments in paint
+      - id: battery-corrosion-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Battery Leakage Corrosion
       _section:
-        title: Health Effects
-        section_description: Potential health impacts from exposure
-        icon: activity
-        order: 1
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+    reactivity:
+      presentation: descriptive
+      items:
+      - stability: Stable under normal conditions.
+        polymerization: Will not polymerize
+        incompatible_materials:
+        - Chlorinated rubber (fire risk)
+        - Linseed oil (spontaneous ignition)
+        - Magnesium (explosive)
+        - Strong acids (generates hydrogen)
+        hazardous_decomposition:
+        - Zinc oxide fume
+        - Zinc vapors at very high temperatures
+        conditions_to_avoid:
+        - High heat (>1000°C)
+        - Incompatible materials
+        - Chlorinated rubber mixtures
+        reactivity_hazard: Generally stable. Reacts with strong acids producing hydrogen gas. May ignite spontaneously with
+          linseed oil.
+      _section:
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
+        icon: flame
+        section_description: Chemical reactivity and compatibility with other substances
+        order: 11
         variant: warning
+  ppe_requirements: Handling zinc oxide compounds often stirs up tricky fumes in workshops, demanding solid protection to
+    keep workers safe from inhalation risks during tasks like welding or mixing. Gloves made from tough, chemical-resistant
+    materials shield hands against skin irritation from direct contact. Eye gear, such as sealed goggles, proves essential
+    to block out any airborne particles that could cause discomfort. For breathing safety, a well-fitted respirator with filters
+    designed for metal fumes stands out as a must, especially in enclosed spaces where vapors linger. Full-body coveralls
+    help prevent dust from settling on clothes and skin, while sturdy boots guard feet from spills. In laser cleaning setups
+    involving these materials, adding face shields over respirators adds an extra layer against intense light and scattered
+    debris, ensuring smoother operations without health worries.
   images:
     hero:
       url: /images/compound/zinc-oxide-compound-hero.jpg
@@ -474,7 +469,6 @@ relationships:
       alt: Zinc Oxide microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Zinc Oxide (ZnO)
 subcategory: metal_oxide
 faq:
 - question: As a laser cleaning operator working on galvanized steel, how do zinc oxide fumes differ from iron oxide dust

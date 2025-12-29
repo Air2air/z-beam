@@ -29,18 +29,19 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   // Extract compound name for display
   const compoundName = (metadata?.title as string) || metadata?.name || slug;
   
-  // Access data from relationships
+  // Access data from relationships (supports both new and old structure)
   const relationships = (metadata as any)?.relationships || {};
   
   // Source contaminants that produce this compound
-  // Handle both array format and object with items array (check technical group first)
-  const sourceContaminantsRaw = relationships?.technical?.produced_from_contaminants || relationships?.produced_from_contaminants || relationships?.produced_by_contaminants || relationships?.source_contaminants;
+  // New structure: interactions.produced_from_contaminants, fallback: operational.produced_from_contaminants
+  const sourceContaminantsRaw = relationships?.interactions?.produced_from_contaminants || relationships?.operational?.produced_from_contaminants || relationships?.technical?.produced_from_contaminants || relationships?.produced_from_contaminants || relationships?.produced_by_contaminants || relationships?.source_contaminants;
   const sourceContaminants = (Array.isArray(sourceContaminantsRaw) 
     ? sourceContaminantsRaw 
     : (sourceContaminantsRaw?.items || [])).filter((item: any) => item != null);
 
-  // Source materials that produce this compound (check technical group first)
-  const sourceMaterialsRaw = relationships?.technical?.produced_from_materials || relationships?.produced_from_materials;
+  // Source materials that produce this compound
+  // New structure: interactions.produced_from_materials, fallback: operational.produced_from_materials
+  const sourceMaterialsRaw = relationships?.interactions?.produced_from_materials || relationships?.operational?.produced_from_materials || relationships?.technical?.produced_from_materials || relationships?.produced_from_materials;
   const sourceMaterials = (Array.isArray(sourceMaterialsRaw)
     ? sourceMaterialsRaw
     : (sourceMaterialsRaw?.items || [])).filter((item: any) => item != null);

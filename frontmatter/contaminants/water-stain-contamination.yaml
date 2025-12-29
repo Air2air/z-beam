@@ -1,8 +1,8 @@
 id: water-stain-contamination
 name: Water Staining and Marks
 category: organic-residue
-datePublished: '2025-12-27T21:04:26.233656Z'
-dateModified: '2025-12-27T21:04:26.233656Z'
+datePublished: '2025-12-29T20:26:06.614160Z'
+dateModified: '2025-12-29T20:26:06.614160Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/water-stain-contamination
@@ -18,6 +18,13 @@ breadcrumb:
 - label: Water Staining and Marks
   href: /contaminants/organic-residue/other/water-stain-contamination
 page_title: 'Water Staining and Marks Removal: Laser Ablation Clean'
+page_description: Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios. On
+  porous stones, these residues form intricate ring patterns from evaporated minerals, which adhere tenaciously dependent
+  from humidity levels. Metals, by contrast, exhibit spot-like deposits that resist initial pulses, leading to uneven removal.
+  This contamination, it persists on glass surfaces as hazy films, influenced from prolonged exposure to hard water. The laser
+  process yields selective ablation, yet challenges arise in crevices where the layer embeds deeply. It appears that organic
+  residues within stains complicate detachment on ceramics, demanding adjusted fluences for efficiency. Shows particular difficulty
+  on painted woods, where the contamination alters texture subtly.
 meta_description: 'Water Staining and Marks: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
 images: &id001
@@ -61,7 +68,26 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        section_title: Regulatory Standards
+        section_description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: water-vapor-compound
+      - id: carbon-dioxide-compound
     affects_materials:
       presentation: card
       items:
@@ -95,271 +121,236 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
-      _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
-        icon: box
-        order: 1
-        variant: default
-    produces_compounds:
-      presentation: card
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
       items:
-      - id: water-vapor-compound
-      - id: carbon-dioxide-compound
-      _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
+      - appearance_on_categories:
+          ceramic:
+            appearance: Water staining on ceramic surfaces shows as dull, discolored patches or white crusty deposits, often
+              altering the glaze and feeling rough or chalky.
+            coverage: Coverage is typically localized to exposed areas, varying from small spots to larger patches depending
+              on water quality and surface treatment.
+            pattern: Stains commonly appear as spots or streaks, following water flow or pooling, and may be more pronounced
+              on unglazed areas or joints.
+          composite:
+            appearance: Water staining on composites appears as discolored, blotchy areas, often with faded colors or whitish
+              residues that may feel rough or delaminated.
+            coverage: Coverage varies widely, from small localized spots to extensive areas, depending on composite composition
+              and water exposure duration.
+            pattern: Stains typically form irregular patches or streaks, spreading along material layers or at joints where
+              water penetrates or pools.
+          concrete:
+            appearance: Water staining on concrete appears as dark, wet-looking patches or white, powdery efflorescence, often
+              with a rough or crumbly texture.
+            coverage: Coverage is often extensive and variable, from small spots to broad areas, depending on concrete porosity
+              and environmental conditions.
+            pattern: Stains commonly form irregular patches or streaks, following surface cracks or low points where water
+              collects and evaporates.
+          fabric:
+            appearance: Water staining on fabric manifests as dark, damp-looking spots or light, crusty residues, often altering
+              the color and texture to feel stiff or rough.
+            coverage: Coverage ranges from small spots to large areas, with variation based on fabric absorbency and the amount
+              of water involved.
+            pattern: Stains typically form as irregular patches or rings, spreading along fibers or where water has been absorbed,
+              such as from spills or humidity.
+          glass:
+            appearance: Water marks on glass appear as hazy, white, or cloudy spots, often with mineral residues that can
+              feel gritty and obscure transparency.
+            coverage: Coverage is generally light and spotty, varying from isolated marks to widespread haziness, especially
+              in hard water areas.
+            pattern: Stains usually form as spots or streaks, concentrated where water droplets evaporate, such as edges or
+              in random distributions from splashing.
+          metal:
+            appearance: Water stains on metal appear as dull, discolored patches, often with rust-colored or whitish deposits
+              that can feel rough or etched.
+            coverage: Coverage is usually localized to exposed surfaces, varying from small spots to larger patches depending
+              on water exposure and material finish.
+            pattern: Stains typically form irregular spots or streaks, following water flow paths or pooling areas, and may
+              concentrate at edges or joints.
+          mineral:
+            appearance: Water staining on minerals shows as discolored, dull patches or crystalline deposits, often altering
+              the natural luster and feeling gritty or dissolved.
+            coverage: Coverage is usually localized and uneven, varying with mineral hardness and exposure, from minor spots
+              to significant discoloration.
+            pattern: Stains typically form as spots or streaks, concentrated along cleavage planes or fractures where water
+              interacts and leaves residues.
+          plastic:
+            appearance: Water marks on plastic manifest as cloudy, whitish, or discolored areas, often with a hazy finish
+              that can feel slightly sticky or etched.
+            coverage: Coverage is often light and patchy, varying with plastic type and exposure, from minor spots to broader
+              discoloration in humid environments.
+            pattern: Stains usually form as spots or streaks, distributed unevenly where water sits or evaporates, and may
+              follow surface imperfections.
+          rubber:
+            appearance: Water marks on rubber show as dark, discolored patches or white, chalky residues, often with a dull
+              finish that may feel tacky or degraded.
+            coverage: Coverage is usually localized and patchy, varying with rubber type and age, from minor spots to larger
+              discolored areas.
+            pattern: Stains commonly appear as spots or streaks, following surface contours or areas of water retention, and
+              may be more visible on lighter colors.
+          semiconductor:
+            appearance: Water marks on semiconductors appear as hazy, discolored areas or corrosion spots, often with a dull
+              finish that can indicate oxidation or contamination.
+            coverage: Coverage is typically minimal and localized, varying with protective coatings, but even small areas
+              can impair functionality.
+            pattern: Stains usually form as small spots or streaks, distributed on exposed surfaces or at connections where
+              moisture leads to electrical issues.
+          specialty:
+            appearance: Water staining on specialty materials varies widely but often shows as discolored, degraded patches
+              or residues, tailored to the material's unique composition and finish.
+            coverage: Coverage is highly variable, from isolated marks to widespread effects, depending on the material's
+              susceptibility and environmental factors.
+            pattern: Stains form based on material properties, such as spots on coatings or streaks on laminates, following
+              water exposure paths specific to the application.
+          stone:
+            appearance: Water staining on stone manifests as dark, damp-looking patches or light mineral deposits, often altering
+              the natural color and creating a rough or slick surface.
+            coverage: Coverage is often patchy and localized, varying with stone porosity and exposure, from small spots to
+              broad areas in humid conditions.
+            pattern: Stains typically form irregular patches or streaks, following surface contours or cracks where water
+              accumulates or evaporates.
+          wood:
+            appearance: Water marks on wood show as dark or light discolored areas, often with a cloudy or blotchy finish
+              that may raise the grain or cause swelling.
+            coverage: Coverage ranges from small spots to extensive areas, with variation based on wood porosity and the duration
+              of water contact.
+            pattern: Stains commonly appear as irregular patches or rings, spreading along the wood grain or forming where
+              water has pooled or dripped.
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.3
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: any
+          pulse_duration_range:
+            max_ns: 200
+            min_ns: 10
+            recommended_ns: 50
+          repetition_rate_khz:
+            max: 200
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.1
+            min: 0.02
+            recommended: 0.05
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 150
+            wavelength_355nm: 3200
+            wavelength_532nm: 850
+          reflectivity:
+            wavelength_1064nm: 0.05
+            wavelength_355nm: 0.02
+            wavelength_532nm: 0.03
+          refractive_index:
+            imaginary_part: 0.001
+            real_part: 1.33
+          transmission_depth: 66.7
+        removal_characteristics:
+          byproducts:
+          - compound: water-vapor
+            hazard_level: low
+            phase: gas
+          - compound: carbon-dioxide
+            hazard_level: low
+            phase: gas
+          - compound: mineral dust
+            hazard_level: low
+            phase: solid
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.7
+          secondary_mechanisms:
+          - photochemical
+          - mechanical_spallation
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: compressive
+            roughness_increase: minimal
+        safety_data:
+          fire_explosion_risk:
+            severity: none
+            description: No significant fire or explosion risk identified
+            mitigation: Standard workplace fire safety protocols
+          fumes_generated:
+          - compound: Water Vapor
+            concentration_mg_m3: 50.0
+            exposure_limit_mg_m3: N/A
+            hazard_class: irritant
+          particulate_generation:
+            respirable_fraction: 0.8
+            size_range_um:
+            - 0.1
+            - 10.0
+          ppe_requirements:
+            eye_protection: goggles
+            respiratory: dust_mask
+            skin_protection: gloves
+            rationale: Standard protection against workplace hazards
+          substrate_compatibility_warnings:
+          - Laser cleaning of water-stained surfaces may cause thermal stress or discoloration on sensitive materials
+          - Rapid heating of trapped moisture can cause micro-fracturing in porous materials
+          toxic_gas_risk:
+            severity: none
+            primary_hazards: []
+            description: No significant toxic gas generation
+            mitigation: Standard respiratory protection for particulate control
+          ventilation_requirements:
+            exhaust_velocity_m_s: 0.5
+            filtration_type: HEPA
+            minimum_air_changes_per_hour: 10
+            rationale: Standard industrial ventilation (10 ACH) for particulate control
+          visibility_hazard:
+            severity: low
+            description: Light haze (20-40% reduction), minimal impact on sight lines
+            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+            mitigation: Standard visibility precautions, adequate lighting
+            related_field: particulate_generation.respirable_fraction
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 1.2
+            pulse_duration_10ns: 0.6
+            wavelength_1064nm: 0.8
+          decomposition_temperature: 100
+          heat_affected_zone_depth: 15
+          melting_point: 0
+          specific_heat: 4180
+          thermal_conductivity: 0.6
+          thermal_diffusivity: 0.14
+          vaporization_temperature: 100
       _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
+        section_title: Laser Parameters
+        section_description: Optimal laser settings and technical parameters for removal
+        icon: zap
+        order: 9
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Water staining on ceramic surfaces shows as dull, discolored patches or white crusty deposits, often
-            altering the glaze and feeling rough or chalky.
-          coverage: Coverage is typically localized to exposed areas, varying from small spots to larger patches depending
-            on water quality and surface treatment.
-          pattern: Stains commonly appear as spots or streaks, following water flow or pooling, and may be more pronounced
-            on unglazed areas or joints.
-        composite:
-          appearance: Water staining on composites appears as discolored, blotchy areas, often with faded colors or whitish
-            residues that may feel rough or delaminated.
-          coverage: Coverage varies widely, from small localized spots to extensive areas, depending on composite composition
-            and water exposure duration.
-          pattern: Stains typically form irregular patches or streaks, spreading along material layers or at joints where
-            water penetrates or pools.
-        concrete:
-          appearance: Water staining on concrete appears as dark, wet-looking patches or white, powdery efflorescence, often
-            with a rough or crumbly texture.
-          coverage: Coverage is often extensive and variable, from small spots to broad areas, depending on concrete porosity
-            and environmental conditions.
-          pattern: Stains commonly form irregular patches or streaks, following surface cracks or low points where water collects
-            and evaporates.
-        fabric:
-          appearance: Water staining on fabric manifests as dark, damp-looking spots or light, crusty residues, often altering
-            the color and texture to feel stiff or rough.
-          coverage: Coverage ranges from small spots to large areas, with variation based on fabric absorbency and the amount
-            of water involved.
-          pattern: Stains typically form as irregular patches or rings, spreading along fibers or where water has been absorbed,
-            such as from spills or humidity.
-        glass:
-          appearance: Water marks on glass appear as hazy, white, or cloudy spots, often with mineral residues that can feel
-            gritty and obscure transparency.
-          coverage: Coverage is generally light and spotty, varying from isolated marks to widespread haziness, especially
-            in hard water areas.
-          pattern: Stains usually form as spots or streaks, concentrated where water droplets evaporate, such as edges or
-            in random distributions from splashing.
-        metal:
-          appearance: Water stains on metal appear as dull, discolored patches, often with rust-colored or whitish deposits
-            that can feel rough or etched.
-          coverage: Coverage is usually localized to exposed surfaces, varying from small spots to larger patches depending
-            on water exposure and material finish.
-          pattern: Stains typically form irregular spots or streaks, following water flow paths or pooling areas, and may
-            concentrate at edges or joints.
-        mineral:
-          appearance: Water staining on minerals shows as discolored, dull patches or crystalline deposits, often altering
-            the natural luster and feeling gritty or dissolved.
-          coverage: Coverage is usually localized and uneven, varying with mineral hardness and exposure, from minor spots
-            to significant discoloration.
-          pattern: Stains typically form as spots or streaks, concentrated along cleavage planes or fractures where water
-            interacts and leaves residues.
-        plastic:
-          appearance: Water marks on plastic manifest as cloudy, whitish, or discolored areas, often with a hazy finish that
-            can feel slightly sticky or etched.
-          coverage: Coverage is often light and patchy, varying with plastic type and exposure, from minor spots to broader
-            discoloration in humid environments.
-          pattern: Stains usually form as spots or streaks, distributed unevenly where water sits or evaporates, and may follow
-            surface imperfections.
-        rubber:
-          appearance: Water marks on rubber show as dark, discolored patches or white, chalky residues, often with a dull
-            finish that may feel tacky or degraded.
-          coverage: Coverage is usually localized and patchy, varying with rubber type and age, from minor spots to larger
-            discolored areas.
-          pattern: Stains commonly appear as spots or streaks, following surface contours or areas of water retention, and
-            may be more visible on lighter colors.
-        semiconductor:
-          appearance: Water marks on semiconductors appear as hazy, discolored areas or corrosion spots, often with a dull
-            finish that can indicate oxidation or contamination.
-          coverage: Coverage is typically minimal and localized, varying with protective coatings, but even small areas can
-            impair functionality.
-          pattern: Stains usually form as small spots or streaks, distributed on exposed surfaces or at connections where
-            moisture leads to electrical issues.
-        specialty:
-          appearance: Water staining on specialty materials varies widely but often shows as discolored, degraded patches
-            or residues, tailored to the material's unique composition and finish.
-          coverage: Coverage is highly variable, from isolated marks to widespread effects, depending on the material's susceptibility
-            and environmental factors.
-          pattern: Stains form based on material properties, such as spots on coatings or streaks on laminates, following
-            water exposure paths specific to the application.
-        stone:
-          appearance: Water staining on stone manifests as dark, damp-looking patches or light mineral deposits, often altering
-            the natural color and creating a rough or slick surface.
-          coverage: Coverage is often patchy and localized, varying with stone porosity and exposure, from small spots to
-            broad areas in humid conditions.
-          pattern: Stains typically form irregular patches or streaks, following surface contours or cracks where water accumulates
-            or evaporates.
-        wood:
-          appearance: Water marks on wood show as dark or light discolored areas, often with a cloudy or blotchy finish that
-            may raise the grain or cause swelling.
-          coverage: Coverage ranges from small spots to extensive areas, with variation based on wood porosity and the duration
-            of water contact.
-          pattern: Stains commonly appear as irregular patches or rings, spreading along the wood grain or forming where water
-            has pooled or dripped.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.3
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: any
-        pulse_duration_range:
-          max_ns: 200
-          min_ns: 10
-          recommended_ns: 50
-        repetition_rate_khz:
-          max: 200
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.1
-          min: 0.02
-          recommended: 0.05
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 150
-          wavelength_355nm: 3200
-          wavelength_532nm: 850
-        reflectivity:
-          wavelength_1064nm: 0.05
-          wavelength_355nm: 0.02
-          wavelength_532nm: 0.03
-        refractive_index:
-          imaginary_part: 0.001
-          real_part: 1.33
-        transmission_depth: 66.7
-      removal_characteristics:
-        byproducts:
-        - compound: water-vapor
-          hazard_level: low
-          phase: gas
-        - compound: carbon-dioxide
-          hazard_level: low
-          phase: gas
-        - compound: mineral dust
-          hazard_level: low
-          phase: solid
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 240
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 3
-          optimal_passes: 2
-          single_pass: 0.7
-        secondary_mechanisms:
-        - photochemical
-        - mechanical_spallation
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: compressive
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: none
-          description: No significant fire or explosion risk identified
-          mitigation: Standard workplace fire safety protocols
-        fumes_generated:
-        - compound: Water Vapor
-          concentration_mg_m3: 50.0
-          exposure_limit_mg_m3: N/A
-          hazard_class: irritant
-        particulate_generation:
-          respirable_fraction: 0.8
-          size_range_um:
-          - 0.1
-          - 10.0
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: dust_mask
-          skin_protection: gloves
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Laser cleaning of water-stained surfaces may cause thermal stress or discoloration on sensitive materials
-        - Rapid heating of trapped moisture can cause micro-fracturing in porous materials
-        toxic_gas_risk:
-          severity: none
-          primary_hazards: []
-          description: No significant toxic gas generation
-          mitigation: Standard respiratory protection for particulate control
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA
-          minimum_air_changes_per_hour: 10
-          rationale: Standard industrial ventilation (10 ACH) for particulate control
-        visibility_hazard:
-          severity: low
-          description: Light haze (20-40% reduction), minimal impact on sight lines
-          source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-          mitigation: Standard visibility precautions, adequate lighting
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 1.2
-          pulse_duration_10ns: 0.6
-          wavelength_1064nm: 0.8
-        decomposition_temperature: 100
-        heat_affected_zone_depth: 15
-        melting_point: 0
-        specific_heat: 4180
-        thermal_conductivity: 0.6
-        thermal_diffusivity: 0.14
-        vaporization_temperature: 100
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
   prohibited_materials:
     presentation: card
     _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
+      section_title: Prohibited Materials
+      section_description: Materials where laser removal of this contamination is not recommended
       icon: alert-triangle
       order: 7
       variant: danger
@@ -680,8 +671,8 @@ relationships:
             severity: moderate
             typical_context: ''
     _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
+      section_title: Found On Materials
+      section_description: Materials where this contaminant is commonly found
       icon: box
       order: 10
       variant: default
@@ -690,10 +681,3 @@ composition:
 - CaCO₃
 - Fe₂O₃
 - Organic Matter
-page_description: Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios. On
-  porous stones, these residues form intricate ring patterns from evaporated minerals, which adhere tenaciously dependent
-  from humidity levels. Metals, by contrast, exhibit spot-like deposits that resist initial pulses, leading to uneven removal.
-  This contamination, it persists on glass surfaces as hazy films, influenced from prolonged exposure to hard water. The laser
-  process yields selective ablation, yet challenges arise in crevices where the layer embeds deeply. It appears that organic
-  residues within stains complicate detachment on ceramics, demanding adjusted fluences for efficiency. Shows particular difficulty
-  on painted woods, where the contamination alters texture subtly.

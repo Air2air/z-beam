@@ -388,11 +388,117 @@ npm run validate:yaml              # Validate YAML files
 node scripts/validate-yaml-schemas.js  # Direct validation
 npx tsc --noEmit                   # Type check only
 
-# Post-Deployment Validation (NEW - Dec 21, 2025)
+# Post-Deployment Validation (UPDATED - Dec 29, 2025)
 npm run validate:production:simple           # Quick check (10 checks, <1s)
 npm run validate:production:full             # Full check (55 checks, ~15s)
-npm run validate:production:comprehensive    # Complete (55+ checks, API calls)
+npm run validate:production:comprehensive    # Complete (76 checks, includes SEO validation)
 ```
+
+---
+
+## SEO Validation
+
+### Running SEO Checks
+
+**Comprehensive Validation** (recommended after deployment):
+```bash
+npm run validate:production:comprehensive
+```
+
+**What Gets Validated**:
+- ✅ **Core Web Vitals Optimizations** (6 checks)
+  - Preconnect hints (Vercel Vitals, GTM)
+  - Hero image preload (LCP optimization)
+  - Inline critical CSS (FCP optimization)
+  - Responsive image sizes (CLS optimization)
+  - Priority images for above-fold content
+  - Expected impact: -300ms LCP, -200ms FCP, -0.03 CLS
+
+- ✅ **Contextual Internal Linking** (6 checks)
+  - Link density across sample pages
+  - Average 1.55+ links per page
+  - Coverage across materials/contaminants/settings
+  - 250+ contextual links across 161 pages
+
+- ✅ **Image Sitemap Quality** (8 checks)
+  - 346 images indexed
+  - Descriptive captions and titles
+  - Icon/author directory exclusions
+  - Title format quality
+  - Magnification notation
+
+### Interpreting Results
+
+**Excellent (90-100%)**:
+```
+📊 Score: 94%
+🎯 Grade: A
+✅ All SEO improvements deployed correctly
+```
+
+**Good (80-89%)**:
+```
+📊 Score: 85%
+🎯 Grade: B+
+⚠️  Some optimizations missing, review failed tests
+```
+
+**Needs Attention (<80%)**:
+```
+📊 Score: 70%
+🎯 Grade: C+
+❌ Major issues detected, investigate immediately
+```
+
+### Common Issues & Fixes
+
+**❌ Hero Image Preload Missing**:
+```bash
+# Check layout.tsx has preload link:
+grep -n "hero.*preload" app/layout.tsx
+
+# Should find:
+# <link rel="preload" as="image" href="/images/hero-laser-cleaning.webp" />
+```
+
+**❌ Contextual Linking Below Threshold**:
+```bash
+# Check frontmatter files have contextual links:
+grep -r "\[.*\](/materials/\|/contaminants/\|/settings/)" frontmatter/ | wc -l
+
+# Should show: 250+ matches
+```
+
+**❌ Image Sitemap Issues**:
+```bash
+# Regenerate image sitemap:
+npm run generate:image-sitemap
+
+# Verify output:
+ls -lh public/image-sitemap.xml  # Should be ~107KB
+```
+
+### Manual Verification
+
+**Production URL Tests**:
+```bash
+# Test Core Web Vitals preload:
+curl -s https://www.z-beam.com | grep "rel=\"preload\"" | grep hero
+
+# Test contextual linking:
+curl -s https://www.z-beam.com/materials/metal/non-ferrous/aluminum-laser-cleaning \
+  | grep -o 'href="/\(materials\|contaminants\|settings\)/' | wc -l
+
+# Test image sitemap:
+curl -s https://www.z-beam.com/image-sitemap.xml | grep "<image:title>" | wc -l
+```
+
+**Expected Results**:
+- Hero preload: 1 match
+- Contextual links: 1-3 per page
+- Image titles: 346 entries
+
+**Documentation**: Full guide at [seo/docs/SEO_VALIDATION_GUIDE.md](../seo/docs/SEO_VALIDATION_GUIDE.md)
 
 ### Environment Variables
 ```bash

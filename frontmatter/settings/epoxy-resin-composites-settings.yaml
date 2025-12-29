@@ -1,7 +1,7 @@
 id: epoxy-resin-composites-settings
 name: Epoxy Resin Composites
-datePublished: '2025-12-29T06:28:52.525464Z'
-dateModified: '2025-12-29T06:28:52.525464Z'
+datePublished: '2025-12-29T20:29:23.353080Z'
+dateModified: '2025-12-29T20:29:23.353080Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/epoxy-resin-composites-settings
@@ -76,20 +76,6 @@ card:
     severity: low
     icon: settings
 relationships:
-  technical:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -99,10 +85,24 @@ relationships:
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
       _section:
-        title: Regulatory Standards
+        section_title: Regulatory Standards
         section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
+        variant: default
+  interactions:
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        section_title: Removes Contaminants
+        section_description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
         variant: default
   operational:
     common_challenges:
@@ -117,13 +117,12 @@ relationships:
         - id: resin-contaminant-removal
           type: challenge
       _section:
-        title: Common Challenges
+        section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
         section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
-title: Epoxy Resin Composites Settings
 category: composite
 subcategory: fiber-reinforced
 machine_settings:

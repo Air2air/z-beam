@@ -3,8 +3,8 @@ name: Metal Oxides (Mixed)
 display_name: Metal Oxides (Mixed)
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T06:28:08.428961Z'
-dateModified: '2025-12-29T06:28:08.428961Z'
+datePublished: '2025-12-29T20:28:16.634053Z'
+dateModified: '2025-12-29T20:28:16.634053Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/metal-oxides-mixed-compound
@@ -163,81 +163,70 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: anti-seize-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Anti-Seize Compound
-      intensity: negative
-    - id: ceramic-coating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Ceramic Heat Barrier Coating
-      intensity: negative
-    - id: chemical-stains-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Chemical Stains / Acid Etching
-      intensity: negative
-    - id: conversion-coating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Chemical Conversion Coating
-      intensity: negative
-    - id: electroplating-residue-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Electroplating Solution Residue
-      intensity: negative
-    - id: fertilizer-residue-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Fertilizer Salt Deposits
-      intensity: slightly_negative
-    - id: metal-polish-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Metal Polish Residue
-      intensity: negative
-    - id: passivation-defect-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Passivation Layer Irregularities
-      intensity: slightly_negative
-    - id: pickling-residue-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Acid Pickling Stains
-      intensity: negative
-    - id: plasma-spray-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Thermal Spray Coating
-      intensity: negative
-    - id: pvd-coating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of PVD Coating Defects
-      intensity: negative
-    - id: radioactive-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Surface Radioactive Contamination
-      intensity: negative
-    - id: undercoating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Automotive Undercoating
-      intensity: negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: anti-seize-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Anti-Seize Compound
+      - id: ceramic-coating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Ceramic Heat Barrier Coating
+      - id: chemical-stains-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Chemical Stains / Acid Etching
+      - id: conversion-coating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Chemical Conversion Coating
+      - id: electroplating-residue-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Electroplating Solution Residue
+      - id: fertilizer-residue-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Fertilizer Salt Deposits
+      - id: metal-polish-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Metal Polish Residue
+      - id: passivation-defect-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Passivation Layer Irregularities
+      - id: pickling-residue-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Acid Pickling Stains
+      - id: plasma-spray-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Thermal Spray Coating
+      - id: pvd-coating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of PVD Coating Defects
+      - id: radioactive-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Surface Radioactive Contamination
+      - id: undercoating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Automotive Undercoating
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: Handling metal oxide mixed compounds in particulate form demands solid protection against dust clouds
     and fine particles. Eyes stay safe with sealed goggles to block airborne grit. Skin coverage comes from full-body suits
     or coveralls, keeping irritants off. Breathing gear means fitted respirators with filters for particulates—essential in
@@ -255,7 +244,6 @@ relationships:
       alt: Metal Oxides (Mixed) microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Metal Oxides (Mixed)
 subcategory: metal_oxide
 faq:
 - question: As a laser cleaning operator, how can I effectively protect myself from inhaling fine mixed metal oxide particulates

@@ -3,8 +3,8 @@ name: Phosgene
 display_name: Phosgene (COCl₂)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-29T06:28:02.366642Z'
-dateModified: '2025-12-29T06:28:02.366642Z'
+datePublished: '2025-12-29T20:28:09.440215Z'
+dateModified: '2025-12-29T20:28:09.440215Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/reactive-gas/phosgene-compound
@@ -140,7 +140,103 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
+  identity:
+    chemical_properties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: phosgene-physical-data
+      _section:
+        section_title: Chemical Properties
+        section_description: Fundamental chemical characteristics and behavior
+        icon: microscope
+        order: 1
+        variant: default
+    physical_properties:
+      presentation: descriptive
+      items:
+      - boiling_point: 8.2°C (46.8°F)
+        melting_point: -118°C (-180°F)
+        vapor_pressure: 1173 mmHg @ 20°C
+        vapor_density: 3.4 (Air=1)
+        specific_gravity: 1.37 (liquid @ 20°C)
+        flash_point: Not applicable (non-flammable)
+        autoignition_temp: Not applicable
+        explosive_limits: Not applicable
+        appearance: Colorless gas or fuming liquid
+        odor: 'Musty hay or freshly cut grass odor @ 0.4-1.5 ppm - WARNING: Odor threshold ABOVE safe levels'
+      _section:
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
+        icon: gauge
+        section_description: Physical characteristics and state information
+        order: 2
+        variant: default
+    synonyms_identifiers:
+      presentation: descriptive
+      items:
+      - synonyms:
+        - Carbonyl chloride
+        - Carbon oxychloride
+        - Carbonyl dichloride
+        - COCl2
+        common_trade_names: []
+        other_identifiers:
+          rtecs_number: SY5600000
+          ec_number: 200-870-3
+          pubchem_cid: '6371'
+      _section:
+        section_title: Synonyms & Identifiers
+        description: Synonyms and chemical identifiers
+        icon: file-text
+        section_description: Alternative names and chemical identifiers (CAS numbers)
+        order: 14
+        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: phosgene-toxicology
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: 'MANDATORY: Full-face pressure-demand SCBA or positive-pressure supplied-air respirator. No air-purifying
+          respirators approved - extremely toxic.'
+        skin: Butyl rubber or neoprene gloves, fully-encapsulating chemical protective suit for gas contact.
+        eye: Chemical safety goggles and full face shield
+        minimum_level: Level A for unknown concentrations or >0.1 ppm, Level B minimum for known concentrations <0.1 ppm
+        special_notes: ONE OF THE MOST TOXIC INDUSTRIAL CHEMICALS. Chemical warfare agent. Delayed pulmonary edema 2-48 hours
+          post-exposure. SELF-RESCUE RESPIRATORS INADEQUATE - immediate SCBA required.
+      _section:
+        section_title: PPE Requirements
+        description: Required safety equipment for handling this compound
+        icon: shield
+        section_description: Personal protective equipment needed for safe handling
+        order: 5
+        variant: warning
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Non-flammable. Cylinders may explode when heated. Decomposes in heat producing deadly gases.
+        fire_suppression: EVACUATE IMMEDIATELY. Extremely deadly decomposition products. Use unmanned equipment only. Water
+          spray from maximum distance to cool cylinders.
+        spill_procedures: EVACUATE LARGE AREA IMMEDIATELY. Call HAZMAT. SCBA MANDATORY. Extremely lethal at ppm levels. Neutralize
+          with ammonia or caustic soda solution. Specialized cleanup required.
+        exposure_immediate_actions: 'MEDICAL EMERGENCY. Remove to fresh air immediately. Administer 100% oxygen. NO artificial
+          respiration if breathing. Monitor for 48 hours - DELAYED PULMONARY EDEMA likely. Hospitalize immediately even if
+          asymptomatic. Inform medical staff: phosgene exposure.'
+        environmental_hazards: Toxic to all life. Hydrolyzes to HCl and CO2 in water. Report ANY release immediately.
+        special_hazards: CHEMICAL WARFARE AGENT (WWI). EXTREMELY TOXIC. Delayed pulmonary edema 2-48 hours after asymptomatic
+          period - sudden death possible. Odor warning INADEQUATE (threshold above safe levels). Hydrolyzes to hydrochloric
+          acid in lungs. Death can occur hours after "feeling fine".
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: alert-triangle
+        section_description: First aid and emergency procedures for exposure incidents
+        order: 7
+        variant: danger
     exposure_limits:
       presentation: descriptive
       items:
@@ -166,287 +262,191 @@ relationships:
             ceiling: null
           biological_exposure_indices: []
       _section:
-        title: Exposure Limits
+        section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
         section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
-  chemical_properties:
-    presentation: descriptive
-    items:
-    - type: chemical_properties
-      id: phosgene-physical-data
-    _section:
-      title: Chemical Properties
-      section_description: Fundamental chemical characteristics and behavior
-      icon: microscope
-      order: 1
-      variant: default
-  health_effects:
-    presentation: card
-    items:
-    - type: health_effects
-      id: phosgene-toxicology
-  environmental_impact:
-    presentation: descriptive
-    items:
-    - aquatic_toxicity: Extremely toxic but rapidly hydrolyzes to HCl and CO2 in water. Environmental impact primarily from
-        hydrolysis products.
-      biodegradability: Not biodegradable. Hydrolyzes rapidly to CO2 and HCl.
-      bioaccumulation: Does not bioaccumulate.
-      soil_mobility: High mobility as gas. Hydrolyzes on contact with soil moisture.
-      atmospheric_fate: 'Photolyzes and hydrolyzes. Atmospheric half-life: hours. Forms HCl with water vapor.'
-      ozone_depletion: false
-      global_warming_potential: null
-      reportable_releases:
-        water: 10 lbs - IMMEDIATELY reportable
-        air: 10 lbs/day - IMMEDIATELY reportable due to extreme toxicity
-    _section:
-      title: Environmental Impact
-      description: Toxicity, biodegradability, and environmental fate
-      icon: wind
-      section_description: Environmental effects and ecological considerations
-      order: 8
-      variant: warning
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store cylinders <52°C. Keep cool - above 8°C gas becomes liquid.
+        ventilation: Outdoor storage STRONGLY PREFERRED. Indoor only with continuous mechanical ventilation, emergency backup,
+          phosgene detection with REMOTE alarms.
+        incompatibilities:
+        - Moisture/water
+        - Alcohols
+        - Ammonia
+        - Metal powders
+        - Aluminum
+        - Sodium
+        - Potassium
+        container_material: Steel cylinders only. Glass for laboratory quantities.
+        segregation: ISOLATED storage. Separate from ALL other chemicals. Restricted area with multiple barriers.
+        quantity_limits: MINIMIZE. Many jurisdictions prohibit or strictly limit quantities.
+        special_requirements: 'CRITICAL: Phosgene detection system with remote monitoring and alarms MANDATORY. Post "CHEMICAL
+          WARFARE AGENT - EXTREME DANGER" signs. Restricted access - authorized trained personnel only with buddy system.
+          Emergency procedures and antidote protocol posted. Medical surveillance required. Notification to local emergency
+          services REQUIRED.'
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: alert-triangle
+        section_description: Proper storage conditions and handling precautions
+        order: 13
+        variant: warning
+    regulatory_classification:
+      presentation: descriptive
+      items:
+      - un_number: UN1076
+        dot_hazard_class: 2.3 (Toxic gas), 8 (Corrosive)
+        dot_label: Poison Gas, Corrosive
+        nfpa_codes:
+          health: 4
+          flammability: 0
+          reactivity: 1
+          special: null
+        epa_hazard_categories:
+        - Acute toxicity (fatal if inhaled)
+        - Corrosive
+        - Specific target organ toxicity
+        sara_title_iii: true
+        cercla_rq: 10 pounds (4.54 kg)
+        rcra_code: P095
+      _section:
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
+        icon: file-text
+        section_description: Hazard classifications and regulatory designations
+        order: 12
+        variant: default
+  environmental:
+    environmental_impact:
+      presentation: descriptive
+      items:
+      - aquatic_toxicity: Extremely toxic but rapidly hydrolyzes to HCl and CO2 in water. Environmental impact primarily from
+          hydrolysis products.
+        biodegradability: Not biodegradable. Hydrolyzes rapidly to CO2 and HCl.
+        bioaccumulation: Does not bioaccumulate.
+        soil_mobility: High mobility as gas. Hydrolyzes on contact with soil moisture.
+        atmospheric_fate: 'Photolyzes and hydrolyzes. Atmospheric half-life: hours. Forms HCl with water vapor.'
+        ozone_depletion: false
+        global_warming_potential: null
+        reportable_releases:
+          water: 10 lbs - IMMEDIATELY reportable
+          air: 10 lbs/day - IMMEDIATELY reportable due to extreme toxicity
+      _section:
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
+        icon: wind
+        section_description: Environmental effects and ecological considerations
+        order: 8
+        variant: warning
   detection_monitoring:
-    presentation: descriptive
-    items:
-    - sensor_types:
-      - Electrochemical
-      - Infrared
-      - Photoionization
-      - Colorimetric badges
-      detection_range: 0-1 ppm (must detect sub-ppm)
-      alarm_setpoints:
-        low: 0.1 ppm (OSHA PEL/NIOSH REL)
-        high: 0.2 ppm (NIOSH STEL)
-        evacuate: 2 ppm (NIOSH IDLH) - IMMEDIATELY LIFE-THREATENING
-      colorimetric_tubes:
-      - Dräger Phosgene 0.02/a
-      - Gastec 14L
-      analytical_methods:
-      - method: NIOSH 6371
-        technique: GC with electron capture detector
-        detection_limit: 0.002 ppm
-      - method: OSHA Method 61
-        technique: GC
-        detection_limit: 0.005 ppm
-      odor_threshold: 0.4-1.5 ppm - UNRELIABLE. Odor threshold ABOVE safe exposure limits. NEVER rely on odor. MANDATORY continuous
-        monitoring.
-    _section:
-      title: Detection & Monitoring
-      description: Methods for detecting and measuring this compound
-      icon: gauge
-      section_description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: default
-  ppe_requirements:
-    presentation: descriptive
-    items:
-    - respiratory: 'MANDATORY: Full-face pressure-demand SCBA or positive-pressure supplied-air respirator. No air-purifying
-        respirators approved - extremely toxic.'
-      skin: Butyl rubber or neoprene gloves, fully-encapsulating chemical protective suit for gas contact.
-      eye: Chemical safety goggles and full face shield
-      minimum_level: Level A for unknown concentrations or >0.1 ppm, Level B minimum for known concentrations <0.1 ppm
-      special_notes: ONE OF THE MOST TOXIC INDUSTRIAL CHEMICALS. Chemical warfare agent. Delayed pulmonary edema 2-48 hours
-        post-exposure. SELF-RESCUE RESPIRATORS INADEQUATE - immediate SCBA required.
-    _section:
-      title: PPE Requirements
-      description: Required safety equipment for handling this compound
-      icon: shield
-      section_description: Personal protective equipment needed for safe handling
-      order: 5
-      variant: warning
-  emergency_response:
-    presentation: descriptive
-    items:
-    - fire_hazard: Non-flammable. Cylinders may explode when heated. Decomposes in heat producing deadly gases.
-      fire_suppression: EVACUATE IMMEDIATELY. Extremely deadly decomposition products. Use unmanned equipment only. Water
-        spray from maximum distance to cool cylinders.
-      spill_procedures: EVACUATE LARGE AREA IMMEDIATELY. Call HAZMAT. SCBA MANDATORY. Extremely lethal at ppm levels. Neutralize
-        with ammonia or caustic soda solution. Specialized cleanup required.
-      exposure_immediate_actions: 'MEDICAL EMERGENCY. Remove to fresh air immediately. Administer 100% oxygen. NO artificial
-        respiration if breathing. Monitor for 48 hours - DELAYED PULMONARY EDEMA likely. Hospitalize immediately even if asymptomatic.
-        Inform medical staff: phosgene exposure.'
-      environmental_hazards: Toxic to all life. Hydrolyzes to HCl and CO2 in water. Report ANY release immediately.
-      special_hazards: CHEMICAL WARFARE AGENT (WWI). EXTREMELY TOXIC. Delayed pulmonary edema 2-48 hours after asymptomatic
-        period - sudden death possible. Odor warning INADEQUATE (threshold above safe levels). Hydrolyzes to hydrochloric
-        acid in lungs. Death can occur hours after "feeling fine".
-    _section:
-      title: Emergency Response
-      description: Procedures for spills, exposure, and incidents
-      icon: alert-triangle
-      section_description: First aid and emergency procedures for exposure incidents
-      order: 7
-      variant: danger
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: plastic-residue-contamination
-      frequency: rare
-      severity: high
-      typical_context: Thermal breakdown of certain chlorinated plastics
-      intensity: very_negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  produced_from_materials:
-    presentation: card
-    items:
-    - id: ceramic-matrix-composites-cmcs-laser-cleaning
-    - id: epoxy-resin-composites-laser-cleaning
-    - id: metal-matrix-composites-mmcs-laser-cleaning
-    - id: phenolic-resin-composites-laser-cleaning
-    - id: polyester-resin-composites-laser-cleaning
-    - id: urethane-composites-laser-cleaning
-    _section:
-      title: Produced From Materials
-      section_description: Materials that may release this compound during laser cleaning
-      icon: users
-      order: 10
-      variant: default
-  physical_properties:
-    presentation: descriptive
-    items:
-    - boiling_point: 8.2°C (46.8°F)
-      melting_point: -118°C (-180°F)
-      vapor_pressure: 1173 mmHg @ 20°C
-      vapor_density: 3.4 (Air=1)
-      specific_gravity: 1.37 (liquid @ 20°C)
-      flash_point: Not applicable (non-flammable)
-      autoignition_temp: Not applicable
-      explosive_limits: Not applicable
-      appearance: Colorless gas or fuming liquid
-      odor: 'Musty hay or freshly cut grass odor @ 0.4-1.5 ppm - WARNING: Odor threshold ABOVE safe levels'
-    _section:
-      title: Physical Properties
-      description: Chemical and physical characteristics
-      icon: gauge
-      section_description: Physical characteristics and state information
-      order: 2
-      variant: default
-  storage_requirements:
-    presentation: descriptive
-    items:
-    - temperature_range: Store cylinders <52°C. Keep cool - above 8°C gas becomes liquid.
-      ventilation: Outdoor storage STRONGLY PREFERRED. Indoor only with continuous mechanical ventilation, emergency backup,
-        phosgene detection with REMOTE alarms.
-      incompatibilities:
-      - Moisture/water
-      - Alcohols
-      - Ammonia
-      - Metal powders
-      - Aluminum
-      - Sodium
-      - Potassium
-      container_material: Steel cylinders only. Glass for laboratory quantities.
-      segregation: ISOLATED storage. Separate from ALL other chemicals. Restricted area with multiple barriers.
-      quantity_limits: MINIMIZE. Many jurisdictions prohibit or strictly limit quantities.
-      special_requirements: 'CRITICAL: Phosgene detection system with remote monitoring and alarms MANDATORY. Post "CHEMICAL
-        WARFARE AGENT - EXTREME DANGER" signs. Restricted access - authorized trained personnel only with buddy system. Emergency
-        procedures and antidote protocol posted. Medical surveillance required. Notification to local emergency services REQUIRED.'
-    _section:
-      title: Storage Requirements
-      description: Safe storage conditions and compatibility
-      icon: alert-triangle
-      section_description: Proper storage conditions and handling precautions
-      order: 13
-      variant: warning
-  regulatory_classification:
-    presentation: descriptive
-    items:
-    - un_number: UN1076
-      dot_hazard_class: 2.3 (Toxic gas), 8 (Corrosive)
-      dot_label: Poison Gas, Corrosive
-      nfpa_codes:
-        health: 4
-        flammability: 0
-        reactivity: 1
-        special: null
-      epa_hazard_categories:
-      - Acute toxicity (fatal if inhaled)
-      - Corrosive
-      - Specific target organ toxicity
-      sara_title_iii: true
-      cercla_rq: 10 pounds (4.54 kg)
-      rcra_code: P095
-    _section:
-      title: Regulatory Classification
-      description: DOT, UN, and NFPA hazard classifications
-      icon: file-text
-      section_description: Hazard classifications and regulatory designations
-      order: 12
-      variant: default
-  reactivity:
-    presentation: descriptive
-    items:
-    - stability: Stable when dry. Hydrolyzes slowly in moist air. Rapidly in water.
-      polymerization: Will not polymerize
-      incompatible_materials:
-      - Water
-      - Moisture
-      - Alcohols
-      - Ammonia
-      - Amines
-      - Active metals (Al, Na, K)
-      - Metal powders
-      - Bases
-      hazardous_decomposition:
-      - Hydrogen chloride
-      - Carbon monoxide
-      - Carbon dioxide
-      - Chlorine
-      conditions_to_avoid:
-      - Heat
-      - Moisture
-      - Water
-      - Incompatible materials
-      - Sunlight (promotes decomposition)
-      reactivity_hazard: Hydrolyzes with water forming hydrochloric acid (corrosive). Reacts violently with active metals.
-        May explode on contact with aluminum powder.
-    _section:
-      title: Reactivity
-      description: Chemical reactivity and incompatibilities
-      icon: flame
-      section_description: Chemical reactivity and compatibility with other substances
-      order: 11
-      variant: warning
-  synonyms_identifiers:
-    presentation: descriptive
-    items:
-    - synonyms:
-      - Carbonyl chloride
-      - Carbon oxychloride
-      - Carbonyl dichloride
-      - COCl2
-      common_trade_names: []
-      other_identifiers:
-        rtecs_number: SY5600000
-        ec_number: 200-870-3
-        pubchem_cid: '6371'
-    _section:
-      title: Synonyms & Identifiers
-      description: Synonyms and chemical identifiers
-      icon: file-text
-      section_description: Alternative names and chemical identifiers (CAS numbers)
-      order: 14
-      variant: default
-  operational:
-    health_effects:
+    detection_monitoring:
+      presentation: descriptive
+      items:
+      - sensor_types:
+        - Electrochemical
+        - Infrared
+        - Photoionization
+        - Colorimetric badges
+        detection_range: 0-1 ppm (must detect sub-ppm)
+        alarm_setpoints:
+          low: 0.1 ppm (OSHA PEL/NIOSH REL)
+          high: 0.2 ppm (NIOSH STEL)
+          evacuate: 2 ppm (NIOSH IDLH) - IMMEDIATELY LIFE-THREATENING
+        colorimetric_tubes:
+        - Dräger Phosgene 0.02/a
+        - Gastec 14L
+        analytical_methods:
+        - method: NIOSH 6371
+          technique: GC with electron capture detector
+          detection_limit: 0.002 ppm
+        - method: OSHA Method 61
+          technique: GC
+          detection_limit: 0.005 ppm
+        odor_threshold: 0.4-1.5 ppm - UNRELIABLE. Odor threshold ABOVE safe exposure limits. NEVER rely on odor. MANDATORY
+          continuous monitoring.
+      _section:
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
+        icon: gauge
+        section_description: Methods and equipment for detecting and monitoring this compound
+        order: 6
+        variant: default
+  interactions:
+    produced_from_contaminants:
       presentation: card
       items:
-      - type: health_effects
-        id: phosgene-toxicology
+      - id: plastic-residue-contamination
+        frequency: rare
+        severity: high
+        typical_context: Thermal breakdown of certain chlorinated plastics
       _section:
-        title: Health Effects
-        section_description: Potential health impacts from exposure
-        icon: activity
-        order: 1
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+    produced_from_materials:
+      presentation: card
+      items:
+      - id: ceramic-matrix-composites-cmcs-laser-cleaning
+      - id: epoxy-resin-composites-laser-cleaning
+      - id: metal-matrix-composites-mmcs-laser-cleaning
+      - id: phenolic-resin-composites-laser-cleaning
+      - id: polyester-resin-composites-laser-cleaning
+      - id: urethane-composites-laser-cleaning
+      _section:
+        section_title: Produced From Materials
+        section_description: Materials that may release this compound during laser cleaning
+        icon: users
+        order: 10
+        variant: default
+    reactivity:
+      presentation: descriptive
+      items:
+      - stability: Stable when dry. Hydrolyzes slowly in moist air. Rapidly in water.
+        polymerization: Will not polymerize
+        incompatible_materials:
+        - Water
+        - Moisture
+        - Alcohols
+        - Ammonia
+        - Amines
+        - Active metals (Al, Na, K)
+        - Metal powders
+        - Bases
+        hazardous_decomposition:
+        - Hydrogen chloride
+        - Carbon monoxide
+        - Carbon dioxide
+        - Chlorine
+        conditions_to_avoid:
+        - Heat
+        - Moisture
+        - Water
+        - Incompatible materials
+        - Sunlight (promotes decomposition)
+        reactivity_hazard: Hydrolyzes with water forming hydrochloric acid (corrosive). Reacts violently with active metals.
+          May explode on contact with aluminum powder.
+      _section:
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
+        icon: flame
+        section_description: Chemical reactivity and compatibility with other substances
+        order: 11
         variant: warning
+  ppe_requirements: Handling phosgene demands serious caution because this toxic gas can sneak up on you with delayed effects,
+    turning a minor exposure into a medical emergency fast. Workers in chemical plants or labs dealing with it for making
+    plastics or dyes need full-body protection to stay safe. Start with a tight-sealing respirator that filters out harmful
+    vapors completely—nothing less will cut it in confined spaces. Layer on chemical-resistant suits made from tough materials
+    that block penetration, paired with gloves and boots that resist breakdown from the gas's corrosive nature. Eye protection,
+    like full-face shields integrated with the respirator, guards against splashes or mists that might form during reactions.
+    And don't forget monitoring gear to detect leaks early, ensuring everyone evacuates if levels creep up. Regular training
+    keeps the team sharp on suiting up properly every time.
   images:
     hero:
       url: /images/compound/phosgene-compound-hero.jpg
@@ -458,7 +458,6 @@ relationships:
       alt: Phosgene microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Phosgene (COCl₂)
 subcategory: reactive_gas
 faq:
 - question: As a laser cleaning operator, what are the key exposure limits for phosgene (COCl₂) to stay safe during operations

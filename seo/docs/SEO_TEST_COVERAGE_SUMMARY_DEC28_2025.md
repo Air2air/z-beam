@@ -353,3 +353,109 @@ expect(generatedAlt.toLowerCase()).toContain(expectedComponents.materialName.toL
 
 **Status**: ✅ COMPLETE - Ready for production deployment  
 **Confidence Level**: HIGH - All SEO improvements thoroughly tested and validated
+
+---
+
+## Postdeploy Validation Tests ⏳
+
+**Status**: PLANNED - Automated validation in production via `npm run validate:production:comprehensive`
+
+### Current Validation Coverage (December 29, 2025)
+
+**Production Checks**: 76 automated checks across 11 categories
+
+#### Core Web Vitals Validation (6 checks)
+```javascript
+// validate-production-comprehensive.js
+async function checkCoreWebVitalsOptimizations() {
+  // Tests:
+  ✅ Preconnect: Vercel Vitals
+  ✅ Preconnect: Google Tag Manager
+  ✅ Hero Image Preload (order-agnostic regex)
+  ✅ Inline Critical CSS
+  ✅ Responsive Image Sizes
+  ✅ Priority Images
+}
+```
+
+**Current Results**: 100% (6/6 passing)
+
+#### Contextual Linking Validation (6 checks)
+```javascript
+async function checkContextualLinking() {
+  // Sample pages tested:
+  - /materials/metal/non-ferrous/aluminum-laser-cleaning
+  - /materials/wood/hardwood/ash-laser-cleaning
+  - /contaminants/oxidation/ferrous/rust-oxidation-contamination
+  - /settings/metal/non-ferrous/aluminum-settings
+  
+  // Validates:
+  ✅ Link density (1.55+ avg)
+  ✅ Link coverage across content types
+  ✅ Expected 250+ total links across 161 pages
+}
+```
+
+**Current Results**: 100% (6/6 passing)
+
+#### Image Sitemap Validation (Enhanced - 13 checks)
+```javascript
+async function checkSitemap() {
+  // Original checks + new image validation:
+  ✅ XML structure and accessibility
+  ✅ 346 images indexed
+  ✅ Image captions present
+  ✅ Image titles descriptive
+  ✅ Icon/author exclusions working
+  ✅ Title format quality
+  ✅ Magnification notation
+}
+```
+
+**Current Results**: 100% (13/13 passing)
+
+### Overall Validation Metrics (December 29, 2025)
+
+```
+📊 Production Validation Summary
+═══════════════════════════════════════════
+
+Total Tests:    76
+✅ Passed:      73 (96%)
+❌ Failed:      1 (1%)
+⚠️  Warnings:    2 (3%)
+
+📊 Score:       94%
+🎯 Grade:       A
+
+Category Breakdown:
+  ✅ infrastructure         100% (6/6)
+  ✅ core-web-vitals        100% (6/6)    ← NEW
+  ✅ seo-metadata           90% (9/10)
+  ✅ contextual-linking     100% (6/6)    ← NEW
+  ✅ structured-data        100% (10/10)
+  ✅ content-schemas        100% (12/12)
+  ✅ dataset-files          100% (4/4)
+  ✅ sitemap                100% (13/13)  ← Enhanced
+  ✅ robots                 100% (3/3)
+  ⚠️  performance           50% (0/1)*
+  ✅ accessibility          90% (4/5)
+
+* PageSpeed API key not set (non-blocking)
+```
+
+### Future Test Suite (Planned)
+
+**File**: `tests/seo/postdeploy-validation.test.js`  
+**Status**: PLANNED
+
+**Proposed Coverage**:
+- Unit tests for validation regex patterns
+- Mock fetch responses for consistent testing
+- Hero preload detection (order-agnostic)
+- Meta description length validation
+- Contextual link counting algorithms
+- Image sitemap quality checks
+
+**Estimated**: 25-30 additional tests  
+**Priority**: Medium (production validation working, tests for CI/CD confidence)

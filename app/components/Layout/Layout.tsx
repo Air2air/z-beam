@@ -5,6 +5,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
+import { getContentType } from '@/app/utils/relationshipHelpers';
 import { PageTitle } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
@@ -152,7 +153,7 @@ export function Layout(props: LayoutProps) {
             })()}
           />
 
-          {metadata?.machineSettings && !metadata?.materialProperties && metadata?.content_type === 'settings' && (
+          {metadata?.machineSettings && !metadata?.materialProperties && getContentType(metadata) === 'settings' && (
             <SectionContainer 
               title={metadata.title && metadata.title.toLowerCase().includes('settings') 
                 ? metadata.title 

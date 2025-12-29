@@ -3,8 +3,8 @@ name: Polycyclic Aromatic Hydrocarbons
 display_name: PAHs
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-29T06:27:52.965890Z'
-dateModified: '2025-12-29T06:27:52.965890Z'
+datePublished: '2025-12-29T20:27:57.757147Z'
+dateModified: '2025-12-29T20:27:57.757147Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aromatic-hydrocarbon/pahs-compound
@@ -165,7 +165,51 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
+  identity:
+    chemical_properties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: pahs-physical-data
+      _section:
+        section_title: Chemical Properties
+        section_description: Fundamental chemical characteristics and behavior
+        icon: microscope
+        order: 1
+        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: pahs-toxicology
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - type: ppe_requirements
+        id: particulate-carcinogen
+        overrides:
+          specific_compound: Polycyclic Aromatic Hydrocarbons
+          pel_ppm: null
+      _section:
+        section_title: PPE Requirements
+        section_description: Personal protective equipment needed for safe handling
+        icon: shield
+        order: 5
+        variant: warning
+    emergency_response:
+      presentation: descriptive
+      items:
+      - type: emergency_response
+        id: flammable-gas-extremely
+        overrides:
+          specific_compound: Polycyclic Aromatic Hydrocarbons
+      _section:
+        section_title: Emergency Response
+        section_description: First aid and emergency procedures for exposure incidents
+        icon: alert-triangle
+        order: 7
+        variant: danger
     exposure_limits:
       presentation: descriptive
       items:
@@ -176,138 +220,88 @@ relationships:
         acgih_tlv_ppm: null
         acgih_tlv_mg_m3: 0.2
       _section:
-        title: Exposure Limits
+        section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
         section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
-  chemical_properties:
-    presentation: descriptive
-    items:
-    - type: chemical_properties
-      id: pahs-physical-data
-    _section:
-      title: Chemical Properties
-      section_description: Fundamental chemical characteristics and behavior
-      icon: microscope
-      order: 1
-      variant: default
-  health_effects:
-    presentation: card
-    items:
-    - type: health_effects
-      id: pahs-toxicology
-  environmental_impact:
-    presentation: descriptive
-    items:
-    - type: environmental_impact
-      id: pahs-environmental-data
-    _section:
-      title: Environmental Impact
-      section_description: Environmental effects and ecological considerations
-      icon: wind
-      order: 8
-      variant: warning
+  environmental:
+    environmental_impact:
+      presentation: descriptive
+      items:
+      - type: environmental_impact
+        id: pahs-environmental-data
+      _section:
+        section_title: Environmental Impact
+        section_description: Environmental effects and ecological considerations
+        icon: wind
+        order: 8
+        variant: warning
   detection_monitoring:
-    presentation: descriptive
-    items:
-    - type: detection_monitoring
-      id: pahs-monitoring-methods
-    _section:
-      title: Detection & Monitoring
-      section_description: Methods and equipment for detecting and monitoring this compound
-      icon: gauge
-      order: 6
-      variant: default
-  ppe_requirements:
-    presentation: descriptive
-    items:
-    - type: ppe_requirements
-      id: particulate-carcinogen
-      overrides:
-        specific_compound: Polycyclic Aromatic Hydrocarbons
-        pel_ppm: null
-    _section:
-      title: PPE Requirements
-      section_description: Personal protective equipment needed for safe handling
-      icon: shield
-      order: 5
-      variant: warning
-  emergency_response:
-    presentation: descriptive
-    items:
-    - type: emergency_response
-      id: flammable-gas-extremely
-      overrides:
-        specific_compound: Polycyclic Aromatic Hydrocarbons
-    _section:
-      title: Emergency Response
-      section_description: First aid and emergency procedures for exposure incidents
-      icon: alert-triangle
-      order: 7
-      variant: danger
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: carbon-buildup-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Vaporization and reformation of existing PAHs
-      intensity: very_negative
-    - id: carbon-soot-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Pre-existing PAHs from incomplete combustion
-      intensity: very_negative
-    - id: fire-damage-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Pre-existing PAHs from fire events
-      intensity: very_negative
-    - id: rubber-residue-contamination
-      frequency: common
-      severity: high
-      typical_context: Pyrolysis produces PAHs
-      intensity: very_negative
-    - id: paint-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Incomplete combustion of organic binders
-      intensity: negative
-    - id: plastic-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Thermal degradation of aromatic polymers
-      intensity: negative
-    - id: bitumen-tar-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Bitumen is rich in PAHs
-      intensity: very_negative
-    - id: exhaust-residue-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of Exhaust System Deposits
-      intensity: very_negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  operational:
-    health_effects:
+    detection_monitoring:
+      presentation: descriptive
+      items:
+      - type: detection_monitoring
+        id: pahs-monitoring-methods
+      _section:
+        section_title: Detection & Monitoring
+        section_description: Methods and equipment for detecting and monitoring this compound
+        icon: gauge
+        order: 6
+        variant: default
+  interactions:
+    produced_from_contaminants:
       presentation: card
       items:
-      - type: health_effects
-        id: pahs-toxicology
+      - id: carbon-buildup-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Vaporization and reformation of existing PAHs
+      - id: carbon-soot-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Pre-existing PAHs from incomplete combustion
+      - id: fire-damage-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Pre-existing PAHs from fire events
+      - id: rubber-residue-contamination
+        frequency: common
+        severity: high
+        typical_context: Pyrolysis produces PAHs
+      - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
+        typical_context: Incomplete combustion of organic binders
+      - id: plastic-residue-contamination
+        frequency: common
+        severity: moderate
+        typical_context: Thermal degradation of aromatic polymers
+      - id: bitumen-tar-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Bitumen is rich in PAHs
+      - id: exhaust-residue-contamination
+        frequency: unknown
+        severity: high
+        typical_context: Laser removal of Exhaust System Deposits
       _section:
-        title: Health Effects
-        section_description: Potential health impacts from exposure
-        icon: activity
-        order: 1
-        variant: warning
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+  ppe_requirements: Handling PAHs demands solid PPE setup, especially since these compounds stick around in materials like
+    coatings or residues from industrial processes. Gloves made of nitrile or neoprene keep hands safe from skin contact,
+    as PAHs can seep through thinner barriers. Full-body suits, the kind that cover everything without gaps, shield against
+    splashes or vapors during mixing or application tasks. Respirators fitted with organic vapor cartridges filter out those
+    fine particles and fumes—crucial when you're dealing with heated materials where PAHs volatilize easily. Eye protection
+    like sealed goggles prevents irritation from any airborne bits, and boot covers stop tracking contaminants around. In
+    laser cleaning scenarios, where high-energy beams strip PAHs from surfaces like metal or stone, add flame-resistant layers
+    to the suit to handle potential sparks or heat buildup nearby. Always layer up like this to minimize exposure risks, drawing
+    from jobsites where skipping even one piece led to health headaches down the line. Avoid cotton-based gear; it absorbs
+    too readily and turns into a hazard itself.
   images:
     hero:
       url: /images/compound/pahs-compound-hero.jpg
@@ -319,7 +313,6 @@ relationships:
       alt: Polycyclic Aromatic Hydrocarbons microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: PAHs
 subcategory: aromatic_hydrocarbon
 faq:
 - question: As a laser cleaning operator, how can I best protect myself from PAH exposure during the process?

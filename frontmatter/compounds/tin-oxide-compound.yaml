@@ -3,8 +3,8 @@ name: Tin Oxide
 display_name: Tin Oxide (SnO₂)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2025-12-29T06:28:13.687474Z'
-dateModified: '2025-12-29T06:28:13.687474Z'
+datePublished: '2025-12-29T20:28:22.857916Z'
+dateModified: '2025-12-29T20:28:22.857916Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/tin-oxide-compound
@@ -178,51 +178,49 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: bronze-patina-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Bronze Patina and Corrosion
-      intensity: negative
-    - id: tin-plating-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Tin Plating Residue
-      intensity: slightly_negative
-    - id: tin-plating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Tin Plating Residue
-      intensity: negative
-    - id: tin-plating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Tin Plating Residue
-      intensity: negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  produced_from_materials:
-    presentation: card
-    items:
-    - id: aluminum-bronze-laser-cleaning
-    - id: bronze-laser-cleaning
-    - id: platinum-laser-cleaning
-    - id: serpentine-laser-cleaning
-    - id: tin-laser-cleaning
-    - id: travertine-laser-cleaning
-    _section:
-      title: Produced From Materials
-      section_description: Materials that may release this compound during laser cleaning
-      icon: users
-      order: 10
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: bronze-patina-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Bronze Patina and Corrosion
+      - id: tin-plating-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Tin Plating Residue
+      - id: tin-plating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Tin Plating Residue
+      - id: tin-plating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Tin Plating Residue
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+    produced_from_materials:
+      presentation: card
+      items:
+      - id: aluminum-bronze-laser-cleaning
+      - id: bronze-laser-cleaning
+      - id: platinum-laser-cleaning
+      - id: serpentine-laser-cleaning
+      - id: tin-laser-cleaning
+      - id: travertine-laser-cleaning
+      _section:
+        section_title: Produced From Materials
+        section_description: Materials that may release this compound during laser cleaning
+        icon: users
+        order: 10
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—
     these fine particles linger in the air, raising risks during industrial mixing or laser-based surface prep. Workers mixing
     them into ceramics or coatings should slip on nitrile gloves to shield skin from mild irritation, especially in dusty
@@ -245,7 +243,6 @@ relationships:
       alt: Tin Oxide microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Tin Oxide (SnO₂)
 subcategory: metal_oxide
 faq:
 - question: What protective measures should I take to avoid inhaling tin oxide (SnO₂) particulates during laser cleaning of

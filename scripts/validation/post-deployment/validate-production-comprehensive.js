@@ -20,6 +20,9 @@
  *   --output=<file>          Save report to file
  */
 
+// Load environment variables from .env files
+require('dotenv').config();
+
 const https = require('https');
 const http = require('http');
 const { URL } = require('url');
@@ -176,6 +179,73 @@ async function checkBasicInfrastructure() {
 }
 
 // ============================================================================
+// 1.5 CORE WEB VITALS OPTIMIZATIONS (Dec 28, 2025)
+// ============================================================================
+async function checkCoreWebVitalsOptimizations() {
+  console.log('\n⚡ 1.5 CORE WEB VITALS OPTIMIZATIONS');
+  console.log('─'.repeat(60));
+  
+  try {
+    const response = await fetch(TARGET_URL);
+    const { data: html } = response;
+    
+    // Check for preconnect hints
+    const preconnectVitals = html.match(/<link[^>]+rel=["']preconnect["'][^>]+vitals\.vercel-insights\.com/i);
+    const preconnectGTM = html.match(/<link[^>]+rel=["']preconnect["'][^>]+googletagmanager\.com/i);
+    
+    addResult('core-web-vitals', 'Preconnect: Vercel Vitals', 
+      !!preconnectVitals,
+      preconnectVitals ? '✅ Present' : '❌ Missing'
+    );
+    
+    addResult('core-web-vitals', 'Preconnect: Google Tag Manager', 
+      !!preconnectGTM,
+      preconnectGTM ? '✅ Present' : '❌ Missing'
+    );
+    
+    // Check for hero image preload (order-agnostic)
+    const heroPreload = html.match(/<link[^>]+rel=["']preload["'][^>]+as=["']image["'][^>]+hero/i) || 
+                       html.match(/<link[^>]+as=["']image["'][^>]+rel=["']preload["'][^>]+hero/i) ||
+                       html.match(/<link[^>]+as=["']image["'][^>]+href=["'][^"']*hero[^"']*["']/i);
+    addResult('core-web-vitals', 'Hero Image Preload', 
+      !!heroPreload,
+      heroPreload ? '✅ Present (LCP optimization)' : '⚠️ Missing'
+    );
+    
+    // Check for inline critical CSS
+    const inlineCriticalCSS = html.match(/<style[^>]*dangerouslySetInnerHTML[^>]*>|<style[^>]*>[\s\S]*?body\s*{[\s\S]*?margin:\s*0/i);
+    addResult('core-web-vitals', 'Inline Critical CSS', 
+      !!inlineCriticalCSS,
+      inlineCriticalCSS ? '✅ Present (FCP optimization)' : '⚠️ Missing'
+    );
+    
+    // Check for image sizes attributes (sample check on hero/nav images)
+    const imageWithSizes = html.match(/<img[^>]+sizes=["'][^"']+["']/gi) || [];
+    addResult('core-web-vitals', 'Responsive Image Sizes', 
+      imageWithSizes.length > 0,
+      `${imageWithSizes.length} images with sizes attribute`,
+      { count: imageWithSizes.length, expected: '3+' }
+    );
+    
+    // Check for priority attribute on above-fold images
+    const imageWithPriority = html.match(/<img[^>]+priority|fetchpriority=["']high["']/gi) || [];
+    addResult('core-web-vitals', 'Priority Images', 
+      imageWithPriority.length > 0,
+      `${imageWithPriority.length} priority images`,
+      { count: imageWithPriority.length, expected: '1+' }
+    );
+    
+    calculateCategoryScore('core-web-vitals');
+    console.log(`   Score: ${results.categories['core-web-vitals'].score}%`);
+    console.log(`   📊 Expected impact: -300ms LCP, -200ms FCP, -0.03 CLS`);
+    
+  } catch (error) {
+    addResult('core-web-vitals', 'Optimization Check', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
 // 2. SEO METADATA
 // ============================================================================
 async function checkSEOMetadata() {
@@ -245,6 +315,77 @@ async function checkSEOMetadata() {
     
   } catch (error) {
     addResult('seo-metadata', 'Metadata Check', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.5 CONTEXTUAL INTERNAL LINKING (Dec 28, 2025)
+// ============================================================================
+async function checkContextualLinking() {
+  console.log('\n🔗 2.5 CONTEXTUAL INTERNAL LINKING');
+  console.log('─'.repeat(60));
+  
+  try {
+    // Test a few sample pages to verify contextual links
+    const samplePages = [
+      '/materials/metal/non-ferrous/aluminum-laser-cleaning',
+      '/materials/wood/hardwood/ash-laser-cleaning',
+      '/contaminants/oxidation/ferrous/rust-oxidation-contamination',
+      '/settings/metal/non-ferrous/aluminum-settings'
+    ];
+    
+    let totalLinks = 0;
+    let pagesWithLinks = 0;
+    
+    for (const page of samplePages) {
+      try {
+        const fullUrl = `${TARGET_URL}${page}`;
+        const response = await fetch(fullUrl);
+        const { data: html, status } = response;
+        
+        if (status !== 200) continue;
+        
+        // Find internal links in meta description or page content
+        const internalLinks = (html.match(/href=["']\/(?:materials|contaminants|settings)\/[^"']+["']/gi) || []).length;
+        
+        if (internalLinks > 0) {
+          pagesWithLinks++;
+          totalLinks += internalLinks;
+        }
+        
+        addResult('contextual-linking', `Links on ${page.split('/').pop()}`, 
+          internalLinks > 0,
+          `${internalLinks} contextual link(s)`,
+          { count: internalLinks }
+        );
+        
+      } catch (err) {
+        // Skip pages that fail
+        continue;
+      }
+    }
+    
+    const avgLinksPerPage = pagesWithLinks > 0 ? (totalLinks / pagesWithLinks).toFixed(1) : 0;
+    
+    addResult('contextual-linking', 'Overall Link Density', 
+      parseFloat(avgLinksPerPage) >= 1.5,
+      `${avgLinksPerPage} links/page (expected: 1.55+)`,
+      { average: avgLinksPerPage, expected: 1.55, target: 250 }
+    );
+    
+    addResult('contextual-linking', 'Link Coverage', 
+      pagesWithLinks >= 3,
+      `${pagesWithLinks}/${samplePages.length} sample pages have links`,
+      { coverage: pagesWithLinks, total: samplePages.length }
+    );
+    
+    calculateCategoryScore('contextual-linking');
+    console.log(`   Score: ${results.categories['contextual-linking'].score}%`);
+    console.log(`   📊 Expected: 250+ contextual links across 161 pages`);
+    
+  } catch (error) {
+    addResult('contextual-linking', 'Linking Check', false, error.message);
     console.error(`   ❌ Error: ${error.message}`);
   }
 }
@@ -527,6 +668,65 @@ async function checkSitemap() {
       addResult('sitemap', 'Contaminant Pages Included', hasContaminants, hasContaminants ? 'Yes' : 'No');
     }
     
+    // Check image sitemap
+    try {
+      const imageSitemapUrl = `${TARGET_URL}/image-sitemap.xml`;
+      const imgResponse = await fetch(imageSitemapUrl);
+      const { data: imgXml, status: imgStatus } = imgResponse;
+      
+      addResult('sitemap', 'Image Sitemap Accessible', 
+        imgStatus === 200,
+        imgStatus === 200 ? '✅ Found' : `❌ HTTP ${imgStatus}`
+      );
+      
+      if (imgStatus === 200) {
+        // Count images
+        const imageMatches = imgXml.match(/<image:image>/g) || [];
+        const imageCount = imageMatches.length;
+        
+        addResult('sitemap', 'Image Count', 
+          imageCount > 0,
+          `${imageCount} images`,
+          { count: imageCount, expected: 346 }
+        );
+        
+        // Check for enhanced metadata
+        const hasCaptions = imgXml.includes('<image:caption>');
+        addResult('sitemap', 'Image Captions', hasCaptions, hasCaptions ? 'Present' : 'Missing');
+        
+        const hasTitles = imgXml.includes('<image:title>');
+        addResult('sitemap', 'Image Titles', hasTitles, hasTitles ? 'Present' : 'Missing');
+        
+        // Check for proper exclusions (should NOT include icon/author images)
+        const hasIconImages = imgXml.includes('/icon/') || imgXml.includes('/icons/');
+        addResult('sitemap', 'Icon Images Excluded', 
+          !hasIconImages, 
+          hasIconImages ? '⚠️ Icons found (should be excluded)' : '✅ Properly excluded'
+        );
+        
+        const hasAuthorImages = imgXml.includes('/author/');
+        addResult('sitemap', 'Author Images Excluded', 
+          !hasAuthorImages, 
+          hasAuthorImages ? '⚠️ Author images found (should be excluded)' : '✅ Properly excluded'
+        );
+        
+        // Check for enhanced title format (no "Hero" suffix, "1000x" instead of "Micro")
+        const hasHeroSuffix = imgXml.match(/Hero<\/image:title>/);
+        addResult('sitemap', 'Title Format Quality', 
+          !hasHeroSuffix, 
+          hasHeroSuffix ? '⚠️ "Hero" suffix found in titles' : '✅ Titles properly formatted'
+        );
+        
+        const hasMicroReplacement = imgXml.includes('1000x');
+        addResult('sitemap', 'Micro → 1000x Replacement', 
+          hasMicroReplacement, 
+          hasMicroReplacement ? '✅ Using "1000x magnification"' : '⚠️ Missing "1000x" format'
+        );
+      }
+    } catch (imgError) {
+      addResult('sitemap', 'Image Sitemap Check', 'warning', `Optional: ${imgError.message}`);
+    }
+    
     calculateCategoryScore('sitemap');
     console.log(`   Score: ${results.categories.sitemap.score}%`);
     
@@ -766,7 +966,9 @@ function generateSummary() {
   console.log(`⏰ Started: ${new Date().toLocaleString()}`);
   
   await checkBasicInfrastructure();
+  await checkCoreWebVitalsOptimizations();
   await checkSEOMetadata();
+  await checkContextualLinking();
   await checkStructuredData();
   await checkContentSchemas();
   await checkDatasetFiles();

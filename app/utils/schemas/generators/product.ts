@@ -132,15 +132,18 @@ export function generateProductSchema(options: ProductSchemaOptions) {
       keywords: applications.join(', ')
     }),
     
-    // Offers (required by Google)
+    // Offers (required by Google for rich snippets)
     offers: {
       '@type': 'Offer',
       url: pageUrl,
-      priceCurrency: 'USD',
+      price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+      priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
       availability: 'https://schema.org/InStock',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        priceCurrency: 'USD',
+        price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+        priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
+        unitText: SITE_CONFIG.pricing.professionalCleaning.unit,
         referenceQuantity: {
           '@type': 'QuantitativeValue',
           value: 1,
@@ -152,7 +155,7 @@ export function generateProductSchema(options: ProductSchemaOptions) {
         name: SITE_CONFIG.name,
         url: SITE_CONFIG.url
       },
-      description: `Professional laser cleaning service for ${name}. Contact for custom quote.`
+      description: `${SITE_CONFIG.pricing.professionalCleaning.description} for ${name}. Starting at $${SITE_CONFIG.pricing.professionalCleaning.hourlyRate}/${SITE_CONFIG.pricing.professionalCleaning.unit}. Contact for custom quote.`
     }
   };
 }

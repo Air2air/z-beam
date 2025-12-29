@@ -1,8 +1,8 @@
 id: passivation-defect-contamination
 name: Passivation Layer Irregularities
 category: inorganic-coating
-datePublished: '2025-12-27T21:04:25.154259Z'
-dateModified: '2025-12-27T21:04:25.154259Z'
+datePublished: '2025-12-29T20:26:05.714913Z'
+dateModified: '2025-12-29T20:26:05.714913Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/passivation-defect-contamination
@@ -18,6 +18,15 @@ breadcrumb:
 - label: Passivation Layer Irregularities
   href: /contaminants/inorganic-coating/coating/passivation-defect-contamination
 page_title: 'Passivation Layer Irregularities Removal: Laser Ablatio'
+page_description: 'Passivation-defect-contamination arises on metal surfaces. It forms through oxide layer disruptions and
+  defect sites. This contamination, it shows unique regional patterns, clustered in natural zones. Formation follows exposure
+  to air and residues, thus builds uneven coatings.
+
+
+  Removal challenges emerge in laser cleaning. Defects resist ablation, and contamination clings tightly. Material-specific
+  behaviors vary: on steels, it disperses slowly; on aluminums, it scatters more readily. Treatment applies laser pulses,
+  so surface cleans progressively. Challenges persist, yet efficiency improves with targeted adjustments. This contamination
+  still demands precise control for complete removal.'
 meta_description: 'Passivation Layer Irregularities: 85-90% absorption at 1064nm. 2-5 passes depending on thickness. Preserves
   substrate integrity. No chemicals, no media waste.'
 images: &id001
@@ -62,7 +71,27 @@ author:
   persona_file: indonesia_persona.yaml
   formatting_file: indonesia_formatting.yaml
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        section_title: Regulatory Standards
+        section_description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: metal-oxides-mixed-compound
+      - id: metal-vapors-mixed-compound
+      - id: nanoparticulates-compound
     affects_materials:
       presentation: card
       items:
@@ -96,259 +125,224 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
-      _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
-        icon: box
-        order: 1
-        variant: default
-    produces_compounds:
-      presentation: card
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
       items:
-      - id: metal-oxides-mixed-compound
-      - id: metal-vapors-mixed-compound
-      - id: nanoparticulates-compound
-      _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
+      - appearance_on_categories:
+          ceramic:
+            appearance: Discolored zones, such as whitish or grayish spots, with a rough or pitted texture that contrasts
+              with the smooth glaze.
+            coverage: Partial coverage, typically 10-30%, varying with ceramic quality and processing conditions.
+            pattern: Irregular spots or patches, frequently clustered around glaze faults or firing inconsistencies, creating
+              uneven distributions.
+          composite:
+            appearance: Uneven color and texture, with blotchy or mottled regions that may show fiber exposure or resin pooling.
+            coverage: Moderate coverage, typically 15-35%, with high variation due to composite heterogeneity.
+            pattern: Patches or streaks, often following laminate layers or reinforcement fibers, creating non-uniform distributions.
+          concrete:
+            appearance: Mottled discoloration, with light or dark spots and a rough, pitted surface that contrasts with the
+              uniform concrete finish.
+            coverage: Sparse to moderate coverage, usually 10-30%, with variation based on concrete mix and curing conditions.
+            pattern: Scattered patches or streaks, commonly in porous regions or along cracks, forming irregular clusters.
+          fabric:
+            appearance: Stained or faded patches, with uneven color and a rough texture that may feel stiff or altered compared
+              to untreated areas.
+            coverage: Variable coverage, typically 5-20%, influenced by fabric type and contamination sources.
+            pattern: Random spots or streaks, often following weave patterns or moisture paths, resulting in irregular distributions.
+          glass:
+            appearance: Hazy or cloudy regions, sometimes with iridescent or dull spots, leading to a non-uniform transparent
+              or translucent finish.
+            coverage: Limited coverage, usually 5-15%, with variation influenced by manufacturing defects or environmental
+              factors.
+            pattern: Streaks or patches, often in linear or wavy formations, particularly near edges or surface imperfections.
+          metal:
+            appearance: Discolored areas, often dull or blotchy, with uneven texture that may appear as dull spots or streaks.
+            coverage: Partial coverage, typically 10-30%, with high variation across the surface.
+            pattern: Irregular spots or streaks, often localized to areas with poor passivation, such as edges or welds.
+          mineral:
+            appearance: Uneven color changes, such as blotchy or streaked areas, with a dull or altered luster that disrupts
+              the natural mineral appearance.
+            coverage: Variable coverage, typically 5-25%, depending on mineral type and environmental exposure.
+            pattern: Irregular spots or patches, often concentrated along cleavage planes or inclusions, leading to non-uniform
+              distributions.
+          plastic:
+            appearance: Cloudy or streaked areas, often with color fading or blotchiness, resulting in a non-uniform glossy
+              or matte finish.
+            coverage: Variable coverage, usually 5-20%, depending on plastic type and exposure to contaminants.
+            pattern: Random streaks or spots, commonly aligned with molding lines or stress points, leading to irregular patterns.
+          rubber:
+            appearance: Discolored areas, such as whitish or grayish spots, with a tacky or rough surface that differs from
+              the smooth rubber finish.
+            coverage: Partial coverage, usually 10-25%, varying with rubber composition and aging.
+            pattern: Spots or streaks, frequently concentrated in high-stress areas or along seams, forming irregular clusters.
+          semiconductor:
+            appearance: Hazy or discolored regions on the wafer surface, often with microscopic spots or streaks that affect
+              the uniform glossy finish.
+            coverage: Limited coverage, usually 1-10%, with high precision variation critical for device performance.
+            pattern: Microscopic spots or streaks, frequently aligned with crystal defects or processing errors, creating
+              irregular patterns.
+          specialty:
+            appearance: Irregular discoloration and texture changes, such as blotchy or streaked areas, tailored to the material's
+              unique properties and applications.
+            coverage: Dependent on material, typically 5-30%, with high variation based on specialty factors and usage conditions.
+            pattern: Variable patterns like spots or patches, often specific to the material's structure or manufacturing
+              process, resulting in non-uniform distributions.
+          stone:
+            appearance: Mottled discoloration, with light or dark spots and a rough, uneven surface texture that contrasts
+              with the natural stone.
+            coverage: Sparse to moderate coverage, typically 5-25%, with significant variation based on stone porosity.
+            pattern: Scattered spots or patches, often concentrated in porous areas or along cracks, forming irregular clusters.
+          wood:
+            appearance: Uneven color changes, such as dark or light patches, with a rough or splotchy finish that disrupts
+              the natural grain.
+            coverage: Variable coverage, usually 5-20%, depending on wood type and environmental exposure.
+            pattern: Random patches or streaks, often following the wood grain or moisture paths, creating irregular distributions.
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Discolored zones, such as whitish or grayish spots, with a rough or pitted texture that contrasts with
-            the smooth glaze.
-          coverage: Partial coverage, typically 10-30%, varying with ceramic quality and processing conditions.
-          pattern: Irregular spots or patches, frequently clustered around glaze faults or firing inconsistencies, creating
-            uneven distributions.
-        composite:
-          appearance: Uneven color and texture, with blotchy or mottled regions that may show fiber exposure or resin pooling.
-          coverage: Moderate coverage, typically 15-35%, with high variation due to composite heterogeneity.
-          pattern: Patches or streaks, often following laminate layers or reinforcement fibers, creating non-uniform distributions.
-        concrete:
-          appearance: Mottled discoloration, with light or dark spots and a rough, pitted surface that contrasts with the
-            uniform concrete finish.
-          coverage: Sparse to moderate coverage, usually 10-30%, with variation based on concrete mix and curing conditions.
-          pattern: Scattered patches or streaks, commonly in porous regions or along cracks, forming irregular clusters.
-        fabric:
-          appearance: Stained or faded patches, with uneven color and a rough texture that may feel stiff or altered compared
-            to untreated areas.
-          coverage: Variable coverage, typically 5-20%, influenced by fabric type and contamination sources.
-          pattern: Random spots or streaks, often following weave patterns or moisture paths, resulting in irregular distributions.
-        glass:
-          appearance: Hazy or cloudy regions, sometimes with iridescent or dull spots, leading to a non-uniform transparent
-            or translucent finish.
-          coverage: Limited coverage, usually 5-15%, with variation influenced by manufacturing defects or environmental factors.
-          pattern: Streaks or patches, often in linear or wavy formations, particularly near edges or surface imperfections.
-        metal:
-          appearance: Discolored areas, often dull or blotchy, with uneven texture that may appear as dull spots or streaks.
-          coverage: Partial coverage, typically 10-30%, with high variation across the surface.
-          pattern: Irregular spots or streaks, often localized to areas with poor passivation, such as edges or welds.
-        mineral:
-          appearance: Uneven color changes, such as blotchy or streaked areas, with a dull or altered luster that disrupts
-            the natural mineral appearance.
-          coverage: Variable coverage, typically 5-25%, depending on mineral type and environmental exposure.
-          pattern: Irregular spots or patches, often concentrated along cleavage planes or inclusions, leading to non-uniform
-            distributions.
-        plastic:
-          appearance: Cloudy or streaked areas, often with color fading or blotchiness, resulting in a non-uniform glossy
-            or matte finish.
-          coverage: Variable coverage, usually 5-20%, depending on plastic type and exposure to contaminants.
-          pattern: Random streaks or spots, commonly aligned with molding lines or stress points, leading to irregular patterns.
-        rubber:
-          appearance: Discolored areas, such as whitish or grayish spots, with a tacky or rough surface that differs from
-            the smooth rubber finish.
-          coverage: Partial coverage, usually 10-25%, varying with rubber composition and aging.
-          pattern: Spots or streaks, frequently concentrated in high-stress areas or along seams, forming irregular clusters.
-        semiconductor:
-          appearance: Hazy or discolored regions on the wafer surface, often with microscopic spots or streaks that affect
-            the uniform glossy finish.
-          coverage: Limited coverage, usually 1-10%, with high precision variation critical for device performance.
-          pattern: Microscopic spots or streaks, frequently aligned with crystal defects or processing errors, creating irregular
-            patterns.
-        specialty:
-          appearance: Irregular discoloration and texture changes, such as blotchy or streaked areas, tailored to the material's
-            unique properties and applications.
-          coverage: Dependent on material, typically 5-30%, with high variation based on specialty factors and usage conditions.
-          pattern: Variable patterns like spots or patches, often specific to the material's structure or manufacturing process,
-            resulting in non-uniform distributions.
-        stone:
-          appearance: Mottled discoloration, with light or dark spots and a rough, uneven surface texture that contrasts with
-            the natural stone.
-          coverage: Sparse to moderate coverage, typically 5-25%, with significant variation based on stone porosity.
-          pattern: Scattered spots or patches, often concentrated in porous areas or along cracks, forming irregular clusters.
-        wood:
-          appearance: Uneven color changes, such as dark or light patches, with a rough or splotchy finish that disrupts the
-            natural grain.
-          coverage: Variable coverage, usually 5-20%, depending on wood type and environmental exposure.
-          pattern: Random patches or streaks, often following the wood grain or moisture paths, creating irregular distributions.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.4
-          min_j_cm2: 0.8
-          recommended_j_cm2: 1.1
-        overlap_percentage: 40
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 100
-          min_ns: 10
-          recommended_ns: 30
-        repetition_rate_khz:
-          max: 100
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.1
-          min: 0.02
-          recommended: 0.05
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 8500
-          wavelength_355nm: 65000
-          wavelength_532nm: 22000
-        reflectivity:
-          wavelength_1064nm: 0.25
-          wavelength_355nm: 0.08
-          wavelength_532nm: 0.18
-        refractive_index:
-          imaginary_part: 0.15
-          real_part: 2.1
-        transmission_depth: 12.3
-      removal_characteristics:
-        byproducts:
-        - compound: metal-oxides-mixed
-          hazard_level: low
-          phase: solid
-        - compound: metal-vapors-mixed
-          hazard_level: moderate
-          phase: gas
-        - compound: nanoparticulates
-          hazard_level: moderate
-          phase: solid
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 120
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 3
-          optimal_passes: 2
-          single_pass: 0.7
-        secondary_mechanisms:
-        - photochemical
-        - mechanical_spallation
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: compressive
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Metal oxides (as fume)
-          concentration_mg_m3: 5.0
-          exposure_limit_mg_m3: 5.0
-          hazard_class: irritant
-        - compound: Iron oxide
-          concentration_mg_m3: 3.0
-          exposure_limit_mg_m3: 5.0
-          hazard_class: irritant
-        - compound: Chromium oxides
-          concentration_mg_m3: 0.5
-          exposure_limit_mg_m3: 0.5
-          hazard_class: toxic
-        particulate_generation:
-          respirable_fraction: 0.8
-          size_range_um:
-          - 0.1
-          - 10.0
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: PAPR
-          skin_protection: gloves
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Laser parameters must be optimized to minimize excessive heating and fume generation
-        - Inspect substrate for coatings or contaminants that may produce additional hazardous byproducts
-        toxic_gas_risk:
-          severity: low
-          primary_hazards:
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.4
+            min_j_cm2: 0.8
+            recommended_j_cm2: 1.1
+          overlap_percentage: 40
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 100
+            min_ns: 10
+            recommended_ns: 30
+          repetition_rate_khz:
+            max: 100
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.1
+            min: 0.02
+            recommended: 0.05
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 8500
+            wavelength_355nm: 65000
+            wavelength_532nm: 22000
+          reflectivity:
+            wavelength_1064nm: 0.25
+            wavelength_355nm: 0.08
+            wavelength_532nm: 0.18
+          refractive_index:
+            imaginary_part: 0.15
+            real_part: 2.1
+          transmission_depth: 12.3
+        removal_characteristics:
+          byproducts:
+          - compound: metal-oxides-mixed
+            hazard_level: low
+            phase: solid
+          - compound: metal-vapors-mixed
+            hazard_level: moderate
+            phase: gas
+          - compound: nanoparticulates
+            hazard_level: moderate
+            phase: solid
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 120
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.7
+          secondary_mechanisms:
+          - photochemical
+          - mechanical_spallation
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: compressive
+            roughness_increase: minimal
+        safety_data:
+          fire_explosion_risk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumes_generated:
+          - compound: Metal oxides (as fume)
+            concentration_mg_m3: 5.0
+            exposure_limit_mg_m3: 5.0
+            hazard_class: irritant
+          - compound: Iron oxide
+            concentration_mg_m3: 3.0
+            exposure_limit_mg_m3: 5.0
+            hazard_class: irritant
           - compound: Chromium oxides
             concentration_mg_m3: 0.5
+            exposure_limit_mg_m3: 0.5
             hazard_class: toxic
-          description: Chromium oxides generation detected - low toxicity risk
-          mitigation: N95 or P100 respirator for particulate control, standard ventilation
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA
-          minimum_air_changes_per_hour: 12
-          rationale: Standard industrial ventilation (12 ACH) for particulate control
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 3.5
-          pulse_duration_10ns: 2.1
-          wavelength_1064nm: 1.8
-        decomposition_temperature: 450
-        heat_affected_zone_depth: 25
-        melting_point: 600
-        specific_heat: 750
-        thermal_conductivity: 8
-        thermal_diffusivity: 2.1
-        vaporization_temperature: 1200
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
+          particulate_generation:
+            respirable_fraction: 0.8
+            size_range_um:
+            - 0.1
+            - 10.0
+          ppe_requirements:
+            eye_protection: goggles
+            respiratory: PAPR
+            skin_protection: gloves
+            rationale: Standard protection against workplace hazards
+          substrate_compatibility_warnings:
+          - Laser parameters must be optimized to minimize excessive heating and fume generation
+          - Inspect substrate for coatings or contaminants that may produce additional hazardous byproducts
+          toxic_gas_risk:
+            severity: low
+            primary_hazards:
+            - compound: Chromium oxides
+              concentration_mg_m3: 0.5
+              hazard_class: toxic
+            description: Chromium oxides generation detected - low toxicity risk
+            mitigation: N95 or P100 respirator for particulate control, standard ventilation
+          ventilation_requirements:
+            exhaust_velocity_m_s: 0.5
+            filtration_type: HEPA
+            minimum_air_changes_per_hour: 12
+            rationale: Standard industrial ventilation (12 ACH) for particulate control
+          visibility_hazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            related_field: particulate_generation.respirable_fraction
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 3.5
+            pulse_duration_10ns: 2.1
+            wavelength_1064nm: 1.8
+          decomposition_temperature: 450
+          heat_affected_zone_depth: 25
+          melting_point: 600
+          specific_heat: 750
+          thermal_conductivity: 8
+          thermal_diffusivity: 2.1
+          vaporization_temperature: 1200
+      _section:
+        section_title: Laser Parameters
+        section_description: Optimal laser settings and technical parameters for removal
+        icon: zap
+        order: 9
+        variant: default
   prohibited_materials:
     presentation: card
     _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
+      section_title: Prohibited Materials
+      section_description: Materials where laser removal of this contamination is not recommended
       icon: alert-triangle
       order: 7
       variant: danger
@@ -391,8 +385,8 @@ relationships:
             severity: moderate
             typical_context: ''
     _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
+      section_title: Found On Materials
+      section_description: Materials where this contaminant is commonly found
       icon: box
       order: 10
       variant: default
@@ -400,12 +394,3 @@ subcategory: coating
 composition:
 - Cr₂O₃
 - Fe₂O₃
-page_description: 'Passivation-defect-contamination arises on metal surfaces. It forms through oxide layer disruptions and
-  defect sites. This contamination, it shows unique regional patterns, clustered in natural zones. Formation follows exposure
-  to air and residues, thus builds uneven coatings.
-
-
-  Removal challenges emerge in laser cleaning. Defects resist ablation, and contamination clings tightly. Material-specific
-  behaviors vary: on steels, it disperses slowly; on aluminums, it scatters more readily. Treatment applies laser pulses,
-  so surface cleans progressively. Challenges persist, yet efficiency improves with targeted adjustments. This contamination
-  still demands precise control for complete removal.'

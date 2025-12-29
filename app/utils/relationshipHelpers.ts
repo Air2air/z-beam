@@ -2,13 +2,75 @@
  * @file app/utils/relationshipHelpers.ts
  * @purpose Type-safe data access layer for relationship fields
  * @created December 24, 2025
+ * @updated December 29, 2025 - Added backwards compatibility for relationship restructure
  * 
  * Provides centralized, null-safe access to relationship data with consistent
  * error handling and type safety. Eliminates fragile optional chaining patterns
  * scattered across layout files.
+ * 
+ * Supports both old structure (technical/safety/operational) and new structure
+ * (identity/interactions/operational/safety/environmental/detection_monitoring/visual)
+ * with automatic fallback during migration period.
+ * 
+ * @see docs/FRONTMATTER_RELATIONSHIPS_RESTRUCTURE.md
  */
 
 import type { RelationshipSection } from '@/types';
+
+/**
+ * Path mapping from new structure to old structure for backwards compatibility
+ * 
+ * Maps new category.field paths to old category.field paths for fallback lookup
+ */
+const PATH_FALLBACK_MAP: Record<string, string[]> = {
+  // Identity category (new) → technical/chemical_properties (old)
+  'identity.material_properties': ['technical.material_properties', 'material_properties', 'materialProperties'],
+  'identity.composition': ['technical.composition', 'composition'],
+  'identity.characteristics': ['technical.characteristics', 'characteristics'],
+  'identity.chemical_properties': ['chemical_properties'],
+  'identity.physical_properties': ['operational.physical_properties', 'physical_properties'],
+  
+  // Interactions category (new) → technical/operational (old)
+  'interactions.contaminated_by': ['technical.contaminated_by', 'contaminated_by'],
+  'interactions.affects_materials': ['technical.affects_materials', 'affects_materials', 'found_on_materials'],
+  'interactions.produces_compounds': ['technical.produces_compounds', 'produces_compounds'],
+  'interactions.contamination': ['technical.contamination', 'contamination'],
+  'interactions.works_on_materials': ['technical.works_on_materials', 'works_on_materials'],
+  'interactions.removes_contaminants': ['technical.removes_contaminants', 'removes_contaminants'],
+  'interactions.produced_from_contaminants': ['operational.produced_from_contaminants', 'produced_from_contaminants'],
+  'interactions.produced_from_materials': ['operational.produced_from_materials', 'produced_from_materials'],
+  
+  // Operational category (mostly unchanged)
+  'operational.machine_settings': ['technical.machine_settings', 'machine_settings'],
+  'operational.common_challenges': ['operational.common_challenges', 'technical.common_challenges', 'common_challenges'],
+  'operational.sources_in_laser_cleaning': ['technical.sources_in_laser_cleaning', 'sources_in_laser_cleaning'],
+  'operational.typical_concentration_range': ['technical.typical_concentration_range', 'typical_concentration_range'],
+  
+  // Detection & Monitoring category (new) → technical/detection_monitoring (old)
+  'detection_monitoring.detection_methods': ['technical.detection_methods', 'detection_monitoring.detection_methods', 'detection_methods'],
+  'detection_monitoring.sensor_types': ['detection_monitoring.sensor_types', 'sensor_types'],
+  'detection_monitoring.alarm_setpoints': ['detection_monitoring.alarm_setpoints', 'alarm_setpoints'],
+  
+  // Safety category (mostly unchanged)
+  'safety.health_effects_keywords': ['safety.health_effects_keywords', 'health_effects_keywords'],
+  'safety.health_effects': ['safety.health_effects', 'health_effects'],
+  'safety.exposure_guidelines': ['safety.exposure_guidelines', 'exposure_guidelines'],
+  'safety.exposure_limits': ['safety.exposure_limits', 'exposure_limits'],
+  'safety.first_aid': ['safety.first_aid', 'first_aid'],
+  'safety.monitoring_required': ['safety.monitoring_required', 'monitoring_required'],
+  'safety.regulatory_standards': ['safety.regulatory_standards', 'regulatory_standards', 'regulatory'],
+  'safety.emergency_response': ['emergency_response', 'safety.emergency_response'],
+  'safety.ppe_requirements': ['safety.ppe_requirements', 'emergency_response.ppe_requirements', 'ppe_requirements'],
+  
+  // Environmental category (new)
+  'environmental.environmental_impact': ['environmental_impact'],
+  'environmental.aquatic_toxicity': ['environmental_impact.aquatic_toxicity'],
+  'environmental.biodegradability': ['environmental_impact.biodegradability'],
+  
+  // Visual category (new)
+  'visual.appearance_on_categories': ['visual_characteristics', 'appearance_on_categories'],
+  'visual.visual_characteristics': ['visual_characteristics'],
+};
 
 /**
  * Structured return type for relationship sections
@@ -20,22 +82,50 @@ export interface RelationshipSectionData<T = any> {
 }
 
 /**
+ * Helper to navigate nested path
+ */
+function getNestedValue(obj: any, path: string): any {
+  if (!obj || !path) return undefined;
+  
+  const parts = path.split('.');
+  let current = obj;
+  
+  for (const part of parts) {
+    if (!current || typeof current !== 'object' || !(part in current)) {
+      return undefined;
+    }
+    current = current[part];
+  }
+  
+  return current;
+}
+
+/**
  * Safely access a relationship section from nested object structure
  * 
+ * BACKWARDS COMPATIBLE: Automatically tries fallback paths for old structure
+ * 
  * @param relationships - The root relationships object from metadata
- * @param path - Dot-notation path to the section (e.g., 'safety.exposure_limits')
+ * @param path - Dot-notation path to the section (e.g., 'identity.material_properties' or 'technical.material_properties')
  * @returns Structured data with items and metadata, or null if path doesn't exist
  * 
  * @example
  * ```typescript
- * const exposureLimits = getRelationshipSection(
+ * // New structure (preferred)
+ * const materialProps = getRelationshipSection(
  *   relationships, 
- *   'safety.exposure_limits'
+ *   'identity.material_properties'
  * );
  * 
- * if (exposureLimits) {
+ * // Old structure (backwards compatible)
+ * const materialProps = getRelationshipSection(
+ *   relationships, 
+ *   'technical.material_properties'
+ * );
+ * 
+ * if (materialProps) {
  *   // Type-safe access to items and metadata
- *   const { items, metadata } = exposureLimits;
+ *   const { items, metadata } = materialProps;
  * }
  * ```
  */
@@ -47,15 +137,20 @@ export function getRelationshipSection<T = any>(
     return null;
   }
 
-  // Navigate the path safely
-  const parts = path.split('.');
-  let current = relationships;
-
-  for (const part of parts) {
-    if (!current || typeof current !== 'object' || !(part in current)) {
-      return null;
+  // Try the primary path first
+  let current = getNestedValue(relationships, path);
+  
+  // If not found and path is in fallback map, try fallback paths
+  if (!current || !Array.isArray(current.items)) {
+    const fallbackPaths = PATH_FALLBACK_MAP[path];
+    if (fallbackPaths) {
+      for (const fallbackPath of fallbackPaths) {
+        current = getNestedValue(relationships, fallbackPath);
+        if (current && Array.isArray(current.items)) {
+          break;
+        }
+      }
     }
-    current = current[part];
   }
 
   // Validate the structure
@@ -262,4 +357,117 @@ export function validateRelationshipSection(
     isValid: errors.length === 0,
     errors
   };
+}
+
+// ============================================================================
+// SIMPLIFIED RELATIONSHIP ACCESSORS (P2 Normalization - Dec 29, 2025)
+// ============================================================================
+
+/**
+ * Get contaminated_by relationship data with standardized fallback chain
+ * 
+ * Priority order:
+ * 1. relationships.interactions.contaminated_by (canonical)
+ * 2. relationships.technical.contaminated_by (fallback)
+ * 3. relationships.contaminated_by (legacy)
+ */
+export function getContaminatedBy(metadata: any): any {
+  const relationships = metadata?.relationships;
+  return (
+    relationships?.interactions?.contaminated_by ||
+    relationships?.technical?.contaminated_by ||
+    relationships?.contaminated_by ||
+    {}
+  );
+}
+
+/**
+ * Get regulatory standards with standardized fallback chain
+ * 
+ * Priority order:
+ * 1. relationships.safety.regulatory_standards.items (canonical array)
+ * 2. relationships.regulatory.items (fallback array)
+ * 3. relationships.regulatory_standards.items (legacy array)
+ * 4. relationships.regulatory_standards (legacy direct)
+ * 5. relationships.regulatory (legacy direct)
+ */
+export function getRegulatoryStandards(metadata: any): any[] {
+  const relationships = metadata?.relationships;
+  return (
+    relationships?.safety?.regulatory_standards?.items ||
+    relationships?.regulatory?.items ||
+    relationships?.regulatory_standards?.items ||
+    relationships?.regulatory_standards ||
+    relationships?.regulatory ||
+    []
+  );
+}
+
+/**
+ * Get hero image URL with standardized fallback chain
+ * 
+ * Priority order:
+ * 1. metadata.images.hero.url (canonical)
+ * 2. metadata.hero.url (deprecated but supported)
+ * 3. metadata.image (legacy string field)
+ */
+export function getHeroImageUrl(metadata: any): string | undefined {
+  return (
+    metadata?.images?.hero?.url ||
+    metadata?.hero?.url ||
+    metadata?.image ||
+    undefined
+  );
+}
+
+/**
+ * Get hero image alt text with standardized fallback chain
+ * 
+ * Priority order:
+ * 1. metadata.images.hero.alt (canonical)
+ * 2. metadata.hero.alt (deprecated but supported)
+ * 3. Fallback to title-based text
+ */
+export function getHeroImageAlt(metadata: any): string {
+  return (
+    metadata?.images?.hero?.alt ||
+    metadata?.hero?.alt ||
+    (metadata?.title ? `Hero image for ${metadata.title}` : 'Hero image')
+  );
+}
+
+// ============================================================================
+// P3 NORMALIZATION: DESCRIPTION & CONTENT TYPE (Dec 29, 2025)
+// ============================================================================
+
+/**
+ * Get page description with standardized fallback chain
+ * 
+ * Priority order:
+ * 1. metadata.page_description (canonical)
+ * 2. metadata.contamination_description (contaminant-specific)
+ * 3. metadata.description (deprecated)
+ */
+export function getDescription(metadata: any): string | undefined {
+  return (
+    metadata?.page_description ||
+    metadata?.contamination_description ||
+    metadata?.description ||
+    undefined
+  );
+}
+
+/**
+ * Get content type with standardized fallback chain
+ * 
+ * Priority order:
+ * 1. metadata.content_type (canonical)
+ * 2. metadata.articleType (deprecated)
+ */
+export function getContentType(metadata: any): string | undefined {
+  return (
+    metadata?.content_type ||
+    metadata?.articleType ||
+    undefined
+  );
 }

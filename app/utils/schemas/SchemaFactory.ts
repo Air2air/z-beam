@@ -741,12 +741,21 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       },
       'offers': {
         '@type': 'Offer',
+        'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+        'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
+        'priceSpecification': {
+          '@type': 'UnitPriceSpecification',
+          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+          'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
+          'unitText': SITE_CONFIG.pricing.equipmentRental.unit
+        },
         'availability': 'https://schema.org/InStock',
         'seller': {
           '@type': 'Organization',
           'name': SITE_CONFIG.name,
           'url': baseUrl
-        }
+        },
+        'description': SITE_CONFIG.pricing.equipmentRental.description
       },
       ...(productData.image && {
         'image': {

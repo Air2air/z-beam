@@ -1,8 +1,8 @@
 id: mineral-stain-contamination
 name: Mineral Staining
 category: inorganic-coating
-datePublished: '2025-12-27T21:04:25.006795Z'
-dateModified: '2025-12-27T21:04:25.006795Z'
+datePublished: '2025-12-29T20:26:05.592877Z'
+dateModified: '2025-12-29T20:26:05.592877Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/mineral/mineral-stain-contamination
@@ -18,6 +18,12 @@ breadcrumb:
 - label: Mineral Staining
   href: /contaminants/inorganic-coating/mineral/mineral-stain-contamination
 page_title: 'Mineral Staining Removal: Laser Ablation Clean Removal'
+page_description: Mineral-stain contamination, it manifests as inorganic coatings from environmental deposition. These stains
+  form unique patterns, dependent from regional humidity and mineral sources, creating patchy, crystalline layers on surfaces.
+  On metals, the contamination adheres tenaciously, which resists laser ablation due to strong bonding. Stone substrates exhibit
+  looser attachment, that yields easier removal. Challenges arise in selective cleaning, where the process demands precise
+  energy control to avoid substrate damage. It appears that formation varies with exposure, leading to differential behaviors
+  across materials.
 meta_description: 'Mineral Staining: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate integrity.
   No chemicals, no media waste.'
 images: &id001
@@ -61,7 +67,28 @@ author:
   persona_file: italy_persona.yaml
   formatting_file: italy_formatting.yaml
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        section_title: Regulatory Standards
+        section_description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: silicon-dioxide-compound
+      - id: iron-oxide-compound
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
     affects_materials:
       presentation: card
       items:
@@ -103,278 +130,241 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
-      _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
-        icon: box
-        order: 1
-        variant: default
-    produces_compounds:
-      presentation: card
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
       items:
-      - id: silicon-dioxide-compound
-      - id: iron-oxide-compound
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
+      - appearance_on_categories:
+          ceramic:
+            appearance: Mineral staining on ceramic shows as white, brown, or grayish spots or films, often with a chalky
+              or gritty texture on the glazed surface.
+            coverage: Coverage is typically localized and uneven, ranging from minor spots to larger stained areas based on
+              usage and maintenance.
+            pattern: It commonly appears as spots, streaks, or patches, especially around edges or in areas where water pools.
+          composite:
+            appearance: Mineral staining on composites manifests as discolored spots or streaks, often brown or white, that
+              may blend with or stand out from the material's varied texture.
+            coverage: Coverage is often uneven and localized, varying with the composite's porosity and environmental factors.
+            pattern: It typically appears as irregular patches or streaks, following the composite's layered or mixed structure.
+          concrete:
+            appearance: On concrete, mineral staining manifests as white, brown, or greenish efflorescence or discolorations,
+              often with a powdery or crystalline texture.
+            coverage: Coverage can range from light spotting to extensive areas, varying with concrete porosity and environmental
+              conditions.
+            pattern: It typically appears as patches, streaks, or uniform blooms, especially on surfaces where moisture evaporates.
+          fabric:
+            appearance: Mineral staining on fabric appears as discolored spots or streaks, often white, brown, or gray, that
+              can feel stiff or crusty on the textile.
+            coverage: Coverage is typically patchy and localized, ranging from small stains to larger areas depending on fabric
+              type and exposure.
+            pattern: It commonly forms as irregular spots or streaks, following fabric weave or moisture paths.
+          glass:
+            appearance: On glass, mineral staining appears as white, cloudy, or iridescent films or spots, often reducing
+              transparency and creating a hazy finish.
+            coverage: Coverage can be light and widespread or concentrated in spots, varying with water quality and cleaning
+              frequency.
+            pattern: It usually forms as uniform films, streaks, or spotty deposits, particularly in areas with water exposure
+              or hard water residue.
+          metal:
+            appearance: Mineral staining on metal appears as rust-colored, brown, or greenish deposits, often with a rough
+              or crusty texture that contrasts with the smooth metallic surface.
+            coverage: Coverage is usually partial and localized, varying from small spots to larger areas depending on environmental
+              exposure.
+            pattern: It typically forms in irregular spots, streaks, or patches, often concentrated in areas exposed to moisture
+              or contaminants.
+          mineral:
+            appearance: Mineral staining on other minerals appears as discolored patches or coatings, often in contrasting
+              colors like red or white, altering the natural luster and texture.
+            coverage: Coverage is often extensive and variable, ranging from thin films to thick encrustations based on geological
+              factors.
+            pattern: It usually forms as patches, veins, or uniform layers, depending on mineral interactions and deposition
+              processes.
+          plastic:
+            appearance: On plastic, mineral staining appears as white, cloudy, or discolored patches, often making the surface
+              look dull or etched.
+            coverage: Coverage is usually light and patchy, with variation depending on plastic type and exposure to mineral-rich
+              substances.
+            pattern: It tends to form as spots or streaks, particularly in scratched or porous areas where minerals can adhere.
+          rubber:
+            appearance: On rubber, mineral staining shows as white, gray, or brownish deposits, creating a powdery or streaked
+              look on the flexible surface.
+            coverage: Coverage is generally light and sporadic, with variation based on rubber composition and usage conditions.
+            pattern: It usually forms as spots or streaks, often in crevices or areas exposed to moisture and minerals.
+          semiconductor:
+            appearance: On semiconductors, mineral staining shows as discolored spots or films, often gray or brown, that
+              can interfere with surface conductivity and appearance.
+            coverage: Coverage is usually minimal and localized, with variation depending on manufacturing controls and cleanliness.
+            pattern: It typically appears as spots or uniform contamination, especially in areas exposed to processing chemicals
+              or environments.
+          specialty:
+            appearance: Mineral staining on specialty materials appears as discolored areas or deposits, varying in color
+              and texture based on the unique composition, often reducing aesthetic or functional qualities.
+            coverage: Coverage is highly variable, ranging from isolated spots to widespread areas, depending on the material's
+              properties and environmental factors.
+            pattern: It forms in patterns specific to the material, such as spots, streaks, or patches, influenced by its
+              structure and exposure.
+          stone:
+            appearance: Mineral staining on stone manifests as white, green, or brown crusty deposits or discolorations, often
+              giving a weathered or etched appearance.
+            coverage: Coverage is often patchy and uneven, varying from light spotting to heavy encrustation depending on
+              mineral content and environment.
+            pattern: It typically forms in patches, streaks, or uniform layers, especially in porous areas or along cracks
+              and edges.
+          wood:
+            appearance: On wood, mineral staining shows as dark brown, black, or gray discolorations, creating a blotchy or
+              streaked look that may alter the natural grain.
+            coverage: Coverage can range from small, isolated spots to extensive areas, with variation based on wood porosity
+              and exposure.
+            pattern: It often appears as streaks or patches following the wood grain or moisture paths, sometimes forming
+              irregular blotches.
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Mineral staining on ceramic shows as white, brown, or grayish spots or films, often with a chalky or
-            gritty texture on the glazed surface.
-          coverage: Coverage is typically localized and uneven, ranging from minor spots to larger stained areas based on
-            usage and maintenance.
-          pattern: It commonly appears as spots, streaks, or patches, especially around edges or in areas where water pools.
-        composite:
-          appearance: Mineral staining on composites manifests as discolored spots or streaks, often brown or white, that
-            may blend with or stand out from the material's varied texture.
-          coverage: Coverage is often uneven and localized, varying with the composite's porosity and environmental factors.
-          pattern: It typically appears as irregular patches or streaks, following the composite's layered or mixed structure.
-        concrete:
-          appearance: On concrete, mineral staining manifests as white, brown, or greenish efflorescence or discolorations,
-            often with a powdery or crystalline texture.
-          coverage: Coverage can range from light spotting to extensive areas, varying with concrete porosity and environmental
-            conditions.
-          pattern: It typically appears as patches, streaks, or uniform blooms, especially on surfaces where moisture evaporates.
-        fabric:
-          appearance: Mineral staining on fabric appears as discolored spots or streaks, often white, brown, or gray, that
-            can feel stiff or crusty on the textile.
-          coverage: Coverage is typically patchy and localized, ranging from small stains to larger areas depending on fabric
-            type and exposure.
-          pattern: It commonly forms as irregular spots or streaks, following fabric weave or moisture paths.
-        glass:
-          appearance: On glass, mineral staining appears as white, cloudy, or iridescent films or spots, often reducing transparency
-            and creating a hazy finish.
-          coverage: Coverage can be light and widespread or concentrated in spots, varying with water quality and cleaning
-            frequency.
-          pattern: It usually forms as uniform films, streaks, or spotty deposits, particularly in areas with water exposure
-            or hard water residue.
-        metal:
-          appearance: Mineral staining on metal appears as rust-colored, brown, or greenish deposits, often with a rough or
-            crusty texture that contrasts with the smooth metallic surface.
-          coverage: Coverage is usually partial and localized, varying from small spots to larger areas depending on environmental
-            exposure.
-          pattern: It typically forms in irregular spots, streaks, or patches, often concentrated in areas exposed to moisture
-            or contaminants.
-        mineral:
-          appearance: Mineral staining on other minerals appears as discolored patches or coatings, often in contrasting colors
-            like red or white, altering the natural luster and texture.
-          coverage: Coverage is often extensive and variable, ranging from thin films to thick encrustations based on geological
-            factors.
-          pattern: It usually forms as patches, veins, or uniform layers, depending on mineral interactions and deposition
-            processes.
-        plastic:
-          appearance: On plastic, mineral staining appears as white, cloudy, or discolored patches, often making the surface
-            look dull or etched.
-          coverage: Coverage is usually light and patchy, with variation depending on plastic type and exposure to mineral-rich
-            substances.
-          pattern: It tends to form as spots or streaks, particularly in scratched or porous areas where minerals can adhere.
-        rubber:
-          appearance: On rubber, mineral staining shows as white, gray, or brownish deposits, creating a powdery or streaked
-            look on the flexible surface.
-          coverage: Coverage is generally light and sporadic, with variation based on rubber composition and usage conditions.
-          pattern: It usually forms as spots or streaks, often in crevices or areas exposed to moisture and minerals.
-        semiconductor:
-          appearance: On semiconductors, mineral staining shows as discolored spots or films, often gray or brown, that can
-            interfere with surface conductivity and appearance.
-          coverage: Coverage is usually minimal and localized, with variation depending on manufacturing controls and cleanliness.
-          pattern: It typically appears as spots or uniform contamination, especially in areas exposed to processing chemicals
-            or environments.
-        specialty:
-          appearance: Mineral staining on specialty materials appears as discolored areas or deposits, varying in color and
-            texture based on the unique composition, often reducing aesthetic or functional qualities.
-          coverage: Coverage is highly variable, ranging from isolated spots to widespread areas, depending on the material's
-            properties and environmental factors.
-          pattern: It forms in patterns specific to the material, such as spots, streaks, or patches, influenced by its structure
-            and exposure.
-        stone:
-          appearance: Mineral staining on stone manifests as white, green, or brown crusty deposits or discolorations, often
-            giving a weathered or etched appearance.
-          coverage: Coverage is often patchy and uneven, varying from light spotting to heavy encrustation depending on mineral
-            content and environment.
-          pattern: It typically forms in patches, streaks, or uniform layers, especially in porous areas or along cracks and
-            edges.
-        wood:
-          appearance: On wood, mineral staining shows as dark brown, black, or gray discolorations, creating a blotchy or
-            streaked look that may alter the natural grain.
-          coverage: Coverage can range from small, isolated spots to extensive areas, with variation based on wood porosity
-            and exposure.
-          pattern: It often appears as streaks or patches following the wood grain or moisture paths, sometimes forming irregular
-            blotches.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.3
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 100
-          min_ns: 10
-          recommended_ns: 30
-        repetition_rate_khz:
-          max: 100
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.1
-          min: 0.03
-          recommended: 0.05
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 120
-          wavelength_532nm: 850
-        reflectivity:
-          wavelength_1064nm: 0.25
-          wavelength_355nm: 0.08
-          wavelength_532nm: 0.15
-        refractive_index:
-          imaginary_part: 0.12
-          real_part: 1.65
-        transmission_depth: 83.3
-      removal_characteristics:
-        byproducts:
-        - compound: silicon-dioxide
-          hazard_level: moderate
-          phase: solid
-        - compound: iron-oxide
-          hazard_level: low
-          phase: solid
-        - compound: carbon-dioxide
-          hazard_level: low
-          phase: gas
-        - compound: water-vapor
-          hazard_level: low
-          phase: gas
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 240
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 3
-          optimal_passes: 2
-          single_pass: 0.7
-        secondary_mechanisms:
-        - mechanical_spallation
-        - photochemical
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: compressive
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Silicon Dioxide (amorphous)
-          concentration_mg_m3: 5-25
-          exposure_limit_mg_m3: 10.0
-          hazard_class: irritant
-        - compound: Iron Oxide
-          concentration_mg_m3: 2-15
-          exposure_limit_mg_m3: 5.0
-          hazard_class: irritant
-        - compound: Manganese Oxide
-          concentration_mg_m3: 0.5-3
-          exposure_limit_mg_m3: 0.2
-          hazard_class: toxic
-        particulate_generation:
-          respirable_fraction: 0.7
-          size_range_um:
-          - 0.1
-          - 10.0
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: half_mask
-          skin_protection: gloves
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - May generate hazardous fumes if substrate contains lead-based paints or coatings
-        - Thermal stress can cause spalling on concrete surfaces
-        - Potential for reflective surfaces to redirect laser energy
-        toxic_gas_risk:
-          severity: low
-          primary_hazards:
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.3
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 100
+            min_ns: 10
+            recommended_ns: 30
+          repetition_rate_khz:
+            max: 100
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.1
+            min: 0.03
+            recommended: 0.05
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 120
+            wavelength_532nm: 850
+          reflectivity:
+            wavelength_1064nm: 0.25
+            wavelength_355nm: 0.08
+            wavelength_532nm: 0.15
+          refractive_index:
+            imaginary_part: 0.12
+            real_part: 1.65
+          transmission_depth: 83.3
+        removal_characteristics:
+          byproducts:
+          - compound: silicon-dioxide
+            hazard_level: moderate
+            phase: solid
+          - compound: iron-oxide
+            hazard_level: low
+            phase: solid
+          - compound: carbon-dioxide
+            hazard_level: low
+            phase: gas
+          - compound: water-vapor
+            hazard_level: low
+            phase: gas
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.7
+          secondary_mechanisms:
+          - mechanical_spallation
+          - photochemical
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: compressive
+            roughness_increase: minimal
+        safety_data:
+          fire_explosion_risk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumes_generated:
+          - compound: Silicon Dioxide (amorphous)
+            concentration_mg_m3: 5-25
+            exposure_limit_mg_m3: 10.0
+            hazard_class: irritant
+          - compound: Iron Oxide
+            concentration_mg_m3: 2-15
+            exposure_limit_mg_m3: 5.0
+            hazard_class: irritant
           - compound: Manganese Oxide
             concentration_mg_m3: 0.5-3
+            exposure_limit_mg_m3: 0.2
             hazard_class: toxic
-          description: Manganese Oxide generation detected - low toxicity risk
-          mitigation: N95 or P100 respirator for particulate control, standard ventilation
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA
-          minimum_air_changes_per_hour: 12
-          rationale: Standard industrial ventilation (12 ACH) for particulate control
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 2.2
-          pulse_duration_10ns: 1.5
-          wavelength_1064nm: 1.8
-        decomposition_temperature: 450
-        heat_affected_zone_depth: 15
-        melting_point: 850
-        specific_heat: 900
-        thermal_conductivity: 0.8
-        thermal_diffusivity: 0.3
-        vaporization_temperature: 1200
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
+          particulate_generation:
+            respirable_fraction: 0.7
+            size_range_um:
+            - 0.1
+            - 10.0
+          ppe_requirements:
+            eye_protection: goggles
+            respiratory: half_mask
+            skin_protection: gloves
+            rationale: Standard protection against workplace hazards
+          substrate_compatibility_warnings:
+          - May generate hazardous fumes if substrate contains lead-based paints or coatings
+          - Thermal stress can cause spalling on concrete surfaces
+          - Potential for reflective surfaces to redirect laser energy
+          toxic_gas_risk:
+            severity: low
+            primary_hazards:
+            - compound: Manganese Oxide
+              concentration_mg_m3: 0.5-3
+              hazard_class: toxic
+            description: Manganese Oxide generation detected - low toxicity risk
+            mitigation: N95 or P100 respirator for particulate control, standard ventilation
+          ventilation_requirements:
+            exhaust_velocity_m_s: 0.5
+            filtration_type: HEPA
+            minimum_air_changes_per_hour: 12
+            rationale: Standard industrial ventilation (12 ACH) for particulate control
+          visibility_hazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            related_field: particulate_generation.respirable_fraction
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 2.2
+            pulse_duration_10ns: 1.5
+            wavelength_1064nm: 1.8
+          decomposition_temperature: 450
+          heat_affected_zone_depth: 15
+          melting_point: 850
+          specific_heat: 900
+          thermal_conductivity: 0.8
+          thermal_diffusivity: 0.3
+          vaporization_temperature: 1200
+      _section:
+        section_title: Laser Parameters
+        section_description: Optimal laser settings and technical parameters for removal
+        icon: zap
+        order: 9
+        variant: default
   prohibited_materials:
     presentation: card
     _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
+      section_title: Prohibited Materials
+      section_description: Materials where laser removal of this contamination is not recommended
       icon: alert-triangle
       order: 7
       variant: danger
@@ -520,8 +510,8 @@ relationships:
             severity: moderate
             typical_context: ''
     _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
+      section_title: Found On Materials
+      section_description: Materials where this contaminant is commonly found
       icon: box
       order: 10
       variant: default
@@ -530,9 +520,3 @@ composition:
 - Fe₂O₃
 - MnO₂
 - CuO
-page_description: Mineral-stain contamination, it manifests as inorganic coatings from environmental deposition. These stains
-  form unique patterns, dependent from regional humidity and mineral sources, creating patchy, crystalline layers on surfaces.
-  On metals, the contamination adheres tenaciously, which resists laser ablation due to strong bonding. Stone substrates exhibit
-  looser attachment, that yields easier removal. Challenges arise in selective cleaning, where the process demands precise
-  energy control to avoid substrate damage. It appears that formation varies with exposure, leading to differential behaviors
-  across materials.

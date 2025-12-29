@@ -39,8 +39,12 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   const safetyData = laserPropertiesSection?.items?.[0]?.safety_data;
 
   // Use helper to safely access relationship sections
+  // New structure: interactions.produces_compounds, fallback: technical.produces_compounds
   const producesCompoundsSection = getRelationshipSection(
     relationships, 
+    'interactions.produces_compounds'
+  ) || getRelationshipSection(
+    relationships,
     'technical.produces_compounds'
   ) || getRelationshipSection(relationships, 'produces_compounds');
   
@@ -66,8 +70,12 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   ).then(items => items.filter(Boolean));
 
   // Use helper to safely access materials section
+  // New structure: interactions.affects_materials, fallback: technical.affects_materials
   const affectsMaterialsSection = getRelationshipSection(
     relationships, 
+    'interactions.affects_materials'
+  ) || getRelationshipSection(
+    relationships,
     'technical.affects_materials'
   ) || getRelationshipSection(relationships, 'found_on_materials');
   
@@ -98,7 +106,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
 
   // Configure sections for BaseContentLayout
   const sections: SectionConfig[] = [
-    // Relationship cards for produces_compounds
+    // Relationship cards for produces_compounds (interactions.produces_compounds or technical.produces_compounds)
     {
       component: CardGrid,
       condition: enrichedCompounds.length > 0,

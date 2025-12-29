@@ -3,8 +3,8 @@ name: Styrene
 display_name: Styrene (C₈H₈)
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-29T06:27:57.483584Z'
-dateModified: '2025-12-29T06:27:57.483584Z'
+datePublished: '2025-12-29T20:28:03.710672Z'
+dateModified: '2025-12-29T20:28:03.710672Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/aromatic-hydrocarbon/styrene-compound
@@ -167,7 +167,104 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
+  identity:
+    chemical_properties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: styrene-physical-data
+      _section:
+        section_title: Chemical Properties
+        section_description: Fundamental chemical characteristics and behavior
+        icon: microscope
+        order: 1
+        variant: default
+    physical_properties:
+      presentation: descriptive
+      items:
+      - boiling_point: 145°C (293°F)
+        melting_point: -30.6°C (-23°F)
+        vapor_pressure: 5 mmHg @ 20°C
+        vapor_density: 3.6 (Air=1)
+        specific_gravity: '0.906'
+        flash_point: 31°C (88°F) closed cup
+        autoignition_temp: 490°C (914°F)
+        explosive_limits: 'LEL: 1.1%, UEL: 6.1%'
+        appearance: Colorless to yellowish oily liquid
+        odor: Sweet, floral odor @ 0.05-0.5 ppm (odor fatigue occurs)
+      _section:
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
+        icon: gauge
+        section_description: Physical characteristics and state information
+        order: 2
+        variant: default
+    synonyms_identifiers:
+      presentation: descriptive
+      items:
+      - synonyms:
+        - Vinyl benzene
+        - Phenylethylene
+        - Cinnamene
+        - Styrol
+        - Ethenylbenzene
+        common_trade_names: []
+        other_identifiers:
+          rtecs_number: WL3675000
+          ec_number: 202-851-5
+          pubchem_cid: '7501'
+      _section:
+        section_title: Synonyms & Identifiers
+        description: Synonyms and chemical identifiers
+        icon: file-text
+        section_description: Alternative names and chemical identifiers (CAS numbers)
+        order: 14
+        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - type: health_effects
+        id: styrene-toxicology
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: NIOSH-approved organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
+        skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing. Styrene absorbs through skin.
+        eye: Chemical safety goggles, face shield for splash hazard.
+        minimum_level: Level C for <50 ppm, Level B for >50 ppm
+        special_notes: Neurotoxin and probable carcinogen (IARC 2B). Skin absorption significant. Extremely irritating. May
+          cause CNS depression.
+      _section:
+        section_title: PPE Requirements
+        description: Required safety equipment for handling this compound
+        icon: shield
+        section_description: Personal protective equipment needed for safe handling
+        order: 5
+        variant: warning
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Flammable liquid. May polymerize explosively in fire. Vapors heavier than air. May travel to ignition
+          sources.
+        fire_suppression: Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers.
+          Do not use water jet on liquid. Prevent contamination - polymerization hazard.
+        spill_procedures: Eliminate ignition sources. Ventilate area. Contain with sand or earth. Neutralize with sodium bisulfite.
+          Dispose as hazardous waste. Check stabilizer level before handling.
+        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
+          clothing - styrene penetrates. Wash skin thoroughly. Seek medical attention - neurotoxin and carcinogen exposure.
+          Monitor for CNS effects.'
+        environmental_hazards: Toxic to aquatic life. Bioaccumulates. Report spills >1000 lbs.
+        special_hazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). NEUROTOXIN - causes CNS depression, peripheral neuropathy. Irritating
+          to eyes, skin, respiratory tract. May polymerize explosively. Olfactory fatigue - cannot rely on odor. Metabolized
+          to styrene oxide (more toxic).
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: alert-triangle
+        section_description: First aid and emergency procedures for exposure incidents
+        order: 7
+        variant: danger
     exposure_limits:
       presentation: descriptive
       items:
@@ -201,293 +298,209 @@ relationships:
             timing: End of shift
             bei_value: 0.2 mg/L
       _section:
-        title: Exposure Limits
+        section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
         section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
-  chemical_properties:
-    presentation: descriptive
-    items:
-    - type: chemical_properties
-      id: styrene-physical-data
-    _section:
-      title: Chemical Properties
-      section_description: Fundamental chemical characteristics and behavior
-      icon: microscope
-      order: 1
-      variant: default
-  health_effects:
-    presentation: card
-    items:
-    - type: health_effects
-      id: styrene-toxicology
-  environmental_impact:
-    presentation: descriptive
-    items:
-    - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 4-10 mg/L.'
-      biodegradability: Readily biodegradable (>60% in 28 days).
-      bioaccumulation: 'Moderate bioaccumulation potential. BCF: 25-150. Log Kow: 2.95.'
-      soil_mobility: Moderate mobility. Adsorbs to soil organic matter. Volatilizes from soil.
-      atmospheric_fate: 'Photolyzes via hydroxyl radicals. Atmospheric half-life: 1-2 days. Forms ozone.'
-      ozone_depletion: false
-      global_warming_potential: null
-      reportable_releases:
-        water: 1000 lbs to navigable waters
-        air: 1000 lbs/day (CERCLA RQ)
-    _section:
-      title: Environmental Impact
-      description: Toxicity, biodegradability, and environmental fate
-      icon: wind
-      section_description: Environmental effects and ecological considerations
-      order: 8
-      variant: warning
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store below 32°C. Keep cool. Avoid excessive heat.
+        ventilation: Local exhaust ventilation. Mechanical ventilation with emergency backup.
+        incompatibilities:
+        - Oxidizers
+        - Peroxides
+        - Strong acids
+        - Aluminum chloride
+        - Copper
+        - Brass
+        - Iron
+        container_material: Stainless steel or aluminum. Must contain inhibitor (tert-butylcatechol). Check inhibitor level
+          regularly.
+        segregation: Separate from oxidizers by 20 feet. Flammable liquid storage cabinet.
+        quantity_limits: Minimize quantities. Follow NFPA 30 for flammable liquids.
+        special_requirements: 'CRITICAL: Store with polymerization inhibitor (10-15 ppm tert-butylcatechol). Monitor inhibitor
+          level monthly. Avoid light and heat. Post "FLAMMABLE" and "CANCER HAZARD" signs. Date containers.'
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: alert-triangle
+        section_description: Proper storage conditions and handling precautions
+        order: 13
+        variant: warning
+    regulatory_classification:
+      presentation: descriptive
+      items:
+      - un_number: UN2055 (monomer, stabilized)
+        dot_hazard_class: 3 (Flammable liquid)
+        dot_label: Flammable Liquid
+        nfpa_codes:
+          health: 2
+          flammability: 3
+          reactivity: 2
+          special: null
+        epa_hazard_categories:
+        - Flammability
+        - Acute toxicity
+        - Carcinogenicity (probable)
+        - Neurotoxicity
+        - Aquatic toxicity
+        sara_title_iii: true
+        cercla_rq: 1000 pounds (454 kg)
+        rcra_code: null
+      _section:
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
+        icon: file-text
+        section_description: Hazard classifications and regulatory designations
+        order: 12
+        variant: default
+  environmental:
+    environmental_impact:
+      presentation: descriptive
+      items:
+      - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 4-10 mg/L.'
+        biodegradability: Readily biodegradable (>60% in 28 days).
+        bioaccumulation: 'Moderate bioaccumulation potential. BCF: 25-150. Log Kow: 2.95.'
+        soil_mobility: Moderate mobility. Adsorbs to soil organic matter. Volatilizes from soil.
+        atmospheric_fate: 'Photolyzes via hydroxyl radicals. Atmospheric half-life: 1-2 days. Forms ozone.'
+        ozone_depletion: false
+        global_warming_potential: null
+        reportable_releases:
+          water: 1000 lbs to navigable waters
+          air: 1000 lbs/day (CERCLA RQ)
+      _section:
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
+        icon: wind
+        section_description: Environmental effects and ecological considerations
+        order: 8
+        variant: warning
   detection_monitoring:
-    presentation: descriptive
-    items:
-    - sensor_types:
-      - Photoionization detector (PID)
-      - Flame ionization detector (FID)
-      - Infrared
-      detection_range: 0-200 ppm typical
-      alarm_setpoints:
-        low: 20 ppm (ACGIH TLV)
-        high: 50 ppm (NIOSH REL)
-        evacuate: 700 ppm (NIOSH IDLH)
-      colorimetric_tubes:
-      - Dräger Styrene 1/a
-      - Gastec 132
-      analytical_methods:
-      - method: NIOSH 1501
-        technique: GC-FID
-        detection_limit: 0.005 ppm
-      - method: OSHA Method 89
-        technique: GC-FID
-        detection_limit: 0.01 ppm
-      odor_threshold: '0.05-0.5 ppm - WARNING: Olfactory fatigue occurs. Cannot rely on odor for protection.'
-    _section:
-      title: Detection & Monitoring
-      description: Methods for detecting and measuring this compound
-      icon: gauge
-      section_description: Methods and equipment for detecting and monitoring this compound
-      order: 6
-      variant: default
-  ppe_requirements:
-    presentation: descriptive
-    items:
-    - respiratory: NIOSH-approved organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
-      skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing. Styrene absorbs through skin.
-      eye: Chemical safety goggles, face shield for splash hazard.
-      minimum_level: Level C for <50 ppm, Level B for >50 ppm
-      special_notes: Neurotoxin and probable carcinogen (IARC 2B). Skin absorption significant. Extremely irritating. May
-        cause CNS depression.
-    _section:
-      title: PPE Requirements
-      description: Required safety equipment for handling this compound
-      icon: shield
-      section_description: Personal protective equipment needed for safe handling
-      order: 5
-      variant: warning
-  emergency_response:
-    presentation: descriptive
-    items:
-    - fire_hazard: Flammable liquid. May polymerize explosively in fire. Vapors heavier than air. May travel to ignition sources.
-      fire_suppression: Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers.
-        Do not use water jet on liquid. Prevent contamination - polymerization hazard.
-      spill_procedures: Eliminate ignition sources. Ventilate area. Contain with sand or earth. Neutralize with sodium bisulfite.
-        Dispose as hazardous waste. Check stabilizer level before handling.
-      exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
-        clothing - styrene penetrates. Wash skin thoroughly. Seek medical attention - neurotoxin and carcinogen exposure.
-        Monitor for CNS effects.'
-      environmental_hazards: Toxic to aquatic life. Bioaccumulates. Report spills >1000 lbs.
-      special_hazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). NEUROTOXIN - causes CNS depression, peripheral neuropathy. Irritating
-        to eyes, skin, respiratory tract. May polymerize explosively. Olfactory fatigue - cannot rely on odor. Metabolized
-        to styrene oxide (more toxic).
-    _section:
-      title: Emergency Response
-      description: Procedures for spills, exposure, and incidents
-      icon: alert-triangle
-      section_description: First aid and emergency procedures for exposure incidents
-      order: 7
-      variant: danger
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: plastic-residue-contamination
-      frequency: very_common
-      severity: high
-      typical_context: Thermal depolymerization of polystyrene
-      intensity: very_negative
-    - id: rubber-residue-contamination
-      frequency: common
-      severity: moderate
-      typical_context: Pyrolysis of styrene-butadiene rubber
-      intensity: negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  produced_from_materials:
-    presentation: card
-    items:
-    - id: ceramic-matrix-composites-cmcs-laser-cleaning
-    - id: epoxy-resin-composites-laser-cleaning
-    - id: fiberglass-laser-cleaning
-    - id: metal-matrix-composites-mmcs-laser-cleaning
-    - id: phenolic-resin-composites-laser-cleaning
-    - id: polyester-resin-composites-laser-cleaning
-    - id: urethane-composites-laser-cleaning
-    _section:
-      title: Produced From Materials
-      section_description: Materials that may release this compound during laser cleaning
-      icon: users
-      order: 10
-      variant: default
-  physical_properties:
-    presentation: descriptive
-    items:
-    - boiling_point: 145°C (293°F)
-      melting_point: -30.6°C (-23°F)
-      vapor_pressure: 5 mmHg @ 20°C
-      vapor_density: 3.6 (Air=1)
-      specific_gravity: '0.906'
-      flash_point: 31°C (88°F) closed cup
-      autoignition_temp: 490°C (914°F)
-      explosive_limits: 'LEL: 1.1%, UEL: 6.1%'
-      appearance: Colorless to yellowish oily liquid
-      odor: Sweet, floral odor @ 0.05-0.5 ppm (odor fatigue occurs)
-    _section:
-      title: Physical Properties
-      description: Chemical and physical characteristics
-      icon: gauge
-      section_description: Physical characteristics and state information
-      order: 2
-      variant: default
-  storage_requirements:
-    presentation: descriptive
-    items:
-    - temperature_range: Store below 32°C. Keep cool. Avoid excessive heat.
-      ventilation: Local exhaust ventilation. Mechanical ventilation with emergency backup.
-      incompatibilities:
-      - Oxidizers
-      - Peroxides
-      - Strong acids
-      - Aluminum chloride
-      - Copper
-      - Brass
-      - Iron
-      container_material: Stainless steel or aluminum. Must contain inhibitor (tert-butylcatechol). Check inhibitor level
-        regularly.
-      segregation: Separate from oxidizers by 20 feet. Flammable liquid storage cabinet.
-      quantity_limits: Minimize quantities. Follow NFPA 30 for flammable liquids.
-      special_requirements: 'CRITICAL: Store with polymerization inhibitor (10-15 ppm tert-butylcatechol). Monitor inhibitor
-        level monthly. Avoid light and heat. Post "FLAMMABLE" and "CANCER HAZARD" signs. Date containers.'
-    _section:
-      title: Storage Requirements
-      description: Safe storage conditions and compatibility
-      icon: alert-triangle
-      section_description: Proper storage conditions and handling precautions
-      order: 13
-      variant: warning
-  regulatory_classification:
-    presentation: descriptive
-    items:
-    - un_number: UN2055 (monomer, stabilized)
-      dot_hazard_class: 3 (Flammable liquid)
-      dot_label: Flammable Liquid
-      nfpa_codes:
-        health: 2
-        flammability: 3
-        reactivity: 2
-        special: null
-      epa_hazard_categories:
-      - Flammability
-      - Acute toxicity
-      - Carcinogenicity (probable)
-      - Neurotoxicity
-      - Aquatic toxicity
-      sara_title_iii: true
-      cercla_rq: 1000 pounds (454 kg)
-      rcra_code: null
-    _section:
-      title: Regulatory Classification
-      description: DOT, UN, and NFPA hazard classifications
-      icon: file-text
-      section_description: Hazard classifications and regulatory designations
-      order: 12
-      variant: default
-  reactivity:
-    presentation: descriptive
-    items:
-    - stability: UNSTABLE. Polymerizes when heated or contaminated. Inhibitor required.
-      polymerization: Exothermic polymerization with peroxides, oxidizers, or heat. May be explosive. Check inhibitor level.
-      incompatible_materials:
-      - Oxidizers
-      - Peroxides
-      - Strong acids
-      - Aluminum chloride
-      - Copper
-      - Brass
-      - Iron compounds
-      - Sulfuric acid
-      hazardous_decomposition:
-      - Carbon monoxide
-      - Carbon dioxide
-      - Toxic styrene vapors
-      - Benzene
-      conditions_to_avoid:
-      - Heat
-      - Light
-      - Oxidizers
-      - Peroxides
-      - Contamination
-      - Sparks
-      - Flames
-      reactivity_hazard: May polymerize violently. Reacts with oxidizers. Attacks some plastics, rubber, and coatings. Forms
-        peroxides on prolonged storage.
-    _section:
-      title: Reactivity
-      description: Chemical reactivity and incompatibilities
-      icon: flame
-      section_description: Chemical reactivity and compatibility with other substances
-      order: 11
-      variant: warning
-  synonyms_identifiers:
-    presentation: descriptive
-    items:
-    - synonyms:
-      - Vinyl benzene
-      - Phenylethylene
-      - Cinnamene
-      - Styrol
-      - Ethenylbenzene
-      common_trade_names: []
-      other_identifiers:
-        rtecs_number: WL3675000
-        ec_number: 202-851-5
-        pubchem_cid: '7501'
-    _section:
-      title: Synonyms & Identifiers
-      description: Synonyms and chemical identifiers
-      icon: file-text
-      section_description: Alternative names and chemical identifiers (CAS numbers)
-      order: 14
-      variant: default
-  operational:
-    health_effects:
+    detection_monitoring:
+      presentation: descriptive
+      items:
+      - sensor_types:
+        - Photoionization detector (PID)
+        - Flame ionization detector (FID)
+        - Infrared
+        detection_range: 0-200 ppm typical
+        alarm_setpoints:
+          low: 20 ppm (ACGIH TLV)
+          high: 50 ppm (NIOSH REL)
+          evacuate: 700 ppm (NIOSH IDLH)
+        colorimetric_tubes:
+        - Dräger Styrene 1/a
+        - Gastec 132
+        analytical_methods:
+        - method: NIOSH 1501
+          technique: GC-FID
+          detection_limit: 0.005 ppm
+        - method: OSHA Method 89
+          technique: GC-FID
+          detection_limit: 0.01 ppm
+        odor_threshold: '0.05-0.5 ppm - WARNING: Olfactory fatigue occurs. Cannot rely on odor for protection.'
+      _section:
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
+        icon: gauge
+        section_description: Methods and equipment for detecting and monitoring this compound
+        order: 6
+        variant: default
+  interactions:
+    produced_from_contaminants:
       presentation: card
       items:
-      - type: health_effects
-        id: styrene-toxicology
+      - id: plastic-residue-contamination
+        frequency: very_common
+        severity: high
+        typical_context: Thermal depolymerization of polystyrene
+      - id: rubber-residue-contamination
+        frequency: common
+        severity: moderate
+        typical_context: Pyrolysis of styrene-butadiene rubber
       _section:
-        title: Health Effects
-        section_description: Potential health impacts from exposure
-        icon: activity
-        order: 1
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+    produced_from_materials:
+      presentation: card
+      items:
+      - id: ceramic-matrix-composites-cmcs-laser-cleaning
+      - id: epoxy-resin-composites-laser-cleaning
+      - id: fiberglass-laser-cleaning
+      - id: metal-matrix-composites-mmcs-laser-cleaning
+      - id: phenolic-resin-composites-laser-cleaning
+      - id: polyester-resin-composites-laser-cleaning
+      - id: urethane-composites-laser-cleaning
+      _section:
+        section_title: Produced From Materials
+        section_description: Materials that may release this compound during laser cleaning
+        icon: users
+        order: 10
+        variant: default
+    reactivity:
+      presentation: descriptive
+      items:
+      - stability: UNSTABLE. Polymerizes when heated or contaminated. Inhibitor required.
+        polymerization: Exothermic polymerization with peroxides, oxidizers, or heat. May be explosive. Check inhibitor level.
+        incompatible_materials:
+        - Oxidizers
+        - Peroxides
+        - Strong acids
+        - Aluminum chloride
+        - Copper
+        - Brass
+        - Iron compounds
+        - Sulfuric acid
+        hazardous_decomposition:
+        - Carbon monoxide
+        - Carbon dioxide
+        - Toxic styrene vapors
+        - Benzene
+        conditions_to_avoid:
+        - Heat
+        - Light
+        - Oxidizers
+        - Peroxides
+        - Contamination
+        - Sparks
+        - Flames
+        reactivity_hazard: May polymerize violently. Reacts with oxidizers. Attacks some plastics, rubber, and coatings. Forms
+          peroxides on prolonged storage.
+      _section:
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
+        icon: flame
+        section_description: Chemical reactivity and compatibility with other substances
+        order: 11
         variant: warning
+  ppe_requirements: 'Handling styrene-based compounds demands careful protection against their irritating nature, unlike milder
+    plastics that barely bother the skin—here, exposure can sting eyes, airways, and surfaces quickly, so gear up thoroughly
+    to stay safe during mixing, molding, or cleanup tasks.
+
+
+    Workers in factories shaping these materials into durable sheets or foams should always don sealed goggles, shielding
+    eyes from any misty vapors or accidental splashes that arise in heated environments. Thick, chemical-resistant gloves
+    form the next layer, gripping tools firmly while blocking the sticky residue from seeping through and causing rashes on
+    hands or arms; pair them with full-cover aprons or suits to safeguard clothing and body from drips during pouring or assembly
+    lines.
+
+
+    Breathing becomes tricky around the sharp odors released in high-volume production or when grinding scraps, so a fitted
+    respirator with cartridges tuned for organic irritants keeps lungs clear, especially in enclosed spaces lacking strong
+    airflow. For specialized jobs like laser cleaning these compounds—zapping away contaminants without harsh chemicals—add
+    face shields over goggles to deflect any scattered particles or reflected light, ensuring visibility stays sharp amid
+    the process''s intense focus.
+
+
+    Ventilation hoods or fans prove essential too, whisking away fumes before they build up, and after shifts, thorough washing
+    stations help rinse off any lingering traces. This setup not only eases the irritant risks but supports smooth operations
+    in industries relying on styrene''s versatile strength for packaging or insulation.'
   images:
     hero:
       url: /images/compound/styrene-compound-hero.jpg
@@ -499,7 +512,6 @@ relationships:
       alt: Styrene microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Styrene (C₈H₈)
 subcategory: aromatic_hydrocarbon
 faq:
 - question: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective

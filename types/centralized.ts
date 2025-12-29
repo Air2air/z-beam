@@ -196,6 +196,7 @@ export interface ArticleMetadata {
   author?: Author; // Author object from YAML
   lastModified?: string;
   datePublished?: string;
+  /** @deprecated Use images.hero.url instead */
   image?: string;
   excerpt?: string;
   keywords?: string[];
@@ -204,15 +205,79 @@ export interface ArticleMetadata {
   relatedArticles?: string[];
   references?: string[];
   targetAudience?: string;
+  /** @deprecated Use content_type instead */
   articleType?: string;
-  content_type?: string; // Content type for structured data
+  content_type?: string; // Content type for structured data (canonical field)
   canonical?: string; // Canonical URL for SEO
   
   // Enhanced frontmatter fields
   chemicalProperties?: ChemicalProperties;
   properties?: Record<string, PropertyWithUnits>;
   
+  // Standardized relationships structure (canonical paths)
+  relationships?: {
+    interactions?: {
+      contaminated_by?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+      treated_for?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+      removed_by?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+      produces_compounds?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+      affects_materials?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+    };
+    technical?: {
+      contaminated_by?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+      treated_for?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+      removed_by?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+    };
+    safety?: {
+      regulatory_standards?: {
+        items?: any[];
+        presentation?: string;
+        _section?: any;
+      };
+    };
+    // Legacy fallback: direct relationship arrays (deprecated)
+    contaminated_by?: any;
+    treated_for?: any;
+    removed_by?: any;
+    materialProperties?: any;
+    regulatory_standards?: any;
+    regulatory?: any;
+  };
+  
   // Image structure for hero and other images
+  /** @deprecated Use images.hero instead */
   hero?: {
     url?: string;
     alt?: string;
@@ -575,6 +640,8 @@ export interface FrontmatterType {
   /** Publication date in ISO format */
   datePublished?: string;
   /** Last modification date in ISO format */
+  lastModified?: string;
+  /** @deprecated Use lastModified instead */
   dateModified?: string;
 }
 
@@ -2383,6 +2450,8 @@ export interface ListingSchema {
   description: string;
   author: string | { name: string; [key: string]: unknown };
   datePublished: string;
+  lastModified?: string;
+  /** @deprecated Use lastModified instead */
   dateModified?: string;
   url: string;
   image?: string;
@@ -2408,6 +2477,8 @@ export interface ArticleSchema {
   description: string;
   author: string | PersonSchema;
   datePublished: string;
+  lastModified?: string;
+  /** @deprecated Use lastModified instead */
   dateModified?: string;
   url: string;
   image?: string;
@@ -2832,6 +2903,8 @@ export interface CategoryData {
  */
 export interface TimestampData {
   datePublished?: string;
+  lastModified?: string;
+  /** @deprecated Use lastModified instead */
   dateModified?: string;
   [key: string]: unknown;
 }
@@ -3060,44 +3133,29 @@ export interface EnhancedMachineSettings {
   material_challenges?: MaterialChallenges;
   expected_outcomes?: DetailedQualityMetrics;
   common_issues?: TroubleshootingIssue[];
+  // Index signature for compatibility with base MachineSettings type
+  [key: string]: any;
 }
 
 /**
  * Settings page metadata (separate from ArticleMetadata to avoid conflicts)
  */
-export interface SettingsMetadata {
-  name: string;
-  materialRef?: string; // NEW: Reference to material frontmatter for property inheritance
-  category: string;
-  subcategory: string;
-  title: string;
-  subtitle?: string;
-  description: string;
-  slug?: string;
-  content_type?: string;
+/**
+ * Settings metadata for laser cleaning machine parameters
+ * Extends ArticleMetadata to ensure consistent SEO and display fields across all content types
+ * 
+ * Inheritance ensures settings pages have same metadata capabilities as materials/contaminants/compounds
+ */
+export interface SettingsMetadata extends ArticleMetadata {
+  name: string; // Settings-specific name field (in addition to inherited title)
+  materialRef?: string; // Reference to material frontmatter for property inheritance
   schema_version?: string;
   active?: boolean;
-  author?: Author;
-  datePublished?: string;
-  dateModified?: string;
-  breadcrumb?: BreadcrumbItem[];
-  images?: {
-    hero?: {
-      url: string;
-      alt: string;
-      width?: number;
-      height?: number;
-    };
-    micro?: {
-      url: string;
-      alt: string;
-    };
-  };
   
   // Unified help system (FAQ and troubleshooting)
   help?: HelpSection[];
   
-  // Legacy format support (machineSettings.essential_parameters)
+  // Override base machineSettings with enhanced version for settings pages
   machineSettings?: EnhancedMachineSettings;
   
   // NEW: Hybrid approach component-specific structure
@@ -3880,6 +3938,8 @@ export interface ButtonIconProps {
 
 export interface DatePanelProps {
   datePublished?: string;
+  lastModified?: string;
+  /** @deprecated Use lastModified instead */
   dateModified?: string;
   className?: string;
 }
@@ -4006,13 +4066,6 @@ export interface SettingValue {
  * Settings Layout Props - Extends base LayoutProps for consistency
  * Normalized to match MaterialsLayoutProps and ContaminantsLayoutProps pattern
  */
-export interface SettingsLayoutProps extends LayoutProps {
-  materialProperties?: any;
-  category: string;
-  subcategory: string;
-  slug: string;
-}
-
 /**
  * Content Section component interfaces
  */

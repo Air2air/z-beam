@@ -42,11 +42,14 @@ function prepareSettingsData(
   settings: SettingsMetadata,
   materialProperties?: any
 ) {
-  // Access relationships structure
+  // Access relationships structure (supports both new and old structure)
   const relationships = (settings as any)?.relationships || {};
   
   // Extract parameters from hybrid or legacy format
+  // New structure: operational.machine_settings, fallback: technical.machine_settings
   const parametersRaw = settings.components?.parameter_relationships?.parameters 
+    || relationships?.operational?.machine_settings?.essential_parameters
+    || relationships?.technical?.machine_settings?.essential_parameters
     || relationships?.machine_settings?.essential_parameters;
   
   console.log('SettingsLayout machine_settings:', JSON.stringify(relationships?.machine_settings, null, 2));
@@ -620,11 +623,11 @@ export function SettingsLayout({
         )
       ))}
 
-      {/* Descriptive data sections */}
-      {relationships?.technical?.common_challenges?.items?.length > 0 && (
+      {/* Descriptive data sections (operational.common_challenges or technical.common_challenges) */}
+      {(relationships?.operational?.common_challenges?.items?.length > 0 || relationships?.technical?.common_challenges?.items?.length > 0) && (
         <DescriptiveDataPanel
-          items={relationships.technical.common_challenges.items}
-          sectionMetadata={relationships.technical.common_challenges._section}
+          items={(relationships?.operational?.common_challenges?.items || relationships?.technical?.common_challenges?.items)}
+          sectionMetadata={(relationships?.operational?.common_challenges?._section || relationships?.technical?.common_challenges?._section)}
         />
       )}
 

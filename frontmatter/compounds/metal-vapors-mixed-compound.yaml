@@ -3,8 +3,8 @@ name: Metal Vapors (Mixed)
 display_name: Metal Vapors (Mixed)
 category: vapor
 hazard_class: irritant
-datePublished: '2025-12-29T06:28:15.958640Z'
-dateModified: '2025-12-29T06:28:15.958640Z'
+datePublished: '2025-12-29T20:28:25.481537Z'
+dateModified: '2025-12-29T20:28:25.481537Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/vapor/metal/metal-vapors-mixed-compound
@@ -157,61 +157,54 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: annealing-scale-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Heat Treatment Scale
-      intensity: negative
-    - id: brass-plating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Brass Coating Removal
-      intensity: negative
-    - id: bronze-patina-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of Bronze Patina and Corrosion
-      intensity: very_negative
-    - id: nickel-plating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Electroless Nickel Plating
-      intensity: negative
-    - id: nickel-plating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Electroless Nickel Plating
-      intensity: negative
-    - id: nickel-plating-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of Electroless Nickel Plating
-      intensity: very_negative
-    - id: passivation-defect-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Passivation Layer Irregularities
-      intensity: negative
-    - id: plasma-spray-contamination
-      frequency: unknown
-      severity: high
-      typical_context: Laser removal of Thermal Spray Coating
-      intensity: very_negative
-    - id: pvd-coating-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of PVD Coating Defects
-      intensity: negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: annealing-scale-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Heat Treatment Scale
+      - id: brass-plating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Brass Coating Removal
+      - id: bronze-patina-contamination
+        frequency: unknown
+        severity: high
+        typical_context: Laser removal of Bronze Patina and Corrosion
+      - id: nickel-plating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Electroless Nickel Plating
+      - id: nickel-plating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Electroless Nickel Plating
+      - id: nickel-plating-contamination
+        frequency: unknown
+        severity: high
+        typical_context: Laser removal of Electroless Nickel Plating
+      - id: passivation-defect-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Passivation Layer Irregularities
+      - id: plasma-spray-contamination
+        frequency: unknown
+        severity: high
+        typical_context: Laser removal of Thermal Spray Coating
+      - id: pvd-coating-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of PVD Coating Defects
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: 'Handling metal-vapors-mixed-compound in industrial setups demands careful gear choices, especially when
     vapors linger in the air during processing. Workers often start by suiting up with full-body coverings that shield against
     fine particles and gaseous releases—think impermeable suits crafted from tough, chemical-resistant fabrics to keep skin
@@ -244,7 +237,6 @@ relationships:
       alt: Metal Vapors (Mixed) microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Metal Vapors (Mixed)
 subcategory: metal
 faq:
 - question: What are the best protection methods against mixed metal vapor exposure during laser cleaning operations?

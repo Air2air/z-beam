@@ -114,7 +114,7 @@ export const schemas = {
       ? { '@type': 'Person', name: data.author }
       : { '@type': 'Person', ...data.author },
     datePublished: data.datePublished,
-    dateModified: data.dateModified || data.datePublished,
+    dateModified: (data as any).lastModified || data.dateModified || data.datePublished,
     url: data.url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -136,7 +136,7 @@ export const schemas = {
       ? { '@type': 'Person', name: data.author }
       : { '@type': 'Person', ...data.author },
     datePublished: data.datePublished,
-    dateModified: data.dateModified || data.datePublished,
+    dateModified: data.lastModified || data.dateModified || data.datePublished,
     url: data.url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -179,7 +179,7 @@ export const schemas = {
     description: data.description,
     author: getAuthorObject(data.author),
     datePublished: data.datePublished,
-    dateModified: data.dateModified || data.datePublished,
+    dateModified: (data as any).lastModified || data.dateModified || data.datePublished,
     url: data.url,
     mainEntityOfPage: {
       '@type': 'WebPage',

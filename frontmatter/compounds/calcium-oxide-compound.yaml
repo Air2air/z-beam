@@ -3,8 +3,8 @@ name: Calcium Oxide
 display_name: Calcium Oxide (CaO)
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T06:28:12.963647Z'
-dateModified: '2025-12-29T06:28:12.963647Z'
+datePublished: '2025-12-29T20:28:21.942528Z'
+dateModified: '2025-12-29T20:28:21.942528Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/calcium-oxide-compound
@@ -161,61 +161,54 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: concrete-dust-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Concrete Dust Deposits
-      intensity: slightly_negative
-    - id: coolant-scale-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Engine Coolant Scale
-      intensity: slightly_negative
-    - id: efflorescence-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Concrete Efflorescence
-      intensity: slightly_negative
-    - id: efflorescence-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Concrete Efflorescence
-      intensity: negative
-    - id: lime-scale-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Limescale Deposits
-      intensity: negative
-    - id: lime-scale-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Limescale Deposits
-      intensity: negative
-    - id: mineral-deposits-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Hard Water Mineral Scale
-      intensity: slightly_negative
-    - id: scale-buildup-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Mineral Scale / Hard Water Deposits
-      intensity: negative
-    - id: scale-buildup-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Mineral Scale / Hard Water Deposits
-      intensity: negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: concrete-dust-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Concrete Dust Deposits
+      - id: coolant-scale-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Engine Coolant Scale
+      - id: efflorescence-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Concrete Efflorescence
+      - id: efflorescence-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Concrete Efflorescence
+      - id: lime-scale-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Limescale Deposits
+      - id: lime-scale-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Limescale Deposits
+      - id: mineral-deposits-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Hard Water Mineral Scale
+      - id: scale-buildup-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Mineral Scale / Hard Water Deposits
+      - id: scale-buildup-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Mineral Scale / Hard Water Deposits
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: 'Handling calcium oxide in its particulate form demands careful protection against its reactive and dusty
     nature. Skin contact can lead to severe irritation from its alkaline properties, so impermeable gloves and full-body coverings
     like aprons or suits are essential to shield exposed areas. Eyes face high risk from flying particles or splashes, making
@@ -241,7 +234,6 @@ relationships:
       alt: Calcium Oxide microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Calcium Oxide (CaO)
 subcategory: metal_oxide
 faq:
 - question: What skin protection methods should I use when handling calcium oxide (CaO) particulates during laser cleaning

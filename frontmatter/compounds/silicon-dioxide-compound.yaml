@@ -3,8 +3,8 @@ name: Silicon Dioxide
 display_name: Silicon Dioxide (SiO₂)
 category: particulate
 hazard_class: respiratory_hazard
-datePublished: '2025-12-29T06:28:12.197879Z'
-dateModified: '2025-12-29T06:28:12.197879Z'
+datePublished: '2025-12-29T20:28:21.084236Z'
+dateModified: '2025-12-29T20:28:21.084236Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/mineral/silicon-dioxide-compound
@@ -165,41 +165,38 @@ card:
     severity: low
     icon: alert-triangle
 relationships:
-  produced_from_contaminants:
-    presentation: card
-    items:
-    - id: asbestos-coating-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Asbestos-Containing Material
-      intensity: slightly_negative
-    - id: aviation-sealant-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Aerospace Sealant Residue
-      intensity: slightly_negative
-    - id: mineral-stain-contamination
-      frequency: unknown
-      severity: moderate
-      typical_context: Laser removal of Mineral Staining
-      intensity: negative
-    - id: road-grime-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Automotive Road Grime
-      intensity: slightly_negative
-    - id: silicone-buildup-contamination
-      frequency: unknown
-      severity: low
-      typical_context: Laser removal of Silicone Sealant Buildup
-      intensity: slightly_negative
-    _section:
-      title: Produced From Contaminants
-      section_description: Contaminants that generate this compound during laser cleaning
-      icon: droplet
-      order: 9
-      variant: default
-  health_effects: null
+  interactions:
+    produced_from_contaminants:
+      presentation: card
+      items:
+      - id: asbestos-coating-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Asbestos-Containing Material
+      - id: aviation-sealant-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Aerospace Sealant Residue
+      - id: mineral-stain-contamination
+        frequency: unknown
+        severity: moderate
+        typical_context: Laser removal of Mineral Staining
+      - id: road-grime-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Automotive Road Grime
+      - id: silicone-buildup-contamination
+        frequency: unknown
+        severity: low
+        typical_context: Laser removal of Silicone Sealant Buildup
+      _section:
+        section_title: Produced From Contaminants
+        section_description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 9
+        variant: default
+  safety:
+    health_effects: null
   ppe_requirements: Handling silicon dioxide particulates starts with assessing the workspace setup, where fine dust particles
     can linger in the air during mixing or processing. Dust masks or respirators come first to shield lungs from inhaling
     these tiny fragments, especially in grinding or blasting tasks. Gloves protect hands from skin irritation caused by prolonged
@@ -219,7 +216,6 @@ relationships:
       alt: Silicon Dioxide microscopic detail view showing surface characteristics
       width: 800
       height: 600
-title: Silicon Dioxide (SiO₂)
 subcategory: mineral
 faq:
 - question: As a laser cleaning operator, what protection methods should I use to minimize exposure to silicon dioxide (SiO₂)
