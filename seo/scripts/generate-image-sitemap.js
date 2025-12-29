@@ -39,12 +39,23 @@ async function findImages(dir, baseDir = dir, images = []) {
       const fullPath = path.join(dir, entry.name);
       
       if (entry.isDirectory()) {
+        // Skip icon, icons, application, favicon, author directories
+        if (entry.name === 'icon' || entry.name === 'icons' || entry.name === 'application' || entry.name === 'favicon' || entry.name === 'author') {
+          continue;
+        }
         await findImages(fullPath, baseDir, images);
       } else if (entry.isFile()) {
         const ext = path.extname(entry.name).toLowerCase();
         if (IMAGE_EXTENSIONS.includes(ext)) {
           const relativePath = path.relative(PUBLIC_DIR, fullPath);
           const urlPath = '/' + relativePath.split(path.sep).join('/');
+          
+          // Skip icon, icons, application, favicon, author images
+          if (relativePath.includes('/icon/') || relativePath.includes('/icons/') || 
+              relativePath.includes('/application/') || relativePath.includes('/favicon/') ||
+              relativePath.includes('/author/')) {
+            continue;
+          }
           
           // Get file stats for lastmod
           const stats = await fs.stat(fullPath);
@@ -53,7 +64,7 @@ async function findImages(dir, baseDir = dir, images = []) {
             loc: urlPath,
             lastmod: stats.mtime.toISOString().split('T')[0],
             title: generateTitle(entry.name),
-            caption: generateCaption(relativePath),
+            caption: generateCaption(relativePath, entry.name),
           });
         }
       }
@@ -73,31 +84,41 @@ function generateTitle(filename) {
   return filename
     .replace(/\.(jpg|jpeg|png|gif|webp|svg)$/i, '')
     .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, char => char.toUpperCase());
+    .replace(/\b\w/g, char => char.toUpperCase())
+    .replace(/ Hero$/i, '')  // Remove 'Hero' suffix
+    .replace(/ Micro$/i, ' 1000x');  // Replace 'Micro' with '1000x'
 }
 
 /**
- * Generate a caption based on the image path
+ * Generate a caption based on the image path and filename
  */
-function generateCaption(relativePath) {
+function generateCaption(relativePath, filename) {
   const parts = relativePath.split(path.sep);
+  const baseName = filename.replace(/\.(jpg|jpeg|png|gif|webp|svg)$/i, '');
   
-  // Extract context from path
+  // Extract context from filename for more descriptive captions
+  const readableName = baseName
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase())
+    .replace(/ Hero$/i, '')
+    .replace(/ Micro$/i, ' 1000x magnification');
+  
+  // Add context based on path
   if (parts.includes('materials')) {
-    return 'Laser cleaning solution for industrial materials';
+    return `${readableName} - Laser cleaning solution for industrial materials`;
   } else if (parts.includes('contaminants')) {
-    return 'Contamination removal using laser technology';
+    return `${readableName} - Contamination removal using laser technology`;
   } else if (parts.includes('equipment')) {
-    return 'Industrial laser cleaning equipment';
+    return `${readableName} - Industrial laser cleaning equipment`;
   } else if (parts.includes('services')) {
-    return 'Professional laser cleaning services';
+    return `${readableName} - Professional laser cleaning services`;
   } else if (parts.includes('safety')) {
-    return 'Laser cleaning safety and compliance';
+    return `${readableName} - Laser cleaning safety and compliance`;
   } else if (parts.includes('compounds')) {
-    return 'Hazardous compound identification and safety data';
+    return `${readableName} - Hazardous compound identification and safety data`;
   }
   
-  return 'Z-Beam industrial laser cleaning technology';
+  return `${readableName} - Z-Beam industrial laser cleaning technology`;
 }
 
 /**

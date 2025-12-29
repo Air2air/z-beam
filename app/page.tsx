@@ -86,8 +86,8 @@ export default async function HomePage() {
           contactPoint: {
             '@type': 'ContactPoint',
             contactType: 'Customer Service',
-            email: SITE_CONFIG.contact.email,
-            telephone: SITE_CONFIG.contact.phone,
+            email: SITE_CONFIG.contact.general.email,
+            telephone: SITE_CONFIG.contact.general.phone,
             availableLanguage: 'en'
           },
           sameAs: [

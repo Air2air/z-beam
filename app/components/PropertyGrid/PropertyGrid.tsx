@@ -8,6 +8,7 @@ interface PropertyGridProps {
   metadata: any;
   dataSource?: 'materialProperties' | 'machineSettings';
   title?: string;
+  description?: string;  // Optional description
   materialName?: string;
   icon?: React.ReactNode;
   actionText?: string;

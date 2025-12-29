@@ -36,6 +36,9 @@ export default function DatasetSection({
     try {
       setIsDownloading(true);
       const url = getCurrentUrl();
+      if (!url) {
+        throw new Error('Download URL not available');
+      }
       const a = document.createElement('a');
       a.href = url;
       a.download = url.split('/').pop() || '';

@@ -185,9 +185,11 @@ export interface EquipmentItem {
 export interface ArticleMetadata {
   id?: string;
   title: string;
-  description?: string;
+  /** @deprecated Use page_description instead */
+  description?: string;  // Deprecated - use page_description
+  page_description?: string;  // Preferred field name
   contamination_description?: string;  // Added for contaminants
-  // Note: All content types (materials, settings, etc.) use the 'description' field
+  // Note: All content types (materials, settings, etc.) should use page_description
   slug: string;
   category?: string;
   tags?: string[];
@@ -2786,11 +2788,17 @@ export interface DatasetSectionProps {
     value: string | number;
     label: string;
   }>;
-  jsonUrl: string;
-  csvUrl: string;
-  txtUrl: string;
+  formats?: string[];  // Optional formats array
+  onDownload?: (format: 'json' | 'csv' | 'txt') => void | Promise<void>;  // Download handler
+  getDirectLink?: (format: 'json' | 'csv' | 'txt') => string;  // Get direct download link
+  includes?: string[];  // Optional includes array
+  note?: string;  // Optional note
+  jsonUrl?: string;  // Optional if onDownload provided
+  csvUrl?: string;   // Optional if onDownload provided
+  txtUrl?: string;   // Optional if onDownload provided
   category?: string;
   categoryLabel?: string;
+  categoryLink?: { href: string; label: string };  // Optional category link
   fullDatasetLink?: boolean;
 }
 

@@ -46,7 +46,7 @@
     "validate:jsonld:syntax": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
     "validate:jsonld:rendering": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
     "prebuild": "npm run validate:content && npm run validate:naming:semantic && npm run validate:types",
-    "postbuild": "npm run validate:urls && npm run validate:seo:advanced",
+    "postbuild": "npm run generate:image-sitemap && npm run validate:urls && npm run validate:seo:advanced",
     "postdeploy": "npm run validate:production:comprehensive",
     "build:analyze": "ANALYZE=true npm run build",
     "verify:sitemap": "bash scripts/sitemap/verify-sitemap.sh",
