@@ -76,20 +76,20 @@ describe('Semantic Naming Conventions', () => {
       }
     });
     
-    test('helpers should support both metadata and frontmatter for backward compatibility', () => {
+    test('helpers should support frontmatter and deprecate metadata wrapper', () => {
       const helperFile = path.join(ROOT_DIR, 'app/utils/schemas/helpers.ts');
       const content = readFile(helperFile);
       
       // Should have getMetadata function that supports both
-      expect(content).toContain('metadata');
       expect(content).toContain('frontmatter');
+      expect(content).toContain('metadata');
       
-      // Should check metadata before frontmatter (priority order)
-      const metadataIndex = content.indexOf('data.metadata');
+      // Should check frontmatter before metadata (priority order - frontmatter is standard)
       const frontmatterIndex = content.indexOf('data.frontmatter');
-      expect(metadataIndex).toBeGreaterThan(0);
+      const metadataIndex = content.indexOf('data.metadata');
       expect(frontmatterIndex).toBeGreaterThan(0);
-      expect(metadataIndex).toBeLessThan(frontmatterIndex);
+      expect(metadataIndex).toBeGreaterThan(0);
+      expect(frontmatterIndex).toBeLessThan(metadataIndex);
     });
   });
   

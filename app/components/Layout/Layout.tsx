@@ -139,6 +139,11 @@ export function Layout(props: LayoutProps) {
             level="page" 
             title={title || metadata?.title || 'Article'} 
             page_description={(() => {
+              // First priority: page_description field (from frontmatter)
+              if (metadata?.page_description) {
+                return typeof metadata.page_description === 'string' ? metadata.page_description : undefined;
+              }
+              // Fallback: description or contamination_description
               const desc = metadata?.description || metadata?.contamination_description;
               if (typeof desc === 'object' && desc !== null && 'before' in desc) {
                 return (desc as { before?: string }).before;

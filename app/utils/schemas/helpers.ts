@@ -2,9 +2,9 @@
  * Schema Data Access Helpers
  * 
  * Provides normalized access to metadata/frontmatter across different data structures.
- * Handles inconsistency between contentAPI (returns metadata) and static pages (legacy frontmatter).
+ * Handles inconsistency between contentAPI (returns frontmatter) and static pages.
  * 
- * @terminology Updated Dec 26, 2025: "metadata" is now canonical, "frontmatter" supported for backward compatibility
+ * @terminology Updated Dec 28, 2025: "frontmatter" is canonical, "metadata" wrapper is DEPRECATED
  */
 
 /**
@@ -12,27 +12,24 @@
  * 
  * Priority order:
  * 1. Settings objects with machineSettings at top level (return directly)
- * 2. data.metadata (preferred - new standard)
- * 3. data.frontmatter (legacy - backward compatibility)
- * 4. data.pageConfig (legacy structure)
+ * 2. data.frontmatter (standard wrapper)
+ * 3. data.pageConfig (legacy structure)
+ * 4. data.metadata (DEPRECATED - use frontmatter instead)
  * 5. data itself (fallback - the object IS the metadata)
  * 
  * Settings pages pass the SettingsMetadata object directly, which IS the metadata.
  * They have machineSettings at the top level with no nesting.
+ * 
+ * @deprecated The `metadata` wrapper is deprecated. Use `frontmatter` wrapper or direct data access.
  */
 export function getMetadata(data: any): Record<string, unknown> {
   // PRIORITY: Settings objects have machineSettings at top level (flat structure)
-  // Return them directly to avoid metadata wrapper confusion
+  // Return them directly to avoid wrapper confusion
   if (data.machineSettings && typeof data.machineSettings === 'object' && !data.frontmatter && !data.metadata) {
     return data as Record<string, unknown>;
   }
   
-  // Check for explicit metadata wrapper (used in some tests and API responses)
-  if (data.metadata && typeof data.metadata === 'object' && Object.keys(data.metadata).length > 0) {
-    return data.metadata as Record<string, unknown>;
-  }
-  
-  // Check for explicit frontmatter wrapper (Material/Contaminant pages)
+  // Check for explicit frontmatter wrapper (Material/Contaminant pages - STANDARD)
   if (data.frontmatter && typeof data.frontmatter === 'object' && Object.keys(data.frontmatter).length > 0) {
     return data.frontmatter as Record<string, unknown>;
   }
@@ -40,6 +37,12 @@ export function getMetadata(data: any): Record<string, unknown> {
   // Legacy pageConfig structure
   if (data.pageConfig && typeof data.pageConfig === 'object') {
     return data.pageConfig as Record<string, unknown>;
+  }
+  
+  // DEPRECATED: metadata wrapper - keeping for backward compatibility only
+  if (data.metadata && typeof data.metadata === 'object' && Object.keys(data.metadata).length > 0) {
+    console.warn('[DEPRECATED] Using data.metadata wrapper. Use data.frontmatter or direct data access instead.');
+    return data.metadata as Record<string, unknown>;
   }
   
   // Fallback: the data object itself is the frontmatter

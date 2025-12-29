@@ -52,7 +52,7 @@ export function SectionTitle({
       {!showFallback ? (
         <Image
           src={thumbnail!}
-          alt={thumbnailAlt || ''}
+          alt={thumbnailAlt || `${title} section thumbnail`}
           width={96}
           height={56}
           className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ export function SectionTitle({
         <div className="w-full h-full flex items-center justify-center bg-tertiary group">
           <Image
             src="/images/logo/logo-zbeam.png"
-            alt=""
+            alt="Z-Beam logo placeholder"
             width={150}
             height={50}
             className="opacity-40 group-hover:opacity-100 transition-opacity"
@@ -98,13 +98,11 @@ export function SectionTitle({
         )}
       </div>
       
-      {/* Thumbnail area - shows actual thumbnail or fallback logo */}
-      {thumbnailLink ? (
+      {/* Thumbnail only shown when there's a link (button behavior) */}
+      {thumbnailLink && (
         <Link href={thumbnailLink} className="group" aria-label={`View ${thumbnailAlt || 'material'} page`}>
           {thumbnailContent}
         </Link>
-      ) : (
-        <div aria-hidden="true">{thumbnailContent}</div>
       )}
     </div>
   );

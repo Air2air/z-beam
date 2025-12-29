@@ -36,14 +36,14 @@
 - ❌ NO hardcoded values/defaults (use config/dynamic calc)
 - ❌ NO rewriting working code (minimal surgical fixes only)
 - ❌ **NO duplicate type definitions** (use @/types exclusively) 🔥 **MANDATORY (Dec 21, 2025)**
-- ❌ **NO .frontmatter references** (use .metadata instead) 🔥 **MANDATORY (Dec 26, 2025)**
+- ❌ **NO .metadata wrapper** (use .frontmatter instead) 🔥 **MANDATORY (Dec 28, 2025)**
 
 **TIER 2: Quality-Critical** (Will cause bugs)
 - ❌ NO expanding scope (fix X means fix ONLY X)
 - ✅ ALWAYS fail-fast on config (throw exceptions)
 - ✅ ALWAYS log to terminal (comprehensive dual logging)
 - ✅ **ALWAYS import types from @/types** (never create local interfaces) 🔥 **MANDATORY (Dec 21, 2025)**
-- ✅ **ALWAYS use article.metadata** (never article.frontmatter or article.data) 🔥 **MANDATORY (Dec 26, 2025)**
+- ✅ **ALWAYS use article.frontmatter** (never article.metadata wrapper) 🔥 **MANDATORY (Dec 28, 2025)**
 - ✅ **ALWAYS create named Props interfaces** (ComponentNameProps) 🔥 **REQUIRED (Dec 26, 2025)**
 - ✅ **ALWAYS use is/has/can prefixes** for boolean props (isLoading, not loading) 🔥 **REQUIRED (Dec 26, 2025)**
 

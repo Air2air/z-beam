@@ -41,6 +41,7 @@ export function HomePageGrid({
         items={cardItems}
         columns={columns}
         variant="featured"
+        className="!grid-cols-2 sm:!grid-cols-3"
       />
     );
   }
@@ -51,6 +52,7 @@ export function HomePageGrid({
         items={cardItems}
         columns={columns}
         variant="featured"
+        className="!grid-cols-2 sm:!grid-cols-3"
       />
     </SectionContainer>
   );

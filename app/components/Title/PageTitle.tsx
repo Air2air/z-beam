@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from 'react';
 import { TitleProps } from '@/types';
 import { SITE_CONFIG } from '@/app/config/site';
 import { Button } from '../Button';
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 
 /**
  * PageTitle Component - Extended variant of Title with full-width description
@@ -245,9 +246,9 @@ export function PageTitle({
         </div>
         
         {page_description && (
-          <p id={descriptionId} className="mt-3">
-            {page_description}
-          </p>
+          <div id={descriptionId} className="mt-3">
+            <MarkdownRenderer content={page_description} convertMarkdown={true} />
+          </div>
         )}
       </header>
     </>

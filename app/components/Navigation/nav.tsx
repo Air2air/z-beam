@@ -111,6 +111,7 @@ export function Navbar() {
             width={130}
             height={80}
             style={{ width: '100%', height: 'auto' }}
+            sizes="(max-width: 768px) 90px, 130px"
             priority
           />
         </Link>
@@ -129,6 +130,7 @@ export function Navbar() {
                 width={150}
                 height={50}
                 className="nav-logo"
+                sizes="150px"
                 priority
               />
             </Link>

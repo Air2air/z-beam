@@ -192,7 +192,7 @@ export function Hero({
           <meta itemProp="author" content={typeof frontmatter?.author === 'string' ? frontmatter.author : (frontmatter?.author?.name || SITE_CONFIG.author)} />
           <meta itemProp="encodingFormat" content="image/jpeg" />
           {frontmatter?.datePublished && (
-            <meta itemProp="uploadDate" content={frontmatter.datePublished.includes('T') ? frontmatter.datePublished : `${frontmatter.datePublished}T00:00:00Z`} />
+            <meta itemProp="uploadDate" content={typeof frontmatter.datePublished === 'string' && frontmatter.datePublished.includes('T') ? frontmatter.datePublished : `${frontmatter.datePublished}T00:00:00Z`} />
           )}
           
           <Image

@@ -1,7 +1,7 @@
 id: alumina-settings
 name: Alumina
-datePublished: '2025-12-27T21:06:07.046385Z'
-dateModified: '2025-12-27T21:06:07.046385Z'
+datePublished: '2025-12-29T06:28:52.112823Z'
+dateModified: '2025-12-29T06:28:52.112823Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/oxide/alumina-settings
@@ -17,6 +17,15 @@ breadcrumb:
 - label: Alumina
   href: /settings/ceramic/oxide/alumina-settings
 page_title: 'Alumina Settings: Laser Parameters'
+page_description: When laser cleaning alumina, watch out for its exceptional hardness right from the start—it can dull tools
+  or abrade the laser optics if you're not careful. I've seen setups where we underpowered the beam, leading to incomplete
+  removal without scratching the surface. Unlike softer metals like aluminum, which yield easily to moderate pulses, alumina's
+  dense, ceramic structure demands a gentler approach to avoid micro-cracks from thermal shock. This works best when you begin
+  with lower power levels, gradually increasing to clear contaminants while preserving its brittle integrity. Tends to heat
+  up unevenly due to moderate conductivity, so keep scan speeds steady to prevent hot spots that weaken its high compressive
+  strength. Compared to porous stones, its low porosity means residues cling tightly, requiring multiple passes with good
+  overlap for thorough coverage. In my experience, this restores the smooth finish in aerospace parts without compromising
+  corrosion resistance—just adjust fluence thresholds carefully to stay below ablation limits.
 meta_description: 'Alumina: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -84,7 +93,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -97,7 +106,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -111,7 +120,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -142,8 +151,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Alumina Settings
@@ -268,12 +278,5 @@ machine_settings:
     description: '30-80% ensures uniform coverage; 60% recommended to avoid gaps or overexposure on reflective alumina (reflectivity
       ~20-40% at 1064 nm). Source: Process optimization studies in Surf. Coat. Technol. by Kumar et al. (2018) on scan overlap
       for laser cleaning.'
-page_description: When laser cleaning alumina, watch out for its exceptional hardness right from the start—it can dull tools
-  or abrade the laser optics if you're not careful. I've seen setups where we underpowered the beam, leading to incomplete
-  removal without scratching the surface. Unlike softer metals like aluminum, which yield easily to moderate pulses, alumina's
-  dense, ceramic structure demands a gentler approach to avoid micro-cracks from thermal shock. This works best when you begin
-  with lower power levels, gradually increasing to clear contaminants while preserving its brittle integrity. Tends to heat
-  up unevenly due to moderate conductivity, so keep scan speeds steady to prevent hot spots that weaken its high compressive
-  strength. Compared to porous stones, its low porosity means residues cling tightly, requiring multiple passes with good
-  overlap for thorough coverage. In my experience, this restores the smooth finish in aerospace parts without compromising
-  corrosion resistance—just adjust fluence thresholds carefully to stay below ablation limits.
+component_summary: These settings employ a 1064 nm wavelength for optimal contaminant absorption on alumina, with 100 W power
+  and 10 ns pulses to minimize thermal stress and prevent cracking in the brittle ceramic.

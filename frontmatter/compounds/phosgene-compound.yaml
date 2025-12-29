@@ -3,8 +3,8 @@ name: Phosgene
 display_name: Phosgene (COCl₂)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-27T21:27:51.324619Z'
-dateModified: '2025-12-27T21:27:51.324619Z'
+datePublished: '2025-12-29T06:28:02.366642Z'
+dateModified: '2025-12-29T06:28:02.366642Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/reactive-gas/phosgene-compound
@@ -20,6 +20,7 @@ breadcrumb:
 - label: Phosgene
   href: /compounds/toxic-gas/reactive-gas/phosgene-compound
 page_title: 'Phosgene: Toxic Metal Fumes'
+page_description: Phosgene drifts as a colorless gas.
 meta_description: 'Phosgene: Toxic Metal Fumes from metal processing. Requires enclosed extraction.'
 chemical_formula: COCl₂
 cas_number: 75-44-5
@@ -166,8 +167,9 @@ relationships:
           biological_exposure_indices: []
       _section:
         title: Exposure Limits
-        description: Regulatory exposure thresholds and safe concentration levels
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
+        section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
   chemical_properties:
@@ -177,7 +179,7 @@ relationships:
       id: phosgene-physical-data
     _section:
       title: Chemical Properties
-      description: Fundamental chemical characteristics and behavior
+      section_description: Fundamental chemical characteristics and behavior
       icon: microscope
       order: 1
       variant: default
@@ -202,8 +204,9 @@ relationships:
         air: 10 lbs/day - IMMEDIATELY reportable due to extreme toxicity
     _section:
       title: Environmental Impact
-      description: Environmental effects and ecological considerations
+      description: Toxicity, biodegradability, and environmental fate
       icon: wind
+      section_description: Environmental effects and ecological considerations
       order: 8
       variant: warning
   detection_monitoring:
@@ -233,8 +236,9 @@ relationships:
         monitoring.
     _section:
       title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
+      description: Methods for detecting and measuring this compound
       icon: gauge
+      section_description: Methods and equipment for detecting and monitoring this compound
       order: 6
       variant: default
   ppe_requirements:
@@ -249,8 +253,9 @@ relationships:
         post-exposure. SELF-RESCUE RESPIRATORS INADEQUATE - immediate SCBA required.
     _section:
       title: PPE Requirements
-      description: Personal protective equipment needed for safe handling
+      description: Required safety equipment for handling this compound
       icon: shield
+      section_description: Personal protective equipment needed for safe handling
       order: 5
       variant: warning
   emergency_response:
@@ -270,8 +275,9 @@ relationships:
         acid in lungs. Death can occur hours after "feeling fine".
     _section:
       title: Emergency Response
-      description: First aid and emergency procedures for exposure incidents
+      description: Procedures for spills, exposure, and incidents
       icon: alert-triangle
+      section_description: First aid and emergency procedures for exposure incidents
       order: 7
       variant: danger
   produced_from_contaminants:
@@ -284,7 +290,7 @@ relationships:
       intensity: very_negative
     _section:
       title: Produced From Contaminants
-      description: Contaminants that generate this compound during laser cleaning
+      section_description: Contaminants that generate this compound during laser cleaning
       icon: droplet
       order: 9
       variant: default
@@ -299,7 +305,7 @@ relationships:
     - id: urethane-composites-laser-cleaning
     _section:
       title: Produced From Materials
-      description: Materials that may release this compound during laser cleaning
+      section_description: Materials that may release this compound during laser cleaning
       icon: users
       order: 10
       variant: default
@@ -318,8 +324,9 @@ relationships:
       odor: 'Musty hay or freshly cut grass odor @ 0.4-1.5 ppm - WARNING: Odor threshold ABOVE safe levels'
     _section:
       title: Physical Properties
-      description: Physical characteristics and state information
+      description: Chemical and physical characteristics
       icon: gauge
+      section_description: Physical characteristics and state information
       order: 2
       variant: default
   storage_requirements:
@@ -344,8 +351,9 @@ relationships:
         procedures and antidote protocol posted. Medical surveillance required. Notification to local emergency services REQUIRED.'
     _section:
       title: Storage Requirements
-      description: Proper storage conditions and handling precautions
+      description: Safe storage conditions and compatibility
       icon: alert-triangle
+      section_description: Proper storage conditions and handling precautions
       order: 13
       variant: warning
   regulatory_classification:
@@ -368,8 +376,9 @@ relationships:
       rcra_code: P095
     _section:
       title: Regulatory Classification
-      description: Hazard classifications and regulatory designations
+      description: DOT, UN, and NFPA hazard classifications
       icon: file-text
+      section_description: Hazard classifications and regulatory designations
       order: 12
       variant: default
   reactivity:
@@ -401,8 +410,9 @@ relationships:
         May explode on contact with aluminum powder.
     _section:
       title: Reactivity
-      description: Chemical reactivity and compatibility with other substances
+      description: Chemical reactivity and incompatibilities
       icon: flame
+      section_description: Chemical reactivity and compatibility with other substances
       order: 11
       variant: warning
   synonyms_identifiers:
@@ -420,8 +430,9 @@ relationships:
         pubchem_cid: '6371'
     _section:
       title: Synonyms & Identifiers
-      description: Alternative names and chemical identifiers (CAS numbers)
+      description: Synonyms and chemical identifiers
       icon: file-text
+      section_description: Alternative names and chemical identifiers (CAS numbers)
       order: 14
       variant: default
   operational:
@@ -432,7 +443,7 @@ relationships:
         id: phosgene-toxicology
       _section:
         title: Health Effects
-        description: Potential health impacts from exposure
+        section_description: Potential health impacts from exposure
         icon: activity
         order: 1
         variant: warning
@@ -449,4 +460,13 @@ relationships:
       height: 600
 title: Phosgene (COCl₂)
 subcategory: reactive_gas
-page_description: Phosgene drifts as a colorless gas.
+faq:
+- question: As a laser cleaning operator, what are the key exposure limits for phosgene (COCl₂) to stay safe during operations
+    involving potentially chlorinated materials?
+  answer: The OSHA permissible exposure limit (PEL) for phosgene is 0.1 ppm as an 8-hour time-weighted average (TWA), with
+    short-term exposure limits not exceeding 0.2 ppm for 15 minutes, and the immediately dangerous to life or health (IDLH)
+    concentration is 2 ppm—always monitor levels below these thresholds using calibrated gas detectors. In laser cleaning,
+    where phosgene may form from ablating plastics like PVC, maintain ventilation to keep concentrations under 0.1 ppm and
+    evacuate if levels approach 2 ppm. If exposure is suspected, seek immediate medical attention, as symptoms like chest
+    tightness may be delayed up to 48 hours.
+formula: COCl₂

@@ -1,7 +1,7 @@
 id: pyrex-settings
 name: Pyrex
-datePublished: '2025-12-27T21:06:08.323440Z'
-dateModified: '2025-12-27T21:06:08.323440Z'
+datePublished: '2025-12-29T06:28:53.277817Z'
+dateModified: '2025-12-29T06:28:53.277817Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/soda-lime/pyrex-settings
@@ -17,6 +17,12 @@ breadcrumb:
 - label: Pyrex
   href: /settings/glass/soda-lime/pyrex-settings
 page_title: 'Pyrex Settings: Laser Parameters'
+page_description: When laser cleaning Pyrex, we've found that starting with lower power settings works best to gently remove
+  contaminants without risking cracks. This glass stands out for its excellent thermal shock resistance, which lets you handle
+  quick heat cycles that might shatter ordinary soda-lime types, so we often use pulsed lasers to control the energy input
+  precisely. But watch out midway through—its low thermal conductivity can trap heat in spots, leading to uneven cleaning
+  if you push the scan speed too high; dial it back and add passes instead. In our experience, this brings back the surface
+  clarity on lab equipment reliably while preserving its integrity for reuse.
 meta_description: 'Pyrex: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -84,7 +90,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -97,7 +103,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -111,7 +117,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -144,8 +150,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Pyrex Settings
@@ -268,9 +275,5 @@ machine_settings:
     unit: '%'
     description: 'Ensures uniform coverage in scan patterns; 50% optimal for Pyrex to avoid gaps or overexposure, considering
       beam Gaussian profile. Source: Process optimization studies (Surf. Coat. Technol., 2021) for laser cleaning applications.'
-page_description: When laser cleaning Pyrex, we've found that starting with lower power settings works best to gently remove
-  contaminants without risking cracks. This glass stands out for its excellent thermal shock resistance, which lets you handle
-  quick heat cycles that might shatter ordinary soda-lime types, so we often use pulsed lasers to control the energy input
-  precisely. But watch out midway through—its low thermal conductivity can trap heat in spots, leading to uneven cleaning
-  if you push the scan speed too high; dial it back and add passes instead. In our experience, this brings back the surface
-  clarity on lab equipment reliably while preserving its integrity for reuse.
+component_summary: These settings employ moderate 100 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from
+  Pyrex, minimizing thermal stress on its heat-sensitive borosilicate glass.

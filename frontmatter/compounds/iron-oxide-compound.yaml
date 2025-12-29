@@ -3,8 +3,8 @@ name: Iron Oxide Fume
 display_name: Iron Oxide (Fe₂O₃)
 category: metal_fume
 hazard_class: irritant
-datePublished: '2025-12-27T21:27:43.179976Z'
-dateModified: '2025-12-27T21:27:43.179976Z'
+datePublished: '2025-12-29T06:27:59.037843Z'
+dateModified: '2025-12-29T06:27:59.037843Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/metal-fume/metal-oxide/iron-oxide-compound
@@ -20,6 +20,8 @@ breadcrumb:
 - label: Iron Oxide Fume
   href: /compounds/metal-fume/metal-oxide/iron-oxide-compound
 page_title: 'Iron Oxide Fume: Respiratory Irritant'
+page_description: From years tinkering with rusty relics in workshops, I've found iron oxide tricky to manage yet invaluable,
+  especially since it forms those fine metal fumes dur.
 meta_description: 'Iron Oxide Fume: Respiratory Irritant from metal processing. Requires proper ventilation and PPE.'
 chemical_formula: Fe₂O₃
 cas_number: 1309-37-1
@@ -190,8 +192,9 @@ relationships:
           biological_exposure_indices: []
       _section:
         title: Exposure Limits
-        description: Regulatory exposure thresholds and safe concentration levels
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
+        section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
   chemical_properties:
@@ -201,7 +204,7 @@ relationships:
       id: iron-oxide-physical-data
     _section:
       title: Chemical Properties
-      description: Fundamental chemical characteristics and behavior
+      section_description: Fundamental chemical characteristics and behavior
       icon: microscope
       order: 1
       variant: default
@@ -225,8 +228,9 @@ relationships:
         air: Not reportable
     _section:
       title: Environmental Impact
-      description: Environmental effects and ecological considerations
+      description: Toxicity, biodegradability, and environmental fate
       icon: wind
+      section_description: Environmental effects and ecological considerations
       order: 8
       variant: warning
   detection_monitoring:
@@ -254,8 +258,9 @@ relationships:
       odor_threshold: Not applicable - odorless
     _section:
       title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
+      description: Methods for detecting and measuring this compound
       icon: gauge
+      section_description: Methods and equipment for detecting and monitoring this compound
       order: 6
       variant: default
   ppe_requirements:
@@ -269,8 +274,9 @@ relationships:
         - more hazardous than pure iron oxide.
     _section:
       title: PPE Requirements
-      description: Personal protective equipment needed for safe handling
+      description: Required safety equipment for handling this compound
       icon: shield
+      section_description: Personal protective equipment needed for safe handling
       order: 5
       variant: warning
   emergency_response:
@@ -287,8 +293,9 @@ relationships:
         Reversible when exposure stops. Welding fume may contain other toxic metals (chromium, nickel, manganese).'
     _section:
       title: Emergency Response
-      description: First aid and emergency procedures for exposure incidents
+      description: Procedures for spills, exposure, and incidents
       icon: alert-triangle
+      section_description: First aid and emergency procedures for exposure incidents
       order: 7
       variant: danger
   produced_from_contaminants:
@@ -336,7 +343,7 @@ relationships:
       intensity: slightly_negative
     _section:
       title: Produced From Contaminants
-      description: Contaminants that generate this compound during laser cleaning
+      section_description: Contaminants that generate this compound during laser cleaning
       icon: droplet
       order: 9
       variant: default
@@ -355,8 +362,9 @@ relationships:
       odor: Odorless
     _section:
       title: Physical Properties
-      description: Physical characteristics and state information
+      description: Chemical and physical characteristics
       icon: gauge
+      section_description: Physical characteristics and state information
       order: 2
       variant: default
   storage_requirements:
@@ -374,8 +382,9 @@ relationships:
       special_requirements: Keep containers closed when not in use. Store in dry area. Prevent dust accumulation.
     _section:
       title: Storage Requirements
-      description: Proper storage conditions and handling precautions
+      description: Safe storage conditions and compatibility
       icon: alert-triangle
+      section_description: Proper storage conditions and handling precautions
       order: 13
       variant: warning
   regulatory_classification:
@@ -396,8 +405,9 @@ relationships:
       rcra_code: null
     _section:
       title: Regulatory Classification
-      description: Hazard classifications and regulatory designations
+      description: DOT, UN, and NFPA hazard classifications
       icon: file-text
+      section_description: Hazard classifications and regulatory designations
       order: 12
       variant: default
   reactivity:
@@ -421,8 +431,9 @@ relationships:
         acids.
     _section:
       title: Reactivity
-      description: Chemical reactivity and compatibility with other substances
+      description: Chemical reactivity and incompatibilities
       icon: flame
+      section_description: Chemical reactivity and compatibility with other substances
       order: 11
       variant: warning
   synonyms_identifiers:
@@ -443,8 +454,9 @@ relationships:
         pubchem_cid: '518696'
     _section:
       title: Synonyms & Identifiers
-      description: Alternative names and chemical identifiers (CAS numbers)
+      description: Synonyms and chemical identifiers
       icon: file-text
+      section_description: Alternative names and chemical identifiers (CAS numbers)
       order: 14
       variant: default
   operational:
@@ -455,7 +467,7 @@ relationships:
         id: iron-oxide-toxicology
       _section:
         title: Health Effects
-        description: Potential health impacts from exposure
+        section_description: Potential health impacts from exposure
         icon: activity
         order: 1
         variant: warning
@@ -472,5 +484,13 @@ relationships:
       height: 600
 title: Iron Oxide (Fe₂O₃)
 subcategory: metal_oxide
-page_description: From years tinkering with rusty relics in workshops, I've found iron oxide tricky to manage yet invaluable,
-  especially since it forms those fine metal fumes dur.
+faq:
+- question: What are the recommended exposure limits and protection methods for iron oxide (Fe₂O₃) fumes during laser cleaning
+    operations?
+  answer: The OSHA permissible exposure limit (PEL) for iron oxide fume is 10 mg/m³ as iron (Fe) over an 8-hour time-weighted
+    average (TWA), while NIOSH recommends a lower limit of 5 mg/m³ to minimize respiratory irritation and potential siderosis
+    from chronic exposure. To stay below these limits, operators should use local exhaust ventilation systems to capture fumes
+    at the source and wear NIOSH-approved respirators with at least an N95 rating (or higher, like P100, for prolonged work).
+    Regularly monitor air quality with real-time particle counters or personal sampling pumps to ensure compliance and adjust
+    controls as needed.
+formula: Fe₂O₃

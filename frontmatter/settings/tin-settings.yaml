@@ -1,7 +1,7 @@
 id: tin-settings
 name: Tin
-datePublished: '2025-12-27T21:06:08.793720Z'
-dateModified: '2025-12-27T21:06:08.793720Z'
+datePublished: '2025-12-29T06:28:53.703143Z'
+dateModified: '2025-12-29T06:28:53.703143Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/tin-settings
@@ -17,6 +17,12 @@ breadcrumb:
 - label: Tin
   href: /settings/metal/alloy/tin-settings
 page_title: 'Tin Settings: Laser Parameters'
+page_description: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because
+  its low melting point means the surface can soften or deform quickly if heat builds up. You'll need to adjust by using short
+  pulses and slower scan speeds to control the energy input, so the contaminants lift off without damaging the soft base material.
+  This approach works well for Tin's high reflectivity too, which scatters the beam and slows absorption—keep passes minimal
+  and overlap low to avoid uneven spots. Watch out for overexposure on thin layers, as it might lead to pitting; instead,
+  test on a small area first and build up gradually for clean results in electronics or heritage work.
 meta_description: 'Tin: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -83,7 +89,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -96,7 +102,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -110,7 +116,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -130,8 +136,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Tin Settings
@@ -264,9 +271,5 @@ machine_settings:
       heating, optimizing for reflective surfaces and contamination uniformity. Higher overlap for heavy soiling. Source:
       Process optimization studies in ''Laser Surface Cleaning'' (Optics and Lasers in Engineering, 2020); manufacturer guidelines
       (e.g., Adapt Laser Systems).'
-page_description: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because
-  its low melting point means the surface can soften or deform quickly if heat builds up. You'll need to adjust by using short
-  pulses and slower scan speeds to control the energy input, so the contaminants lift off without damaging the soft base material.
-  This approach works well for Tin's high reflectivity too, which scatters the beam and slows absorption—keep passes minimal
-  and overlap low to avoid uneven spots. Watch out for overexposure on thin layers, as it might lead to pitting; instead,
-  test on a small area first and build up gradually for clean results in electronics or heritage work.
+component_summary: These settings employ moderate 100 W power and 12 ns pulses at 1064 nm to gently ablate contaminants from
+  Tin, preventing thermal damage to its low-melting-point surface.

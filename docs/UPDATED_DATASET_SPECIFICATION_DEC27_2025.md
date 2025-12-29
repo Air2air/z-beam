@@ -28,7 +28,8 @@ Z-Beam datasets have been streamlined from the comprehensive Schema.org format (
 
 ### 2. **Contaminants Dataset**
 **Purpose**: Contaminant removal techniques and compound safety data  
-**Files**: `{contaminant-name}-contamination-contaminant-dataset.{json|csv|txt}`  
+**Files**: `{contaminant-id}-contaminant-dataset.{json|csv|txt}`  
+**Example**: `algae-growth-contaminant-dataset.json` (ID: `algae-growth`)
 **Location**: `public/datasets/contaminants/`  
 **Count**: ~98 contaminants × 3 formats = 294 files
 
@@ -409,8 +410,8 @@ Removal Characteristics:
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://www.z-beam.com/datasets/contaminants/algae-growth-contamination-contaminant-dataset#dataset",
-  "identifier": "algae-growth-contamination-contaminant-dataset",
+  "@id": "https://www.z-beam.com/datasets/contaminants/algae-growth-contaminant-dataset#dataset",
+  "identifier": "algae-growth-contaminant-dataset",
   "name": "Algae and Lichen Growth",
   "description": "Algae and Lichen Growth (Chlorophyll, Polysaccharides, Minerals) biological contamination...",
   
@@ -726,7 +727,7 @@ const thermalCond = data.material.materialProperties.laserMaterialInteraction.th
 import json
 
 # Load contaminant dataset
-with open('public/datasets/contaminants/algae-growth-contamination-contaminant-dataset.json') as f:
+with open('public/datasets/contaminants/algae-growth-contaminant-dataset.json') as f:
     data = json.load(f)
 
 # Access laser parameters

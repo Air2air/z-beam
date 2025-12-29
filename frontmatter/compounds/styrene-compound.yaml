@@ -3,8 +3,8 @@ name: Styrene
 display_name: Styrene (C₈H₈)
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-27T21:27:38.272844Z'
-dateModified: '2025-12-27T21:27:38.272844Z'
+datePublished: '2025-12-29T06:27:57.483584Z'
+dateModified: '2025-12-29T06:27:57.483584Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/aromatic-hydrocarbon/styrene-compound
@@ -20,6 +20,8 @@ breadcrumb:
 - label: Styrene
   href: /compounds/irritant/aromatic-hydrocarbon/styrene-compound
 page_title: 'Styrene: Respiratory Irritant'
+page_description: Volatile enough to evaporate quickly, styrene acts as a fundamental monomer in crafting tough plastics like
+  polystyrene.
 meta_description: 'Styrene: Respiratory Irritant from metal processing. Requires proper ventilation and PPE.'
 chemical_formula: C₈H₈
 cas_number: 100-42-5
@@ -200,8 +202,9 @@ relationships:
             bei_value: 0.2 mg/L
       _section:
         title: Exposure Limits
-        description: Regulatory exposure thresholds and safe concentration levels
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
+        section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
   chemical_properties:
@@ -211,7 +214,7 @@ relationships:
       id: styrene-physical-data
     _section:
       title: Chemical Properties
-      description: Fundamental chemical characteristics and behavior
+      section_description: Fundamental chemical characteristics and behavior
       icon: microscope
       order: 1
       variant: default
@@ -235,8 +238,9 @@ relationships:
         air: 1000 lbs/day (CERCLA RQ)
     _section:
       title: Environmental Impact
-      description: Environmental effects and ecological considerations
+      description: Toxicity, biodegradability, and environmental fate
       icon: wind
+      section_description: Environmental effects and ecological considerations
       order: 8
       variant: warning
   detection_monitoring:
@@ -264,8 +268,9 @@ relationships:
       odor_threshold: '0.05-0.5 ppm - WARNING: Olfactory fatigue occurs. Cannot rely on odor for protection.'
     _section:
       title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
+      description: Methods for detecting and measuring this compound
       icon: gauge
+      section_description: Methods and equipment for detecting and monitoring this compound
       order: 6
       variant: default
   ppe_requirements:
@@ -279,8 +284,9 @@ relationships:
         cause CNS depression.
     _section:
       title: PPE Requirements
-      description: Personal protective equipment needed for safe handling
+      description: Required safety equipment for handling this compound
       icon: shield
+      section_description: Personal protective equipment needed for safe handling
       order: 5
       variant: warning
   emergency_response:
@@ -300,8 +306,9 @@ relationships:
         to styrene oxide (more toxic).
     _section:
       title: Emergency Response
-      description: First aid and emergency procedures for exposure incidents
+      description: Procedures for spills, exposure, and incidents
       icon: alert-triangle
+      section_description: First aid and emergency procedures for exposure incidents
       order: 7
       variant: danger
   produced_from_contaminants:
@@ -319,7 +326,7 @@ relationships:
       intensity: negative
     _section:
       title: Produced From Contaminants
-      description: Contaminants that generate this compound during laser cleaning
+      section_description: Contaminants that generate this compound during laser cleaning
       icon: droplet
       order: 9
       variant: default
@@ -335,7 +342,7 @@ relationships:
     - id: urethane-composites-laser-cleaning
     _section:
       title: Produced From Materials
-      description: Materials that may release this compound during laser cleaning
+      section_description: Materials that may release this compound during laser cleaning
       icon: users
       order: 10
       variant: default
@@ -354,8 +361,9 @@ relationships:
       odor: Sweet, floral odor @ 0.05-0.5 ppm (odor fatigue occurs)
     _section:
       title: Physical Properties
-      description: Physical characteristics and state information
+      description: Chemical and physical characteristics
       icon: gauge
+      section_description: Physical characteristics and state information
       order: 2
       variant: default
   storage_requirements:
@@ -379,8 +387,9 @@ relationships:
         level monthly. Avoid light and heat. Post "FLAMMABLE" and "CANCER HAZARD" signs. Date containers.'
     _section:
       title: Storage Requirements
-      description: Proper storage conditions and handling precautions
+      description: Safe storage conditions and compatibility
       icon: alert-triangle
+      section_description: Proper storage conditions and handling precautions
       order: 13
       variant: warning
   regulatory_classification:
@@ -405,8 +414,9 @@ relationships:
       rcra_code: null
     _section:
       title: Regulatory Classification
-      description: Hazard classifications and regulatory designations
+      description: DOT, UN, and NFPA hazard classifications
       icon: file-text
+      section_description: Hazard classifications and regulatory designations
       order: 12
       variant: default
   reactivity:
@@ -440,8 +450,9 @@ relationships:
         peroxides on prolonged storage.
     _section:
       title: Reactivity
-      description: Chemical reactivity and compatibility with other substances
+      description: Chemical reactivity and incompatibilities
       icon: flame
+      section_description: Chemical reactivity and compatibility with other substances
       order: 11
       variant: warning
   synonyms_identifiers:
@@ -460,8 +471,9 @@ relationships:
         pubchem_cid: '7501'
     _section:
       title: Synonyms & Identifiers
-      description: Alternative names and chemical identifiers (CAS numbers)
+      description: Synonyms and chemical identifiers
       icon: file-text
+      section_description: Alternative names and chemical identifiers (CAS numbers)
       order: 14
       variant: default
   operational:
@@ -472,7 +484,7 @@ relationships:
         id: styrene-toxicology
       _section:
         title: Health Effects
-        description: Potential health impacts from exposure
+        section_description: Potential health impacts from exposure
         icon: activity
         order: 1
         variant: warning
@@ -489,5 +501,13 @@ relationships:
       height: 600
 title: Styrene (C₈H₈)
 subcategory: aromatic_hydrocarbon
-page_description: Volatile enough to evaporate quickly, styrene acts as a fundamental monomer in crafting tough plastics like
-  polystyrene.
+faq:
+- question: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective
+    gear should I use to avoid skin irritation from exposure, especially since it's a stronger irritant than something like
+    acetone?
+  answer: Wear chemical-resistant gloves made of nitrile or PVC (at least 0.7 mm thick) and full-body coveralls to prevent
+    direct skin contact, as styrene penetrates skin more readily and causes greater irritation than milder solvents like acetone.
+    Use safety goggles and a respirator with organic vapor cartridges if ventilation is inadequate, ensuring airborne exposure
+    stays below the OSHA PEL of 100 ppm (8-hour TWA). Always perform a skin check after shifts and wash exposed areas immediately
+    with soap and water if contact occurs.
+formula: C₈H₈

@@ -1,7 +1,7 @@
 id: lanthanum-settings
 name: Lanthanum
-datePublished: '2025-12-27T21:06:07.807788Z'
-dateModified: '2025-12-27T21:06:07.807788Z'
+datePublished: '2025-12-29T06:28:52.816036Z'
+dateModified: '2025-12-29T06:28:52.816036Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/rare-earth/lanthanide/lanthanum-settings
@@ -17,6 +17,12 @@ breadcrumb:
 - label: Lanthanum
   href: /settings/rare-earth/lanthanide/lanthanum-settings
 page_title: 'Lanthanum Settings: Laser Parameters'
+page_description: When laser cleaning Lanthanum, we've found the biggest challenge lies in its quick tendency to oxidize during
+  the process, since it reacts strongly with air even at moderate heat levels. This sets it apart from more stable metals,
+  demanding a careful approach to prevent surface discoloration that could ruin precision parts like optical components or
+  magnets. To handle this, we typically use short, controlled pulses in an inert gas environment, which clears contaminants
+  effectively while keeping the underlying material intact and shiny. Watch out for excessive dwell time, though—it can lead
+  to uneven heating and potential warping on thin sections.
 meta_description: 'Lanthanum: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -84,7 +90,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -97,7 +103,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -111,7 +117,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -160,8 +166,9 @@ relationships:
           - Chain of custody documentation for high-value materials
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Lanthanum Settings
@@ -295,9 +302,5 @@ machine_settings:
     description: 'Ensures uniform coverage; 50% recommended for Lanthanum to avoid gaps or over-ablation on irregular surfaces.
       Lower (30%) for speed, higher (80%) for thoroughness. Source: Process optimization studies in J. Clean. Prod. (2021)
       on scan strategies for metallic substrates.'
-page_description: When laser cleaning Lanthanum, we've found the biggest challenge lies in its quick tendency to oxidize during
-  the process, since it reacts strongly with air even at moderate heat levels. This sets it apart from more stable metals,
-  demanding a careful approach to prevent surface discoloration that could ruin precision parts like optical components or
-  magnets. To handle this, we typically use short, controlled pulses in an inert gas environment, which clears contaminants
-  effectively while keeping the underlying material intact and shiny. Watch out for excessive dwell time, though—it can lead
-  to uneven heating and potential warping on thin sections.
+component_summary: These settings employ moderate 100 W power and 12 ns pulses at 1064 nm to selectively ablate contaminants
+  from lanthanum's soft, reactive surface without inducing oxidation or thermal distortion.

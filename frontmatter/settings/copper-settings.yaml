@@ -1,7 +1,7 @@
 id: copper-settings
 name: Copper
-datePublished: '2025-12-27T21:06:07.414750Z'
-dateModified: '2025-12-27T21:06:07.414750Z'
+datePublished: '2025-12-29T06:28:52.472339Z'
+dateModified: '2025-12-29T06:28:52.472339Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/copper-settings
@@ -17,6 +17,12 @@ breadcrumb:
 - label: Copper
   href: /settings/metal/non-ferrous/copper-settings
 page_title: 'Copper Settings: Laser Parameters'
+page_description: When laser cleaning copper, we've found that starting with gentle pulses works best because its shiny surface
+  bounces back most of the energy, so you get even coverage without wasting shots. This high reflectivity sets it apart from
+  duller metals like iron, meaning we adjust our setup to focus on short, repeated passes that gradually lift dirt and oxides
+  while the metal's strong heat-spreading ability prevents hot spots. But watch out midway—push too hard and the surface can
+  soften unevenly, so we dial back intensity and overlap scans to keep things cool and restore that clean, conductive finish
+  for electronics or plumbing jobs.
 meta_description: 'Copper: removes oxidation treatment. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -79,7 +85,7 @@ relationships:
         effectiveness: high
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -92,7 +98,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -106,7 +112,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -126,8 +132,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Copper Settings
@@ -336,9 +343,5 @@ component_summaries:
       balanced. By tracing these dependencies, you can see how increasing power amplifies temperature rise while scan speed
       helps dissipate heat, preventing substrate damage during oxide removal. Use it to optimize settings iteratively, ensuring
       efficient cleaning without risking Copper's reflective surface from causing uneven energy absorption.
-page_description: When laser cleaning copper, we've found that starting with gentle pulses works best because its shiny surface
-  bounces back most of the energy, so you get even coverage without wasting shots. This high reflectivity sets it apart from
-  duller metals like iron, meaning we adjust our setup to focus on short, repeated passes that gradually lift dirt and oxides
-  while the metal's strong heat-spreading ability prevents hot spots. But watch out midway—push too hard and the surface can
-  soften unevenly, so we dial back intensity and overlap scans to keep things cool and restore that clean, conductive finish
-  for electronics or plumbing jobs.
+component_summary: The 1064 nm wavelength optimizes absorption in reflective copper, 200 W power enables efficient contaminant
+  removal, and 10 ns pulses limit heat buildup due to its high thermal conductivity.

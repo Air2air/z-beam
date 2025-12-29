@@ -1,8 +1,6 @@
 import React from 'react';
 import { Zap } from 'lucide-react';
 import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 interface LaserMaterialInteractionProps {
   materialName: string;
@@ -64,21 +62,15 @@ export function LaserMaterialInteraction({
     : undefined;
 
   return (
-    <SectionContainer className={className}>
-      <SectionTitle 
-        title={`${materialName} Laser-Material Interaction`}
-        icon={<Zap className="w-5 h-5 text-orange-500" />}
-        description="Energy transfer properties and laser absorption characteristics"
-      />
-      <PropertyGrid
-        metadata={metadata}
-        dataSource="materialProperties"
-        title={`${materialName} laser-related properties`}
-        icon={<Zap className="w-5 h-5 text-orange-500" />}
-        actionText={settingsUrl ? `${materialName} machine settings` : undefined}
-        actionUrl={settingsUrl}
-        className="mb-8"
-      />
-    </SectionContainer>
+    <PropertyGrid
+      metadata={metadata}
+      dataSource="materialProperties"
+      title={`${materialName} Laser-Material Interaction`}
+      icon={<Zap className="w-5 h-5 text-orange-500" />}
+      description="Energy transfer properties and laser absorption characteristics"
+      actionText={settingsUrl ? `${materialName} machine settings` : undefined}
+      actionUrl={settingsUrl}
+      className={`mb-8 ${className}`}
+    />
   );
 }

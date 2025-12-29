@@ -86,6 +86,7 @@ export default function Footer() {
                 width={150}
                 height={50}
                 className="footer-logo"
+                sizes="150px"
                 priority
               />
             </Link>

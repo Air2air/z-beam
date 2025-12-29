@@ -71,7 +71,13 @@ export async function loadGeneratedDataset(
   slug: string,
   type: 'materials' | 'contaminants'
 ): Promise<DatasetType> {
-  const url = `/datasets/${type}/${slug}.json`;
+  // Construct filename: materials use full slug, contaminants remove -contamination suffix
+  // Materials: ${slug}-material-dataset.json (e.g., aluminum-laser-cleaning-material-dataset.json)
+  // Contaminants: ${id}-contaminant-dataset.json (e.g., adhesive-residue-contaminant-dataset.json)
+  const filename = type === 'materials' 
+    ? `${slug}-material-dataset.json`
+    : `${slug.replace('-contamination', '')}-contaminant-dataset.json`;
+  const url = `/datasets/${type}/${filename}`;
   const response = await fetch(url);
   
   if (!response.ok) {

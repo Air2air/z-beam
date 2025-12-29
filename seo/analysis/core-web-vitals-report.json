@@ -1,0 +1,55 @@
+{
+  "timestamp": "2025-12-29T07:32:15.122Z",
+  "issues": [
+    {
+      "severity": "high",
+      "category": "LCP",
+      "issue": "Most images missing priority attribute",
+      "recommendation": "Add priority attribute to above-fold images"
+    },
+    {
+      "severity": "medium",
+      "category": "LCP/CLS",
+      "issue": "Most images missing sizes attribute",
+      "recommendation": "Add sizes attribute for responsive images"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "critical",
+      "category": "LCP",
+      "recommendation": "Add preload hints for critical resources",
+      "code": "// In app/layout.tsx\n<link rel=\"preload\" href=\"/fonts/your-font.woff2\" as=\"font\" type=\"font/woff2\" crossOrigin=\"anonymous\" />\n<link rel=\"preload\" href=\"/images/hero.webp\" as=\"image\" />"
+    },
+    {
+      "priority": "critical",
+      "category": "FCP",
+      "recommendation": "Inline critical CSS",
+      "code": "// Extract critical CSS and inline in <head>\n<style dangerouslySetInnerHTML={{\n  __html: `\n    /* Critical above-fold styles */\n    body { margin: 0; font-family: system-ui; }\n    .header { /* ... */ }\n  `\n}} />"
+    },
+    {
+      "priority": "high",
+      "category": "LCP/CLS",
+      "recommendation": "Optimize hero images",
+      "code": "// Add to hero images\n<Image \n  src=\"/hero.webp\"\n  alt=\"Hero image\"\n  priority\n  sizes=\"(max-width: 768px) 100vw, 50vw\"\n  width={1200}\n  height={600}\n/>"
+    },
+    {
+      "priority": "high",
+      "category": "CLS",
+      "recommendation": "Reserve space for dynamic content",
+      "code": "// Add min-height to prevent layout shift\n<div style={{ minHeight: '300px' }}>\n  {/* Dynamic content */}\n</div>"
+    },
+    {
+      "priority": "medium",
+      "category": "FCP/TTI",
+      "recommendation": "Lazy load below-fold components",
+      "code": "// Use dynamic imports\nconst BelowFoldComponent = dynamic(() => import('./BelowFoldComponent'), {\n  loading: () => <div>Loading...</div>\n});"
+    }
+  ],
+  "summary": {
+    "totalIssues": 2,
+    "highSeverity": 1,
+    "mediumSeverity": 1,
+    "totalRecommendations": 5
+  }
+}

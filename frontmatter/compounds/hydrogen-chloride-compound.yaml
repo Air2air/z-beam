@@ -3,8 +3,8 @@ name: Hydrogen Chloride
 display_name: Hydrogen Chloride (HCl)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2025-12-27T21:27:33.624807Z'
-dateModified: '2025-12-27T21:27:33.624807Z'
+datePublished: '2025-12-29T06:27:55.957809Z'
+dateModified: '2025-12-29T06:27:55.957809Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
@@ -20,6 +20,7 @@ breadcrumb:
 - label: Hydrogen Chloride
   href: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
 page_title: 'Hydrogen Chloride: Corrosive Fumes'
+page_description: Hydrogen chloride stands out from milder gases—its sharp bite etches metals fast.
 meta_description: 'Hydrogen Chloride: Corrosive Fumes from metal processing. Requires proper ventilation and PPE.'
 chemical_formula: HCl
 cas_number: 7647-01-0
@@ -183,8 +184,9 @@ relationships:
           biological_exposure_indices: []
       _section:
         title: Exposure Limits
-        description: Regulatory exposure thresholds and safe concentration levels
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
+        section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
   chemical_properties:
@@ -194,7 +196,7 @@ relationships:
       id: hydrogen-chloride-physical-data
     _section:
       title: Chemical Properties
-      description: Fundamental chemical characteristics and behavior
+      section_description: Fundamental chemical characteristics and behavior
       icon: microscope
       order: 1
       variant: default
@@ -218,8 +220,9 @@ relationships:
         air: 5000 lbs/day (CERCLA RQ)
     _section:
       title: Environmental Impact
-      description: Environmental effects and ecological considerations
+      description: Toxicity, biodegradability, and environmental fate
       icon: wind
+      section_description: Environmental effects and ecological considerations
       order: 8
       variant: warning
   detection_monitoring:
@@ -248,8 +251,9 @@ relationships:
       odor_threshold: 0.8-5 ppm - provides adequate warning but close to toxic levels
     _section:
       title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
+      description: Methods for detecting and measuring this compound
       icon: gauge
+      section_description: Methods and equipment for detecting and monitoring this compound
       order: 6
       variant: default
   ppe_requirements:
@@ -264,8 +268,9 @@ relationships:
         10 seconds mandatory. Liquid causes frostbite (cryogenic).
     _section:
       title: PPE Requirements
-      description: Personal protective equipment needed for safe handling
+      description: Required safety equipment for handling this compound
       icon: shield
+      section_description: Personal protective equipment needed for safe handling
       order: 5
       variant: warning
   emergency_response:
@@ -284,8 +289,9 @@ relationships:
         producing flammable hydrogen gas. Causes severe burns, permanent eye damage, respiratory tract damage.
     _section:
       title: Emergency Response
-      description: First aid and emergency procedures for exposure incidents
+      description: Procedures for spills, exposure, and incidents
       icon: alert-triangle
+      section_description: First aid and emergency procedures for exposure incidents
       order: 7
       variant: danger
   produced_from_contaminants:
@@ -303,7 +309,7 @@ relationships:
       intensity: negative
     _section:
       title: Produced From Contaminants
-      description: Contaminants that generate this compound during laser cleaning
+      section_description: Contaminants that generate this compound during laser cleaning
       icon: droplet
       order: 9
       variant: default
@@ -318,7 +324,7 @@ relationships:
     - id: urethane-composites-laser-cleaning
     _section:
       title: Produced From Materials
-      description: Materials that may release this compound during laser cleaning
+      section_description: Materials that may release this compound during laser cleaning
       icon: users
       order: 10
       variant: default
@@ -337,8 +343,9 @@ relationships:
       odor: Pungent, irritating odor @ 0.8-5 ppm
     _section:
       title: Physical Properties
-      description: Physical characteristics and state information
+      description: Chemical and physical characteristics
       icon: gauge
+      section_description: Physical characteristics and state information
       order: 2
       variant: default
   storage_requirements:
@@ -362,8 +369,9 @@ relationships:
         eyewash/shower within 25 feet. Store in cool, dry area. Protect from physical damage.
     _section:
       title: Storage Requirements
-      description: Proper storage conditions and handling precautions
+      description: Safe storage conditions and compatibility
       icon: alert-triangle
+      section_description: Proper storage conditions and handling precautions
       order: 13
       variant: warning
   regulatory_classification:
@@ -386,8 +394,9 @@ relationships:
       rcra_code: null
     _section:
       title: Regulatory Classification
-      description: Hazard classifications and regulatory designations
+      description: DOT, UN, and NFPA hazard classifications
       icon: file-text
+      section_description: Hazard classifications and regulatory designations
       order: 12
       variant: default
   reactivity:
@@ -415,8 +424,9 @@ relationships:
         Forms corrosive mist in humid air.
     _section:
       title: Reactivity
-      description: Chemical reactivity and compatibility with other substances
+      description: Chemical reactivity and incompatibilities
       icon: flame
+      section_description: Chemical reactivity and compatibility with other substances
       order: 11
       variant: warning
   synonyms_identifiers:
@@ -434,8 +444,9 @@ relationships:
         pubchem_cid: '313'
     _section:
       title: Synonyms & Identifiers
-      description: Alternative names and chemical identifiers (CAS numbers)
+      description: Synonyms and chemical identifiers
       icon: file-text
+      section_description: Alternative names and chemical identifiers (CAS numbers)
       order: 14
       variant: default
   operational:
@@ -446,7 +457,7 @@ relationships:
         id: hydrogen-chloride-toxicology
       _section:
         title: Health Effects
-        description: Potential health impacts from exposure
+        section_description: Potential health impacts from exposure
         icon: activity
         order: 1
         variant: warning
@@ -463,4 +474,12 @@ relationships:
       height: 600
 title: Hydrogen Chloride (HCl)
 subcategory: acid_gas
-page_description: Hydrogen chloride stands out from milder gases—its sharp bite etches metals fast.
+faq:
+- question: How can I detect and monitor HCl gas exposure during laser cleaning to stay within safe limits?
+  answer: Use portable gas detectors equipped with electrochemical sensors specific to HCl, placed in the breathing zone and
+    work area, to monitor concentrations in real-time; the OSHA permissible exposure limit (PEL) is 5 ppm as a ceiling limit,
+    meaning levels should never exceed this to avoid immediate respiratory irritation. Calibrate detectors daily and set alarms
+    for 1-2 ppm to allow early evacuation or ventilation adjustments, especially since HCl from laser ablation can rapidly
+    irritate eyes, skin, and lungs far more aggressively than milder acids like acetic. If levels approach the PEL, immediately
+    don a full-face respirator with acid gas cartridges and enhance local exhaust ventilation to dilute the corrosive gas.
+formula: HCl

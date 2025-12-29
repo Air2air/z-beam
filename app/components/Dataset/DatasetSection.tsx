@@ -13,22 +13,33 @@ export default function DatasetSection({
   title,
   description,
   stats,
-  formats,
-  onDownload,
-  getDirectLink,
-  includes: _includes,
-  note: _note,
-  categoryLink,
+  jsonUrl,
+  csvUrl,
+  txtUrl,
+  category,
+  categoryLabel,
   fullDatasetLink = false
 }: DatasetSectionProps) {
-  const [downloadFormat, setDownloadFormat] = useState<'json' | 'csv' | 'txt'>(formats[0]);
+  const [downloadFormat, setDownloadFormat] = useState<'json' | 'csv' | 'txt'>('json');
   const [copied, setCopied] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+
+  const getCurrentUrl = () => {
+    switch (downloadFormat) {
+      case 'json': return jsonUrl;
+      case 'csv': return csvUrl;
+      case 'txt': return txtUrl;
+    }
+  };
 
   const handleDownload = async () => {
     try {
       setIsDownloading(true);
-      await onDownload(downloadFormat);
+      const url = getCurrentUrl();
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = url.split('/').pop() || '';
+      a.click();
     } catch (error) {
       console.error('Download failed:', error);
       alert('Failed to download dataset. Please try again.');
@@ -38,16 +49,14 @@ export default function DatasetSection({
   };
 
   const copyDownloadUrl = async () => {
-    const textToCopy = !getDirectLink
-      ? `${title} - ${description}`
-      : `${typeof window !== 'undefined' ? window.location.origin : ''}${getDirectLink(downloadFormat)}`;
-    
-    await copyToClipboard(textToCopy);
+    const url = getCurrentUrl();
+    const fullUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}${url}`;
+    await copyToClipboard(fullUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const _directLink = getDirectLink?.(downloadFormat);
+  const directLink = getCurrentUrl();
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
@@ -71,7 +80,7 @@ export default function DatasetSection({
       </div>
 
       <DatasetDownloadControls
-        formats={formats}
+        formats={['json', 'csv', 'txt']}
         selectedFormat={downloadFormat}
         onFormatChange={setDownloadFormat}
         onDownload={handleDownload}
@@ -81,12 +90,12 @@ export default function DatasetSection({
         showCopyButton={false}
       />
 
-      {(categoryLink || fullDatasetLink) && (
+      {(category || fullDatasetLink) && (
         <div className="mt-4 pt-4 space-y-2">
-          {categoryLink && (
-            <a href={categoryLink.href} className="text-sm text-blue-600 hover:underline flex items-center gap-1">
+          {category && categoryLabel && (
+            <a href={`/contaminants/${category}`} className="text-sm text-blue-600 hover:underline flex items-center gap-1">
               <FileIcon className="w-4 h-4" />
-              <span>{categoryLink.label}</span>
+              <span>{categoryLabel}</span>
             </a>
           )}
           {fullDatasetLink && (

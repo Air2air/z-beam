@@ -1,7 +1,7 @@
 id: beryllium-settings
 name: Beryllium
-datePublished: '2025-12-27T21:06:07.138941Z'
-dateModified: '2025-12-27T21:06:07.138941Z'
+datePublished: '2025-12-29T06:28:52.204861Z'
+dateModified: '2025-12-29T06:28:52.204861Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/beryllium-settings
@@ -17,6 +17,16 @@ breadcrumb:
 - label: Beryllium
   href: /settings/metal/specialty/beryllium-settings
 page_title: 'Beryllium Settings: Laser Parameters'
+page_description: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because
+  Beryllium's exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure
+  effective contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser alloys,
+  means you should start with adjusted pulse durations and slower scan speeds so the surface has time to absorb just enough
+  heat for cleaning, while its lightweight nature allows rapid cooling that prevents warping if you control the overlap carefully.
+  Beryllium's superior thermal conductivity spreads heat quickly across the material, which helps avoid localized damage but
+  requires you to monitor passes closely to prevent overexposure. You also need to watch its brittleness compared to tougher
+  steels, as sudden temperature shifts can lead to micro-cracks during the process. In the end, always end sessions with a
+  cool-down period and inspect for any subsurface stress, since overlooking this can compromise the material's integrity in
+  high-stakes applications like aerospace components.
 meta_description: 'Beryllium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -83,7 +93,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -96,7 +106,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -110,7 +120,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -130,8 +140,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Beryllium Settings
@@ -256,13 +267,5 @@ machine_settings:
     description: '30-80% overlap for uniform coverage in scanning; 50% recommended for Beryllium to ensure even fluence distribution
       and prevent gaps, optimizing for its reflective properties. Source: Process optimization in Surf. Coat. Technol. 378,
       124-130 (2019).'
-page_description: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because
-  Beryllium's exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure
-  effective contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser alloys,
-  means you should start with adjusted pulse durations and slower scan speeds so the surface has time to absorb just enough
-  heat for cleaning, while its lightweight nature allows rapid cooling that prevents warping if you control the overlap carefully.
-  Beryllium's superior thermal conductivity spreads heat quickly across the material, which helps avoid localized damage but
-  requires you to monitor passes closely to prevent overexposure. You also need to watch its brittleness compared to tougher
-  steels, as sudden temperature shifts can lead to micro-cracks during the process. In the end, always end sessions with a
-  cool-down period and inspect for any subsurface stress, since overlooking this can compromise the material's integrity in
-  high-stakes applications like aerospace components.
+component_summary: These settings employ moderate 150 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants
+  from Beryllium, minimizing thermal stress on its brittle, low-conductivity surface.

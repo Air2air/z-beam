@@ -1,8 +1,6 @@
 // app/components/MaterialCharacteristics/MaterialCharacteristics.tsx
 import React from 'react';
 import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface MaterialCharacteristicsProps {
@@ -64,23 +62,17 @@ export function MaterialCharacteristics({ materialProperties, materialName, cate
   };
 
   return (
-    <SectionContainer>
-      <SectionTitle 
-        title={title}
-        icon={getSectionIcon('material-properties')}
-        description="Core physical properties including density, hardness, and thermal characteristics"
-      />
-      <PropertyGrid
-        metadata={metadata}
-        dataSource="materialProperties"
-        title={title}
-        icon={getSectionIcon('material-properties')}
-        actionText={settingsUrl && materialName ? `${materialName} machine settings` : undefined}
-        actionUrl={settingsUrl}
-        columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
-        height={70}
-        className="mb-8"
-      />
-    </SectionContainer>
+    <PropertyGrid
+      metadata={metadata}
+      dataSource="materialProperties"
+      title={title}
+      icon={getSectionIcon('material-properties')}
+      description="Core physical properties including density, hardness, and thermal characteristics"
+      actionText={settingsUrl && materialName ? `${materialName} machine settings` : undefined}
+      actionUrl={settingsUrl}
+      columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
+      height={70}
+      className="mb-8"
+    />
   );
 }

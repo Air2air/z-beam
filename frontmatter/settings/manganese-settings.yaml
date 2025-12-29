@@ -1,7 +1,7 @@
 id: manganese-settings
 name: Manganese
-datePublished: '2025-12-27T21:06:07.906733Z'
-dateModified: '2025-12-27T21:06:07.906733Z'
+datePublished: '2025-12-29T06:28:52.903680Z'
+dateModified: '2025-12-29T06:28:52.903680Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/manganese-settings
@@ -17,6 +17,15 @@ breadcrumb:
 - label: Manganese
   href: /settings/metal/non-ferrous/manganese-settings
 page_title: 'Manganese Settings: Laser Parameters'
+page_description: When laser cleaning manganese, the main challenge lies in its low thermal conductivity, which causes heat
+  to build up quickly in targeted areas. This buildup can lead to uneven ablation if not managed, potentially damaging the
+  underlying structure before contaminants fully remove. I've seen this happen when initial passes use too much power, so
+  start with reduced settings to allow controlled energy delivery that exposes clean surfaces without excess stress. Its moderate
+  reflectivity helps by absorbing enough laser energy for effective cleaning, unlike highly reflective metals that scatter
+  light and demand higher fluences. This property lets you restore manganese components in aerospace or marine applications
+  reliably, as long as you adjust for its brittleness by incorporating overlap in scans to avoid micro-cracks. Tends to work
+  best with shorter pulses that minimize thermal diffusion. Watch out for prolonged exposure at the end, which might compromise
+  its corrosion resistance—always verify surface integrity after the final pass.
 meta_description: 'Manganese: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -83,7 +92,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -96,7 +105,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -110,7 +119,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -130,8 +139,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Manganese Settings
@@ -260,12 +270,6 @@ machine_settings:
     description: '30-80% overlap for uniform coverage in scanning; 50% recommended for manganese to avoid gaps in cleaning
       while minimizing over-processing and heat input. Higher overlap for heavy contamination. Source: Process optimization
       studies in Lasers in Manufacturing and Materials Processing (2021) on scan strategies for metallic substrates.'
-page_description: When laser cleaning manganese, the main challenge lies in its low thermal conductivity, which causes heat
-  to build up quickly in targeted areas. This buildup can lead to uneven ablation if not managed, potentially damaging the
-  underlying structure before contaminants fully remove. I've seen this happen when initial passes use too much power, so
-  start with reduced settings to allow controlled energy delivery that exposes clean surfaces without excess stress. Its moderate
-  reflectivity helps by absorbing enough laser energy for effective cleaning, unlike highly reflective metals that scatter
-  light and demand higher fluences. This property lets you restore manganese components in aerospace or marine applications
-  reliably, as long as you adjust for its brittleness by incorporating overlap in scans to avoid micro-cracks. Tends to work
-  best with shorter pulses that minimize thermal diffusion. Watch out for prolonged exposure at the end, which might compromise
-  its corrosion resistance—always verify surface integrity after the final pass.
+component_summary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width settings are ideal for manganese, leveraging
+  its strong absorption at this wavelength for efficient ablation while short pulses minimize thermal distortion on this reactive
+  metal.

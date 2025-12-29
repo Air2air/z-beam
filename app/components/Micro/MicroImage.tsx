@@ -18,11 +18,11 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
 
-  // Generate SEO-optimized alt text
+  // Generate SEO-optimized alt text from available frontmatter data
   const optimizedAlt = alt || 
     (imageSource 
-      ? `${materialName || 'Material'} surface analysis - laser cleaning results`
-      : 'No image available');
+      ? `${materialName || 'Material'} microscopic surface analysis at 500-1000x magnification showing laser cleaning results`
+      : 'No microscopic image available');
 
   if (!imageSource) {
     return (

@@ -1,7 +1,7 @@
 id: urethane-composites-settings
 name: Urethane Composites
-datePublished: '2025-12-27T21:06:08.890116Z'
-dateModified: '2025-12-27T21:06:08.890116Z'
+datePublished: '2025-12-29T06:28:53.802158Z'
+dateModified: '2025-12-29T06:28:53.802158Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/structural/urethane-composites-settings
@@ -17,6 +17,12 @@ breadcrumb:
 - label: Urethane Composites
   href: /settings/composite/structural/urethane-composites-settings
 page_title: 'Urethane Composites Settings: Laser Parameters'
+page_description: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to leverage
+  their high absorption, which efficiently removes surface contaminants without immediate deep penetration. This approach
+  accounts for the material's low thermal conductivity, so heat stays localized and reduces the risk of underlying delamination
+  in these layered structures. We've found that slower scan speeds with multiple overlapping passes restore the surface integrity
+  effectively, as the flexibility of urethane prevents cracking under controlled exposure. Always monitor for excessive buildup,
+  which can degrade the composite's durability if power exceeds safe thresholds.
 meta_description: 'Urethane Composites: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -81,7 +87,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -95,7 +101,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -113,8 +119,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Urethane Composites Settings
@@ -244,9 +251,5 @@ machine_settings:
     description: 'Ensures uniform coverage without excessive overlap-induced heating; 30-50% for large areas, 60-80% for precision.
       Recommended 60% for urethanes to achieve even cleaning while managing reflectivity variations (~20-50% at 1064 nm).
       Source: Process optimization studies in Optics Express (2020); manufacturer guidelines from Trumpf Laser.'
-page_description: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to leverage
-  their high absorption, which efficiently removes surface contaminants without immediate deep penetration. This approach
-  accounts for the material's low thermal conductivity, so heat stays localized and reduces the risk of underlying delamination
-  in these layered structures. We've found that slower scan speeds with multiple overlapping passes restore the surface integrity
-  effectively, as the flexibility of urethane prevents cracking under controlled exposure. Always monitor for excessive buildup,
-  which can degrade the composite's durability if power exceeds safe thresholds.
+component_summary: These settings employ moderate 150 W power and 10 ns pulses at 1064 nm to ablate surface contaminants from
+  urethane composites without causing thermal distortion or polymer degradation.

@@ -28,7 +28,7 @@ export default async function ContaminantsPage() {
     type: 'contaminants',
     plural: 'Contaminants',
     rootPath: 'contaminants',
-    pageTitle: 'Contaminants Database',
+    pageTitle: 'Laser Cleaning Contaminants',
     pageDescription: 'Explore our comprehensive database of contaminant types and laser cleaning solutions for industrial applications.',
     categories: categories as any // CategoryInfo includes items at runtime
   }} />;

@@ -30,7 +30,7 @@ export default async function CompoundsPage() {
     type: 'compounds',
     plural: 'Compounds',
     rootPath: 'compounds',
-    pageTitle: 'Hazardous Compounds Database',
+    pageTitle: 'Hazardous Compounds in Laser Cleaning',
     pageDescription: 'Comprehensive safety information for compounds produced during laser cleaning operations.',
     categories
   }} />;

@@ -3,8 +3,8 @@ name: Sulfur Dioxide
 display_name: Sulfur Dioxide (SO₂)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-27T21:27:49.440591Z'
-dateModified: '2025-12-27T21:27:49.440591Z'
+datePublished: '2025-12-29T06:28:01.600566Z'
+dateModified: '2025-12-29T06:28:01.600566Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
@@ -20,6 +20,8 @@ breadcrumb:
 - label: Sulfur Dioxide
   href: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
 page_title: 'Sulfur Dioxide: Toxic Metal Fumes'
+page_description: Sulfur dioxide drifts as a colorless gas with a sharp, choking odor that clings to the air, making it a
+  notorious player in industrial atmospheres where careful.
 meta_description: 'Sulfur Dioxide: Toxic Metal Fumes from metal processing. Requires enclosed extraction.'
 chemical_formula: SO₂
 cas_number: 7446-09-5
@@ -190,8 +192,9 @@ relationships:
           biological_exposure_indices: []
       _section:
         title: Exposure Limits
-        description: Regulatory exposure thresholds and safe concentration levels
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
+        section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
   chemical_properties:
@@ -201,7 +204,7 @@ relationships:
       id: sulfur-dioxide-physical-data
     _section:
       title: Chemical Properties
-      description: Fundamental chemical characteristics and behavior
+      section_description: Fundamental chemical characteristics and behavior
       icon: microscope
       order: 1
       variant: default
@@ -226,8 +229,9 @@ relationships:
         air: 1 lb/day (CERCLA RQ)
     _section:
       title: Environmental Impact
-      description: Environmental effects and ecological considerations
+      description: Toxicity, biodegradability, and environmental fate
       icon: wind
+      section_description: Environmental effects and ecological considerations
       order: 8
       variant: warning
   detection_monitoring:
@@ -256,8 +260,9 @@ relationships:
       odor_threshold: 0.3-1 ppm - provides adequate warning below toxic levels
     _section:
       title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
+      description: Methods for detecting and measuring this compound
       icon: gauge
+      section_description: Methods and equipment for detecting and monitoring this compound
       order: 6
       variant: default
   ppe_requirements:
@@ -272,8 +277,9 @@ relationships:
         - asthmatics extremely sensitive.
     _section:
       title: PPE Requirements
-      description: Personal protective equipment needed for safe handling
+      description: Required safety equipment for handling this compound
       icon: shield
+      section_description: Personal protective equipment needed for safe handling
       order: 5
       variant: warning
   emergency_response:
@@ -292,8 +298,9 @@ relationships:
         to tissues. May cause bronchospasm and pulmonary edema. Cryogenic liquid causes frostbite.
     _section:
       title: Emergency Response
-      description: First aid and emergency procedures for exposure incidents
+      description: Procedures for spills, exposure, and incidents
       icon: alert-triangle
+      section_description: First aid and emergency procedures for exposure incidents
       order: 7
       variant: danger
   produced_from_contaminants:
@@ -311,7 +318,7 @@ relationships:
       intensity: slightly_negative
     _section:
       title: Produced From Contaminants
-      description: Contaminants that generate this compound during laser cleaning
+      section_description: Contaminants that generate this compound during laser cleaning
       icon: droplet
       order: 9
       variant: default
@@ -328,7 +335,7 @@ relationships:
     - id: tool-steel-laser-cleaning
     _section:
       title: Produced From Materials
-      description: Materials that may release this compound during laser cleaning
+      section_description: Materials that may release this compound during laser cleaning
       icon: users
       order: 10
       variant: default
@@ -347,8 +354,9 @@ relationships:
       odor: Pungent, suffocating odor @ 0.3-1 ppm
     _section:
       title: Physical Properties
-      description: Physical characteristics and state information
+      description: Chemical and physical characteristics
       icon: gauge
+      section_description: Physical characteristics and state information
       order: 2
       variant: default
   storage_requirements:
@@ -370,8 +378,9 @@ relationships:
         procedures posted. For liquid: cryogenic handling equipment.'
     _section:
       title: Storage Requirements
-      description: Proper storage conditions and handling precautions
+      description: Safe storage conditions and compatibility
       icon: alert-triangle
+      section_description: Proper storage conditions and handling precautions
       order: 13
       variant: warning
   regulatory_classification:
@@ -394,8 +403,9 @@ relationships:
       rcra_code: null
     _section:
       title: Regulatory Classification
-      description: Hazard classifications and regulatory designations
+      description: DOT, UN, and NFPA hazard classifications
       icon: file-text
+      section_description: Hazard classifications and regulatory designations
       order: 12
       variant: default
   reactivity:
@@ -422,8 +432,9 @@ relationships:
         metals.
     _section:
       title: Reactivity
-      description: Chemical reactivity and compatibility with other substances
+      description: Chemical reactivity and incompatibilities
       icon: flame
+      section_description: Chemical reactivity and compatibility with other substances
       order: 11
       variant: warning
   synonyms_identifiers:
@@ -441,8 +452,9 @@ relationships:
         pubchem_cid: '1119'
     _section:
       title: Synonyms & Identifiers
-      description: Alternative names and chemical identifiers (CAS numbers)
+      description: Synonyms and chemical identifiers
       icon: file-text
+      section_description: Alternative names and chemical identifiers (CAS numbers)
       order: 14
       variant: default
   operational:
@@ -453,7 +465,7 @@ relationships:
         id: sulfur-dioxide-toxicology
       _section:
         title: Health Effects
-        description: Potential health impacts from exposure
+        section_description: Potential health impacts from exposure
         icon: activity
         order: 1
         variant: warning
@@ -470,5 +482,12 @@ relationships:
       height: 600
 title: Sulfur Dioxide (SO₂)
 subcategory: acid_gas
-page_description: Sulfur dioxide drifts as a colorless gas with a sharp, choking odor that clings to the air, making it a
-  notorious player in industrial atmospheres where careful.
+faq:
+- question: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas from
+    sulfur-containing materials?
+  answer: Always prioritize engineering controls like local exhaust ventilation to capture and remove SO₂ at the source, maintaining
+    exposure below the OSHA permissible limit of 5 ppm (parts per million) over an 8-hour shift. Wear a full-face respirator
+    with an appropriate cartridge rated for acid gases (e.g., NIOSH-approved P100 with acid gas cartridge) and ensure personal
+    protective equipment like gloves and protective clothing to avoid skin contact. Regularly monitor air quality with SO₂
+    detectors or badges, and evacuate if levels exceed 5 ppm, seeking fresh air immediately if irritation occurs.
+formula: SO₂

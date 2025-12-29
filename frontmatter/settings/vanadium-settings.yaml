@@ -1,7 +1,7 @@
 id: vanadium-settings
 name: Vanadium
-datePublished: '2025-12-27T21:06:08.903867Z'
-dateModified: '2025-12-27T21:06:08.903867Z'
+datePublished: '2025-12-29T06:28:53.815278Z'
+dateModified: '2025-12-29T06:28:53.815278Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/vanadium-settings
@@ -17,6 +17,11 @@ breadcrumb:
 - label: Vanadium
   href: /settings/metal/alloy/vanadium-settings
 page_title: 'Vanadium Settings: Laser Parameters'
+page_description: When laser cleaning vanadium, make sure you watch its moderate reflectivity right from the start—unlike
+  highly reflective metals like copper, it absorbs energy better but still scatters some light, so you must lower the power
+  initially to prevent uneven heating. This difference means you can ramp up faster than with shiny alloys, but always scan
+  slowly to avoid surface pitting. Its strong corrosion resistance helps keep the cleaned area intact, just overlap passes
+  generously for full coverage.
 meta_description: 'Vanadium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -83,7 +88,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -96,7 +101,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -110,7 +115,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -130,8 +135,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Vanadium Settings
@@ -257,8 +263,5 @@ machine_settings:
     description: Ensures uniform coverage and avoids gaps in scan lines; 70% recommended for consistent cleaning on reflective,
       conductive vanadium to prevent uneven heating. Typical range from process optimization studies (e.g., Zhou et al., Opt.
       Lasers Eng., 2020 on scan strategies).
-page_description: When laser cleaning vanadium, make sure you watch its moderate reflectivity right from the start—unlike
-  highly reflective metals like copper, it absorbs energy better but still scatters some light, so you must lower the power
-  initially to prevent uneven heating. This difference means you can ramp up faster than with shiny alloys, but always scan
-  slowly to avoid surface pitting. Its strong corrosion resistance helps keep the cleaned area intact, just overlap passes
-  generously for full coverage.
+component_summary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to effectively ablate contaminants
+  from Vanadium's high-melting-point surface while minimizing thermal distortion and oxidation risks.

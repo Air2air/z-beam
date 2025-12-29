@@ -1,7 +1,7 @@
 id: metal-matrix-composites-mmcs-settings
 name: Metal Matrix Composites MMCs
-datePublished: '2025-12-27T21:06:07.951235Z'
-dateModified: '2025-12-27T21:06:07.951235Z'
+datePublished: '2025-12-29T06:28:52.941136Z'
+dateModified: '2025-12-29T06:28:52.941136Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/metal-matrix-composites-mmcs-settings
@@ -17,6 +17,12 @@ breadcrumb:
 - label: Metal Matrix Composites MMCs
   href: /settings/composite/fiber-reinforced/metal-matrix-composites-mmcs-settings
 page_title: 'Metal Matrix Composites MMCs Settings: Laser Parameters'
+page_description: When laser cleaning metal matrix composites, unlike pure metals that heat evenly, watch out for their embedded
+  reinforcements—these can cause uneven heat buildup right from the start, risking cracks if you push power too high. We've
+  found that starting with lower energy pulses helps control this, letting the laser clear contaminants without stressing
+  the matrix. What sets MMCs apart is their hybrid strength from metal and fibers, so you adjust scan speeds slower to match
+  their good heat spreading, avoiding delamination. In our experience, this approach restores surfaces smoothly for aerospace
+  parts, but always test overlaps to prevent hot spots in the tougher zones.
 meta_description: 'Metal Matrix Composites MMCs: removes contamination removal. Industrial-grade parameters. No substrate
   damage.'
 images:
@@ -84,7 +90,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -98,7 +104,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -116,8 +122,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Metal Matrix Composites MMCs Settings
@@ -249,9 +256,5 @@ machine_settings:
     description: 'Ensures uniform coverage in scan patterns; 60% typical for MMCs to prevent gaps in cleaning while avoiding
       overexposure that could heat sensitive interfaces; range adjusted for contamination density (source: process optimization
       studies in International Journal of Advanced Manufacturing Technology).'
-page_description: When laser cleaning metal matrix composites, unlike pure metals that heat evenly, watch out for their embedded
-  reinforcements—these can cause uneven heat buildup right from the start, risking cracks if you push power too high. We've
-  found that starting with lower energy pulses helps control this, letting the laser clear contaminants without stressing
-  the matrix. What sets MMCs apart is their hybrid strength from metal and fibers, so you adjust scan speeds slower to match
-  their good heat spreading, avoiding delamination. In our experience, this approach restores surfaces smoothly for aerospace
-  parts, but always test overlaps to prevent hot spots in the tougher zones.
+component_summary: These settings, featuring 100 W power, 1064 nm wavelength, and 10 ns pulses, enable precise contaminant
+  removal from MMCs while minimizing thermal stress to prevent delamination at matrix-reinforcement interfaces.

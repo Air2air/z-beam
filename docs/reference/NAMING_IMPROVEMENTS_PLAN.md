@@ -3,50 +3,60 @@
 
 ---
 
+## 🚨 CORRECTION NOTICE (December 28, 2025)
+
+**Section 1.1 below contains INCORRECT guidance that was REVERSED on December 28, 2025.**
+
+**CORRECT Standard** (Dec 28, 2025):
+- ✅ Use `article.frontmatter` (canonical term)
+- ❌ Don't use `article.metadata` wrapper (DEPRECATED)
+
+**See**: `docs/reference/TERMINOLOGY_CORRECTION_DEC28_2025.md` for complete correction details.
+
+**This document remains** for historical context and for the other naming conventions (boolean props, PascalCase, etc.) which are still valid.
+
+---
+
 ## Phase 1: Critical Fixes (Week 1-2)
 
-### 1.1 Standardize `metadata` Terminology
+### ⚠️ 1.1 Standardize `frontmatter` Terminology (CORRECTED Dec 28, 2025)
 **Impact**: HIGH | **Effort**: MEDIUM | **Risk**: LOW
 
 #### Current Problem
 ```typescript
 // Inconsistent usage across codebase:
-article.metadata.title
-article.frontmatter.name
-data.author
-metadata.description
+article.metadata.title    // DEPRECATED - don't use
+article.frontmatter.name  // CORRECT - use this
 ```
 
-#### Solution
+#### Solution (CORRECTED)
 ```typescript
 // ✅ Standard everywhere:
-article.metadata.title
-article.metadata.name
-article.metadata.author
-article.metadata.description
+article.frontmatter.title
+article.frontmatter.name
+article.frontmatter.author
+article.frontmatter.description
 ```
 
-#### Implementation Steps
-1. **Search & Replace (Automated)**:
-   ```bash
-   # Find all frontmatter references
-   grep -r "\.frontmatter\." app/ --include="*.ts" --include="*.tsx"
-   
-   # Create migration script
-   find app/ -name "*.ts*" -exec sed -i '' 's/\.frontmatter\././g' {} +
+#### Implementation Steps (CORRECTED)
+1. **Use helper function**:
+   ```typescript
+   // app/utils/schemas/helpers.ts handles both formats
+   const meta = getMetadata(article); // Returns frontmatter if available
    ```
 
 2. **Update Type Definitions**:
    ```typescript
    // types/centralized.ts
    export interface Article {
-     metadata: ArticleMetadata;  // ✅ Consistent name
+     frontmatter: ArticleMetadata;  // ✅ Consistent name (CORRECTED)
      components: Components;
    }
    
-   // Add deprecation notice
-   /** @deprecated Use metadata instead */
-   frontmatter?: ArticleMetadata;
+   // Add deprecation notice for metadata wrapper
+   /** @deprecated Use frontmatter instead */
+   metadata?: ArticleMetadata;
+   ```
    ```
 
 3. **Update Key Components** (Priority Order):

@@ -75,11 +75,13 @@ describe('Enhanced Metadata Generation', () => {
       expect(result.openGraph.images[0].url).toBe('https://external-cdn.com/hero.jpg');
     });
 
-    it('should generate default alt text when missing', () => {
+    it('should generate rich alt text from frontmatter when images.hero.alt missing', () => {
       const metadata: ArticleMetadata = {
         title: 'Marble Laser Etching',
         slug: 'marble-laser-etching',
-        description: 'Test description',
+        description: 'Precision laser surface treatment for marble restoration',
+        category: 'stone',
+        subcategory: 'natural',
         images: {
           hero: {
             url: '/images/marble-hero.jpg',
@@ -89,7 +91,12 @@ describe('Enhanced Metadata Generation', () => {
 
       const result = createMetadata(metadata);
 
+      // Should contain title as minimum
       expect(result.openGraph.images[0].alt).toContain('Marble Laser Etching');
+      
+      // Rich fallback should ideally include category/context when available
+      // Format: "[Title] - [Context from description/category]"
+      expect(result.openGraph.images[0].alt.length).toBeGreaterThan(20);
     });
 
     it('should use dynamic dimensions from frontmatter when provided', () => {

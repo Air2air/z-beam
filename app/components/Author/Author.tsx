@@ -42,6 +42,7 @@ export function Author({
               alt={authorName}
               width={60}
               height={60}
+              sizes="60px"
               className="rounded-full flex-shrink-0"
             />
           )}

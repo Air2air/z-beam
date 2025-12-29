@@ -1,6 +1,30 @@
 # Phase 1 Implementation Complete ✅
 **Date**: December 26, 2025  
-**Status**: Complete with automated enforcement
+**Status**: ⚠️ **REVERSED** - See correction below
+
+---
+
+## 🚨 CRITICAL CORRECTION (December 28, 2025)
+
+**This document describes work that was REVERSED on December 28, 2025.**
+
+The `.frontmatter` → `.metadata` migration went in the **WRONG DIRECTION**:
+- ❌ **INCORRECT**: This document says "use `.metadata` not `.frontmatter`"
+- ✅ **CORRECT**: Should use `.frontmatter` not `.metadata`
+
+**Current Standard** (Dec 28, 2025):
+- ✅ Use `article.frontmatter` (canonical term)
+- ❌ Don't use `article.metadata` wrapper (DEPRECATED)
+
+**See**: `docs/reference/TERMINOLOGY_CORRECTION_DEC28_2025.md` for complete details.
+
+**Why this document remains**: Historical record of implementation work, even though the direction was incorrect.
+
+---
+
+## ⚠️ HISTORICAL RECORD BELOW (DO NOT FOLLOW)
+
+The content below describes the December 26 implementation that was **reversed on December 28**. It remains for historical context only.
 
 ---
 

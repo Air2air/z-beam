@@ -16,6 +16,7 @@ export async function CardGrid({
   columns = 3,
   gap = 'md',
   variant = 'default',
+  className = '',
 }: CardGridSSRProps) {
   // Select the appropriate article fetcher based on content type
   const getArticleForType = 
@@ -87,7 +88,7 @@ export async function CardGrid({
         {Object.entries(grouped).map(([category, categoryItems]) => (
           <div key={category}>
             <h3 className="text-2xl font-bold mb-4">{category}</h3>
-            <div className={getGridClasses({ columns, gap })}>
+            <div className={`${getGridClasses({ columns, gap })} ${className}`}>
               {categoryItems.map((item) => (
                 <Card
                   key={item.href || item.url || item.slug}
@@ -117,7 +118,7 @@ export async function CardGrid({
 
   // Simple grid
   return (
-    <div className={getGridClasses({ columns, gap })}>
+    <div className={`${getGridClasses({ columns, gap })} ${className}`}>
       {items.map((item) => (
         <Card
           key={item.href || item.url || item.slug}

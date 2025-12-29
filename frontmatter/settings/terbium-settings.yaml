@@ -1,7 +1,7 @@
 id: terbium-settings
 name: Terbium
-datePublished: '2025-12-27T21:06:08.751784Z'
-dateModified: '2025-12-27T21:06:08.751784Z'
+datePublished: '2025-12-29T06:28:53.663593Z'
+dateModified: '2025-12-29T06:28:53.663593Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/rare-earth/lanthanide/terbium-settings
@@ -17,6 +17,22 @@ breadcrumb:
 - label: Terbium
   href: /settings/rare-earth/lanthanide/terbium-settings
 page_title: 'Terbium Settings: Laser Parameters'
+page_description: 'When laser cleaning Terbium, you must first watch out for its high reflectivity, which bounces back most
+  of the laser energy compared to less reflective rare-earth metals like neodymium. This difference means you need to adjust
+  your setup carefully to prevent inefficient cleaning or unintended heating elsewhere. Make sure you start with lower power
+  levels right away, so you avoid scattering the beam and wasting energy on surfaces that won''t absorb it well.
+
+
+  Unlike more absorbent metals in electronics manufacturing, Terbium''s shiny nature demands you increase the number of passes
+  slowly while keeping the spot size tight. You should also control scan speeds to let the laser dwell just long enough for
+  gradual contaminant removal without risking surface damage. Its dense and hard structure holds up well under repeated exposure,
+  but poor thermal conductivity traps heat locally, so monitor for hotspots that could warp delicate aerospace parts.
+
+
+  In my experience with medical applications, this reflective trait sets Terbium apart, requiring you to test absorptivity
+  enhancers if cleaning proves stubborn. Always prioritize overlap in your paths to ensure even coverage, restoring the finish
+  without compromising its oxidation-prone edges. Approach it methodically, and you''ll clear residues effectively for renewable
+  energy components too.'
 meta_description: 'Terbium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -85,7 +101,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -98,7 +114,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -112,7 +128,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -161,8 +177,9 @@ relationships:
           - Chain of custody documentation for high-value materials
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Terbium Settings
@@ -290,19 +307,5 @@ machine_settings:
     description: 'Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and
       efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser
       Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals.'
-page_description: 'When laser cleaning Terbium, you must first watch out for its high reflectivity, which bounces back most
-  of the laser energy compared to less reflective rare-earth metals like neodymium. This difference means you need to adjust
-  your setup carefully to prevent inefficient cleaning or unintended heating elsewhere. Make sure you start with lower power
-  levels right away, so you avoid scattering the beam and wasting energy on surfaces that won''t absorb it well.
-
-
-  Unlike more absorbent metals in electronics manufacturing, Terbium''s shiny nature demands you increase the number of passes
-  slowly while keeping the spot size tight. You should also control scan speeds to let the laser dwell just long enough for
-  gradual contaminant removal without risking surface damage. Its dense and hard structure holds up well under repeated exposure,
-  but poor thermal conductivity traps heat locally, so monitor for hotspots that could warp delicate aerospace parts.
-
-
-  In my experience with medical applications, this reflective trait sets Terbium apart, requiring you to test absorptivity
-  enhancers if cleaning proves stubborn. Always prioritize overlap in your paths to ensure even coverage, restoring the finish
-  without compromising its oxidation-prone edges. Approach it methodically, and you''ll clear residues effectively for renewable
-  energy components too.'
+component_summary: These settings employ moderate 100 W power and short 15 ns pulses at 1064 nm to precisely ablate contaminants
+  from Terbium while minimizing thermal input that could deform its soft, heat-sensitive surface.

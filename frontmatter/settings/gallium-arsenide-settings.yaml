@@ -1,7 +1,7 @@
 id: gallium-arsenide-settings
 name: Gallium Arsenide
-datePublished: '2025-12-27T21:06:07.598431Z'
-dateModified: '2025-12-27T21:06:07.598431Z'
+datePublished: '2025-12-29T06:28:52.640292Z'
+dateModified: '2025-12-29T06:28:52.640292Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/semiconductor/elemental/gallium-arsenide-settings
@@ -17,6 +17,11 @@ breadcrumb:
 - label: Gallium Arsenide
   href: /settings/semiconductor/elemental/gallium-arsenide-settings
 page_title: 'Gallium Arsenide Settings: Laser Parameters'
+page_description: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends to
+  decompose easily under intense beams, unlike tougher silicon wafers. I've seen this cause surface cracks if you push too
+  hard, so begin with gentle pulses to lift contaminants without harming the fragile lattice. This material stands out among
+  semiconductors for absorbing energy well, which helps clear residues fast but demands slower scans to spread the heat. Adjust
+  to multiple light passes with good overlap, and you'll restore that clean finish for electronics work without risking brittleness.
 meta_description: 'Gallium Arsenide: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -85,7 +90,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -98,7 +103,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -112,7 +117,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -151,8 +156,9 @@ relationships:
           - Post-cleaning oxygen plasma for complete residue removal
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Gallium Arsenide Settings
@@ -279,8 +285,5 @@ machine_settings:
     description: 'Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced
       damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser
       cleaning.'
-page_description: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends to
-  decompose easily under intense beams, unlike tougher silicon wafers. I've seen this cause surface cracks if you push too
-  hard, so begin with gentle pulses to lift contaminants without harming the fragile lattice. This material stands out among
-  semiconductors for absorbing energy well, which helps clear residues fast but demands slower scans to spread the heat. Adjust
-  to multiple light passes with good overlap, and you'll restore that clean finish for electronics work without risking brittleness.
+component_summary: These settings use moderate 20 W power and 15 ns pulses at 532 nm to gently ablate contaminants from GaAs,
+  minimizing thermal damage to its heat-sensitive semiconductor surface.

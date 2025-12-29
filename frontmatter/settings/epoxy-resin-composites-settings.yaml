@@ -1,7 +1,7 @@
 id: epoxy-resin-composites-settings
 name: Epoxy Resin Composites
-datePublished: '2025-12-27T21:06:07.470653Z'
-dateModified: '2025-12-27T21:06:07.470653Z'
+datePublished: '2025-12-29T06:28:52.525464Z'
+dateModified: '2025-12-29T06:28:52.525464Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/epoxy-resin-composites-settings
@@ -17,6 +17,11 @@ breadcrumb:
 - label: Epoxy Resin Composites
   href: /settings/composite/fiber-reinforced/epoxy-resin-composites-settings
 page_title: 'Epoxy Resin Composites Settings: Laser Parameters'
+page_description: I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly because
+  their fiber-reinforced structure absorbs energy more readily without reflecting it away. This helps remove contaminants
+  efficiently, as the matrix holds up well under controlled heat, preventing quick degradation that you'd get with softer
+  plastics. So, approach it by starting with gentler passes to leverage that absorption for clean results. Just watch out
+  for localized overheating at the end, which can cause delamination if you push too hard.
 meta_description: 'Epoxy Resin Composites: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -81,7 +86,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -95,7 +100,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -113,8 +118,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Epoxy Resin Composites Settings
@@ -240,8 +246,5 @@ machine_settings:
       recommended for epoxy to optimize coverage without excessive energy overlap causing damage. Source: Process optimization
       studies in Lasers in Manufacturing and Materials Processing (2021); standards from ISO 11553 on laser safety.'
     value: 50.0
-page_description: I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly because
-  their fiber-reinforced structure absorbs energy more readily without reflecting it away. This helps remove contaminants
-  efficiently, as the matrix holds up well under controlled heat, preventing quick degradation that you'd get with softer
-  plastics. So, approach it by starting with gentler passes to leverage that absorption for clean results. Just watch out
-  for localized overheating at the end, which can cause delamination if you push too hard.
+component_summary: These settings use moderate 100 W power and 10 ns pulses at 1064 nm to selectively ablate contaminants
+  from epoxy resin composites while minimizing heat buildup and preventing matrix degradation.

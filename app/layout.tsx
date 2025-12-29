@@ -178,13 +178,27 @@ export default async function RootLayout({
         
         {/* Critical resource hints for better LCP and TTFB */}
         <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://va.vercel-scripts.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         
         {/* Defer non-critical third-party connections */}
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
-        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
-        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
+        {/* Preload critical hero images for faster LCP */}
+        <link rel="preload" as="image" href="/images/hero-laser-cleaning.webp" type="image/webp" />
+        
+        {/* Inline critical CSS for faster FCP */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Critical above-the-fold styles */
+            body{margin:0;min-height:100vh}
+            main{flex-grow:1}
+            .nav{position:sticky;top:0;z-index:50}
+            @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+          `
+        }} />
         
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/favicon/favicon-350.png" type="image/png" />

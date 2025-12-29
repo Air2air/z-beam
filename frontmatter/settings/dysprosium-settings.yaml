@@ -1,7 +1,7 @@
 id: dysprosium-settings
 name: Dysprosium
-datePublished: '2025-12-27T21:06:07.454472Z'
-dateModified: '2025-12-27T21:06:07.454472Z'
+datePublished: '2025-12-29T06:28:52.510525Z'
+dateModified: '2025-12-29T06:28:52.510525Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/rare-earth/lanthanide/dysprosium-settings
@@ -17,6 +17,11 @@ breadcrumb:
 - label: Dysprosium
   href: /settings/rare-earth/lanthanide/dysprosium-settings
 page_title: 'Dysprosium Settings: Laser Parameters'
+page_description: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity.
+  This shiny surface bounces most energy away, so start low to build absorption gradually. We've found that keeps the dense
+  material from overheating locally, given its poor heat spreading. Watch out mid-process for uneven spots—adjust scan speed
+  slower there to avoid pitting. Finish with multiple light passes. This brings back the finish without warping its tough
+  structure.
 meta_description: 'Dysprosium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -84,7 +89,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -97,7 +102,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -111,7 +116,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -160,8 +165,9 @@ relationships:
           - Chain of custody documentation for high-value materials
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Dysprosium Settings
@@ -290,8 +296,5 @@ machine_settings:
     description: 'Ensures uniform coverage; 60% recommended for Dysprosium to avoid gaps or streaks on large areas while preventing
       excessive overlap heating. Typical range from process studies. Source: Optimization studies in J. Laser Appl. and laser
       scanning guidelines from scanning head manufacturers like Scanlab.'
-page_description: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity.
-  This shiny surface bounces most energy away, so start low to build absorption gradually. We've found that keeps the dense
-  material from overheating locally, given its poor heat spreading. Watch out mid-process for uneven spots—adjust scan speed
-  slower there to avoid pitting. Finish with multiple light passes. This brings back the finish without warping its tough
-  structure.
+component_summary: These settings utilize a 1064 nm wavelength for strong absorption by Dysprosium's oxide contaminants, with
+  200 W power and 12 ns pulses to ablate residues efficiently while minimizing thermal damage to the soft, reactive metal.

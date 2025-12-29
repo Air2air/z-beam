@@ -23,14 +23,17 @@ export default function MaterialDatasetDownloader({
   category,
   subcategory,
 }: MaterialDatasetDownloaderProps) {
-  // Normalize slug for dataset lookup - use -material-dataset suffix
-  const baseSlug = slug.replace(/-settings$/, '').replace(/-laser-cleaning$/, '').replace(/-material-dataset$/, '');
-  const datasetSlug = `${baseSlug}-material-dataset`;
+  // Normalize slug for dataset lookup - remove all suffixes to get base name
+  // The DatasetDownloader will add the appropriate suffix (-material-dataset.json)
+  const baseSlug = slug
+    .replace(/-laser-cleaning$/, '')
+    .replace(/-settings$/, '')
+    .replace(/-material-dataset$/, '');
 
   return (
     <DatasetDownloader
       itemName={materialName}
-      slug={datasetSlug}
+      slug={baseSlug}
       category={category}
       subcategory={subcategory}
       datasetType="materials"

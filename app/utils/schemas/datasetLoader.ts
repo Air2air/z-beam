@@ -19,7 +19,13 @@ import path from 'path';
  */
 export function loadGeneratedDataset(slug: string, type: 'materials' | 'contaminants' = 'materials'): any | null {
   try {
-    const datasetPath = path.join(process.cwd(), 'public', 'datasets', type, `${slug}.json`);
+    // Construct filename: materials use full slug, contaminants remove -contamination suffix
+    // Materials: ${slug}-material-dataset.json (e.g., aluminum-laser-cleaning-material-dataset.json)
+    // Contaminants: ${id}-contaminant-dataset.json (e.g., adhesive-residue-contaminant-dataset.json)
+    const filename = type === 'materials' 
+      ? `${slug}-material-dataset.json`
+      : `${slug.replace('-contamination', '')}-contaminant-dataset.json`;
+    const datasetPath = path.join(process.cwd(), 'public', 'datasets', type, filename);
     
     if (!fs.existsSync(datasetPath)) {
       console.warn(`📊 Generated dataset not found: ${datasetPath}`);

@@ -3,8 +3,8 @@ name: Volatile Organic Compounds
 display_name: VOCs
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-27T21:27:56.864892Z'
-dateModified: '2025-12-27T21:27:56.864892Z'
+datePublished: '2025-12-29T06:28:04.655720Z'
+dateModified: '2025-12-29T06:28:04.655720Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/organic-vapor/vocs-compound
@@ -20,11 +20,12 @@ breadcrumb:
 - label: Volatile Organic Compounds
   href: /compounds/irritant/organic-vapor/vocs-compound
 page_title: 'Volatile Organic Compounds: Respiratory Irritant'
+page_description: Volatile organic compounds sneak into paints and adhesives everywhere.
 meta_description: 'Volatile Organic Compounds: Respiratory Irritant from metal processing. Requires proper ventilation and
   PPE.'
 chemical_formula: Various
 cas_number: N/A
-molecular_weight: null
+molecular_weight: 16.0
 health_effects: When handling VOCs compounds in industrial settings, the standout trait is their easy evaporation into the
   air. This volatility turns them into airborne irritants fast. You'll breathe them in without noticing at first. So you must
   ventilate well right away. They sting eyes and throats mid-exposure, causing quick discomfort during mixing or application
@@ -190,8 +191,9 @@ relationships:
             bei_value: Specific to individual VOC
       _section:
         title: Exposure Limits
-        description: Regulatory exposure thresholds and safe concentration levels
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
+        section_description: Regulatory exposure thresholds and safe concentration levels
         order: 4
         variant: warning
   chemical_properties:
@@ -201,7 +203,7 @@ relationships:
       id: vocs-physical-data
     _section:
       title: Chemical Properties
-      description: Fundamental chemical characteristics and behavior
+      section_description: Fundamental chemical characteristics and behavior
       icon: microscope
       order: 1
       variant: default
@@ -226,8 +228,9 @@ relationships:
         air: Variable by specific VOC. VOC emissions regulated.
     _section:
       title: Environmental Impact
-      description: Environmental effects and ecological considerations
+      description: Toxicity, biodegradability, and environmental fate
       icon: wind
+      section_description: Environmental effects and ecological considerations
       order: 8
       variant: warning
   detection_monitoring:
@@ -261,8 +264,9 @@ relationships:
         rely on odor.
     _section:
       title: Detection & Monitoring
-      description: Methods and equipment for detecting and monitoring this compound
+      description: Methods for detecting and measuring this compound
       icon: gauge
+      section_description: Methods and equipment for detecting and monitoring this compound
       order: 6
       variant: default
   ppe_requirements:
@@ -277,8 +281,9 @@ relationships:
         Others neurotoxic (toluene, xylene). Identify specific VOCs when possible.
     _section:
       title: PPE Requirements
-      description: Personal protective equipment needed for safe handling
+      description: Required safety equipment for handling this compound
       icon: shield
+      section_description: Personal protective equipment needed for safe handling
       order: 5
       variant: warning
   emergency_response:
@@ -299,8 +304,9 @@ relationships:
         exposure health effects vary widely.
     _section:
       title: Emergency Response
-      description: First aid and emergency procedures for exposure incidents
+      description: Procedures for spills, exposure, and incidents
       icon: alert-triangle
+      section_description: First aid and emergency procedures for exposure incidents
       order: 7
       variant: danger
   produced_from_contaminants:
@@ -423,7 +429,7 @@ relationships:
       intensity: negative
     _section:
       title: Produced From Contaminants
-      description: Contaminants that generate this compound during laser cleaning
+      section_description: Contaminants that generate this compound during laser cleaning
       icon: droplet
       order: 9
       variant: default
@@ -442,8 +448,9 @@ relationships:
       odor: Variable - sweet, pungent, solvent-like, or odorless
     _section:
       title: Physical Properties
-      description: Physical characteristics and state information
+      description: Chemical and physical characteristics
       icon: gauge
+      section_description: Physical characteristics and state information
       order: 2
       variant: default
   storage_requirements:
@@ -460,8 +467,9 @@ relationships:
         Gas detection for enclosed spaces. Emergency procedures.
     _section:
       title: Storage Requirements
-      description: Proper storage conditions and handling precautions
+      description: Safe storage conditions and compatibility
       icon: alert-triangle
+      section_description: Proper storage conditions and handling precautions
       order: 13
       variant: warning
   regulatory_classification:
@@ -482,8 +490,9 @@ relationships:
       rcra_code: Many VOCs have codes (U-series, F-series)
     _section:
       title: Regulatory Classification
-      description: Hazard classifications and regulatory designations
+      description: DOT, UN, and NFPA hazard classifications
       icon: file-text
+      section_description: Hazard classifications and regulatory designations
       order: 12
       variant: default
   reactivity:
@@ -506,8 +515,9 @@ relationships:
         possible in ethers.
     _section:
       title: Reactivity
-      description: Chemical reactivity and compatibility with other substances
+      description: Chemical reactivity and incompatibilities
       icon: flame
+      section_description: Chemical reactivity and compatibility with other substances
       order: 11
       variant: warning
   synonyms_identifiers:
@@ -528,8 +538,9 @@ relationships:
         pubchem_cid: Specific to individual VOC
     _section:
       title: Synonyms & Identifiers
-      description: Alternative names and chemical identifiers (CAS numbers)
+      description: Synonyms and chemical identifiers
       icon: file-text
+      section_description: Alternative names and chemical identifiers (CAS numbers)
       order: 14
       variant: default
   operational:
@@ -540,7 +551,7 @@ relationships:
         id: vocs-toxicology
       _section:
         title: Health Effects
-        description: Potential health impacts from exposure
+        section_description: Potential health impacts from exposure
         icon: activity
         order: 1
         variant: warning
@@ -557,4 +568,12 @@ relationships:
       height: 600
 title: VOCs
 subcategory: organic_vapor
-page_description: Volatile organic compounds sneak into paints and adhesives everywhere.
+faq:
+- question: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
+  answer: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs at
+    the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment, such
+    as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face masks),
+    along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors to
+    ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take breaks
+    in fresh air if concentrations rise.
+formula: Various

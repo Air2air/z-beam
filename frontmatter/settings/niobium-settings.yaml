@@ -1,7 +1,7 @@
 id: niobium-settings
 name: Niobium
-datePublished: '2025-12-27T21:06:08.029364Z'
-dateModified: '2025-12-27T21:06:08.029364Z'
+datePublished: '2025-12-29T06:28:53.006558Z'
+dateModified: '2025-12-29T06:28:53.006558Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/niobium-settings
@@ -17,6 +17,16 @@ breadcrumb:
 - label: Niobium
   href: /settings/metal/non-ferrous/niobium-settings
 page_title: 'Niobium Settings: Laser Parameters'
+page_description: When laser cleaning niobium, you must first watch its high reflectivity, which scatters more laser energy
+  than you'd see with iron-based metals, so start with lower power settings to prevent wasted shots and uneven cleaning. Make
+  sure you adjust the fluence just above its ablation threshold right away, avoiding the pitfall of underpowering that leaves
+  stubborn contaminants behind while risking surface pitting if you overshoot. Begin your setup by selecting a near-infrared
+  wavelength that niobium absorbs better than shorter ones, unlike aluminum's picky response. You'll then dial in a moderate
+  pulse width to handle its dense structure without building excess heat, contrasting with lighter non-ferrous metals that
+  cool faster. Scan at a steady speed, overlapping passes by half to clear oxides thoroughly, since niobium's corrosion resistance
+  means buildup clings tighter than on copper. This approach brings back its smooth finish for aerospace or medical uses,
+  minimizing thermal shock that could crack it under rapid heating. Keep passes to a few, and always test on a scrap piece
+  first—niobium forgives minor errors better than brittle alloys but demands precision to avoid dulling its natural luster.
 meta_description: 'Niobium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -84,7 +94,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
+        section_description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
@@ -97,7 +107,7 @@ relationships:
         effectiveness: medium
       _section:
         title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
+        section_description: Types of contamination effectively removed by this setting
         icon: droplet
         order: 3
         variant: default
@@ -111,7 +121,7 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        section_description: Safety and compliance standards applicable to this laser setting
         icon: shield-check
         order: 4
         variant: default
@@ -131,8 +141,9 @@ relationships:
           type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Technical challenges and optimization strategies for these settings
         icon: alert-triangle
+        section_description: Typical difficulties and considerations when using this setting
         order: 1
         variant: warning
 title: Niobium Settings
@@ -257,13 +268,5 @@ machine_settings:
     description: '50-70% overlap ensures uniform coverage and prevents striping; higher for fine Niobium surfaces to avoid
       inconsistencies due to reflectivity. Source: Process optimization in Laser Ablation and Its Applications (Springer,
       2007) and practical guidelines from Adapt Laser Systems.'
-page_description: When laser cleaning niobium, you must first watch its high reflectivity, which scatters more laser energy
-  than you'd see with iron-based metals, so start with lower power settings to prevent wasted shots and uneven cleaning. Make
-  sure you adjust the fluence just above its ablation threshold right away, avoiding the pitfall of underpowering that leaves
-  stubborn contaminants behind while risking surface pitting if you overshoot. Begin your setup by selecting a near-infrared
-  wavelength that niobium absorbs better than shorter ones, unlike aluminum's picky response. You'll then dial in a moderate
-  pulse width to handle its dense structure without building excess heat, contrasting with lighter non-ferrous metals that
-  cool faster. Scan at a steady speed, overlapping passes by half to clear oxides thoroughly, since niobium's corrosion resistance
-  means buildup clings tighter than on copper. This approach brings back its smooth finish for aerospace or medical uses,
-  minimizing thermal shock that could crack it under rapid heating. Keep passes to a few, and always test on a scrap piece
-  first—niobium forgives minor errors better than brittle alloys but demands precision to avoid dulling its natural luster.
+component_summary: The 1064 nm wavelength ensures strong absorption by Niobium, while 10 ns pulses at 150 W power enable precise
+  contaminant removal without inducing thermal damage to its sensitive, oxidation-prone surface.

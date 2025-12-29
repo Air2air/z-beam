@@ -2786,15 +2786,11 @@ export interface DatasetSectionProps {
     value: string | number;
     label: string;
   }>;
-  formats: Array<'json' | 'csv' | 'txt'>;
-  onDownload: (format: 'json' | 'csv' | 'txt') => void | Promise<void>;
-  getDirectLink?: (format: 'json' | 'csv' | 'txt') => string;
-  includes?: Array<string>;
-  note?: string;
-  categoryLink?: {
-    href: string;
-    label: string;
-  };
+  jsonUrl: string;
+  csvUrl: string;
+  txtUrl: string;
+  category?: string;
+  categoryLabel?: string;
   fullDatasetLink?: boolean;
 }
 

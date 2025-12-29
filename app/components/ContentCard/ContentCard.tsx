@@ -191,10 +191,11 @@ export function ContentCard({
             Illustration for {cardType}: {heading}. {image.alt || `Visual representation of ${text.substring(0, 100)}`}
           </figcaption>
         </figure>
-      )}        {/* Content Section */}
-        <section 
+      )}
+
+        {/* Content Area */}
+        <div 
           className={image ? 'md:col-span-2' : !hasOrder ? 'text-center max-w-4xl mx-auto' : ''}
-          role="region"
           aria-labelledby={titleId}
         >
           {/* Heading - Only show here if no order number */}
@@ -280,7 +281,7 @@ export function ContentCard({
               })}
             </ul>
           )}
-        </section>
+        </div>
 
         {/* Image - Right Side */}
         {image && !isImageLeft && (

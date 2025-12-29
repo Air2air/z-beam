@@ -174,7 +174,10 @@ export function MaterialCard({
           ) : (
             /* Standard image display */
             <Thumbnail
-              alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
+              alt={imageAlt || subject || title || 
+                   (frontmatter?.name && frontmatter?.category 
+                     ? `${frontmatter.name} ${frontmatter.category} laser cleaning surface treatment`
+                     : frontmatter?.subject || 'Industrial laser cleaning process')}
               frontmatter={frontmatter}
               imageUrl={imageUrl}
               objectFit="cover"

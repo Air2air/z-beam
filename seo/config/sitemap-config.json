@@ -1,0 +1,180 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-28",
+  "sitemaps": {
+    "main": {
+      "enabled": true,
+      "path": "public/sitemap.xml",
+      "priority": 1.0,
+      "changefreq": "weekly"
+    },
+    "images": {
+      "enabled": true,
+      "path": "public/image-sitemap.xml",
+      "scanDirectories": [
+        "public/images/material",
+        "public/images/contaminant",
+        "public/images/equipment",
+        "public/images/services"
+      ],
+      "excludeDirectories": [
+        "public/images/icons",
+        "public/images/temp",
+        "public/images/.DS_Store"
+      ],
+      "supportedFormats": [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+        ".gif"
+      ],
+      "titleGeneration": {
+        "enabled": true,
+        "removeExtensions": true,
+        "capitalizeWords": true,
+        "replaceDashes": true,
+        "replaceUnderscores": true
+      },
+      "captionTemplates": {
+        "materials": "Laser cleaning solution for industrial materials",
+        "contaminants": "Contamination removal using laser technology",
+        "equipment": "Industrial laser cleaning equipment",
+        "services": "Professional laser cleaning services",
+        "default": "Z-Beam laser cleaning technology"
+      }
+    },
+    "index": {
+      "enabled": true,
+      "path": "public/sitemap-index.xml",
+      "references": [
+        "sitemap.xml",
+        "image-sitemap.xml"
+      ]
+    }
+  },
+  "robots": {
+    "userAgent": "*",
+    "allow": "/",
+    "disallow": [
+      "/api/",
+      "/admin/",
+      "/_next/"
+    ],
+    "sitemaps": [
+      "https://www.z-beam.com/sitemap-index.xml",
+      "https://www.z-beam.com/sitemap.xml",
+      "https://www.z-beam.com/image-sitemap.xml"
+    ]
+  },
+  "pageSpeed": {
+    "enabled": true,
+    "apiKey": "PAGESPEED_API_KEY",
+    "targets": {
+      "mobile": {
+        "performance": 85,
+        "accessibility": 95,
+        "bestPractices": 90,
+        "seo": 95
+      },
+      "desktop": {
+        "performance": 90,
+        "accessibility": 95,
+        "bestPractices": 92,
+        "seo": 95
+      }
+    },
+    "coreWebVitals": {
+      "LCP": 2.5,
+      "FID": 100,
+      "CLS": 0.1
+    }
+  },
+  "schema": {
+    "website": {
+      "enabled": true,
+      "name": "Z-Beam",
+      "alternateName": ["Z-Beam", "ZBeam"],
+      "url": "https://www.z-beam.com"
+    },
+    "imageObject": {
+      "enabled": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "acquireLicensePage": "https://www.z-beam.com/contact",
+      "creditText": "Z-Beam Laser Cleaning",
+      "copyrightNotice": "© 2025 Z-Beam Laser Cleaning. All rights reserved.",
+      "creator": {
+        "name": "Todd Dunning",
+        "url": "https://www.z-beam.com"
+      }
+    }
+  },
+  "altText": {
+    "minLength": 30,
+    "maxLength": 150,
+    "components": {
+      "hero": {
+        "enabled": true,
+        "fallbackTiers": 4,
+        "sources": [
+          "frontmatter.images.hero.alt",
+          "generated-rich",
+          "title-context",
+          "title-only"
+        ]
+      },
+      "micro": {
+        "enabled": true,
+        "fallbackTiers": 4,
+        "sources": [
+          "frontmatter.images.micro.alt",
+          "frontmatter.accessibility.alt_text_detailed",
+          "generated-from-micro-description",
+          "generated-rich",
+          "material-only"
+        ]
+      },
+      "card": {
+        "enabled": true,
+        "fallbackTiers": 4,
+        "sources": [
+          "prop-imageAlt",
+          "frontmatter.subject",
+          "frontmatter.title",
+          "generated-rich"
+        ]
+      }
+    },
+    "forbidden": [
+      "image",
+      "photo",
+      "picture",
+      "img",
+      "hero image",
+      ""
+    ]
+  },
+  "monitoring": {
+    "enabled": true,
+    "frequency": "weekly",
+    "alerts": {
+      "pageSpeedDropBelow": 85,
+      "imageIndexingStalls": true,
+      "schemaValidationFails": true,
+      "altTextQualityIssues": true
+    }
+  },
+  "deployment": {
+    "preDeployment": {
+      "runTests": true,
+      "generateSitemaps": true,
+      "validateSchema": true,
+      "checkAltText": true
+    },
+    "postDeployment": {
+      "submitSitemaps": true,
+      "verifyProduction": true,
+      "monitorPerformance": true
+    }
+  }
+}
