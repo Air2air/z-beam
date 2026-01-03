@@ -23,13 +23,13 @@ const PAGES_DIR = path.join(process.cwd(), 'static-pages');
 
 // Required fields for complete metadata
 const REQUIRED_FIELDS = {
-  material: ['name', 'title', 'page_description', 'category', 'images', 'author'],
-  page: ['title', 'page_description']
+  material: ['name', 'page_title', 'page_description', 'category', 'images', 'author'],
+  page: ['page_title', 'page_description']
 };
 
 // Fields that should match between frontmatter and JSON-LD
 const CRITICAL_SYNC_FIELDS = [
-  'title',
+  'page_title',
   'page_description',
   'author.name',
   'images.hero.url',
@@ -65,6 +65,10 @@ class MetadataValidator {
       // Check required fields
       const requiredFields = REQUIRED_FIELDS[type] || REQUIRED_FIELDS.material;
       const missingFields = requiredFields.filter(field => {
+        // Special handling for title/page_title - allow either one
+        if (field === 'page_title') {
+          return !data.page_title && !data.title;
+        }
         // Special handling for description field - pages can use either page_description or meta_description
         if (field === 'page_description' && type === 'page') {
           return !data.page_description && !data.meta_description;
