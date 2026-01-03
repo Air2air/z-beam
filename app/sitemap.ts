@@ -199,43 +199,31 @@ export default function sitemap(): SitemapEntry[] {
     console.error('Error generating material routes:', error);
   }
 
-  // Settings pages - mirror the materials structure
+  // Settings pages - use full_path from frontmatter
   try {
     const settingsDir = path.join(process.cwd(), 'frontmatter/settings');
     const settingsFiles = fs.readdirSync(settingsDir);
-    const settingsYamlFiles = settingsFiles.filter(f => f.endsWith('.yaml'));
+    const settingsYamlFiles = settingsFiles.filter(f => f.endsWith('.yaml') && !f.endsWith('.backup'));
     
     settingsYamlFiles.forEach((file) => {
       const filePath = path.join(settingsDir, file);
       const stats = fs.statSync(filePath);
       const fileContent = fs.readFileSync(filePath, 'utf8');
       
-      // Simple YAML parsing to extract category and subcategory
-      const categoryMatch = fileContent.match(/^category:\s*(.+)$/m);
-      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+      // Extract full_path from YAML
+      const fullPathMatch = fileContent.match(/^full_path:\s*(.+)$/m);
       
-      if (categoryMatch) {
-        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
-        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
+      if (fullPathMatch) {
+        const fullPath = fullPathMatch[1].trim();
+        const settingsPageUrl = `${baseUrl}${fullPath}`;
         
-        // Keep the full slug including -settings suffix
-        const slug = file.replace('.yaml', '');
-        
-        // Skip if category is empty
-        if (!category) return;
-        
-        // Settings pages don't have category/subcategory index pages, only material pages
-        // Add setting page with full path
-        if (subcategory && subcategory.length > 0) {
-          const settingsPageUrl = buildUrlFromMetadata({ rootPath: 'settings', category, subcategory, slug }, true);
-          settingsPageRoutes.push({
-            url: settingsPageUrl,
-            lastModified: stats.mtime,
-            changeFrequency: 'weekly' as const,
-            priority: 0.7, // Slightly lower priority than materials pages
-            alternates: getAlternates(settingsPageUrl),
-          });
-        }
+        settingsPageRoutes.push({
+          url: settingsPageUrl,
+          lastModified: stats.mtime,
+          changeFrequency: 'weekly' as const,
+          priority: 0.7, // Slightly lower priority than materials pages
+          alternates: getAlternates(settingsPageUrl),
+        });
       }
     });
   } catch (error) {
