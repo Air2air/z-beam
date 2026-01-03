@@ -6,19 +6,14 @@ content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/magnesium-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Magnesium
-  href: ''
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Magnesium
+    href: ''
 page_title: 'Magnesium Settings: Laser Parameters'
-page_description: I've found that magnesium cleans up nicely with laser settings when you keep the power gentle and the passes
-  multiple, because its shiny surface bounces most of the energy away and it heats up fast due to low thermal mass. This lightweight
-  metal differs from denser ones like steel by reacting quickly to any excess heat, so the process removes contaminants without
-  much buildup risk, but you need to control the beam overlap to avoid uneven spots. Tends to stay smooth after treatment,
-  ideal for aerospace or automotive parts where precision matters. Just watch out at the end—don't push the fluence too high,
-  or it might ignite and ruin your workpiece.
+page_description: I've found that magnesium cleans up nicely with laser settings when you keep the power gentle and the passes multiple, because its shiny surface bounces most of the energy away and it heats up fast due to low thermal mass. This lightweight metal differs from denser ones like steel by reacting quickly to any excess heat, so the process removes contaminants without much buildup risk, but you need to control the beam overlap to avoid uneven spots. Tends to stay smooth after treatment, ideal for aerospace or automotive parts where precision matters. Just watch out at the end—don't push the fluence too high, or it might ignite and ruin your workpiece.
 meta_description: 'Magnesium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -40,23 +35,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-  - Laser Materials Processing
+    - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
   slug: yi-chun-lin
 card:
@@ -77,41 +72,41 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-      - thermal_management:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contamination_challenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
+        - thermal_management:
+            - id: high-thermal-conductivity
+              type: challenge
+            - id: melting-haz
+              type: challenge
+          contamination_challenges:
+            - id: rust-oxide-removal
+              type: challenge
+            - id: oil-grease-removal
+              type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -121,7 +116,7 @@ machine_settings:
     description: Optimal average power range for Magnesium oxide layer removal
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   wavelength:
     description: Optimal wavelength considering Magnesium's optical properties
@@ -176,67 +171,50 @@ machine_settings:
     max: 1000
     value: 200
     unit: W
-    description: 'Typical range for industrial laser cleaning of magnesium alloys to avoid melting (low melting point ~650°C);
-      starting at 200W balances efficiency and safety. Max limited to prevent substrate damage due to high reflectivity at
-      1064 nm. Source: Studies on Mg alloy cleaning (e.g., J. Laser Appl. 2018, Vol. 30, IPG Photonics specs for Yb-fiber
-      lasers).'
+    description: 'Typical range for industrial laser cleaning of magnesium alloys to avoid melting (low melting point ~650°C); starting at 200W balances efficiency and safety. Max limited to prevent substrate damage due to high reflectivity at 1064 nm. Source: Studies on Mg alloy cleaning (e.g., J. Laser Appl. 2018, Vol. 30, IPG Photonics specs for Yb-fiber lasers).'
   scan_speed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective speeds for contamination removal; slower (500-1000 mm/s) for heavy rust/oils, faster (2000-3000
-      mm/s) for light contaminants. Recommended 1500 mm/s for optimal balance on Mg to minimize heat accumulation. Source:
-      Industry standards from Laserax and Adapt Laser manuals for metal surface prep.'
+    description: 'Effective speeds for contamination removal; slower (500-1000 mm/s) for heavy rust/oils, faster (2000-3000 mm/s) for light contaminants. Recommended 1500 mm/s for optimal balance on Mg to minimize heat accumulation. Source: Industry standards from Laserax and Adapt Laser manuals for metal surface prep.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for Mg to ablate contaminants with minimal HAZ; picosecond (ps) or femtosecond
-      reduces thermal effects but increases cost. 50 ns recommended for low reflectivity materials like Mg. Source: Laser
-      physics research (Opt. Lasers Eng. 2020, Vol. 132, on pulse duration effects in metal cleaning).'
+    description: 'Nanosecond regime preferred for Mg to ablate contaminants with minimal HAZ; picosecond (ps) or femtosecond reduces thermal effects but increases cost. 50 ns recommended for low reflectivity materials like Mg. Source: Laser physics research (Opt. Lasers Eng. 2020, Vol. 132, on pulse duration effects in metal cleaning).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed fiber lasers in cleaning; higher rates speed up process but risk heat buildup on thermally
-      conductive Mg. 50 kHz balances speed and safety. Trade-off: >80 kHz may cause melting. Source: Academic literature (Appl.
-      Surf. Sci. 2019, Vol. 475, on rep rate optimization for light metals).'
+    description: 'Typical for pulsed fiber lasers in cleaning; higher rates speed up process but risk heat buildup on thermally conductive Mg. 50 kHz balances speed and safety. Trade-off: >80 kHz may cause melting. Source: Academic literature (Appl. Surf. Sci. 2019, Vol. 475, on rep rate optimization for light metals).'
   energy_density:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 1.5
     unit: J/cm²
-    description: 'Fluence below Mg damage threshold (~5 J/cm² at 1064 nm) for safe cleaning; 0.5-2 J/cm² for light contaminants,
-      up to 4 for heavy. Recommended 1.5 J/cm² avoids ablation of substrate. Source: Ablation threshold studies (J. Phys.
-      D: Appl. Phys. 2017, Vol. 50, on IR laser interaction with Mg).'
+    description: 'Fluence below Mg damage threshold (~5 J/cm² at 1064 nm) for safe cleaning; 0.5-2 J/cm² for light contaminants, up to 4 for heavy. Recommended 1.5 J/cm² avoids ablation of substrate. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2017, Vol. 50, on IR laser interaction with Mg).'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: 'Smaller spots (100-200 μm) for fine detail on Mg surfaces, larger (300-500 μm) for broad area prep. 200
-      μm recommended for uniform cleaning without excessive heat concentration. Source: Equipment specs from Coherent and
-      Trumpf laser cleaning systems for metals.'
+    description: 'Smaller spots (100-200 μm) for fine detail on Mg surfaces, larger (300-500 μm) for broad area prep. 200 μm recommended for uniform cleaning without excessive heat concentration. Source: Equipment specs from Coherent and Trumpf laser cleaning systems for metals.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on Mg to prevent overheating per
-      pass. Recommended 2 passes for industrial removal. Source: Industry case studies (e.g., SPIE Proc. 2021, Vol. 11660,
-      on multi-pass cleaning of alloys).'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on Mg to prevent overheating per pass. Recommended 2 passes for industrial removal. Source: Industry case studies (e.g., SPIE Proc. 2021, Vol. 11660, on multi-pass cleaning of alloys).'
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or overexposure; 30-50% for large areas, 60-80% for detailed Mg cleaning.
-      60% recommended to balance efficiency and avoid thermal damage. Source: Process optimization studies (Opt. Laser Technol.
-      2022, Vol. 145, on scan overlap in laser cleaning).'
-component_summary: These settings employ moderate 200 W power and 10 ns pulses at 1064 nm to delicately ablate contaminants
-  from reactive magnesium, minimizing heat buildup and avoiding ignition or surface damage.
+    description: 'Ensures uniform coverage without gaps or overexposure; 30-50% for large areas, 60-80% for detailed Mg cleaning. 60% recommended to balance efficiency and avoid thermal damage. Source: Process optimization studies (Opt. Laser Technol. 2022, Vol. 145, on scan overlap in laser cleaning).'
+component_summary: These settings employ moderate 200 W power and 10 ns pulses at 1064 nm to delicately ablate contaminants from reactive magnesium, minimizing heat buildup and avoiding ignition or surface damage.
 slug: magnesium-settings
 lastModified: '2026-01-02T23:49:33.036901'
+description: 'Magnesium: removes contamination removal. Industrial-grade parameters. No substrate damage.'

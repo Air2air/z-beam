@@ -107,10 +107,12 @@ export async function generateItemMetadata(
     
     const canonicalUrl = `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`;
     
-    // Ensure title field exists for metadata generation (settings use 'name' field)
+    // Ensure title and description fields exist for metadata generation 
+    // (settings use 'name' and 'meta_description' fields)
     const metadataWithTitle = {
       ...articleMeta,
       title: articleMeta.title || articleMeta.name,
+      description: articleMeta.description || articleMeta.meta_description,
       canonical: canonicalUrl
     };
     

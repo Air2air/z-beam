@@ -6,18 +6,14 @@ content_type: settings
 schema_version: 5.0.0
 full_path: /settings/stone/metamorphic/marble-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Marble
-  href: ''
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Marble
+    href: ''
 page_title: 'Marble Settings: Laser Parameters'
-page_description: When laser cleaning marble, the main challenge we face is its tendency to crack under uneven heating, unlike
-  tougher granites that handle heat more evenly across their structure. This stems from marble's metamorphic layers, which
-  expand differently than surrounding stones, so we adjust by using slower scan speeds and multiple gentle passes to distribute
-  energy without stressing those seams. We've found this restores delicate heritage surfaces beautifully. Just watch for subsurface
-  discoloration at the end—dial back power if you spot it.
+page_description: When laser cleaning marble, the main challenge we face is its tendency to crack under uneven heating, unlike tougher granites that handle heat more evenly across their structure. This stems from marble's metamorphic layers, which expand differently than surrounding stones, so we adjust by using slower scan speeds and multiple gentle passes to distribute energy without stressing those seams. We've found this restores delicate heritage surfaces beautifully. Just watch for subsurface discoloration at the end—dial back power if you spot it.
 meta_description: 'Marble: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -39,27 +35,25 @@ author:
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
   expertise:
-  - Ultrafast Laser Physics and Material Interactions
+    - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
     type: EducationalOrganization
   credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
+    - Ph.D. Physics, ITB, 2020
+    - 2+ years in ultrafast laser research including ASEAN optics workshops
+    - Assisted in international optics projects
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
+    - https://linkedin.com/in/ikmanda-roswati-physicist
+    - https://www.academia.edu/profile/IkmandaRoswati
   languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
+    - English
+    - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in Indonesia.
   slug: ikmanda-roswati
 card:
   default:
@@ -79,51 +73,51 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-      - id: marble-laser-cleaning
-        effectiveness: high
+        - id: marble-laser-cleaning
+          effectiveness: high
   operational:
     common_challenges:
       presentation: descriptive
       items:
-      - thermal_management:
-        - challenge: Thermal shock and microcracking
-          severity: critical
-          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-          impact: Natural stone contains microfissures that propagate under thermal stress
-          solutions:
-          - Use pulse mode with 8-12 second cooling between passes
-          - Reduce power by 40-50% for weathered or damaged stone
-          - Preheat substrate if possible to reduce thermal gradients
-          - Granite more resistant than marble; sandstone most vulnerable
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Moisture-induced spalling
-          severity: high
-          threshold_temperature: Steam formation >100°C with trapped moisture
-          impact: Porous stone traps moisture that explosively converts to steam
-          solutions:
-          - Test moisture content before cleaning (>3% requires drying)
-          - Allow 48-72 hours drying after rain before laser cleaning
-          - Reduce power by 50% for damp stone
-          - Use pulse mode with extended cooling (15-20 seconds)
-          - Heritage stone requires especially gentle approach
-        contamination_challenges:
-        - id: biological-growth
-          type: challenge
+        - thermal_management:
+            - challenge: Thermal shock and microcracking
+              severity: critical
+              threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+              impact: Natural stone contains microfissures that propagate under thermal stress
+              solutions:
+                - Use pulse mode with 8-12 second cooling between passes
+                - Reduce power by 40-50% for weathered or damaged stone
+                - Preheat substrate if possible to reduce thermal gradients
+                - Granite more resistant than marble; sandstone most vulnerable
+                - Monitor for surface crazing; stop immediately if cracks appear
+            - challenge: Moisture-induced spalling
+              severity: high
+              threshold_temperature: Steam formation >100°C with trapped moisture
+              impact: Porous stone traps moisture that explosively converts to steam
+              solutions:
+                - Test moisture content before cleaning (>3% requires drying)
+                - Allow 48-72 hours drying after rain before laser cleaning
+                - Reduce power by 50% for damp stone
+                - Use pulse mode with extended cooling (15-20 seconds)
+                - Heritage stone requires especially gentle approach
+          contamination_challenges:
+            - id: biological-growth
+              type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -133,7 +127,7 @@ machine_settings:
     description: Optimal average power for Marble surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   wavelength:
     description: Near-infrared wavelength optimized for Marble absorption and minimal subsurface damage
@@ -158,7 +152,7 @@ machine_settings:
     unit: J/cm²
     value: 2.5
     min: 0.1
-    max: 20.0
+    max: 20
   pulseWidth:
     description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
     unit: ns
@@ -188,66 +182,50 @@ machine_settings:
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for Nd:YAG lasers in stone cleaning to balance efficiency and heat control; starting at 100
-      W avoids thermal cracking in marble (CaCO3, low thermal conductivity ~2.5 W/mK); max limited to prevent decomposition
-      above 800°C. Source: Adapt Laser Systems specs and Verho et al. (2007) in J. Cult. Herit.'
+    description: 'Typical range for Nd:YAG lasers in stone cleaning to balance efficiency and heat control; starting at 100 W avoids thermal cracking in marble (CaCO3, low thermal conductivity ~2.5 W/mK); max limited to prevent decomposition above 800°C. Source: Adapt Laser Systems specs and Verho et al. (2007) in J. Cult. Herit.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Slower speeds for heavy contamination (e.g., soot) ensure complete removal without residue; faster for light
-      dirt; 500 mm/s optimal for uniform cleaning on porous marble surfaces. Source: Industry manuals from Laser Photonics
-      and case studies in Opt. Lasers Eng. (2015).'
+    description: 'Slower speeds for heavy contamination (e.g., soot) ensure complete removal without residue; faster for light dirt; 500 mm/s optimal for uniform cleaning on porous marble surfaces. Source: Industry manuals from Laser Photonics and case studies in Opt. Lasers Eng. (2015).'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ
-      <10 μm) on heat-sensitive marble; avoids plasma shielding issues in fs. Source: Laser physics in Pouli et al. (2010),
-      Appl. Phys. A.'
+    description: 'Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ <10 μm) on heat-sensitive marble; avoids plasma shielding issues in fs. Source: Laser physics in Pouli et al. (2010), Appl. Phys. A.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 20
-    description: '20 kHz balances cleaning speed and heat accumulation (marble reflectivity ~0.3 at 1064 nm leads to ~70%
-      absorption); higher rates risk cumulative heating/cracking. Source: Academic lit. in J. Appl. Phys. (2012) and IPG Photonics
-      guidelines.'
+    description: '20 kHz balances cleaning speed and heat accumulation (marble reflectivity ~0.3 at 1064 nm leads to ~70% absorption); higher rates risk cumulative heating/cracking. Source: Academic lit. in J. Appl. Phys. (2012) and IPG Photonics guidelines.'
   energy_density:
     min: 0.1
-    max: 20.0
+    max: 20
     unit: J/cm²
     value: 1
-    description: 'Fluence below marble damage threshold (~5-8 J/cm² for CaCO3 ablation) for safe contaminant removal; 1 J/cm²
-      effective for organic/inorganic dirt without substrate etching. Source: Ablation studies in Sansonetti & Marchesi (2001),
-      Stud. Conserv., and threshold data from ELZA laser research.'
+    description: 'Fluence below marble damage threshold (~5-8 J/cm² for CaCO3 ablation) for safe contaminant removal; 1 J/cm² effective for organic/inorganic dirt without substrate etching. Source: Ablation studies in Sansonetti & Marchesi (2001), Stud. Conserv., and threshold data from ELZA laser research.'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
-    description: 'Smaller spots for fine details on marble sculptures; larger for industrial surface prep; 200 μm recommended
-      for even energy distribution on irregular surfaces. Source: Equipment specs from Coherent Inc. and process opt. in Lasers
-      Manuf. Mater. Process. (2018).'
+    description: 'Smaller spots for fine details on marble sculptures; larger for industrial surface prep; 200 μm recommended for even energy distribution on irregular surfaces. Source: Equipment specs from Coherent Inc. and process opt. in Lasers Manuf. Mater. Process. (2018).'
     value: 200
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Multi-pass for layered contamination (e.g., 2 passes for heavy industrial grime); single pass sufficient
-      for light cleaning; minimizes total exposure time on thermally fragile marble. Source: Industry case studies in J. Cult.
-      Herit. (2014) and practical guidelines from Laser Cleaning Europe.'
+    description: 'Multi-pass for layered contamination (e.g., 2 passes for heavy industrial grime); single pass sufficient for light cleaning; minimizes total exposure time on thermally fragile marble. Source: Industry case studies in J. Cult. Herit. (2014) and practical guidelines from Laser Cleaning Europe.'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 70
-    description: '70% overlap ensures uniform fluence coverage without gaps on marble''s textured surface; higher for heavy
-      soiling to avoid streaking. Source: Process optimization in Opt. Express (2016) and scanning system manuals from scanning
-      galvo providers like Scanlab.'
-component_summary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to gently remove contaminants from
-  marble's delicate surface, minimizing thermal damage through precise, low-heat ablation.
+    description: '70% overlap ensures uniform fluence coverage without gaps on marble''s textured surface; higher for heavy soiling to avoid streaking. Source: Process optimization in Opt. Express (2016) and scanning system manuals from scanning galvo providers like Scanlab.'
+component_summary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to gently remove contaminants from marble's delicate surface, minimizing thermal damage through precise, low-heat ablation.
 slug: marble-settings
 lastModified: '2026-01-02T23:49:33.201964'
+description: 'Marble: removes contamination removal. Industrial-grade parameters. No substrate damage.'

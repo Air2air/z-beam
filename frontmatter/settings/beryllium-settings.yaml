@@ -6,23 +6,14 @@ content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/beryllium-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Beryllium
-  href: ''
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Beryllium
+    href: ''
 page_title: 'Beryllium Settings: Laser Parameters'
-page_description: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because
-  Beryllium's exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure
-  effective contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser alloys,
-  means you should start with adjusted pulse durations and slower scan speeds so the surface has time to absorb just enough
-  heat for cleaning, while its lightweight nature allows rapid cooling that prevents warping if you control the overlap carefully.
-  Beryllium's superior thermal conductivity spreads heat quickly across the material, which helps avoid localized damage but
-  requires you to monitor passes closely to prevent overexposure. You also need to watch its brittleness compared to tougher
-  steels, as sudden temperature shifts can lead to micro-cracks during the process. In the end, always end sessions with a
-  cool-down period and inspect for any subsurface stress, since overlooking this can compromise the material's integrity in
-  high-stakes applications like aerospace components.
+page_description: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because Beryllium's exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure effective contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser alloys, means you should start with adjusted pulse durations and slower scan speeds so the surface has time to absorb just enough heat for cleaning, while its lightweight nature allows rapid cooling that prevents warping if you control the overlap carefully. Beryllium's superior thermal conductivity spreads heat quickly across the material, which helps avoid localized damage but requires you to monitor passes closely to prevent overexposure. You also need to watch its brittleness compared to tougher steels, as sudden temperature shifts can lead to micro-cracks during the process. In the end, always end sessions with a cool-down period and inspect for any subsurface stress, since overlooking this can compromise the material's integrity in high-stakes applications like aerospace components.
 meta_description: 'Beryllium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -44,23 +35,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-  - Laser Materials Processing
+    - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
   slug: yi-chun-lin
 card:
@@ -81,41 +72,41 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-      - thermal_management:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contamination_challenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
+        - thermal_management:
+            - id: high-thermal-conductivity
+              type: challenge
+            - id: melting-haz
+              type: challenge
+          contamination_challenges:
+            - id: rust-oxide-removal
+              type: challenge
+            - id: oil-grease-removal
+              type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -125,7 +116,7 @@ machine_settings:
     description: Optimal average power range for Beryllium oxide layer removal
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   wavelength:
     description: Near-IR wavelength optimized for Beryllium thermal absorption characteristics
@@ -180,66 +171,50 @@ machine_settings:
     max: 500
     value: 150
     unit: W
-    description: 'Typical range for 1064 nm Nd:YAG lasers in metal cleaning to balance efficiency and heat input; starting
-      at 150 W for Beryllium due to high reflectivity (~70% at 1064 nm) reducing absorption; max avoids substrate melting
-      (1287°C) per studies on reflective metals (e.g., SPIE Proc. Vol. 10912, 2019). Source: IPG Photonics YLR series specs.'
+    description: 'Typical range for 1064 nm Nd:YAG lasers in metal cleaning to balance efficiency and heat input; starting at 150 W for Beryllium due to high reflectivity (~70% at 1064 nm) reducing absorption; max avoids substrate melting (1287°C) per studies on reflective metals (e.g., SPIE Proc. Vol. 10912, 2019). Source: IPG Photonics YLR series specs.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Range for effective contaminant removal without excessive heat accumulation; 1000 mm/s recommended for optimal
-      balance on Beryllium''s high thermal conductivity (216 W/mK); slower (200-500 mm/s) for heavy contamination, faster
-      (up to 3000 mm/s) for light. Source: Laserax equipment manuals and J. Laser Appl. 32, 022064 (2020).'
+    description: 'Range for effective contaminant removal without excessive heat accumulation; 1000 mm/s recommended for optimal balance on Beryllium''s high thermal conductivity (216 W/mK); slower (200-500 mm/s) for heavy contamination, faster (up to 3000 mm/s) for light. Source: Laserax equipment manuals and J. Laser Appl. 32, 022064 (2020).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime (5-100 ns) typical for industrial cleaning to ablate contaminants while minimizing heat-affected
-      zone (HAZ); 20 ns recommended for Beryllium to limit thermal diffusion given its conductivity; picosecond (ps) or femtosecond
-      (fs) for ultra-precise but costlier applications. Source: Laser physics review in Opt. Lasers Eng. 120, 102-115 (2019).'
+    description: 'Nanosecond regime (5-100 ns) typical for industrial cleaning to ablate contaminants while minimizing heat-affected zone (HAZ); 20 ns recommended for Beryllium to limit thermal diffusion given its conductivity; picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. Source: Laser physics review in Opt. Lasers Eng. 120, 102-115 (2019).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: '10-100 kHz for cleaning applications; 50 kHz recommended for Beryllium to achieve fast processing without
-      significant heat buildup (high freq increases speed but risks accumulation on reflective surfaces); trade-off noted
-      in ablation efficiency. Source: Academic study in Appl. Surf. Sci. 475, 245-252 (2019).'
+    description: '10-100 kHz for cleaning applications; 50 kHz recommended for Beryllium to achieve fast processing without significant heat buildup (high freq increases speed but risks accumulation on reflective surfaces); trade-off noted in ablation efficiency. Source: Academic study in Appl. Surf. Sci. 475, 245-252 (2019).'
   energy_density:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal on metals; Beryllium ablation threshold ~2-3 J/cm² at 1064 nm, so
-      1.5 J/cm² recommended for safe cleaning below damage; higher for heavy contamination but conservative due to reflectivity.
-      Source: Ablation threshold studies in J. Phys. D: Appl. Phys. 52, 395301 (2019).'
+    description: 'Fluence range for contaminant removal on metals; Beryllium ablation threshold ~2-3 J/cm² at 1064 nm, so 1.5 J/cm² recommended for safe cleaning below damage; higher for heavy contamination but conservative due to reflectivity. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. 52, 395301 (2019).'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: '100-500 μm beam diameter for cleaning; 200 μm recommended for Beryllium in industrial surface prep to ensure
-      uniform energy delivery without pinpoint damage; smaller for fine details, larger for broad areas. Source: Coherent
-      Inc. laser cleaning system specifications.'
+    description: '100-500 μm beam diameter for cleaning; 200 μm recommended for Beryllium in industrial surface prep to ensure uniform energy delivery without pinpoint damage; smaller for fine details, larger for broad areas. Source: Coherent Inc. laser cleaning system specifications.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: '1-5 passes typical for complete removal; 2 passes recommended for Beryllium to achieve thorough cleaning
-      of contaminants while avoiding cumulative thermal stress; single pass for light layers, multi for heavy. Source: Industry
-      case studies in Proc. SPIE 11080, 110800M (2019).'
+    description: '1-5 passes typical for complete removal; 2 passes recommended for Beryllium to achieve thorough cleaning of contaminants while avoiding cumulative thermal stress; single pass for light layers, multi for heavy. Source: Industry case studies in Proc. SPIE 11080, 110800M (2019).'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '30-80% overlap for uniform coverage in scanning; 50% recommended for Beryllium to ensure even fluence distribution
-      and prevent gaps, optimizing for its reflective properties. Source: Process optimization in Surf. Coat. Technol. 378,
-      124-130 (2019).'
-component_summary: These settings employ moderate 150 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants
-  from Beryllium, minimizing thermal stress on its brittle, low-conductivity surface.
+    description: '30-80% overlap for uniform coverage in scanning; 50% recommended for Beryllium to ensure even fluence distribution and prevent gaps, optimizing for its reflective properties. Source: Process optimization in Surf. Coat. Technol. 378, 124-130 (2019).'
+component_summary: These settings employ moderate 150 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants from Beryllium, minimizing thermal stress on its brittle, low-conductivity surface.
 slug: beryllium-settings
 lastModified: '2026-01-02T23:49:31.000031'
+description: 'Beryllium: removes contamination removal. Industrial-grade parameters. No substrate damage.'

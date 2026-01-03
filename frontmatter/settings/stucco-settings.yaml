@@ -6,18 +6,14 @@ content_type: settings
 schema_version: 5.0.0
 full_path: /settings/masonry/concrete/stucco-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stucco
-  href: ''
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Stucco
+    href: ''
 page_title: 'Stucco Settings: Laser Parameters'
-page_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants
-  deeply while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother
-  masonry, so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the fragile
-  matrix—watch out for overexposure here, as it can dry out and weaken the bonds mid-process. To handle this, we adjust by
-  overlapping scans lightly and adding a damp post-treatment to restore evenness, ensuring clean results for heritage restorations.
+page_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants deeply while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother masonry, so we typically start with controlled, low-intensity passes to gently lift surface grime without cracking the fragile matrix—watch out for overexposure here, as it can dry out and weaken the bonds mid-process. To handle this, we adjust by overlapping scans lightly and adding a damp post-treatment to restore evenness, ensuring clean results for heritage restorations.
 meta_description: 'Stucco: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -39,27 +35,25 @@ author:
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
   expertise:
-  - Ultrafast Laser Physics and Material Interactions
+    - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
     type: EducationalOrganization
   credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
+    - Ph.D. Physics, ITB, 2020
+    - 2+ years in ultrafast laser research including ASEAN optics workshops
+    - Assisted in international optics projects
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
+    - https://linkedin.com/in/ikmanda-roswati-physicist
+    - https://www.academia.edu/profile/IkmandaRoswati
   languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
+    - English
+    - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in Indonesia.
   slug: ikmanda-roswati
 card:
   default:
@@ -79,39 +73,39 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-      - thermal_management:
-        - id: moisture-spalling
-          type: challenge
-        - id: low-thermal-diffusivity
-          type: challenge
-        contamination_challenges:
-        - id: paint-coating-removal
-          type: challenge
+        - thermal_management:
+            - id: moisture-spalling
+              type: challenge
+            - id: low-thermal-diffusivity
+              type: challenge
+          contamination_challenges:
+            - id: paint-coating-removal
+              type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -121,7 +115,7 @@ machine_settings:
     description: Optimal average power for Stucco surface cleaning without substrate damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   wavelength:
     description: Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction
@@ -146,7 +140,7 @@ machine_settings:
     unit: J/cm²
     value: 3.2
     min: 0.1
-    max: 20.0
+    max: 20
   pulseWidth:
     description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
     unit: ns
@@ -176,67 +170,50 @@ machine_settings:
     max: 500
     value: 200
     unit: W
-    description: Typical range for industrial cleaning of porous, low-conductivity materials like stucco to avoid thermal
-      damage; starting at 200W for controlled ablation. Max limited to prevent cracking. Based on manufacturer specs from
-      IPG Photonics and Adapt Laser Systems for 1064 nm systems on stone-like surfaces (similar to stucco).
+    description: Typical range for industrial cleaning of porous, low-conductivity materials like stucco to avoid thermal damage; starting at 200W for controlled ablation. Max limited to prevent cracking. Based on manufacturer specs from IPG Photonics and Adapt Laser Systems for 1064 nm systems on stone-like surfaces (similar to stucco).
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: Effective range for contamination removal on stucco; slower for heavy soiling (500-1000 mm/s), faster for
-      light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser cleaning
-      of building materials (e.g., EU project reports on historical stone cleaning).
+    description: Effective range for contamination removal on stucco; slower for heavy soiling (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser cleaning of building materials (e.g., EU project reports on historical stone cleaning).
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 30
-    description: Nanosecond regime preferred for stucco to achieve ablation with minimal heat-affected zone (HAZ); picosecond
-      (ps) or femtosecond (fs) for ultra-sensitive cases but less common industrially due to cost. 30 ns recommended for 1064
-      nm on plaster-like materials. Supported by laser physics research in Optics & Laser Technology (e.g., studies on pulsed
-      laser ablation of cementitious materials).
+    description: Nanosecond regime preferred for stucco to achieve ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-sensitive cases but less common industrially due to cost. 30 ns recommended for 1064 nm on plaster-like materials. Supported by laser physics research in Optics & Laser Technology (e.g., studies on pulsed laser ablation of cementitious materials).
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: Typical for pulsed cleaning to ensure overlap without excessive heat buildup on low-conductivity stucco;
-      higher rates speed up process but risk accumulation. 50 kHz recommended for optimal balance. From academic literature
-      on 1064 nm cleaning of stone (e.g., Journal of Cultural Heritage papers on facade restoration).
+    description: Typical for pulsed cleaning to ensure overlap without excessive heat buildup on low-conductivity stucco; higher rates speed up process but risk accumulation. 50 kHz recommended for optimal balance. From academic literature on 1064 nm cleaning of stone (e.g., Journal of Cultural Heritage papers on facade restoration).
   energy_density:
     min: 0.1
-    max: 20.0
+    max: 20
     unit: J/cm²
     value: 1.2
-    description: Fluence range for safe removal of contaminants from stucco without substrate damage (threshold ~2-3 J/cm²
-      for plaster); lower for light dirt, higher for heavy. 1.2 J/cm² recommended conservatively. Based on ablation threshold
-      studies in Applied Surface Science (e.g., laser cleaning of concrete and stucco analogs).
+    description: Fluence range for safe removal of contaminants from stucco without substrate damage (threshold ~2-3 J/cm² for plaster); lower for light dirt, higher for heavy. 1.2 J/cm² recommended conservatively. Based on ablation threshold studies in Applied Surface Science (e.g., laser cleaning of concrete and stucco analogs).
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 300
-    description: Beam diameter range for uniform coverage on rough stucco surfaces; smaller for detail work, larger for broad
-      areas. 300 μm recommended for industrial contamination removal. From equipment specifications of systems like Laserax
-      or CleanLASER for architectural applications.
+    description: Beam diameter range for uniform coverage on rough stucco surfaces; smaller for detail work, larger for broad areas. 300 μm recommended for industrial contamination removal. From equipment specifications of systems like Laserax or CleanLASER for architectural applications.
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: Single pass for light cleaning, multi-pass for heavy contamination on porous stucco; 2 passes recommended
-      to ensure complete removal without overexposure. Drawn from industry case studies on building restoration (e.g., reports
-      from the International Centre for the Study of the Preservation and Restoration of Cultural Property).
+    description: Single pass for light cleaning, multi-pass for heavy contamination on porous stucco; 2 passes recommended to ensure complete removal without overexposure. Drawn from industry case studies on building restoration (e.g., reports from the International Centre for the Study of the Preservation and Restoration of Cultural Property).
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: Ensures uniform coverage on irregular stucco textures; 60% recommended for even cleaning without gaps or
-      excessive overlap heat. Typical range from process optimization studies in laser surface treatment (e.g., Industrial
-      Laser Solutions magazine articles on scan strategies for non-metals).
-component_summary: The moderate 200 W power and 10 ns pulses at 1064 nm wavelength enable gentle ablation of contaminants
-  from stucco's porous surface, minimizing heat-induced cracking or discoloration.
+    description: Ensures uniform coverage on irregular stucco textures; 60% recommended for even cleaning without gaps or excessive overlap heat. Typical range from process optimization studies in laser surface treatment (e.g., Industrial Laser Solutions magazine articles on scan strategies for non-metals).
+component_summary: The moderate 200 W power and 10 ns pulses at 1064 nm wavelength enable gentle ablation of contaminants from stucco's porous surface, minimizing heat-induced cracking or discoloration.
 slug: stucco-settings
 lastModified: '2026-01-02T23:49:35.791572'
+description: 'Stucco: removes contamination removal. Industrial-grade parameters. No substrate damage.'

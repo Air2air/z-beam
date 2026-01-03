@@ -132,6 +132,11 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const description = extractSafeValue(rawDescription);
   const slug = extractSafeValue(rawSlug);
   
+  // For settings pages, use meta_description if description is not provided
+  const effectiveDescription = contentType === 'settings' && !description && meta_description
+    ? extractSafeValue(meta_description)
+    : description;
+  
   // Simplified helper function to safely extract author name
   const getAuthorName = (author: Author | string | undefined): string | undefined => {
     if (typeof author === 'string') return author;
@@ -147,7 +152,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // Priority 1: Use pre-generated SEO metadata
   // Priority 2: Use dynamic formatters as fallback
   let seoTitle = title || '';
-  let seoDescription = description || '';
+  let seoDescription = effectiveDescription || '';
   
   // Check for pre-generated SEO metadata first (Priority 1)
   // Used by all 4 domains: materials, settings, contaminants, compounds
@@ -272,7 +277,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // For material/settings pages, use SEO formatter output; otherwise use contextDescription
   let fullDescription = enhancedDescription;
   
-  if (contentType !== 'unified_material' && contentType !== 'unified_settings') {
+  if (contentType !== 'unified_material' && contentType !== 'settings') {
     const contextDescription = meta_description || subtitle;
     fullDescription = contextDescription && typeof contextDescription === 'string'
       ? extractSafeValue(contextDescription)

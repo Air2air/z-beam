@@ -6,19 +6,14 @@ content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/hardwood/ash-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Ash
-  href: ''
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Ash
+    href: ''
 page_title: 'Ash Settings: Laser Parameters'
-page_description: When laser cleaning Ash, start with controlled power levels to leverage its strong laser absorption, which
-  removes surface contaminants efficiently without deep penetration. This property works well because Ash's open structure
-  allows heat to spread evenly, restoring wood grain in applications like furniture refinishing or heritage pieces. Make sure
-  you adjust scan speeds slower during initial passes, as the material's moderate density can lead to uneven heating if rushed—watch
-  for charring on porous areas. Reduce overlap ratios to avoid overexposure, revealing clean surfaces while preserving the
-  wood's natural flexibility for further handling.
+page_description: When laser cleaning Ash, start with controlled power levels to leverage its strong laser absorption, which removes surface contaminants efficiently without deep penetration. This property works well because Ash's open structure allows heat to spread evenly, restoring wood grain in applications like furniture refinishing or heritage pieces. Make sure you adjust scan speeds slower during initial passes, as the material's moderate density can lead to uneven heating if rushed—watch for charring on porous areas. Reduce overlap ratios to avoid overexposure, revealing clean surfaces while preserving the wood's natural flexibility for further handling.
 meta_description: 'Ash: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -40,23 +35,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-  - Optical Materials for Laser Systems
+    - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
   bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
   slug: todd-dunning
 card:
@@ -77,35 +72,35 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-      - id: ash-laser-cleaning
-        effectiveness: high
+        - id: ash-laser-cleaning
+          effectiveness: high
   operational:
     common_challenges:
       presentation: descriptive
       items:
-      - thermal_management:
-        - id: charring-carbonization
-          type: challenge
-        - id: slow-thermal-diffusivity
-          type: challenge
-        contamination_challenges:
-        - id: varnish-coating-removal
-          type: challenge
+        - thermal_management:
+            - id: charring-carbonization
+              type: challenge
+            - id: slow-thermal-diffusivity
+              type: challenge
+          contamination_challenges:
+            - id: varnish-coating-removal
+              type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -115,7 +110,7 @@ machine_settings:
     description: Optimal average power for efficient Ash removal without substrate damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   wavelength:
     description: Near-infrared wavelength optimized for Ash absorption and minimal substrate interaction
@@ -140,7 +135,7 @@ machine_settings:
     unit: J/cm²
     value: 5.1
     min: 0.1
-    max: 20.0
+    max: 20
   pulseWidth:
     description: Nanosecond pulse duration for controlled Ash ablation and thermal management
     unit: ns
@@ -170,66 +165,50 @@ machine_settings:
     max: 1000
     unit: W
     value: 200
-    description: Typical range for 1064 nm industrial cleaning of light powdery contaminants like ash on metals or stone;
-      start at 200 W to balance efficiency and avoid thermal damage to low-conductivity substrates; max limited by substrate
-      melting point (e.g., ~1000 W for steel); based on IPG Photonics and Laserax manufacturer specs for contamination removal.
+    description: Typical range for 1064 nm industrial cleaning of light powdery contaminants like ash on metals or stone; start at 200 W to balance efficiency and avoid thermal damage to low-conductivity substrates; max limited by substrate melting point (e.g., ~1000 W for steel); based on IPG Photonics and Laserax manufacturer specs for contamination removal.
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: Slower speeds (100-500 mm/s) for heavy ash layers to ensure complete removal, faster (1000-2000 mm/s) for
-      light surface ash; 500 mm/s recommended for optimal energy delivery without overheating; from industry standards and
-      equipment manuals like those from Adapt Laser Systems.
+    description: Slower speeds (100-500 mm/s) for heavy ash layers to ensure complete removal, faster (1000-2000 mm/s) for light surface ash; 500 mm/s recommended for optimal energy delivery without overheating; from industry standards and equipment manuals like those from Adapt Laser Systems.
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: Nanosecond regime (10-100 ns) preferred over picosecond/femtosecond for cost-effective ash cleaning due to
-      sufficient ablation of low-thermal-conductivity particulates; 20 ns minimizes heat-affected zone (HAZ) on reflective
-      or heat-sensitive substrates; supported by laser physics research in Optics & Laser Technology journal.
+    description: Nanosecond regime (10-100 ns) preferred over picosecond/femtosecond for cost-effective ash cleaning due to sufficient ablation of low-thermal-conductivity particulates; 20 ns minimizes heat-affected zone (HAZ) on reflective or heat-sensitive substrates; supported by laser physics research in Optics & Laser Technology journal.
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 10-100 kHz typical for pulsed cleaning to control pulse overlap; 50 kHz recommended for ash to achieve fast
-      processing while limiting heat accumulation in low-conductivity materials; higher rates speed up cleaning but risk substrate
-      damage; from academic literature like studies in Applied Surface Science.
+    description: 10-100 kHz typical for pulsed cleaning to control pulse overlap; 50 kHz recommended for ash to achieve fast processing while limiting heat accumulation in low-conductivity materials; higher rates speed up cleaning but risk substrate damage; from academic literature like studies in Applied Surface Science.
   energy_density:
     min: 0.1
-    max: 20.0
+    max: 20
     unit: J/cm²
     value: 1.5
-    description: 0.5-3 J/cm² range for effective vaporization/ablation of ash without exceeding substrate damage thresholds
-      (e.g., ~4 J/cm² for metals); 1.5 J/cm² safe and recommended for powdery ash with high reflectivity at 1064 nm; based
-      on ablation threshold studies in Journal of Laser Applications; conservative for uncertain ash composition.
+    description: 0.5-3 J/cm² range for effective vaporization/ablation of ash without exceeding substrate damage thresholds (e.g., ~4 J/cm² for metals); 1.5 J/cm² safe and recommended for powdery ash with high reflectivity at 1064 nm; based on ablation threshold studies in Journal of Laser Applications; conservative for uncertain ash composition.
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: 100-500 μm for precise control in industrial applications; 200 μm recommended for ash removal on detailed
-      surfaces to balance fluence and coverage; smaller for fine details, larger for broad areas; from equipment specifications
-      by manufacturers like Coherent Inc.
+    description: 100-500 μm for precise control in industrial applications; 200 μm recommended for ash removal on detailed surfaces to balance fluence and coverage; smaller for fine details, larger for broad areas; from equipment specifications by manufacturers like Coherent Inc.
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 1 pass for light ash contamination, up to 5 for heavy buildup; 2 passes recommended for complete, uniform
-      removal of ash while minimizing risk to underlying substrate; drawn from industry case studies on particulate cleaning
-      in heritage and industrial contexts (e.g., ICOMOS guidelines adapted for laser use).
+    description: 1 pass for light ash contamination, up to 5 for heavy buildup; 2 passes recommended for complete, uniform removal of ash while minimizing risk to underlying substrate; drawn from industry case studies on particulate cleaning in heritage and industrial contexts (e.g., ICOMOS guidelines adapted for laser use).
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: 30-80% ensures uniform fluence distribution; 50% recommended for ash cleaning to achieve even coverage without
-      excessive heat buildup on low-melting-point residues; typical in process optimization studies from Lasers in Engineering
-      journal.
-component_summary: These settings employ a 1064 nm wavelength for strong absorption in carbon-based ash, with 200 W power
-  and 10 ns pulses enabling precise ablation of loose particles while preventing thermal spread to underlying surfaces.
+    description: 30-80% ensures uniform fluence distribution; 50% recommended for ash cleaning to achieve even coverage without excessive heat buildup on low-melting-point residues; typical in process optimization studies from Lasers in Engineering journal.
+component_summary: These settings employ a 1064 nm wavelength for strong absorption in carbon-based ash, with 200 W power and 10 ns pulses enabling precise ablation of loose particles while preventing thermal spread to underlying surfaces.
 slug: ash-settings
 lastModified: '2026-01-02T23:49:30.836755'
+description: 'Ash: removes contamination removal. Industrial-grade parameters. No substrate damage.'

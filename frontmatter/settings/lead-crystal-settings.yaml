@@ -6,17 +6,14 @@ content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/soda-lime/lead-crystal-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Lead Crystal
-  href: ''
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Lead Crystal
+    href: ''
 page_title: 'Lead Crystal Settings: Laser Parameters'
-page_description: When laser cleaning Lead Crystal, you'll want to start with its soft, lead-infused structure. This makes
-  it more prone to surface damage than regular glass, so it absorbs heat unevenly and risks cracking under direct exposure.
-  Use gentle, low-energy pulses to lift contaminants without etching the crystal's shine. Keep your scan slow and overlap
-  lightly for even coverage. Always watch for clouding at the end, and pause to cool if it appears.
+page_description: When laser cleaning Lead Crystal, you'll want to start with its soft, lead-infused structure. This makes it more prone to surface damage than regular glass, so it absorbs heat unevenly and risks cracking under direct exposure. Use gentle, low-energy pulses to lift contaminants without etching the crystal's shine. Keep your scan slow and overlap lightly for even coverage. Always watch for clouding at the end, and pause to cool if it appears.
 meta_description: 'Lead Crystal: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -38,23 +35,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-  - Laser Materials Processing
+    - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
   slug: yi-chun-lin
 card:
@@ -75,54 +72,54 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-      - thermal_management:
-        - challenge: Thermal shock and catastrophic failure
-          severity: critical
-          threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
-          impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
-          solutions:
-          - Use pulse mode with 5-8 second cooling between passes
-          - Preheat substrate to room temperature before cleaning
-          - Avoid cold spots (air vents, cold backing) during processing
-          - Tempered glass more resistant but still susceptible to thermal shock
-          - Monitor for stress fractures; stop immediately if cracks appear
-        - challenge: Low thermal diffusivity
-          severity: high
-          property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
-          impact: Heat accumulates in localized zones creating thermal gradients
-          solutions:
-          - Reduce power by 30-40% compared to metals
-          - Increase scan speed to distribute heat (1000-2000 mm/s)
-          - Use defocused beam to spread energy over larger area
-          - Optical-grade glass (fused silica) tolerates higher power
-        contamination_challenges:
-        - id: adhesive-paint-removal
-          type: challenge
+        - thermal_management:
+            - challenge: Thermal shock and catastrophic failure
+              severity: critical
+              threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+              impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
+              solutions:
+                - Use pulse mode with 5-8 second cooling between passes
+                - Preheat substrate to room temperature before cleaning
+                - Avoid cold spots (air vents, cold backing) during processing
+                - Tempered glass more resistant but still susceptible to thermal shock
+                - Monitor for stress fractures; stop immediately if cracks appear
+            - challenge: Low thermal diffusivity
+              severity: high
+              property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+              impact: Heat accumulates in localized zones creating thermal gradients
+              solutions:
+                - Reduce power by 30-40% compared to metals
+                - Increase scan speed to distribute heat (1000-2000 mm/s)
+                - Use defocused beam to spread energy over larger area
+                - Optical-grade glass (fused silica) tolerates higher power
+          contamination_challenges:
+            - id: adhesive-paint-removal
+              type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -132,7 +129,7 @@ machine_settings:
     description: Optimal average power for Lead Crystal surface cleaning without thermal damage
     unit: W
     value: 25
-    min: 1.0
+    min: 1
     max: 120
   wavelength:
     description: Near-IR wavelength for optimal absorption in Lead Crystal with minimal transmission
@@ -157,7 +154,7 @@ machine_settings:
     unit: J/cm²
     value: 2.5
     min: 0.1
-    max: 20.0
+    max: 20
   pulseWidth:
     description: Nanosecond pulse duration for controlled ablation of surface contaminants
     unit: ns
@@ -187,66 +184,50 @@ machine_settings:
     max: 100
     value: 20
     unit: W
-    description: 'Typical range for delicate glass-like materials to avoid thermal damage; starting low prevents cracking
-      in lead crystal (thermal conductivity ~1 W/mK, melting point ~500-600°C). Max safe based on avoiding substrate ablation.
-      Source: IPG Photonics laser cleaning guidelines for optics.'
+    description: 'Typical range for delicate glass-like materials to avoid thermal damage; starting low prevents cracking in lead crystal (thermal conductivity ~1 W/mK, melting point ~500-600°C). Max safe based on avoiding substrate ablation. Source: IPG Photonics laser cleaning guidelines for optics.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective for contaminant removal without overheating; slower for heavy contamination (e.g., oxides), faster
-      for light dust. Recommended balances speed and safety for lead crystal''s low thermal conductivity. Source: Industry
-      standards from Laserax equipment manuals.'
+    description: 'Effective for contaminant removal without overheating; slower for heavy contamination (e.g., oxides), faster for light dust. Recommended balances speed and safety for lead crystal''s low thermal conductivity. Source: Industry standards from Laserax equipment manuals.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) in transparent
-      lead crystal at 1064 nm; picosecond (ps) or femtosecond reduces thermal effects but increases cost. Avoids cracking
-      due to reflectivity (~4% at 1064 nm). Source: Laser physics studies in Optics Express (e.g., ns pulses for glass ablation
-      thresholds).'
+    description: 'Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) in transparent lead crystal at 1064 nm; picosecond (ps) or femtosecond reduces thermal effects but increases cost. Avoids cracking due to reflectivity (~4% at 1064 nm). Source: Laser physics studies in Optics Express (e.g., ns pulses for glass ablation thresholds).'
   repetition_rate:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: 'Typical for efficient cleaning; lower rates reduce heat accumulation in low-conductivity lead crystal, higher
-      speeds up process but risks damage. Trade-off: high freq increases throughput but potential thermal buildup. Source:
-      Academic literature in Journal of Applied Physics on pulsed laser cleaning.'
+    description: 'Typical for efficient cleaning; lower rates reduce heat accumulation in low-conductivity lead crystal, higher speeds up process but risks damage. Trade-off: high freq increases throughput but potential thermal buildup. Source: Academic literature in Journal of Applied Physics on pulsed laser cleaning.'
   energy_density:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 1
     unit: J/cm²
-    description: 'Fluence range for removing contaminants (e.g., 0.5-1 for light, 1-3 for heavy) while below lead crystal
-      damage threshold (~4-5 J/cm² at 1064 nm due to transparency). Conservative for safety. Source: Ablation threshold studies
-      in Applied Surface Science for glass materials.'
+    description: 'Fluence range for removing contaminants (e.g., 0.5-1 for light, 1-3 for heavy) while below lead crystal damage threshold (~4-5 J/cm² at 1064 nm due to transparency). Conservative for safety. Source: Ablation threshold studies in Applied Surface Science for glass materials.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller for fine details on intricate lead crystal surfaces, larger for broad areas; 200 μm balances precision
-      and coverage without excessive energy concentration. Source: Equipment specs from Coherent and Trumpf laser systems
-      for precision cleaning.'
+    description: 'Smaller for fine details on intricate lead crystal surfaces, larger for broad areas; 200 μm balances precision and coverage without excessive energy concentration. Source: Equipment specs from Coherent and Trumpf laser systems for precision cleaning.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal without
-      risking damage to fragile lead crystal. Source: Industry case studies in laser cleaning of cultural heritage glass (e.g.,
-      adaptable to industrial from SPIE proceedings).'
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal without risking damage to fragile lead crystal. Source: Industry case studies in laser cleaning of cultural heritage glass (e.g., adaptable to industrial from SPIE proceedings).'
   overlap_ratio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform coverage and avoids gaps in cleaning; 70% optimal for even fluence distribution on reflective,
-      delicate surfaces like lead crystal. Source: Process optimization in Journal of Laser Applications.'
-component_summary: These settings use moderate 20 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from
-  fragile lead crystal, minimizing thermal damage and preserving its delicate, lead-infused structure.
+    description: 'Ensures uniform coverage and avoids gaps in cleaning; 70% optimal for even fluence distribution on reflective, delicate surfaces like lead crystal. Source: Process optimization in Journal of Laser Applications.'
+component_summary: These settings use moderate 20 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from fragile lead crystal, minimizing thermal damage and preserving its delicate, lead-infused structure.
 slug: lead-crystal-settings
 lastModified: '2026-01-02T23:49:32.912905'
+description: 'Lead Crystal: removes contamination removal. Industrial-grade parameters. No substrate damage.'

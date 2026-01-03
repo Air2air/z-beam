@@ -6,30 +6,21 @@ content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/palladium-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Palladium
-  href: ''
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Palladium
+    href: ''
 page_title: 'Palladium Settings: Laser Parameters'
-page_description: 'When laser cleaning Palladium, you''ll want to begin with a careful setup to handle its high reflectivity.
-  Start by selecting a lower power level right from the outset. This metal reflects a lot of the laser energy, so you must
-  dial it back to ensure the beam gets absorbed enough for effective cleaning without wasting shots.
+page_description: |-
+  When laser cleaning Palladium, you'll want to begin with a careful setup to handle its high reflectivity. Start by selecting a lower power level right from the outset. This metal reflects a lot of the laser energy, so you must dial it back to ensure the beam gets absorbed enough for effective cleaning without wasting shots.
 
+  Move on to your scan speed next. Keep it moderate to allow the heat to spread evenly across the dense surface. Palladium's strong thermal conductivity helps here—it pulls heat away quickly, which prevents hot spots and protects the underlying structure during the process.
 
-  Move on to your scan speed next. Keep it moderate to allow the heat to spread evenly across the dense surface. Palladium''s
-  strong thermal conductivity helps here—it pulls heat away quickly, which prevents hot spots and protects the underlying
-  structure during the process.
+  Watch out midway through: don't push the fluence too high, or you risk uneven ablation on this corrosion-resistant material. Its noble nature means contaminants cling stubbornly, so make multiple passes with good overlap to lift them without scratching the finish.
 
-
-  Watch out midway through: don''t push the fluence too high, or you risk uneven ablation on this corrosion-resistant material.
-  Its noble nature means contaminants cling stubbornly, so make multiple passes with good overlap to lift them without scratching
-  the finish.
-
-
-  Finish by checking the dwell time—short bursts work best. This approach cleans jewelry or aerospace parts cleanly every
-  time, leaving no residue behind.'
+  Finish by checking the dwell time—short bursts work best. This approach cleans jewelry or aerospace parts cleanly every time, leaving no residue behind.
 meta_description: 'Palladium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -51,23 +42,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-  - Laser Materials Processing
+    - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
   slug: yi-chun-lin
 card:
@@ -88,41 +79,41 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-      - thermal_management:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contamination_challenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
+        - thermal_management:
+            - id: high-thermal-conductivity
+              type: challenge
+            - id: melting-haz
+              type: challenge
+          contamination_challenges:
+            - id: rust-oxide-removal
+              type: challenge
+            - id: oil-grease-removal
+              type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -132,7 +123,7 @@ machine_settings:
     description: Optimal average power for Palladium oxide removal without substrate damage
     unit: W
     value: 90
-    min: 1.0
+    min: 1
     max: 120
   wavelength:
     description: Near-IR wavelength for efficient absorption by Palladium oxides and contaminants
@@ -193,68 +184,50 @@ machine_settings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for Nd:YAG laser cleaning of reflective metals like Pd to avoid thermal damage; starting at
-      200W balances efficiency and safety. Max limited by Pd''s high reflectivity (~60% at 1064nm) to prevent melting (mp
-      1555°C). Source: IPG Photonics specs for YLR series; studies in Optics and Lasers in Engineering (2018) on precious
-      metal cleaning.'
+    description: 'Typical range for Nd:YAG laser cleaning of reflective metals like Pd to avoid thermal damage; starting at 200W balances efficiency and safety. Max limited by Pd''s high reflectivity (~60% at 1064nm) to prevent melting (mp 1555°C). Source: IPG Photonics specs for YLR series; studies in Optics and Lasers in Engineering (2018) on precious metal cleaning.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal on Pd; slower for heavy oxides (500-1000 mm/s), faster for light
-      contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance without excessive heat. Source: Industry standards
-      from Laserax manuals; J. Cleaner Prod. (2020) case studies on metal surface prep.'
+    description: 'Effective speeds for contamination removal on Pd; slower for heavy oxides (500-1000 mm/s), faster for light contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance without excessive heat. Source: Industry standards from Laserax manuals; J. Cleaner Prod. (2020) case studies on metal surface prep.'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Ns regime preferred for cost-effective cleaning of Pd; ps (5-50 ps) minimizes HAZ due to Pd''s thermal conductivity
-      (71 W/mK), but ns sufficient. Avoid fs for industrial scale. Recommended 20 ns for low thermal impact. Source: Laser
-      physics in Appl. Phys. A (2015) on metal ablation thresholds.'
+    description: 'Ns regime preferred for cost-effective cleaning of Pd; ps (5-50 ps) minimizes HAZ due to Pd''s thermal conductivity (71 W/mK), but ns sufficient. Avoid fs for industrial scale. Recommended 20 ns for low thermal impact. Source: Laser physics in Appl. Phys. A (2015) on metal ablation thresholds.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning to control heat accumulation on reflective Pd; higher rates speed up process
-      but risk buildup. 50 kHz recommended for uniform cleaning without overheating. Trade-off: >80 kHz increases efficiency
-      but requires cooling. Source: Academic lit. in J. Appl. Phys. (2017); Coherent Inc. equipment guidelines.'
+    description: 'Typical for pulsed cleaning to control heat accumulation on reflective Pd; higher rates speed up process but risk buildup. 50 kHz recommended for uniform cleaning without overheating. Trade-off: >80 kHz increases efficiency but requires cooling. Source: Academic lit. in J. Appl. Phys. (2017); Coherent Inc. equipment guidelines.'
   energy_density:
     min: 0.1
-    max: 20.0
+    max: 20
     unit: J/cm²
     value: 1.5
-    description: 'Fluence range for contaminant ablation on Pd without substrate damage; threshold ~2-3 J/cm² for ns pulses
-      at 1064nm due to reflectivity. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account
-      for Pd''s properties. Source: Ablation studies in Surf. Coat. Technol. (2019); uncertainty noted for exact Pd data,
-      extrapolated from Ni/Pt analogs.'
+    description: 'Fluence range for contaminant ablation on Pd without substrate damage; threshold ~2-3 J/cm² for ns pulses at 1064nm due to reflectivity. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account for Pd''s properties. Source: Ablation studies in Surf. Coat. Technol. (2019); uncertainty noted for exact Pd data, extrapolated from Ni/Pt analogs.'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter for precise cleaning on Pd; smaller for fine details (100-200 μm), larger for areas (300-500
-      μm). 200 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Trumpf and Adapt Laser
-      Systems; process optimization in Lasers Manuf. Mater. Process. (2021).'
+    description: 'Beam diameter for precise cleaning on Pd; smaller for fine details (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Trumpf and Adapt Laser Systems; process optimization in Lasers Manuf. Mater. Process. (2021).'
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete Pd surface cleaning
-      without damage. Recommended for layered contaminants in catalysis/electronics apps. Source: Industry practice in case
-      studies from SPIE Proc. (2016); conservative for Pd''s sensitivity.'
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete Pd surface cleaning without damage. Recommended for layered contaminants in catalysis/electronics apps. Source: Industry practice in case studies from SPIE Proc. (2016); conservative for Pd''s sensitivity.'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage on Pd; 30-50% for large areas, 60-80% for precision. 60% recommended to avoid gaps
-      while minimizing overexposure/heat. Source: Process studies in Opt. Lasers Eng. (2022); typical range from manufacturer
-      guidelines like CleanLASER.'
-component_summary: The 1064 nm wavelength optimizes absorption in Palladium's metallic structure, while 200 W power and 12
-  ns pulses enable contaminant removal without inducing thermal stress on its corrosion-resistant surface.
+    description: 'Ensures uniform coverage on Pd; 30-50% for large areas, 60-80% for precision. 60% recommended to avoid gaps while minimizing overexposure/heat. Source: Process studies in Opt. Lasers Eng. (2022); typical range from manufacturer guidelines like CleanLASER.'
+component_summary: The 1064 nm wavelength optimizes absorption in Palladium's metallic structure, while 200 W power and 12 ns pulses enable contaminant removal without inducing thermal stress on its corrosion-resistant surface.
 slug: palladium-settings
 lastModified: '2026-01-02T23:49:33.618602'
+description: 'Palladium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
