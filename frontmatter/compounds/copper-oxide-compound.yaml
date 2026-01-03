@@ -3,8 +3,8 @@ name: Copper Oxide
 display_name: Copper Oxide (CuO)
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:20.182363Z'
-dateModified: '2025-12-29T20:28:20.182363Z'
+datePublished: '2026-01-03T07:49:27.434187Z'
+dateModified: '2026-01-03T07:49:27.434187Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/copper-oxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Particulate
-  href: /compounds/particulate
-- label: Metal Oxide
-  href: /compounds/particulate/metal_oxide
 - label: Copper Oxide
-  href: /compounds/particulate/metal-oxide/copper-oxide-compound
+  href: ''
 page_title: 'Copper Oxide: Respiratory Irritant'
 page_description: Handling stubborn contaminants on metal surfaces often demands materials that absorb energy efficiently
   without scattering.
@@ -102,8 +98,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - respiratory_irritation
 - metal_fume_fever
@@ -122,7 +118,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -134,7 +130,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -179,38 +175,38 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Copper Electroplating
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: When dealing with copper oxide compounds in particulate form, especially during industrial handling or
-    laser cleaning processes, start by assessing the workspace setup to identify dust generation risks from abrasion or beam
-    interactions. Gloves made of durable, chemical-resistant material become essential right away, shielding hands from potential
-    skin irritation caused by fine particles that cling and abrade during mixing or application stages. Eye protection follows
-    closely, with sealed goggles preventing airborne specks from causing discomfort or temporary vision issues amid the swirling
-    debris typical in laser ablation tasks. For respiratory safety, a well-fitted mask or respirator filters out inhalable
-    dust, crucial when the compound's powdery nature amplifies exposure in confined areas like manufacturing lines or restoration
-    sites. Full-body coverings, such as lab coats or coveralls, add another layer by blocking contact with clothing, while
-    ensuring good ventilation in the setup reduces overall particulate buildup. In laser cleaning scenarios, where the beam
-    vaporizes surface layers and releases oxide fragments, combining these items with face shields enhances protection against
-    scattered particulates, keeping operators comfortable and focused throughout extended sessions. Always prioritize easy
-    access to washing stations post-handling to rinse away any residue promptly.
-  images:
-    hero:
-      url: /images/compound/copper-oxide-compound-hero.jpg
-      alt: Copper Oxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/copper-oxide-compound-micro.jpg
-      alt: Copper Oxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Respiratory tract irritation and possible metal fume fever with high exposure
+      severity: moderate
+      onset: immediate
+    - route: skin_contact
+      effect: Skin irritation or dermatitis upon prolonged contact
+      severity: low
+      onset: immediate
+    - route: eye_contact
+      effect: Severe eye irritation and conjunctivitis
+      severity: moderate
+      onset: immediate
+    - route: ingestion
+      effect: Gastrointestinal distress including nausea and vomiting
+      severity: moderate
+      onset: short-term
 subcategory: metal_oxide
+ppe_requirements: When dealing with copper oxide compounds in particulate form, especially during industrial handling or laser
+  cleaning processes, start by assessing the workspace setup to identify dust generation risks from abrasion or beam interactions.
+  Gloves made of durable, chemical-resistant material become essential right away, shielding hands from potential skin irritation
+  caused by fine particles that cling and abrade during mixing or application stages. Eye protection follows closely, with
+  sealed goggles preventing airborne specks from causing discomfort or temporary vision issues amid the swirling debris typical
+  in laser ablation tasks. For respiratory safety, a well-fitted mask or respirator filters out inhalable dust, crucial when
+  the compound's powdery nature amplifies exposure in confined areas like manufacturing lines or restoration sites. Full-body
+  coverings, such as lab coats or coveralls, add another layer by blocking contact with clothing, while ensuring good ventilation
+  in the setup reduces overall particulate buildup. In laser cleaning scenarios, where the beam vaporizes surface layers and
+  releases oxide fragments, combining these items with face shields enhances protection against scattered particulates, keeping
+  operators comfortable and focused throughout extended sessions. Always prioritize easy access to washing stations post-handling
+  to rinse away any residue promptly.
+formula: CuO
 faq:
 - question: What personal protective equipment (PPE) should I wear to minimize inhalation risks from CuO particulates generated
     during laser cleaning of copper surfaces?
@@ -219,4 +215,5 @@ faq:
     and gloves to avoid skin or eye contact, and ensure the workspace has local exhaust ventilation to capture airborne particles.
     Conduct fit-testing for the respirator annually and replace filters when breathing becomes difficult or after each shift
     involving heavy dust generation.
-formula: CuO
+slug: copper-oxide-compound
+lastModified: '2026-01-02T23:49:27.434215'

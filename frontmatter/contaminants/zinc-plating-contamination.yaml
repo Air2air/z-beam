@@ -1,8 +1,8 @@
 id: zinc-plating-contamination
 name: Zinc Electroplating
 category: metallic-coating
-datePublished: '2025-12-29T20:26:06.714165Z'
-dateModified: '2025-12-29T20:26:06.714165Z'
+datePublished: '2026-01-03T07:49:24.468629Z'
+dateModified: '2026-01-03T07:49:24.468629Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/zinc-plating-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Plating
-  href: /contaminants/metallic-coating/plating
 - label: Zinc Electroplating
-  href: /contaminants/metallic-coating/plating/zinc-plating-contamination
+  href: ''
 page_title: 'Zinc Electroplating Removal: Laser Ablation Clean Remov'
 page_description: "Zinc plating contamination forms unique patterns during coating processes on metal surfaces. Layer develops\
   \ unevenly because zinc reacts with environment, so residues accumulate in clusters and thin films. After exposure, contamination\
@@ -26,7 +22,7 @@ page_description: "Zinc plating contamination forms unique patterns during coati
   \ substrates. Results indicate better adhesion after this.\n\nIkmanda Roswati, Ph.D.  \nIndonesia"
 meta_description: 'Zinc Electroplating: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/zinc-plating-contamination-hero.jpg
     alt: Zinc Electroplating laser cleaning visualization showing process effects
@@ -63,8 +59,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -74,12 +70,66 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Zinc Oxide
+        concentration_mg_m3: 5.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: toxic
+      - compound: Hydrogen Gas
+        concentration_mg_m3: 0.1
+        exposure_limit_mg_m3: 0.7
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Zinc vaporization may create rough surface finish
+    - Thermal stress may cause substrate warping on thin materials
+    - Avoid creating zinc-rich aerosols that can settle and contaminate area
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Zinc Oxide
+          concentration_mg_m3: 5.0
+          hazard_class: toxic
+        description: Zinc Oxide generation detected - low toxicity risk
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -258,53 +308,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Zinc Oxide
-            concentration_mg_m3: 5.0
-            exposure_limit_mg_m3: 5.0
-            hazard_class: toxic
-          - compound: Hydrogen Gas
-            concentration_mg_m3: 0.1
-            exposure_limit_mg_m3: 0.7
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Zinc vaporization may create rough surface finish
-          - Thermal stress may cause substrate warping on thin materials
-          - Avoid creating zinc-rich aerosols that can settle and contaminate area
-          toxic_gas_risk:
-            severity: low
-            primary_hazards:
-            - compound: Zinc Oxide
-              concentration_mg_m3: 5.0
-              hazard_class: toxic
-            description: Zinc Oxide generation detected - low toxicity risk
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -317,61 +320,34 @@ relationships:
           thermal_conductivity: 116
           thermal_diffusivity: 35
           vaporization_temperature: 907
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Stainless Steel
-  category: metallic-coating
-  subcategory: plating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: iron-laser-cleaning
-            title: Iron
-            url: /materials/metal/ferrous/iron-laser-cleaning
-            image: /images/material/iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: iron-laser-cleaning
+    title: Iron
+    url: /materials/metal/ferrous/iron-laser-cleaning
+    image: /images/material/iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: plating
 composition:
 - Zn
 - Zn Alloys
+prohibited_materials:
+- Aluminum
+- Stainless Steel
+valid_materials:
+- iron-laser-cleaning
+- steel-laser-cleaning
+slug: zinc-plating-contamination
+lastModified: '2026-01-02T23:49:24.468659'

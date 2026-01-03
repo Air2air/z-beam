@@ -1,7 +1,7 @@
 id: concrete-settings
 name: Concrete
-datePublished: '2025-12-29T20:29:23.287709Z'
-dateModified: '2025-12-29T20:29:23.287709Z'
+datePublished: '2026-01-03T07:49:31.738765Z'
+dateModified: '2026-01-03T07:49:31.738765Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/masonry/general/concrete-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Masonry
-  href: /settings/masonry
-- label: General
-  href: /settings/masonry/general
 - label: Concrete
-  href: /settings/masonry/general/concrete-settings
+  href: ''
 page_title: 'Concrete Settings: Laser Parameters'
 page_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
   a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy,
@@ -59,11 +55,11 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -83,12 +79,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -97,12 +87,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -112,12 +96,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -133,12 +111,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: masonry
-subcategory: general
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for concrete surface cleaning and contaminant removal
@@ -264,3 +237,5 @@ machine_settings:
       studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems.'
 component_summary: These settings deliver moderate power with short 12 ns pulses at 1064 nm to ablate contaminants from concrete's
   tough surface while minimizing thermal stress that could cause cracking.
+slug: concrete-settings
+lastModified: '2026-01-02T23:49:31.738791'

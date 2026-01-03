@@ -3,8 +3,8 @@ name: Lead Oxide
 display_name: Lead Oxide (PbO)
 category: particulate
 hazard_class: toxic
-datePublished: '2025-12-29T20:28:23.766405Z'
-dateModified: '2025-12-29T20:28:23.766405Z'
+datePublished: '2026-01-03T07:49:27.697304Z'
+dateModified: '2026-01-03T07:49:27.697304Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/lead-oxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Particulate
-  href: /compounds/particulate
-- label: Metal Oxide
-  href: /compounds/particulate/metal_oxide
 - label: Lead Oxide
-  href: /compounds/particulate/metal-oxide/lead-oxide-compound
+  href: ''
 page_title: 'Lead Oxide: Neurotoxic Particulate'
 page_description: Handling lead oxide particulates often poses challenges in industrial settings due to their sticky adhesion
   to surfaces and potential for environmental buildup.
@@ -119,8 +115,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - neurotoxicity
 - reproductive_toxicity
@@ -140,7 +136,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -152,7 +148,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -173,12 +169,6 @@ relationships:
         frequency: unknown
         severity: high
         typical_context: Laser removal of Lead-Based Paint Removal
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -186,34 +176,35 @@ relationships:
       - id: bronze-laser-cleaning
       - id: lead-crystal-laser-cleaning
       - id: lead-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: "Handling lead oxide compounds in particulate form demands careful protection, especially during industrial\
-    \ mixing or laser-based surface treatments. Start by suiting up in full-body coveralls to shield skin from any dust settling.\
-    \ \n\nRespiratory gear tops the list—opt for a powered air-purifying respirator that filters out fine particles effectively,\
-    \ keeping lungs clear while you work on applications like battery production. Goggles with side shields prevent eye irritation\
-    \ from airborne specks. \n\nGloves made of nitrile or similar impermeable material guard hands against absorption through\
-    \ prolonged contact. In laser cleaning setups, add flame-resistant aprons to handle the heat involved in removing oxide\
-    \ layers from metals. \n\nFootwear should be closed-toe boots with non-slip soles for safe movement around dusty workspaces.\
-    \ Always include hearing protection if machinery noise accompanies the process, ensuring overall comfort and safety."
-  images:
-    hero:
-      url: /images/compound/lead-oxide-compound-hero.jpg
-      alt: Lead Oxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/lead-oxide-compound-micro.jpg
-      alt: Lead Oxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Respiratory irritation and systemic lead poisoning affecting nervous system, kidneys, and blood (e.g., anemia,
+        neurological impairment)
+      severity: severe
+      onset: short-term
+    - route: skin_contact
+      effect: Skin irritation or dermatitis; minimal systemic absorption
+      severity: moderate
+      onset: immediate
+    - route: eye_contact
+      effect: Severe eye irritation, conjunctivitis, and potential corneal damage
+      severity: high
+      onset: immediate
+    - route: ingestion
+      effect: Gastrointestinal distress, abdominal pain, and chronic lead toxicity (e.g., cognitive deficits, hypertension)
+      severity: severe
+      onset: short-term
 subcategory: metal_oxide
+ppe_requirements: "Handling lead oxide compounds in particulate form demands careful protection, especially during industrial\
+  \ mixing or laser-based surface treatments. Start by suiting up in full-body coveralls to shield skin from any dust settling.\
+  \ \n\nRespiratory gear tops the list—opt for a powered air-purifying respirator that filters out fine particles effectively,\
+  \ keeping lungs clear while you work on applications like battery production. Goggles with side shields prevent eye irritation\
+  \ from airborne specks. \n\nGloves made of nitrile or similar impermeable material guard hands against absorption through\
+  \ prolonged contact. In laser cleaning setups, add flame-resistant aprons to handle the heat involved in removing oxide\
+  \ layers from metals. \n\nFootwear should be closed-toe boots with non-slip soles for safe movement around dusty workspaces.\
+  \ Always include hearing protection if machinery noise accompanies the process, ensuring overall comfort and safety."
+formula: PbO
 faq:
 - question: What respiratory protection should I use when laser cleaning surfaces that may generate lead oxide (PbO) particulates?
   answer: Use a NIOSH-approved half-face or full-face respirator with P100 filters (or equivalent) rated for particulates
@@ -222,4 +213,5 @@ faq:
     and always perform air monitoring to confirm levels stay below OSHA's permissible exposure limit of 50 µg/m³ for lead
     over an 8-hour shift. Combine this with engineering controls like local exhaust ventilation at the laser cleaning site
     to minimize airborne particulates from the start.
-formula: PbO
+slug: lead-oxide-compound
+lastModified: '2026-01-02T23:49:27.697339'

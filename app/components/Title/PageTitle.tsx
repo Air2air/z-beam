@@ -246,9 +246,9 @@ export function PageTitle({
         </div>
         
         {page_description && (
-          <p id={descriptionId} className="mt-3">
+          <div id={descriptionId} className="mt-3">
             <MarkdownRenderer content={page_description} convertMarkdown={true} />
-          </p>
+          </div>
         )}
       </header>
     </>

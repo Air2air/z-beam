@@ -1,8 +1,8 @@
 id: anti-seize-contamination
 name: Anti-Seize Compound
 category: organic-residue
-datePublished: '2025-12-29T20:26:04.196891Z'
-dateModified: '2025-12-29T20:26:04.196891Z'
+datePublished: '2026-01-03T07:49:17.020516Z'
+dateModified: '2026-01-03T07:49:17.020516Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/lubricant/anti-seize-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Lubricant
-  href: /contaminants/organic-residue/lubricant
 - label: Anti-Seize Compound
-  href: /contaminants/organic-residue/lubricant/anti-seize-contamination
+  href: ''
 page_title: 'Anti-Seize Compound Removal: Laser Ablation Clean Remov'
 page_description: "Anti-seize contamination forms as sticky organic residue on metal surfaces during assembly processes. Before\
   \ laser cleaning, layer adheres tightly because compounds include graphite and metals, so removal challenges increase. Contamination\
@@ -28,7 +24,7 @@ page_description: "Anti-seize contamination forms as sticky organic residue on m
   \ These patterns highlight need for tailored laser settings in industrial applications.\n\nIkmanda Roswati, Ph.D.  \nIndonesia"
 meta_description: 'Anti-Seize Compound: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/anti-seize-contamination-hero.jpg
     alt: Anti-Seize Compound laser cleaning visualization showing process effects
@@ -65,8 +61,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -76,12 +72,75 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Nickel compounds (as Ni)
+        concentration_mg_m3: 0.5-2.0
+        exposure_limit_mg_m3: 0.1
+        hazard_class: carcinogenic
+      - compound: Copper fume
+        concentration_mg_m3: 0.1-0.5
+        exposure_limit_mg_m3: 0.1
+        hazard_class: irritant
+      - compound: Aluminum oxide fume
+        concentration_mg_m3: 1.0-3.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+      - compound: Graphite fume
+        concentration_mg_m3: 0.5-1.5
+        exposure_limit_mg_m3: 2.0
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may embed metallic particles into substrate surface
+    - Thermal decomposition can create refractory metal oxides
+    - Residual contamination may affect surface properties
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Nickel compounds (as Ni)
+          concentration_mg_m3: 0.5-2.0
+          hazard_class: carcinogenic
+        description: Nickel compounds (as Ni) generation detected - low toxicity risk
+        mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Nickel compounds (as Ni)
+          - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -290,62 +349,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Nickel compounds (as Ni)
-            concentration_mg_m3: 0.5-2.0
-            exposure_limit_mg_m3: 0.1
-            hazard_class: carcinogenic
-          - compound: Copper fume
-            concentration_mg_m3: 0.1-0.5
-            exposure_limit_mg_m3: 0.1
-            hazard_class: irritant
-          - compound: Aluminum oxide fume
-            concentration_mg_m3: 1.0-3.0
-            exposure_limit_mg_m3: 5.0
-            hazard_class: irritant
-          - compound: Graphite fume
-            concentration_mg_m3: 0.5-1.5
-            exposure_limit_mg_m3: 2.0
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser cleaning may embed metallic particles into substrate surface
-          - Thermal decomposition can create refractory metal oxides
-          - Residual contamination may affect surface properties
-          toxic_gas_risk:
-            severity: low
-            primary_hazards:
-            - compound: Nickel compounds (as Ni)
-              concentration_mg_m3: 0.5-2.0
-              hazard_class: carcinogenic
-            description: Nickel compounds (as Ni) generation detected - low toxicity risk
-            mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Nickel compounds (as
-              Ni) - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 0.4
@@ -358,72 +361,46 @@ relationships:
           thermal_conductivity: 0.3
           thermal_diffusivity: 0.25
           vaporization_temperature: 600
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Electronics
-    - Plastics
-  category: organic-residue
-  subcategory: lubricant
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: lubricant
 composition:
 - Copper
 - Graphite
 - Aluminum
 - Grease
+prohibited_materials:
+- Electronics
+- Plastics
+valid_materials:
+- aluminum-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+slug: anti-seize-contamination
+lastModified: '2026-01-02T23:49:17.020544'

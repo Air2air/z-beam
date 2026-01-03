@@ -1,8 +1,8 @@
 id: grease-deposits-contamination
 name: Heavy Machinery Grease
 category: organic-residue
-datePublished: '2025-12-29T20:26:05.217483Z'
-dateModified: '2025-12-29T20:26:05.217483Z'
+datePublished: '2026-01-03T07:49:20.384642Z'
+dateModified: '2026-01-03T07:49:20.384642Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/grease-deposits-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Petroleum
-  href: /contaminants/organic-residue/petroleum
 - label: Heavy Machinery Grease
-  href: /contaminants/organic-residue/petroleum/grease-deposits-contamination
+  href: ''
 page_title: 'Heavy Machinery Grease Removal: Laser Ablation Single-P'
 page_description: Grease deposits contamination poses a tough challenge in laser cleaning setups. These organic residues build
   up in uneven, sticky layers on surfaces like metals or machinery parts. They form through repeated exposure to oils and
@@ -27,7 +23,7 @@ page_description: Grease deposits contamination poses a tough challenge in laser
   achieve reliable results.
 meta_description: 'Heavy Machinery Grease: 85-90% absorption at 1064nm. Single-pass removal. Preserves substrate integrity.
   No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/grease-deposits-contamination-hero.jpg
     alt: Heavy Machinery Grease laser cleaning visualization showing process effects
@@ -64,8 +60,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 relationships:
   safety:
     regulatory_standards:
@@ -75,12 +71,95 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Combustible materials present, risk elevated in confined spaces or high-power settings
+        mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Acrolein
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 0.23
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1.8
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Benzene
+        concentration_mg_m3: 0.9
+        exposure_limit_mg_m3: 0.32
+        hazard_class: carcinogenic
+      - compound: Toluene
+        concentration_mg_m3: 3.2
+        exposure_limit_mg_m3: 75
+        hazard_class: toxic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 1.1
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 15
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may cause surface damage or discoloration on certain metals
+    - Potential for substrate heating and thermal stress
+    - Reflective surfaces may create beam hazards
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Acrolein
+          concentration_mg_m3: 2.5
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 1.8
+          hazard_class: carcinogenic
+        - compound: Benzene
+          concentration_mg_m3: 0.9
+          hazard_class: carcinogenic
+        - compound: Toluene
+          concentration_mg_m3: 3.2
+          hazard_class: toxic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 1.1
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Benzene - requires enhanced protection'
+        mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
+          Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -263,82 +342,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: moderate
-            description: Combustible materials present, risk elevated in confined spaces or high-power settings
-            mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
-          fumes_generated:
-          - compound: Acrolein
-            concentration_mg_m3: 2.5
-            exposure_limit_mg_m3: 0.23
-            hazard_class: toxic
-          - compound: Formaldehyde
-            concentration_mg_m3: 1.8
-            exposure_limit_mg_m3: 0.37
-            hazard_class: carcinogenic
-          - compound: Benzene
-            concentration_mg_m3: 0.9
-            exposure_limit_mg_m3: 0.32
-            hazard_class: carcinogenic
-          - compound: Toluene
-            concentration_mg_m3: 3.2
-            exposure_limit_mg_m3: 75
-            hazard_class: toxic
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentration_mg_m3: 1.1
-            exposure_limit_mg_m3: 0.2
-            hazard_class: carcinogenic
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 15
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser may cause surface damage or discoloration on certain metals
-          - Potential for substrate heating and thermal stress
-          - Reflective surfaces may create beam hazards
-          toxic_gas_risk:
-            severity: high
-            primary_hazards:
-            - compound: Acrolein
-              concentration_mg_m3: 2.5
-              hazard_class: toxic
-            - compound: Formaldehyde
-              concentration_mg_m3: 1.8
-              hazard_class: carcinogenic
-            - compound: Benzene
-              concentration_mg_m3: 0.9
-              hazard_class: carcinogenic
-            - compound: Toluene
-              concentration_mg_m3: 3.2
-              hazard_class: toxic
-            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-              concentration_mg_m3: 1.1
-              hazard_class: carcinogenic
-            description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Benzene - requires enhanced protection'
-            mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
-              Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 2.5
@@ -351,81 +354,56 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Nylon
-    - Plastics
-    - Wood
-  category: organic-residue
-  subcategory: petroleum
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: iron-laser-cleaning
-            title: Iron
-            url: /materials/metal/ferrous/iron-laser-cleaning
-            image: /images/material/iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: iron-laser-cleaning
+    title: Iron
+    url: /materials/metal/ferrous/iron-laser-cleaning
+    image: /images/material/iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: petroleum
 composition:
 - Mineral Oil
 - Lithium Soap
 - PTFE
+prohibited_materials:
+- Nylon
+- Plastics
+- Wood
+valid_materials:
+- aluminum-laser-cleaning
+- cast-iron-laser-cleaning
+- iron-laser-cleaning
+- steel-laser-cleaning
+slug: grease-deposits-contamination
+lastModified: '2026-01-02T23:49:20.384672'

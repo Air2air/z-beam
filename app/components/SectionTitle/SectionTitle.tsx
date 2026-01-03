@@ -57,9 +57,9 @@ export function SectionTitle({
         )}
         
         {description && (
-          <p className={`text-base text-primary mt-2 ${alignmentClasses[alignment]}`}>
+          <div className={`text-base text-primary mt-2 ${alignmentClasses[alignment]}`}>
             {description}
-          </p>
+          </div>
         )}
       </div>
     </div>

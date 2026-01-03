@@ -3,22 +3,18 @@ name: Water Vapor
 display_name: Water Vapor (H₂O)
 category: vapor
 hazard_class: inert
-datePublished: '2025-12-29T20:28:14.002252Z'
-dateModified: '2025-12-29T20:28:14.002252Z'
+datePublished: '2026-01-03T07:49:26.965271Z'
+dateModified: '2026-01-03T07:49:26.965271Z'
 content_type: compounds
 schema_version: 5.0.0
-full_path: /compounds/vapor/inert/water-vapor-compound
+full_path: /compounds/vapor/water-vapor-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
-- label: Vapor
-  href: /compounds/vapor
-- label: Inert
-  href: /compounds/vapor/inert
 - label: Water Vapor
-  href: /compounds/vapor/inert/water-vapor-compound
+  href: ''
 page_title: 'Water Vapor: Hazardous Emission'
 page_description: Working with water vapor in projects always starts simple—mix it into air streams for that quick humidity
   boost.
@@ -94,8 +90,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - humidity
 monitoring_required: false
@@ -113,7 +109,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -125,7 +121,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -374,38 +370,37 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: "Handling water vapor in its compound form demands careful gear choices, especially where heat buildup\
-    \ poses risks during industrial processes like steam generation or surface treatments. Workers often face sudden bursts\
-    \ of scalding mist, so full-body suits made from flame-retardant fabrics shield skin from direct contact burns without\
-    \ restricting movement. \n\nEye and face protection turns essential too—goggles or shields with anti-fog coatings guard\
-    \ against vapor splashes that could irritate or harm vision, particularly in humid environments where droplets linger.\
-    \ For tasks involving laser cleaning, where vapor might interact with beam energy to create intense localized heat, add\
-    \ reflective aprons to deflect stray thermal exposure while maintaining visibility.\n\nBreathing apparatus comes into\
-    \ play if the vapor carries contaminants from applications like chemical processing; respirators with filters capture\
-    \ fine particles, ensuring clear airways amid foggy conditions. Gloves crafted from insulated, flexible materials protect\
-    \ hands during handling, preventing blisters from prolonged warmth without compromising grip on tools. Overall, this setup\
-    \ prioritizes comfort and durability, allowing safe navigation of vapor-heavy operations from power systems to precision\
-    \ cleaning setups."
-  images:
-    hero:
-      url: /images/compound/water-vapor-compound-hero.jpg
-      alt: Water Vapor laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/water-vapor-compound-micro.jpg
-      alt: Water Vapor microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Thermal burns to respiratory tract and lungs from hot steam
+      severity: severe
+      onset: immediate
+    - route: skin_contact
+      effect: Thermal burns from hot steam exposure
+      severity: severe
+      onset: immediate
+    - route: eye_contact
+      effect: Thermal burns or irritation from hot steam
+      severity: high
+      onset: immediate
+    - route: inhalation
+      effect: No significant effects from ambient water vapor (humidity)
+      severity: low
+      onset: long-term
 subcategory: inert
+ppe_requirements: "Handling water vapor in its compound form demands careful gear choices, especially where heat buildup poses\
+  \ risks during industrial processes like steam generation or surface treatments. Workers often face sudden bursts of scalding\
+  \ mist, so full-body suits made from flame-retardant fabrics shield skin from direct contact burns without restricting movement.\
+  \ \n\nEye and face protection turns essential too—goggles or shields with anti-fog coatings guard against vapor splashes\
+  \ that could irritate or harm vision, particularly in humid environments where droplets linger. For tasks involving laser\
+  \ cleaning, where vapor might interact with beam energy to create intense localized heat, add reflective aprons to deflect\
+  \ stray thermal exposure while maintaining visibility.\n\nBreathing apparatus comes into play if the vapor carries contaminants\
+  \ from applications like chemical processing; respirators with filters capture fine particles, ensuring clear airways amid\
+  \ foggy conditions. Gloves crafted from insulated, flexible materials protect hands during handling, preventing blisters\
+  \ from prolonged warmth without compromising grip on tools. Overall, this setup prioritizes comfort and durability, allowing\
+  \ safe navigation of vapor-heavy operations from power systems to precision cleaning setups."
+formula: H₂O
 faq:
 - question: As a laser cleaning operator, how can I protect myself from potential water vapor exposure in a humid industrial
     environment?
@@ -414,4 +409,5 @@ faq:
     such as respirators rated for vapor (e.g., NIOSH-approved half-face masks with organic vapor cartridges) and ensure the
     area is monitored with humidity sensors to stay below 80% relative humidity. If exposure is suspected, relocate to fresh
     air immediately and follow your site's emergency protocols for decontamination.
-formula: H₂O
+slug: water-vapor-compound
+lastModified: '2026-01-02T23:49:26.965303'

@@ -3,8 +3,8 @@ name: Hydrogen Chloride
 display_name: Hydrogen Chloride (HCl)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2025-12-29T20:28:01.692356Z'
-dateModified: '2025-12-29T20:28:01.692356Z'
+datePublished: '2026-01-03T07:49:25.976159Z'
+dateModified: '2026-01-03T07:49:25.976159Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Corrosive Gas
-  href: /compounds/corrosive_gas
-- label: Acid Gas
-  href: /compounds/corrosive_gas/acid_gas
 - label: Hydrogen Chloride
-  href: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
+  href: ''
 page_title: 'Hydrogen Chloride: Corrosive Fumes'
 page_description: Hydrogen chloride stands out from milder gases—its sharp bite etches metals fast.
 meta_description: 'Hydrogen Chloride: Corrosive Fumes from metal processing. Requires proper ventilation and PPE.'
@@ -107,9 +103,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -118,8 +111,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 health_effects_keywords:
 - severe_respiratory_irritation
 - corrosive_to_tissue
@@ -140,7 +137,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -152,7 +149,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -163,12 +160,6 @@ relationships:
       items:
       - type: chemical_properties
         id: hydrogen-chloride-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -185,10 +176,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -203,18 +191,29 @@ relationships:
           ec_number: 231-595-7
           pubchem_cid: '313'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: hydrogen-chloride-toxicology
+      - route: inhalation
+        effect: Severe irritation of respiratory tract, coughing, choking, and potential pulmonary edema
+        severity: severe
+        onset: immediate
+      - route: skin_contact
+        effect: Chemical burns and severe irritation leading to tissue damage
+        severity: severe
+        onset: immediate
+      - route: eye_contact
+        effect: Intense pain, lacrimation, and corneal burns with risk of permanent vision impairment
+        severity: severe
+        onset: immediate
+      - route: ingestion
+        effect: Burns to mouth, esophagus, and stomach with risk of perforation and systemic toxicity
+        severity: severe
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -226,12 +225,9 @@ relationships:
         special_notes: Extremely corrosive. Causes severe burns on contact. Fumes in moist air. Emergency eyewash/shower within
           10 seconds mandatory. Liquid causes frostbite (cryogenic).
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -249,10 +245,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -266,24 +259,21 @@ relationships:
           osha_pel:
             twa_8hr: null
             stel_15min: null
-            ceiling: 5 ppm (7 mg/m³)
+            ceiling: 5 ppm
           niosh_rel:
             twa_8hr: null
             stel_15min: null
-            ceiling: 5 ppm (7 mg/m³)
+            ceiling: 5 ppm
             idlh: 50 ppm
           acgih_tlv:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: 2 ppm
+            twa_8hr: 2 ppm
+            stel_15min: 5 ppm
+            ceiling: null
           biological_exposure_indices: []
       _section:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -306,10 +296,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -321,6 +308,7 @@ relationships:
           flammability: 0
           reactivity: 0
           special: null
+          instability: 0
         epa_hazard_categories:
         - Acute toxicity (inhalation)
         - Skin corrosion
@@ -331,10 +319,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -352,10 +337,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -384,10 +366,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -400,12 +379,6 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Chlorinated adhesive breakdown
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -415,12 +388,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -447,32 +414,18 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handling hydrogen chloride demands serious gear to counter its biting fumes and potential for skin burns.
-    Start with a full-face respirator fitted with cartridges that trap acidic vapors, keeping lungs clear during exposure
-    in tight spaces or open processes. Gloves made from thick, chemical-proof material like neoprene wrap hands securely,
-    blocking direct contact that could lead to rapid irritation. Over that, don a splash-proof apron or full-body suit crafted
-    from resistant fabrics, shielding clothes and skin from any mist or spills in busy industrial setups like metal etching
-    or gas purification. Eye protection comes via sealed goggles that seal out vapors entirely, preventing the sharp sting
-    from airborne particles. In high-risk zones, such as laser cleaning operations where the compound aids in stripping grime
-    from surfaces, add a hood or helmet with integrated breathing apparatus for total enclosure against the corrosive haze.
-    Always pair this with ventilation hoods nearby to dilute the air, though the focus stays on personal barriers that hold
-    up under steady use.
-  images:
-    hero:
-      url: /images/compound/hydrogen-chloride-compound-hero.jpg
-      alt: Hydrogen Chloride laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/hydrogen-chloride-compound-micro.jpg
-      alt: Hydrogen Chloride microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: acid_gas
+ppe_requirements: Handling hydrogen chloride demands serious gear to counter its biting fumes and potential for skin burns.
+  Start with a full-face respirator fitted with cartridges that trap acidic vapors, keeping lungs clear during exposure in
+  tight spaces or open processes. Gloves made from thick, chemical-proof material like neoprene wrap hands securely, blocking
+  direct contact that could lead to rapid irritation. Over that, don a splash-proof apron or full-body suit crafted from resistant
+  fabrics, shielding clothes and skin from any mist or spills in busy industrial setups like metal etching or gas purification.
+  Eye protection comes via sealed goggles that seal out vapors entirely, preventing the sharp sting from airborne particles.
+  In high-risk zones, such as laser cleaning operations where the compound aids in stripping grime from surfaces, add a hood
+  or helmet with integrated breathing apparatus for total enclosure against the corrosive haze. Always pair this with ventilation
+  hoods nearby to dilute the air, though the focus stays on personal barriers that hold up under steady use.
+formula: HCl
 faq:
 - question: How can I detect and monitor HCl gas exposure during laser cleaning to stay within safe limits?
   answer: Use portable gas detectors equipped with electrochemical sensors specific to HCl, placed in the breathing zone and
@@ -481,4 +434,5 @@ faq:
     for 1-2 ppm to allow early evacuation or ventilation adjustments, especially since HCl from laser ablation can rapidly
     irritate eyes, skin, and lungs far more aggressively than milder acids like acetic. If levels approach the PEL, immediately
     don a full-face respirator with acid gas cartridges and enhance local exhaust ventilation to dilute the corrosive gas.
-formula: HCl
+slug: hydrogen-chloride-compound
+lastModified: '2026-01-02T23:49:25.976189'

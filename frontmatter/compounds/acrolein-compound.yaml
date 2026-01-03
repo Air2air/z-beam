@@ -3,8 +3,8 @@ name: Acrolein
 display_name: Acrolein (C₃H₄O)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-29T20:28:00.478318Z'
-dateModified: '2025-12-29T20:28:00.478318Z'
+datePublished: '2026-01-03T07:49:25.901596Z'
+dateModified: '2026-01-03T07:49:25.901596Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/aldehyde/acrolein-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Toxic Gas
-  href: /compounds/toxic_gas
-- label: Aldehyde
-  href: /compounds/toxic_gas/aldehyde
 - label: Acrolein
-  href: /compounds/toxic-gas/aldehyde/acrolein-compound
+  href: ''
 page_title: 'Acrolein: Toxic Metal Fumes'
 page_description: Acrolein's sharp, irritating odor hits first, marking it as a highly reactive compound that demands careful
   handling in any setting.
@@ -120,9 +116,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -134,8 +127,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 health_effects_keywords:
 - severe_respiratory_irritation
 - pulmonary_edema
@@ -179,12 +175,6 @@ relationships:
       items:
       - type: chemical_properties
         id: acrolein-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -201,10 +191,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -222,18 +209,30 @@ relationships:
           ec_number: 203-453-4
           pubchem_cid: '7847'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: acrolein-toxicology
+      - route: inhalation
+        effect: Severe irritation of the respiratory tract, including coughing, shortness of breath, and potential pulmonary
+          edema at high concentrations
+        severity: severe
+        onset: immediate
+      - route: skin_contact
+        effect: Severe skin irritation, burns, and blistering upon direct contact
+        severity: severe
+        onset: immediate
+      - route: eye_contact
+        effect: Intense eye irritation, lacrimation, pain, and possible corneal damage or permanent vision impairment
+        severity: severe
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal irritation, nausea, vomiting, and abdominal pain
+        severity: high
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -245,12 +244,9 @@ relationships:
         special_notes: EXTREMELY IRRITATING at sub-ppm levels. Eye and respiratory irritation immediate. Lachrymator (tear
           gas properties). Self-rescue respirators may be inadequate - use supplied air.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -271,10 +267,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -286,16 +279,16 @@ relationships:
         acgih_tlv_mg_m3: 0.23
         workplace_exposure:
           osha_pel:
-            twa_8hr: 0.1 ppm (0.25 mg/m³)
+            twa_8hr: null
             stel_15min: null
-            ceiling: null
+            ceiling: 0.1 ppm
           niosh_rel:
-            twa_8hr: 0.1 ppm (0.25 mg/m³)
-            stel_15min: 0.3 ppm (0.8 mg/m³) - 15 min
-            ceiling: null
+            twa_8hr: 0.02 ppm
+            stel_15min: null
+            ceiling: 0.1 ppm
             idlh: 2 ppm
           acgih_tlv:
-            twa_8hr: 0.1 ppm
+            twa_8hr: 0.025 ppm
             stel_15min: null
             ceiling: null
           biological_exposure_indices: []
@@ -303,9 +296,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -330,10 +320,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -342,9 +329,10 @@ relationships:
         dot_label: Poison, Flammable Liquid
         nfpa_codes:
           health: 4
-          flammability: 4
+          flammability: 3
           reactivity: 3
           special: null
+          instability: 2
         epa_hazard_categories:
         - Acute toxicity (fatal if inhaled)
         - Flammability
@@ -357,10 +345,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -379,10 +364,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -411,10 +393,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -435,12 +414,6 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Pyrolysis of certain polymers
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -450,12 +423,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -493,43 +460,30 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: 'Handle acrolein with extreme caution. It''s a nasty toxic gas that irritates skin, eyes, and lungs fast.
-    Always suit up properly before exposure.
-
-
-    Start with respiratory protection. Grab a full-face respirator fitted with cartridges that block organic vapors. No half-measures
-    here.
-
-
-    Eyes demand goggles or a face shield over the respirator. Vapors sting and burn on contact.
-
-
-    Gloves matter too. Choose chemical-resistant ones, like nitrile or neoprene, to shield hands from splashes or leaks.
-
-
-    Full-body coverage is key. Wear a protective suit or apron made from impermeable material. Boots and hoods seal the gaps.
-
-
-    Ventilation setups help, but PPE comes first in enclosed spaces. Train everyone on quick donning and emergency decontamination.
-
-
-    Store and transport it sealed. Spills? Evacuate and use absorbents from afar. Safety first—acrolein doesn''t forgive mistakes.'
-  images:
-    hero:
-      url: /images/compound/acrolein-compound-hero.jpg
-      alt: Acrolein laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/acrolein-compound-micro.jpg
-      alt: Acrolein microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: aldehyde
+ppe_requirements: 'Handle acrolein with extreme caution. It''s a nasty toxic gas that irritates skin, eyes, and lungs fast.
+  Always suit up properly before exposure.
+
+
+  Start with respiratory protection. Grab a full-face respirator fitted with cartridges that block organic vapors. No half-measures
+  here.
+
+
+  Eyes demand goggles or a face shield over the respirator. Vapors sting and burn on contact.
+
+
+  Gloves matter too. Choose chemical-resistant ones, like nitrile or neoprene, to shield hands from splashes or leaks.
+
+
+  Full-body coverage is key. Wear a protective suit or apron made from impermeable material. Boots and hoods seal the gaps.
+
+
+  Ventilation setups help, but PPE comes first in enclosed spaces. Train everyone on quick donning and emergency decontamination.
+
+
+  Store and transport it sealed. Spills? Evacuate and use absorbents from afar. Safety first—acrolein doesn''t forgive mistakes.'
+formula: C₃H₄O
 faq:
 - question: As a laser cleaning operator, what personal protective equipment (PPE) should I use to protect against acrolein
     exposure from vaporized materials?
@@ -539,4 +493,5 @@ faq:
     and ensure the workspace has adequate ventilation or local exhaust systems to minimize exposure. Always follow OSHA guidelines,
     keeping exposures below the permissible limit of 0.1 ppm over an 8-hour workday, and conduct regular air monitoring to
     verify safety.
-formula: C₃H₄O
+slug: acrolein-compound
+lastModified: '2026-01-02T23:49:25.901625'

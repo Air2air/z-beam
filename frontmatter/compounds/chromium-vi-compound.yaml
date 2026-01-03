@@ -3,8 +3,8 @@ name: Hexavalent Chromium
 display_name: Chromium(VI)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-29T20:28:06.447407Z'
-dateModified: '2025-12-29T20:28:06.447407Z'
+datePublished: '2026-01-03T07:49:26.371067Z'
+dateModified: '2026-01-03T07:49:26.371067Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/heavy-metal/chromium-vi-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Carcinogen
-  href: /compounds/carcinogen
-- label: Heavy Metal
-  href: /compounds/carcinogen/heavy_metal
 - label: Hexavalent Chromium
-  href: /compounds/carcinogen/heavy-metal/chromium-vi-compound
+  href: ''
 page_title: 'Hexavalent Chromium: Carcinogenic Fumes'
 page_description: Handling chromium-VI materials demands careful consideration right from the initial setup in industrial
   environments, where their vivid coloring and strong oxid.
@@ -107,8 +103,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - lung_cancer
 - respiratory_irritation
@@ -129,7 +125,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -141,7 +137,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -152,12 +148,6 @@ relationships:
       items:
       - type: chemical_properties
         id: chromium-vi-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -174,10 +164,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -196,18 +183,29 @@ relationships:
           ec_number: 231-889-5 (chromium trioxide)
           pubchem_cid: '24425'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: chromium-vi-toxicology
+      - route: inhalation
+        effect: Respiratory tract irritation and ulceration; increased risk of lung cancer
+        severity: severe
+        onset: immediate for irritation; long-term for cancer
+      - route: skin_contact
+        effect: Allergic dermatitis and chrome ulcers (perforations in nasal septum or skin)
+        severity: high
+        onset: short-term
+      - route: eye_contact
+        effect: Severe conjunctivitis, corneal damage, and potential vision impairment
+        severity: severe
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal hemorrhage, renal failure, and systemic toxicity
+        severity: severe
+        onset: short-term
     ppe_requirements:
       presentation: descriptive
       items:
@@ -220,12 +218,9 @@ relationships:
         special_notes: CARCINOGEN and ALLERGEN. Prevent skin contact - causes sensitization. Welding/cutting stainless steel
           generates Cr(VI) fume. Use wet methods to control dust. Medical surveillance required.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -246,10 +241,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -261,16 +253,16 @@ relationships:
         acgih_tlv_mg_m3: 0.0002
         workplace_exposure:
           osha_pel:
-            twa_8hr: 5 µg/m³ (as Cr) - applies to all Cr(VI) compounds
+            twa_8hr: 0.005 mg/m³
             stel_15min: null
             ceiling: null
           niosh_rel:
-            twa_8hr: 0.2 µg/m³ (certain Cr(VI) compounds)
+            twa_8hr: 0.0002 mg/m³
             stel_15min: null
-            ceiling: 1 µg/m³ (as Cr)
+            ceiling: null
             idlh: 15 mg/m³ (as Cr(VI))
           acgih_tlv:
-            twa_8hr: 0.0002 mg/m³ (0.2 µg/m³) - water-soluble Cr(VI), inhalable
+            twa_8hr: 0.0002 mg/m³
             stel_15min: null
             ceiling: null
           biological_exposure_indices:
@@ -286,9 +278,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -311,10 +300,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -338,10 +324,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -360,10 +343,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -395,10 +375,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -419,12 +396,6 @@ relationships:
         frequency: unknown
         severity: high
         typical_context: Laser removal of Chemical Conversion Coating
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -432,12 +403,6 @@ relationships:
       - id: stainless-steel-304-laser-cleaning
       - id: stainless-steel-316-laser-cleaning
       - id: stainless-steel-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -466,39 +431,26 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: "Handling chromium(VI) compounds demands careful attention to personal protective equipment, especially\
-    \ since these materials pose serious health risks as potent carcinogens through skin contact, inhalation, or accidental\
-    \ ingestion. Start by selecting impermeable gloves made from materials like nitrile or neoprene that resist penetration\
-    \ by the compound's corrosive nature, ensuring hands stay shielded during mixing or application in industrial settings\
-    \ like metal plating or pigment production. \n\nPair those with full-body coveralls or aprons crafted from heavy-duty,\
-    \ chemical-resistant fabrics to block splashes and dust from settling on clothing, which could lead to prolonged exposure\
-    \ over shifts in workshops where the compounds serve as oxidizing agents in dyes or leather tanning. Eye protection comes\
-    \ next—opt for sealed goggles or face shields that create a barrier against airborne particles, vital when grinding or\
-    \ formulating these vibrant, yet hazardous, substances that might release fine mists. \n\nFor breathing safety, a respirator\
-    \ fitted with cartridges designed to filter out hexavalent chromium vapors becomes essential, particularly in confined\
-    \ spaces during processes like welding or electroplating where fumes build up quickly. In scenarios involving laser cleaning\
-    \ of surfaces coated with these compounds, where heat could volatilize residues into the air, upgrade to powered air-purifying\
-    \ respirators that maintain positive pressure inside the mask, keeping contaminants at bay while allowing precise removal\
-    \ of industrial buildup without spreading toxins. \n\nFootwear rounds out the basics with chemical-resistant boots that\
-    \ prevent spills from soaking through, and always include donning procedures like layering protections in a designated\
-    \ clean area to avoid cross-contamination. Regular training on proper fit and maintenance keeps this gear effective, turning\
-    \ routine handling into a safer operation across applications from corrosion inhibitors to high-performance coatings."
-  images:
-    hero:
-      url: /images/compound/chromium-vi-compound-hero.jpg
-      alt: Hexavalent Chromium laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/chromium-vi-compound-micro.jpg
-      alt: Hexavalent Chromium microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: heavy_metal
+ppe_requirements: "Handling chromium(VI) compounds demands careful attention to personal protective equipment, especially\
+  \ since these materials pose serious health risks as potent carcinogens through skin contact, inhalation, or accidental\
+  \ ingestion. Start by selecting impermeable gloves made from materials like nitrile or neoprene that resist penetration\
+  \ by the compound's corrosive nature, ensuring hands stay shielded during mixing or application in industrial settings like\
+  \ metal plating or pigment production. \n\nPair those with full-body coveralls or aprons crafted from heavy-duty, chemical-resistant\
+  \ fabrics to block splashes and dust from settling on clothing, which could lead to prolonged exposure over shifts in workshops\
+  \ where the compounds serve as oxidizing agents in dyes or leather tanning. Eye protection comes next—opt for sealed goggles\
+  \ or face shields that create a barrier against airborne particles, vital when grinding or formulating these vibrant, yet\
+  \ hazardous, substances that might release fine mists. \n\nFor breathing safety, a respirator fitted with cartridges designed\
+  \ to filter out hexavalent chromium vapors becomes essential, particularly in confined spaces during processes like welding\
+  \ or electroplating where fumes build up quickly. In scenarios involving laser cleaning of surfaces coated with these compounds,\
+  \ where heat could volatilize residues into the air, upgrade to powered air-purifying respirators that maintain positive\
+  \ pressure inside the mask, keeping contaminants at bay while allowing precise removal of industrial buildup without spreading\
+  \ toxins. \n\nFootwear rounds out the basics with chemical-resistant boots that prevent spills from soaking through, and\
+  \ always include donning procedures like layering protections in a designated clean area to avoid cross-contamination. Regular\
+  \ training on proper fit and maintenance keeps this gear effective, turning routine handling into a safer operation across\
+  \ applications from corrosion inhibitors to high-performance coatings."
+formula: Cr(VI)
 faq:
 - question: As a laser cleaning operator working on chromium-containing alloys like stainless steel, what personal protective
     equipment (PPE) should I use to minimize Cr(VI) exposure risks?
@@ -508,4 +460,5 @@ faq:
     which can lead to dermatitis or ulceration, and ensure the workspace has local exhaust ventilation to capture airborne
     particles. Regularly inspect and replace PPE, and follow OSHA's permissible exposure limit of 5 µg/m³ for Cr(VI) over
     an 8-hour shift to stay within safe thresholds.
-formula: Cr(VI)
+slug: chromium-vi-compound
+lastModified: '2026-01-02T23:49:26.371097'

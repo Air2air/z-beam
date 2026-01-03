@@ -1,8 +1,8 @@
 id: uranium-oxide-contamination
 name: Depleted Uranium Oxide
 category: chemical-residue
-datePublished: '2025-12-29T20:26:06.562565Z'
-dateModified: '2025-12-29T20:26:06.562565Z'
+datePublished: '2026-01-03T07:49:24.077551Z'
+dateModified: '2026-01-03T07:49:24.077551Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Chemical Residue
-  href: /contaminants/chemical-residue
-- label: Hazardous
-  href: /contaminants/chemical-residue/hazardous
 - label: Depleted Uranium Oxide
-  href: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
+  href: ''
 page_title: 'Depleted Uranium Oxide Removal: Laser Ablation Clean'
 page_description: "Uranium-oxide contamination forms during exposure to oxidizing environments. Layer builds up on uranium\
   \ surfaces and creates uneven patterns because of varying oxygen access. In observations, contamination exhibits patchy\
@@ -27,7 +23,7 @@ page_description: "Uranium-oxide contamination forms during exposure to oxidizin
   \ on affected areas and restores uniformity. Results indicate that intermittent exposure minimizes risks in cleaning operations."
 meta_description: 'Depleted Uranium Oxide: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/uranium-oxide-contamination-hero.jpg
     alt: Depleted Uranium Oxide laser cleaning visualization showing process effects
@@ -64,8 +60,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -75,12 +71,77 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Uranium Oxide (as U)
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 0.2
+        hazard_class: toxic
+      - compound: Uranium Dioxide (UO₂)
+        concentration_mg_m3: 0.3
+        exposure_limit_mg_m3: 0.2
+        hazard_class: toxic
+      - compound: Uranium Trioxide (UO₃)
+        concentration_mg_m3: 0.1
+        exposure_limit_mg_m3: 0.05
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be carefully controlled to minimize aerosolization
+    - Surface may produce refractory particles that persist in work area
+    - Contaminated runoff and debris require radioactive waste protocols
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Uranium Oxide (as U)
+          concentration_mg_m3: 0.5
+          hazard_class: toxic
+        - compound: Uranium Dioxide (UO₂)
+          concentration_mg_m3: 0.3
+          hazard_class: toxic
+        - compound: Uranium Trioxide (UO₃)
+          concentration_mg_m3: 0.1
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Uranium Oxide (as U), Uranium Dioxide (UO₂), Uranium Trioxide (UO₃)
+          - requires enhanced protection'
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -281,64 +342,6 @@ relationships:
             color_change: 'yes'
             residual_stress: compressive
             roughness_increase: moderate
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Uranium Oxide (as U)
-            concentration_mg_m3: 0.5
-            exposure_limit_mg_m3: 0.2
-            hazard_class: toxic
-          - compound: Uranium Dioxide (UO₂)
-            concentration_mg_m3: 0.3
-            exposure_limit_mg_m3: 0.2
-            hazard_class: toxic
-          - compound: Uranium Trioxide (UO₃)
-            concentration_mg_m3: 0.1
-            exposure_limit_mg_m3: 0.05
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser parameters must be carefully controlled to minimize aerosolization
-          - Surface may produce refractory particles that persist in work area
-          - Contaminated runoff and debris require radioactive waste protocols
-          toxic_gas_risk:
-            severity: low
-            primary_hazards:
-            - compound: Uranium Oxide (as U)
-              concentration_mg_m3: 0.5
-              hazard_class: toxic
-            - compound: Uranium Dioxide (UO₂)
-              concentration_mg_m3: 0.3
-              hazard_class: toxic
-            - compound: Uranium Trioxide (UO₃)
-              concentration_mg_m3: 0.1
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Uranium Oxide (as U), Uranium Dioxide (UO₂), Uranium Trioxide
-              (UO₃) - requires enhanced protection'
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 4.1
@@ -351,64 +354,33 @@ relationships:
           thermal_conductivity: 2.5
           thermal_diffusivity: 0.45
           vaporization_temperature: 4130
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Uncontrolled Environments
-  category: chemical-residue
-  subcategory: hazardous
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: hazardous
 composition:
 - U₃O₈
 - UO₂
+prohibited_materials:
+- Uncontrolled Environments
+valid_materials:
+- concrete-laser-cleaning
+- steel-laser-cleaning
+slug: uranium-oxide-contamination
+lastModified: '2026-01-02T23:49:24.077585'

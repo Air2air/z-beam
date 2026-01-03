@@ -3,8 +3,8 @@ name: Silicon Dioxide
 display_name: Silicon Dioxide (SiO₂)
 category: particulate
 hazard_class: respiratory_hazard
-datePublished: '2025-12-29T20:28:21.084236Z'
-dateModified: '2025-12-29T20:28:21.084236Z'
+datePublished: '2026-01-03T07:49:27.500070Z'
+dateModified: '2026-01-03T07:49:27.500070Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/mineral/silicon-dioxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Particulate
-  href: /compounds/particulate
-- label: Mineral
-  href: /compounds/particulate/mineral
 - label: Silicon Dioxide
-  href: /compounds/particulate/mineral/silicon-dioxide-compound
+  href: ''
 page_title: 'Silicon Dioxide: Respiratory Hazard Dust'
 page_description: Silicon dioxide particulates stand out for their gritty resilience in everyday industrial grind.
 meta_description: 'Silicon Dioxide: Respiratory Hazard Dust from metal processing. Requires proper ventilation and PPE.'
@@ -128,8 +124,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - silicosis
 - respiratory_disease
@@ -148,7 +144,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -160,7 +156,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -189,34 +185,38 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Silicone Sealant Buildup
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: Handling silicon dioxide particulates starts with assessing the workspace setup, where fine dust particles
-    can linger in the air during mixing or processing. Dust masks or respirators come first to shield lungs from inhaling
-    these tiny fragments, especially in grinding or blasting tasks. Gloves protect hands from skin irritation caused by prolonged
-    contact with the abrasive material. Safety goggles shield eyes against flying particles that scatter easily. Full-body
-    coveralls prevent dust from settling on clothes and skin, keeping overall exposure low. In laser cleaning operations,
-    where the compound aids in surface removal, add heat-resistant aprons to guard against any thermal splash. Ventilation
-    hoods or enclosed systems help too, but personal gear remains essential for close-up work. Regular cleaning of tools and
-    suits avoids buildup over time.
-  images:
-    hero:
-      url: /images/compound/silicon-dioxide-compound-hero.jpg
-      alt: Silicon Dioxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/silicon-dioxide-compound-micro.jpg
-      alt: Silicon Dioxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Silicosis (lung fibrosis)
+      severity: severe
+      onset: long-term
+    - route: inhalation
+      effect: Lung cancer
+      severity: severe
+      onset: long-term
+    - route: inhalation
+      effect: Respiratory irritation
+      severity: moderate
+      onset: immediate
+    - route: skin_contact
+      effect: Mechanical irritation or dryness
+      severity: low
+      onset: immediate
+    - route: eye_contact
+      effect: Irritation and abrasion
+      severity: moderate
+      onset: immediate
 subcategory: mineral
+ppe_requirements: Handling silicon dioxide particulates starts with assessing the workspace setup, where fine dust particles
+  can linger in the air during mixing or processing. Dust masks or respirators come first to shield lungs from inhaling these
+  tiny fragments, especially in grinding or blasting tasks. Gloves protect hands from skin irritation caused by prolonged
+  contact with the abrasive material. Safety goggles shield eyes against flying particles that scatter easily. Full-body coveralls
+  prevent dust from settling on clothes and skin, keeping overall exposure low. In laser cleaning operations, where the compound
+  aids in surface removal, add heat-resistant aprons to guard against any thermal splash. Ventilation hoods or enclosed systems
+  help too, but personal gear remains essential for close-up work. Regular cleaning of tools and suits avoids buildup over
+  time.
+formula: SiO₂
 faq:
 - question: As a laser cleaning operator, what protection methods should I use to minimize exposure to silicon dioxide (SiO₂)
     particulates generated during the process?
@@ -225,4 +225,5 @@ faq:
     an N95 or higher rating for particulate protection, along with gloves, safety goggles, and a coverall to prevent skin
     and eye contact. Regularly monitor air quality with particulate samplers and follow decontamination procedures after shifts
     to avoid secondary exposure.
-formula: SiO₂
+slug: silicon-dioxide-compound
+lastModified: '2026-01-02T23:49:27.500103'

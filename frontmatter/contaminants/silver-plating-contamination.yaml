@@ -1,8 +1,8 @@
 id: silver-plating-contamination
 name: Silver Plating Residue
 category: metallic-coating
-datePublished: '2025-12-29T20:26:06.259794Z'
-dateModified: '2025-12-29T20:26:06.259794Z'
+datePublished: '2026-01-03T07:49:23.260502Z'
+dateModified: '2026-01-03T07:49:23.260502Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/silver-plating-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Plating
-  href: /contaminants/metallic-coating/plating
 - label: Silver Plating Residue
-  href: /contaminants/metallic-coating/plating/silver-plating-contamination
+  href: ''
 page_title: 'Silver Plating Residue Removal: Laser Ablation Clean'
 page_description: "Silver-plating contamination arises during coating processes and poses challenges for laser cleaning applications.\
   \ After plating, contaminants form uneven layers on surfaces because silver reacts with environmental factors. Buildup occurs\
@@ -28,7 +24,7 @@ page_description: "Silver-plating contamination arises during coating processes 
   \ this, and material behaves durably under optimized conditions."
 meta_description: 'Silver Plating Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/silver-plating-contamination-hero.jpg
     alt: Silver Plating Residue laser cleaning visualization showing process effects
@@ -65,8 +61,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -76,12 +72,68 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Silver Oxide (Ag2O)
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 0.01
+        hazard_class: toxic
+      - compound: Silver Nanoparticles
+        concentration_mg_m3: 1.8
+        exposure_limit_mg_m3: 0.01
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.85
+        size_range_um:
+        - 0.02
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize substrate damage to underlying material
+    - Silver residue may reflect laser energy creating secondary hazards
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Silver Oxide (Ag2O)
+          concentration_mg_m3: 2.5
+          hazard_class: toxic
+        - compound: Silver Nanoparticles
+          concentration_mg_m3: 1.8
+          hazard_class: toxic
+        description: Silver Oxide (Ag2O) and Silver Nanoparticles generation - multiple toxic compounds
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -287,55 +339,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Silver Oxide (Ag2O)
-            concentration_mg_m3: 2.5
-            exposure_limit_mg_m3: 0.01
-            hazard_class: toxic
-          - compound: Silver Nanoparticles
-            concentration_mg_m3: 1.8
-            exposure_limit_mg_m3: 0.01
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.85
-            size_range_um:
-            - 0.02
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser parameters must be optimized to minimize substrate damage to underlying material
-          - Silver residue may reflect laser energy creating secondary hazards
-          toxic_gas_risk:
-            severity: low
-            primary_hazards:
-            - compound: Silver Oxide (Ag2O)
-              concentration_mg_m3: 2.5
-              hazard_class: toxic
-            - compound: Silver Nanoparticles
-              concentration_mg_m3: 1.8
-              hazard_class: toxic
-            description: Silver Oxide (Ag2O) and Silver Nanoparticles generation - multiple toxic compounds
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -348,70 +351,44 @@ relationships:
           thermal_conductivity: 429
           thermal_diffusivity: 174
           vaporization_temperature: 2212
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Steel
-  category: metallic-coating
-  subcategory: plating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: plating
 composition:
 - Ag
 - Ag₂S (Tarnish)
+prohibited_materials:
+- Aluminum
+- Steel
+valid_materials:
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- copper-laser-cleaning
+slug: silver-plating-contamination
+lastModified: '2026-01-02T23:49:23.260536'

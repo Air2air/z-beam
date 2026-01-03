@@ -34,9 +34,30 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   // Convert citations using utility
   const regulatoryStandards = convertCitationsToStandards(metadata);
   
-  // Access safety_data from laser_properties items
-  const laserPropertiesSection = getRelationshipSection(relationships, 'laser_properties');
-  const safetyData = laserPropertiesSection?.items?.[0]?.safety_data;
+  /**
+   * Safety data location (normalized structure):
+   * - PREFERRED: relationships.safety.* (normalized location)
+   * - FALLBACK: relationships.operational.laser_properties.items[0].safety_data (legacy contaminants)
+   * - FALLBACK: relationships.laser_properties.items[0].safety_data (legacy alternative)
+   * - FALLBACK: relationships.technical.laser_properties.items[0].safety_data (legacy technical)
+   * 
+   * After full migration, only relationships.safety will be needed.
+   */
+  
+  // Check normalized location first
+  let safetyData = relationships.safety;
+  
+  // If not found, try legacy locations for backward compatibility
+  if (!safetyData) {
+    const laserPropertiesSection = getRelationshipSection(relationships, 'operational.laser_properties') 
+      || getRelationshipSection(relationships, 'laser_properties')
+      || getRelationshipSection(relationships, 'technical.laser_properties');
+    
+    safetyData = laserPropertiesSection?.items?.[0]?.safety_data;
+  }
+  
+  // Default to empty object if no safety data found
+  safetyData = safetyData || {};
 
   // Use helper to safely access relationship sections
   // New structure: interactions.produces_compounds, fallback: technical.produces_compounds

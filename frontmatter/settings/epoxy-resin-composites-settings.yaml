@@ -1,7 +1,7 @@
 id: epoxy-resin-composites-settings
 name: Epoxy Resin Composites
-datePublished: '2025-12-29T20:29:23.353080Z'
-dateModified: '2025-12-29T20:29:23.353080Z'
+datePublished: '2026-01-03T07:49:31.920870Z'
+dateModified: '2026-01-03T07:49:31.920870Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/epoxy-resin-composites-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Composite
-  href: /settings/composite
-- label: Fiber Reinforced
-  href: /settings/composite/fiber-reinforced
 - label: Epoxy Resin Composites
-  href: /settings/composite/fiber-reinforced/epoxy-resin-composites-settings
+  href: ''
 page_title: 'Epoxy Resin Composites Settings: Laser Parameters'
 page_description: I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly because
   their fiber-reinforced structure absorbs energy more readily without reflecting it away. This helps remove contaminants
@@ -60,11 +56,11 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -84,12 +80,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -98,12 +88,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -119,12 +103,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: composite
-subcategory: fiber-reinforced
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for epoxy resin removal without substrate damage
@@ -247,3 +226,5 @@ machine_settings:
     value: 50.0
 component_summary: These settings use moderate 100 W power and 10 ns pulses at 1064 nm to selectively ablate contaminants
   from epoxy resin composites while minimizing heat buildup and preventing matrix degradation.
+slug: epoxy-resin-composites-settings
+lastModified: '2026-01-02T23:49:31.920904'

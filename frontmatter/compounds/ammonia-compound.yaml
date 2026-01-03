@@ -3,8 +3,8 @@ name: Ammonia
 display_name: Ammonia (NH₃)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2025-12-29T20:28:10.413575Z'
-dateModified: '2025-12-29T20:28:10.413575Z'
+datePublished: '2026-01-03T07:49:26.660716Z'
+dateModified: '2026-01-03T07:49:26.660716Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Corrosive Gas
-  href: /compounds/corrosive_gas
-- label: Alkaline Gas
-  href: /compounds/corrosive_gas/alkaline_gas
 - label: Ammonia
-  href: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
+  href: ''
 page_title: 'Ammonia: Corrosive Fumes'
 page_description: Handling ammonia in industrial settings demands respect for its sharp, irritating odor that lingers and
   signals danger right away, while its colorless nature as.
@@ -131,8 +127,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - respiratory_irritation
 - eye_irritation
@@ -176,12 +172,6 @@ relationships:
       items:
       - type: chemical_properties
         id: ammonia-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -198,10 +188,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -216,18 +203,29 @@ relationships:
           ec_number: 231-635-3
           pubchem_cid: '222'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: ammonia-toxicology
+      - route: inhalation
+        effect: Respiratory tract irritation, coughing, and potential pulmonary edema at high concentrations
+        severity: severe
+        onset: immediate
+      - route: eye_contact
+        effect: Severe corneal burns and possible permanent vision impairment
+        severity: severe
+        onset: immediate
+      - route: skin_contact
+        effect: Chemical burns and severe irritation of the skin
+        severity: high
+        onset: immediate
+      - route: ingestion
+        effect: Severe burns to the mouth, throat, and gastrointestinal tract, potentially leading to perforation
+        severity: severe
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -240,12 +238,9 @@ relationships:
         special_notes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
           frostbite. Emergency eyewash/shower within 10 seconds.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -265,10 +260,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -280,12 +272,12 @@ relationships:
         acgih_tlv_mg_m3: 17
         workplace_exposure:
           osha_pel:
-            twa_8hr: 50 ppm (35 mg/m³)
+            twa_8hr: 50 ppm
             stel_15min: null
             ceiling: null
           niosh_rel:
-            twa_8hr: 25 ppm (18 mg/m³)
-            stel_15min: 35 ppm (27 mg/m³) - 15 min
+            twa_8hr: 25 ppm
+            stel_15min: 35 ppm
             ceiling: null
             idlh: 300 ppm
           acgih_tlv:
@@ -297,9 +289,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -322,10 +311,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -337,6 +323,7 @@ relationships:
           flammability: 1
           reactivity: 0
           special: null
+          instability: 0
         epa_hazard_categories:
         - Acute toxicity (inhalation)
         - Flammability
@@ -348,10 +335,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -370,10 +354,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -403,10 +384,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -415,12 +393,6 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Breakdown of proteins
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -430,12 +402,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -466,26 +432,12 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handle ammonia compounds with care. Corrosive vapors demand full-face shields. Eyes sting fast without
-    them. Respiratory masks seal tight against fumes. Gloves resist chemical soak-through. Cover skin in impermeable suits.
-    Boots prevent splashes on feet. Ventilate areas heavily. Train workers on quick exits. Store in sealed containers away
-    from heat.
-  images:
-    hero:
-      url: /images/compound/ammonia-compound-hero.jpg
-      alt: Ammonia laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/ammonia-compound-micro.jpg
-      alt: Ammonia microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: alkaline_gas
+ppe_requirements: Handle ammonia compounds with care. Corrosive vapors demand full-face shields. Eyes sting fast without them.
+  Respiratory masks seal tight against fumes. Gloves resist chemical soak-through. Cover skin in impermeable suits. Boots
+  prevent splashes on feet. Ventilate areas heavily. Train workers on quick exits. Store in sealed containers away from heat.
+formula: NH₃
 faq:
 - question: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
     in an industrial setting?
@@ -495,4 +447,5 @@ faq:
     chemical-resistant gloves, and protective clothing to shield skin and eyes from the gas's corrosive effects. If exposure
     is suspected, immediately evacuate the area, seek fresh air, and monitor for symptoms like eye irritation or respiratory
     distress before resuming work.
-formula: NH₃
+slug: ammonia-compound
+lastModified: '2026-01-02T23:49:26.660745'

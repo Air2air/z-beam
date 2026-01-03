@@ -1,7 +1,7 @@
 id: aluminum-nitride-settings
 name: Aluminum Nitride
-datePublished: '2025-12-29T20:29:24.878931Z'
-dateModified: '2025-12-29T20:29:24.878931Z'
+datePublished: '2026-01-03T07:49:36.947147Z'
+dateModified: '2026-01-03T07:49:36.947147Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/technical/aluminum-nitride-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Ceramic
-  href: /settings/ceramic
-- label: Technical
-  href: /settings/ceramic/technical
 - label: Aluminum Nitride
-  href: /settings/ceramic/technical/aluminum-nitride-settings
+  href: ''
 page_title: 'Aluminum Nitride Settings: Laser Parameters'
 page_description: Before laser cleaning, Aluminum Nitride surfaces require careful parameter selection After cleaning, Aluminum
   Nitride surfaces show restored appearance with controlled parameters
@@ -57,11 +53,11 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -81,12 +77,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -95,23 +85,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
         effectiveness: high
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -122,12 +100,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: ceramic
-subcategory: technical
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 80
@@ -247,3 +220,5 @@ machine_settings:
       on contamination. Source: Process optimization in Journal of Laser Applications.'
 component_summary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to delicately ablate contaminants
   from Aluminum Nitride, preventing thermal cracking in its brittle ceramic structure.
+slug: aluminum-nitride-settings
+lastModified: '2026-01-02T23:49:36.947176'

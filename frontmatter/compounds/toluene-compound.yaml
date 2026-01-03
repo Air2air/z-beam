@@ -3,8 +3,8 @@ name: Toluene
 display_name: Toluene (C₇H₈)
 category: solvent
 hazard_class: toxic
-datePublished: '2025-12-29T20:28:02.749665Z'
-dateModified: '2025-12-29T20:28:02.749665Z'
+datePublished: '2026-01-03T07:49:26.046758Z'
+dateModified: '2026-01-03T07:49:26.046758Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/solvent/aromatic-hydrocarbon/toluene-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Solvent
-  href: /compounds/solvent
-- label: Aromatic Hydrocarbon
-  href: /compounds/solvent/aromatic_hydrocarbon
 - label: Toluene
-  href: /compounds/solvent/aromatic-hydrocarbon/toluene-compound
+  href: ''
 page_title: 'Toluene: Toxic Metal Fumes'
 page_description: Dealing with stubborn grime on metal surfaces poses real headaches for factories.
 meta_description: 'Toluene: Toxic Metal Fumes from metal processing. Requires enclosed extraction.'
@@ -139,8 +135,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - neurological_effects
 - liver_damage
@@ -185,12 +181,6 @@ relationships:
       items:
       - type: chemical_properties
         id: toluene-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -207,10 +197,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -225,18 +212,29 @@ relationships:
           ec_number: 203-625-9
           pubchem_cid: '1140'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: toluene-toxicology
+      - route: inhalation
+        effect: Central nervous system depression including dizziness, headache, and confusion
+        severity: high
+        onset: immediate
+      - route: inhalation
+        effect: Neurotoxicity and cognitive impairment
+        severity: severe
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation and dermatitis due to defatting
+        severity: moderate
+        onset: short-term
+      - route: eye_contact
+        effect: Irritation, redness, and tearing
+        severity: moderate
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -247,12 +245,9 @@ relationships:
         special_notes: CNS depressant and neurotoxin. Abuse potential (inhalant). Skin absorption significant. Reproductive
           toxin. Embryo/fetal toxicity concern.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -272,10 +267,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -287,12 +279,12 @@ relationships:
         acgih_tlv_mg_m3: 75
         workplace_exposure:
           osha_pel:
-            twa_8hr: 200 ppm (750 mg/m³)
-            stel_15min: 300 ppm (1130 mg/m³)
-            ceiling: 500 ppm (peak)
+            twa_8hr: 200 ppm
+            stel_15min: null
+            ceiling: 300 ppm
           niosh_rel:
-            twa_8hr: 100 ppm (375 mg/m³)
-            stel_15min: 150 ppm (560 mg/m³)
+            twa_8hr: 100 ppm
+            stel_15min: 150 ppm
             ceiling: null
             idlh: 500 ppm
           acgih_tlv:
@@ -316,9 +308,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -338,10 +327,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -353,6 +339,7 @@ relationships:
           flammability: 3
           reactivity: 0
           special: null
+          instability: 0
         epa_hazard_categories:
         - Flammability
         - Acute toxicity
@@ -365,10 +352,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -387,10 +371,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -419,10 +400,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -443,12 +421,6 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Thermal breakdown of aromatic rubber compounds
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -458,12 +430,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -493,34 +459,20 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handling toluene demands careful protection because its vapors can irritate skin and lungs while the liquid
-    itself absorbs through barriers if not shielded properly. Workers often reach for chemical-resistant gloves made from
-    materials that block organic solvents, ensuring hands stay safe during pouring or mixing tasks in industrial settings
-    like paint production or adhesive manufacturing. Eye protection comes next—sealed goggles prevent splashes that could
-    cause burning sensations, especially in workshops where toluene dissolves resins or cleans machinery parts. For breathing,
-    a respirator fitted with cartridges designed to trap organic vapors becomes essential in confined areas, guarding against
-    dizziness or headaches from prolonged exposure during solvent recovery processes. Full-body suits or aprons made of impermeable
-    fabrics add another layer, warding off spills that might occur while using toluene in fuel additives or as a precursor
-    in chemical synthesis. And don't overlook ventilation hoods or masks in laser cleaning operations, where the compound's
-    role in removing contaminants from surfaces requires extra caution to avoid inhaling fumes generated by the process. Overall,
-    combining these items creates a solid defense, allowing safe interaction with toluene's versatile yet hazardous nature
-    in everyday industrial applications.
-  images:
-    hero:
-      url: /images/compound/toluene-compound-hero.jpg
-      alt: Toluene laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/toluene-compound-micro.jpg
-      alt: Toluene microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: aromatic_hydrocarbon
+ppe_requirements: Handling toluene demands careful protection because its vapors can irritate skin and lungs while the liquid
+  itself absorbs through barriers if not shielded properly. Workers often reach for chemical-resistant gloves made from materials
+  that block organic solvents, ensuring hands stay safe during pouring or mixing tasks in industrial settings like paint production
+  or adhesive manufacturing. Eye protection comes next—sealed goggles prevent splashes that could cause burning sensations,
+  especially in workshops where toluene dissolves resins or cleans machinery parts. For breathing, a respirator fitted with
+  cartridges designed to trap organic vapors becomes essential in confined areas, guarding against dizziness or headaches
+  from prolonged exposure during solvent recovery processes. Full-body suits or aprons made of impermeable fabrics add another
+  layer, warding off spills that might occur while using toluene in fuel additives or as a precursor in chemical synthesis.
+  And don't overlook ventilation hoods or masks in laser cleaning operations, where the compound's role in removing contaminants
+  from surfaces requires extra caution to avoid inhaling fumes generated by the process. Overall, combining these items creates
+  a solid defense, allowing safe interaction with toluene's versatile yet hazardous nature in everyday industrial applications.
+formula: C₇H₈
 faq:
 - question: As a laser cleaning operator using toluene to degrease surfaces before lasering, what are the key exposure limits
     I need to monitor to avoid health risks, and how does it compare to milder solvents like acetone?
@@ -530,4 +482,5 @@ faq:
     neurotoxicity. Use real-time air monitoring devices like photoionization detectors (PIDs) to measure vapor levels in your
     workspace, ensuring concentrations stay below 20 ppm (ACGIH TLV) for added safety. Always maintain local exhaust ventilation
     and wear NIOSH-approved organic vapor respirators if levels approach limits, rotating shifts to minimize cumulative exposure.
-formula: C₇H₈
+slug: toluene-compound
+lastModified: '2026-01-02T23:49:26.046788'

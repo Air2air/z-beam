@@ -1,8 +1,8 @@
 id: adhesive-residue-contamination
 name: Adhesive Residue / Tape Marks
 category: organic-residue
-datePublished: '2025-12-29T20:25:47.011221Z'
-dateModified: '2025-12-29T20:25:47.011221Z'
+datePublished: '2026-01-03T07:49:04.744139Z'
+dateModified: '2026-01-03T07:49:04.744139Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Adhesive
-  href: /contaminants/organic-residue/adhesive
 - label: Adhesive Residue / Tape Marks
-  href: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+  href: ''
 page_title: 'Adhesive Residue / Tape Marks Removal: Laser Ablation'
 page_description: 'Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape
   or stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Before cleaning, residue adheres
@@ -43,7 +39,7 @@ micro:
     uneven patches. Particles stick together, creating tacky buildup that resists wiping. Unlike dust or oils, adhesive residue
     cures into hard films over time. It exhibits unique tackiness, pulling at nearby debris during formation. From the observations,
     contamination appears widespread, so cleaning demands precision.
-images: &id001
+images:
   hero:
     url: /images/contaminant/adhesive-residue-contamination-hero.jpg
     alt: Adhesive Residue / Tape Marks laser cleaning visualization showing process effects
@@ -80,8 +76,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -91,12 +87,92 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Acetaldehyde
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 25
+        hazard_class: irritant
+      - compound: Formaldehyde
+        concentration_mg_m3: 1-10
+        exposure_limit_mg_m3: 0.3
+        hazard_class: carcinogenic
+      - compound: Benzene
+        concentration_mg_m3: 0.5-5
+        exposure_limit_mg_m3: 0.5
+        hazard_class: carcinogenic
+      - compound: Toluene
+        concentration_mg_m3: 2-15
+        exposure_limit_mg_m3: 20
+        hazard_class: toxic
+      - compound: Styrene
+        concentration_mg_m3: 3-20
+        exposure_limit_mg_m3: 50
+        hazard_class: irritant
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 10-50
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: full_face
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May cause surface discoloration on painted surfaces
+    - Can damage thin coatings or plated surfaces
+    - Potential for substrate heating on thermally sensitive materials
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Formaldehyde
+          concentration_mg_m3: 1-10
+          hazard_class: carcinogenic
+        - compound: Benzene
+          concentration_mg_m3: 0.5-5
+          hazard_class: carcinogenic
+        - compound: Toluene
+          concentration_mg_m3: 2-15
+          hazard_class: toxic
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 10-50
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Formaldehyde, Benzene, Toluene - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -315,79 +391,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Acetaldehyde
-            concentration_mg_m3: 5-25
-            exposure_limit_mg_m3: 25
-            hazard_class: irritant
-          - compound: Formaldehyde
-            concentration_mg_m3: 1-10
-            exposure_limit_mg_m3: 0.3
-            hazard_class: carcinogenic
-          - compound: Benzene
-            concentration_mg_m3: 0.5-5
-            exposure_limit_mg_m3: 0.5
-            hazard_class: carcinogenic
-          - compound: Toluene
-            concentration_mg_m3: 2-15
-            exposure_limit_mg_m3: 20
-            hazard_class: toxic
-          - compound: Styrene
-            concentration_mg_m3: 3-20
-            exposure_limit_mg_m3: 50
-            hazard_class: irritant
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 10-50
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: full_face
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - May cause surface discoloration on painted surfaces
-          - Can damage thin coatings or plated surfaces
-          - Potential for substrate heating on thermally sensitive materials
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Formaldehyde
-              concentration_mg_m3: 1-10
-              hazard_class: carcinogenic
-            - compound: Benzene
-              concentration_mg_m3: 0.5-5
-              hazard_class: carcinogenic
-            - compound: Toluene
-              concentration_mg_m3: 2-15
-              hazard_class: toxic
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 10-50
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Formaldehyde, Benzene, Toluene - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -400,493 +403,498 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.1
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  context_notes: Common on manufactured items, shipped goods, or items with labels/tape
-  realism_notes: Adhesive residue often attracts dirt and dust, becoming darker and grittier over time.
-  category: organic-residue
-  subcategory: adhesive
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: abs-laser-cleaning
-            title: Abs Laser Cleaning
-            url: /materials/general/misc/abs-laser-cleaning
-            image: /images/material/abs-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: acrylic-(pmma)-laser-cleaning
-            title: Acrylic (Pmma) Laser Cleaning
-            url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
-            image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: ptfe-laser-cleaning
-            title: Ptfe Laser Cleaning
-            url: /materials/general/misc/ptfe-laser-cleaning
-            image: /images/material/ptfe-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pvc-laser-cleaning
-            title: Pvc Laser Cleaning
-            url: /materials/general/misc/pvc-laser-cleaning
-            image: /images/material/pvc-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: silicon-carbide-laser-cleaning
-            title: Silicon Carbide Laser Cleaning
-            url: /materials/general/misc/silicon-carbide-laser-cleaning
-            image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        ceramics:
-          title: Ceramic Materials
-          description: Ceramic and glass materials affected by this contamination
-          items:
-          - id: alumina-laser-cleaning
-            title: Alumina
-            url: /materials/ceramic/oxide/alumina-laser-cleaning
-            image: /images/material/alumina-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: aluminum-nitride-laser-cleaning
-            title: Aluminum Nitride
-            url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-            image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-carbide-laser-cleaning
-            title: Boron Carbide
-            url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
-            image: /images/material/boron-carbide-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: carbide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-nitride-laser-cleaning
-            title: Boron Nitride
-            url: /materials/ceramic/technical/boron-nitride-laser-cleaning
-            image: /images/material/boron-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: silicon-nitride-laser-cleaning
-            title: Silicon Nitride
-            url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
-            image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zirconia-laser-cleaning
-            title: Zirconia
-            url: /materials/ceramic/oxide/zirconia-laser-cleaning
-            image: /images/material/zirconia-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        glass:
-          title: Glass Materials
-          description: Materials in the glass category
-          items:
-          - id: aluminosilicate-glass-laser-cleaning
-            title: Aluminosilicate Glass
-            url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
-            image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: borosilicate-glass-laser-cleaning
-            title: Borosilicate Glass
-            url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
-            image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: crown-glass-laser-cleaning
-            title: Crown Glass
-            url: /materials/glass/soda-lime/crown-glass-laser-cleaning
-            image: /images/material/crown-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: float-glass-laser-cleaning
-            title: Float Glass
-            url: /materials/glass/soda-lime/float-glass-laser-cleaning
-            image: /images/material/float-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: fused-silica-laser-cleaning
-            title: Fused Silica
-            url: /materials/glass/soda-lime/fused-silica-laser-cleaning
-            image: /images/material/fused-silica-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: gorilla-glass-laser-cleaning
-            title: Gorilla Glass
-            url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
-            image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tempered-glass-laser-cleaning
-            title: Tempered Glass
-            url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
-            image: /images/material/tempered-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: specialty-glass
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: chromium-laser-cleaning
-            title: Chromium
-            url: /materials/metal/specialty/chromium-laser-cleaning
-            image: /images/material/chromium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cobalt-laser-cleaning
-            title: Cobalt
-            url: /materials/metal/specialty/cobalt-laser-cleaning
-            image: /images/material/cobalt-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: lead-laser-cleaning
-            title: Lead
-            url: /materials/metal/non-ferrous/lead-laser-cleaning
-            image: /images/material/lead-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: nickel-laser-cleaning
-            title: Nickel
-            url: /materials/metal/specialty/nickel-laser-cleaning
-            image: /images/material/nickel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tin-laser-cleaning
-            title: Tin
-            url: /materials/metal/alloy/tin-laser-cleaning
-            image: /images/material/tin-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zinc-laser-cleaning
-            title: Zinc
-            url: /materials/metal/alloy/zinc-laser-cleaning
-            image: /images/material/zinc-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        woods:
-          title: Wood Products
-          description: Hardwood and softwood materials affected by this contamination
-          items:
-          - id: ash-laser-cleaning
-            title: Ash
-            url: /materials/wood/hardwood/ash-laser-cleaning
-            image: /images/material/ash-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bamboo-laser-cleaning
-            title: Bamboo
-            url: /materials/wood/hardwood/bamboo-laser-cleaning
-            image: /images/material/bamboo-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: birch-laser-cleaning
-            title: Birch
-            url: /materials/wood/hardwood/birch-laser-cleaning
-            image: /images/material/birch-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cedar-laser-cleaning
-            title: Cedar
-            url: /materials/wood/softwood/cedar-laser-cleaning
-            image: /images/material/cedar-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cherry-laser-cleaning
-            title: Cherry
-            url: /materials/wood/hardwood/cherry-laser-cleaning
-            image: /images/material/cherry-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: fir-laser-cleaning
-            title: Fir
-            url: /materials/wood/softwood/fir-laser-cleaning
-            image: /images/material/fir-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: mahogany-laser-cleaning
-            title: Mahogany
-            url: /materials/wood/hardwood/mahogany-laser-cleaning
-            image: /images/material/mahogany-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: maple-laser-cleaning
-            title: Maple
-            url: /materials/wood/hardwood/maple-laser-cleaning
-            image: /images/material/maple-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: oak-laser-cleaning
-            title: Oak
-            url: /materials/wood/hardwood/oak-laser-cleaning
-            image: /images/material/oak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pine-laser-cleaning
-            title: Pine
-            url: /materials/wood/softwood/pine-laser-cleaning
-            image: /images/material/pine-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: redwood-laser-cleaning
-            title: Redwood
-            url: /materials/wood/hardwood/redwood-laser-cleaning
-            image: /images/material/redwood-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: teak-laser-cleaning
-            title: Teak
-            url: /materials/wood/hardwood/teak-laser-cleaning
-            image: /images/material/teak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: walnut-laser-cleaning
-            title: Walnut
-            url: /materials/wood/hardwood/walnut-laser-cleaning
-            image: /images/material/walnut-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        plastics:
-          title: Plastic Materials
-          description: Thermoplastic and composite materials affected by this contamination
-          items:
-          - id: nylon-laser-cleaning
-            title: Nylon
-            url: /materials/plastic/thermoplastic/nylon-laser-cleaning
-            image: /images/material/nylon-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pet-laser-cleaning
-            title: PET
-            url: /materials/plastic/thermoplastic/pet-laser-cleaning
-            image: /images/material/pet-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: polycarbonate-laser-cleaning
-            title: Polycarbonate
-            url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
-            image: /images/material/polycarbonate-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: polypropylene-laser-cleaning
-            title: Polypropylene
-            url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
-            image: /images/material/polypropylene-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
-title: Adhesive Residue / Tape Marks Laser Cleaning
+  - id: abs-laser-cleaning
+    title: Abs Laser Cleaning
+    url: /materials/general/misc/abs-laser-cleaning
+    image: /images/material/abs-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: acrylic-(pmma)-laser-cleaning
+    title: Acrylic (Pmma) Laser Cleaning
+    url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
+    image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: alumina-laser-cleaning
+    title: Alumina
+    url: /materials/ceramic/oxide/alumina-laser-cleaning
+    image: /images/material/alumina-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminosilicate-glass-laser-cleaning
+    title: Aluminosilicate Glass
+    url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+    image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-nitride-laser-cleaning
+    title: Aluminum Nitride
+    url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+    image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: ash-laser-cleaning
+    title: Ash
+    url: /materials/wood/hardwood/ash-laser-cleaning
+    image: /images/material/ash-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bamboo-laser-cleaning
+    title: Bamboo
+    url: /materials/wood/hardwood/bamboo-laser-cleaning
+    image: /images/material/bamboo-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: birch-laser-cleaning
+    title: Birch
+    url: /materials/wood/hardwood/birch-laser-cleaning
+    image: /images/material/birch-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-carbide-laser-cleaning
+    title: Boron Carbide
+    url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
+    image: /images/material/boron-carbide-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: carbide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-nitride-laser-cleaning
+    title: Boron Nitride
+    url: /materials/ceramic/technical/boron-nitride-laser-cleaning
+    image: /images/material/boron-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: borosilicate-glass-laser-cleaning
+    title: Borosilicate Glass
+    url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+    image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cedar-laser-cleaning
+    title: Cedar
+    url: /materials/wood/softwood/cedar-laser-cleaning
+    image: /images/material/cedar-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cherry-laser-cleaning
+    title: Cherry
+    url: /materials/wood/hardwood/cherry-laser-cleaning
+    image: /images/material/cherry-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: chromium-laser-cleaning
+    title: Chromium
+    url: /materials/metal/specialty/chromium-laser-cleaning
+    image: /images/material/chromium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cobalt-laser-cleaning
+    title: Cobalt
+    url: /materials/metal/specialty/cobalt-laser-cleaning
+    image: /images/material/cobalt-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: crown-glass-laser-cleaning
+    title: Crown Glass
+    url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+    image: /images/material/crown-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: fir-laser-cleaning
+    title: Fir
+    url: /materials/wood/softwood/fir-laser-cleaning
+    image: /images/material/fir-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: float-glass-laser-cleaning
+    title: Float Glass
+    url: /materials/glass/soda-lime/float-glass-laser-cleaning
+    image: /images/material/float-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: fused-silica-laser-cleaning
+    title: Fused Silica
+    url: /materials/glass/soda-lime/fused-silica-laser-cleaning
+    image: /images/material/fused-silica-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: gorilla-glass-laser-cleaning
+    title: Gorilla Glass
+    url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+    image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: lead-laser-cleaning
+    title: Lead
+    url: /materials/metal/non-ferrous/lead-laser-cleaning
+    image: /images/material/lead-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: mahogany-laser-cleaning
+    title: Mahogany
+    url: /materials/wood/hardwood/mahogany-laser-cleaning
+    image: /images/material/mahogany-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: maple-laser-cleaning
+    title: Maple
+    url: /materials/wood/hardwood/maple-laser-cleaning
+    image: /images/material/maple-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nickel-laser-cleaning
+    title: Nickel
+    url: /materials/metal/specialty/nickel-laser-cleaning
+    image: /images/material/nickel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nylon-laser-cleaning
+    title: Nylon
+    url: /materials/plastic/thermoplastic/nylon-laser-cleaning
+    image: /images/material/nylon-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: oak-laser-cleaning
+    title: Oak
+    url: /materials/wood/hardwood/oak-laser-cleaning
+    image: /images/material/oak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pet-laser-cleaning
+    title: PET
+    url: /materials/plastic/thermoplastic/pet-laser-cleaning
+    image: /images/material/pet-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pine-laser-cleaning
+    title: Pine
+    url: /materials/wood/softwood/pine-laser-cleaning
+    image: /images/material/pine-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: polycarbonate-laser-cleaning
+    title: Polycarbonate
+    url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
+    image: /images/material/polycarbonate-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: polypropylene-laser-cleaning
+    title: Polypropylene
+    url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
+    image: /images/material/polypropylene-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: ptfe-laser-cleaning
+    title: Ptfe Laser Cleaning
+    url: /materials/general/misc/ptfe-laser-cleaning
+    image: /images/material/ptfe-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pvc-laser-cleaning
+    title: Pvc Laser Cleaning
+    url: /materials/general/misc/pvc-laser-cleaning
+    image: /images/material/pvc-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: redwood-laser-cleaning
+    title: Redwood
+    url: /materials/wood/hardwood/redwood-laser-cleaning
+    image: /images/material/redwood-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-carbide-laser-cleaning
+    title: Silicon Carbide Laser Cleaning
+    url: /materials/general/misc/silicon-carbide-laser-cleaning
+    image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-nitride-laser-cleaning
+    title: Silicon Nitride
+    url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
+    image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: teak-laser-cleaning
+    title: Teak
+    url: /materials/wood/hardwood/teak-laser-cleaning
+    image: /images/material/teak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tempered-glass-laser-cleaning
+    title: Tempered Glass
+    url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+    image: /images/material/tempered-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: specialty-glass
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tin-laser-cleaning
+    title: Tin
+    url: /materials/metal/alloy/tin-laser-cleaning
+    image: /images/material/tin-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: walnut-laser-cleaning
+    title: Walnut
+    url: /materials/wood/hardwood/walnut-laser-cleaning
+    image: /images/material/walnut-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-laser-cleaning
+    title: Zinc
+    url: /materials/metal/alloy/zinc-laser-cleaning
+    image: /images/material/zinc-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zirconia-laser-cleaning
+    title: Zirconia
+    url: /materials/ceramic/oxide/zirconia-laser-cleaning
+    image: /images/material/zirconia-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: adhesive
+context_notes: Common on manufactured items, shipped goods, or items with labels/tape
+realism_notes: Adhesive residue often attracts dirt and dust, becoming darker and grittier over time.
+title: Adhesive Residue / Tape Marks Laser Cleaning
+valid_materials:
+- acrylic-pmma-laser-cleaning
+- alumina-laser-cleaning
+- aluminosilicate-glass-laser-cleaning
+- aluminum-laser-cleaning
+- aluminum-nitride-laser-cleaning
+- ash-laser-cleaning
+- bamboo-laser-cleaning
+- birch-laser-cleaning
+- boron-carbide-laser-cleaning
+- boron-nitride-laser-cleaning
+- borosilicate-glass-laser-cleaning
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- cast-iron-laser-cleaning
+- cedar-laser-cleaning
+- cherry-laser-cleaning
+- chromium-laser-cleaning
+- cobalt-laser-cleaning
+- copper-laser-cleaning
+- crown-glass-laser-cleaning
+- fir-laser-cleaning
+- float-glass-laser-cleaning
+- fused-silica-laser-cleaning
+- gorilla-glass-laser-cleaning
+- lead-laser-cleaning
+- mahogany-laser-cleaning
+- maple-laser-cleaning
+- nickel-laser-cleaning
+- nylon-laser-cleaning
+- oak-laser-cleaning
+- pet-laser-cleaning
+- pine-laser-cleaning
+- polycarbonate-laser-cleaning
+- polypropylene-laser-cleaning
+- redwood-laser-cleaning
+- silicon-carbide-sic-laser-cleaning
+- silicon-nitride-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+- teak-laser-cleaning
+- tempered-glass-laser-cleaning
+- tin-laser-cleaning
+- titanium-laser-cleaning
+- walnut-laser-cleaning
+- zinc-laser-cleaning
+- zirconia-laser-cleaning
+slug: adhesive-residue-contamination
+lastModified: '2026-01-02T23:49:16.607024'

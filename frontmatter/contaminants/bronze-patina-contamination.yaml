@@ -1,8 +1,8 @@
 id: bronze-patina-contamination
 name: Bronze Patina and Corrosion
 category: oxidation
-datePublished: '2025-12-29T20:26:04.448286Z'
-dateModified: '2025-12-29T20:26:04.448286Z'
+datePublished: '2026-01-03T07:49:17.797372Z'
+dateModified: '2026-01-03T07:49:17.797372Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/non-ferrous/bronze-patina-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Oxidation
-  href: /contaminants/oxidation
-- label: Non Ferrous
-  href: /contaminants/oxidation/non-ferrous
 - label: Bronze Patina and Corrosion
-  href: /contaminants/oxidation/non-ferrous/bronze-patina-contamination
+  href: ''
 page_title: 'Bronze Patina and Corrosion Removal: Laser Ablation'
 page_description: 'Bronze patina contamination, it arises from oxidation on bronze surfaces. Exposure to air and moisture
   causes this. Layer forms unevenly, with green hues dominating. Unique patterns emerge regionally—natural variations show
@@ -29,7 +25,7 @@ page_description: 'Bronze patina contamination, it arises from oxidation on bron
   establishes careful parameter control as key. Bronze responds uniquely, so operators must monitor patterns closely.'
 meta_description: 'Bronze Patina and Corrosion: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/bronze-patina-contamination-hero.jpg
     alt: Bronze Patina and Corrosion laser cleaning visualization showing process effects
@@ -57,9 +53,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -68,8 +61,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -79,12 +76,70 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Copper Oxide Fume
+        concentration_mg_m3: 5.0
+        exposure_limit_mg_m3: 0.1
+        hazard_class: irritant
+      - compound: Tin Oxide Fume
+        concentration_mg_m3: 2.0
+        exposure_limit_mg_m3: 2.0
+        hazard_class: irritant
+      - compound: Lead Oxide Fume
+        concentration_mg_m3: 0.05
+        exposure_limit_mg_m3: 0.05
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Lead content in bronze alloys may generate toxic lead oxide fumes
+    - Chloride-containing patinas may produce chlorine gas when heated
+    - Sulfur-containing compounds in corrosion may produce sulfur oxides
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Lead Oxide Fume
+          concentration_mg_m3: 0.05
+          hazard_class: toxic
+        description: Lead Oxide Fume generation detected - moderate toxicity risk
+        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -277,57 +332,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Copper Oxide Fume
-            concentration_mg_m3: 5.0
-            exposure_limit_mg_m3: 0.1
-            hazard_class: irritant
-          - compound: Tin Oxide Fume
-            concentration_mg_m3: 2.0
-            exposure_limit_mg_m3: 2.0
-            hazard_class: irritant
-          - compound: Lead Oxide Fume
-            concentration_mg_m3: 0.05
-            exposure_limit_mg_m3: 0.05
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Lead content in bronze alloys may generate toxic lead oxide fumes
-          - Chloride-containing patinas may produce chlorine gas when heated
-          - Sulfur-containing compounds in corrosion may produce sulfur oxides
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Lead Oxide Fume
-              concentration_mg_m3: 0.05
-              hazard_class: toxic
-            description: Lead Oxide Fume generation detected - moderate toxicity risk
-            mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 10
-            rationale: Standard industrial ventilation (10 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 2.2
@@ -340,71 +344,45 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.25
           vaporization_temperature: 1085
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Steel
-  category: oxidation
-  subcategory: non-ferrous
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: non-ferrous
 composition:
 - Cu₂O
 - CuO
 - Copper Salts
+prohibited_materials:
+- Aluminum
+- Steel
+valid_materials:
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- copper-laser-cleaning
+slug: bronze-patina-contamination
+lastModified: '2026-01-02T23:49:17.797403'

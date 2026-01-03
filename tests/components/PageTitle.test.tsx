@@ -22,7 +22,7 @@ describe('PageTitle Component', () => {
 
     it('should not render description element when page_description is not provided', () => {
       const { container } = render(<PageTitle title="Test Title" />);
-      const descriptionElement = container.querySelector('p');
+      const descriptionElement = container.querySelector('#page-title-test-title-description');
       expect(descriptionElement).not.toBeInTheDocument();
     });
   });
@@ -147,7 +147,7 @@ describe('PageTitle Component', () => {
         />
       );
       
-      const description = container.querySelector('p');
+      const description = container.querySelector('#test-title-description');
       expect(description).toHaveAttribute('id', 'test-title-description');
     });
   });

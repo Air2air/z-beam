@@ -1,8 +1,8 @@
 id: galvanize-corrosion-contamination
 name: White Rust on Galvanized Steel
 category: oxidation
-datePublished: '2025-12-29T20:26:05.088932Z'
-dateModified: '2025-12-29T20:26:05.088932Z'
+datePublished: '2026-01-03T07:49:20.009643Z'
+dateModified: '2026-01-03T07:49:20.009643Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/ferrous/galvanize-corrosion-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Oxidation
-  href: /contaminants/oxidation
-- label: Ferrous
-  href: /contaminants/oxidation/ferrous
 - label: White Rust on Galvanized Steel
-  href: /contaminants/oxidation/ferrous/galvanize-corrosion-contamination
+  href: ''
 page_title: 'White Rust on Galvanized Steel Removal: Laser Ablation'
 page_description: Galvanized surfaces, unlike bare steel that develops reddish oxides, exhibit white corrosion products, which
   manifest as tenacious zinc-based contaminants under humid exposure. This contamination, it forms in layered patterns dependent
@@ -29,7 +25,7 @@ page_description: Galvanized surfaces, unlike bare steel that develops reddish o
   complete efficacy.
 meta_description: 'White Rust on Galvanized Steel: 88-92% absorption at 1064nm. 2-3 passes for complete removal. Preserves
   substrate integrity. No warping or distortion.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/galvanize-corrosion-contamination-hero.jpg
     alt: White Rust on Galvanized Steel laser cleaning visualization showing process effects
@@ -53,9 +49,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -67,8 +60,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -78,12 +74,62 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Zinc Oxide (ZnO)
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 5
+        hazard_class: irritant
+      - compound: Iron Oxide (Fe2O3)
+        concentration_mg_m3: 2-10
+        exposure_limit_mg_m3: 5
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: half_mask
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may damage underlying zinc coating if parameters are not properly controlled
+    - White rust removal may create surface etching if laser energy is too high
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: none
+        primary_hazards: []
+        description: No significant toxic gas generation
+        mitigation: Standard respiratory protection for particulate control
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -254,49 +300,6 @@ relationships:
             color_change: 'yes'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Zinc Oxide (ZnO)
-            concentration_mg_m3: 5-25
-            exposure_limit_mg_m3: 5
-            hazard_class: irritant
-          - compound: Iron Oxide (Fe2O3)
-            concentration_mg_m3: 2-10
-            exposure_limit_mg_m3: 5
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: half_mask
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser cleaning may damage underlying zinc coating if parameters are not properly controlled
-          - White rust removal may create surface etching if laser energy is too high
-          toxic_gas_risk:
-            severity: none
-            primary_hazards: []
-            description: No significant toxic gas generation
-            mitigation: Standard respiratory protection for particulate control
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 10
-            rationale: Standard industrial ventilation (10 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 2.5
@@ -309,63 +312,34 @@ relationships:
           thermal_conductivity: 0.5
           thermal_diffusivity: 0.6
           vaporization_temperature: 120
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Copper
-    - Stainless Steel
-  category: oxidation
-  subcategory: ferrous
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: galvanized-steel-laser-cleaning
-            title: Galvanized Steel Laser Cleaning
-            url: /materials/general/misc/galvanized-steel-laser-cleaning
-            image: /images/material/galvanized-steel-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zinc-coated-metal-laser-cleaning
-            title: Zinc Coated Metal Laser Cleaning
-            url: /materials/general/misc/zinc-coated-metal-laser-cleaning
-            image: /images/material/zinc-coated-metal-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: galvanized-steel-laser-cleaning
+    title: Galvanized Steel Laser Cleaning
+    url: /materials/general/misc/galvanized-steel-laser-cleaning
+    image: /images/material/galvanized-steel-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-coated-metal-laser-cleaning
+    title: Zinc Coated Metal Laser Cleaning
+    url: /materials/general/misc/zinc-coated-metal-laser-cleaning
+    image: /images/material/zinc-coated-metal-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: ferrous
 composition:
 - ZnO
 - Zn(OH)₂
 - ZnCO₃
+prohibited_materials:
+- Aluminum
+- Copper
+- Stainless Steel
+valid_materials: []
+slug: galvanize-corrosion-contamination
+lastModified: '2026-01-02T23:49:20.009672'

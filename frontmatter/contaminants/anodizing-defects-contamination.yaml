@@ -1,8 +1,8 @@
 id: anodizing-defects-contamination
 name: Anodizing Layer Irregularities
 category: metallic-coating
-datePublished: '2025-12-29T20:26:04.176085Z'
-dateModified: '2025-12-29T20:26:04.176085Z'
+datePublished: '2026-01-03T07:49:16.951104Z'
+dateModified: '2026-01-03T07:49:16.951104Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/anodizing/anodizing-defects-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Anodizing
-  href: /contaminants/metallic-coating/anodizing
 - label: Anodizing Layer Irregularities
-  href: /contaminants/metallic-coating/anodizing/anodizing-defects-contamination
+  href: ''
 page_title: 'Anodizing Layer Irregularities Removal: Laser Ablation'
 page_description: 'Anodizing defects contamination, it arises differently on aluminum than steel surfaces. Aluminum oxide
   layers trap impurities unevenly, forming patchy clusters and thus complicating laser cleaning. Steel shows denser buildup,
@@ -33,7 +29,7 @@ page_description: 'Anodizing defects contamination, it arises differently on alu
   and cleaning enhances durability.'
 meta_description: 'Anodizing Layer Irregularities: 85-90% absorption at 1064nm. 2-5 passes depending on thickness. Preserves
   substrate integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/anodizing-defects-contamination-hero.jpg
     alt: Anodizing Layer Irregularities laser cleaning visualization showing process effects
@@ -61,9 +57,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -72,8 +65,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -83,12 +80,73 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Aluminum Oxide Nanoparticles
+        concentration_mg_m3: 5.0
+        exposure_limit_mg_m3: 1.0
+        hazard_class: toxic
+      - compound: Metal Fumes (Aluminum)
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 5.0
+        hazard_class: toxic
+      - compound: Organic Decomposition Products
+        concentration_mg_m3: 3.0
+        exposure_limit_mg_m3: 10.0
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.01
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to prevent base metal damage
+    - Incomplete removal may create mixed particulate hazards
+    - Colored anodizing may contain dye decomposition products
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Aluminum Oxide Nanoparticles
+          concentration_mg_m3: 5.0
+          hazard_class: toxic
+        - compound: Metal Fumes (Aluminum)
+          concentration_mg_m3: 2.5
+          hazard_class: toxic
+        description: Aluminum Oxide Nanoparticles and Metal Fumes (Aluminum) generation - multiple toxic compounds
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -278,60 +336,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Aluminum Oxide Nanoparticles
-            concentration_mg_m3: 5.0
-            exposure_limit_mg_m3: 1.0
-            hazard_class: toxic
-          - compound: Metal Fumes (Aluminum)
-            concentration_mg_m3: 2.5
-            exposure_limit_mg_m3: 5.0
-            hazard_class: toxic
-          - compound: Organic Decomposition Products
-            concentration_mg_m3: 3.0
-            exposure_limit_mg_m3: 10.0
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.01
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser parameters must be optimized to prevent base metal damage
-          - Incomplete removal may create mixed particulate hazards
-          - Colored anodizing may contain dye decomposition products
-          toxic_gas_risk:
-            severity: low
-            primary_hazards:
-            - compound: Aluminum Oxide Nanoparticles
-              concentration_mg_m3: 5.0
-              hazard_class: toxic
-            - compound: Metal Fumes (Aluminum)
-              concentration_mg_m3: 2.5
-              hazard_class: toxic
-            description: Aluminum Oxide Nanoparticles and Metal Fumes (Aluminum) generation - multiple toxic compounds
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 4.5
@@ -344,54 +348,26 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.25
           vaporization_temperature: 1200
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Copper
-    - Magnesium
-    - Steel
-  category: metallic-coating
-  subcategory: anodizing
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: anodizing
 composition:
 - Al₂O₃
 - Dye Molecules
 - Sealed Pores
+prohibited_materials:
+- Copper
+- Magnesium
+- Steel
+valid_materials:
+- aluminum-laser-cleaning
+slug: anodizing-defects-contamination
+lastModified: '2026-01-02T23:49:16.951132'

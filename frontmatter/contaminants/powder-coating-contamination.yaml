@@ -1,8 +1,8 @@
 id: powder-coating-contamination
 name: Powder Coating Buildup
 category: inorganic-coating
-datePublished: '2025-12-29T20:26:05.922862Z'
-dateModified: '2025-12-29T20:26:05.922862Z'
+datePublished: '2026-01-03T07:49:22.327286Z'
+dateModified: '2026-01-03T07:49:22.327286Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/paint/powder-coating-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Inorganic Coating
-  href: /contaminants/inorganic-coating
-- label: Paint
-  href: /contaminants/inorganic-coating/paint
 - label: Powder Coating Buildup
-  href: /contaminants/inorganic-coating/paint/powder-coating-contamination
+  href: ''
 page_title: 'Powder Coating Buildup Removal: Laser Ablation No Chemi'
 page_description: Powder-coating contamination, it forms through electrostatic adhesion and baking, thus creates dense inorganic
   layers on metal substrates. This contamination, it traps particles during application and exhibits irregular patterns from
@@ -28,7 +24,7 @@ page_description: Powder-coating contamination, it forms through electrostatic a
   laser parameters adjust and yield clean finishes without substrate damage.
 meta_description: 'Powder Coating Buildup: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemical waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/powder-coating-contamination-hero.jpg
     alt: Powder Coating Buildup laser cleaning visualization showing process effects
@@ -56,9 +52,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -67,8 +60,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -78,12 +75,88 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 50-200
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 900-1800
+        exposure_limit_mg_m3: 9000
+        hazard_class: toxic
+      - compound: Hydrogen Cyanide
+        concentration_mg_m3: 2-10
+        exposure_limit_mg_m3: 11
+        hazard_class: toxic
+      - compound: Isocyanates (as NCO)
+        concentration_mg_m3: 0.5-5
+        exposure_limit_mg_m3: 0.02
+        hazard_class: toxic
+      - compound: Volatile Organic Compounds
+        concentration_mg_m3: 20-100
+        exposure_limit_mg_m3: 100
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal damage possible on thin metals
+    - May generate substrate fumes if base metal coating present
+    - Reflective surfaces may cause laser deflection hazards
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 50-200
+          hazard_class: toxic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 900-1800
+          hazard_class: toxic
+        - compound: Hydrogen Cyanide
+          concentration_mg_m3: 2-10
+          hazard_class: toxic
+        - compound: Isocyanates (as NCO)
+          concentration_mg_m3: 0.5-5
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Hydrogen Cyanide - requires enhanced
+          protection'
+        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -303,75 +376,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 50-200
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Carbon Dioxide
-            concentration_mg_m3: 900-1800
-            exposure_limit_mg_m3: 9000
-            hazard_class: toxic
-          - compound: Hydrogen Cyanide
-            concentration_mg_m3: 2-10
-            exposure_limit_mg_m3: 11
-            hazard_class: toxic
-          - compound: Isocyanates (as NCO)
-            concentration_mg_m3: 0.5-5
-            exposure_limit_mg_m3: 0.02
-            hazard_class: toxic
-          - compound: Volatile Organic Compounds
-            concentration_mg_m3: 20-100
-            exposure_limit_mg_m3: 100
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Thermal damage possible on thin metals
-          - May generate substrate fumes if base metal coating present
-          - Reflective surfaces may cause laser deflection hazards
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 50-200
-              hazard_class: toxic
-            - compound: Carbon Dioxide
-              concentration_mg_m3: 900-1800
-              hazard_class: toxic
-            - compound: Hydrogen Cyanide
-              concentration_mg_m3: 2-10
-              hazard_class: toxic
-            - compound: Isocyanates (as NCO)
-              concentration_mg_m3: 0.5-5
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Hydrogen Cyanide - requires
-              enhanced protection'
-            mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 3.5
@@ -384,77 +388,46 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.21
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Plastics
-    - Thin Sheet Metal
-    - Wood
-  category: inorganic-coating
-  subcategory: paint
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: galvanized-metal-laser-cleaning
-            title: Galvanized Metal Laser Cleaning
-            url: /materials/general/misc/galvanized-metal-laser-cleaning
-            image: /images/material/galvanized-metal-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: galvanized-metal-laser-cleaning
+    title: Galvanized Metal Laser Cleaning
+    url: /materials/general/misc/galvanized-metal-laser-cleaning
+    image: /images/material/galvanized-metal-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: paint
 composition:
 - Polyester Resin
 - Epoxy
 - Pigments
 - Additives
+prohibited_materials:
+- Plastics
+- Thin Sheet Metal
+- Wood
+valid_materials:
+- aluminum-laser-cleaning
+- steel-laser-cleaning
+slug: powder-coating-contamination
+lastModified: '2026-01-02T23:49:22.327318'

@@ -1,8 +1,8 @@
 id: lead-paint-contamination
 name: Lead-Based Paint Removal
 category: inorganic-coating
-datePublished: '2025-12-29T20:26:05.415668Z'
-dateModified: '2025-12-29T20:26:05.415668Z'
+datePublished: '2026-01-03T07:49:20.849236Z'
+dateModified: '2026-01-03T07:49:20.849236Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/paint/lead-paint-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Inorganic Coating
-  href: /contaminants/inorganic-coating
-- label: Paint
-  href: /contaminants/inorganic-coating/paint
 - label: Lead-Based Paint Removal
-  href: /contaminants/inorganic-coating/paint/lead-paint-contamination
+  href: ''
 page_title: 'Lead-Based Paint Removal Removal: Laser Ablation No'
 page_description: 'Lead-paint contamination forms as durable inorganic coating on old surfaces. Before cleaning, layer adheres
   tightly to substrates like wood or metal, so removal demands care. Process exhibits unique patterns because paint flakes
@@ -29,7 +25,7 @@ page_description: 'Lead-paint contamination forms as durable inorganic coating o
   uniformity post-treatment. Contamination behaves differently on smooth metals, where peeling occurs faster.'
 meta_description: 'Lead-Based Paint Removal: 70-80% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemical waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/lead-paint-contamination-hero.jpg
     alt: Lead-Based Paint Removal laser cleaning visualization showing process effects
@@ -66,8 +62,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -77,12 +73,77 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Lead Oxide (PbO)
+        concentration_mg_m3: 0.5-5.0
+        exposure_limit_mg_m3: 0.05
+        hazard_class: toxic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 10-50
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 500-2000
+        exposure_limit_mg_m3: 9000
+        hazard_class: irritant
+      - compound: Various Hydrocarbons
+        concentration_mg_m3: 5-20
+        exposure_limit_mg_m3: 100
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May generate toxic hexavalent chromium if removing lead chromate paints
+    - Can create lead dust on surrounding surfaces requiring cleanup
+    - Thermal stress may damage underlying substrate
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Lead Oxide (PbO)
+          concentration_mg_m3: 0.5-5.0
+          hazard_class: toxic
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 10-50
+          hazard_class: toxic
+        description: Lead Oxide (PbO) and Carbon Monoxide generation - multiple toxic compounds
+        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5-1.0
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -306,64 +367,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Lead Oxide (PbO)
-            concentration_mg_m3: 0.5-5.0
-            exposure_limit_mg_m3: 0.05
-            hazard_class: toxic
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 10-50
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Carbon Dioxide
-            concentration_mg_m3: 500-2000
-            exposure_limit_mg_m3: 9000
-            hazard_class: irritant
-          - compound: Various Hydrocarbons
-            concentration_mg_m3: 5-20
-            exposure_limit_mg_m3: 100
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - May generate toxic hexavalent chromium if removing lead chromate paints
-          - Can create lead dust on surrounding surfaces requiring cleanup
-          - Thermal stress may damage underlying substrate
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Lead Oxide (PbO)
-              concentration_mg_m3: 0.5-5.0
-              hazard_class: toxic
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 10-50
-              hazard_class: toxic
-            description: Lead Oxide (PbO) and Carbon Monoxide generation - multiple toxic compounds
-            mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5-1.0
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 3.5
@@ -376,177 +379,154 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.6
           vaporization_temperature: 650
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Delicate Substrates
-  category: inorganic-coating
-  subcategory: paint
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        woods:
-          title: Wood Products
-          description: Hardwood and softwood materials affected by this contamination
-          items:
-          - id: ash-laser-cleaning
-            title: Ash
-            url: /materials/wood/hardwood/ash-laser-cleaning
-            image: /images/material/ash-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bamboo-laser-cleaning
-            title: Bamboo
-            url: /materials/wood/hardwood/bamboo-laser-cleaning
-            image: /images/material/bamboo-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: birch-laser-cleaning
-            title: Birch
-            url: /materials/wood/hardwood/birch-laser-cleaning
-            image: /images/material/birch-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cedar-laser-cleaning
-            title: Cedar
-            url: /materials/wood/softwood/cedar-laser-cleaning
-            image: /images/material/cedar-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cherry-laser-cleaning
-            title: Cherry
-            url: /materials/wood/hardwood/cherry-laser-cleaning
-            image: /images/material/cherry-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: fir-laser-cleaning
-            title: Fir
-            url: /materials/wood/softwood/fir-laser-cleaning
-            image: /images/material/fir-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: mahogany-laser-cleaning
-            title: Mahogany
-            url: /materials/wood/hardwood/mahogany-laser-cleaning
-            image: /images/material/mahogany-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: maple-laser-cleaning
-            title: Maple
-            url: /materials/wood/hardwood/maple-laser-cleaning
-            image: /images/material/maple-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: oak-laser-cleaning
-            title: Oak
-            url: /materials/wood/hardwood/oak-laser-cleaning
-            image: /images/material/oak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pine-laser-cleaning
-            title: Pine
-            url: /materials/wood/softwood/pine-laser-cleaning
-            image: /images/material/pine-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: teak-laser-cleaning
-            title: Teak
-            url: /materials/wood/hardwood/teak-laser-cleaning
-            image: /images/material/teak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: walnut-laser-cleaning
-            title: Walnut
-            url: /materials/wood/hardwood/walnut-laser-cleaning
-            image: /images/material/walnut-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: ash-laser-cleaning
+    title: Ash
+    url: /materials/wood/hardwood/ash-laser-cleaning
+    image: /images/material/ash-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bamboo-laser-cleaning
+    title: Bamboo
+    url: /materials/wood/hardwood/bamboo-laser-cleaning
+    image: /images/material/bamboo-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: birch-laser-cleaning
+    title: Birch
+    url: /materials/wood/hardwood/birch-laser-cleaning
+    image: /images/material/birch-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cedar-laser-cleaning
+    title: Cedar
+    url: /materials/wood/softwood/cedar-laser-cleaning
+    image: /images/material/cedar-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cherry-laser-cleaning
+    title: Cherry
+    url: /materials/wood/hardwood/cherry-laser-cleaning
+    image: /images/material/cherry-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: fir-laser-cleaning
+    title: Fir
+    url: /materials/wood/softwood/fir-laser-cleaning
+    image: /images/material/fir-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: mahogany-laser-cleaning
+    title: Mahogany
+    url: /materials/wood/hardwood/mahogany-laser-cleaning
+    image: /images/material/mahogany-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: maple-laser-cleaning
+    title: Maple
+    url: /materials/wood/hardwood/maple-laser-cleaning
+    image: /images/material/maple-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: oak-laser-cleaning
+    title: Oak
+    url: /materials/wood/hardwood/oak-laser-cleaning
+    image: /images/material/oak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pine-laser-cleaning
+    title: Pine
+    url: /materials/wood/softwood/pine-laser-cleaning
+    image: /images/material/pine-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: teak-laser-cleaning
+    title: Teak
+    url: /materials/wood/hardwood/teak-laser-cleaning
+    image: /images/material/teak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: walnut-laser-cleaning
+    title: Walnut
+    url: /materials/wood/hardwood/walnut-laser-cleaning
+    image: /images/material/walnut-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: paint
 composition:
 - Pb₃O₄
 - PbCO₃
 - Oil Binder
+prohibited_materials:
+- Delicate Substrates
+valid_materials:
+- ash-laser-cleaning
+- bamboo-laser-cleaning
+- birch-laser-cleaning
+- cedar-laser-cleaning
+- cherry-laser-cleaning
+- concrete-laser-cleaning
+- fir-laser-cleaning
+- mahogany-laser-cleaning
+- maple-laser-cleaning
+- oak-laser-cleaning
+- pine-laser-cleaning
+- steel-laser-cleaning
+- teak-laser-cleaning
+- walnut-laser-cleaning
+slug: lead-paint-contamination
+lastModified: '2026-01-02T23:49:20.849265'

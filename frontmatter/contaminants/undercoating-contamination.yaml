@@ -1,8 +1,8 @@
 id: undercoating-contamination
 name: Automotive Undercoating
 category: organic-residue
-datePublished: '2025-12-29T20:26:06.537653Z'
-dateModified: '2025-12-29T20:26:06.537653Z'
+datePublished: '2026-01-03T07:49:24.004065Z'
+dateModified: '2026-01-03T07:49:24.004065Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/undercoating-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Other
-  href: /contaminants/organic-residue/other
 - label: Automotive Undercoating
-  href: /contaminants/organic-residue/other/undercoating-contamination
+  href: ''
 page_title: 'Automotive Undercoating Removal: Laser Ablation No Chem'
 page_description: Undercoating-contamination, this organic residue forms unique patterns on surfaces. It accumulates in layered
   films and irregular deposits, especially under protective coatings. Formation occurs gradually, as residues bond tightly
@@ -29,7 +25,7 @@ page_description: Undercoating-contamination, this organic residue forms unique 
   reduced residue buildup.
 meta_description: 'Automotive Undercoating: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemical waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/undercoating-contamination-hero.jpg
     alt: Automotive Undercoating laser cleaning visualization showing process effects
@@ -57,9 +53,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -68,8 +61,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -79,12 +76,95 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 50-200
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Benzene
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 0.5
+        hazard_class: carcinogenic
+      - compound: Toluene
+        concentration_mg_m3: 50-150
+        exposure_limit_mg_m3: 75
+        hazard_class: toxic
+      - compound: Xylene
+        concentration_mg_m3: 30-100
+        exposure_limit_mg_m3: 100
+        hazard_class: irritant
+      - compound: Formaldehyde
+        concentration_mg_m3: 2-10
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 1-10
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May cause surface etching on aluminum alloys
+    - Can damage thin-gauge steel if laser parameters not properly controlled
+    - Avoid prolonged exposure on rubber components and seals
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 50-200
+          hazard_class: toxic
+        - compound: Benzene
+          concentration_mg_m3: 5-25
+          hazard_class: carcinogenic
+        - compound: Toluene
+          concentration_mg_m3: 50-150
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 2-10
+          hazard_class: carcinogenic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 1-10
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Carbon Monoxide, Benzene, Toluene - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Benzene, Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 15
+        rationale: Standard industrial ventilation (15 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -293,82 +373,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 50-200
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Benzene
-            concentration_mg_m3: 5-25
-            exposure_limit_mg_m3: 0.5
-            hazard_class: carcinogenic
-          - compound: Toluene
-            concentration_mg_m3: 50-150
-            exposure_limit_mg_m3: 75
-            hazard_class: toxic
-          - compound: Xylene
-            concentration_mg_m3: 30-100
-            exposure_limit_mg_m3: 100
-            hazard_class: irritant
-          - compound: Formaldehyde
-            concentration_mg_m3: 2-10
-            exposure_limit_mg_m3: 0.37
-            hazard_class: carcinogenic
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentration_mg_m3: 1-10
-            exposure_limit_mg_m3: 0.2
-            hazard_class: carcinogenic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - May cause surface etching on aluminum alloys
-          - Can damage thin-gauge steel if laser parameters not properly controlled
-          - Avoid prolonged exposure on rubber components and seals
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 50-200
-              hazard_class: toxic
-            - compound: Benzene
-              concentration_mg_m3: 5-25
-              hazard_class: carcinogenic
-            - compound: Toluene
-              concentration_mg_m3: 50-150
-              hazard_class: toxic
-            - compound: Formaldehyde
-              concentration_mg_m3: 2-10
-              hazard_class: carcinogenic
-            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-              concentration_mg_m3: 1-10
-              hazard_class: carcinogenic
-            description: 'Multiple toxic compounds detected: Carbon Monoxide, Benzene, Toluene - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Benzene, Formaldehyde - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 15
-            rationale: Standard industrial ventilation (15 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 2.5
@@ -381,66 +385,34 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.17
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Plastics
-  category: organic-residue
-  subcategory: other
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: painted-metal-laser-cleaning
-            title: Painted Metal Laser Cleaning
-            url: /materials/general/misc/painted-metal-laser-cleaning
-            image: /images/material/painted-metal-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: painted-metal-laser-cleaning
+    title: Painted Metal Laser Cleaning
+    url: /materials/general/misc/painted-metal-laser-cleaning
+    image: /images/material/painted-metal-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: other
 composition:
 - Asphalt
 - Rubber
 - Solvents
+prohibited_materials:
+- Aluminum
+- Plastics
+valid_materials:
+- steel-laser-cleaning
+slug: undercoating-contamination
+lastModified: '2026-01-02T23:49:24.004095'

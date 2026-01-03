@@ -1,7 +1,7 @@
 id: titanium-nitride-settings
 name: Titanium Nitride
-datePublished: '2025-12-29T20:29:25.091598Z'
-dateModified: '2025-12-29T20:29:25.091598Z'
+datePublished: '2026-01-03T07:49:37.653925Z'
+dateModified: '2026-01-03T07:49:37.653925Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/coating/titanium-nitride-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Ceramic
-  href: /settings/ceramic
-- label: Coating
-  href: /settings/ceramic/coating
 - label: Titanium Nitride
-  href: /settings/ceramic/coating/titanium-nitride-settings
+  href: ''
 page_title: 'Titanium Nitride Settings: Laser Parameters'
 page_description: Before laser cleaning, Titanium Nitride surfaces require careful parameter selection After cleaning, Titanium
   Nitride surfaces show restored appearance with controlled parameters
@@ -44,9 +40,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -58,11 +51,14 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -82,12 +78,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -96,23 +86,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: titanium-laser-cleaning
         effectiveness: high
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -123,12 +101,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: ceramic
-subcategory: coating
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 80
@@ -254,3 +227,5 @@ machine_settings:
       in Manufacturing and Materials Processing (2022).'
 component_summary: These settings leverage the 1064 nm wavelength's affinity for Titanium Nitride's surface, with 10 ns pulses
   at 100 W enabling precise contaminant ablation without inducing thermal cracking in the brittle ceramic-like coating.
+slug: titanium-nitride-settings
+lastModified: '2026-01-02T23:49:37.653954'

@@ -1,7 +1,7 @@
 id: aluminosilicate-glass-settings
 name: Aluminosilicate Glass
-datePublished: '2025-12-29T20:29:24.852954Z'
-dateModified: '2025-12-29T20:29:24.852954Z'
+datePublished: '2026-01-03T07:49:36.865487Z'
+dateModified: '2026-01-03T07:49:36.865487Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/specialty/aluminosilicate-glass-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Glass
-  href: /settings/glass
-- label: Specialty
-  href: /settings/glass/specialty
 - label: Aluminosilicate Glass
-  href: /settings/glass/specialty/aluminosilicate-glass-settings
+  href: ''
 page_title: 'Aluminosilicate Glass Settings: Laser Parameters'
 page_description: Before laser cleaning, Aluminosilicate Glass surfaces require careful parameter selection After cleaning,
   Aluminosilicate Glass surfaces show restored appearance with controlled parameters
@@ -44,9 +40,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -58,11 +51,14 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -82,12 +78,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -96,12 +86,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -111,12 +95,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -127,12 +105,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: glass
-subcategory: specialty
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 70
@@ -251,3 +224,5 @@ machine_settings:
       for even cleaning on smooth glass (process optimization in Optics Express, 2016).
 component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to selectively ablate contaminants
   from aluminosilicate glass while minimizing thermal stress and preventing surface cracking.
+slug: aluminosilicate-glass-settings
+lastModified: '2026-01-02T23:49:36.865520'

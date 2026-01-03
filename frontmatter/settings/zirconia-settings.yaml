@@ -1,7 +1,7 @@
 id: zirconia-settings
 name: Zirconia
-datePublished: '2025-12-29T20:29:24.810240Z'
-dateModified: '2025-12-29T20:29:24.810240Z'
+datePublished: '2026-01-03T07:49:36.729885Z'
+dateModified: '2026-01-03T07:49:36.729885Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/oxide/zirconia-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Ceramic
-  href: /settings/ceramic
-- label: Oxide
-  href: /settings/ceramic/oxide
 - label: Zirconia
-  href: /settings/ceramic/oxide/zirconia-settings
+  href: ''
 page_title: 'Zirconia Settings: Laser Parameters'
 page_description: The key with Zirconia is its strong laser absorption. We've found this makes cleaning efficient without
   much reflection loss. It removes contaminants quickly while preserving the surface. Unlike metals, its low thermal conductivity
@@ -61,11 +57,11 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -85,12 +81,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -99,12 +89,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -114,12 +98,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -148,12 +126,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: ceramic
-subcategory: oxide
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Zirconia surface cleaning without thermal damage
@@ -275,3 +248,5 @@ machine_settings:
       optimization in International Journal of Advanced Manufacturing Technology (2019).'
 component_summary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for zirconia cleaning,
   as short pulses minimize thermal cracking in the brittle ceramic while the wavelength targets contaminants effectively.
+slug: zirconia-settings
+lastModified: '2026-01-02T23:49:36.729918'

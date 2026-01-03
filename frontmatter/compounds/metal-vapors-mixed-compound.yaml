@@ -3,22 +3,18 @@ name: Metal Vapors (Mixed)
 display_name: Metal Vapors (Mixed)
 category: vapor
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:25.481537Z'
-dateModified: '2025-12-29T20:28:25.481537Z'
+datePublished: '2026-01-03T07:49:27.828776Z'
+dateModified: '2026-01-03T07:49:27.828776Z'
 content_type: compounds
 schema_version: 5.0.0
-full_path: /compounds/vapor/metal/metal-vapors-mixed-compound
+full_path: /compounds/vapor/metal-vapors-mixed-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
-- label: Vapor
-  href: /compounds/vapor
-- label: Metal
-  href: /compounds/vapor/metal
 - label: Metal Vapors (Mixed)
-  href: /compounds/vapor/metal/metal-vapors-mixed-compound
+  href: ''
 page_title: 'Metal Vapors (Mixed): Respiratory Irritant'
 page_description: Mixed metal vapors blend seamlessly in high-heat setups.
 meta_description: 'Metal Vapors (Mixed): Respiratory Irritant from metal processing. Requires proper ventilation and PPE.'
@@ -120,8 +116,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - metal_fume_fever
 - respiratory_irritation
@@ -140,7 +136,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -152,7 +148,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -197,47 +193,50 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of PVD Coating Defects
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: 'Handling metal-vapors-mixed-compound in industrial setups demands careful gear choices, especially when
-    vapors linger in the air during processing. Workers often start by suiting up with full-body coverings that shield against
-    fine particles and gaseous releases—think impermeable suits crafted from tough, chemical-resistant fabrics to keep skin
-    safe from any unexpected contact.
-
-
-    Eye protection comes next, crucial for laser cleaning tasks where intense beams could scatter hazardous mists. Goggles
-    with sealed edges prevent vapors from sneaking in, offering clear vision while blocking irritants that might otherwise
-    cause discomfort or worse.
-
-
-    Breathing apparatus tops the list for vapor-heavy environments; respirators fitted with high-efficiency filters trap those
-    elusive metal particles before they reach the lungs, ensuring steady airflow during long shifts. Gloves, too—thick, flexible
-    ones made to withstand heat and grip tools firmly—guard hands from the compound''s sticky residues that build up over
-    time.
-
-
-    In laser applications, where the material''s durability shines for surface stripping, add heat-reflective aprons to deflect
-    any radiant warmth. Boots with reinforced soles handle slippery floors from condensed vapors, keeping footing secure amid
-    the bustle. Always check gear for wear after each use; this stuff''s conductive nature means stray sparks could turn routine
-    jobs risky if protection falters.'
-  images:
-    hero:
-      url: /images/compound/metal-vapors-mixed-compound-hero.jpg
-      alt: Metal Vapors (Mixed) laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/metal-vapors-mixed-compound-micro.jpg
-      alt: Metal Vapors (Mixed) microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Respiratory irritation and metal fume fever (flu-like symptoms including fever, chills, and cough)
+      severity: moderate
+      onset: short-term
+    - route: inhalation
+      effect: Chronic pulmonary damage or fibrosis from heavy metal accumulation
+      severity: high
+      onset: long-term
+    - route: skin_contact
+      effect: Dermatitis or chemical burns from direct contact with condensed metal particles
+      severity: moderate
+      onset: immediate
+    - route: eye_contact
+      effect: Conjunctivitis and corneal irritation leading to redness and tearing
+      severity: moderate
+      onset: immediate
+    - route: inhalation
+      effect: Systemic toxicity including neurological effects (e.g., tremors from mercury-like vapors)
+      severity: severe
+      onset: long-term
 subcategory: metal
+ppe_requirements: 'Handling metal-vapors-mixed-compound in industrial setups demands careful gear choices, especially when
+  vapors linger in the air during processing. Workers often start by suiting up with full-body coverings that shield against
+  fine particles and gaseous releases—think impermeable suits crafted from tough, chemical-resistant fabrics to keep skin
+  safe from any unexpected contact.
+
+
+  Eye protection comes next, crucial for laser cleaning tasks where intense beams could scatter hazardous mists. Goggles with
+  sealed edges prevent vapors from sneaking in, offering clear vision while blocking irritants that might otherwise cause
+  discomfort or worse.
+
+
+  Breathing apparatus tops the list for vapor-heavy environments; respirators fitted with high-efficiency filters trap those
+  elusive metal particles before they reach the lungs, ensuring steady airflow during long shifts. Gloves, too—thick, flexible
+  ones made to withstand heat and grip tools firmly—guard hands from the compound''s sticky residues that build up over time.
+
+
+  In laser applications, where the material''s durability shines for surface stripping, add heat-reflective aprons to deflect
+  any radiant warmth. Boots with reinforced soles handle slippery floors from condensed vapors, keeping footing secure amid
+  the bustle. Always check gear for wear after each use; this stuff''s conductive nature means stray sparks could turn routine
+  jobs risky if protection falters.'
+formula: Various
 faq:
 - question: What are the best protection methods against mixed metal vapor exposure during laser cleaning operations?
   answer: Always use local exhaust ventilation systems, such as fume extractors positioned close to the laser work area, to
@@ -246,4 +245,5 @@ faq:
     and inhalation exposure. Regularly monitor air quality with portable vapor detectors and ensure the workspace maintains
     good general ventilation to keep concentrations below applicable exposure limits, such as those set by OSHA for specific
     metals like zinc oxide (5 mg/m³ as ceiling).
-formula: Various
+slug: metal-vapors-mixed-compound
+lastModified: '2026-01-02T23:49:27.828812'

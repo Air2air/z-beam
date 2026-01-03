@@ -1,7 +1,7 @@
 id: mdf-settings
 name: MDF
-datePublished: '2025-12-29T20:29:23.712409Z'
-dateModified: '2025-12-29T20:29:23.712409Z'
+datePublished: '2026-01-03T07:49:32.995525Z'
+dateModified: '2026-01-03T07:49:32.995525Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/hardwood/mdf-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Wood
-  href: /settings/wood
-- label: Hardwood
-  href: /settings/wood/hardwood
 - label: MDF
-  href: /settings/wood/hardwood/mdf-settings
+  href: ''
 page_title: 'MDF Settings: Laser Parameters'
 page_description: When laser cleaning MDF, the biggest hurdle is its porous structure. It soaks up heat unevenly. This leads
   to quick charring if you're not careful. I've seen surfaces bubble and delaminate from that buildup. Start low on power
@@ -49,9 +45,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -63,11 +56,14 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -87,12 +83,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -101,12 +91,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -116,12 +100,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -137,12 +115,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: wood
-subcategory: hardwood
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for MDF surface cleaning without charring
@@ -269,3 +242,5 @@ machine_settings:
       (2019).'
 component_summary: These settings, with moderate 100 W power and short 10 ns pulses at 1064 nm, minimize thermal damage to
   heat-sensitive MDF, enabling precise contaminant removal without charring or structural compromise.
+slug: mdf-settings
+lastModified: '2026-01-02T23:49:32.995553'

@@ -3,8 +3,8 @@ name: Benzo[a]pyrene
 display_name: Benzo[a]pyrene (C₂₀H₁₂)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-29T20:28:13.164893Z'
-dateModified: '2025-12-29T20:28:13.164893Z'
+datePublished: '2026-01-03T07:49:26.890687Z'
+dateModified: '2026-01-03T07:49:26.890687Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/polycyclic-aromatic-hydrocarbon/benzoapyrene-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Carcinogen
-  href: /compounds/carcinogen
-- label: Polycyclic Aromatic Hydrocarbon
-  href: /compounds/carcinogen/polycyclic_aromatic_hydrocarbon
 - label: Benzo[a]pyrene
-  href: /compounds/carcinogen/polycyclic-aromatic-hydrocarbon/benzoapyrene-compound
+  href: ''
 page_title: 'Benzo[a]pyrene: Carcinogenic Fumes'
 page_description: Benzo[a]pyrene sticks out as that stubborn crystalline solid you encounter in environmental samples, glowing
   faintly under certain lights and refusing to dissol.
@@ -128,9 +124,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -139,8 +132,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 health_effects_keywords:
 - lung_cancer
 - skin_cancer
@@ -162,7 +159,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -174,7 +171,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -185,12 +182,6 @@ relationships:
       items:
       - type: chemical_properties
         id: benzoapyrene-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -207,10 +198,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -226,18 +214,29 @@ relationships:
           ec_number: 200-028-5
           pubchem_cid: '2336'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: benzoapyrene-toxicology
+      - route: inhalation
+        effect: Respiratory tract irritation and increased risk of lung cancer
+        severity: severe
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation and increased risk of skin cancer
+        severity: severe
+        onset: long-term
+      - route: eye_contact
+        effect: Eye irritation and conjunctivitis
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal irritation and systemic carcinogenic effects
+        severity: severe
+        onset: long-term
     ppe_requirements:
       presentation: descriptive
       items:
@@ -250,12 +249,9 @@ relationships:
         special_notes: PAH is carcinogenic - minimize skin contact. Decontaminate immediately after exposure. Disposable protective
           clothing recommended for heavy contamination.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -273,10 +269,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -288,16 +281,16 @@ relationships:
         acgih_tlv_mg_m3: null
         workplace_exposure:
           osha_pel:
-            twa_8hr: 0.2 mg/m³ (coal tar pitch volatiles)
+            twa_8hr: null
             stel_15min: null
             ceiling: null
           niosh_rel:
-            twa_8hr: 0.1 mg/m³ (coal tar pitch volatiles)
+            twa_8hr: null
             stel_15min: null
             ceiling: null
             idlh: 80 mg/m³ (as coal tar pitch volatiles)
           acgih_tlv:
-            twa_8hr: 0.2 mg/m³ (inhalable fraction)
+            twa_8hr: null
             stel_15min: null
             ceiling: null
           biological_exposure_indices:
@@ -313,9 +306,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -333,10 +323,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -344,10 +331,11 @@ relationships:
         dot_hazard_class: 9 (Miscellaneous)
         dot_label: Class 9
         nfpa_codes:
-          health: 3
+          health: 2
           flammability: 1
           reactivity: 0
           special: null
+          instability: 0
         epa_hazard_categories:
         - Carcinogenicity
         - Aquatic toxicity
@@ -359,10 +347,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -382,10 +367,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -414,10 +396,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -442,12 +421,6 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Formed during high-temperature pyrolysis
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -471,33 +444,20 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handling benzo[a]pyrene demands far stricter safeguards than dealing with everyday industrial compounds,
-    since its carcinogenic nature turns routine exposure risks into long-term health threats that linger invisibly over time.
-    Workers in environments like coal processing or asphalt production, where this persistent pollutant clings to surfaces
-    and air, must layer on full-body suits made from impermeable fabrics to block skin contact entirely, unlike the lighter
-    gear sufficient for less toxic residues. Respiratory protection ramps up too, with powered air-purifying respirators that
-    filter out fine airborne particles more aggressively than standard masks, ensuring breaths stay clean during dusty operations
-    or when vapors rise from heated materials. Eye shields, sealed against splashes or irritant mists, pair with these to
-    guard against any accidental transfer, while in specialized laser cleaning setups—where focused beams vaporize contaminants
-    without harsh chemicals—extra heat-resistant gloves and face shields become essential to counter the combined hazards
-    of thermal bursts and liberated toxins. Overall, this setup not only shields against direct absorption but also minimizes
-    secondary contamination in high-stakes applications, keeping teams safer amid the compound's stealthy dangers.
-  images:
-    hero:
-      url: /images/compound/benzoapyrene-compound-hero.jpg
-      alt: Benzo[a]pyrene laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/benzoapyrene-compound-micro.jpg
-      alt: Benzo[a]pyrene microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: polycyclic_aromatic_hydrocarbon
+ppe_requirements: Handling benzo[a]pyrene demands far stricter safeguards than dealing with everyday industrial compounds,
+  since its carcinogenic nature turns routine exposure risks into long-term health threats that linger invisibly over time.
+  Workers in environments like coal processing or asphalt production, where this persistent pollutant clings to surfaces and
+  air, must layer on full-body suits made from impermeable fabrics to block skin contact entirely, unlike the lighter gear
+  sufficient for less toxic residues. Respiratory protection ramps up too, with powered air-purifying respirators that filter
+  out fine airborne particles more aggressively than standard masks, ensuring breaths stay clean during dusty operations or
+  when vapors rise from heated materials. Eye shields, sealed against splashes or irritant mists, pair with these to guard
+  against any accidental transfer, while in specialized laser cleaning setups—where focused beams vaporize contaminants without
+  harsh chemicals—extra heat-resistant gloves and face shields become essential to counter the combined hazards of thermal
+  bursts and liberated toxins. Overall, this setup not only shields against direct absorption but also minimizes secondary
+  contamination in high-stakes applications, keeping teams safer amid the compound's stealthy dangers.
+formula: C₂₀H₁₂
 faq:
 - question: What personal protective equipment (PPE) is essential for operators during laser cleaning to minimize Benzo[a]pyrene
     exposure?
@@ -505,4 +465,5 @@ faq:
     skin contact with airborne particles or residues from laser-ablated surfaces. Use a powered air-purifying respirator (PAPR)
     with organic vapor cartridges rated for PAHs to protect against inhalation, as Benzo[a]pyrene can persist in the air after
     cleaning. Change PPE after each session and decontaminate equipment to avoid secondary exposure.
-formula: C₂₀H₁₂
+slug: benzoapyrene-compound
+lastModified: '2026-01-02T23:49:26.890718'

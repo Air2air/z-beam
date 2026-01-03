@@ -3,22 +3,18 @@ name: Organic Residues
 display_name: Organic Residues
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:18.427894Z'
-dateModified: '2025-12-29T20:28:18.427894Z'
+datePublished: '2026-01-03T07:49:27.303669Z'
+dateModified: '2026-01-03T07:49:27.303669Z'
 content_type: compounds
 schema_version: 5.0.0
-full_path: /compounds/particulate/organic/organic-residues-compound
+full_path: /compounds/particulate/organic-residues-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
-- label: Particulate
-  href: /compounds/particulate
-- label: Organic
-  href: /compounds/particulate/organic
 - label: Organic Residues
-  href: /compounds/particulate/organic/organic-residues-compound
+  href: ''
 page_title: 'Organic Residues: Respiratory Irritant'
 page_description: Dealing with organic residues in industrial setups often means tackling sticky, fibrous bits left from food
   processing or biological waste.
@@ -137,8 +133,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - respiratory_irritation
 - skin_irritation
@@ -157,7 +153,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -169,7 +165,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -242,42 +238,42 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Wax Coating Buildup
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: 'Handling organic residue compounds in particulate form demands solid protection, especially in dusty
-    workshops or cleanup jobs. Gloves made from nitrile or similar tough materials keep your hands safe from sticky buildup
-    or mild irritants—I''ve seen folks skip them and end up with rashes that linger for days. Pair that with full-coverage
-    goggles to shield your eyes from airborne bits that could scratch or sting during stirring or sifting tasks.
-
-
-    Dust masks or respirators with good filtration prove essential too, blocking fine particles that might irritate lungs
-    over long shifts in confined spaces. Why bother? These residues, often from plant-based or food processing waste, can
-    carry allergens or spores, and inhaling them without cover leads to coughing fits or worse. Avoid cheap paper masks; they
-    clog fast and let stuff through.
-
-
-    For laser cleaning setups, where heat and vapor kick up, add flame-resistant coveralls and sturdy boots to guard against
-    sparks or slips on residue slicks. Heat builds quickly in those operations, so layered clothing helps wick away sweat
-    without restricting movement. Steer clear of loose sleeves—they snag on equipment and turn a minor job into a hazard.
-    Overall, layering up like this keeps you focused on the work, not nursing injuries from overlooked risks.'
-  images:
-    hero:
-      url: /images/compound/organic-residues-compound-hero.jpg
-      alt: Organic Residues laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/organic-residues-compound-micro.jpg
-      alt: Organic Residues microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Respiratory irritation and potential systemic toxicity (e.g., dizziness, nausea)
+      severity: moderate
+      onset: immediate
+    - route: skin_contact
+      effect: Dermatitis or allergic skin reactions
+      severity: low
+      onset: short-term
+    - route: eye_contact
+      effect: Irritation, redness, and possible corneal damage
+      severity: moderate
+      onset: immediate
+    - route: ingestion
+      effect: Gastrointestinal distress and potential liver/kidney effects
+      severity: high
+      onset: short-term
 subcategory: organic
+ppe_requirements: 'Handling organic residue compounds in particulate form demands solid protection, especially in dusty workshops
+  or cleanup jobs. Gloves made from nitrile or similar tough materials keep your hands safe from sticky buildup or mild irritants—I''ve
+  seen folks skip them and end up with rashes that linger for days. Pair that with full-coverage goggles to shield your eyes
+  from airborne bits that could scratch or sting during stirring or sifting tasks.
+
+
+  Dust masks or respirators with good filtration prove essential too, blocking fine particles that might irritate lungs over
+  long shifts in confined spaces. Why bother? These residues, often from plant-based or food processing waste, can carry allergens
+  or spores, and inhaling them without cover leads to coughing fits or worse. Avoid cheap paper masks; they clog fast and
+  let stuff through.
+
+
+  For laser cleaning setups, where heat and vapor kick up, add flame-resistant coveralls and sturdy boots to guard against
+  sparks or slips on residue slicks. Heat builds quickly in those operations, so layered clothing helps wick away sweat without
+  restricting movement. Steer clear of loose sleeves—they snag on equipment and turn a minor job into a hazard. Overall, layering
+  up like this keeps you focused on the work, not nursing injuries from overlooked risks.'
+formula: CxHyOz
 faq:
 - question: As a laser cleaning operator, what personal protective equipment should I use to protect against exposure to organic
     residue particulates (CxHyOz) generated during the process?
@@ -287,4 +283,5 @@ faq:
     inhalation. Always ensure the work area has adequate ventilation or local exhaust systems to reduce airborne concentrations
     below general particulate exposure limits (e.g., 5 mg/m³ for respirable dust per OSHA guidelines, though specific limits
     vary by composition).
-formula: CxHyOz
+slug: organic-residues-compound
+lastModified: '2026-01-02T23:49:27.303697'

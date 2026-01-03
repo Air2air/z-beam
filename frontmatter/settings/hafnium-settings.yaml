@@ -1,7 +1,7 @@
 id: hafnium-settings
 name: Hafnium
-datePublished: '2025-12-29T20:29:23.541926Z'
-dateModified: '2025-12-29T20:29:23.541926Z'
+datePublished: '2026-01-03T07:49:32.500409Z'
+dateModified: '2026-01-03T07:49:32.500409Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/hafnium-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Non Ferrous
-  href: /settings/metal/non-ferrous
 - label: Hafnium
-  href: /settings/metal/non-ferrous/hafnium-settings
+  href: ''
 page_title: 'Hafnium Settings: Laser Parameters'
 page_description: When laser cleaning hafnium, I've seen that its heat resistance works best if you start with controlled
   pulses to gradually expose the surface without cracking. This process restores the metal's integrity in aerospace or nuclear
@@ -59,11 +55,11 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -83,12 +79,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -97,12 +87,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -112,12 +96,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -135,12 +113,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: metal
-subcategory: non-ferrous
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Hafnium oxide removal without substrate damage
@@ -266,3 +239,5 @@ machine_settings:
       strategies for industrial cleaning).'
 component_summary: These settings ensure precise contaminant removal from Hafnium's robust, high-melting-point surface, with
   200 W power and 10 ns pulses minimizing heat buildup while the 1064 nm wavelength optimizes metal absorption.
+slug: hafnium-settings
+lastModified: '2026-01-02T23:49:32.500437'

@@ -1,8 +1,8 @@
 id: wood-rot-contamination
 name: Wood Rot / Fungal Biodegradation
 category: biological
-datePublished: '2025-12-29T20:26:06.686229Z'
-dateModified: '2025-12-29T20:26:06.686229Z'
+datePublished: '2026-01-03T07:49:24.394200Z'
+dateModified: '2026-01-03T07:49:24.394200Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/biological/growth/wood-rot-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Biological
-  href: /contaminants/biological
-- label: Growth
-  href: /contaminants/biological/growth
 - label: Wood Rot / Fungal Biodegradation
-  href: /contaminants/biological/growth/wood-rot-contamination
+  href: ''
 page_title: 'Wood Rot / Fungal Biodegradation Removal: Laser Ablatio'
 page_description: Wood rot contamination differs from surface dust or metal oxides because it penetrates deeply into wood
   fibers, so laser cleaning faces unique challenges in biological removal. Formation occurs through fungal spores that spread
@@ -31,7 +27,7 @@ micro:
   after: Post-cleaning reveals restored surface with wood rot / fungal biodegradation successfully removed through precise
     laser ablation.
   before: Surface shows contamination from wood rot / fungal biodegradation affecting material appearance and properties.
-images: &id001
+images:
   hero:
     url: /images/contaminant/wood-rot-contamination-hero.jpg
     alt: Wood Rot / Fungal Biodegradation laser cleaning visualization showing process effects
@@ -68,8 +64,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -79,12 +75,96 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 50-200
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 500-2000
+        exposure_limit_mg_m3: 9000
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Acetaldehyde
+        concentration_mg_m3: 2-15
+        exposure_limit_mg_m3: 45
+        hazard_class: carcinogenic
+      - compound: Acetic Acid
+        concentration_mg_m3: 10-50
+        exposure_limit_mg_m3: 25
+        hazard_class: irritant
+      - compound: Methanol
+        concentration_mg_m3: 5-30
+        exposure_limit_mg_m3: 260
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: full_face
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may not penetrate deep fungal hyphae, leaving active biodegradation
+    - Heat-affected zone may create favorable conditions for future fungal growth
+    - Charred surface may require additional cleaning to remove carbon residue
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 50-200
+          hazard_class: toxic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 500-2000
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 5-25
+          hazard_class: carcinogenic
+        - compound: Acetaldehyde
+          concentration_mg_m3: 2-15
+          hazard_class: carcinogenic
+        - compound: Methanol
+          concentration_mg_m3: 5-30
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
+          protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -273,83 +353,6 @@ relationships:
             color_change: 'yes'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 50-200
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Carbon Dioxide
-            concentration_mg_m3: 500-2000
-            exposure_limit_mg_m3: 9000
-            hazard_class: toxic
-          - compound: Formaldehyde
-            concentration_mg_m3: 5-25
-            exposure_limit_mg_m3: 0.37
-            hazard_class: carcinogenic
-          - compound: Acetaldehyde
-            concentration_mg_m3: 2-15
-            exposure_limit_mg_m3: 45
-            hazard_class: carcinogenic
-          - compound: Acetic Acid
-            concentration_mg_m3: 10-50
-            exposure_limit_mg_m3: 25
-            hazard_class: irritant
-          - compound: Methanol
-            concentration_mg_m3: 5-30
-            exposure_limit_mg_m3: 260
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: full_face
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser cleaning may not penetrate deep fungal hyphae, leaving active biodegradation
-          - Heat-affected zone may create favorable conditions for future fungal growth
-          - Charred surface may require additional cleaning to remove carbon residue
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 50-200
-              hazard_class: toxic
-            - compound: Carbon Dioxide
-              concentration_mg_m3: 500-2000
-              hazard_class: toxic
-            - compound: Formaldehyde
-              concentration_mg_m3: 5-25
-              hazard_class: carcinogenic
-            - compound: Acetaldehyde
-              concentration_mg_m3: 2-15
-              hazard_class: carcinogenic
-            - compound: Methanol
-              concentration_mg_m3: 5-30
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
-              protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 10
-            rationale: Standard industrial ventilation (10 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 2.5
@@ -362,155 +365,119 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.1
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  caution_materials:
-    presentation: card
-    _section:
-      section_title: Materials Requiring Caution
-      section_description: Materials that need special consideration for laser removal of this contamination
-      icon: alert-triangle
-      order: 6
-      variant: warning
-    items:
-    - Metals
-    - Plastics
-    - Ceramics
-    - Glass
-  realism_notes: Wood rot ONLY occurs in organic wood materials. Metals and plastics cannot rot.
-  formation_conditions:
-    presentation: card
-    _section:
-      section_title: Formation Conditions
-      section_description: Environmental and process conditions that create this contamination
-      icon: wind
-      order: 4
-      variant: default
-    items:
-    - moisture
-    - fungal_spores
-    - warmth
-    - poor_ventilation
-  scientific_name: Fungal decomposition of cellulose and lignin
-  required_elements:
-    presentation: card
-    _section:
-      section_title: Required Elements
-      section_description: Chemical elements necessary for this contamination to form
-      icon: microscope
-      order: 5
-      variant: default
-    items:
-    - cellulose
-    - lignin
-    - organic_matter
-  category: biological
-  subcategory: growth
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        woods:
-          title: Wood Products
-          description: Hardwood and softwood materials affected by this contamination
-          items:
-          - id: cedar-laser-cleaning
-            title: Cedar
-            url: /materials/wood/softwood/cedar-laser-cleaning
-            image: /images/material/cedar-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cherry-laser-cleaning
-            title: Cherry
-            url: /materials/wood/hardwood/cherry-laser-cleaning
-            image: /images/material/cherry-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: maple-laser-cleaning
-            title: Maple
-            url: /materials/wood/hardwood/maple-laser-cleaning
-            image: /images/material/maple-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: mdf-laser-cleaning
-            title: MDF
-            url: /materials/wood/hardwood/mdf-laser-cleaning
-            image: /images/material/mdf-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: oak-laser-cleaning
-            title: Oak
-            url: /materials/wood/hardwood/oak-laser-cleaning
-            image: /images/material/oak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pine-laser-cleaning
-            title: Pine
-            url: /materials/wood/softwood/pine-laser-cleaning
-            image: /images/material/pine-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: plywood-laser-cleaning
-            title: Plywood
-            url: /materials/wood/hardwood/plywood-laser-cleaning
-            image: /images/material/plywood-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: redwood-laser-cleaning
-            title: Redwood
-            url: /materials/wood/hardwood/redwood-laser-cleaning
-            image: /images/material/redwood-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: walnut-laser-cleaning
-            title: Walnut
-            url: /materials/wood/hardwood/walnut-laser-cleaning
-            image: /images/material/walnut-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
-title: Wood Rot / Fungal Biodegradation Laser Cleaning
+  - id: cedar-laser-cleaning
+    title: Cedar
+    url: /materials/wood/softwood/cedar-laser-cleaning
+    image: /images/material/cedar-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cherry-laser-cleaning
+    title: Cherry
+    url: /materials/wood/hardwood/cherry-laser-cleaning
+    image: /images/material/cherry-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: maple-laser-cleaning
+    title: Maple
+    url: /materials/wood/hardwood/maple-laser-cleaning
+    image: /images/material/maple-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: mdf-laser-cleaning
+    title: MDF
+    url: /materials/wood/hardwood/mdf-laser-cleaning
+    image: /images/material/mdf-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: oak-laser-cleaning
+    title: Oak
+    url: /materials/wood/hardwood/oak-laser-cleaning
+    image: /images/material/oak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pine-laser-cleaning
+    title: Pine
+    url: /materials/wood/softwood/pine-laser-cleaning
+    image: /images/material/pine-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: plywood-laser-cleaning
+    title: Plywood
+    url: /materials/wood/hardwood/plywood-laser-cleaning
+    image: /images/material/plywood-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: redwood-laser-cleaning
+    title: Redwood
+    url: /materials/wood/hardwood/redwood-laser-cleaning
+    image: /images/material/redwood-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: walnut-laser-cleaning
+    title: Walnut
+    url: /materials/wood/hardwood/walnut-laser-cleaning
+    image: /images/material/walnut-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: growth
+formation_conditions:
+- moisture
+- fungal_spores
+- warmth
+- poor_ventilation
+realism_notes: Wood rot ONLY occurs in organic wood materials. Metals and plastics cannot rot.
+required_elements:
+- cellulose
+- lignin
+- organic_matter
+scientific_name: Fungal decomposition of cellulose and lignin
+title: Wood Rot / Fungal Biodegradation Laser Cleaning
 valid_material_categories:
 - wood_hardwood
 - wood_softwood
 - wood_engineered
+valid_materials:
+- cedar-laser-cleaning
+- cherry-laser-cleaning
+- maple-laser-cleaning
+- mdf-laser-cleaning
+- oak-laser-cleaning
+- pine-laser-cleaning
+- plywood-laser-cleaning
+- redwood-laser-cleaning
+- walnut-laser-cleaning
+caution_materials:
+- Metals
+- Plastics
+- Ceramics
+- Glass
+slug: wood-rot-contamination
+lastModified: '2026-01-02T23:49:24.394231'

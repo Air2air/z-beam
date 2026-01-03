@@ -1,8 +1,8 @@
 id: surgical-marking-contamination
 name: Surgical Ink Markings
 category: chemical-residue
-datePublished: '2025-12-29T20:26:06.361301Z'
-dateModified: '2025-12-29T20:26:06.361301Z'
+datePublished: '2026-01-03T07:49:23.561087Z'
+dateModified: '2026-01-03T07:49:23.561087Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/surgical-marking-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Chemical Residue
-  href: /contaminants/chemical-residue
-- label: Industrial
-  href: /contaminants/chemical-residue/industrial
 - label: Surgical Ink Markings
-  href: /contaminants/chemical-residue/industrial/surgical-marking-contamination
+  href: ''
 page_title: 'Surgical Ink Markings Removal: Laser Ablation Clean'
 page_description: "Surgical marking contamination, it arises from chemical residues of inks and dyes used in medical procedures.\
   \ Formation patterns show irregularity, with spots and lines adhering tightly to surfaces like stainless steel instruments\
@@ -28,7 +24,7 @@ page_description: "Surgical marking contamination, it arises from chemical resid
   \ overexposure to prevent damage.\n\nYi-Chun Lin, Ph.D.  \nTaiwan"
 meta_description: 'Surgical Ink Markings: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/surgical-marking-contamination-hero.jpg
     alt: Surgical Ink Markings laser cleaning visualization showing process effects
@@ -56,9 +52,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -67,8 +60,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -78,12 +75,82 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon monoxide
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Carbon dioxide
+        concentration_mg_m3: 100-500
+        exposure_limit_mg_m3: 9000
+        hazard_class: irritant
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 0.1-2.0
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+      - compound: Formaldehyde
+        concentration_mg_m3: 0.5-5.0
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.01
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: half_mask
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal effects may alter surgical instrument surface properties
+    - Residual carbon deposits possible with incomplete removal
+    - Potential for surface discoloration on sensitive metals
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon monoxide
+          concentration_mg_m3: 5-50
+          hazard_class: toxic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 0.1-2.0
+          hazard_class: carcinogenic
+        - compound: Formaldehyde
+          concentration_mg_m3: 0.5-5.0
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Carbon monoxide, Polycyclic Aromatic Hydrocarbons (PAHs), Formaldehyde
+          - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Polycyclic Aromatic Hydrocarbons (PAHs), Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -290,69 +357,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Carbon monoxide
-            concentration_mg_m3: 5-50
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Carbon dioxide
-            concentration_mg_m3: 100-500
-            exposure_limit_mg_m3: 9000
-            hazard_class: irritant
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentration_mg_m3: 0.1-2.0
-            exposure_limit_mg_m3: 0.2
-            hazard_class: carcinogenic
-          - compound: Formaldehyde
-            concentration_mg_m3: 0.5-5.0
-            exposure_limit_mg_m3: 0.37
-            hazard_class: carcinogenic
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.01
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: half_mask
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Thermal effects may alter surgical instrument surface properties
-          - Residual carbon deposits possible with incomplete removal
-          - Potential for surface discoloration on sensitive metals
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Carbon monoxide
-              concentration_mg_m3: 5-50
-              hazard_class: toxic
-            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-              concentration_mg_m3: 0.1-2.0
-              hazard_class: carcinogenic
-            - compound: Formaldehyde
-              concentration_mg_m3: 0.5-5.0
-              hazard_class: carcinogenic
-            description: 'Multiple toxic compounds detected: Carbon monoxide, Polycyclic Aromatic Hydrocarbons (PAHs), Formaldehyde
-              - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Polycyclic Aromatic Hydrocarbons (PAHs), Formaldehyde - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 10
-            rationale: Standard industrial ventilation (10 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 0.4
@@ -365,62 +369,35 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.15
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Plastics
-    - Rubber
-  category: chemical-residue
-  subcategory: industrial
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: industrial
 composition:
 - Gentian Violet
 - Dyes
 - Alcohol
+prohibited_materials:
+- Plastics
+- Rubber
+valid_materials:
+- stainless-steel-laser-cleaning
+- titanium-laser-cleaning
+slug: surgical-marking-contamination
+lastModified: '2026-01-02T23:49:23.561115'

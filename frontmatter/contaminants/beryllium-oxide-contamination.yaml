@@ -1,8 +1,8 @@
 id: beryllium-oxide-contamination
 name: Beryllium Oxide Contamination
 category: chemical-residue
-datePublished: '2025-12-29T20:26:04.286528Z'
-dateModified: '2025-12-29T20:26:04.286528Z'
+datePublished: '2026-01-03T07:49:17.306791Z'
+dateModified: '2026-01-03T07:49:17.306791Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/hazardous/beryllium-oxide-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Chemical Residue
-  href: /contaminants/chemical-residue
-- label: Hazardous
-  href: /contaminants/chemical-residue/hazardous
 - label: Beryllium Oxide Contamination
-  href: /contaminants/chemical-residue/hazardous/beryllium-oxide-contamination
+  href: ''
 page_title: 'Beryllium Oxide Contamination Removal: Laser Ablation'
 page_description: 'Beryllium oxide contamination forms during laser processing of beryllium surfaces. Exposure to air causes
   oxide layer buildup, so it adheres tightly and covers evenly. Before cleaning, layer exhibits ceramic-like hardness, which
@@ -33,7 +29,7 @@ page_description: 'Beryllium oxide contamination forms during laser processing o
   so outcomes improve uniformity on samples.'
 meta_description: 'Beryllium Oxide Contamination: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves
   substrate integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/beryllium-oxide-contamination-hero.jpg
     alt: Beryllium Oxide Contamination laser cleaning visualization showing process effects
@@ -70,8 +66,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -81,12 +77,69 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Beryllium Oxide
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 5.0e-05
+        hazard_class: toxic
+      - compound: Beryllium
+        concentration_mg_m3: 0.1
+        exposure_limit_mg_m3: 5.0e-05
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.85
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be carefully controlled to minimize fume generation
+    - Incomplete removal may create mixed hazardous waste
+    - Surface temperature affects decomposition products
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Beryllium Oxide
+          concentration_mg_m3: 0.5
+          hazard_class: toxic
+        - compound: Beryllium
+          concentration_mg_m3: 0.1
+          hazard_class: toxic
+        description: Beryllium Oxide and Beryllium generation - multiple toxic compounds
+        mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 15
+        rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with HEPA
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -291,56 +344,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Beryllium Oxide
-            concentration_mg_m3: 0.5
-            exposure_limit_mg_m3: 5.0e-05
-            hazard_class: toxic
-          - compound: Beryllium
-            concentration_mg_m3: 0.1
-            exposure_limit_mg_m3: 5.0e-05
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.85
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser parameters must be carefully controlled to minimize fume generation
-          - Incomplete removal may create mixed hazardous waste
-          - Surface temperature affects decomposition products
-          toxic_gas_risk:
-            severity: high
-            primary_hazards:
-            - compound: Beryllium Oxide
-              concentration_mg_m3: 0.5
-              hazard_class: toxic
-            - compound: Beryllium
-              concentration_mg_m3: 0.1
-              hazard_class: toxic
-            description: Beryllium Oxide and Beryllium generation - multiple toxic compounds
-            mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 15
-            rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with HEPA
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 4.1
@@ -353,54 +356,31 @@ relationships:
           thermal_conductivity: 280
           thermal_diffusivity: 105
           vaporization_temperature: 3900
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  category: chemical-residue
-  subcategory: hazardous
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: copper-beryllium-alloy-laser-cleaning
-            title: Copper Beryllium Alloy Laser Cleaning
-            url: /materials/general/misc/copper-beryllium-alloy-laser-cleaning
-            image: /images/material/copper-beryllium-alloy-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: copper-beryllium-alloy-laser-cleaning
+    title: Copper Beryllium Alloy Laser Cleaning
+    url: /materials/general/misc/copper-beryllium-alloy-laser-cleaning
+    image: /images/material/copper-beryllium-alloy-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: hazardous
 composition:
 - BeO
 - Be Compounds
+prohibited_materials: []
+valid_materials:
+- steel-laser-cleaning
+slug: beryllium-oxide-contamination
+lastModified: '2026-01-02T23:49:17.306838'

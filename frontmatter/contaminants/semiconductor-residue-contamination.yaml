@@ -1,8 +1,8 @@
 id: semiconductor-residue-contamination
 name: Semiconductor Processing Residue
 category: chemical-residue
-datePublished: '2025-12-29T20:26:06.197243Z'
-dateModified: '2025-12-29T20:26:06.197243Z'
+datePublished: '2026-01-03T07:49:23.098698Z'
+dateModified: '2026-01-03T07:49:23.098698Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Chemical Residue
-  href: /contaminants/chemical-residue
-- label: Industrial
-  href: /contaminants/chemical-residue/industrial
 - label: Semiconductor Processing Residue
-  href: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
+  href: ''
 page_title: 'Semiconductor Processing Residue Removal: Laser Ablatio'
 page_description: 'Semiconductor residue contamination typically builds up during wafer processing, forming thin, uneven layers
   that cling tightly to silicon surfaces. These residues, often chemical byproducts from etching or deposition steps, create
@@ -27,7 +23,7 @@ page_description: 'Semiconductor residue contamination typically builds up durin
   achieving a clean finish without compromising device integrity.'
 meta_description: 'Semiconductor Processing Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves
   substrate integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/semiconductor-residue-contamination-hero.jpg
     alt: Semiconductor Processing Residue laser cleaning visualization showing process effects
@@ -64,8 +60,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 relationships:
   safety:
     regulatory_standards:
@@ -75,12 +71,85 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Hydrogen Fluoride
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 2.5
+        hazard_class: corrosive
+      - compound: Arsine
+        concentration_mg_m3: 0.05
+        exposure_limit_mg_m3: 0.16
+        hazard_class: toxic
+      - compound: Phosphine
+        concentration_mg_m3: 0.1
+        exposure_limit_mg_m3: 0.42
+        hazard_class: toxic
+      - compound: Silicon Tetrafluoride
+        concentration_mg_m3: 15.0
+        exposure_limit_mg_m3: 34.0
+        hazard_class: irritant
+      - compound: Metal oxides (arsenic, antimony)
+        concentration_mg_m3: 1.2
+        exposure_limit_mg_m3: 0.01
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.85
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to prevent substrate damage and excessive fume generation
+    - Residue composition varies significantly by semiconductor process - require material analysis
+    - Dopant materials (arsenic, phosphorus, boron) create highly toxic decomposition products
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Arsine
+          concentration_mg_m3: 0.05
+          hazard_class: toxic
+        - compound: Phosphine
+          concentration_mg_m3: 0.1
+          hazard_class: toxic
+        - compound: Metal oxides (arsenic, antimony)
+          concentration_mg_m3: 1.2
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Arsine, Phosphine, Metal oxides (arsenic, antimony) - requires enhanced
+          protection'
+        mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: scrubber
+        minimum_air_changes_per_hour: 12
+        rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with scrubber
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -294,72 +363,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Hydrogen Fluoride
-            concentration_mg_m3: 2.5
-            exposure_limit_mg_m3: 2.5
-            hazard_class: corrosive
-          - compound: Arsine
-            concentration_mg_m3: 0.05
-            exposure_limit_mg_m3: 0.16
-            hazard_class: toxic
-          - compound: Phosphine
-            concentration_mg_m3: 0.1
-            exposure_limit_mg_m3: 0.42
-            hazard_class: toxic
-          - compound: Silicon Tetrafluoride
-            concentration_mg_m3: 15.0
-            exposure_limit_mg_m3: 34.0
-            hazard_class: irritant
-          - compound: Metal oxides (arsenic, antimony)
-            concentration_mg_m3: 1.2
-            exposure_limit_mg_m3: 0.01
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.85
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser parameters must be optimized to prevent substrate damage and excessive fume generation
-          - Residue composition varies significantly by semiconductor process - require material analysis
-          - Dopant materials (arsenic, phosphorus, boron) create highly toxic decomposition products
-          toxic_gas_risk:
-            severity: high
-            primary_hazards:
-            - compound: Arsine
-              concentration_mg_m3: 0.05
-              hazard_class: toxic
-            - compound: Phosphine
-              concentration_mg_m3: 0.1
-              hazard_class: toxic
-            - compound: Metal oxides (arsenic, antimony)
-              concentration_mg_m3: 1.2
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Arsine, Phosphine, Metal oxides (arsenic, antimony) - requires
-              enhanced protection'
-            mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: scrubber
-            minimum_air_changes_per_hour: 12
-            rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with scrubber
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -372,130 +375,104 @@ relationships:
           thermal_conductivity: 0.35
           thermal_diffusivity: 0.25
           vaporization_temperature: 600
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Flexible Substrates
-    - Soft Materials
-  category: chemical-residue
-  subcategory: industrial
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        ceramics:
-          title: Ceramic Materials
-          description: Ceramic and glass materials affected by this contamination
-          items:
-          - id: alumina-laser-cleaning
-            title: Alumina
-            url: /materials/ceramic/oxide/alumina-laser-cleaning
-            image: /images/material/alumina-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: aluminum-nitride-laser-cleaning
-            title: Aluminum Nitride
-            url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-            image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-carbide-laser-cleaning
-            title: Boron Carbide
-            url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
-            image: /images/material/boron-carbide-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: carbide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-nitride-laser-cleaning
-            title: Boron Nitride
-            url: /materials/ceramic/technical/boron-nitride-laser-cleaning
-            image: /images/material/boron-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: silicon-nitride-laser-cleaning
-            title: Silicon Nitride
-            url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
-            image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zirconia-laser-cleaning
-            title: Zirconia
-            url: /materials/ceramic/oxide/zirconia-laser-cleaning
-            image: /images/material/zirconia-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: quartz-laser-cleaning
-            title: Quartz Laser Cleaning
-            url: /materials/general/misc/quartz-laser-cleaning
-            image: /images/material/quartz-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: silicon-carbide-laser-cleaning
-            title: Silicon Carbide Laser Cleaning
-            url: /materials/general/misc/silicon-carbide-laser-cleaning
-            image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: silicon-wafers-laser-cleaning
-            title: Silicon Wafers Laser Cleaning
-            url: /materials/general/misc/silicon-wafers-laser-cleaning
-            image: /images/material/silicon-wafers-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: alumina-laser-cleaning
+    title: Alumina
+    url: /materials/ceramic/oxide/alumina-laser-cleaning
+    image: /images/material/alumina-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-nitride-laser-cleaning
+    title: Aluminum Nitride
+    url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+    image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-carbide-laser-cleaning
+    title: Boron Carbide
+    url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
+    image: /images/material/boron-carbide-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: carbide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-nitride-laser-cleaning
+    title: Boron Nitride
+    url: /materials/ceramic/technical/boron-nitride-laser-cleaning
+    image: /images/material/boron-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: quartz-laser-cleaning
+    title: Quartz Laser Cleaning
+    url: /materials/general/misc/quartz-laser-cleaning
+    image: /images/material/quartz-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-carbide-laser-cleaning
+    title: Silicon Carbide Laser Cleaning
+    url: /materials/general/misc/silicon-carbide-laser-cleaning
+    image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-nitride-laser-cleaning
+    title: Silicon Nitride
+    url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
+    image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-wafers-laser-cleaning
+    title: Silicon Wafers Laser Cleaning
+    url: /materials/general/misc/silicon-wafers-laser-cleaning
+    image: /images/material/silicon-wafers-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zirconia-laser-cleaning
+    title: Zirconia
+    url: /materials/ceramic/oxide/zirconia-laser-cleaning
+    image: /images/material/zirconia-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: industrial
 composition:
 - SiO₂
 - Si₃N₄
 - Photoresist
 - Metal Films
+prohibited_materials:
+- Flexible Substrates
+- Soft Materials
+valid_materials:
+- alumina-laser-cleaning
+- aluminum-nitride-laser-cleaning
+- boron-carbide-laser-cleaning
+- boron-nitride-laser-cleaning
+- silicon-carbide-sic-laser-cleaning
+- silicon-nitride-laser-cleaning
+- zirconia-laser-cleaning
+slug: semiconductor-residue-contamination
+lastModified: '2026-01-02T23:49:23.098728'

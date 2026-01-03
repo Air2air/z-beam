@@ -1,8 +1,8 @@
 id: fuel-varnish-contamination
 name: Fuel System Varnish
 category: organic-residue
-datePublished: '2025-12-29T20:26:05.066718Z'
-dateModified: '2025-12-29T20:26:05.066718Z'
+datePublished: '2026-01-03T07:49:19.933084Z'
+dateModified: '2026-01-03T07:49:19.933084Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/fuel-varnish-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Petroleum
-  href: /contaminants/organic-residue/petroleum
 - label: Fuel System Varnish
-  href: /contaminants/organic-residue/petroleum/fuel-varnish-contamination
+  href: ''
 page_title: 'Fuel System Varnish Removal: Laser Ablation Clean Remov'
 page_description: "Fuel varnish contamination shows sticky adhesion on surfaces. It forms from degraded organic residues in\
   \ fuel systems. After exposure to air and heat, layer builds unevenly and hardens. This creates unique patterns like patchy\
@@ -26,7 +22,7 @@ page_description: "Fuel varnish contamination shows sticky adhesion on surfaces.
   \ removes contamination effectively from engine parts. \n\nIkmanda Roswati, Ph.D."
 meta_description: 'Fuel System Varnish: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/fuel-varnish-contamination-hero.jpg
     alt: Fuel System Varnish laser cleaning visualization showing process effects
@@ -63,8 +59,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -74,12 +70,88 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: high
+        description: Flammable residues or combustible dust with significant fire/explosion potential
+        mitigation: Fire extinguisher within 10m, avoid enclosed spaces, monitor for hot spots, spark-resistant tools
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Acetaldehyde
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 25
+        hazard_class: irritant
+      - compound: Formaldehyde
+        concentration_mg_m3: 0.5-5
+        exposure_limit_mg_m3: 0.3
+        hazard_class: carcinogenic
+      - compound: Acrolein
+        concentration_mg_m3: 0.1-1
+        exposure_limit_mg_m3: 0.1
+        hazard_class: toxic
+      - compound: Benzene
+        concentration_mg_m3: 0.5-3
+        exposure_limit_mg_m3: 0.5
+        hazard_class: carcinogenic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 10-50
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Protects against thermal hazards
+    substrate_compatibility_warnings:
+    - Avoid laser cleaning on thin-walled fuel system components to prevent burn-through
+    - Ensure complete fuel system purging before laser cleaning operations
+    - Test on small area first to assess substrate damage potential
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Formaldehyde
+          concentration_mg_m3: 0.5-5
+          hazard_class: carcinogenic
+        - compound: Acrolein
+          concentration_mg_m3: 0.1-1
+          hazard_class: toxic
+        - compound: Benzene
+          concentration_mg_m3: 0.5-3
+          hazard_class: carcinogenic
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 10-50
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Formaldehyde, Acrolein, Benzene - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Enhanced ventilation required due to fire/explosion risk - 12 ACH with carbon
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -267,75 +339,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: high
-            description: Flammable residues or combustible dust with significant fire/explosion potential
-            mitigation: Fire extinguisher within 10m, avoid enclosed spaces, monitor for hot spots, spark-resistant tools
-          fumes_generated:
-          - compound: Acetaldehyde
-            concentration_mg_m3: 5-25
-            exposure_limit_mg_m3: 25
-            hazard_class: irritant
-          - compound: Formaldehyde
-            concentration_mg_m3: 0.5-5
-            exposure_limit_mg_m3: 0.3
-            hazard_class: carcinogenic
-          - compound: Acrolein
-            concentration_mg_m3: 0.1-1
-            exposure_limit_mg_m3: 0.1
-            hazard_class: toxic
-          - compound: Benzene
-            concentration_mg_m3: 0.5-3
-            exposure_limit_mg_m3: 0.5
-            hazard_class: carcinogenic
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 10-50
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Protects against thermal hazards
-          substrate_compatibility_warnings:
-          - Avoid laser cleaning on thin-walled fuel system components to prevent burn-through
-          - Ensure complete fuel system purging before laser cleaning operations
-          - Test on small area first to assess substrate damage potential
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Formaldehyde
-              concentration_mg_m3: 0.5-5
-              hazard_class: carcinogenic
-            - compound: Acrolein
-              concentration_mg_m3: 0.1-1
-              hazard_class: toxic
-            - compound: Benzene
-              concentration_mg_m3: 0.5-3
-              hazard_class: carcinogenic
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 10-50
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Formaldehyde, Acrolein, Benzene - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Enhanced ventilation required due to fire/explosion risk - 12 ACH with carbon
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -348,71 +351,45 @@ relationships:
           thermal_conductivity: 0.18
           thermal_diffusivity: 0.11
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Plastics
-    - Rubber
-  category: organic-residue
-  subcategory: petroleum
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: petroleum
 composition:
 - Gum
 - Varnish
 - Carbon
+prohibited_materials:
+- Plastics
+- Rubber
+valid_materials:
+- aluminum-laser-cleaning
+- brass-laser-cleaning
+- steel-laser-cleaning
+slug: fuel-varnish-contamination
+lastModified: '2026-01-02T23:49:19.933119'

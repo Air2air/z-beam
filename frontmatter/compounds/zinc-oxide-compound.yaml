@@ -3,8 +3,8 @@ name: Zinc Oxide
 display_name: Zinc Oxide (ZnO)
 category: metal_fume
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:04.647391Z'
-dateModified: '2025-12-29T20:28:04.647391Z'
+datePublished: '2026-01-03T07:49:26.192369Z'
+dateModified: '2026-01-03T07:49:26.192369Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/metal-fume/metal-oxide/zinc-oxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Metal Fume
-  href: /compounds/metal_fume
-- label: Metal Oxide
-  href: /compounds/metal_fume/metal_oxide
 - label: Zinc Oxide
-  href: /compounds/metal-fume/metal-oxide/zinc-oxide-compound
+  href: ''
 page_title: 'Zinc Oxide: Respiratory Irritant'
 page_description: When handling zinc oxide in workshop setups, workers often start by sifting through its fine, powdery form
   that resists clumping under humid conditions, making .
@@ -107,9 +103,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -121,8 +114,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 health_effects_keywords:
 - metal_fume_fever
 - respiratory_irritation
@@ -143,7 +139,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -155,7 +151,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -166,12 +162,6 @@ relationships:
       items:
       - type: chemical_properties
         id: zinc-oxide-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -188,10 +178,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -209,18 +196,29 @@ relationships:
           ec_number: 215-222-5
           pubchem_cid: '14806'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: zinc-oxide-toxicology
+      - route: inhalation
+        effect: Metal fume fever (flu-like symptoms including fever, chills, and muscle aches)
+        severity: moderate
+        onset: short-term
+      - route: skin_contact
+        effect: Mild irritation or contact dermatitis
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Irritation, redness, and possible conjunctivitis
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal upset including nausea and vomiting
+        severity: low
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -232,12 +230,9 @@ relationships:
         special_notes: Metal fume fever primary concern. Prevent inhalation during welding/cutting galvanized metal. Symptoms
           develop 4-12 hours post-exposure. Well-ventilated work areas essential.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -253,10 +248,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -268,17 +260,17 @@ relationships:
         acgih_tlv_mg_m3: 2
         workplace_exposure:
           osha_pel:
-            twa_8hr: 15 mg/m³ (total dust), 5 mg/m³ (respirable fraction)
+            twa_8hr: null
             stel_15min: null
-            ceiling: null
+            ceiling: 5 mg/m³
           niosh_rel:
-            twa_8hr: 5 mg/m³ (fume), 10 mg/m³ (total dust)
-            stel_15min: 10 mg/m³ (fume) - 15 min
+            twa_8hr: 5 mg/m³
+            stel_15min: 10 mg/m³
             ceiling: null
             idlh: 500 mg/m³ (fume)
           acgih_tlv:
-            twa_8hr: 2 mg/m³ (respirable fraction)
-            stel_15min: 10 mg/m³ (respirable fraction)
+            twa_8hr: 2 mg/m³
+            stel_15min: null
             ceiling: null
           biological_exposure_indices:
           - metabolite: Zinc
@@ -293,9 +285,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -313,10 +302,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -328,6 +314,7 @@ relationships:
           flammability: 0
           reactivity: 0
           special: null
+          instability: 0
         epa_hazard_categories:
         - Specific target organ toxicity (respiratory)
         sara_title_iii: false
@@ -336,10 +323,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -358,10 +342,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -390,10 +371,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -418,12 +396,6 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Battery Leakage Corrosion
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -446,30 +418,17 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handling zinc oxide compounds often stirs up tricky fumes in workshops, demanding solid protection to
-    keep workers safe from inhalation risks during tasks like welding or mixing. Gloves made from tough, chemical-resistant
-    materials shield hands against skin irritation from direct contact. Eye gear, such as sealed goggles, proves essential
-    to block out any airborne particles that could cause discomfort. For breathing safety, a well-fitted respirator with filters
-    designed for metal fumes stands out as a must, especially in enclosed spaces where vapors linger. Full-body coveralls
-    help prevent dust from settling on clothes and skin, while sturdy boots guard feet from spills. In laser cleaning setups
-    involving these materials, adding face shields over respirators adds an extra layer against intense light and scattered
-    debris, ensuring smoother operations without health worries.
-  images:
-    hero:
-      url: /images/compound/zinc-oxide-compound-hero.jpg
-      alt: Zinc Oxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/zinc-oxide-compound-micro.jpg
-      alt: Zinc Oxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: metal_oxide
+ppe_requirements: Handling zinc oxide compounds often stirs up tricky fumes in workshops, demanding solid protection to keep
+  workers safe from inhalation risks during tasks like welding or mixing. Gloves made from tough, chemical-resistant materials
+  shield hands against skin irritation from direct contact. Eye gear, such as sealed goggles, proves essential to block out
+  any airborne particles that could cause discomfort. For breathing safety, a well-fitted respirator with filters designed
+  for metal fumes stands out as a must, especially in enclosed spaces where vapors linger. Full-body coveralls help prevent
+  dust from settling on clothes and skin, while sturdy boots guard feet from spills. In laser cleaning setups involving these
+  materials, adding face shields over respirators adds an extra layer against intense light and scattered debris, ensuring
+  smoother operations without health worries.
+formula: ZnO
 faq:
 - question: As a laser cleaning operator working on galvanized steel, how do zinc oxide fumes differ from iron oxide dust
     in terms of health risks, and what protection should I use to stay safe?
@@ -479,4 +438,5 @@ faq:
     a P100 filter rated for metal fumes, ensure engineering controls like local exhaust ventilation capture at least 90% of
     fumes at the source, and monitor personal exposure to keep below the OSHA PEL of 5 mg/m³ (as ZnO) over an 8-hour shift.
     Perform regular air sampling and medical check-ups if working in high-fume environments to detect early signs of irritation.
-formula: ZnO
+slug: zinc-oxide-compound
+lastModified: '2026-01-02T23:49:26.192414'

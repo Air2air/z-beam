@@ -3,8 +3,8 @@ name: Styrene
 display_name: Styrene (C₈H₈)
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:03.710672Z'
-dateModified: '2025-12-29T20:28:03.710672Z'
+datePublished: '2026-01-03T07:49:26.119476Z'
+dateModified: '2026-01-03T07:49:26.119476Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/aromatic-hydrocarbon/styrene-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Irritant
-  href: /compounds/irritant
-- label: Aromatic Hydrocarbon
-  href: /compounds/irritant/aromatic_hydrocarbon
 - label: Styrene
-  href: /compounds/irritant/aromatic-hydrocarbon/styrene-compound
+  href: ''
 page_title: 'Styrene: Respiratory Irritant'
 page_description: Volatile enough to evaporate quickly, styrene acts as a fundamental monomer in crafting tough plastics like
   polystyrene.
@@ -128,8 +124,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 health_effects_keywords:
 - respiratory_irritation
 - neurological_effects
@@ -173,12 +169,6 @@ relationships:
       items:
       - type: chemical_properties
         id: styrene-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -195,10 +185,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -214,18 +201,29 @@ relationships:
           ec_number: 202-851-5
           pubchem_cid: '7501'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: styrene-toxicology
+      - route: inhalation
+        effect: Central nervous system depression (dizziness, headache, fatigue)
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Respiratory tract irritation and potential carcinogenic effects
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation and dermatitis
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Eye irritation, redness, and possible corneal damage
+        severity: moderate
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -236,12 +234,9 @@ relationships:
         special_notes: Neurotoxin and probable carcinogen (IARC 2B). Skin absorption significant. Extremely irritating. May
           cause CNS depression.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -261,10 +256,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -276,12 +268,12 @@ relationships:
         acgih_tlv_mg_m3: 85
         workplace_exposure:
           osha_pel:
-            twa_8hr: 100 ppm (425 mg/m³)
-            stel_15min: 200 ppm (850 mg/m³)
-            ceiling: null
+            twa_8hr: 100 ppm
+            stel_15min: null
+            ceiling: 200 ppm
           niosh_rel:
-            twa_8hr: 50 ppm (215 mg/m³)
-            stel_15min: 100 ppm (425 mg/m³)
+            twa_8hr: 50 ppm
+            stel_15min: 100 ppm
             ceiling: null
             idlh: 700 ppm
           acgih_tlv:
@@ -301,9 +293,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -326,10 +315,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -341,6 +327,7 @@ relationships:
           flammability: 3
           reactivity: 2
           special: null
+          instability: 2
         epa_hazard_categories:
         - Flammability
         - Acute toxicity
@@ -353,10 +340,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -374,10 +358,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -405,10 +386,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -421,12 +399,6 @@ relationships:
         frequency: common
         severity: moderate
         typical_context: Pyrolysis of styrene-butadiene rubber
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -437,12 +409,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -475,44 +441,30 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: 'Handling styrene-based compounds demands careful protection against their irritating nature, unlike milder
-    plastics that barely bother the skin—here, exposure can sting eyes, airways, and surfaces quickly, so gear up thoroughly
-    to stay safe during mixing, molding, or cleanup tasks.
-
-
-    Workers in factories shaping these materials into durable sheets or foams should always don sealed goggles, shielding
-    eyes from any misty vapors or accidental splashes that arise in heated environments. Thick, chemical-resistant gloves
-    form the next layer, gripping tools firmly while blocking the sticky residue from seeping through and causing rashes on
-    hands or arms; pair them with full-cover aprons or suits to safeguard clothing and body from drips during pouring or assembly
-    lines.
-
-
-    Breathing becomes tricky around the sharp odors released in high-volume production or when grinding scraps, so a fitted
-    respirator with cartridges tuned for organic irritants keeps lungs clear, especially in enclosed spaces lacking strong
-    airflow. For specialized jobs like laser cleaning these compounds—zapping away contaminants without harsh chemicals—add
-    face shields over goggles to deflect any scattered particles or reflected light, ensuring visibility stays sharp amid
-    the process''s intense focus.
-
-
-    Ventilation hoods or fans prove essential too, whisking away fumes before they build up, and after shifts, thorough washing
-    stations help rinse off any lingering traces. This setup not only eases the irritant risks but supports smooth operations
-    in industries relying on styrene''s versatile strength for packaging or insulation.'
-  images:
-    hero:
-      url: /images/compound/styrene-compound-hero.jpg
-      alt: Styrene laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/styrene-compound-micro.jpg
-      alt: Styrene microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: aromatic_hydrocarbon
+ppe_requirements: 'Handling styrene-based compounds demands careful protection against their irritating nature, unlike milder
+  plastics that barely bother the skin—here, exposure can sting eyes, airways, and surfaces quickly, so gear up thoroughly
+  to stay safe during mixing, molding, or cleanup tasks.
+
+
+  Workers in factories shaping these materials into durable sheets or foams should always don sealed goggles, shielding eyes
+  from any misty vapors or accidental splashes that arise in heated environments. Thick, chemical-resistant gloves form the
+  next layer, gripping tools firmly while blocking the sticky residue from seeping through and causing rashes on hands or
+  arms; pair them with full-cover aprons or suits to safeguard clothing and body from drips during pouring or assembly lines.
+
+
+  Breathing becomes tricky around the sharp odors released in high-volume production or when grinding scraps, so a fitted
+  respirator with cartridges tuned for organic irritants keeps lungs clear, especially in enclosed spaces lacking strong airflow.
+  For specialized jobs like laser cleaning these compounds—zapping away contaminants without harsh chemicals—add face shields
+  over goggles to deflect any scattered particles or reflected light, ensuring visibility stays sharp amid the process''s
+  intense focus.
+
+
+  Ventilation hoods or fans prove essential too, whisking away fumes before they build up, and after shifts, thorough washing
+  stations help rinse off any lingering traces. This setup not only eases the irritant risks but supports smooth operations
+  in industries relying on styrene''s versatile strength for packaging or insulation.'
+formula: C₈H₈
 faq:
 - question: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective
     gear should I use to avoid skin irritation from exposure, especially since it's a stronger irritant than something like
@@ -522,4 +474,5 @@ faq:
     Use safety goggles and a respirator with organic vapor cartridges if ventilation is inadequate, ensuring airborne exposure
     stays below the OSHA PEL of 100 ppm (8-hour TWA). Always perform a skin check after shifts and wash exposed areas immediately
     with soap and water if contact occurs.
-formula: C₈H₈
+slug: styrene-compound
+lastModified: '2026-01-02T23:49:26.119506'

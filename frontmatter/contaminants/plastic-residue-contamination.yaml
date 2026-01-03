@@ -1,8 +1,8 @@
 id: plastic-residue-contamination
 name: Degraded Polymer Deposits
 category: organic-residue
-datePublished: '2025-12-29T20:26:05.861010Z'
-dateModified: '2025-12-29T20:26:05.861010Z'
+datePublished: '2026-01-03T07:49:22.165629Z'
+dateModified: '2026-01-03T07:49:22.165629Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/polymer/plastic-residue-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Polymer
-  href: /contaminants/organic-residue/polymer
 - label: Degraded Polymer Deposits
-  href: /contaminants/organic-residue/polymer/plastic-residue-contamination
+  href: ''
 page_title: 'Degraded Polymer Deposits Removal: Laser Ablation Clean'
 page_description: 'Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
   films that adhere tenaciously to substrates. This contamination, derived from organic residues, exhibits patterns influenced
@@ -31,7 +27,7 @@ page_description: 'Plastic residue contamination, it manifests uniquely in laser
   Alessandro Moretti, Ph.D.'
 meta_description: 'Degraded Polymer Deposits: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/plastic-residue-contamination-hero.jpg
     alt: Degraded Polymer Deposits laser cleaning visualization showing process effects
@@ -55,9 +51,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -69,8 +62,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -80,12 +76,92 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 50-200
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Hydrogen Cyanide
+        concentration_mg_m3: 5-30
+        exposure_limit_mg_m3: 5
+        hazard_class: toxic
+      - compound: Benzene
+        concentration_mg_m3: 10-50
+        exposure_limit_mg_m3: 0.5
+        hazard_class: carcinogenic
+      - compound: Formaldehyde
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 0.3
+        hazard_class: carcinogenic
+      - compound: Acrolein
+        concentration_mg_m3: 2-10
+        exposure_limit_mg_m3: 0.1
+        hazard_class: irritant
+      - compound: Hydrogen Chloride
+        concentration_mg_m3: 10-40
+        exposure_limit_mg_m3: 2
+        hazard_class: corrosive
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal damage possible on thin metal substrates
+    - May alter surface finish on reflective materials
+    - Potential for substrate heating with prolonged exposure
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 50-200
+          hazard_class: toxic
+        - compound: Hydrogen Cyanide
+          concentration_mg_m3: 5-30
+          hazard_class: toxic
+        - compound: Benzene
+          concentration_mg_m3: 10-50
+          hazard_class: carcinogenic
+        - compound: Formaldehyde
+          concentration_mg_m3: 5-25
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Carbon Monoxide, Hydrogen Cyanide, Benzene - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Benzene, Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -296,80 +372,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 50-200
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Hydrogen Cyanide
-            concentration_mg_m3: 5-30
-            exposure_limit_mg_m3: 5
-            hazard_class: toxic
-          - compound: Benzene
-            concentration_mg_m3: 10-50
-            exposure_limit_mg_m3: 0.5
-            hazard_class: carcinogenic
-          - compound: Formaldehyde
-            concentration_mg_m3: 5-25
-            exposure_limit_mg_m3: 0.3
-            hazard_class: carcinogenic
-          - compound: Acrolein
-            concentration_mg_m3: 2-10
-            exposure_limit_mg_m3: 0.1
-            hazard_class: irritant
-          - compound: Hydrogen Chloride
-            concentration_mg_m3: 10-40
-            exposure_limit_mg_m3: 2
-            hazard_class: corrosive
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Thermal damage possible on thin metal substrates
-          - May alter surface finish on reflective materials
-          - Potential for substrate heating with prolonged exposure
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 50-200
-              hazard_class: toxic
-            - compound: Hydrogen Cyanide
-              concentration_mg_m3: 5-30
-              hazard_class: toxic
-            - compound: Benzene
-              concentration_mg_m3: 10-50
-              hazard_class: carcinogenic
-            - compound: Formaldehyde
-              concentration_mg_m3: 5-25
-              hazard_class: carcinogenic
-            description: 'Multiple toxic compounds detected: Carbon Monoxide, Hydrogen Cyanide, Benzene - requires enhanced
-              protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Benzene, Formaldehyde - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -382,252 +384,237 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.1
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Plastics
-    - Rubber
-    - Wood
-  category: organic-residue
-  subcategory: polymer
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        glass:
-          title: Glass Materials
-          description: Materials in the glass category
-          items:
-          - id: aluminosilicate-glass-laser-cleaning
-            title: Aluminosilicate Glass
-            url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
-            image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: borosilicate-glass-laser-cleaning
-            title: Borosilicate Glass
-            url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
-            image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: crown-glass-laser-cleaning
-            title: Crown Glass
-            url: /materials/glass/soda-lime/crown-glass-laser-cleaning
-            image: /images/material/crown-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: float-glass-laser-cleaning
-            title: Float Glass
-            url: /materials/glass/soda-lime/float-glass-laser-cleaning
-            image: /images/material/float-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: fused-silica-laser-cleaning
-            title: Fused Silica
-            url: /materials/glass/soda-lime/fused-silica-laser-cleaning
-            image: /images/material/fused-silica-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: gorilla-glass-laser-cleaning
-            title: Gorilla Glass
-            url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
-            image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tempered-glass-laser-cleaning
-            title: Tempered Glass
-            url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
-            image: /images/material/tempered-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: specialty-glass
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: chromium-laser-cleaning
-            title: Chromium
-            url: /materials/metal/specialty/chromium-laser-cleaning
-            image: /images/material/chromium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cobalt-laser-cleaning
-            title: Cobalt
-            url: /materials/metal/specialty/cobalt-laser-cleaning
-            image: /images/material/cobalt-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: lead-laser-cleaning
-            title: Lead
-            url: /materials/metal/non-ferrous/lead-laser-cleaning
-            image: /images/material/lead-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: nickel-laser-cleaning
-            title: Nickel
-            url: /materials/metal/specialty/nickel-laser-cleaning
-            image: /images/material/nickel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tin-laser-cleaning
-            title: Tin
-            url: /materials/metal/alloy/tin-laser-cleaning
-            image: /images/material/tin-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zinc-laser-cleaning
-            title: Zinc
-            url: /materials/metal/alloy/zinc-laser-cleaning
-            image: /images/material/zinc-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminosilicate-glass-laser-cleaning
+    title: Aluminosilicate Glass
+    url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+    image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: borosilicate-glass-laser-cleaning
+    title: Borosilicate Glass
+    url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+    image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: chromium-laser-cleaning
+    title: Chromium
+    url: /materials/metal/specialty/chromium-laser-cleaning
+    image: /images/material/chromium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cobalt-laser-cleaning
+    title: Cobalt
+    url: /materials/metal/specialty/cobalt-laser-cleaning
+    image: /images/material/cobalt-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: crown-glass-laser-cleaning
+    title: Crown Glass
+    url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+    image: /images/material/crown-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: float-glass-laser-cleaning
+    title: Float Glass
+    url: /materials/glass/soda-lime/float-glass-laser-cleaning
+    image: /images/material/float-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: fused-silica-laser-cleaning
+    title: Fused Silica
+    url: /materials/glass/soda-lime/fused-silica-laser-cleaning
+    image: /images/material/fused-silica-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: gorilla-glass-laser-cleaning
+    title: Gorilla Glass
+    url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+    image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: lead-laser-cleaning
+    title: Lead
+    url: /materials/metal/non-ferrous/lead-laser-cleaning
+    image: /images/material/lead-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nickel-laser-cleaning
+    title: Nickel
+    url: /materials/metal/specialty/nickel-laser-cleaning
+    image: /images/material/nickel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tempered-glass-laser-cleaning
+    title: Tempered Glass
+    url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+    image: /images/material/tempered-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: specialty-glass
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tin-laser-cleaning
+    title: Tin
+    url: /materials/metal/alloy/tin-laser-cleaning
+    image: /images/material/tin-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-laser-cleaning
+    title: Zinc
+    url: /materials/metal/alloy/zinc-laser-cleaning
+    image: /images/material/zinc-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: polymer
 composition:
 - Polyethylene
 - Polypropylene
 - PVC
 - Additives
+prohibited_materials:
+- Plastics
+- Rubber
+- Wood
+valid_materials:
+- aluminosilicate-glass-laser-cleaning
+- aluminum-laser-cleaning
+- borosilicate-glass-laser-cleaning
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- cast-iron-laser-cleaning
+- chromium-laser-cleaning
+- cobalt-laser-cleaning
+- concrete-laser-cleaning
+- copper-laser-cleaning
+- crown-glass-laser-cleaning
+- float-glass-laser-cleaning
+- fused-silica-laser-cleaning
+- gorilla-glass-laser-cleaning
+- lead-laser-cleaning
+- nickel-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+- tempered-glass-laser-cleaning
+- tin-laser-cleaning
+- titanium-laser-cleaning
+- zinc-laser-cleaning
+slug: plastic-residue-contamination
+lastModified: '2026-01-02T23:49:22.165659'

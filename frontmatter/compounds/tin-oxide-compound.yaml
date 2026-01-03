@@ -3,8 +3,8 @@ name: Tin Oxide
 display_name: Tin Oxide (SnO₂)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2025-12-29T20:28:22.857916Z'
-dateModified: '2025-12-29T20:28:22.857916Z'
+datePublished: '2026-01-03T07:49:27.630750Z'
+dateModified: '2026-01-03T07:49:27.630750Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/tin-oxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Particulate
-  href: /compounds/particulate
-- label: Metal Oxide
-  href: /compounds/particulate/metal_oxide
 - label: Tin Oxide
-  href: /compounds/particulate/metal-oxide/tin-oxide-compound
+  href: ''
 page_title: 'Tin Oxide: Hazardous Emission'
 page_description: Tin oxide stands out for its remarkable durability in harsh environments.
 meta_description: 'Tin Oxide: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
@@ -142,8 +138,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - respiratory_irritation
 monitoring_required: true
@@ -161,7 +157,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -173,7 +169,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -198,12 +194,6 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Tin Plating Residue
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -213,37 +203,37 @@ relationships:
       - id: serpentine-laser-cleaning
       - id: tin-laser-cleaning
       - id: travertine-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—
-    these fine particles linger in the air, raising risks during industrial mixing or laser-based surface prep. Workers mixing
-    them into ceramics or coatings should slip on nitrile gloves to shield skin from mild irritation, especially in dusty
-    workshops where sparks from tools could ignite nearby flammables. Eye protection stands out as crucial; goggles prevent
-    specks from causing discomfort during grinding or polishing applications. For breathing safety, a simple dust mask suffices
-    in low-exposure zones, but ramp up to a half-face respirator with particulate filters when sifting large batches or using
-    lasers to blast away contaminants from metal parts— that setup blocks inhalation of airborne bits that might otherwise
-    irritate lungs over time. In laser cleaning ops, where the compound aids in absorbing energy for efficient grime removal,
-    add flame-retardant coveralls and face shields to counter heat flashes and reflections. Ventilation hoods or fans keep
-    the workspace clearer, cutting down on buildup during high-volume production like electronics glazing. Overall, layering
-    this gear turns potential hazards into manageable routines, keeping teams sharp and productive.
-  images:
-    hero:
-      url: /images/compound/tin-oxide-compound-hero.jpg
-      alt: Tin Oxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/tin-oxide-compound-micro.jpg
-      alt: Tin Oxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Respiratory tract irritation and potential for stannosis (benign pneumoconiosis) with chronic exposure
+      severity: low
+      onset: immediate
+    - route: skin_contact
+      effect: Mild mechanical irritation or dryness
+      severity: low
+      onset: immediate
+    - route: eye_contact
+      effect: Mechanical irritation and redness
+      severity: moderate
+      onset: immediate
+    - route: ingestion
+      effect: Low toxicity, possible gastrointestinal discomfort
+      severity: low
+      onset: short-term
 subcategory: metal_oxide
+ppe_requirements: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—
+  these fine particles linger in the air, raising risks during industrial mixing or laser-based surface prep. Workers mixing
+  them into ceramics or coatings should slip on nitrile gloves to shield skin from mild irritation, especially in dusty workshops
+  where sparks from tools could ignite nearby flammables. Eye protection stands out as crucial; goggles prevent specks from
+  causing discomfort during grinding or polishing applications. For breathing safety, a simple dust mask suffices in low-exposure
+  zones, but ramp up to a half-face respirator with particulate filters when sifting large batches or using lasers to blast
+  away contaminants from metal parts— that setup blocks inhalation of airborne bits that might otherwise irritate lungs over
+  time. In laser cleaning ops, where the compound aids in absorbing energy for efficient grime removal, add flame-retardant
+  coveralls and face shields to counter heat flashes and reflections. Ventilation hoods or fans keep the workspace clearer,
+  cutting down on buildup during high-volume production like electronics glazing. Overall, layering this gear turns potential
+  hazards into manageable routines, keeping teams sharp and productive.
+formula: SnO₂
 faq:
 - question: What protective measures should I take to avoid inhaling tin oxide (SnO₂) particulates during laser cleaning of
     metal surfaces?
@@ -252,4 +242,5 @@ faq:
     work in a fume hood to capture particulates at the source, and perform operations in a well-ventilated area to keep exposure
     below the OSHA PEL of 0.5 mg/m³ (as Sn). After each session, clean up any settled dust with HEPA-vacuuming rather than
     sweeping to prevent re-suspension.
-formula: SnO₂
+slug: tin-oxide-compound
+lastModified: '2026-01-02T23:49:27.630779'

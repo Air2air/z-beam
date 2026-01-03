@@ -1,8 +1,8 @@
 id: uv-chalking-contamination
 name: UV Photodegradation / Polymer Chalking
 category: aging
-datePublished: '2025-12-29T20:26:06.587308Z'
-dateModified: '2025-12-29T20:26:06.587308Z'
+datePublished: '2026-01-03T07:49:24.150616Z'
+dateModified: '2026-01-03T07:49:24.150616Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/aging/photodegradation/uv-chalking-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Aging
-  href: /contaminants/aging
-- label: Photodegradation
-  href: /contaminants/aging/photodegradation
 - label: UV Photodegradation / Polymer Chalking
-  href: /contaminants/aging/photodegradation/uv-chalking-contamination
+  href: ''
 page_title: 'UV Photodegradation / Polymer Chalking Removal: Laser'
 page_description: 'UV-chalking-contamination arises from prolonged ultraviolet exposure on aged surfaces. This contamination,
   it develops unique powdery patterns, where fine chalk-like residues accumulate unevenly and adhere to substrates. Formation
@@ -37,7 +33,7 @@ micro:
   after: Post-cleaning reveals restored surface with uv photodegradation / polymer chalking successfully removed through precise
     laser ablation.
   before: Surface shows contamination from uv photodegradation / polymer chalking affecting material appearance and properties.
-images: &id001
+images:
   hero:
     url: /images/contaminant/uv-chalking-contamination-hero.jpg
     alt: UV Photodegradation / Polymer Chalking laser cleaning visualization showing process effects
@@ -65,9 +61,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -76,8 +69,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -87,12 +84,78 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 5.0
+        exposure_limit_mg_m3: 29.0
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1.2
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Acetaldehyde
+        concentration_mg_m3: 0.8
+        exposure_limit_mg_m3: 45.0
+        hazard_class: irritant
+      - compound: Volatile Organic Compounds (VOCs)
+        concentration_mg_m3: 15.0
+        exposure_limit_mg_m3: 100.0
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: half_mask
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - UV laser interaction may generate ozone near work surface
+    - Polymer substrates may produce hydrogen cyanide if containing nitrogen compounds
+    - Chlorinated polymers may produce phosgene gas under thermal decomposition
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 5.0
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 1.2
+          hazard_class: carcinogenic
+        description: Carbon Monoxide and Formaldehyde generation - multiple toxic compounds
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -275,65 +338,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 5.0
-            exposure_limit_mg_m3: 29.0
-            hazard_class: toxic
-          - compound: Formaldehyde
-            concentration_mg_m3: 1.2
-            exposure_limit_mg_m3: 0.37
-            hazard_class: carcinogenic
-          - compound: Acetaldehyde
-            concentration_mg_m3: 0.8
-            exposure_limit_mg_m3: 45.0
-            hazard_class: irritant
-          - compound: Volatile Organic Compounds (VOCs)
-            concentration_mg_m3: 15.0
-            exposure_limit_mg_m3: 100.0
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: half_mask
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - UV laser interaction may generate ozone near work surface
-          - Polymer substrates may produce hydrogen cyanide if containing nitrogen compounds
-          - Chlorinated polymers may produce phosgene gas under thermal decomposition
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 5.0
-              hazard_class: toxic
-            - compound: Formaldehyde
-              concentration_mg_m3: 1.2
-              hazard_class: carcinogenic
-            description: Carbon Monoxide and Formaldehyde generation - multiple toxic compounds
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 0.4
@@ -346,153 +350,106 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  caution_materials:
-    presentation: card
-    _section:
-      section_title: Materials Requiring Caution
-      section_description: Materials that need special consideration for laser removal of this contamination
-      icon: alert-triangle
-      order: 6
-      variant: warning
-    items:
-    - Metals
-    - Ceramics
-    - Glass
-    - Wood
-  realism_notes: UV chalking is specific to polymers with carbon-based chains. Metals and ceramics do not chalk.
-  formation_conditions:
-    presentation: card
-    _section:
-      section_title: Formation Conditions
-      section_description: Environmental and process conditions that create this contamination
-      icon: wind
-      order: 4
-      variant: default
-    items:
-    - uv_radiation
-    - sunlight
-    - time
-    - outdoor_exposure
-  scientific_name: Polymer chain scission
-  required_elements:
-    presentation: card
-    _section:
-      section_title: Required Elements
-      section_description: Chemical elements necessary for this contamination to form
-      icon: microscope
-      order: 5
-      variant: default
-    items:
-    - organic_polymer
-    - carbon_chains
-  category: aging
-  subcategory: photodegradation
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: abs-laser-cleaning
-            title: Abs Laser Cleaning
-            url: /materials/general/misc/abs-laser-cleaning
-            image: /images/material/abs-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: acrylic-(pmma)-laser-cleaning
-            title: Acrylic (Pmma) Laser Cleaning
-            url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
-            image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pvc-laser-cleaning
-            title: Pvc Laser Cleaning
-            url: /materials/general/misc/pvc-laser-cleaning
-            image: /images/material/pvc-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        plastics:
-          title: Plastic Materials
-          description: Thermoplastic and composite materials affected by this contamination
-          items:
-          - id: nylon-laser-cleaning
-            title: Nylon
-            url: /materials/plastic/thermoplastic/nylon-laser-cleaning
-            image: /images/material/nylon-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: polycarbonate-laser-cleaning
-            title: Polycarbonate
-            url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
-            image: /images/material/polycarbonate-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: polyethylene-laser-cleaning
-            title: Polyethylene
-            url: /materials/plastic/thermoplastic/polyethylene-laser-cleaning
-            image: /images/material/polyethylene-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: polypropylene-laser-cleaning
-            title: Polypropylene
-            url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
-            image: /images/material/polypropylene-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        woods:
-          title: Wood Products
-          description: Hardwood and softwood materials affected by this contamination
-          items:
-          - id: redwood-laser-cleaning
-            title: Redwood
-            url: /materials/wood/hardwood/redwood-laser-cleaning
-            image: /images/material/redwood-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
-title: UV Photodegradation / Polymer Chalking Laser Cleaning
+  - id: abs-laser-cleaning
+    title: Abs Laser Cleaning
+    url: /materials/general/misc/abs-laser-cleaning
+    image: /images/material/abs-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: acrylic-(pmma)-laser-cleaning
+    title: Acrylic (Pmma) Laser Cleaning
+    url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
+    image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nylon-laser-cleaning
+    title: Nylon
+    url: /materials/plastic/thermoplastic/nylon-laser-cleaning
+    image: /images/material/nylon-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: polycarbonate-laser-cleaning
+    title: Polycarbonate
+    url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
+    image: /images/material/polycarbonate-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: polyethylene-laser-cleaning
+    title: Polyethylene
+    url: /materials/plastic/thermoplastic/polyethylene-laser-cleaning
+    image: /images/material/polyethylene-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: polypropylene-laser-cleaning
+    title: Polypropylene
+    url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
+    image: /images/material/polypropylene-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pvc-laser-cleaning
+    title: Pvc Laser Cleaning
+    url: /materials/general/misc/pvc-laser-cleaning
+    image: /images/material/pvc-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: redwood-laser-cleaning
+    title: Redwood
+    url: /materials/wood/hardwood/redwood-laser-cleaning
+    image: /images/material/redwood-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: photodegradation
+formation_conditions:
+- uv_radiation
+- sunlight
+- time
+- outdoor_exposure
+realism_notes: UV chalking is specific to polymers with carbon-based chains. Metals and ceramics do not chalk.
+required_elements:
+- organic_polymer
+- carbon_chains
+scientific_name: Polymer chain scission
+title: UV Photodegradation / Polymer Chalking Laser Cleaning
 valid_material_categories:
 - polymers_thermoplastic
 - polymers_engineering
 - polymers_elastomer
+valid_materials:
+- acrylic-pmma-laser-cleaning
+- nylon-laser-cleaning
+- polycarbonate-laser-cleaning
+- polyethylene-laser-cleaning
+- polypropylene-laser-cleaning
+- redwood-laser-cleaning
+caution_materials:
+- Metals
+- Ceramics
+- Glass
+- Wood
+slug: uv-chalking-contamination
+lastModified: '2026-01-02T23:49:24.150647'

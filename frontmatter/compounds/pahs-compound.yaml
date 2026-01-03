@@ -3,8 +3,8 @@ name: Polycyclic Aromatic Hydrocarbons
 display_name: PAHs
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-29T20:27:57.757147Z'
-dateModified: '2025-12-29T20:27:57.757147Z'
+datePublished: '2026-01-03T07:49:25.687705Z'
+dateModified: '2026-01-03T07:49:25.687705Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aromatic-hydrocarbon/pahs-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Carcinogen
-  href: /compounds/carcinogen
-- label: Aromatic Hydrocarbon
-  href: /compounds/carcinogen/aromatic_hydrocarbon
 - label: Polycyclic Aromatic Hydrocarbons
-  href: /compounds/carcinogen/aromatic-hydrocarbon/pahs-compound
+  href: ''
 page_title: 'Polycyclic Aromatic Hydrocarbons: Carcinogenic Fumes'
 page_description: Unlike everyday fuels that burn away cleanly, polycyclic aromatic hydrocarbons stand out with their rigid,
   ring-linked structures that cling stubbornly to surfa.
@@ -115,9 +111,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -126,8 +119,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 health_effects_keywords:
 - lung_cancer
 - skin_cancer
@@ -148,7 +145,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -160,7 +157,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -171,18 +168,26 @@ relationships:
       items:
       - type: chemical_properties
         id: pahs-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: pahs-toxicology
+      - route: inhalation
+        effect: Respiratory tract irritation and increased risk of lung cancer
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation, dermatitis, and potential for skin cancer
+        severity: moderate
+        onset: short-term
+      - route: eye_contact
+        effect: Eye irritation and conjunctivitis
+        severity: low
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal upset and systemic toxicity leading to cancer risk
+        severity: high
+        onset: long-term
     ppe_requirements:
       presentation: descriptive
       items:
@@ -191,12 +196,6 @@ relationships:
         overrides:
           specific_compound: Polycyclic Aromatic Hydrocarbons
           pel_ppm: null
-      _section:
-        section_title: PPE Requirements
-        section_description: Personal protective equipment needed for safe handling
-        icon: shield
-        order: 5
-        variant: warning
     emergency_response:
       presentation: descriptive
       items:
@@ -204,12 +203,6 @@ relationships:
         id: flammable-gas-extremely
         overrides:
           specific_compound: Polycyclic Aromatic Hydrocarbons
-      _section:
-        section_title: Emergency Response
-        section_description: First aid and emergency procedures for exposure incidents
-        icon: alert-triangle
-        order: 7
-        variant: danger
     exposure_limits:
       presentation: descriptive
       items:
@@ -223,33 +216,18 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
   environmental:
     environmental_impact:
       presentation: descriptive
       items:
       - type: environmental_impact
         id: pahs-environmental-data
-      _section:
-        section_title: Environmental Impact
-        section_description: Environmental effects and ecological considerations
-        icon: wind
-        order: 8
-        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
       items:
       - type: detection_monitoring
         id: pahs-monitoring-methods
-      _section:
-        section_title: Detection & Monitoring
-        section_description: Methods and equipment for detecting and monitoring this compound
-        icon: gauge
-        order: 6
-        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -286,34 +264,18 @@ relationships:
         frequency: unknown
         severity: high
         typical_context: Laser removal of Exhaust System Deposits
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
-  ppe_requirements: Handling PAHs demands solid PPE setup, especially since these compounds stick around in materials like
-    coatings or residues from industrial processes. Gloves made of nitrile or neoprene keep hands safe from skin contact,
-    as PAHs can seep through thinner barriers. Full-body suits, the kind that cover everything without gaps, shield against
-    splashes or vapors during mixing or application tasks. Respirators fitted with organic vapor cartridges filter out those
-    fine particles and fumes—crucial when you're dealing with heated materials where PAHs volatilize easily. Eye protection
-    like sealed goggles prevents irritation from any airborne bits, and boot covers stop tracking contaminants around. In
-    laser cleaning scenarios, where high-energy beams strip PAHs from surfaces like metal or stone, add flame-resistant layers
-    to the suit to handle potential sparks or heat buildup nearby. Always layer up like this to minimize exposure risks, drawing
-    from jobsites where skipping even one piece led to health headaches down the line. Avoid cotton-based gear; it absorbs
-    too readily and turns into a hazard itself.
-  images:
-    hero:
-      url: /images/compound/pahs-compound-hero.jpg
-      alt: Polycyclic Aromatic Hydrocarbons laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/pahs-compound-micro.jpg
-      alt: Polycyclic Aromatic Hydrocarbons microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
 subcategory: aromatic_hydrocarbon
+ppe_requirements: Handling PAHs demands solid PPE setup, especially since these compounds stick around in materials like coatings
+  or residues from industrial processes. Gloves made of nitrile or neoprene keep hands safe from skin contact, as PAHs can
+  seep through thinner barriers. Full-body suits, the kind that cover everything without gaps, shield against splashes or
+  vapors during mixing or application tasks. Respirators fitted with organic vapor cartridges filter out those fine particles
+  and fumes—crucial when you're dealing with heated materials where PAHs volatilize easily. Eye protection like sealed goggles
+  prevents irritation from any airborne bits, and boot covers stop tracking contaminants around. In laser cleaning scenarios,
+  where high-energy beams strip PAHs from surfaces like metal or stone, add flame-resistant layers to the suit to handle potential
+  sparks or heat buildup nearby. Always layer up like this to minimize exposure risks, drawing from jobsites where skipping
+  even one piece led to health headaches down the line. Avoid cotton-based gear; it absorbs too readily and turns into a hazard
+  itself.
+formula: Various
 faq:
 - question: As a laser cleaning operator, how can I best protect myself from PAH exposure during the process?
   answer: Always prioritize engineering controls like local exhaust ventilation or fume extractors positioned near the laser
@@ -322,4 +284,5 @@ faq:
     gloves, and protective eyewear, especially when cleaning surfaces that may release PAHs from organic residues or coatings.
     Monitor air quality regularly with real-time detectors for PAHs, and ensure exposure stays below OSHA's permissible limits
     (e.g., 0.2 mg/m³ for coal tar pitch volatiles as a proxy), stopping work if levels approach thresholds.
-formula: Various
+slug: pahs-compound
+lastModified: '2026-01-02T23:49:25.687734'

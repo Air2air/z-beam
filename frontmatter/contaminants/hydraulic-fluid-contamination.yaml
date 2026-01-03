@@ -1,8 +1,8 @@
 id: hydraulic-fluid-contamination
 name: Hydraulic Fluid Contamination
 category: organic-residue
-datePublished: '2025-12-29T20:26:05.270512Z'
-dateModified: '2025-12-29T20:26:05.270512Z'
+datePublished: '2026-01-03T07:49:20.461102Z'
+dateModified: '2026-01-03T07:49:20.461102Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Petroleum
-  href: /contaminants/organic-residue/petroleum
 - label: Hydraulic Fluid Contamination
-  href: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
+  href: ''
 page_title: 'Hydraulic Fluid Contamination Removal: Laser Ablation'
 page_description: Hydraulic fluid contamination, it arises primarily from leaks in machinery, forming tenacious organic films
   on surfaces. This residue, dependent from exposure to air and moisture, exhibits a viscous layering that penetrates microscopic
@@ -28,7 +24,7 @@ page_description: Hydraulic fluid contamination, it arises primarily from leaks 
   influencing overall efficacy in industrial settings.
 meta_description: 'Hydraulic Fluid Contamination: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves
   substrate integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/hydraulic-fluid-contamination-hero.jpg
     alt: Hydraulic Fluid Contamination laser cleaning visualization showing process effects
@@ -52,9 +48,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -66,8 +59,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -77,12 +73,84 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Combustible materials present, risk elevated in confined spaces or high-power settings
+        mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Acrolein
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 0.23
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1.2
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 15
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Particulate Polycyclic Aromatic Hydrocarbons
+        concentration_mg_m3: 0.8
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may ignite residual hydraulic fluid causing flash fire
+    - Thermal decomposition creates toxic byproducts even at low laser powers
+    - Surface may become slippery from fluid mobilization
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Acrolein
+          concentration_mg_m3: 0.5
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 1.2
+          hazard_class: carcinogenic
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 15
+          hazard_class: toxic
+        - compound: Particulate Polycyclic Aromatic Hydrocarbons
+          concentration_mg_m3: 0.8
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection'
+        mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
+          Formaldehyde, Particulate Polycyclic Aromatic Hydrocarbons - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -280,71 +348,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: moderate
-            description: Combustible materials present, risk elevated in confined spaces or high-power settings
-            mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
-          fumes_generated:
-          - compound: Acrolein
-            concentration_mg_m3: 0.5
-            exposure_limit_mg_m3: 0.23
-            hazard_class: toxic
-          - compound: Formaldehyde
-            concentration_mg_m3: 1.2
-            exposure_limit_mg_m3: 0.37
-            hazard_class: carcinogenic
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 15
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Particulate Polycyclic Aromatic Hydrocarbons
-            concentration_mg_m3: 0.8
-            exposure_limit_mg_m3: 0.2
-            hazard_class: carcinogenic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser may ignite residual hydraulic fluid causing flash fire
-          - Thermal decomposition creates toxic byproducts even at low laser powers
-          - Surface may become slippery from fluid mobilization
-          toxic_gas_risk:
-            severity: high
-            primary_hazards:
-            - compound: Acrolein
-              concentration_mg_m3: 0.5
-              hazard_class: toxic
-            - compound: Formaldehyde
-              concentration_mg_m3: 1.2
-              hazard_class: carcinogenic
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 15
-              hazard_class: toxic
-            - compound: Particulate Polycyclic Aromatic Hydrocarbons
-              concentration_mg_m3: 0.8
-              hazard_class: carcinogenic
-            description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection'
-            mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
-              Formaldehyde, Particulate Polycyclic Aromatic Hydrocarbons - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -357,76 +360,46 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Electronics
-    - Plastics
-    - Rubber
-  category: organic-residue
-  subcategory: petroleum
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: petroleum
 composition:
 - Mineral Oil
 - Additives
 - Zinc Compounds
+prohibited_materials:
+- Electronics
+- Plastics
+- Rubber
+valid_materials:
+- aluminum-laser-cleaning
+- concrete-laser-cleaning
+- steel-laser-cleaning
+slug: hydraulic-fluid-contamination
+lastModified: '2026-01-02T23:49:20.461131'

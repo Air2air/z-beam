@@ -1,8 +1,8 @@
 id: exhaust-residue-contamination
 name: Exhaust System Deposits
 category: thermal-damage
-datePublished: '2025-12-29T20:26:04.959883Z'
-dateModified: '2025-12-29T20:26:04.959883Z'
+datePublished: '2026-01-03T07:49:19.418752Z'
+dateModified: '2026-01-03T07:49:19.418752Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/fire/exhaust-residue-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Thermal Damage
-  href: /contaminants/thermal-damage
-- label: Fire
-  href: /contaminants/thermal-damage/fire
 - label: Exhaust System Deposits
-  href: /contaminants/thermal-damage/fire/exhaust-residue-contamination
+  href: ''
 page_title: 'Exhaust System Deposits Removal: Laser Ablation Clean'
 page_description: Exhaust residue contamination, it manifests as a tenacious layer from vehicular emissions, which adheres
   strongly to metallic surfaces. This contamination, dependent from humidity and temperature variations, forms irregular patterns
@@ -29,7 +25,7 @@ page_description: Exhaust residue contamination, it manifests as a tenacious lay
   demonstrating reduced recontamination risks.
 meta_description: 'Exhaust System Deposits: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/exhaust-residue-contamination-hero.jpg
     alt: Exhaust System Deposits laser cleaning visualization showing process effects
@@ -53,9 +49,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -67,8 +60,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -78,12 +74,82 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Metal oxides (mixed)
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 5
+        hazard_class: toxic
+      - compound: Carbon monoxide
+        concentration_mg_m3: 10-100
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Volatile organic compounds
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 100
+        hazard_class: irritant
+      - compound: Polycyclic aromatic hydrocarbons
+        concentration_mg_m3: 0.1-2
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May generate toxic fumes when cleaning painted or coated surfaces
+    - Organic deposits may produce cyanide compounds during decomposition
+    - Chlorinated compounds may form phosgene gas
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Metal oxides (mixed)
+          concentration_mg_m3: 5-50
+          hazard_class: toxic
+        - compound: Carbon monoxide
+          concentration_mg_m3: 10-100
+          hazard_class: toxic
+        - compound: Polycyclic aromatic hydrocarbons
+          concentration_mg_m3: 0.1-2
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Metal oxides (mixed), Carbon monoxide, Polycyclic aromatic hydrocarbons
+          - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Polycyclic aromatic hydrocarbons - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: dual
+        minimum_air_changes_per_hour: 15
+        rationale: Standard industrial ventilation (15 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -298,69 +364,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Metal oxides (mixed)
-            concentration_mg_m3: 5-50
-            exposure_limit_mg_m3: 5
-            hazard_class: toxic
-          - compound: Carbon monoxide
-            concentration_mg_m3: 10-100
-            exposure_limit_mg_m3: 29
-            hazard_class: toxic
-          - compound: Volatile organic compounds
-            concentration_mg_m3: 2-20
-            exposure_limit_mg_m3: 100
-            hazard_class: irritant
-          - compound: Polycyclic aromatic hydrocarbons
-            concentration_mg_m3: 0.1-2
-            exposure_limit_mg_m3: 0.2
-            hazard_class: carcinogenic
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - May generate toxic fumes when cleaning painted or coated surfaces
-          - Organic deposits may produce cyanide compounds during decomposition
-          - Chlorinated compounds may form phosgene gas
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Metal oxides (mixed)
-              concentration_mg_m3: 5-50
-              hazard_class: toxic
-            - compound: Carbon monoxide
-              concentration_mg_m3: 10-100
-              hazard_class: toxic
-            - compound: Polycyclic aromatic hydrocarbons
-              concentration_mg_m3: 0.1-2
-              hazard_class: carcinogenic
-            description: 'Multiple toxic compounds detected: Metal oxides (mixed), Carbon monoxide, Polycyclic aromatic hydrocarbons
-              - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Polycyclic aromatic hydrocarbons - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: dual
-            minimum_air_changes_per_hour: 15
-            rationale: Standard industrial ventilation (15 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 3.5
@@ -373,72 +376,46 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.25
           vaporization_temperature: 650
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Plastics
-  category: thermal-damage
-  subcategory: fire
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: fire
 composition:
 - C
 - Pb
 - V₂O₅
 - Sulfates
+prohibited_materials:
+- Aluminum
+- Plastics
+valid_materials:
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+- titanium-laser-cleaning
+slug: exhaust-residue-contamination
+lastModified: '2026-01-02T23:49:19.418785'

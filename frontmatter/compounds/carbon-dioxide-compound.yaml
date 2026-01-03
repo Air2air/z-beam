@@ -3,8 +3,8 @@ name: Carbon Dioxide
 display_name: Carbon Dioxide (CO₂)
 category: asphyxiant
 hazard_class: asphyxiant
-datePublished: '2025-12-29T20:28:11.300671Z'
-dateModified: '2025-12-29T20:28:11.300671Z'
+datePublished: '2026-01-03T07:49:26.732261Z'
+dateModified: '2026-01-03T07:49:26.732261Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/asphyxiant/simple-asphyxiant/carbon-dioxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Asphyxiant
-  href: /compounds/asphyxiant
-- label: Simple Asphyxiant
-  href: /compounds/asphyxiant/simple_asphyxiant
 - label: Carbon Dioxide
-  href: /compounds/asphyxiant/simple-asphyxiant/carbon-dioxide-compound
+  href: ''
 page_title: 'Carbon Dioxide: Hazardous Emission'
 page_description: Carbon dioxide acts as a silent thief in tight spaces, pushing out breathable air without warning.
 meta_description: 'Carbon Dioxide: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
@@ -89,8 +85,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 health_effects_keywords:
 - asphyxiation_at_high_concentration
 - respiratory_stimulation
@@ -134,12 +130,6 @@ relationships:
       items:
       - type: chemical_properties
         id: carbon-dioxide-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -156,10 +146,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -175,18 +162,34 @@ relationships:
           ec_number: 204-696-9
           pubchem_cid: '280'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: carbon-dioxide-toxicology
+      - route: inhalation
+        effect: Asphyxiation due to oxygen displacement, leading to unconsciousness and potential death at concentrations
+          >10%
+        severity: severe
+        onset: immediate
+      - route: inhalation
+        effect: Headache, dizziness, and increased heart rate at concentrations 3-5%
+        severity: moderate
+        onset: short-term
+      - route: inhalation
+        effect: Respiratory acidosis and hyperventilation at prolonged exposure to elevated levels
+        severity: high
+        onset: long-term
+      - route: eye_contact
+        effect: Mild irritation from direct high-pressure exposure
+        severity: low
+        onset: immediate
+      - route: skin_contact
+        effect: Frostbite or irritation if in liquefied form (dry ice)
+        severity: moderate
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -197,12 +200,9 @@ relationships:
         special_notes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates in low areas. Dry ice causes frostbite.
           Physiological effects >1% concentration.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -222,10 +222,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -237,26 +234,23 @@ relationships:
         acgih_tlv_mg_m3: 9000
         workplace_exposure:
           osha_pel:
-            twa_8hr: 5000 ppm (9000 mg/m³)
-            stel_15min: 30,000 ppm (54,000 mg/m³)
-            ceiling: null
+            twa_8hr: 5000 ppm
+            stel_15min: null
+            ceiling: 30000 ppm
           niosh_rel:
-            twa_8hr: 5000 ppm (9000 mg/m³)
-            stel_15min: 30,000 ppm (54,000 mg/m³)
+            twa_8hr: 5000 ppm
+            stel_15min: 30000 ppm
             ceiling: null
             idlh: 40,000 ppm (4%)
           acgih_tlv:
             twa_8hr: 5000 ppm
-            stel_15min: 30,000 ppm
+            stel_15min: 30000 ppm
             ceiling: null
           biological_exposure_indices: []
       _section:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -275,10 +269,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -299,10 +290,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -322,10 +310,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -354,10 +339,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -646,12 +628,6 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -673,32 +649,19 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: "Handling carbon dioxide in its solid form demands careful gear to counter the biting cold and the risk\
-    \ of suffocating vapors building up unnoticed. Workers often reach for insulated gloves first, thick enough to shield\
-    \ hands from frostbite during direct contact or packing tasks. Eye shields come next, sealing out any flying particles\
-    \ or sudden cold bursts that could irritate or harm vision. Full-body coverings like aprons or suits help ward off skin\
-    \ chills in prolonged exposure spots, such as storage areas or transport lines. \n\nIn tighter spaces where vapors linger,\
-    \ breathing apparatus steps in, filtering out the heavy, odorless gas that displaces breathable air without warning. Ventilation\
-    \ setups pair with this, keeping the atmosphere fresh and alert levels high. For laser cleaning jobs involving this material,\
-    \ add face shields tuned to block intense light flashes, ensuring operators stay protected amid the precise, high-energy\
-    \ blasts that vaporize residues without scratching surfaces. Regular checks on all gear prevent slips, turning routine\
-    \ industrial uses—from cooling processes to safe stripping of contaminants—into smoother, safer operations."
-  images:
-    hero:
-      url: /images/compound/carbon-dioxide-compound-hero.jpg
-      alt: Carbon Dioxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/carbon-dioxide-compound-micro.jpg
-      alt: Carbon Dioxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: simple_asphyxiant
+ppe_requirements: "Handling carbon dioxide in its solid form demands careful gear to counter the biting cold and the risk\
+  \ of suffocating vapors building up unnoticed. Workers often reach for insulated gloves first, thick enough to shield hands\
+  \ from frostbite during direct contact or packing tasks. Eye shields come next, sealing out any flying particles or sudden\
+  \ cold bursts that could irritate or harm vision. Full-body coverings like aprons or suits help ward off skin chills in\
+  \ prolonged exposure spots, such as storage areas or transport lines. \n\nIn tighter spaces where vapors linger, breathing\
+  \ apparatus steps in, filtering out the heavy, odorless gas that displaces breathable air without warning. Ventilation setups\
+  \ pair with this, keeping the atmosphere fresh and alert levels high. For laser cleaning jobs involving this material, add\
+  \ face shields tuned to block intense light flashes, ensuring operators stay protected amid the precise, high-energy blasts\
+  \ that vaporize residues without scratching surfaces. Regular checks on all gear prevent slips, turning routine industrial\
+  \ uses—from cooling processes to safe stripping of contaminants—into smoother, safer operations."
+formula: CO₂
 faq:
 - question: What are the safe exposure limits for CO₂ during laser cleaning operations, and how can I monitor them?
   answer: Occupational exposure limits for CO₂ as an asphyxiant are set by OSHA at 5,000 ppm (0.5%) as an 8-hour time-weighted
@@ -707,4 +670,5 @@ faq:
     multi-gas monitors calibrated for real-time ppm readings in your workspace, especially in enclosed or poorly ventilated
     areas during laser cleaning. Always ensure oxygen levels remain above 19.5% and integrate alarms that trigger at or below
     these limits to prevent asphyxiation risks.
-formula: CO₂
+slug: carbon-dioxide-compound
+lastModified: '2026-01-02T23:49:26.732291'

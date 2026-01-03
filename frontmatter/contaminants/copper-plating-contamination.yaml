@@ -1,8 +1,8 @@
 id: copper-plating-contamination
 name: Copper Electroplating
 category: metallic-coating
-datePublished: '2025-12-29T20:26:04.768066Z'
-dateModified: '2025-12-29T20:26:04.768066Z'
+datePublished: '2026-01-03T07:49:18.737312Z'
+dateModified: '2026-01-03T07:49:18.737312Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/copper-plating-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Plating
-  href: /contaminants/metallic-coating/plating
 - label: Copper Electroplating
-  href: /contaminants/metallic-coating/plating/copper-plating-contamination
+  href: ''
 page_title: 'Copper Electroplating Removal: Laser Ablation Clean'
 page_description: Copper-plating contamination, it arises during electroplating processes, where copper layers deposit unevenly
   on metallic substrates, influenced from humidity and substrate roughness. This contamination manifests as thin, adherent
@@ -28,7 +24,7 @@ page_description: Copper-plating contamination, it arises during electroplating 
   pitting often remains. Shows promise for industrial use, where precise control mitigates recontamination risks.
 meta_description: 'Copper Electroplating: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/copper-plating-contamination-hero.jpg
     alt: Copper Electroplating laser cleaning visualization showing process effects
@@ -52,9 +48,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -66,8 +59,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -77,12 +73,69 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Copper fume
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 0.1
+        hazard_class: toxic
+      - compound: Copper oxide nanoparticles
+        concentration_mg_m3: 0.3
+        exposure_limit_mg_m3: 0.1
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.9
+        size_range_um:
+        - 0.01
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may release residual plating bath chemicals trapped in coating
+    - Potential for hydrogen embrittlement if substrate was high-strength steel
+    - Copper oxides may form and create different surface properties
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Copper fume
+          concentration_mg_m3: 0.5
+          hazard_class: toxic
+        - compound: Copper oxide nanoparticles
+          concentration_mg_m3: 0.3
+          hazard_class: toxic
+        description: Copper fume and Copper oxide nanoparticles generation - multiple toxic compounds
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.90 (90% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -271,56 +324,6 @@ relationships:
             color_change: 'yes'
             residual_stress: compressive
             roughness_increase: moderate
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Copper fume
-            concentration_mg_m3: 0.5
-            exposure_limit_mg_m3: 0.1
-            hazard_class: toxic
-          - compound: Copper oxide nanoparticles
-            concentration_mg_m3: 0.3
-            exposure_limit_mg_m3: 0.1
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.9
-            size_range_um:
-            - 0.01
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser cleaning may release residual plating bath chemicals trapped in coating
-          - Potential for hydrogen embrittlement if substrate was high-strength steel
-          - Copper oxides may form and create different surface properties
-          toxic_gas_risk:
-            severity: low
-            primary_hazards:
-            - compound: Copper fume
-              concentration_mg_m3: 0.5
-              hazard_class: toxic
-            - compound: Copper oxide nanoparticles
-              concentration_mg_m3: 0.3
-              hazard_class: toxic
-            description: Copper fume and Copper oxide nanoparticles generation - multiple toxic compounds
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.90 (90% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 3.5
@@ -333,74 +336,43 @@ relationships:
           thermal_conductivity: 400
           thermal_diffusivity: 116
           vaporization_temperature: 2562
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Zinc
-  category: metallic-coating
-  subcategory: plating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: plastics-(abs)-laser-cleaning
-            title: Plastics (Abs) Laser Cleaning
-            url: /materials/general/misc/plastics-(abs)-laser-cleaning
-            image: /images/material/plastics-(abs)-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: plastics-(abs)-laser-cleaning
+    title: Plastics (Abs) Laser Cleaning
+    url: /materials/general/misc/plastics-(abs)-laser-cleaning
+    image: /images/material/plastics-(abs)-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: plating
 composition:
 - Cu
 - Cu Compounds
+prohibited_materials:
+- Aluminum
+- Zinc
+valid_materials:
+- brass-laser-cleaning
+- steel-laser-cleaning
+slug: copper-plating-contamination
+lastModified: '2026-01-02T23:49:18.737346'

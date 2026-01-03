@@ -3,8 +3,8 @@ name: Volatile Organic Compounds
 display_name: VOCs
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:12.244566Z'
-dateModified: '2025-12-29T20:28:12.244566Z'
+datePublished: '2026-01-03T07:49:26.814559Z'
+dateModified: '2026-01-03T07:49:26.814559Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/organic-vapor/vocs-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Irritant
-  href: /compounds/irritant
-- label: Organic Vapor
-  href: /compounds/irritant/organic_vapor
 - label: Volatile Organic Compounds
-  href: /compounds/irritant/organic-vapor/vocs-compound
+  href: ''
 page_title: 'Volatile Organic Compounds: Respiratory Irritant'
 page_description: Volatile organic compounds sneak into paints and adhesives everywhere.
 meta_description: 'Volatile Organic Compounds: Respiratory Irritant from metal processing. Requires proper ventilation and
@@ -107,9 +103,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -121,8 +114,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 health_effects_keywords:
 - respiratory_irritation
 - neurological_effects
@@ -143,7 +139,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -155,7 +151,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -166,12 +162,6 @@ relationships:
       items:
       - type: chemical_properties
         id: vocs-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -188,10 +178,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -209,18 +196,33 @@ relationships:
           ec_number: Specific to individual VOC
           pubchem_cid: Specific to individual VOC
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: vocs-toxicology
+      - route: inhalation
+        effect: Respiratory irritation, headache, dizziness, and nausea
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Potential neurological effects and increased cancer risk (e.g., from benzene)
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation or dermatitis
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Eye irritation, redness, and tearing
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal upset and systemic toxicity
+        severity: high
+        onset: short-term
     ppe_requirements:
       presentation: descriptive
       items:
@@ -232,12 +234,9 @@ relationships:
         special_notes: VOCs vary widely in toxicity. Mixture effects unpredictable. Some VOCs carcinogenic (benzene, formaldehyde).
           Others neurotoxic (toluene, xylene). Identify specific VOCs when possible.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -257,10 +256,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -293,9 +289,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -311,10 +304,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -334,10 +324,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -356,10 +343,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -393,10 +377,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -493,12 +474,6 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -520,26 +495,13 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handling VOCs compounds demands solid PPE choices. Gloves shield your skin from irritation—nitrile works
-    best, keeps things dry. Goggles protect eyes; vapors sting quick. Respirators filter out fumes—full-face ones seal tight
-    for heavy exposure. Suits or aprons block splashes in industrial spots. Avoid cotton gear; it soaks up and worsens contact.
-    In laser cleaning jobs, add ventilation hoods. Stay covered, breathe easy.
-  images:
-    hero:
-      url: /images/compound/vocs-compound-hero.jpg
-      alt: Volatile Organic Compounds laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/vocs-compound-micro.jpg
-      alt: Volatile Organic Compounds microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: organic_vapor
+ppe_requirements: Handling VOCs compounds demands solid PPE choices. Gloves shield your skin from irritation—nitrile works
+  best, keeps things dry. Goggles protect eyes; vapors sting quick. Respirators filter out fumes—full-face ones seal tight
+  for heavy exposure. Suits or aprons block splashes in industrial spots. Avoid cotton gear; it soaks up and worsens contact.
+  In laser cleaning jobs, add ventilation hoods. Stay covered, breathe easy.
+formula: Various
 faq:
 - question: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
   answer: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs at
@@ -548,4 +510,5 @@ faq:
     along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors to
     ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take breaks
     in fresh air if concentrations rise.
-formula: Various
+slug: vocs-compound
+lastModified: '2026-01-02T23:49:26.814590'

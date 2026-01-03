@@ -1,8 +1,8 @@
 id: electroplating-residue-contamination
 name: Electroplating Solution Residue
 category: metallic-coating
-datePublished: '2025-12-29T20:26:04.883778Z'
-dateModified: '2025-12-29T20:26:04.883778Z'
+datePublished: '2026-01-03T07:49:19.162845Z'
+dateModified: '2026-01-03T07:49:19.162845Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/electroplating-residue-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Plating
-  href: /contaminants/metallic-coating/plating
 - label: Electroplating Solution Residue
-  href: /contaminants/metallic-coating/plating/electroplating-residue-contamination
+  href: ''
 page_title: 'Electroplating Solution Residue Removal: Laser Ablation'
 page_description: 'Electroplating residue contamination forms during plating process. It adheres tightly to metallic surfaces
   as thin, uneven layers. These residues, they originate from electrolyte remnants and metal ions. Formation patterns show
@@ -31,7 +27,7 @@ page_description: 'Electroplating residue contamination forms during plating pro
   Yi-Chun Lin, Ph.D. from Taiwan'
 meta_description: 'Electroplating Solution Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves
   substrate integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/electroplating-residue-contamination-hero.jpg
     alt: Electroplating Solution Residue laser cleaning visualization showing process effects
@@ -59,9 +55,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -70,8 +63,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -81,12 +78,89 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Nickel compounds (as Ni)
+        concentration_mg_m3: 0.5-5.0
+        exposure_limit_mg_m3: 0.1
+        hazard_class: carcinogenic
+      - compound: Chromium VI compounds
+        concentration_mg_m3: 0.1-2.0
+        exposure_limit_mg_m3: 0.005
+        hazard_class: carcinogenic
+      - compound: Cyanide compounds (as CN)
+        concentration_mg_m3: 0.5-3.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: toxic
+      - compound: Hydrogen cyanide
+        concentration_mg_m3: 0.1-1.0
+        exposure_limit_mg_m3: 11.0
+        hazard_class: toxic
+      - compound: Metal oxides (mixed)
+        concentration_mg_m3: 2.0-10.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may generate toxic hydrogen cyanide gas from cyanide-based plating residues
+    - Thermal decomposition of chromium-plated surfaces can produce carcinogenic hexavalent chromium
+    - Nickel compounds become airborne and present inhalation cancer risk
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Nickel compounds (as Ni)
+          concentration_mg_m3: 0.5-5.0
+          hazard_class: carcinogenic
+        - compound: Chromium VI compounds
+          concentration_mg_m3: 0.1-2.0
+          hazard_class: carcinogenic
+        - compound: Cyanide compounds (as CN)
+          concentration_mg_m3: 0.5-3.0
+          hazard_class: toxic
+        - compound: Hydrogen cyanide
+          concentration_mg_m3: 0.1-1.0
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Nickel compounds (as Ni), Chromium VI compounds, Cyanide compounds
+          (as CN) - requires enhanced protection'
+        mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
+          Nickel compounds (as Ni), Chromium VI compounds - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 15
+        rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with carbon
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -286,76 +360,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Nickel compounds (as Ni)
-            concentration_mg_m3: 0.5-5.0
-            exposure_limit_mg_m3: 0.1
-            hazard_class: carcinogenic
-          - compound: Chromium VI compounds
-            concentration_mg_m3: 0.1-2.0
-            exposure_limit_mg_m3: 0.005
-            hazard_class: carcinogenic
-          - compound: Cyanide compounds (as CN)
-            concentration_mg_m3: 0.5-3.0
-            exposure_limit_mg_m3: 5.0
-            hazard_class: toxic
-          - compound: Hydrogen cyanide
-            concentration_mg_m3: 0.1-1.0
-            exposure_limit_mg_m3: 11.0
-            hazard_class: toxic
-          - compound: Metal oxides (mixed)
-            concentration_mg_m3: 2.0-10.0
-            exposure_limit_mg_m3: 5.0
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser cleaning may generate toxic hydrogen cyanide gas from cyanide-based plating residues
-          - Thermal decomposition of chromium-plated surfaces can produce carcinogenic hexavalent chromium
-          - Nickel compounds become airborne and present inhalation cancer risk
-          toxic_gas_risk:
-            severity: high
-            primary_hazards:
-            - compound: Nickel compounds (as Ni)
-              concentration_mg_m3: 0.5-5.0
-              hazard_class: carcinogenic
-            - compound: Chromium VI compounds
-              concentration_mg_m3: 0.1-2.0
-              hazard_class: carcinogenic
-            - compound: Cyanide compounds (as CN)
-              concentration_mg_m3: 0.5-3.0
-              hazard_class: toxic
-            - compound: Hydrogen cyanide
-              concentration_mg_m3: 0.1-1.0
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Nickel compounds (as Ni), Chromium VI compounds, Cyanide compounds
-              (as CN) - requires enhanced protection'
-            mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
-              Nickel compounds (as Ni), Chromium VI compounds - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 15
-            rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with carbon
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -368,71 +372,45 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Plastics
-  category: metallic-coating
-  subcategory: plating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: plating
 composition:
 - Cyanides
 - Metal Salts
 - Brighteners
+prohibited_materials:
+- Aluminum
+- Plastics
+valid_materials:
+- brass-laser-cleaning
+- copper-laser-cleaning
+- steel-laser-cleaning
+slug: electroplating-residue-contamination
+lastModified: '2026-01-02T23:49:19.162882'

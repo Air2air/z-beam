@@ -1,8 +1,8 @@
 id: fire-damage-contamination
 name: Fire and Smoke Damage
 category: thermal-damage
-datePublished: '2025-12-29T20:26:05.015026Z'
-dateModified: '2025-12-29T20:26:05.015026Z'
+datePublished: '2026-01-03T07:49:19.696398Z'
+dateModified: '2026-01-03T07:49:19.696398Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/fire/fire-damage-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Thermal Damage
-  href: /contaminants/thermal-damage
-- label: Fire
-  href: /contaminants/thermal-damage/fire
 - label: Fire and Smoke Damage
-  href: /contaminants/thermal-damage/fire/fire-damage-contamination
+  href: ''
 page_title: 'Fire and Smoke Damage Removal: Laser Ablation Clean'
 page_description: "Fire-damage-contamination, it arises from intense heat exposure and leaves charred residues on surfaces.\
   \ Steel substrates versus wood materials, contamination patterns differ sharply—steel develops thin oxide scales with embedded\
@@ -28,7 +24,7 @@ page_description: "Fire-damage-contamination, it arises from intense heat exposu
   \ surface already shows reduced haze, and cleaning yields cleaner profiles across materials.\n\nYi-Chun Lin, Ph.D.  \nTaiwan"
 meta_description: 'Fire and Smoke Damage: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/fire-damage-contamination-hero.jpg
     alt: Fire and Smoke Damage laser cleaning visualization showing process effects
@@ -56,9 +52,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -67,8 +60,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -78,12 +75,96 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Combustible materials present, risk elevated in confined spaces or high-power settings
+        mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 50.0
+        exposure_limit_mg_m3: 29.0
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 9000.0
+        exposure_limit_mg_m3: 9000.0
+        hazard_class: toxic
+      - compound: Acrolein
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 0.23
+        hazard_class: irritant
+      - compound: Formaldehyde
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Benzene
+        concentration_mg_m3: 3.0
+        exposure_limit_mg_m3: 0.32
+        hazard_class: carcinogenic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 1.2
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Avoid laser cleaning on surfaces containing lead-based paint or asbestos
+    - Test for chlorinated materials that may produce dioxins when heated
+    - Moist substrates may produce steam explosions
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 50.0
+          hazard_class: toxic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 9000.0
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 2.5
+          hazard_class: carcinogenic
+        - compound: Benzene
+          concentration_mg_m3: 3.0
+          hazard_class: carcinogenic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 1.2
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
+          protection'
+        mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
+          Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -271,83 +352,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: moderate
-            description: Combustible materials present, risk elevated in confined spaces or high-power settings
-            mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
-          fumes_generated:
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 50.0
-            exposure_limit_mg_m3: 29.0
-            hazard_class: toxic
-          - compound: Carbon Dioxide
-            concentration_mg_m3: 9000.0
-            exposure_limit_mg_m3: 9000.0
-            hazard_class: toxic
-          - compound: Acrolein
-            concentration_mg_m3: 0.5
-            exposure_limit_mg_m3: 0.23
-            hazard_class: irritant
-          - compound: Formaldehyde
-            concentration_mg_m3: 2.5
-            exposure_limit_mg_m3: 0.37
-            hazard_class: carcinogenic
-          - compound: Benzene
-            concentration_mg_m3: 3.0
-            exposure_limit_mg_m3: 0.32
-            hazard_class: carcinogenic
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentration_mg_m3: 1.2
-            exposure_limit_mg_m3: 0.2
-            hazard_class: carcinogenic
-          particulate_generation:
-            respirable_fraction: 0.8
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Avoid laser cleaning on surfaces containing lead-based paint or asbestos
-          - Test for chlorinated materials that may produce dioxins when heated
-          - Moist substrates may produce steam explosions
-          toxic_gas_risk:
-            severity: high
-            primary_hazards:
-            - compound: Carbon Monoxide
-              concentration_mg_m3: 50.0
-              hazard_class: toxic
-            - compound: Carbon Dioxide
-              concentration_mg_m3: 9000.0
-              hazard_class: toxic
-            - compound: Formaldehyde
-              concentration_mg_m3: 2.5
-              hazard_class: carcinogenic
-            - compound: Benzene
-              concentration_mg_m3: 3.0
-              hazard_class: carcinogenic
-            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-              concentration_mg_m3: 1.2
-              hazard_class: carcinogenic
-            description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
-              protection'
-            mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
-              Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 0.9
@@ -360,232 +364,206 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Plastics
-    - Wood
-  category: thermal-damage
-  subcategory: fire
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        ceramics:
-          title: Ceramic Materials
-          description: Ceramic and glass materials affected by this contamination
-          items:
-          - id: alumina-laser-cleaning
-            title: Alumina
-            url: /materials/ceramic/oxide/alumina-laser-cleaning
-            image: /images/material/alumina-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: aluminum-nitride-laser-cleaning
-            title: Aluminum Nitride
-            url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-            image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-carbide-laser-cleaning
-            title: Boron Carbide
-            url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
-            image: /images/material/boron-carbide-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: carbide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-nitride-laser-cleaning
-            title: Boron Nitride
-            url: /materials/ceramic/technical/boron-nitride-laser-cleaning
-            image: /images/material/boron-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: silicon-nitride-laser-cleaning
-            title: Silicon Nitride
-            url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
-            image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zirconia-laser-cleaning
-            title: Zirconia
-            url: /materials/ceramic/oxide/zirconia-laser-cleaning
-            image: /images/material/zirconia-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        stone:
-          title: Stone Materials
-          description: Natural and processed stone materials affected by this contamination
-          items:
-          - id: basalt-laser-cleaning
-            title: Basalt
-            url: /materials/stone/igneous/basalt-laser-cleaning
-            image: /images/material/basalt-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bluestone-laser-cleaning
-            title: Bluestone
-            url: /materials/stone/sedimentary/bluestone-laser-cleaning
-            image: /images/material/bluestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: granite-laser-cleaning
-            title: Granite
-            url: /materials/stone/igneous/granite-laser-cleaning
-            image: /images/material/granite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: limestone-laser-cleaning
-            title: Limestone
-            url: /materials/stone/sedimentary/limestone-laser-cleaning
-            image: /images/material/limestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: marble-laser-cleaning
-            title: Marble
-            url: /materials/stone/metamorphic/marble-laser-cleaning
-            image: /images/material/marble-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: quartzite-laser-cleaning
-            title: Quartzite
-            url: /materials/stone/sedimentary/quartzite-laser-cleaning
-            image: /images/material/quartzite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: sandstone-laser-cleaning
-            title: Sandstone
-            url: /materials/stone/sedimentary/sandstone-laser-cleaning
-            image: /images/material/sandstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: slate-laser-cleaning
-            title: Slate
-            url: /materials/stone/metamorphic/slate-laser-cleaning
-            image: /images/material/slate-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: soapstone-laser-cleaning
-            title: Soapstone
-            url: /materials/stone/sedimentary/soapstone-laser-cleaning
-            image: /images/material/soapstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: travertine-laser-cleaning
-            title: Travertine
-            url: /materials/stone/natural/travertine-laser-cleaning
-            image: /images/material/travertine-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: natural
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: silicon-carbide-laser-cleaning
-            title: Silicon Carbide Laser Cleaning
-            url: /materials/general/misc/silicon-carbide-laser-cleaning
-            image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: alumina-laser-cleaning
+    title: Alumina
+    url: /materials/ceramic/oxide/alumina-laser-cleaning
+    image: /images/material/alumina-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-nitride-laser-cleaning
+    title: Aluminum Nitride
+    url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+    image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: basalt-laser-cleaning
+    title: Basalt
+    url: /materials/stone/igneous/basalt-laser-cleaning
+    image: /images/material/basalt-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bluestone-laser-cleaning
+    title: Bluestone
+    url: /materials/stone/sedimentary/bluestone-laser-cleaning
+    image: /images/material/bluestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-carbide-laser-cleaning
+    title: Boron Carbide
+    url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
+    image: /images/material/boron-carbide-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: carbide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-nitride-laser-cleaning
+    title: Boron Nitride
+    url: /materials/ceramic/technical/boron-nitride-laser-cleaning
+    image: /images/material/boron-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: granite-laser-cleaning
+    title: Granite
+    url: /materials/stone/igneous/granite-laser-cleaning
+    image: /images/material/granite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: limestone-laser-cleaning
+    title: Limestone
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+    image: /images/material/limestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: marble-laser-cleaning
+    title: Marble
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+    image: /images/material/marble-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: quartzite-laser-cleaning
+    title: Quartzite
+    url: /materials/stone/sedimentary/quartzite-laser-cleaning
+    image: /images/material/quartzite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: sandstone-laser-cleaning
+    title: Sandstone
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+    image: /images/material/sandstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-carbide-laser-cleaning
+    title: Silicon Carbide Laser Cleaning
+    url: /materials/general/misc/silicon-carbide-laser-cleaning
+    image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-nitride-laser-cleaning
+    title: Silicon Nitride
+    url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
+    image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: slate-laser-cleaning
+    title: Slate
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+    image: /images/material/slate-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: soapstone-laser-cleaning
+    title: Soapstone
+    url: /materials/stone/sedimentary/soapstone-laser-cleaning
+    image: /images/material/soapstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: travertine-laser-cleaning
+    title: Travertine
+    url: /materials/stone/natural/travertine-laser-cleaning
+    image: /images/material/travertine-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: natural
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zirconia-laser-cleaning
+    title: Zirconia
+    url: /materials/ceramic/oxide/zirconia-laser-cleaning
+    image: /images/material/zirconia-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: fire
 composition:
 - C
 - Ash
 - Tar
 - Metal Oxides
+prohibited_materials:
+- Plastics
+- Wood
+valid_materials:
+- alumina-laser-cleaning
+- aluminum-nitride-laser-cleaning
+- basalt-laser-cleaning
+- bluestone-laser-cleaning
+- boron-carbide-laser-cleaning
+- boron-nitride-laser-cleaning
+- concrete-laser-cleaning
+- granite-laser-cleaning
+- limestone-laser-cleaning
+- marble-laser-cleaning
+- quartzite-laser-cleaning
+- sandstone-laser-cleaning
+- silicon-carbide-sic-laser-cleaning
+- silicon-nitride-laser-cleaning
+- slate-laser-cleaning
+- soapstone-laser-cleaning
+- steel-laser-cleaning
+- travertine-laser-cleaning
+- zirconia-laser-cleaning
+slug: fire-damage-contamination
+lastModified: '2026-01-02T23:49:19.696435'

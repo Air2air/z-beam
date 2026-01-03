@@ -1,8 +1,8 @@
 id: metal-polish-contamination
 name: Metal Polish Residue
 category: organic-residue
-datePublished: '2025-12-29T20:26:05.533151Z'
-dateModified: '2025-12-29T20:26:05.533151Z'
+datePublished: '2026-01-03T07:49:21.172102Z'
+dateModified: '2026-01-03T07:49:21.172102Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/wax/metal-polish-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Wax
-  href: /contaminants/organic-residue/wax
 - label: Metal Polish Residue
-  href: /contaminants/organic-residue/wax/metal-polish-contamination
+  href: ''
 page_title: 'Metal Polish Residue Removal: Laser Ablation Clean Remo'
 page_description: 'Metal polish contamination stands out from typical rust or dust buildup on metals, as it forms thin, oily
   organic residues during polishing processes. These residues cling tightly to surfaces like steel or aluminum, creating uneven
@@ -27,7 +23,7 @@ page_description: 'Metal polish contamination stands out from typical rust or du
   setup to avoid surface damage.'
 meta_description: 'Metal Polish Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/metal-polish-contamination-hero.jpg
     alt: Metal Polish Residue laser cleaning visualization showing process effects
@@ -64,8 +60,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 relationships:
   safety:
     regulatory_standards:
@@ -75,12 +71,78 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Metal oxide nanoparticles
+        concentration_mg_m3: 5.0
+        exposure_limit_mg_m3: 3.0
+        hazard_class: toxic
+      - compound: Volatile organic compounds
+        concentration_mg_m3: 15.0
+        exposure_limit_mg_m3: 100.0
+        hazard_class: irritant
+      - compound: Formaldehyde
+        concentration_mg_m3: 0.8
+        exposure_limit_mg_m3: 0.3
+        hazard_class: carcinogenic
+      - compound: Ammonia
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 17.0
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.85
+        size_range_um:
+        - 0.01
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May generate toxic fumes when heated on copper or brass substrates
+    - Avoid use on zinc-coated surfaces due to potential zinc oxide fume generation
+    - Thermal decomposition risk increases with laser power density above 100W/cm²
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Metal oxide nanoparticles
+          concentration_mg_m3: 5.0
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 0.8
+          hazard_class: carcinogenic
+        description: Metal oxide nanoparticles and Formaldehyde generation - multiple toxic compounds
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: dual
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -256,65 +318,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Metal oxide nanoparticles
-            concentration_mg_m3: 5.0
-            exposure_limit_mg_m3: 3.0
-            hazard_class: toxic
-          - compound: Volatile organic compounds
-            concentration_mg_m3: 15.0
-            exposure_limit_mg_m3: 100.0
-            hazard_class: irritant
-          - compound: Formaldehyde
-            concentration_mg_m3: 0.8
-            exposure_limit_mg_m3: 0.3
-            hazard_class: carcinogenic
-          - compound: Ammonia
-            concentration_mg_m3: 2.5
-            exposure_limit_mg_m3: 17.0
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.85
-            size_range_um:
-            - 0.01
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - May generate toxic fumes when heated on copper or brass substrates
-          - Avoid use on zinc-coated surfaces due to potential zinc oxide fume generation
-          - Thermal decomposition risk increases with laser power density above 100W/cm²
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Metal oxide nanoparticles
-              concentration_mg_m3: 5.0
-              hazard_class: toxic
-            - compound: Formaldehyde
-              concentration_mg_m3: 0.8
-              hazard_class: carcinogenic
-            description: Metal oxide nanoparticles and Formaldehyde generation - multiple toxic compounds
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: dual
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 0.4
@@ -327,82 +330,57 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Ceramics
-    - Glass
-    - Plastics
-  category: organic-residue
-  subcategory: wax
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: wax
 composition:
 - Al₂O₃
 - CeO₂
 - Wax
 - Surfactants
+prohibited_materials:
+- Ceramics
+- Glass
+- Plastics
+valid_materials:
+- aluminum-laser-cleaning
+- brass-laser-cleaning
+- copper-laser-cleaning
+- steel-laser-cleaning
+slug: metal-polish-contamination
+lastModified: '2026-01-02T23:49:21.172136'

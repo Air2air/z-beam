@@ -62,16 +62,34 @@ function validateBreadcrumb(breadcrumb: any, filePath: string): string[] {
     if (!item.label || typeof item.label !== 'string') {
       errors.push(`Item ${index}: Missing or invalid label`);
     }
-    if (!item.href || typeof item.href !== 'string') {
-      errors.push(`Item ${index}: Missing or invalid href`);
-    }
-    // href should not end with / except for Home
-    if (index > 0 && item.href && item.href.endsWith('/')) {
-      errors.push(`Item ${index}: href should not end with / (except Home)`);
-    }
-    // href should start with /
-    if (item.href && !item.href.startsWith('/')) {
-      errors.push(`Item ${index}: href must start with /`);
+    
+    // Last item (current page) can have empty href
+    const isLastItem = index === breadcrumb.length - 1;
+    
+    if (!isLastItem) {
+      // Non-final items must have valid href
+      if (!item.href || typeof item.href !== 'string') {
+        errors.push(`Item ${index}: Missing or invalid href`);
+      }
+      // href should not end with / except for Home
+      if (index > 0 && item.href && item.href.endsWith('/')) {
+        errors.push(`Item ${index}: href should not end with / (except Home)`);
+      }
+      // href should start with /
+      if (item.href && !item.href.startsWith('/')) {
+        errors.push(`Item ${index}: href must start with /`);
+      }
+    } else {
+      // Last item: href can be empty (current page) or valid path
+      if (item.href && typeof item.href === 'string' && item.href !== '') {
+        // If present and non-empty, validate it
+        if (!item.href.startsWith('/')) {
+          errors.push(`Item ${index}: href must start with /`);
+        }
+        if (item.href.endsWith('/')) {
+          errors.push(`Item ${index}: href should not end with /`);
+        }
+      }
     }
   });
   

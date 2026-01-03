@@ -1,8 +1,8 @@
 id: cadmium-plating-contamination
 name: Cadmium Plating Removal
 category: metallic-coating
-datePublished: '2025-12-29T20:26:04.470245Z'
-dateModified: '2025-12-29T20:26:04.470245Z'
+datePublished: '2026-01-03T07:49:17.868180Z'
+dateModified: '2026-01-03T07:49:17.868180Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/cadmium-plating-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Plating
-  href: /contaminants/metallic-coating/plating
 - label: Cadmium Plating Removal
-  href: /contaminants/metallic-coating/plating/cadmium-plating-contamination
+  href: ''
 page_title: 'Cadmium Plating Removal Removal: Laser Ablation Clean'
 page_description: Cadmium-plating contamination, it manifests as tenacious metallic residues on substrates. This layer, dependent
   from environmental exposure, forms irregular patterns that cling to surfaces. These contaminants, they exhibit strong adhesion
@@ -27,7 +23,7 @@ page_description: Cadmium-plating contamination, it manifests as tenacious metal
   showing uneven etch patterns. These oxides, they resist full ablation, demanding optimized parameters for efficacy.
 meta_description: 'Cadmium Plating Removal: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/cadmium-plating-contamination-hero.jpg
     alt: Cadmium Plating Removal laser cleaning visualization showing process effects
@@ -51,9 +47,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -65,8 +58,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -76,12 +72,70 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Cadmium oxide fume
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 0.002
+        hazard_class: carcinogenic
+      - compound: Cadmium metal fume
+        concentration_mg_m3: 0.3
+        exposure_limit_mg_m3: 0.01
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.85
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be carefully controlled to minimize base metal damage
+    - Thermal decomposition may create irregular surface finish
+    - Residual cadmium contamination requires post-cleaning verification
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Cadmium oxide fume
+          concentration_mg_m3: 0.5
+          hazard_class: carcinogenic
+        - compound: Cadmium metal fume
+          concentration_mg_m3: 0.3
+          hazard_class: toxic
+        description: Cadmium oxide fume and Cadmium metal fume generation - multiple toxic compounds
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Cadmium oxide fume - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 15
+        rationale: Standard industrial ventilation (15 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -283,57 +337,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Cadmium oxide fume
-            concentration_mg_m3: 0.5
-            exposure_limit_mg_m3: 0.002
-            hazard_class: carcinogenic
-          - compound: Cadmium metal fume
-            concentration_mg_m3: 0.3
-            exposure_limit_mg_m3: 0.01
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.85
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser parameters must be carefully controlled to minimize base metal damage
-          - Thermal decomposition may create irregular surface finish
-          - Residual cadmium contamination requires post-cleaning verification
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Cadmium oxide fume
-              concentration_mg_m3: 0.5
-              hazard_class: carcinogenic
-            - compound: Cadmium metal fume
-              concentration_mg_m3: 0.3
-              hazard_class: toxic
-            description: Cadmium oxide fume and Cadmium metal fume generation - multiple toxic compounds
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Cadmium oxide fume - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 15
-            rationale: Standard industrial ventilation (15 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 2.5
@@ -346,60 +349,33 @@ relationships:
           thermal_conductivity: 96.8
           thermal_diffusivity: 18.2
           vaporization_temperature: 765
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-  category: metallic-coating
-  subcategory: plating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: plating
 composition:
 - Cd
 - Cd Alloys
+prohibited_materials:
+- Aluminum
+valid_materials:
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+slug: cadmium-plating-contamination
+lastModified: '2026-01-02T23:49:17.868209'

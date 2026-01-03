@@ -3,22 +3,18 @@ name: Nanoparticulates
 display_name: Nanoparticulates
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:17.501201Z'
-dateModified: '2025-12-29T20:28:17.501201Z'
+datePublished: '2026-01-03T07:49:27.236524Z'
+dateModified: '2026-01-03T07:49:27.236524Z'
 content_type: compounds
 schema_version: 5.0.0
-full_path: /compounds/particulate/nanomaterial/nanoparticulates-compound
+full_path: /compounds/particulate/nanoparticulates-compound
 breadcrumb:
 - label: Home
   href: /
 - label: Compounds
   href: /compounds
-- label: Particulate
-  href: /compounds/particulate
-- label: Nanomaterial
-  href: /compounds/particulate/nanomaterial
 - label: Nanoparticulates
-  href: /compounds/particulate/nanomaterial/nanoparticulates-compound
+  href: ''
 page_title: 'Nanoparticulates: Respiratory Irritant'
 page_description: Nanoparticulates pack immense surface area into tiny realms.
 meta_description: 'Nanoparticulates: Respiratory Irritant from metal processing. Requires proper ventilation and PPE.'
@@ -119,8 +115,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - respiratory_penetration
 - pulmonary_effects
@@ -139,7 +135,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -151,7 +147,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -192,42 +188,46 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Thermal Compound Deposits
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: "Dealing with nanoparticulate compounds in industrial settings often brings up tricky safety hurdles because\
-    \ these tiny particles can easily drift into the air or cling to surfaces, raising risks of inhalation or skin contact\
-    \ during handling or processing. Engineers and workers turn to robust personal protective equipment to counter these issues,\
-    \ especially when mixing the compounds into stronger materials for things like coatings or composites that boost durability\
-    \ in machinery parts. \n\nFor basic manipulation, like blending or applying these particulates, sealed gloves made from\
-    \ resistant materials shield hands from direct exposure, while full-body coveralls prevent particles from settling on\
-    \ clothing and spreading later. Eye protection becomes crucial too, with goggles that form a tight barrier against any\
-    \ airborne specks that might irritate or worse during vigorous stirring or pouring tasks. \n\nWhen it comes to laser cleaning\
-    \ operations—where focused beams strip away contaminants from surfaces treated with nanoparticulates—the setup demands\
-    \ even more layered defenses. Respirators with fine filters trap those elusive particles and any vapors kicked up by the\
-    \ heat, ensuring breaths stay clear amid the process that restores metal components without scratching their tough finishes.\
-    \ Protective hoods or face shields pair well here, blocking intense light flashes and flying debris that could scatter\
-    \ from the cleaned areas. In high-exposure zones, like factories refining these compounds for aerospace uses, adding boot\
-    \ covers and ventilated enclosures keeps the whole workspace safer, letting teams focus on the benefits of enhanced conductivity\
-    \ or strength in end products without constant worry over hidden hazards. Overall, picking the right gear boils down to\
-    \ matching it to the job's intensity, from routine compounding to precise laser work, so productivity hums along smoothly."
-  images:
-    hero:
-      url: /images/compound/nanoparticulates-compound-hero.jpg
-      alt: Nanoparticulates laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/nanoparticulates-compound-micro.jpg
-      alt: Nanoparticulates microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Pulmonary inflammation and oxidative stress leading to respiratory distress
+      severity: moderate
+      onset: short-term
+    - route: skin_contact
+      effect: Skin irritation and potential dermal penetration causing localized inflammation
+      severity: low
+      onset: immediate
+    - route: eye_contact
+      effect: Ocular irritation and conjunctivitis
+      severity: moderate
+      onset: immediate
+    - route: inhalation
+      effect: Potential for systemic translocation and cardiovascular effects
+      severity: high
+      onset: long-term
+    - route: skin_contact
+      effect: Allergic dermatitis in sensitive individuals
+      severity: moderate
+      onset: short-term
 subcategory: nanomaterial
+ppe_requirements: "Dealing with nanoparticulate compounds in industrial settings often brings up tricky safety hurdles because\
+  \ these tiny particles can easily drift into the air or cling to surfaces, raising risks of inhalation or skin contact during\
+  \ handling or processing. Engineers and workers turn to robust personal protective equipment to counter these issues, especially\
+  \ when mixing the compounds into stronger materials for things like coatings or composites that boost durability in machinery\
+  \ parts. \n\nFor basic manipulation, like blending or applying these particulates, sealed gloves made from resistant materials\
+  \ shield hands from direct exposure, while full-body coveralls prevent particles from settling on clothing and spreading\
+  \ later. Eye protection becomes crucial too, with goggles that form a tight barrier against any airborne specks that might\
+  \ irritate or worse during vigorous stirring or pouring tasks. \n\nWhen it comes to laser cleaning operations—where focused\
+  \ beams strip away contaminants from surfaces treated with nanoparticulates—the setup demands even more layered defenses.\
+  \ Respirators with fine filters trap those elusive particles and any vapors kicked up by the heat, ensuring breaths stay\
+  \ clear amid the process that restores metal components without scratching their tough finishes. Protective hoods or face\
+  \ shields pair well here, blocking intense light flashes and flying debris that could scatter from the cleaned areas. In\
+  \ high-exposure zones, like factories refining these compounds for aerospace uses, adding boot covers and ventilated enclosures\
+  \ keeps the whole workspace safer, letting teams focus on the benefits of enhanced conductivity or strength in end products\
+  \ without constant worry over hidden hazards. Overall, picking the right gear boils down to matching it to the job's intensity,\
+  \ from routine compounding to precise laser work, so productivity hums along smoothly."
+formula: Various
 faq:
 - question: How can I effectively protect myself from nanoparticulate exposure while operating laser cleaning equipment in
     the lab?
@@ -236,4 +236,5 @@ faq:
     impermeable materials, gloves, and eye protection to prevent skin and ocular contact, and ensure the workspace has local
     exhaust ventilation (LEV) systems capturing fumes at the source. Regularly monitor air quality with particle counters
     and follow decontamination protocols, such as HEPA-filtered vacuums for cleanup, to minimize residual exposure.
-formula: Various
+slug: nanoparticulates-compound
+lastModified: '2026-01-02T23:49:27.236552'

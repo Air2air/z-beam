@@ -3,8 +3,8 @@ name: Benzene
 display_name: Benzene (C₆H₆)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2025-12-29T20:27:56.849460Z'
-dateModified: '2025-12-29T20:27:56.849460Z'
+datePublished: '2026-01-03T07:49:25.611516Z'
+dateModified: '2026-01-03T07:49:25.611516Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aromatic-hydrocarbon/benzene-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Carcinogen
-  href: /compounds/carcinogen
-- label: Aromatic Hydrocarbon
-  href: /compounds/carcinogen/aromatic_hydrocarbon
 - label: Benzene
-  href: /compounds/carcinogen/aromatic-hydrocarbon/benzene-compound
+  href: ''
 page_title: 'Benzene: Carcinogenic Fumes'
 page_description: Handling benzene starts with understanding its role in tough industrial setups.
 meta_description: 'Benzene: Carcinogenic Fumes from metal processing. HEPA filtration required. Medical surveillance.'
@@ -86,9 +82,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -100,8 +93,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 health_effects_keywords:
 - leukemia
 - bone_marrow_damage
@@ -146,12 +142,6 @@ relationships:
       items:
       - type: chemical_properties
         id: benzene-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -168,10 +158,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -191,18 +178,29 @@ relationships:
           ec_number: 200-753-7
           pubchem_cid: '241'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: benzene-toxicology
+      - route: inhalation
+        effect: Central nervous system depression (dizziness, headache, confusion)
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Increased risk of leukemia and aplastic anemia
+        severity: severe
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation and dermatitis due to defatting
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Irritation, redness, and tearing
+        severity: low
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -214,12 +212,9 @@ relationships:
         special_notes: Benzene is absorbed through skin - full body protection required. Change contaminated clothing immediately,
           do not reuse without decontamination.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -238,10 +233,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -254,8 +246,8 @@ relationships:
         workplace_exposure:
           osha_pel:
             twa_8hr: 1 ppm
-            stel_15min: 5 ppm
-            ceiling: null
+            stel_15min: null
+            ceiling: 5 ppm
           niosh_rel:
             twa_8hr: 0.1 ppm
             stel_15min: 1 ppm
@@ -278,9 +270,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -304,10 +293,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -319,6 +305,7 @@ relationships:
           flammability: 3
           reactivity: 0
           special: null
+          instability: 0
         epa_hazard_categories:
         - Acute toxicity
         - Flammability
@@ -333,10 +320,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -355,10 +339,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -389,10 +370,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -417,12 +395,6 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Decomposition of aromatic additives
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -453,31 +425,18 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Dealing with benzene in industrial settings calls for robust skin barriers first off, like chemical-resistant
-    gloves that keep the liquid from seeping through during handling or spills. Eye protection gets priority too, since vapors
-    can irritate harshly—goggles or face shields seal out those fumes effectively. For breathing safety, especially in enclosed
-    areas where evaporation ramps up, a full respirator with organic vapor cartridges blocks inhalation risks tied to its
-    carcinogenic profile. Overall suits made from impermeable materials cover the body, preventing absorption through clothing
-    in applications like solvent mixing or residue cleanup. And when laser cleaning comes into play for removing benzene traces
-    from surfaces, add flame-retardant layers to the gear, guarding against any ignition sparks while maintaining that vapor-tight
-    seal. Ventilation hoods or powered air systems amp up protection in high-exposure tasks, ensuring workers stay shielded
-    without compromising mobility.
-  images:
-    hero:
-      url: /images/compound/benzene-compound-hero.jpg
-      alt: Benzene laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/benzene-compound-micro.jpg
-      alt: Benzene microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: aromatic_hydrocarbon
+ppe_requirements: Dealing with benzene in industrial settings calls for robust skin barriers first off, like chemical-resistant
+  gloves that keep the liquid from seeping through during handling or spills. Eye protection gets priority too, since vapors
+  can irritate harshly—goggles or face shields seal out those fumes effectively. For breathing safety, especially in enclosed
+  areas where evaporation ramps up, a full respirator with organic vapor cartridges blocks inhalation risks tied to its carcinogenic
+  profile. Overall suits made from impermeable materials cover the body, preventing absorption through clothing in applications
+  like solvent mixing or residue cleanup. And when laser cleaning comes into play for removing benzene traces from surfaces,
+  add flame-retardant layers to the gear, guarding against any ignition sparks while maintaining that vapor-tight seal. Ventilation
+  hoods or powered air systems amp up protection in high-exposure tasks, ensuring workers stay shielded without compromising
+  mobility.
+formula: C₆H₆
 faq:
 - question: As a laser cleaning operator working on equipment that may release benzene vapors due to its volatility, what
     protection methods should I use to stay below exposure limits?
@@ -486,4 +445,5 @@ faq:
     half-face respirator with organic vapor cartridges (e.g., N95 or better with OV filter) during operations, and use chemical-resistant
     gloves and protective clothing to prevent skin contact. Regularly monitor air quality with a photoionization detector
     (PID) calibrated for benzene to ensure levels remain safe and trigger immediate evacuation if thresholds are approached.
-formula: C₆H₆
+slug: benzene-compound
+lastModified: '2026-01-02T23:49:25.611545'

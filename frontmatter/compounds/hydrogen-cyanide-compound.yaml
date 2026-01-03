@@ -3,8 +3,8 @@ name: Hydrogen Cyanide
 display_name: Hydrogen Cyanide (HCN)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-29T20:27:58.578413Z'
-dateModified: '2025-12-29T20:27:58.578413Z'
+datePublished: '2026-01-03T07:49:25.754096Z'
+dateModified: '2026-01-03T07:49:25.754096Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/cyanide/hydrogen-cyanide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Toxic Gas
-  href: /compounds/toxic_gas
-- label: Cyanide
-  href: /compounds/toxic_gas/cyanide
 - label: Hydrogen Cyanide
-  href: /compounds/toxic-gas/cyanide/hydrogen-cyanide-compound
+  href: ''
 page_title: 'Hydrogen Cyanide: Toxic Metal Fumes'
 page_description: Handling hydrogen cyanide starts with extreme caution.
 meta_description: 'Hydrogen Cyanide: Toxic Metal Fumes from metal processing. Requires enclosed extraction.'
@@ -118,8 +114,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - cellular_asphyxiation
 - rapid_unconsciousness
@@ -163,12 +159,6 @@ relationships:
       items:
       - type: chemical_properties
         id: hydrogen-cyanide-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -185,10 +175,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -207,18 +194,32 @@ relationships:
           ec_number: 200-821-6
           pubchem_cid: '768'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: hydrogen-cyanide-toxicology
+      - route: inhalation
+        effect: Rapid onset of headache, dizziness, nausea, confusion, seizures, respiratory failure, and cardiovascular collapse
+          due to cellular hypoxia
+        severity: severe
+        onset: immediate
+      - route: skin_contact
+        effect: Systemic absorption leading to cyanosis, weakness, hyperventilation, coma, and potential death; liquid form
+          causes burns
+        severity: severe
+        onset: short-term
+      - route: eye_contact
+        effect: Severe irritation, pain, lacrimation, blurred vision, and possible corneal injury
+        severity: high
+        onset: immediate
+      - route: ingestion
+        effect: Burning sensation in mouth and throat, nausea, vomiting, abdominal pain, and rapid systemic toxicity including
+          convulsions and death
+        severity: severe
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -231,12 +232,9 @@ relationships:
         special_notes: HCN penetrates ordinary clothing. Rapidly absorbed through skin causing systemic poisoning. Use butyl
           rubber - NOT neoprene or natural rubber. Emergency cyanide antidote kit must be immediately available.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -258,10 +256,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -275,16 +270,16 @@ relationships:
           osha_pel:
             twa_8hr: null
             stel_15min: null
-            ceiling: 10 ppm (11 mg/m³) - Skin notation
+            ceiling: 10 ppm
           niosh_rel:
-            twa_8hr: null
-            stel_15min: 4.7 ppm (5 mg/m³) - 10 min ceiling
+            twa_8hr: 4.7 ppm
+            stel_15min: 4.7 ppm
             ceiling: null
             idlh: 50 ppm
           acgih_tlv:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: 4.7 ppm - Skin notation
+            twa_8hr: 10 ppm
+            stel_15min: 15 ppm
+            ceiling: null
           biological_exposure_indices:
           - metabolite: Thiocyanate
             specimen: Urine
@@ -298,9 +293,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -328,10 +320,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -343,6 +332,7 @@ relationships:
           flammability: 4
           reactivity: 2
           special: null
+          instability: 2
         epa_hazard_categories:
         - Acute toxicity (fatal if inhaled/swallowed/skin contact)
         - Flammability
@@ -354,10 +344,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -376,10 +363,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -410,10 +394,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -430,12 +411,6 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Breakdown of cyanoacrylate adhesives
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -445,12 +420,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -487,31 +456,17 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: "Handling hydrogen cyanide demands serious protection. Start with full-body suits made from impermeable\
-    \ materials. Seal every gap to block gas leaks. \n\nRespiratory gear tops the list. Use self-contained breathing apparatus\
-    \ for total air isolation. No half-measures here—inhalation kills fast.\n\nGloves follow suit. Thick, chemical-resistant\
-    \ ones shield skin contact. Pair them with boots that resist penetration.\n\nEye protection can't skip. Full-face shields\
-    \ or goggles prevent vapor exposure. Irritation hits quick otherwise.\n\nIn industrial spots like chemical plants, layer\
-    \ up with hoods. They cover head and neck completely. Ventilation systems help, but PPE stays primary.\n\nFor laser cleaning\
-    \ tasks involving this compound, maintain distance. Enhanced suits handle heat and fumes. Always monitor air quality indirectly\
-    \ through protocols.\n\nTrain teams rigorously. PPE fits snug, no exceptions. Decontaminate after every shift to stay\
-    \ safe."
-  images:
-    hero:
-      url: /images/compound/hydrogen-cyanide-compound-hero.jpg
-      alt: Hydrogen Cyanide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/hydrogen-cyanide-compound-micro.jpg
-      alt: Hydrogen Cyanide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: cyanide
+ppe_requirements: "Handling hydrogen cyanide demands serious protection. Start with full-body suits made from impermeable\
+  \ materials. Seal every gap to block gas leaks. \n\nRespiratory gear tops the list. Use self-contained breathing apparatus\
+  \ for total air isolation. No half-measures here—inhalation kills fast.\n\nGloves follow suit. Thick, chemical-resistant\
+  \ ones shield skin contact. Pair them with boots that resist penetration.\n\nEye protection can't skip. Full-face shields\
+  \ or goggles prevent vapor exposure. Irritation hits quick otherwise.\n\nIn industrial spots like chemical plants, layer\
+  \ up with hoods. They cover head and neck completely. Ventilation systems help, but PPE stays primary.\n\nFor laser cleaning\
+  \ tasks involving this compound, maintain distance. Enhanced suits handle heat and fumes. Always monitor air quality indirectly\
+  \ through protocols.\n\nTrain teams rigorously. PPE fits snug, no exceptions. Decontaminate after every shift to stay safe."
+formula: HCN
 faq:
 - question: What personal protective equipment (PPE) should I wear to minimize hydrogen cyanide (HCN) exposure risks during
     laser cleaning of metal surfaces?
@@ -520,4 +475,5 @@ faq:
     has adequate ventilation or local exhaust systems to reduce inhalation hazards, and always perform air monitoring with
     HCN-specific detectors to keep exposures below the OSHA ceiling limit of 10 ppm. If HCN levels approach the limit, immediately
     evacuate and decontaminate any exposed skin with a dilute sodium hypochlorite solution followed by thorough rinsing.
-formula: HCN
+slug: hydrogen-cyanide-compound
+lastModified: '2026-01-02T23:49:25.754129'

@@ -1,7 +1,7 @@
 id: zinc-settings
 name: Zinc
-datePublished: '2025-12-29T20:29:24.797376Z'
-dateModified: '2025-12-29T20:29:24.797376Z'
+datePublished: '2026-01-03T07:49:36.682114Z'
+dateModified: '2026-01-03T07:49:36.682114Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/zinc-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Alloy
-  href: /settings/metal/alloy
 - label: Zinc
-  href: /settings/metal/alloy/zinc-settings
+  href: ''
 page_title: 'Zinc Settings: Laser Parameters'
 page_description: We've found zinc cleans up nicely with laser settings. It reflects a lot of light, so we start low on power
   to avoid scattering energy. This keeps the surface cool and removes grime without melting. But watch the heat buildup mid-process—it
@@ -49,9 +45,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -60,11 +53,15 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -84,12 +81,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -98,23 +89,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: zinc-laser-cleaning
         effectiveness: high
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -132,12 +111,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: metal
-subcategory: alloy
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Zinc oxide removal without substrate damage
@@ -258,3 +232,5 @@ machine_settings:
       large areas. Source: Process optimization in Laser Technol. J. (2021), typical for industrial scanning parameters.'
 component_summary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for Zinc, providing efficient
   contaminant removal while minimizing heat input to prevent melting its soft, low-melting-point surface.
+slug: zinc-settings
+lastModified: '2026-01-02T23:49:36.682150'

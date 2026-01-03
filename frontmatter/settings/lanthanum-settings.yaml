@@ -1,7 +1,7 @@
 id: lanthanum-settings
 name: Lanthanum
-datePublished: '2025-12-29T20:29:23.654223Z'
-dateModified: '2025-12-29T20:29:23.654223Z'
+datePublished: '2026-01-03T07:49:32.829068Z'
+dateModified: '2026-01-03T07:49:32.829068Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/rare-earth/lanthanide/lanthanum-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Rare Earth
-  href: /settings/rare-earth
-- label: Lanthanide
-  href: /settings/rare-earth/lanthanide
 - label: Lanthanum
-  href: /settings/rare-earth/lanthanide/lanthanum-settings
+  href: ''
 page_title: 'Lanthanum Settings: Laser Parameters'
 page_description: When laser cleaning Lanthanum, we've found the biggest challenge lies in its quick tendency to oxidize during
   the process, since it reacts strongly with air even at moderate heat levels. This sets it apart from more stable metals,
@@ -48,9 +44,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -62,11 +55,14 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -86,12 +82,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -100,12 +90,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -115,12 +99,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -167,12 +145,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: rare-earth
-subcategory: lanthanide
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Lanthanum oxide removal without substrate damage
@@ -303,3 +276,5 @@ machine_settings:
       on scan strategies for metallic substrates.'
 component_summary: These settings employ moderate 100 W power and 12 ns pulses at 1064 nm to selectively ablate contaminants
   from lanthanum's soft, reactive surface without inducing oxidation or thermal distortion.
+slug: lanthanum-settings
+lastModified: '2026-01-02T23:49:32.829097'

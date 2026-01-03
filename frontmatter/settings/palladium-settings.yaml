@@ -1,7 +1,7 @@
 id: palladium-settings
 name: Palladium
-datePublished: '2025-12-29T20:29:23.909774Z'
-dateModified: '2025-12-29T20:29:23.909774Z'
+datePublished: '2026-01-03T07:49:33.618570Z'
+dateModified: '2026-01-03T07:49:33.618570Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/palladium-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Non Ferrous
-  href: /settings/metal/non-ferrous
 - label: Palladium
-  href: /settings/metal/non-ferrous/palladium-settings
+  href: ''
 page_title: 'Palladium Settings: Laser Parameters'
 page_description: 'When laser cleaning Palladium, you''ll want to begin with a careful setup to handle its high reflectivity.
   Start by selecting a lower power level right from the outset. This metal reflects a lot of the laser energy, so you must
@@ -72,11 +68,11 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -96,12 +92,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -110,12 +100,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -125,12 +109,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -148,12 +126,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: metal
-subcategory: non-ferrous
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Palladium oxide removal without substrate damage
@@ -283,3 +256,5 @@ machine_settings:
       guidelines like CleanLASER.'
 component_summary: The 1064 nm wavelength optimizes absorption in Palladium's metallic structure, while 200 W power and 12
   ns pulses enable contaminant removal without inducing thermal stress on its corrosion-resistant surface.
+slug: palladium-settings
+lastModified: '2026-01-02T23:49:33.618602'

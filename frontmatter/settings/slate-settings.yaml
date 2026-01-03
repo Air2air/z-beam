@@ -1,7 +1,7 @@
 id: slate-settings
 name: Slate
-datePublished: '2025-12-29T20:29:24.437820Z'
-dateModified: '2025-12-29T20:29:24.437820Z'
+datePublished: '2026-01-03T07:49:35.536281Z'
+dateModified: '2026-01-03T07:49:35.536281Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/stone/metamorphic/slate-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Stone
-  href: /settings/stone
-- label: Metamorphic
-  href: /settings/stone/metamorphic
 - label: Slate
-  href: /settings/stone/metamorphic/slate-settings
+  href: ''
 page_title: 'Slate Settings: Laser Parameters'
 page_description: We've found that slate's layered structure demands careful attention right from the start during laser cleaning.
   It can delaminate if heat builds up too quickly, so begin with lower power settings to prevent cracking along those natural
@@ -54,9 +50,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -65,11 +58,15 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -89,12 +86,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -103,23 +94,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: slate-laser-cleaning
         effectiveness: high
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -151,12 +130,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: stone
-subcategory: metamorphic
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Slate surface cleaning without thermal damage
@@ -281,3 +255,5 @@ machine_settings:
       2015).'
 component_summary: These settings employ moderate 200 W power and 10 ns pulses at 1064 nm to delicately ablate surface contaminants
   from slate, minimizing thermal damage to its brittle, layered structure.
+slug: slate-settings
+lastModified: '2026-01-02T23:49:35.536307'

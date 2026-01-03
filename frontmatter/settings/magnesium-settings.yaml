@@ -1,7 +1,7 @@
 id: magnesium-settings
 name: Magnesium
-datePublished: '2025-12-29T20:29:23.726499Z'
-dateModified: '2025-12-29T20:29:23.726499Z'
+datePublished: '2026-01-03T07:49:33.036875Z'
+dateModified: '2026-01-03T07:49:33.036875Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/magnesium-settings
@@ -10,12 +10,8 @@ breadcrumb:
   href: /
 - label: Settings
   href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Specialty
-  href: /settings/metal/specialty
 - label: Magnesium
-  href: /settings/metal/specialty/magnesium-settings
+  href: ''
 page_title: 'Magnesium Settings: Laser Parameters'
 page_description: I've found that magnesium cleans up nicely with laser settings when you keep the power gentle and the passes
   multiple, because its shiny surface bounces most of the energy away and it heats up fast due to low thermal mass. This lightweight
@@ -61,11 +57,11 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -85,12 +81,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to this laser setting
-        icon: shield-check
-        order: 4
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -99,12 +89,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        section_title: Removes Contaminants
-        section_description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -114,12 +98,6 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        section_title: Optimized Materials
-        section_description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     common_challenges:
       presentation: descriptive
@@ -137,12 +115,7 @@ relationships:
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
-        icon: alert-triangle
-        section_description: Typical difficulties and considerations when using this setting
-        order: 1
-        variant: warning
-category: metal
-subcategory: specialty
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power range for Magnesium oxide layer removal
@@ -265,3 +238,5 @@ machine_settings:
       2022, Vol. 145, on scan overlap in laser cleaning).'
 component_summary: These settings employ moderate 200 W power and 10 ns pulses at 1064 nm to delicately ablate contaminants
   from reactive magnesium, minimizing heat buildup and avoiding ignition or surface damage.
+slug: magnesium-settings
+lastModified: '2026-01-02T23:49:33.036901'

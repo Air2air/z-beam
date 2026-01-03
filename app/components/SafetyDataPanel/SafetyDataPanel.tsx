@@ -1,10 +1,9 @@
 /**
  * @component SafetyDataPanel
  * @purpose Comprehensive safety information display for contaminant laser removal
- * @extends GridSection, CompoundSafetyGrid components
+ * @extends CompoundSafetyGrid components
  * 
  * Updated to use:
- * - GridSection: Universal section wrapper
  * - CompoundSafetyGrid: Enhanced compound display with safety metadata
  * - Data from produces_compounds (flattened structure)
  * - Unified safety grid: Integrates RiskCard and InfoCard components
@@ -16,12 +15,17 @@
  * - Ventilation fields: minimum_air_changes_per_hour, exhaust_velocity_m_s, filtration_type
  * - Particulate fields: respirable_fraction (0.0-1.0), size_range_um [min, max]
  * 
+ * Normalized Structure Support:
+ * - Handles normalized structure: {presentation: 'card'|'descriptive', items: [...]}
+ * - Backward compatible with legacy structures
+ * - Extracts first item from items array for rendering
+ * 
  * @see docs/specs/SAFETY_RISK_SEVERITY_SCHEMA.md
+ * @see docs/SAFETY_DATA_NORMALIZATION_E2E.md
  */
 
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
-import { GridSection } from '../GridSection';
 import { CompoundSafetyGrid } from '../CompoundSafetyGrid';
 import { Collapsible } from '../Collapsible';
 import { RiskCard } from '../RiskCard/RiskCard';
@@ -29,20 +33,36 @@ import { InfoCard } from '../InfoCard/InfoCard';
 import { EnhancedCompound } from '@/app/utils/gridMappers';
 import { AlertTriangle, Wind, Eye, Shield, Flame } from 'lucide-react';
 import { getGridClasses } from '@/app/utils/gridConfig';
+import type { NormalizedSafetyData } from '@/types/safetyData';
 
 interface SafetyDataPanelProps {
-  safetyData: any;
+  safetyData: NormalizedSafetyData | any;  // Support normalized and legacy structures
   compounds?: EnhancedCompound[];  // Enhanced compound data from produces_compounds field
   className?: string;
-  collapsible?: boolean;  // NEW: Enable collapsible mode for risk cards
+  collapsible?: boolean;  // Enable collapsible mode for risk cards
   entityName?: string;  // Name of contaminant/compound for title
+}
+
+/**
+ * Helper function to extract data from normalized structure or legacy format
+ */
+function extractSafetyItem<T>(field: any): T | undefined {
+  if (!field) return undefined;
+  
+  // Normalized structure: {presentation: 'card', items: [...]}
+  if (field.items && Array.isArray(field.items) && field.items.length > 0) {
+    return field.items[0];
+  }
+  
+  // Legacy structure: direct object or string
+  return field;
 }
 
 export function SafetyDataPanel({ 
   safetyData, 
   compounds = [],  // Enhanced compound data from produces_compounds top-level field
   className = '',
-  collapsible = false,  // NEW: Default to false for backward compatibility
+  collapsible = false,  // Default to false for backward compatibility
   entityName  // Name of contaminant/compound for title
 }: SafetyDataPanelProps) {
   if (!safetyData) return null;
@@ -61,86 +81,118 @@ export function SafetyDataPanel({
   if (collapsible) {
     const safetyDataObj: Record<string, any> = {};
     
-    if (safetyData.fire_explosion_risk) {
+    // Extract fire_explosion_risk
+    const fireRisk = extractSafetyItem(safetyData.fire_explosion_risk);
+    if (fireRisk) {
       safetyDataObj.fire_explosion_risk = {
-        severity: safetyData.fire_explosion_risk.severity || safetyData.fire_explosion_risk,
-        description: safetyData.fire_explosion_risk.description,
-        mitigation: safetyData.fire_explosion_risk.mitigation
+        severity: fireRisk.severity || fireRisk,
+        description: fireRisk.description,
+        mitigation: fireRisk.mitigation
       };
     }
     
-    if (safetyData.toxic_gas_risk) {
+    // Extract toxic_gas_risk
+    const toxicRisk = extractSafetyItem(safetyData.toxic_gas_risk);
+    if (toxicRisk) {
       safetyDataObj.toxic_gas_risk = {
-        severity: safetyData.toxic_gas_risk.severity || safetyData.toxic_gas_risk,
-        description: safetyData.toxic_gas_risk.description,
-        mitigation: safetyData.toxic_gas_risk.mitigation
+        severity: toxicRisk.severity || toxicRisk,
+        description: toxicRisk.description,
+        mitigation: toxicRisk.mitigation,
+        primary_hazards: toxicRisk.primary_hazards // Include hazards array for contaminants
       };
     }
     
-    if (safetyData.visibility_hazard) {
+    // Extract visibility_hazard
+    const visRisk = extractSafetyItem(safetyData.visibility_hazard);
+    if (visRisk) {
       safetyDataObj.visibility_hazard = {
-        severity: safetyData.visibility_hazard.severity || safetyData.visibility_hazard,
-        description: safetyData.visibility_hazard.description,
-        mitigation: safetyData.visibility_hazard.mitigation
+        severity: visRisk.severity || visRisk,
+        description: visRisk.description,
+        mitigation: visRisk.mitigation
       };
     }
     
-    if (safetyData.ppe_requirements) {
-      const ppeItem = safetyData.ppe_requirements.items?.[0] || safetyData.ppe_requirements;
-      safetyDataObj.ppe_requirements = {
-        respiratory: ppeItem.respiratory,
-        eye_protection: ppeItem.eye_protection || ppeItem.eye,
-        skin_protection: ppeItem.skin_protection || ppeItem.skin,
-        rationale: ppeItem.rationale
-      };
+    // Extract PPE requirements (handle both structured and string formats)
+    const ppeData = extractSafetyItem(safetyData.ppe_requirements);
+    if (ppeData) {
+      if (typeof ppeData === 'string') {
+        safetyDataObj.ppe_requirements = {
+          description: ppeData
+        };
+      } else {
+        safetyDataObj.ppe_requirements = {
+          respiratory: ppeData.respiratory,
+          eye_protection: ppeData.eye_protection || ppeData.eye,
+          skin_protection: ppeData.skin_protection || ppeData.skin,
+          rationale: ppeData.rationale
+        };
+      }
     }
     
-    if (safetyData.ventilation_requirements) {
-      const ventItem = safetyData.ventilation_requirements.items?.[0] || safetyData.ventilation_requirements;
+    // Extract ventilation requirements
+    const ventData = extractSafetyItem(safetyData.ventilation_requirements);
+    if (ventData) {
       safetyDataObj.ventilation_requirements = {
-        minimum_air_changes_per_hour: ventItem.minimum_air_changes_per_hour,
-        exhaust_velocity_m_s: ventItem.exhaust_velocity_m_s,
-        filtration_type: ventItem.filtration_type,
-        rationale: ventItem.rationale
+        minimum_air_changes_per_hour: ventData.minimum_air_changes_per_hour,
+        exhaust_velocity_m_s: ventData.exhaust_velocity_m_s,
+        filtration_type: ventData.filtration_type,
+        rationale: ventData.rationale
       };
     }
     
-    if (safetyData.particulate_generation) {
+    // Extract particulate generation
+    const particulateData = extractSafetyItem(safetyData.particulate_generation);
+    if (particulateData) {
       safetyDataObj.particulate_generation = {
-        respirable_fraction: safetyData.particulate_generation.respirable_fraction,
-        size_range_um: safetyData.particulate_generation.size_range_um
+        respirable_fraction: particulateData.respirable_fraction,
+        size_range_um: particulateData.size_range_um
       };
     }
-    
-    // Add compound-specific safety data
-    if (safetyData.storage_requirements) {
-      const storageItem = safetyData.storage_requirements.items?.[0] || safetyData.storage_requirements;
-      safetyDataObj.storage_requirements = storageItem;
+
+    // Extract fumes_generated for contaminants
+    if (safetyData.fumes_generated) {
+      // Could be array directly or normalized structure with items array
+      const fumesData = safetyData.fumes_generated.items || safetyData.fumes_generated;
+      if (Array.isArray(fumesData)) {
+        safetyDataObj.fumes_generated = fumesData;
+      }
     }
     
-    if (safetyData.regulatory_classification) {
-      const regItem = safetyData.regulatory_classification.items?.[0] || safetyData.regulatory_classification;
-      safetyDataObj.regulatory_classification = regItem;
+    // Extract compound-specific safety data
+    const storageData = extractSafetyItem(safetyData.storage_requirements);
+    if (storageData) {
+      if (typeof storageData === 'string') {
+        safetyDataObj.storage_requirements = {
+          description: storageData
+        };
+      } else {
+        safetyDataObj.storage_requirements = storageData;
+      }
     }
     
-    if (safetyData.workplace_exposure) {
-      const workplaceItem = safetyData.workplace_exposure.items?.[0] || safetyData.workplace_exposure;
-      safetyDataObj.workplace_exposure = workplaceItem;
+    const regData = extractSafetyItem(safetyData.regulatory_classification);
+    if (regData) {
+      safetyDataObj.regulatory_classification = regData;
     }
     
-    if (safetyData.reactivity) {
-      const reactivityItem = safetyData.reactivity.items?.[0] || safetyData.reactivity;
-      safetyDataObj.reactivity = reactivityItem;
+    const workplaceData = extractSafetyItem(safetyData.workplace_exposure);
+    if (workplaceData) {
+      safetyDataObj.workplace_exposure = workplaceData;
     }
     
-    if (safetyData.environmental_impact) {
-      const envItem = safetyData.environmental_impact.items?.[0] || safetyData.environmental_impact;
-      safetyDataObj.environmental_impact = envItem;
+    const reactivityData = extractSafetyItem(safetyData.reactivity);
+    if (reactivityData) {
+      safetyDataObj.reactivity = reactivityData;
     }
     
-    if (safetyData.detection_monitoring) {
-      const detectionItem = safetyData.detection_monitoring.items?.[0] || safetyData.detection_monitoring;
-      safetyDataObj.detection_monitoring = detectionItem;
+    const envData = extractSafetyItem(safetyData.environmental_impact);
+    if (envData) {
+      safetyDataObj.environmental_impact = envData;
+    }
+    
+    const detectionData = extractSafetyItem(safetyData.detection_monitoring);
+    if (detectionData) {
+      safetyDataObj.detection_monitoring = detectionData;
     }
     
     if (Object.keys(safetyDataObj).length > 0) {
@@ -460,10 +512,13 @@ export function SafetyDataPanel({
 
         {/* Hazardous Compounds Grid - Enhanced Safety Display */}
         {compounds && compounds.length > 0 && (
-          <GridSection
-            title="Hazardous Compounds Generated"
-            description="Critical compound safety information with exposure limits and control measures"
-          >
+          <>
+            <SectionTitle
+              title="Hazardous Compounds Generated"
+              subtitle="Critical compound safety information with exposure limits and control measures"
+              alignment="left"
+              className="mb-8"
+            />
             <CompoundSafetyGrid
               compounds={compounds}
               sortBy="severity"
@@ -471,7 +526,7 @@ export function SafetyDataPanel({
               showExceedsWarnings={true}
               columns={3}
             />
-          </GridSection>
+          </>
         )}
 
         {/* Substrate Compatibility Warnings */}

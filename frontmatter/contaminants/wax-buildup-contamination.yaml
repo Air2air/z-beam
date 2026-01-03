@@ -1,8 +1,8 @@
 id: wax-buildup-contamination
 name: Wax Coating Buildup
 category: organic-residue
-datePublished: '2025-12-29T20:26:06.650097Z'
-dateModified: '2025-12-29T20:26:06.650097Z'
+datePublished: '2026-01-03T07:49:24.309284Z'
+dateModified: '2026-01-03T07:49:24.309284Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/wax/wax-buildup-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Wax
-  href: /contaminants/organic-residue/wax
 - label: Wax Coating Buildup
-  href: /contaminants/organic-residue/wax/wax-buildup-contamination
+  href: ''
 page_title: 'Wax Coating Buildup Removal: Laser Ablation No Chemical'
 page_description: 'Wax-buildup-contamination, it arises from organic residues in laser cleaning. This contamination forms
   unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like metals. Formation follows exposure
@@ -31,7 +27,7 @@ page_description: 'Wax-buildup-contamination, it arises from organic residues in
   Yi-Chun Lin, Ph.D., Taiwan'
 meta_description: 'Wax Coating Buildup: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemical waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/wax-buildup-contamination-hero.jpg
     alt: Wax Coating Buildup laser cleaning visualization showing process effects
@@ -59,9 +55,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -70,8 +63,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -81,12 +78,88 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Acetaldehyde
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 25
+        hazard_class: irritant
+      - compound: Formaldehyde
+        concentration_mg_m3: 1-15
+        exposure_limit_mg_m3: 0.3
+        hazard_class: carcinogenic
+      - compound: Acrolein
+        concentration_mg_m3: 0.5-5
+        exposure_limit_mg_m3: 0.1
+        hazard_class: toxic
+      - compound: Benzene
+        concentration_mg_m3: 0.5-8
+        exposure_limit_mg_m3: 0.5
+        hazard_class: carcinogenic
+      - compound: Toluene
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 20
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: full_face
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal effects may damage underlying material
+    - Potential for surface discoloration or etching
+    - Reflective surfaces may create beam hazards
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Formaldehyde
+          concentration_mg_m3: 1-15
+          hazard_class: carcinogenic
+        - compound: Acrolein
+          concentration_mg_m3: 0.5-5
+          hazard_class: toxic
+        - compound: Benzene
+          concentration_mg_m3: 0.5-8
+          hazard_class: carcinogenic
+        - compound: Toluene
+          concentration_mg_m3: 2-20
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Formaldehyde, Acrolein, Benzene - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -304,75 +377,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Acetaldehyde
-            concentration_mg_m3: 5-50
-            exposure_limit_mg_m3: 25
-            hazard_class: irritant
-          - compound: Formaldehyde
-            concentration_mg_m3: 1-15
-            exposure_limit_mg_m3: 0.3
-            hazard_class: carcinogenic
-          - compound: Acrolein
-            concentration_mg_m3: 0.5-5
-            exposure_limit_mg_m3: 0.1
-            hazard_class: toxic
-          - compound: Benzene
-            concentration_mg_m3: 0.5-8
-            exposure_limit_mg_m3: 0.5
-            hazard_class: carcinogenic
-          - compound: Toluene
-            concentration_mg_m3: 2-20
-            exposure_limit_mg_m3: 20
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: full_face
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Thermal effects may damage underlying material
-          - Potential for surface discoloration or etching
-          - Reflective surfaces may create beam hazards
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Formaldehyde
-              concentration_mg_m3: 1-15
-              hazard_class: carcinogenic
-            - compound: Acrolein
-              concentration_mg_m3: 0.5-5
-              hazard_class: toxic
-            - compound: Benzene
-              concentration_mg_m3: 0.5-8
-              hazard_class: carcinogenic
-            - compound: Toluene
-              concentration_mg_m3: 2-20
-              hazard_class: toxic
-            description: 'Multiple toxic compounds detected: Formaldehyde, Acrolein, Benzene - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -385,291 +389,285 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.1
           vaporization_temperature: 400
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Plastics
-    - Rubber
-  category: organic-residue
-  subcategory: wax
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: chromium-laser-cleaning
-            title: Chromium
-            url: /materials/metal/specialty/chromium-laser-cleaning
-            image: /images/material/chromium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cobalt-laser-cleaning
-            title: Cobalt
-            url: /materials/metal/specialty/cobalt-laser-cleaning
-            image: /images/material/cobalt-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: lead-laser-cleaning
-            title: Lead
-            url: /materials/metal/non-ferrous/lead-laser-cleaning
-            image: /images/material/lead-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: nickel-laser-cleaning
-            title: Nickel
-            url: /materials/metal/specialty/nickel-laser-cleaning
-            image: /images/material/nickel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tin-laser-cleaning
-            title: Tin
-            url: /materials/metal/alloy/tin-laser-cleaning
-            image: /images/material/tin-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zinc-laser-cleaning
-            title: Zinc
-            url: /materials/metal/alloy/zinc-laser-cleaning
-            image: /images/material/zinc-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        woods:
-          title: Wood Products
-          description: Hardwood and softwood materials affected by this contamination
-          items:
-          - id: ash-laser-cleaning
-            title: Ash
-            url: /materials/wood/hardwood/ash-laser-cleaning
-            image: /images/material/ash-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bamboo-laser-cleaning
-            title: Bamboo
-            url: /materials/wood/hardwood/bamboo-laser-cleaning
-            image: /images/material/bamboo-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: birch-laser-cleaning
-            title: Birch
-            url: /materials/wood/hardwood/birch-laser-cleaning
-            image: /images/material/birch-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cedar-laser-cleaning
-            title: Cedar
-            url: /materials/wood/softwood/cedar-laser-cleaning
-            image: /images/material/cedar-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cherry-laser-cleaning
-            title: Cherry
-            url: /materials/wood/hardwood/cherry-laser-cleaning
-            image: /images/material/cherry-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: fir-laser-cleaning
-            title: Fir
-            url: /materials/wood/softwood/fir-laser-cleaning
-            image: /images/material/fir-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: mahogany-laser-cleaning
-            title: Mahogany
-            url: /materials/wood/hardwood/mahogany-laser-cleaning
-            image: /images/material/mahogany-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: maple-laser-cleaning
-            title: Maple
-            url: /materials/wood/hardwood/maple-laser-cleaning
-            image: /images/material/maple-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: oak-laser-cleaning
-            title: Oak
-            url: /materials/wood/hardwood/oak-laser-cleaning
-            image: /images/material/oak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pine-laser-cleaning
-            title: Pine
-            url: /materials/wood/softwood/pine-laser-cleaning
-            image: /images/material/pine-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: redwood-laser-cleaning
-            title: Redwood
-            url: /materials/wood/hardwood/redwood-laser-cleaning
-            image: /images/material/redwood-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: teak-laser-cleaning
-            title: Teak
-            url: /materials/wood/hardwood/teak-laser-cleaning
-            image: /images/material/teak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: walnut-laser-cleaning
-            title: Walnut
-            url: /materials/wood/hardwood/walnut-laser-cleaning
-            image: /images/material/walnut-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: ash-laser-cleaning
+    title: Ash
+    url: /materials/wood/hardwood/ash-laser-cleaning
+    image: /images/material/ash-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bamboo-laser-cleaning
+    title: Bamboo
+    url: /materials/wood/hardwood/bamboo-laser-cleaning
+    image: /images/material/bamboo-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: birch-laser-cleaning
+    title: Birch
+    url: /materials/wood/hardwood/birch-laser-cleaning
+    image: /images/material/birch-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cedar-laser-cleaning
+    title: Cedar
+    url: /materials/wood/softwood/cedar-laser-cleaning
+    image: /images/material/cedar-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cherry-laser-cleaning
+    title: Cherry
+    url: /materials/wood/hardwood/cherry-laser-cleaning
+    image: /images/material/cherry-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: chromium-laser-cleaning
+    title: Chromium
+    url: /materials/metal/specialty/chromium-laser-cleaning
+    image: /images/material/chromium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cobalt-laser-cleaning
+    title: Cobalt
+    url: /materials/metal/specialty/cobalt-laser-cleaning
+    image: /images/material/cobalt-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: fir-laser-cleaning
+    title: Fir
+    url: /materials/wood/softwood/fir-laser-cleaning
+    image: /images/material/fir-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: lead-laser-cleaning
+    title: Lead
+    url: /materials/metal/non-ferrous/lead-laser-cleaning
+    image: /images/material/lead-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: mahogany-laser-cleaning
+    title: Mahogany
+    url: /materials/wood/hardwood/mahogany-laser-cleaning
+    image: /images/material/mahogany-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: maple-laser-cleaning
+    title: Maple
+    url: /materials/wood/hardwood/maple-laser-cleaning
+    image: /images/material/maple-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nickel-laser-cleaning
+    title: Nickel
+    url: /materials/metal/specialty/nickel-laser-cleaning
+    image: /images/material/nickel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: oak-laser-cleaning
+    title: Oak
+    url: /materials/wood/hardwood/oak-laser-cleaning
+    image: /images/material/oak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pine-laser-cleaning
+    title: Pine
+    url: /materials/wood/softwood/pine-laser-cleaning
+    image: /images/material/pine-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: redwood-laser-cleaning
+    title: Redwood
+    url: /materials/wood/hardwood/redwood-laser-cleaning
+    image: /images/material/redwood-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: teak-laser-cleaning
+    title: Teak
+    url: /materials/wood/hardwood/teak-laser-cleaning
+    image: /images/material/teak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tin-laser-cleaning
+    title: Tin
+    url: /materials/metal/alloy/tin-laser-cleaning
+    image: /images/material/tin-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: walnut-laser-cleaning
+    title: Walnut
+    url: /materials/wood/hardwood/walnut-laser-cleaning
+    image: /images/material/walnut-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-laser-cleaning
+    title: Zinc
+    url: /materials/metal/alloy/zinc-laser-cleaning
+    image: /images/material/zinc-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: wax
 composition:
 - C₂₅H₅₂
 - Esters
 - Fatty Acids
+prohibited_materials:
+- Plastics
+- Rubber
+valid_materials:
+- aluminum-laser-cleaning
+- ash-laser-cleaning
+- bamboo-laser-cleaning
+- birch-laser-cleaning
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- cast-iron-laser-cleaning
+- cedar-laser-cleaning
+- cherry-laser-cleaning
+- chromium-laser-cleaning
+- cobalt-laser-cleaning
+- copper-laser-cleaning
+- fir-laser-cleaning
+- lead-laser-cleaning
+- mahogany-laser-cleaning
+- maple-laser-cleaning
+- nickel-laser-cleaning
+- oak-laser-cleaning
+- pine-laser-cleaning
+- redwood-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+- teak-laser-cleaning
+- tin-laser-cleaning
+- titanium-laser-cleaning
+- walnut-laser-cleaning
+- zinc-laser-cleaning
+slug: wax-buildup-contamination
+lastModified: '2026-01-02T23:49:24.309314'

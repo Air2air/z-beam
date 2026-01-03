@@ -3,8 +3,8 @@ name: Calcium Oxide
 display_name: Calcium Oxide (CaO)
 category: particulate
 hazard_class: irritant
-datePublished: '2025-12-29T20:28:21.942528Z'
-dateModified: '2025-12-29T20:28:21.942528Z'
+datePublished: '2026-01-03T07:49:27.566508Z'
+dateModified: '2026-01-03T07:49:27.566508Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/calcium-oxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Particulate
-  href: /compounds/particulate
-- label: Metal Oxide
-  href: /compounds/particulate/metal_oxide
 - label: Calcium Oxide
-  href: /compounds/particulate/metal-oxide/calcium-oxide-compound
+  href: ''
 page_title: 'Calcium Oxide: Respiratory Irritant'
 page_description: Unlike many softer compounds that crumble under heat, calcium oxide endures extreme temperatures with remarkable
   stability, making it a go-to choice for tough i.
@@ -124,8 +120,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - respiratory_irritation
 - skin_burns
@@ -144,7 +140,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: flask
@@ -156,7 +152,7 @@ card:
       variant: info
     metric:
       value: N/A
-      unit: ''
+      unit: ppm
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
@@ -201,40 +197,39 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Mineral Scale / Hard Water Deposits
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
   safety:
-    health_effects: null
-  ppe_requirements: 'Handling calcium oxide in its particulate form demands careful protection against its reactive and dusty
-    nature. Skin contact can lead to severe irritation from its alkaline properties, so impermeable gloves and full-body coverings
-    like aprons or suits are essential to shield exposed areas. Eyes face high risk from flying particles or splashes, making
-    sealed goggles a must for clear vision without hazard.
-
-
-    Dust inhalation poses another threat, irritating lungs and airways, which is why well-fitted respirators with appropriate
-    filters come into play during mixing or transfer tasks. In industrial settings, where it''s used for everything from steel
-    production to water treatment, adding face shields over goggles helps during pouring or high-exposure operations.
-
-
-    For laser cleaning applications, where the compound aids in surface preparation, extra caution applies—combine all the
-    above with ventilation hoods to disperse airborne particles effectively, ensuring workers stay safe amid the process''s
-    intensity.'
-  images:
-    hero:
-      url: /images/compound/calcium-oxide-compound-hero.jpg
-      alt: Calcium Oxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/calcium-oxide-compound-micro.jpg
-      alt: Calcium Oxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+    health_effects:
+    - route: inhalation
+      effect: Severe irritation and burns to the respiratory tract, potentially leading to pulmonary edema
+      severity: severe
+      onset: immediate
+    - route: skin_contact
+      effect: Chemical burns due to exothermic reaction with moisture, causing tissue damage and pain
+      severity: severe
+      onset: immediate
+    - route: eye_contact
+      effect: Severe corneal burns and potential permanent vision impairment
+      severity: severe
+      onset: immediate
+    - route: ingestion
+      effect: Burns to the mouth, throat, and gastrointestinal tract, with risk of perforation
+      severity: severe
+      onset: immediate
 subcategory: metal_oxide
+ppe_requirements: 'Handling calcium oxide in its particulate form demands careful protection against its reactive and dusty
+  nature. Skin contact can lead to severe irritation from its alkaline properties, so impermeable gloves and full-body coverings
+  like aprons or suits are essential to shield exposed areas. Eyes face high risk from flying particles or splashes, making
+  sealed goggles a must for clear vision without hazard.
+
+
+  Dust inhalation poses another threat, irritating lungs and airways, which is why well-fitted respirators with appropriate
+  filters come into play during mixing or transfer tasks. In industrial settings, where it''s used for everything from steel
+  production to water treatment, adding face shields over goggles helps during pouring or high-exposure operations.
+
+
+  For laser cleaning applications, where the compound aids in surface preparation, extra caution applies—combine all the above
+  with ventilation hoods to disperse airborne particles effectively, ensuring workers stay safe amid the process''s intensity.'
+formula: CaO
 faq:
 - question: What skin protection methods should I use when handling calcium oxide (CaO) particulates during laser cleaning
     operations?
@@ -244,4 +239,5 @@ faq:
     any exposed skin with copious amounts of water if contact occurs, followed by medical attention. Ensure your workspace
     has good ventilation to minimize airborne particulate exposure, and follow OSHA guidelines limiting CaO dust to 5 mg/m³
     as an 8-hour TWA.
-formula: CaO
+slug: calcium-oxide-compound
+lastModified: '2026-01-02T23:49:27.566536'

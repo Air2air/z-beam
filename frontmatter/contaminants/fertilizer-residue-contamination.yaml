@@ -1,8 +1,8 @@
 id: fertilizer-residue-contamination
 name: Fertilizer Salt Deposits
 category: chemical-residue
-datePublished: '2025-12-29T20:26:04.982977Z'
-dateModified: '2025-12-29T20:26:04.982977Z'
+datePublished: '2026-01-03T07:49:19.561301Z'
+dateModified: '2026-01-03T07:49:19.561301Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Chemical Residue
-  href: /contaminants/chemical-residue
-- label: Industrial
-  href: /contaminants/chemical-residue/industrial
 - label: Fertilizer Salt Deposits
-  href: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
+  href: ''
 page_title: 'Fertilizer Salt Deposits Removal: Laser Ablation Clean'
 page_description: Fertilizer residue contamination, it forms through deposition of crystalline salts and organic compounds
   on industrial surfaces, influenced from environmental humidity and prolonged exposure. These residues, they exhibit unique
@@ -28,7 +24,7 @@ page_description: Fertilizer residue contamination, it forms through deposition 
   like surface porosity, influence the overall efficacy, ensuring targeted restoration without substrate damage.
 meta_description: 'Fertilizer Salt Deposits: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/fertilizer-residue-contamination-hero.jpg
     alt: Fertilizer Salt Deposits laser cleaning visualization showing process effects
@@ -52,9 +48,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -66,8 +59,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -77,12 +73,72 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Nitrogen Dioxide (NO₂)
+        concentration_mg_m3: 5-20
+        exposure_limit_mg_m3: 5.6
+        hazard_class: toxic
+      - compound: Ammonia (NH₃)
+        concentration_mg_m3: 10-30
+        exposure_limit_mg_m3: 17
+        hazard_class: irritant
+      - compound: Nitric Oxide (NO)
+        concentration_mg_m3: 2-10
+        exposure_limit_mg_m3: 30
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May generate corrosive salts on adjacent surfaces from NOx reactions
+    - Potential for substrate oxidation or etching from nitrogen oxides
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Nitrogen Dioxide (NO₂)
+          concentration_mg_m3: 5-20
+          hazard_class: toxic
+        - compound: Nitric Oxide (NO)
+          concentration_mg_m3: 2-10
+          hazard_class: toxic
+        description: Nitrogen Dioxide (NO₂) and Nitric Oxide (NO) generation - multiple toxic compounds
+        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -289,59 +345,6 @@ relationships:
             color_change: 'no'
             residual_stress: none
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Nitrogen Dioxide (NO₂)
-            concentration_mg_m3: 5-20
-            exposure_limit_mg_m3: 5.6
-            hazard_class: toxic
-          - compound: Ammonia (NH₃)
-            concentration_mg_m3: 10-30
-            exposure_limit_mg_m3: 17
-            hazard_class: irritant
-          - compound: Nitric Oxide (NO)
-            concentration_mg_m3: 2-10
-            exposure_limit_mg_m3: 30
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - May generate corrosive salts on adjacent surfaces from NOx reactions
-          - Potential for substrate oxidation or etching from nitrogen oxides
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Nitrogen Dioxide (NO₂)
-              concentration_mg_m3: 5-20
-              hazard_class: toxic
-            - compound: Nitric Oxide (NO)
-              concentration_mg_m3: 2-10
-              hazard_class: toxic
-            description: Nitrogen Dioxide (NO₂) and Nitric Oxide (NO) generation - multiple toxic compounds
-            mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: carbon
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 1.2
@@ -354,276 +357,264 @@ relationships:
           thermal_conductivity: 0.3
           thermal_diffusivity: 0.2
           vaporization_temperature: 450
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Electronics
-  category: chemical-residue
-  subcategory: industrial
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: chromium-laser-cleaning
-            title: Chromium
-            url: /materials/metal/specialty/chromium-laser-cleaning
-            image: /images/material/chromium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cobalt-laser-cleaning
-            title: Cobalt
-            url: /materials/metal/specialty/cobalt-laser-cleaning
-            image: /images/material/cobalt-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: lead-laser-cleaning
-            title: Lead
-            url: /materials/metal/non-ferrous/lead-laser-cleaning
-            image: /images/material/lead-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: nickel-laser-cleaning
-            title: Nickel
-            url: /materials/metal/specialty/nickel-laser-cleaning
-            image: /images/material/nickel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tin-laser-cleaning
-            title: Tin
-            url: /materials/metal/alloy/tin-laser-cleaning
-            image: /images/material/tin-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zinc-laser-cleaning
-            title: Zinc
-            url: /materials/metal/alloy/zinc-laser-cleaning
-            image: /images/material/zinc-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        stone:
-          title: Stone Materials
-          description: Natural and processed stone materials affected by this contamination
-          items:
-          - id: basalt-laser-cleaning
-            title: Basalt
-            url: /materials/stone/igneous/basalt-laser-cleaning
-            image: /images/material/basalt-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bluestone-laser-cleaning
-            title: Bluestone
-            url: /materials/stone/sedimentary/bluestone-laser-cleaning
-            image: /images/material/bluestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: granite-laser-cleaning
-            title: Granite
-            url: /materials/stone/igneous/granite-laser-cleaning
-            image: /images/material/granite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: limestone-laser-cleaning
-            title: Limestone
-            url: /materials/stone/sedimentary/limestone-laser-cleaning
-            image: /images/material/limestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: marble-laser-cleaning
-            title: Marble
-            url: /materials/stone/metamorphic/marble-laser-cleaning
-            image: /images/material/marble-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: quartzite-laser-cleaning
-            title: Quartzite
-            url: /materials/stone/sedimentary/quartzite-laser-cleaning
-            image: /images/material/quartzite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: sandstone-laser-cleaning
-            title: Sandstone
-            url: /materials/stone/sedimentary/sandstone-laser-cleaning
-            image: /images/material/sandstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: slate-laser-cleaning
-            title: Slate
-            url: /materials/stone/metamorphic/slate-laser-cleaning
-            image: /images/material/slate-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: soapstone-laser-cleaning
-            title: Soapstone
-            url: /materials/stone/sedimentary/soapstone-laser-cleaning
-            image: /images/material/soapstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: travertine-laser-cleaning
-            title: Travertine
-            url: /materials/stone/natural/travertine-laser-cleaning
-            image: /images/material/travertine-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: natural
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: basalt-laser-cleaning
+    title: Basalt
+    url: /materials/stone/igneous/basalt-laser-cleaning
+    image: /images/material/basalt-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bluestone-laser-cleaning
+    title: Bluestone
+    url: /materials/stone/sedimentary/bluestone-laser-cleaning
+    image: /images/material/bluestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: chromium-laser-cleaning
+    title: Chromium
+    url: /materials/metal/specialty/chromium-laser-cleaning
+    image: /images/material/chromium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cobalt-laser-cleaning
+    title: Cobalt
+    url: /materials/metal/specialty/cobalt-laser-cleaning
+    image: /images/material/cobalt-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: granite-laser-cleaning
+    title: Granite
+    url: /materials/stone/igneous/granite-laser-cleaning
+    image: /images/material/granite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: lead-laser-cleaning
+    title: Lead
+    url: /materials/metal/non-ferrous/lead-laser-cleaning
+    image: /images/material/lead-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: limestone-laser-cleaning
+    title: Limestone
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+    image: /images/material/limestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: marble-laser-cleaning
+    title: Marble
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+    image: /images/material/marble-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nickel-laser-cleaning
+    title: Nickel
+    url: /materials/metal/specialty/nickel-laser-cleaning
+    image: /images/material/nickel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: quartzite-laser-cleaning
+    title: Quartzite
+    url: /materials/stone/sedimentary/quartzite-laser-cleaning
+    image: /images/material/quartzite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: sandstone-laser-cleaning
+    title: Sandstone
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+    image: /images/material/sandstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: slate-laser-cleaning
+    title: Slate
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+    image: /images/material/slate-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: soapstone-laser-cleaning
+    title: Soapstone
+    url: /materials/stone/sedimentary/soapstone-laser-cleaning
+    image: /images/material/soapstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tin-laser-cleaning
+    title: Tin
+    url: /materials/metal/alloy/tin-laser-cleaning
+    image: /images/material/tin-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: travertine-laser-cleaning
+    title: Travertine
+    url: /materials/stone/natural/travertine-laser-cleaning
+    image: /images/material/travertine-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: natural
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-laser-cleaning
+    title: Zinc
+    url: /materials/metal/alloy/zinc-laser-cleaning
+    image: /images/material/zinc-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: industrial
 composition:
 - KNO₃
 - NH₄NO₃
 - Phosphates
+prohibited_materials:
+- Electronics
+valid_materials:
+- aluminum-laser-cleaning
+- basalt-laser-cleaning
+- bluestone-laser-cleaning
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- cast-iron-laser-cleaning
+- chromium-laser-cleaning
+- cobalt-laser-cleaning
+- concrete-laser-cleaning
+- copper-laser-cleaning
+- granite-laser-cleaning
+- lead-laser-cleaning
+- limestone-laser-cleaning
+- marble-laser-cleaning
+- nickel-laser-cleaning
+- quartzite-laser-cleaning
+- sandstone-laser-cleaning
+- slate-laser-cleaning
+- soapstone-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+- tin-laser-cleaning
+- titanium-laser-cleaning
+- travertine-laser-cleaning
+- zinc-laser-cleaning
+slug: fertilizer-residue-contamination
+lastModified: '2026-01-02T23:49:19.561344'

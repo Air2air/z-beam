@@ -8,7 +8,6 @@ import { ContaminantCard } from '../ContaminantCard';
 import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
 import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
-import ContaminantDatasetDownloader from '../Dataset/ContaminantDatasetDownloader';
 import { InfoCard } from '../InfoCard/InfoCard';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
@@ -96,6 +95,17 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   ).then(items => items.filter(Boolean));
 
   // Prepare safety data from relationships (structured data) and metadata (legacy)
+  /**
+   * Safety data location (normalized structure):
+   * - PREFERRED: relationships.safety.* (normalized location with presentation wrappers)
+   * - FALLBACK: relationships.* (legacy direct fields)
+   * - FALLBACK: metadata.* (legacy top-level fields)
+   * 
+   * Normalized structure: {presentation: 'card'|'descriptive', items: [...]}
+   * Legacy structure: direct objects or strings
+   * 
+   * SafetyDataPanel component handles both formats automatically.
+   */
   const safetyRelationships = relationships?.safety || {};
   const safetyData = {
     ppe_requirements: safetyRelationships?.ppe_requirements || relationships?.ppe_requirements || (metadata as any)?.ppe_requirements,
@@ -261,16 +271,6 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
       props: {
         relationships,
         entityName: compoundName
-      }
-    },
-    // Dataset downloader at bottom
-    {
-      component: ContaminantDatasetDownloader,
-      props: {
-        contaminantName: compoundName,
-        slug: slug,
-        category: category,
-        subcategory: subcategory
       }
     },
     // ScheduleCards MUST be last section for all layouts

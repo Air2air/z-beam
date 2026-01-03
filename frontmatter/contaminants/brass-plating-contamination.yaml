@@ -1,8 +1,8 @@
 id: brass-plating-contamination
 name: Brass Coating Removal
 category: metallic-coating
-datePublished: '2025-12-29T20:26:04.426042Z'
-dateModified: '2025-12-29T20:26:04.426042Z'
+datePublished: '2026-01-03T07:49:17.726764Z'
+dateModified: '2026-01-03T07:49:17.726764Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/brass-plating-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Plating
-  href: /contaminants/metallic-coating/plating
 - label: Brass Coating Removal
-  href: /contaminants/metallic-coating/plating/brass-plating-contamination
+  href: ''
 page_title: 'Brass Coating Removal Removal: Laser Ablation No Chemic'
 page_description: Brass-plating contamination arises during exposure to humid environments, and it forms unique patterns on
   the coated surface. This contamination, it develops as thin oxide layers with patchy distributions, thus creating irregular
@@ -29,7 +25,7 @@ page_description: Brass-plating contamination arises during exposure to humid en
   Ph.D.
 meta_description: 'Brass Coating Removal: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemical waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/brass-plating-contamination-hero.jpg
     alt: Brass Coating Removal laser cleaning visualization showing process effects
@@ -57,9 +53,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -68,8 +61,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
   safety:
     regulatory_standards:
@@ -79,12 +76,70 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Zinc Oxide
+        concentration_mg_m3: 5.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+      - compound: Copper Oxide
+        concentration_mg_m3: 2.0
+        exposure_limit_mg_m3: 0.1
+        hazard_class: irritant
+      - compound: Lead Oxide
+        concentration_mg_m3: 0.05
+        exposure_limit_mg_m3: 0.05
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize substrate damage
+    - Avoid excessive heat buildup that could alter base metal properties
+    - Test on small area first to determine optimal settings
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Lead Oxide
+          concentration_mg_m3: 0.05
+          hazard_class: toxic
+        description: Lead Oxide generation detected - low toxicity risk
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -297,57 +352,6 @@ relationships:
             color_change: 'yes'
             residual_stress: compressive
             roughness_increase: moderate
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Zinc Oxide
-            concentration_mg_m3: 5.0
-            exposure_limit_mg_m3: 5.0
-            hazard_class: irritant
-          - compound: Copper Oxide
-            concentration_mg_m3: 2.0
-            exposure_limit_mg_m3: 0.1
-            hazard_class: irritant
-          - compound: Lead Oxide
-            concentration_mg_m3: 0.05
-            exposure_limit_mg_m3: 0.05
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser parameters must be optimized to minimize substrate damage
-          - Avoid excessive heat buildup that could alter base metal properties
-          - Test on small area first to determine optimal settings
-          toxic_gas_risk:
-            severity: low
-            primary_hazards:
-            - compound: Lead Oxide
-              concentration_mg_m3: 0.05
-              hazard_class: toxic
-            description: Lead Oxide generation detected - low toxicity risk
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 4.1
@@ -360,65 +364,33 @@ relationships:
           thermal_conductivity: 120
           thermal_diffusivity: 35
           vaporization_temperature: 1100
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Soft Substrates
-  category: metallic-coating
-  subcategory: plating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: zinc-alloy-laser-cleaning
-            title: Zinc Alloy Laser Cleaning
-            url: /materials/general/misc/zinc-alloy-laser-cleaning
-            image: /images/material/zinc-alloy-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-alloy-laser-cleaning
+    title: Zinc Alloy Laser Cleaning
+    url: /materials/general/misc/zinc-alloy-laser-cleaning
+    image: /images/material/zinc-alloy-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: plating
 composition:
 - Cu-Zn Alloy
 - Brass
+prohibited_materials:
+- Aluminum
+- Soft Substrates
+valid_materials:
+- steel-laser-cleaning
+slug: brass-plating-contamination
+lastModified: '2026-01-02T23:49:17.726794'

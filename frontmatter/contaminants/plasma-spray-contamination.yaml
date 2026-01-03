@@ -1,8 +1,8 @@
 id: plasma-spray-contamination
 name: Thermal Spray Coating
 category: thermal-damage
-datePublished: '2025-12-29T20:26:05.838941Z'
-dateModified: '2025-12-29T20:26:05.838941Z'
+datePublished: '2026-01-03T07:49:22.093015Z'
+dateModified: '2026-01-03T07:49:22.093015Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/coating/plasma-spray-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Thermal Damage
-  href: /contaminants/thermal-damage
-- label: Coating
-  href: /contaminants/thermal-damage/coating
 - label: Thermal Spray Coating
-  href: /contaminants/thermal-damage/coating/plasma-spray-contamination
+  href: ''
 page_title: 'Thermal Spray Coating Removal: Laser Ablation No Chemic'
 page_description: 'Plasma-spray contamination arises during the thermal deposition process, where molten particles adhere
   unevenly to substrates. This contamination, it manifests as tenacious oxide layers, which exhibit regional variations influenced
@@ -31,7 +27,7 @@ page_description: 'Plasma-spray contamination arises during the thermal depositi
   varies regionally.'
 meta_description: 'Thermal Spray Coating: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemical waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/plasma-spray-contamination-hero.jpg
     alt: Thermal Spray Coating laser cleaning visualization showing process effects
@@ -55,9 +51,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -69,8 +62,11 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
   safety:
     regulatory_standards:
@@ -80,12 +76,70 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Metal oxides (various)
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+      - compound: Carbon monoxide
+        concentration_mg_m3: 10-100
+        exposure_limit_mg_m3: 29.0
+        hazard_class: toxic
+      - compound: Volatile organic compounds
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 100.0
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - May generate toxic fumes if coating contains heavy metals
+    - Potential for substrate material to vaporize and create additional hazards
+    - Watch for reflective surfaces causing laser beam deflection
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon monoxide
+          concentration_mg_m3: 10-100
+          hazard_class: toxic
+        description: Carbon monoxide generation detected - moderate toxicity risk
+        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -282,57 +336,6 @@ relationships:
             color_change: 'yes'
             residual_stress: compressive
             roughness_increase: moderate
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Metal oxides (various)
-            concentration_mg_m3: 5-50
-            exposure_limit_mg_m3: 5.0
-            hazard_class: irritant
-          - compound: Carbon monoxide
-            concentration_mg_m3: 10-100
-            exposure_limit_mg_m3: 29.0
-            hazard_class: toxic
-          - compound: Volatile organic compounds
-            concentration_mg_m3: 2-20
-            exposure_limit_mg_m3: 100.0
-            hazard_class: irritant
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: PAPR
-            skin_protection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - May generate toxic fumes if coating contains heavy metals
-          - Potential for substrate material to vaporize and create additional hazards
-          - Watch for reflective surfaces causing laser beam deflection
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Carbon monoxide
-              concentration_mg_m3: 10-100
-              hazard_class: toxic
-            description: Carbon monoxide generation detected - moderate toxicity risk
-            mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: HEPA
-            minimum_air_changes_per_hour: 10
-            rationale: Standard industrial ventilation (10 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 4.5
@@ -345,65 +348,43 @@ relationships:
           thermal_conductivity: 8.5
           thermal_diffusivity: 1.6
           vaporization_temperature: 2800
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  category: thermal-damage
-  subcategory: coating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: turbine-blades-laser-cleaning
-            title: Turbine Blades Laser Cleaning
-            url: /materials/general/misc/turbine-blades-laser-cleaning
-            image: /images/material/turbine-blades-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: turbine-blades-laser-cleaning
+    title: Turbine Blades Laser Cleaning
+    url: /materials/general/misc/turbine-blades-laser-cleaning
+    image: /images/material/turbine-blades-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: coating
 composition:
 - Al₂O₃
 - ZrO₂
 - MCrAlY
 - WC-Co
+prohibited_materials: []
+valid_materials:
+- steel-laser-cleaning
+- titanium-laser-cleaning
+slug: plasma-spray-contamination
+lastModified: '2026-01-02T23:49:22.093043'

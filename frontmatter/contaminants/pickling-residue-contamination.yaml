@@ -1,8 +1,8 @@
 id: pickling-residue-contamination
 name: Acid Pickling Stains
 category: inorganic-coating
-datePublished: '2025-12-29T20:26:05.817862Z'
-dateModified: '2025-12-29T20:26:05.817862Z'
+datePublished: '2026-01-03T07:49:22.021680Z'
+dateModified: '2026-01-03T07:49:22.021680Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/pickling-residue-contamination
@@ -11,12 +11,8 @@ breadcrumb:
   href: /
 - label: Contaminants
   href: /contaminants
-- label: Inorganic Coating
-  href: /contaminants/inorganic-coating
-- label: Coating
-  href: /contaminants/inorganic-coating/coating
 - label: Acid Pickling Stains
-  href: /contaminants/inorganic-coating/coating/pickling-residue-contamination
+  href: ''
 page_title: 'Acid Pickling Stains Removal: Laser Ablation Clean Remo'
 page_description: Pickling residue contamination forms during acid treatment of metals. Residue builds up as inorganic coatings
   on surfaces. Before cleaning, layer adheres tightly and shows uneven patterns. Patterns appear crystalline and patchy, so
@@ -27,7 +23,7 @@ page_description: Pickling residue contamination forms during acid treatment of 
   influence cleaning efficiency. Process removes layers successfully in most cases.
 meta_description: 'Acid Pickling Stains: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images: &id001
+images:
   hero:
     url: /images/contaminant/pickling-residue-contamination-hero.jpg
     alt: Acid Pickling Stains laser cleaning visualization showing process effects
@@ -64,8 +60,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
   safety:
     regulatory_standards:
@@ -75,12 +71,70 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        section_title: Regulatory Standards
-        section_description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
-        order: 1
-        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Iron Oxide Fume
+        concentration_mg_m3: 5.0
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+      - compound: Hydrogen Chloride
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 2.5
+        hazard_class: corrosive
+      - compound: Nitrogen Dioxide
+        concentration_mg_m3: 1.5
+        exposure_limit_mg_m3: 0.9
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: full_face
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may concentrate acid residues in surrounding areas
+    - Moisture in air can react with residues to form corrosive mists
+    - Chloride residues can lead to pitting corrosion if not fully removed
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Nitrogen Dioxide
+          concentration_mg_m3: 1.5
+          hazard_class: toxic
+        description: Nitrogen Dioxide generation detected - moderate toxicity risk
+        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: dual
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
   interactions:
     produces_compounds:
       presentation: card
@@ -274,57 +328,6 @@ relationships:
             color_change: 'no'
             residual_stress: compressive
             roughness_increase: minimal
-        safety_data:
-          fire_explosion_risk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumes_generated:
-          - compound: Iron Oxide Fume
-            concentration_mg_m3: 5.0
-            exposure_limit_mg_m3: 5.0
-            hazard_class: irritant
-          - compound: Hydrogen Chloride
-            concentration_mg_m3: 2.5
-            exposure_limit_mg_m3: 2.5
-            hazard_class: corrosive
-          - compound: Nitrogen Dioxide
-            concentration_mg_m3: 1.5
-            exposure_limit_mg_m3: 0.9
-            hazard_class: toxic
-          particulate_generation:
-            respirable_fraction: 0.7
-            size_range_um:
-            - 0.1
-            - 10.0
-          ppe_requirements:
-            eye_protection: goggles
-            respiratory: full_face
-            skin_protection: gloves
-            rationale: Standard protection against workplace hazards
-          substrate_compatibility_warnings:
-          - Laser cleaning may concentrate acid residues in surrounding areas
-          - Moisture in air can react with residues to form corrosive mists
-          - Chloride residues can lead to pitting corrosion if not fully removed
-          toxic_gas_risk:
-            severity: moderate
-            primary_hazards:
-            - compound: Nitrogen Dioxide
-              concentration_mg_m3: 1.5
-              hazard_class: toxic
-            description: Nitrogen Dioxide generation detected - moderate toxicity risk
-            mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
-          ventilation_requirements:
-            exhaust_velocity_m_s: 0.5
-            filtration_type: dual
-            minimum_air_changes_per_hour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibility_hazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            related_field: particulate_generation.respirable_fraction
         thermal_properties:
           ablation_threshold:
             pulse_duration_100ns: 2.5
@@ -337,63 +340,36 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.5
           vaporization_temperature: 1200
-      _section:
-        section_title: Laser Parameters
-        section_description: Optimal laser settings and technical parameters for removal
-        icon: zap
-        order: 9
-        variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      section_title: Prohibited Materials
-      section_description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Aluminum
-    - Copper
-    - Plastics
-  category: inorganic-coating
-  subcategory: coating
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      section_title: Found On Materials
-      section_description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: coating
 composition:
 - FeCl₂
 - H₂SO₄
 - Iron Salts
+prohibited_materials:
+- Aluminum
+- Copper
+- Plastics
+valid_materials:
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+slug: pickling-residue-contamination
+lastModified: '2026-01-02T23:49:22.021709'

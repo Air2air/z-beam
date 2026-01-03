@@ -281,7 +281,6 @@ describe('SafetyDataPanel', () => {
 
       render(<SafetyDataPanel safetyData={safetyData} compounds={compounds} />);
       
-      expect(screen.getByTestId('grid-section')).toBeInTheDocument();
       expect(screen.getByText('Hazardous Compounds Generated')).toBeInTheDocument();
       expect(screen.getByTestId('compound-safety-grid')).toBeInTheDocument();
     });

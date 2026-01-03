@@ -3,8 +3,8 @@ name: Carbon Monoxide
 display_name: Carbon Monoxide (CO)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-29T20:27:55.027926Z'
-dateModified: '2025-12-29T20:27:55.027926Z'
+datePublished: '2026-01-03T07:49:25.437007Z'
+dateModified: '2026-01-03T07:49:25.437007Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/asphyxiant/carbon-monoxide-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Toxic Gas
-  href: /compounds/toxic_gas
-- label: Asphyxiant
-  href: /compounds/toxic_gas/asphyxiant
 - label: Carbon Monoxide
-  href: /compounds/toxic-gas/asphyxiant/carbon-monoxide-compound
+  href: ''
 page_title: 'Carbon Monoxide: Toxic Metal Fumes'
 page_description: Carbon monoxide slips through industrial processes like a silent partner, binding tightly to metals during
   reduction reactions that refine ores into usable form.
@@ -91,8 +87,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 health_effects_keywords:
 - asphyxiation
 - cardiovascular_effects
@@ -137,12 +133,6 @@ relationships:
       items:
       - type: chemical_properties
         id: carbon-monoxide-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -159,10 +149,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -178,18 +165,33 @@ relationships:
           ec_number: 211-128-3
           pubchem_cid: '281'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: carbon-monoxide-toxicology
+      - route: inhalation
+        effect: Formation of carboxyhemoglobin leading to tissue hypoxia and impaired oxygen delivery
+        severity: severe
+        onset: immediate
+      - route: inhalation
+        effect: Headache, dizziness, and confusion
+        severity: moderate
+        onset: short-term
+      - route: inhalation
+        effect: Nausea, vomiting, and weakness
+        severity: moderate
+        onset: short-term
+      - route: inhalation
+        effect: Loss of consciousness and potential death at high concentrations
+        severity: severe
+        onset: immediate
+      - route: eye_contact
+        effect: Mild irritation
+        severity: low
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -203,12 +205,9 @@ relationships:
         special_notes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient atmospheres (<19.5% O2).
           Detector badges provide no respiratory protection.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -228,10 +227,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -245,11 +241,11 @@ relationships:
           osha_pel:
             twa_8hr: 50 ppm
             stel_15min: null
-            ceiling: null
+            ceiling: 200 ppm
           niosh_rel:
             twa_8hr: 35 ppm
             stel_15min: null
-            ceiling: 200 ppm (never to exceed)
+            ceiling: 200 ppm
             idlh: 1200 ppm
           acgih_tlv:
             twa_8hr: 25 ppm
@@ -264,9 +260,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -289,10 +282,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -304,6 +294,7 @@ relationships:
           flammability: 4
           reactivity: 0
           special: null
+          instability: 0
         epa_hazard_categories:
         - Acute toxicity (inhalation)
         - Flammable gases
@@ -316,10 +307,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -339,10 +327,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -373,10 +358,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -437,12 +419,6 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Quenching Oil Residue
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -469,41 +445,32 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: 'Unlike many everyday hazards that announce themselves with visible signs or strong smells, carbon monoxide
-    sneaks in silently, demanding gear that actively shields the lungs from its invisible threat. Workers in industrial settings,
-    where this toxic gas might leak from machinery or combustion processes, rely on full-face respirators fitted with cartridges
-    designed to filter out such colorless fumes. These aren''t just masks; they form a sealed barrier, preventing even the
-    slightest inhalation during tasks like welding or engine repairs.
-
-
-    Gloves made from chemical-resistant materials come next, protecting hands from any condensed residues or related spills
-    that could irritate skin. In hotter environments, like foundries, coveralls or suits that resist flames add another layer,
-    keeping the body safe from sparks that might ignite nearby vapors.
-
-
-    For laser cleaning operations involving metal surfaces—where the process generates heat and potential gas buildup—eye
-    protection becomes crucial. Goggles with side shields block intense beams while also guarding against any airborne particles
-    stirred up. Boots with steel toes ensure stability on slick floors, reducing slip risks amid the equipment.
-
-
-    Overall, this setup emphasizes detection tools integrated into suits, alerting users to rising dangers before they strike,
-    turning a stealthy poison into a manageable workplace foe.'
-  images:
-    hero:
-      url: /images/compound/carbon-monoxide-compound-hero.jpg
-      alt: Carbon Monoxide laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/carbon-monoxide-compound-micro.jpg
-      alt: Carbon Monoxide microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: asphyxiant
+ppe_requirements: 'Unlike many everyday hazards that announce themselves with visible signs or strong smells, carbon monoxide
+  sneaks in silently, demanding gear that actively shields the lungs from its invisible threat. Workers in industrial settings,
+  where this toxic gas might leak from machinery or combustion processes, rely on full-face respirators fitted with cartridges
+  designed to filter out such colorless fumes. These aren''t just masks; they form a sealed barrier, preventing even the slightest
+  inhalation during tasks like welding or engine repairs.
+
+
+  Gloves made from chemical-resistant materials come next, protecting hands from any condensed residues or related spills
+  that could irritate skin. In hotter environments, like foundries, coveralls or suits that resist flames add another layer,
+  keeping the body safe from sparks that might ignite nearby vapors.
+
+
+  For laser cleaning operations involving metal surfaces—where the process generates heat and potential gas buildup—eye protection
+  becomes crucial. Goggles with side shields block intense beams while also guarding against any airborne particles stirred
+  up. Boots with steel toes ensure stability on slick floors, reducing slip risks amid the equipment.
+
+
+  Overall, this setup emphasizes detection tools integrated into suits, alerting users to rising dangers before they strike,
+  turning a stealthy poison into a manageable workplace foe.'
+regulatory_standards: Carbon monoxide stands out from harmless gases like nitrogen. Its invisibility demands tight controls.
+  Factories must install detectors everywhere. Workers get mandatory training on leaks. Ventilation systems stay mandatory
+  in high-use zones. Storage tanks require robust seals against escape. Spill response plans save lives daily. Industries
+  face audits to enforce these rules. Non-compliance brings heavy fines. Safe handling turns risk into routine.
+formula: CO
 faq:
 - question: What protection methods should laser cleaning operators use to prevent carbon monoxide (CO) exposure?
   answer: Always work in well-ventilated areas or use local exhaust ventilation systems to dilute and remove CO generated
@@ -511,8 +478,5 @@ faq:
     for organic vapors and acid gases) if ventilation is inadequate, and ensure personal CO monitors or alarms are worn to
     provide real-time detection. Regularly maintain equipment to minimize incomplete combustion sources, and follow OSHA's
     permissible exposure limit of 50 ppm over an 8-hour workday to avoid symptoms like headaches or dizziness.
-regulatory_standards: Carbon monoxide stands out from harmless gases like nitrogen. Its invisibility demands tight controls.
-  Factories must install detectors everywhere. Workers get mandatory training on leaks. Ventilation systems stay mandatory
-  in high-use zones. Storage tanks require robust seals against escape. Spill response plans save lives daily. Industries
-  face audits to enforce these rules. Non-compliance brings heavy fines. Safe handling turns risk into routine.
-formula: CO
+slug: carbon-monoxide-compound
+lastModified: '2026-01-02T23:49:25.437125'

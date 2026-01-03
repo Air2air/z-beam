@@ -3,8 +3,8 @@ name: Acetaldehyde
 display_name: Acetaldehyde (C₂H₄O)
 category: irritant
 hazard_class: irritant
-datePublished: '2025-12-29T20:27:59.522414Z'
-dateModified: '2025-12-29T20:27:59.522414Z'
+datePublished: '2026-01-03T07:49:25.829151Z'
+dateModified: '2026-01-03T07:49:25.829151Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/irritant/aldehyde/acetaldehyde-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Irritant
-  href: /compounds/irritant
-- label: Aldehyde
-  href: /compounds/irritant/aldehyde
 - label: Acetaldehyde
-  href: /compounds/irritant/aldehyde/acetaldehyde-compound
+  href: ''
 page_title: 'Acetaldehyde: Respiratory Irritant'
 page_description: Acetaldehyde's sharp, irritating vapor hits you first, marking it as a potent irritant that demands careful
   handling in any workspace.
@@ -93,8 +89,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 health_effects_keywords:
 - respiratory_irritation
 - eye_irritation
@@ -139,12 +135,6 @@ relationships:
       - type: chemical_properties
         id: acetaldehyde-physical-data
         notes: Standard physical/chemical data from NIST
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -161,10 +151,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -179,18 +166,29 @@ relationships:
           ec_number: 200-836-8
           pubchem_cid: '177'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: acetaldehyde-toxicology
+      - route: inhalation
+        effect: Respiratory tract irritation, coughing, and potential pulmonary edema at high exposures
+        severity: high
+        onset: immediate
+      - route: skin_contact
+        effect: Skin irritation and dermatitis
+        severity: moderate
+        onset: short-term
+      - route: eye_contact
+        effect: Severe eye irritation, pain, and possible corneal damage
+        severity: severe
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal irritation, nausea, and vomiting
+        severity: moderate
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -200,12 +198,9 @@ relationships:
         minimum_level: Level C for <25 ppm, Level B for >25 ppm
         special_notes: Probable human carcinogen (IARC Group 2B). Extremely flammable. Irritating vapor. May polymerize explosively.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -224,10 +219,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -239,26 +231,23 @@ relationships:
         acgih_tlv_mg_m3: 45
         workplace_exposure:
           osha_pel:
-            twa_8hr: 200 ppm (360 mg/m³)
+            twa_8hr: 200 ppm
             stel_15min: null
             ceiling: null
           niosh_rel:
-            twa_8hr: null
+            twa_8hr: 25 ppm
             stel_15min: null
-            ceiling: 10 ppm (18 mg/m³) - based on carcinogenicity
+            ceiling: 37 ppm
             idlh: 2000 ppm
           acgih_tlv:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: 25 ppm (confirmed animal carcinogen with unknown relevance to humans)
+            twa_8hr: 25 ppm
+            stel_15min: 37 ppm
+            ceiling: null
           biological_exposure_indices: []
       _section:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -281,10 +270,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -296,6 +282,7 @@ relationships:
           flammability: 4
           reactivity: 2
           special: null
+          instability: 2
         epa_hazard_categories:
         - Flammability
         - Acute toxicity
@@ -307,10 +294,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -328,10 +312,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -360,10 +341,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -380,12 +358,6 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Acrylic paint thermal degradation
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -395,12 +367,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -435,30 +401,17 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handling acetaldehyde demands careful protection against its irritating vapors and potential skin contact,
-    especially in industrial settings where it's used for synthesizing resins or as a precursor in chemical processes. Workers
-    often face exposure during production or storage, so equipping with chemical-resistant gloves shields hands from direct
-    splashes, while full-face shields or goggles guard eyes from fumes that could cause burning sensations. In confined areas,
-    a properly fitted respirator with cartridges designed for organic vapors becomes essential to filter out airborne irritants,
-    preventing respiratory discomfort. For broader safety in laser cleaning operations involving acetaldehyde-based coatings,
-    disposable coveralls and boot covers help contain any residue, keeping contamination minimal and allowing for thorough
-    decontamination afterward. Always pair this gear with well-ventilated environments to reduce overall risks.
-  images:
-    hero:
-      url: /images/compound/acetaldehyde-compound-hero.jpg
-      alt: Acetaldehyde laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/acetaldehyde-compound-micro.jpg
-      alt: Acetaldehyde microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: aldehyde
+ppe_requirements: Handling acetaldehyde demands careful protection against its irritating vapors and potential skin contact,
+  especially in industrial settings where it's used for synthesizing resins or as a precursor in chemical processes. Workers
+  often face exposure during production or storage, so equipping with chemical-resistant gloves shields hands from direct
+  splashes, while full-face shields or goggles guard eyes from fumes that could cause burning sensations. In confined areas,
+  a properly fitted respirator with cartridges designed for organic vapors becomes essential to filter out airborne irritants,
+  preventing respiratory discomfort. For broader safety in laser cleaning operations involving acetaldehyde-based coatings,
+  disposable coveralls and boot covers help contain any residue, keeping contamination minimal and allowing for thorough decontamination
+  afterward. Always pair this gear with well-ventilated environments to reduce overall risks.
+formula: C₂H₄O
 faq:
 - question: As a laser cleaning operator, what are the key protection methods to prevent acetaldehyde exposure from vapor
     generation during surface treatment?
@@ -468,4 +421,5 @@ faq:
     including chemical-resistant gloves, safety goggles, and a full-face respirator with organic vapor cartridges if ventilation
     is inadequate. Monitor air quality periodically using portable gas detectors specific to acetaldehyde to ensure exposure
     stays within safe limits and conduct regular training on spill response and emergency eyewash stations.
-formula: C₂H₄O
+slug: acetaldehyde-compound
+lastModified: '2026-01-02T23:49:25.829179'

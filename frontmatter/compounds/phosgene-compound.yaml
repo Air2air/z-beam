@@ -3,8 +3,8 @@ name: Phosgene
 display_name: Phosgene (COCl₂)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-29T20:28:09.440215Z'
-dateModified: '2025-12-29T20:28:09.440215Z'
+datePublished: '2026-01-03T07:49:26.589408Z'
+dateModified: '2026-01-03T07:49:26.589408Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/reactive-gas/phosgene-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Toxic Gas
-  href: /compounds/toxic_gas
-- label: Reactive Gas
-  href: /compounds/toxic_gas/reactive_gas
 - label: Phosgene
-  href: /compounds/toxic-gas/reactive-gas/phosgene-compound
+  href: ''
 page_title: 'Phosgene: Toxic Metal Fumes'
 page_description: Phosgene drifts as a colorless gas.
 meta_description: 'Phosgene: Toxic Metal Fumes from metal processing. Requires enclosed extraction.'
@@ -90,9 +86,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -101,8 +94,12 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 health_effects_keywords:
 - severe_pulmonary_edema
 - delayed_effects
@@ -146,12 +143,6 @@ relationships:
       items:
       - type: chemical_properties
         id: phosgene-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -168,10 +159,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -186,18 +174,29 @@ relationships:
           ec_number: 200-870-3
           pubchem_cid: '6371'
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: phosgene-toxicology
+      - route: inhalation
+        effect: Pulmonary edema and respiratory tract irritation leading to choking and potential asphyxiation
+        severity: severe
+        onset: short-term
+      - route: skin_contact
+        effect: Chemical burns and frostbite upon contact with liquid form
+        severity: high
+        onset: immediate
+      - route: eye_contact
+        effect: Severe irritation, lacrimation, and corneal damage
+        severity: high
+        onset: immediate
+      - route: inhalation
+        effect: Delayed onset of fluid accumulation in lungs, potentially fatal
+        severity: severe
+        onset: short-term
     ppe_requirements:
       presentation: descriptive
       items:
@@ -209,12 +208,9 @@ relationships:
         special_notes: ONE OF THE MOST TOXIC INDUSTRIAL CHEMICALS. Chemical warfare agent. Delayed pulmonary edema 2-48 hours
           post-exposure. SELF-RESCUE RESPIRATORS INADEQUATE - immediate SCBA required.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -233,10 +229,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -248,26 +241,23 @@ relationships:
         acgih_tlv_mg_m3: 0.4
         workplace_exposure:
           osha_pel:
-            twa_8hr: 0.1 ppm (0.4 mg/m³)
+            twa_8hr: null
             stel_15min: null
-            ceiling: null
+            ceiling: 0.1 ppm
           niosh_rel:
-            twa_8hr: 0.1 ppm (0.4 mg/m³)
-            stel_15min: 0.2 ppm (0.8 mg/m³) - 15 min ceiling
-            ceiling: null
+            twa_8hr: null
+            stel_15min: null
+            ceiling: 0.1 ppm
             idlh: 2 ppm
           acgih_tlv:
             twa_8hr: 0.1 ppm
-            stel_15min: null
+            stel_15min: 0.2 ppm
             ceiling: null
           biological_exposure_indices: []
       _section:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -292,10 +282,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -307,6 +294,7 @@ relationships:
           flammability: 0
           reactivity: 1
           special: null
+          instability: 0
         epa_hazard_categories:
         - Acute toxicity (fatal if inhaled)
         - Corrosive
@@ -317,10 +305,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -339,10 +324,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -372,10 +354,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -384,12 +363,6 @@ relationships:
         frequency: rare
         severity: high
         typical_context: Thermal breakdown of certain chlorinated plastics
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -399,12 +372,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        section_title: Produced From Materials
-        section_description: Materials that may release this compound during laser cleaning
-        icon: users
-        order: 10
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -435,30 +402,17 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: Handling phosgene demands serious caution because this toxic gas can sneak up on you with delayed effects,
-    turning a minor exposure into a medical emergency fast. Workers in chemical plants or labs dealing with it for making
-    plastics or dyes need full-body protection to stay safe. Start with a tight-sealing respirator that filters out harmful
-    vapors completely—nothing less will cut it in confined spaces. Layer on chemical-resistant suits made from tough materials
-    that block penetration, paired with gloves and boots that resist breakdown from the gas's corrosive nature. Eye protection,
-    like full-face shields integrated with the respirator, guards against splashes or mists that might form during reactions.
-    And don't forget monitoring gear to detect leaks early, ensuring everyone evacuates if levels creep up. Regular training
-    keeps the team sharp on suiting up properly every time.
-  images:
-    hero:
-      url: /images/compound/phosgene-compound-hero.jpg
-      alt: Phosgene laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/phosgene-compound-micro.jpg
-      alt: Phosgene microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: reactive_gas
+ppe_requirements: Handling phosgene demands serious caution because this toxic gas can sneak up on you with delayed effects,
+  turning a minor exposure into a medical emergency fast. Workers in chemical plants or labs dealing with it for making plastics
+  or dyes need full-body protection to stay safe. Start with a tight-sealing respirator that filters out harmful vapors completely—nothing
+  less will cut it in confined spaces. Layer on chemical-resistant suits made from tough materials that block penetration,
+  paired with gloves and boots that resist breakdown from the gas's corrosive nature. Eye protection, like full-face shields
+  integrated with the respirator, guards against splashes or mists that might form during reactions. And don't forget monitoring
+  gear to detect leaks early, ensuring everyone evacuates if levels creep up. Regular training keeps the team sharp on suiting
+  up properly every time.
+formula: COCl₂
 faq:
 - question: As a laser cleaning operator, what are the key exposure limits for phosgene (COCl₂) to stay safe during operations
     involving potentially chlorinated materials?
@@ -468,4 +422,5 @@ faq:
     where phosgene may form from ablating plastics like PVC, maintain ventilation to keep concentrations under 0.1 ppm and
     evacuate if levels approach 2 ppm. If exposure is suspected, seek immediate medical attention, as symptoms like chest
     tightness may be delayed up to 48 hours.
-formula: COCl₂
+slug: phosgene-compound
+lastModified: '2026-01-02T23:49:26.589510'

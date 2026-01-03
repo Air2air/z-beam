@@ -3,8 +3,8 @@ name: Nitrogen Oxides
 display_name: NOₓ
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2025-12-29T20:28:07.556729Z'
-dateModified: '2025-12-29T20:28:07.556729Z'
+datePublished: '2026-01-03T07:49:26.444563Z'
+dateModified: '2026-01-03T07:49:26.444563Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/oxidizing-gas/nitrogen-oxides-compound
@@ -13,12 +13,8 @@ breadcrumb:
   href: /
 - label: Compounds
   href: /compounds
-- label: Toxic Gas
-  href: /compounds/toxic_gas
-- label: Oxidizing Gas
-  href: /compounds/toxic_gas/oxidizing_gas
 - label: Nitrogen Oxides
-  href: /compounds/toxic-gas/oxidizing-gas/nitrogen-oxides-compound
+  href: ''
 page_title: 'Nitrogen Oxides: Toxic Metal Fumes'
 page_description: While carbon-based pollutants cling stubbornly to surfaces in industrial exhausts, nitrogen oxides slip
   away more readily under targeted laser pulses, their gas.
@@ -108,8 +104,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 health_effects_keywords:
 - respiratory_irritation
 - pulmonary_edema
@@ -153,12 +149,6 @@ relationships:
       items:
       - type: chemical_properties
         id: nitrogen-oxides-physical-data
-      _section:
-        section_title: Chemical Properties
-        section_description: Fundamental chemical characteristics and behavior
-        icon: microscope
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -175,10 +165,7 @@ relationships:
       _section:
         section_title: Physical Properties
         description: Chemical and physical characteristics
-        icon: gauge
-        section_description: Physical characteristics and state information
-        order: 2
-        variant: default
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -194,18 +181,29 @@ relationships:
           ec_number: 233-272-6 (NO2)
           pubchem_cid: 3032552 (NOx)
       _section:
-        section_title: Synonyms & Identifiers
+        section_title: Alternative Names
         description: Synonyms and chemical identifiers
-        icon: file-text
-        section_description: Alternative names and chemical identifiers (CAS numbers)
-        order: 14
-        variant: default
+        icon: tag
   safety:
     health_effects:
       presentation: card
       items:
-      - type: health_effects
-        id: nitrogen-oxides-toxicology
+      - route: inhalation
+        effect: Acute respiratory tract irritation, coughing, and potential pulmonary edema
+        severity: severe
+        onset: immediate
+      - route: inhalation
+        effect: Chronic exposure leading to bronchitis and emphysema
+        severity: high
+        onset: long-term
+      - route: eye_contact
+        effect: Severe irritation, conjunctivitis, and possible corneal damage
+        severity: high
+        onset: immediate
+      - route: skin_contact
+        effect: Chemical burns and irritation upon contact with liquefied forms
+        severity: moderate
+        onset: immediate
     ppe_requirements:
       presentation: descriptive
       items:
@@ -217,12 +215,9 @@ relationships:
         special_notes: NO2 is brown gas, NO is colorless. Both highly toxic. Delayed pulmonary edema possible 6-72 hours after
           exposure. STEL critical - short exposures very dangerous.
       _section:
-        section_title: PPE Requirements
+        section_title: Personal Protective Equipment
         description: Required safety equipment for handling this compound
-        icon: shield
-        section_description: Personal protective equipment needed for safe handling
-        order: 5
-        variant: warning
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -240,10 +235,7 @@ relationships:
       _section:
         section_title: Emergency Response
         description: Procedures for spills, exposure, and incidents
-        icon: alert-triangle
-        section_description: First aid and emergency procedures for exposure incidents
-        order: 7
-        variant: danger
+        icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
       items:
@@ -255,17 +247,17 @@ relationships:
         acgih_tlv_mg_m3: 5.6
         workplace_exposure:
           osha_pel:
-            twa_8hr: null
+            twa_8hr: 5 ppm
             stel_15min: null
-            ceiling: 5 ppm (NO2), 25 ppm (NO)
+            ceiling: null
           niosh_rel:
-            twa_8hr: null
-            stel_15min: 1 ppm (NO2) - 15 min ceiling
+            twa_8hr: 2 ppm
+            stel_15min: 5 ppm
             ceiling: null
             idlh: 20 ppm (NO2), 100 ppm (NO)
           acgih_tlv:
-            twa_8hr: 0.2 ppm (NO2), 25 ppm (NO)
-            stel_15min: 1 ppm (NO2)
+            twa_8hr: 0.2 ppm
+            stel_15min: 1 ppm
             ceiling: null
           biological_exposure_indices:
           - metabolite: Methemoglobin
@@ -280,9 +272,6 @@ relationships:
         section_title: Exposure Limits
         description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        section_description: Regulatory exposure thresholds and safe concentration levels
-        order: 4
-        variant: warning
     storage_requirements:
       presentation: descriptive
       items:
@@ -305,10 +294,7 @@ relationships:
       _section:
         section_title: Storage Requirements
         description: Safe storage conditions and compatibility
-        icon: alert-triangle
-        section_description: Proper storage conditions and handling precautions
-        order: 13
-        variant: warning
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -330,10 +316,7 @@ relationships:
       _section:
         section_title: Regulatory Classification
         description: DOT, UN, and NFPA hazard classifications
-        icon: file-text
-        section_description: Hazard classifications and regulatory designations
-        order: 12
-        variant: default
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -352,10 +335,7 @@ relationships:
       _section:
         section_title: Environmental Impact
         description: Toxicity, biodegradability, and environmental fate
-        icon: wind
-        section_description: Environmental effects and ecological considerations
-        order: 8
-        variant: warning
+        icon: leaf
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -385,10 +365,7 @@ relationships:
       _section:
         section_title: Detection & Monitoring
         description: Methods for detecting and measuring this compound
-        icon: gauge
-        section_description: Methods and equipment for detecting and monitoring this compound
-        order: 6
-        variant: default
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -425,12 +402,6 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Pharmaceutical Drug Residue
-      _section:
-        section_title: Produced From Contaminants
-        section_description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 9
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -459,40 +430,26 @@ relationships:
       _section:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
-        icon: flame
-        section_description: Chemical reactivity and compatibility with other substances
-        order: 11
-        variant: warning
-  ppe_requirements: 'Handling nitrogen oxides demands solid PPE setups. I''ve dealt with similar toxic gases before—proper
-    gear prevents nasty burns or lung hits. Start with a full-face respirator fitted tight; it blocks inhalation of those
-    irritants right away. Why? These compounds corrode airways fast if breathed in. Avoid cheap masks—they leak and fail under
-    exposure.
-
-
-    Pair that with chemical-resistant gloves, thick and nitrile-based for grip without soaking through. Skin contact stings
-    bad, so double up if splashing risks high. Eye protection? Goggles sealed against vapors; regular glasses let fumes creep
-    in, causing instant tears or worse.
-
-
-    Full-body suits or aprons shield clothes and skin from spills—durable ones that don''t tear easily. In industrial spots,
-    add hoods or helmets for head coverage during mixing or cleaning ops. For laser cleaning tasks, ensure gear withstands
-    heat flashes without melting.
-
-
-    Ventilation hoods help too, but PPE stays primary. Train up—fit tests save lives. Skip shortcuts; one slip turns a shift
-    sour.'
-  images:
-    hero:
-      url: /images/compound/nitrogen-oxides-compound-hero.jpg
-      alt: Nitrogen Oxides laser cleaning visualization showing process effects
-      width: 1200
-      height: 630
-    micro:
-      url: /images/compound/nitrogen-oxides-compound-micro.jpg
-      alt: Nitrogen Oxides microscopic detail view showing surface characteristics
-      width: 800
-      height: 600
+        icon: atom
 subcategory: oxidizing_gas
+ppe_requirements: 'Handling nitrogen oxides demands solid PPE setups. I''ve dealt with similar toxic gases before—proper gear
+  prevents nasty burns or lung hits. Start with a full-face respirator fitted tight; it blocks inhalation of those irritants
+  right away. Why? These compounds corrode airways fast if breathed in. Avoid cheap masks—they leak and fail under exposure.
+
+
+  Pair that with chemical-resistant gloves, thick and nitrile-based for grip without soaking through. Skin contact stings
+  bad, so double up if splashing risks high. Eye protection? Goggles sealed against vapors; regular glasses let fumes creep
+  in, causing instant tears or worse.
+
+
+  Full-body suits or aprons shield clothes and skin from spills—durable ones that don''t tear easily. In industrial spots,
+  add hoods or helmets for head coverage during mixing or cleaning ops. For laser cleaning tasks, ensure gear withstands heat
+  flashes without melting.
+
+
+  Ventilation hoods help too, but PPE stays primary. Train up—fit tests save lives. Skip shortcuts; one slip turns a shift
+  sour.'
+formula: NOx
 faq:
 - question: As a laser cleaning operator, how can I protect myself from NOx exposure while working on metal surfaces?
   answer: Prioritize engineering controls like local exhaust ventilation or fume extractors positioned near the laser head
@@ -501,4 +458,5 @@ faq:
     if ventilation is insufficient, and always monitor air quality using a portable NOx detector calibrated for NO and NO2.
     Adhere to OSHA exposure limits of 25 ppm for NO and 5 ppm for NO2 over an 8-hour shift to prevent respiratory irritation
     or long-term lung damage.
-formula: NOx
+slug: nitrogen-oxides-compound
+lastModified: '2026-01-02T23:49:26.444592'
