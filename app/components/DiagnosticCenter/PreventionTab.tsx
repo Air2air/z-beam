@@ -1,6 +1,8 @@
 // app/components/DiagnosticCenter/PreventionTab.tsx
 
+import { PreventionPanel } from '../PreventionPanel';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import type { RelationshipSection } from '@/types/safetyData';
 
 interface Challenge {
   challenge: string;
@@ -19,6 +21,7 @@ interface PreventionTabProps {
 /**
  * PreventionTab - Material-specific challenges organized by category
  * Focus: Proactive planning and awareness before starting work
+ * Uses PreventionPanel for normalized collapsible UI
  */
 export function PreventionTab({ challenges }: PreventionTabProps) {
   if (!challenges || Object.keys(challenges).length === 0) {
@@ -31,83 +34,43 @@ export function PreventionTab({ challenges }: PreventionTabProps) {
 
   return (
     <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
-      {Object.entries(challenges).map(([category, challengeList]: [string, Challenge[]]) => (
-        <div key={category} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-md border overflow-hidden">
-          {/* Category Header with Icon */}
-          <div className="bg-tertiary px-4 py-2 border-b">
-            <h3 className="text-lg text-secondary font-semibold flex items-center gap-2">
-              <span className="text-blue-400">
-                {category === 'surface_characteristics' && '🔍'}
-                {category === 'thermal_management' && '🌡️'}
-                {category === 'contamination_challenges' && '🧹'}
-                {category === 'safety_compliance' && '⚠️'}
-                {category === 'surface_contamination' && '🧹'}
-                {category === 'thermal_effects' && '🌡️'}
-                {category === 'mechanical_stress' && '⚙️'}
-                {category === 'optical_issues' && '👁️'}
-              </span>
-              <span className="capitalize">{category.replace(/_/g, ' ')}</span>
-            </h3>
-          </div>
-          
-          {/* Challenges List */}
-          <div className="p-3 space-y-2">
-            {Array.isArray(challengeList) && challengeList.map((challenge, idx) => (
-              <details key={idx} className="group bg-secondary rounded border hover:border-gray-600 transition-colors">
-                <summary className="cursor-pointer p-2 flex items-center gap-2 select-none">
-                  {/* Severity Indicator - Visual Dot */}
-                  <span className={`flex-shrink-0 w-2 h-2 rounded-full ${
-                    challenge.severity === 'critical' ? 'bg-red-500 shadow-lg shadow-red-500/50' :
-                    challenge.severity === 'high' ? 'bg-orange-500 shadow-lg shadow-orange-500/50' :
-                    challenge.severity === 'medium' ? 'bg-yellow-500 shadow-lg shadow-yellow-500/50' :
-                    'bg-green-500 shadow-lg shadow-green-500/50'
-                  }`} />
-                  
-                  {/* Challenge Title */}
-                  <h4 className="font-semibold text-sm text-secondary flex-1 transition-colors">
-                    {challenge.challenge}
-                  </h4>
-                  
-                  {/* Expand Icon */}
-                  <svg className="w-4 h-4 text-tertiary group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                
-                {/* Expanded Content */}
-                <div className="px-3 pb-2 space-y-2 border-t/50 pt-2 mt-1">
-                  {/* Impact */}
-                  <div className="bg-red-900/10 border-l-2 border-red-500 pl-2 py-1">
-                    <p className="text-xs">
-                      <span className="font-semibold text-red-400">Impact:</span> {challenge.impact}
-                    </p>
-                  </div>
-                  
-                  {/* Solutions */}
-                  <div className="bg-green-900/10 border-l-2 border-green-500 pl-2 py-1">
-                    <p className="text-xs font-semibold text-green-400 mb-1">Solutions:</p>
-                    <ul className="space-y-0.5">
-                      {challenge.solutions.map((solution: string, sidx: number) => (
-                        <li key={sidx} className="text-xs flex items-start gap-1">
-                          <span className="text-green-400 mt-0.5">✓</span>
-                          <span>{solution}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  {/* Prevention */}
-                  <div className="bg-orange-900/10 border-l-2 border-orange-500 pl-2 py-1">
-                    <p className="text-xs">
-                      <span className="font-semibold text-blue-400">Prevention:</span> {challenge.prevention}
-                    </p>
-                  </div>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      ))}
+      {Object.entries(challenges).map(([category, challengeList]: [string, Challenge[]]) => {
+        // Map category to icon
+        const categoryIcons: Record<string, string> = {
+          surface_characteristics: 'search',
+          thermal_management: 'temperature',
+          contamination_challenges: 'clean',
+          safety_compliance: 'alert',
+          surface_contamination: 'clean',
+          thermal_effects: 'temperature',
+          mechanical_stress: 'gear',
+          optical_issues: 'eye'
+        };
+
+        const sectionMetadata: RelationshipSection = {
+          section_title: category.replace(/_/g, ' '),
+          section_description: undefined,
+          icon: categoryIcons[category] || 'info',
+          order: 0
+        };
+
+        // Transform challenges to items array for PreventionPanel
+        const items = Array.isArray(challengeList) ? challengeList.map(challenge => ({
+          challengeName: challenge.challenge,
+          challengeDesc: challenge.impact,
+          severity: challenge.severity,
+          solutions: challenge.solutions,
+          prevention: challenge.prevention
+        })) : [];
+
+        return (
+          <PreventionPanel
+            key={category}
+            sectionMetadata={sectionMetadata}
+            items={items}
+          />
+        );
+      })}
     </div>
   );
 }
