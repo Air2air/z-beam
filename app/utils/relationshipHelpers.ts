@@ -182,13 +182,13 @@ function getDefaultMetadata(path: string): RelationshipSection {
   const lastPart = path.split('.').pop() || path;
   
   // Convert snake_case to Title Case
-  const section_title = lastPart
+  const sectionTitle = lastPart
     .split('_')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
   return {
-    section_title,
+    section_title: sectionTitle,
     section_description: undefined,
     order: 999, // Put at end if no order specified
     variant: 'default',
