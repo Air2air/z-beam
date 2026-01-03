@@ -1,6 +1,8 @@
 // app/components/DiagnosticCenter/TroubleshootingTab.tsx
+'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { Collapsible } from '../Collapsible';
 
 interface Issue {
   symptom: string;
@@ -16,18 +18,14 @@ interface TroubleshootingTabProps {
 
 /**
  * TroubleshootingTab - Symptom-based problem diagnosis and resolution
- * Focus: Reactive problem-solving when issues occur
+ * Rendered as independent collapsible section
  */
 export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
-  if (!issues || issues.length === 0) {
-    return (
-      <div className="text-center py-12 text-tertiary">
-        <p>No troubleshooting guides available for this material.</p>
-      </div>
-    );
-  }
-
-  return (
+  const content = !issues || issues.length === 0 ? (
+    <div className="text-center py-8 text-tertiary">
+      <p>No troubleshooting guides available for this material.</p>
+    </div>
+  ) : (
     <div className="space-y-3">
       {issues.map((issue, idx) => (
         <div key={idx} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden border">
@@ -109,6 +107,28 @@ export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
           </div>
         </div>
       ))}
+    </div>
+  );
+
+  return (
+    <div className="bg-secondary rounded-lg border overflow-hidden">
+      <Collapsible
+        items={[]}
+        sectionMetadata={{
+          title: 'Fix Issues',
+          description: 'Symptom-based diagnosis and solutions for active problems',
+          icon: 'alert',
+          order: 2
+        }}
+        options={{
+          autoOpen: false,
+          isExpandedByDefault: false
+        }}
+      >
+        <div className="p-4">
+          {content}
+        </div>
+      </Collapsible>
     </div>
   );
 }

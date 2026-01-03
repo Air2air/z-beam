@@ -1,6 +1,8 @@
 // app/components/DiagnosticCenter/QuickReferenceTab.tsx
+'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { Collapsible } from '../Collapsible';
 
 interface Challenge {
   challenge: string;
@@ -27,7 +29,7 @@ interface QuickReferenceTabProps {
 
 /**
  * QuickReferenceTab - Combined overview with severity matrix and quick access
- * Focus: At-a-glance reference and decision support
+ * Rendered as independent collapsible section
  */
 export function QuickReferenceTab({ challenges, issues }: QuickReferenceTabProps) {
   // Flatten all challenges with their category
@@ -43,7 +45,7 @@ export function QuickReferenceTab({ challenges, issues }: QuickReferenceTabProps
     low: allChallenges.filter(c => c.severity === 'low'),
   };
 
-  return (
+  const content = (
     <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
       {/* Left Column: Challenges by Severity */}
       <div className="bg-secondary rounded-md p-4 border">
@@ -180,6 +182,28 @@ export function QuickReferenceTab({ challenges, issues }: QuickReferenceTabProps
           </div>
         </div>
       </div>
+    </div>
+  );
+
+  return (
+    <div className="bg-secondary rounded-lg border overflow-hidden">
+      <Collapsible
+        items={[]}
+        sectionMetadata={{
+          title: 'Quick Reference',
+          description: 'At-a-glance overview with severity matrix and decision support',
+          icon: 'info',
+          order: 3
+        }}
+        options={{
+          autoOpen: false,
+          isExpandedByDefault: false
+        }}
+      >
+        <div className="p-4">
+          {content}
+        </div>
+      </Collapsible>
     </div>
   );
 }
