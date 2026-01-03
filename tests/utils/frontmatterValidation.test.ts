@@ -24,7 +24,7 @@ describe('frontmatterValidation', () => {
           ],
           _section: {
             title: 'Exposure Limits',
-            description: 'Regulatory exposure limits',
+            section_description: 'Regulatory exposure limits',
             order: 1,
             variant: 'default',
             icon: 'shield-check'
@@ -38,7 +38,7 @@ describe('frontmatterValidation', () => {
           ],
           _section: {
             title: 'PPE Requirements',
-            description: 'Required protective equipment',
+            section_description: 'Required protective equipment',
             order: 2,
             variant: 'warning',
             icon: 'alert-triangle'
@@ -114,7 +114,7 @@ describe('frontmatterValidation', () => {
             items: [{ id: 'test' }],
             _section: {
               // Missing title, order, icon
-              description: 'Test'
+              section_description: 'Test'
             }
           }
         }

@@ -44,8 +44,6 @@ export function DiagnosticCenter({
         title="Diagnostic & Prevention Center"
         icon={getSectionIcon('diagnostic')}
         description={`Proactive strategies and reactive solutions for ${safeMaterialName.toLowerCase()}`}
-        thumbnail={heroImage}
-        thumbnailLink={materialLink}
       />
       
       {/* Tab Navigation */}

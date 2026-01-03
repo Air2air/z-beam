@@ -11,7 +11,7 @@
 // app/components/FAQ/FAQSettings.tsx
 "use client";
 
-import { BaseFAQ } from "./BaseFAQ";
+import { FAQPanel } from "../FAQPanel";
 import type { HelpSection, HelpItem, HelpSeverity } from '@/types';
 
 export interface FAQSettingsProps {
@@ -120,10 +120,20 @@ export function FAQSettings({
 
   if (settingsSections.length === 0) return null;
 
+  // Flatten items from all sections for FAQPanel
+  const allItems = settingsSections.flatMap(section => 
+    section.items.map(item => ({
+      question: item.question,
+      answer: item.answer,
+      severity: item.severity
+    }))
+  );
+
   return (
-    <BaseFAQ
-      sections={settingsSections}
-      materialName={materialName}
+    <FAQPanel
+      faq={allItems}
+      entityName={materialName}
+      variant="troubleshooting"
       className={className}
     />
   );

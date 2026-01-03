@@ -252,8 +252,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
         title={title}
         icon={icon}
         description={description}
-        thumbnail={thumbnail}
-        thumbnailLink={materialLink}
+
       />
 
       <div className="flex flex-col gap-6">

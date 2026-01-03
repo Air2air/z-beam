@@ -1,19 +1,20 @@
 id: germanium-settings
 name: Germanium
-datePublished: '2026-01-03T07:49:37.198626Z'
-dateModified: '2026-01-03T07:49:37.198626Z'
+datePublished: '2026-01-03T22:28:03.799512Z'
+dateModified: '2026-01-03T22:28:03.799512Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/semiconductor/elemental/germanium-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Germanium
-    href: ''
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Germanium
+  href: ''
 page_title: 'Germanium Settings: Laser Parameters'
-page_description: Before laser cleaning, Germanium surfaces require careful parameter selection After cleaning, Germanium surfaces show restored appearance with controlled parameters
+page_description: Before laser cleaning, Germanium surfaces require careful parameter selection After cleaning, Germanium
+  surfaces show restored appearance with controlled parameters
 meta_description: 'Germanium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -35,25 +36,27 @@ author:
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
   expertise:
-    - Ultrafast Laser Physics and Material Interactions
+  - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
     type: EducationalOrganization
   credentials:
-    - Ph.D. Physics, ITB, 2020
-    - 2+ years in ultrafast laser research including ASEAN optics workshops
-    - Assisted in international optics projects
+  - Ph.D. Physics, ITB, 2020
+  - 2+ years in ultrafast laser research including ASEAN optics workshops
+  - Assisted in international optics projects
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
-    - https://linkedin.com/in/ikmanda-roswati-physicist
-    - https://www.academia.edu/profile/IkmandaRoswati
+  - https://linkedin.com/in/ikmanda-roswati-physicist
+  - https://www.academia.edu/profile/IkmandaRoswati
   languages:
-    - English
-    - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in Indonesia.
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
   slug: ikmanda-roswati
 card:
   default:
@@ -73,34 +76,34 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-        - - Requires careful power calibration to prevent material damage
-          - Monitor surface temperature during processing
-          - Verify cleaning effectiveness through inspection
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -110,7 +113,7 @@ machine_settings:
     value: 60
     unit: W
     description: Controlled power for precision semiconductor cleaning
-    min: 1
+    min: 1.0
     max: 120
   wavelength:
     value: 1064
@@ -135,7 +138,7 @@ machine_settings:
     unit: J/cm²
     description: Precision energy for contamination removal
     min: 0.1
-    max: 20
+    max: 20.0
   pulseWidth:
     value: 10
     unit: ns
@@ -165,50 +168,74 @@ machine_settings:
     max: 100
     value: 50
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in semiconductor cleaning to avoid thermal damage; recommended starting at 50 W for balanced ablation of contaminants on Ge, which has moderate thermal conductivity (60 W/mK) and high reflectivity (~40% at 1064 nm). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review in ''Laser Cleaning'' by Kononenko (2020).'
+    description: 'Typical range for pulsed Nd:YAG lasers in semiconductor cleaning to avoid thermal damage; recommended starting
+      at 50 W for balanced ablation of contaminants on Ge, which has moderate thermal conductivity (60 W/mK) and high reflectivity
+      (~40% at 1064 nm). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; academic review
+      in ''Laser Cleaning'' by Kononenko (2020).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g., oxides), faster for light particles; recommended 1000 mm/s for Ge to minimize heat-affected zone given its melting point of 938°C. Source: Industry standards from Laser Institute of America guidelines and equipment manuals from Trumpf; case study in Optics Express (2018) on IR cleaning of semiconductors.'
+    description: 'Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (e.g.,
+      oxides), faster for light particles; recommended 1000 mm/s for Ge to minimize heat-affected zone given its melting point
+      of 938°C. Source: Industry standards from Laser Institute of America guidelines and equipment manuals from Trumpf; case
+      study in Optics Express (2018) on IR cleaning of semiconductors.'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on Ge; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially; 20 ns balances ablation efficiency and thermal confinement. Source: Laser physics research in Applied Physics A (2015) on ns/ps ablation thresholds for Ge at 1064 nm, noting reduced cracking in ns pulses.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on Ge; picosecond (ps) or femtosecond
+      (fs) for ultra-precise work but less common industrially; 20 ns balances ablation efficiency and thermal confinement.
+      Source: Laser physics research in Applied Physics A (2015) on ns/ps ablation thresholds for Ge at 1064 nm, noting reduced
+      cracking in ns pulses.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 20
-    description: 'Typical for pulsed cleaning to achieve uniform energy delivery; higher rates increase speed but risk heat accumulation on low-conductivity Ge; 20 kHz recommended for optimal throughput without substrate heating. Source: Academic literature in Journal of Applied Physics (2017) on rep rate effects in IR laser cleaning of semiconductors, highlighting trade-offs for materials like Ge.'
+    description: 'Typical for pulsed cleaning to achieve uniform energy delivery; higher rates increase speed but risk heat
+      accumulation on low-conductivity Ge; 20 kHz recommended for optimal throughput without substrate heating. Source: Academic
+      literature in Journal of Applied Physics (2017) on rep rate effects in IR laser cleaning of semiconductors, highlighting
+      trade-offs for materials like Ge.'
   energy_density:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
     value: 0.8
-    description: 'Fluence below Ge''s damage threshold (~2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; lower for light cleaning, higher for heavy; 0.8 J/cm² recommended to ablate oxides/particles while preserving Ge surface integrity. Source: Ablation threshold studies in Physical Review B (2012) and Optics and Lasers in Engineering (2019), confirming Ge thresholds and conservative cleaning fluences.'
+    description: 'Fluence below Ge''s damage threshold (~2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; lower
+      for light cleaning, higher for heavy; 0.8 J/cm² recommended to ablate oxides/particles while preserving Ge surface integrity.
+      Source: Ablation threshold studies in Physical Review B (2012) and Optics and Lasers in Engineering (2019), confirming
+      Ge thresholds and conservative cleaning fluences.'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter range for precise industrial cleaning; smaller for fine details on Ge wafers, larger for area prep; 200 μm recommended for uniform coverage without excessive overlap heating. Source: Equipment specifications from Coherent and Spectra-Physics galvo scanners; process studies in Applied Surface Science (2021) for IR cleaning of Ge optics.'
+    description: 'Beam diameter range for precise industrial cleaning; smaller for fine details on Ge wafers, larger for area
+      prep; 200 μm recommended for uniform coverage without excessive overlap heating. Source: Equipment specifications from
+      Coherent and Spectra-Physics galvo scanners; process studies in Applied Surface Science (2021) for IR cleaning of Ge
+      optics.'
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for complete removal of stubborn layers; 2 passes recommended for Ge to ensure thorough cleaning without risking cumulative thermal damage. Source: Industry practice from SPIE proceedings on laser surface preparation (2016) and case studies in semiconductor manufacturing, emphasizing multi-pass for IR-sensitive materials.'
+    description: 'Single pass for light contamination, multi-pass for complete removal of stubborn layers; 2 passes recommended
+      for Ge to ensure thorough cleaning without risking cumulative thermal damage. Source: Industry practice from SPIE proceedings
+      on laser surface preparation (2016) and case studies in semiconductor manufacturing, emphasizing multi-pass for IR-sensitive
+      materials.'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence in cleaning semiconductors.'
-component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to ablate contaminants from heat-sensitive Germanium without inducing thermal cracking or subsurface damage.
+    description: 'Ensures uniform coverage in raster scanning; 30-50% for large areas, 70-80% for precision; 60% recommended
+      for Ge to avoid gaps or hot spots given its reflectivity and moderate conductivity. Source: Process optimization studies
+      in Lasers in Manufacturing (2018) and Journal of Laser Applications (2020), optimizing overlap for consistent fluence
+      in cleaning semiconductors.'
+component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to ablate contaminants from
+  heat-sensitive Germanium without inducing thermal cracking or subsurface damage.
 slug: germanium-settings
-lastModified: '2026-01-02T23:49:37.198654'
-description: 'Germanium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+lastModified: '2026-01-03T14:28:03.799544'

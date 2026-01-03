@@ -10,6 +10,7 @@ import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
 import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
 import { Collapsible } from '../Collapsible';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
+import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { convertCitationsToStandards } from '@/app/utils/layoutHelpers';
 import { getCompoundArticle, getContaminantArticle, getArticle } from '@/app/utils/contentAPI';
@@ -30,6 +31,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   
   // Access data from relationships using type-safe helper
   const relationships = (metadata as any)?.relationships || {};
+  const industryApplications = relationships?.operational?.industry_applications || (metadata as any)?.applications;
   
   // Convert citations using utility
   const regulatoryStandards = convertCitationsToStandards(metadata);
@@ -145,7 +147,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
           },
         })),
         title: `Compounds produced by ${contaminantName}`,
-        description: producesCompoundsSection?.metadata?.description || 'Compounds produced during laser removal with exposure limits and required safety controls',
+        description: producesCompoundsSection?.metadata?.section_description || 'Compounds produced during laser removal with exposure limits and required safety controls',
         variant: 'relationship' as const,
       }
     },
@@ -182,8 +184,17 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
           category: m.category,
         })),
         title: `Materials affected by ${contaminantName}`,
-        description: affectsMaterialsSection?.metadata?.description || 'Materials where this contaminant is commonly present',
+        description: affectsMaterialsSection?.metadata?.section_description || 'Materials where this contaminant is commonly present',
         variant: 'relationship' as const,
+      }
+    },
+    {
+      component: IndustryApplicationsPanel,
+      condition: !!industryApplications,
+      props: {
+        applications: industryApplications,
+        entityName: contaminantName,
+        variant: 'contaminants' as const,
       }
     },
     // Visual characteristics - collapsible or descriptive based on presentation

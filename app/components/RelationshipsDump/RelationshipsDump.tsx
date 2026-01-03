@@ -78,8 +78,8 @@ export function RelationshipsDump({ relationships, entityName }: RelationshipsDu
             <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded">
               <p className="text-sm font-bold text-yellow-900 mb-1">📋 Section Metadata</p>
               <p className="text-base font-semibold text-gray-800">{value._section.title}</p>
-              {value._section.description && (
-                <p className="text-sm text-gray-600 mt-1">{value._section.description}</p>
+              {value._section.section_description && (
+                <p className="text-sm text-gray-600 mt-1">{value._section.section_description}</p>
               )}
               {value._section.order !== undefined && (
                 <p className="text-xs text-gray-500 mt-1">Order: {value._section.order}</p>

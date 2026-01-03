@@ -62,7 +62,7 @@ describe('ContentAPI File System Integration', () => {
       expect(article).not.toBeNull();
       expect(article).toBeDefined();
       expect(article.metadata).toBeDefined();
-      expect(article.metadata.title).toBe('Granite Laser Cleaning');
+      expect(article.metadata.page_title).toBe('Granite: Precision Laser Cleaning');
       expect(article.metadata.category).toBe('stone');
       expect(article.metadata.subcategory).toBe('igneous');
     });
@@ -72,7 +72,7 @@ describe('ContentAPI File System Integration', () => {
       
       expect(article).not.toBeNull();
       expect(article.metadata).toBeDefined();
-      expect(article.metadata.title).toBe('Aluminum Laser Cleaning');
+      expect(article.metadata.page_title).toBe('Aluminum: High Reflectivity Laser Cleaning');
       expect(article.metadata.category).toBe('metal');
       expect(article.metadata.subcategory).toBe('non-ferrous');
     });
@@ -82,7 +82,7 @@ describe('ContentAPI File System Integration', () => {
       
       expect(article).not.toBeNull();
       expect(article.metadata).toBeDefined();
-      expect(article.metadata.title).toBe('Alumina Laser Cleaning');
+      expect(article.metadata.page_title).toBe('Alumina: Precision Laser Cleaning');
       expect(article.metadata.category).toBe('ceramic');
       expect(article.metadata.subcategory).toBe('oxide');
     });
@@ -105,7 +105,7 @@ describe('ContentAPI File System Integration', () => {
     test('loaded articles have required metadata fields', async () => {
       const article = await getArticle('granite-laser-cleaning');
       
-      expect(article.metadata).toHaveProperty('title');
+      expect(article.metadata).toHaveProperty('page_title');
       expect(article.metadata).toHaveProperty('page_description');
       expect(article.metadata).toHaveProperty('category');
       expect(article.metadata).toHaveProperty('subcategory');
@@ -168,7 +168,7 @@ describe('ContentAPI File System Integration', () => {
       expect(data.name).toBe('Granite');
       expect(data.category).toBe('stone');
       expect(data.subcategory).toBe('igneous');
-      expect(data.title).toBe('Granite Laser Cleaning');
+      expect(data.page_title).toBe('Granite: Precision Laser Cleaning');
     });
 
     test('loads aluminum frontmatter data', async () => {

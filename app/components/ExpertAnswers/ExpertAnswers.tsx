@@ -1,329 +1,147 @@
 /**
  * @component ExpertAnswers
  * @purpose Expert-attributed Q&A with E-E-A-T signals for troubleshooting
- * @dependencies SectionContainer, @/types (ExpertAnswersProps)
+ * @dependencies Collapsible, @/types (ExpertAnswersProps)
  * @related BaseFAQ.tsx, Layout.tsx
- * @complexity Medium (expert attribution, QAPage schema, upvotes, sources)
- * @aiContext Displays expert troubleshooting answers with credentials, dates, and authority signals
- *           Generates QAPage schema for rich snippets with expert attribution
+ * @complexity Simple (uses base Collapsible component)
+ * @aiContext Displays expert troubleshooting answers using normalized Collapsible base
+ *           Simplified architecture with zero custom CSS
  */
 // app/components/ExpertAnswers/ExpertAnswers.tsx
 "use client";
 
-import { SectionContainer } from "../SectionContainer/SectionContainer";
+import { Collapsible } from "../Collapsible";
 import { trackFAQClick } from "@/app/utils/analytics";
-import { getSectionIcon } from "@/app/config/sectionIcons";
-import type { ExpertAnswersProps, ExpertAnswerItem, ExpertInfo } from '@/types';
-import Image from "next/image";
+import type { ExpertAnswersProps, ExpertAnswerItem } from '@/types';
 
 /**
- * Convert simple Markdown bold syntax to HTML
+ * Format expert information for display in description
  */
-function parseSimpleMarkdown(text: string): string {
-  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-}
-
-/**
- * Severity badge with color coding
- */
-function SeverityBadge({ severity }: { severity?: 'low' | 'medium' | 'high' }) {
-  if (!severity) return null;
+function formatExpertInfo(answer: ExpertAnswerItem): string {
+  const parts: string[] = [];
   
-  const config = {
-    low: { 
-      color: 'bg-orange-900 text-orange-200 border-orange-300700',
-      icon: 'ℹ️'
-    },
-    medium: { 
-      color: 'bg-yellow-900 text-yellow-200 border-yellow-300700',
-      icon: '⚠️'
-    },
-    high: { 
-      color: 'bg-red-900 text-red-200 border-red-300700',
-      icon: '🔴'
+  const expert = answer.expert;
+  if (expert) {
+    // Expert name and credentials
+    if (expert.name) {
+      let expertLine = `**Expert:** ${expert.name}`;
+      if (expert.credentials && expert.credentials.length > 0) {
+        expertLine += ` (${expert.credentials.join(', ')})`;
+      }
+      parts.push(expertLine);
     }
-  };
-  
-  const { color, icon } = config[severity];
-  
-  return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold border ${color}`}>
-      <span className="mr-1">{icon}</span>
-      {severity.toUpperCase()}
-    </span>
-  );
-}
-
-/**
- * Expert info card with credentials
- */
-function ExpertCard({ expert, dateAnswered, upvoteCount }: { 
-  expert: ExpertInfo; 
-  dateAnswered: string;
-  upvoteCount?: number;
-}) {
-  const formattedDate = new Date(dateAnswered).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  });
-
-  return (
-    <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-orange-50 to-indigo-50900/20900/20 rounded-md border border-orange-200800">
-      {/* Expert photo */}
-      {expert.image && (
-        <div className="flex-shrink-0">
-          <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-orange-400600">
-            <Image
-              src={expert.image}
-              alt={expert.name}
-              fill
-              className="object-cover"
-              sizes="64px"
-            />
-          </div>
-        </div>
-      )}
-      
-      {/* Expert info */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 flex-wrap">
-          <h4 className="text-base text-secondary font-semibold">
-            {expert.name}
-          </h4>
-          {expert.credentials && expert.credentials.length > 0 && (
-            <span className="text-sm text-muted">
-              {expert.credentials.join(', ')}
-            </span>
-          )}
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-900 text-green-200">
-            ✓ Verified Expert
-          </span>
-        </div>
-        
-        {expert.title && (
-          <p className="text-sm mt-0.5">
-            {expert.title}
-          </p>
-        )}
-        
-        {expert.affiliation && (
-          <p className="text-sm text-muted mt-0.5">
-            {expert.affiliation}
-          </p>
-        )}
-        
-        {expert.expertise && expert.expertise.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-2">
-            {expert.expertise.slice(0, 3).map((skill, idx) => (
-              <span 
-                key={idx}
-                className="inline-flex items-center px-2 py-0.5 rounded text-xs bg-secondary border"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        )}
-        
-        {/* Date and upvotes */}
-        <div className="flex items-center gap-4 mt-2 text-sm text-muted">
-          <span className="flex items-center gap-1">
-            📅 {formattedDate}
-          </span>
-          {upvoteCount && upvoteCount > 0 && (
-            <span className="flex items-center gap-1">
-              👍 {upvoteCount} helpful
-            </span>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
- * Single expert answer card
- */
-function ExpertAnswerCard({ 
-  answer, 
-  index, 
-  materialName,
-  defaultExpert 
-}: { 
-  answer: ExpertAnswerItem; 
-  index: number; 
-  materialName: string;
-  defaultExpert?: ExpertInfo;
-}) {
-  // Use answer-specific expert or fall back to default
-  const expert = answer.expert || defaultExpert;
-  const handleClick = (detailsElement: HTMLDetailsElement) => {
-    const isExpanding = !detailsElement.open;
     
-    trackFAQClick({
-      materialName,
-      question: answer.question.replace(/\*\*/g, ''),
-      questionIndex: index,
-      isExpanding,
+    // Title and affiliation
+    if (expert.title) {
+      parts.push(`**Title:** ${expert.title}`);
+    }
+    if (expert.affiliation) {
+      parts.push(`**Affiliation:** ${expert.affiliation}`);
+    }
+    
+    // Expertise areas
+    if (expert.expertise && expert.expertise.length > 0) {
+      parts.push(`**Expertise:** ${expert.expertise.slice(0, 3).join(', ')}`);
+    }
+  }
+  
+  // Date and engagement metrics
+  if (answer.dateAnswered) {
+    const formattedDate = new Date(answer.dateAnswered).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
     });
-  };
-
-  return (
-    <div role="listitem" id={`qa-${index}`}>
-      <details
-        className="group bg-secondary rounded-md border-2 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-orange-300:border-orange-600"
-        open={answer.acceptedAnswer && index === 0} // Auto-open first accepted answer
-      >
-        <summary 
-          className="cursor-pointer px-6 py-5 font-normal flex items-start justify-between group-open:border-b-2 group-open:border-gray-200:border-gray-700 bg-gradient-to-r from-gray-50 to-white700/50800 hover:from-blue-50 hover:to-indigo-50:from-blue-900/20:to-indigo-900/20 list-none transition-all duration-200"
-          onClick={(e) => {
-            const detailsElement = e.currentTarget.parentElement as HTMLDetailsElement;
-            handleClick(detailsElement);
-          }}
-        >
-          <div className="flex-1 pr-4">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-2xl">❓</span>
-              {answer.acceptedAnswer && (
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-green-900 text-green-200 border border-green-300700">
-                  ✓ Accepted Answer
-                </span>
-              )}
-              {answer.severity && <SeverityBadge severity={answer.severity} />}
-            </div>
-            <h3 
-              className="text-lg font-medium [&_strong]:font-semibold"
-              dangerouslySetInnerHTML={{ __html: parseSimpleMarkdown(answer.question) }}
-            />
-            {answer.category && (
-              <p className="text-sm text-muted mt-1">
-                Category: {answer.category.replace(/_/g, ' ')}
-              </p>
-            )}
-          </div>
-          <svg
-            className="w-6 h-6 text-orange-600400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </summary>
-        
-        <div className="overflow-hidden transition-all duration-300 ease-in-out">
-          <div className="p-6 space-y-6">
-            {/* Expert card */}
-            {expert && (
-              <ExpertCard 
-                expert={expert}
-                dateAnswered={answer.dateAnswered}
-                upvoteCount={answer.upvoteCount}
-              />
-            )}
-            
-            {/* Answer content */}
-            <div className="prose prose-sm max-w-none">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0 mt-1">💡</span>
-                <div className="flex-1">
-                  <h4 className="text-base text-secondary font-semibold mb-2">
-                    Expert Answer:
-                  </h4>
-                  <div 
-                    className="text-primary [&_strong]:font-semibold"
-                    dangerouslySetInnerHTML={{ __html: parseSimpleMarkdown(answer.answer) }}
-                  />
-                </div>
-              </div>
-            </div>
-            
-            {/* Property value badge */}
-            {answer.propertyValue && (
-              <div className="flex items-center gap-2 p-3 bg-blue-900/30 rounded-md border border-blue-200800">
-                <svg className="w-5 h-5 text-blue-600400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <span className="text-sm font-medium text-blue-700300">
-                  Technical Value: {answer.propertyValue}
-                </span>
-              </div>
-            )}
-            
-            {/* Solutions list */}
-            {answer.solutions && answer.solutions.length > 0 && (
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50900/20900/20 rounded-md p-4 border border-green-200800">
-                <h4 className="font-semibold text-secondary mb-3 flex items-center gap-2">
-                  <span>✓</span>
-                  Recommended Solutions:
-                </h4>
-                <ul className="space-y-2">
-                  {answer.solutions.map((solution, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-green-800200">
-                      <span className="text-green-600400 font-bold">•</span>
-                      <span>{solution}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            
-            {/* Sources */}
-            {answer.sources && answer.sources.length > 0 && (
-              <div className="pt-4 border-t">
-                <h4 className="text-xs text-secondary font-semibold mb-2 flex items-center gap-1">
-                  📚 Sources & References:
-                </h4>
-                <ul className="space-y-1">
-                  {answer.sources.map((source, idx) => (
-                    <li key={idx} className="text-xs text-muted">
-                      • {source}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            
-            {/* Related topics */}
-            {answer.relatedTopics && answer.relatedTopics.length > 0 && (
-              <div className="pt-3 border-t">
-                <p className="text-xs text-muted">
-                  <strong>Related Topics:</strong> {answer.relatedTopics.join(' • ')}
-                </p>
-              </div>
-            )}
-            
-            {/* Last reviewed date */}
-            {answer.lastReviewed && (
-              <div className="text-xs text-muted italic">
-                Last reviewed: {new Date(answer.lastReviewed).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </div>
-            )}
-          </div>
-        </div>
-      </details>
-    </div>
-  );
+    parts.push(`**Date Answered:** ${formattedDate}`);
+  }
+  
+  if (answer.upvoteCount && answer.upvoteCount > 0) {
+    parts.push(`**👍 ${answer.upvoteCount} helpful**`);
+  }
+  
+  if (answer.acceptedAnswer) {
+    parts.push('✓ **Accepted Answer**');
+  }
+  
+  return parts.join('\n');
 }
 
 /**
- * ExpertAnswers component - displays expert Q&A with E-E-A-T signals
+ * Build full answer description with all details
+ */
+function buildAnswerDescription(answer: ExpertAnswerItem): string {
+  const sections: string[] = [];
+  
+  // Expert info section
+  const expertInfo = formatExpertInfo(answer);
+  if (expertInfo) {
+    sections.push(expertInfo);
+    sections.push(''); // Blank line
+  }
+  
+  // Category
+  if (answer.category) {
+    sections.push(`**Category:** ${answer.category.replace(/_/g, ' ')}`);
+    sections.push(''); // Blank line
+  }
+  
+  // Main answer
+  sections.push('**Answer:**');
+  sections.push(answer.answer);
+  sections.push(''); // Blank line
+  
+  // Property value
+  if (answer.propertyValue) {
+    sections.push(`**Technical Value:** ${answer.propertyValue}`);
+    sections.push(''); // Blank line
+  }
+  
+  // Solutions
+  if (answer.solutions && answer.solutions.length > 0) {
+    sections.push('**Recommended Solutions:**');
+    answer.solutions.forEach(solution => {
+      sections.push(`✓ ${solution}`);
+    });
+    sections.push(''); // Blank line
+  }
+  
+  // Sources
+  if (answer.sources && answer.sources.length > 0) {
+    sections.push('**Sources & References:**');
+    answer.sources.forEach(source => {
+      sections.push(`• ${source}`);
+    });
+    sections.push(''); // Blank line
+  }
+  
+  // Related topics
+  if (answer.relatedTopics && answer.relatedTopics.length > 0) {
+    sections.push(`**Related Topics:** ${answer.relatedTopics.join(' • ')}`);
+    sections.push(''); // Blank line
+  }
+  
+  // Last reviewed
+  if (answer.lastReviewed) {
+    const reviewDate = new Date(answer.lastReviewed).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    sections.push(`*Last reviewed: ${reviewDate}*`);
+  }
+  
+  return sections.join('\n');
+}
+
+/**
+ * ExpertAnswers component - displays expert Q&A using base Collapsible
+ * Simplified architecture with zero custom CSS
  */
 export function ExpertAnswers({
   materialName,
   answers = [],
   defaultExpert,
-  className: _className = "",
+  className = "",
 }: ExpertAnswersProps) {
   if (!answers || answers.length === 0) return null;
 
@@ -334,23 +152,36 @@ export function ExpertAnswers({
     return (b.upvoteCount || 0) - (a.upvoteCount || 0);
   });
 
+  // Transform to Collapsible format - using generic object structure
+  const collapsibleItems = sortedAnswers.map((answer, index) => {
+    // Use answer-specific expert or fall back to default
+    const finalAnswer = {
+      ...answer,
+      expert: answer.expert || defaultExpert
+    };
+    
+    return {
+      question: answer.question,
+      answer: buildAnswerDescription(finalAnswer),
+      severity: answer.severity,
+      acceptedAnswer: answer.acceptedAnswer && index === 0 // Auto-open first accepted answer
+    };
+  });
+
+  // Section metadata
+  const sectionMetadata = {
+    section_title: `Expert Troubleshooting: ${materialName}`,
+    section_description: 'Professional answers from verified laser cleaning experts',
+    icon: 'warning',
+    order: 85
+  };
+
   return (
-    <SectionContainer
-      variant="default"
-      title={`Expert Troubleshooting: ${materialName}`}
-      icon={getSectionIcon('warning')}
-    >
-      <div className="space-y-4" role="list" aria-label="Expert answers">
-        {sortedAnswers.map((answer, index) => (
-          <ExpertAnswerCard
-            key={index}
-            answer={answer}
-            index={index}
-            materialName={materialName}
-            defaultExpert={defaultExpert}
-          />
-        ))}
-      </div>
+    <div className={className}>
+      <Collapsible
+        items={collapsibleItems}
+        sectionMetadata={sectionMetadata}
+      />
       
       {/* Trust signals footer */}
       <div className="mt-6 p-4 bg-secondary rounded-md text-sm text-muted text-center">
@@ -360,6 +191,6 @@ export function ExpertAnswers({
           <strong>Need personalized help?</strong> <a href="/contact" className="text-orange-600400 hover:underline">Contact our team</a>
         </p>
       </div>
-    </SectionContainer>
+    </div>
   );
 }

@@ -57,8 +57,6 @@ export function MaterialFAQ({
         title={`${materialName} Laser Cleaning FAQs`}
         icon={getSectionIcon('faq')}
         description="Common questions and expert answers about laser cleaning this material"
-        thumbnail={heroImage}
-        thumbnailLink={thumbnailLink}
       />
       <div className="space-y-2 mt-4" role="list">
         {faq.map((item, index) => (

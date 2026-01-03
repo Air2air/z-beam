@@ -1,19 +1,27 @@
 id: cedar-settings
 name: Cedar
-datePublished: '2026-01-03T07:49:31.446570Z'
-dateModified: '2026-01-03T07:49:31.446570Z'
+datePublished: '2026-01-03T22:27:57.768913Z'
+dateModified: '2026-01-03T22:27:57.768913Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/softwood/cedar-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Cedar
-    href: ''
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Cedar
+  href: ''
 page_title: 'Cedar Settings: Laser Parameters'
-page_description: When laser cleaning cedar, we typically begin by selecting a low-power setting to match its soft, porous structure. This wood absorbs laser energy readily because of its low reflectivity, which allows contaminants to vaporize without much resistance. We've found that starting with a focused spot size helps expose surface layers evenly, reducing the risk of uneven cleaning on its lightweight frame. As you proceed, maintain a moderate scan speed to account for cedar's poor heat conduction—heat tends to localize and can char the material if you push too fast. In our experience, this calls for two passes with significant overlap to restore the wood's natural grain without embedding residues in its open pores. Watch out for overexposure in the middle of thicker sections, where porosity traps moisture and amplifies thermal buildup; dial back the energy density there to avoid splintering. Overall, these adjustments preserve cedar's flexibility for applications like furniture restoration or heritage work.
+page_description: When laser cleaning cedar, we typically begin by selecting a low-power setting to match its soft, porous
+  structure. This wood absorbs laser energy readily because of its low reflectivity, which allows contaminants to vaporize
+  without much resistance. We've found that starting with a focused spot size helps expose surface layers evenly, reducing
+  the risk of uneven cleaning on its lightweight frame. As you proceed, maintain a moderate scan speed to account for cedar's
+  poor heat conduction—heat tends to localize and can char the material if you push too fast. In our experience, this calls
+  for two passes with significant overlap to restore the wood's natural grain without embedding residues in its open pores.
+  Watch out for overexposure in the middle of thicker sections, where porosity traps moisture and amplifies thermal buildup;
+  dial back the energy density there to avoid splintering. Overall, these adjustments preserve cedar's flexibility for applications
+  like furniture restoration or heritage work.
 meta_description: 'Cedar: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -35,23 +43,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-    - Optical Materials for Laser Systems
+  - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-    - BA Physics, UC Irvine, 2017
-    - Hands-on at JPL optics internship, 2018
-    - MA Optics and Photonics, UC Irvine, 2019
-    - 3+ years in laser systems development
-    - Hands-on experience with optical fabrication
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-    - https://linkedin.com/in/todd-dunning-optics
-    - https://spie.org/profile/Todd.Dunning
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
   bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
   slug: todd-dunning
 card:
@@ -72,39 +80,39 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-        - thermal_management:
-            - id: charring-carbonization
-              type: challenge
-            - id: slow-thermal-diffusivity
-              type: challenge
-          contamination_challenges:
-            - id: varnish-coating-removal
-              type: challenge
+      - thermal_management:
+        - id: charring-carbonization
+          type: challenge
+        - id: slow-thermal-diffusivity
+          type: challenge
+        contamination_challenges:
+        - id: varnish-coating-removal
+          type: challenge
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -114,7 +122,7 @@ machine_settings:
     description: Optimal average power for Cedar surface cleaning without charring
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   wavelength:
     description: Near-infrared wavelength for optimal Cedar absorption and minimal penetration
@@ -139,7 +147,7 @@ machine_settings:
     unit: J/cm²
     value: 2.5
     min: 0.1
-    max: 20
+    max: 20.0
   pulseWidth:
     description: Short pulse duration for efficient ablation of contaminants without excessive heat diffusion
     unit: ns
@@ -169,50 +177,111 @@ machine_settings:
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for industrial laser cleaning of softwoods like cedar to remove contaminants without charring; starting at 100 W allows controlled ablation. Max avoids thermal damage threshold (~300 W at 1064 nm). Source: Manufacturer specs from IPG Photonics YLR series for wood applications; academic paper on wood surface cleaning (Opt. Lasers Eng., 2018).'
+    description: 'Typical range for industrial laser cleaning of softwoods like cedar to remove contaminants without charring;
+      starting at 100 W allows controlled ablation. Max avoids thermal damage threshold (~300 W at 1064 nm). Source: Manufacturer
+      specs from IPG Photonics YLR series for wood applications; academic paper on wood surface cleaning (Opt. Lasers Eng.,
+      2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 100-500 mm/s), faster for light (500-2000 mm/s). Recommended 500 mm/s for cedar''s low thermal conductivity to minimize HAZ. Source: Industry standards from Laserax equipment manuals; case studies in J. Clean. Prod. (2020).'
+    description: 'Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 100-500
+      mm/s), faster for light (500-2000 mm/s). Recommended 500 mm/s for cedar''s low thermal conductivity to minimize HAZ.
+      Source: Industry standards from Laserax equipment manuals; case studies in J. Clean. Prod. (2020).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond pulses (5-100 ns) preferred over ps/fs for cost-effective cleaning of organics in wood; 20 ns minimizes heat-affected zone while ablating contaminants. Ps/fs reduce thermal damage but increase cost. Source: Laser physics research on wood ablation (Appl. Phys. A, 2015); avoids plasma shielding at 1064 nm.'
+    description: 'Nanosecond pulses (5-100 ns) preferred over ps/fs for cost-effective cleaning of organics in wood; 20 ns
+      minimizes heat-affected zone while ablating contaminants. Ps/fs reduce thermal damage but increase cost. Source: Laser
+      physics research on wood ablation (Appl. Phys. A, 2015); avoids plasma shielding at 1064 nm.'
   repetition_rate:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for cedar to achieve fast coverage without excessive heat accumulation due to wood''s poor conductivity. Higher rates speed up process but risk charring. Source: Academic literature on IR laser cleaning of biomass (Lasers Med. Sci., 2019).'
+    description: 'Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for cedar to achieve fast coverage without excessive
+      heat accumulation due to wood''s poor conductivity. Higher rates speed up process but risk charring. Source: Academic
+      literature on IR laser cleaning of biomass (Lasers Med. Sci., 2019).'
   energy_density:
     min: 0.1
-    max: 20
+    max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence range for contaminant removal (0.5-5 J/cm² light, 5-10 heavy); cedar damage threshold ~15 J/cm² at 1064 nm due to reflectivity (~40%) and low melting point of lignin. Recommended 2 J/cm² for safe cleaning. Source: Ablation threshold studies on softwoods (J. Appl. Phys., 2017). Conservative estimate for unvarnished cedar.'
+    description: 'Fluence range for contaminant removal (0.5-5 J/cm² light, 5-10 heavy); cedar damage threshold ~15 J/cm²
+      at 1064 nm due to reflectivity (~40%) and low melting point of lignin. Recommended 2 J/cm² for safe cleaning. Source:
+      Ablation threshold studies on softwoods (J. Appl. Phys., 2017). Conservative estimate for unvarnished cedar.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameters 100-500 μm suit industrial cleaning; smaller for fine details on cedar grain, larger for broad areas. 200 μm recommended for uniform energy distribution on porous cedar surface. Source: Equipment specifications from Coherent Armo series; process optimization in Surf. Coat. Tech. (2021).'
+    description: 'Beam diameters 100-500 μm suit industrial cleaning; smaller for fine details on cedar grain, larger for
+      broad areas. 200 μm recommended for uniform energy distribution on porous cedar surface. Source: Equipment specifications
+      from Coherent Armo series; process optimization in Surf. Coat. Tech. (2021).'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contaminants, multi-pass (2-5) for heavy or embedded; 2 passes recommended for cedar to ensure complete removal without overexposure. Source: Industry practice in wood restoration case studies (Herit. Sci., 2022); avoids cumulative thermal stress.'
+    description: 'Single pass for light contaminants, multi-pass (2-5) for heavy or embedded; 2 passes recommended for cedar
+      to ensure complete removal without overexposure. Source: Industry practice in wood restoration case studies (Herit.
+      Sci., 2022); avoids cumulative thermal stress.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '30-80% overlap ensures uniform coverage; 50% recommended for cedar to prevent gaps in porous texture while minimizing overlap-induced heating. Source: Process optimization studies on scanned laser cleaning (Opt. Express, 2016).'
-component_summary: The 100 W power, 1064 nm wavelength, and 12 ns pulse width settings enable precise, low-thermal ablation for Cedar, effectively removing contaminants while preventing charring on its delicate, fibrous wood surface.
+    description: '30-80% overlap ensures uniform coverage; 50% recommended for cedar to prevent gaps in porous texture while
+      minimizing overlap-induced heating. Source: Process optimization studies on scanned laser cleaning (Opt. Express, 2016).'
+component_summary: The 100 W power, 1064 nm wavelength, and 12 ns pulse width settings enable precise, low-thermal ablation
+  for Cedar, effectively removing contaminants while preventing charring on its delicate, fibrous wood surface.
+challenges:
+  thermal_management:
+  - challenge: Charring and carbonization
+    severity: high
+    threshold_temperature: 250-300°C
+    impact: Wood chars at low temperatures leaving black marks and structural damage
+    solutions:
+    - Use pulse mode with 2-5 second cooling between passes
+    - Reduce power by 30-40% compared to metals
+    - Increase scan speed to reduce dwell time
+    - Monitor surface for discoloration; stop if browning occurs
+  - challenge: Slow thermal diffusivity
+    severity: medium
+    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
+    impact: Heat accumulates rapidly causing thermal damage zones
+    solutions:
+    - Increase cooling time between passes
+    - Use lower repetition rates (<20 kHz)
+    - Apply crosshatch patterns to distribute heat
+  surface_characteristics:
+  - challenge: Grain direction sensitivity
+    severity: medium
+    variation: 20-40% absorption variation by grain orientation
+    impact: Laser absorption varies significantly with grain direction
+    solutions:
+    - Scan parallel to grain for consistent results
+    - Use crosshatch pattern (0° and 90°) for uniform cleaning
+    - Test on scrap to determine optimal scan direction
+  - challenge: Porous structure with deep contamination
+    severity: medium
+    porosity_range: 12-65% (softwoods highest)
+    impact: Contaminants penetrate deep into wood structure
+    solutions:
+    - Multiple passes with progressive power increase
+    - Reduce scan speed for deeper penetration (600 mm/s)
+    - Chemical pre-treatment for deep-seated contamination
+  contamination_challenges:
+  - challenge: Varnish and coating removal
+    severity: medium
+    impact: Thick coatings require multiple passes and generate smoke/fumes
+    solutions:
+    - First pass 80W fast (1500 mm/s) for bulk removal
+    - Second pass 60W slow (800 mm/s) for residue
+    - Use fume extraction to prevent redeposition
+    - Limit to 2-3 passes maximum to avoid substrate damage
 slug: cedar-settings
-lastModified: '2026-01-02T23:49:31.446598'
-description: 'Cedar: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+lastModified: '2026-01-03T14:27:57.768948'

@@ -4,7 +4,7 @@
 import React from 'react';
 import { BaseContentLayout } from '../BaseContentLayout';
 import { RegulatoryStandards } from '../RegulatoryStandards';
-import { MaterialFAQ } from '../FAQ/MaterialFAQ';
+import { FAQPanel } from '../FAQPanel';
 import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { LaserMaterialInteraction } from '../LaserMaterialInteraction/LaserMaterialInteraction';
 import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialCharacteristics';
@@ -13,6 +13,7 @@ import MaterialDatasetDownloader from '../Dataset/MaterialDatasetDownloader';
 import { CardGrid } from '../CardGrid';
 import { Micro } from '../Micro/Micro';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
+import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { getContaminatedBy, getRegulatoryStandards, getHeroImageUrl } from '@/app/utils/relationshipHelpers';
@@ -36,7 +37,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const relationships = (metadata as any)?.relationships || {};
   const materialProperties = relationships?.materialProperties || (metadata as any)?.properties;
   const regulatoryStandards = getRegulatoryStandards(metadata);
-  const applications = (metadata as any)?.applications;
+  const industryApplications = relationships?.operational?.industry_applications || (metadata as any)?.applications;
 
   // Extract contaminants using standardized helper (handles interactions → technical → legacy fallback)
   const contaminatedByData = getContaminatedBy(metadata);
@@ -114,12 +115,20 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
       }
     },
     {
-      component: MaterialFAQ,
+      component: IndustryApplicationsPanel,
+      condition: !!industryApplications,
       props: {
-        materialName,
+        applications: industryApplications,
+        entityName: materialName,
+        variant: 'materials' as const,
+      }
+    },
+    {
+      component: FAQPanel,
+      props: {
         faq: metadata?.faq || [],
-        heroImage,
-        thumbnailLink,
+        entityName: materialName,
+        variant: 'faq' as const,
       }
     },
     {

@@ -20,11 +20,22 @@ export type Presentation = 'card' | 'descriptive';
 // ============================================================================
 
 /**
+ * Section metadata for display purposes
+ */
+export interface SectionMetadata {
+  section_title: string;
+  section_description?: string;
+  icon?: string;
+  order?: number;
+}
+
+/**
  * All safety data fields use this wrapper structure for consistency
  */
 export interface SafetySection<T> {
   presentation: Presentation;
   items: T[];
+  _section?: SectionMetadata;
 }
 
 // ============================================================================

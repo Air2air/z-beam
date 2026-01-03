@@ -12,6 +12,7 @@ import { InfoCard } from '../InfoCard/InfoCard';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
+import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { contaminantLinkageToGridItem, materialLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { getContaminantArticle, getArticle } from '@/app/utils/contentAPI';
@@ -30,6 +31,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   
   // Access data from relationships (supports both new and old structure)
   const relationships = (metadata as any)?.relationships || {};
+  const industryApplications = relationships?.operational?.industry_applications || (metadata as any)?.applications;
   
   // Source contaminants that produce this compound
   // New structure: interactions.produced_from_contaminants, fallback: operational.produced_from_contaminants
@@ -220,6 +222,15 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
       }
     },
     {
+      component: IndustryApplicationsPanel,
+      condition: !!industryApplications,
+      props: {
+        applications: industryApplications,
+        entityName: compoundName,
+        variant: 'compounds' as const,
+      }
+    },
+    {
       component: CardGrid,
       condition: enrichedContaminants.length > 0,
       props: {
@@ -227,7 +238,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
           .sort(sortByFrequency)
           .map(contaminantLinkageToGridItem),
         title: sourceContaminantsRaw?._section?.title || 'Contaminant Sources',
-        description: sourceContaminantsRaw?._section?.description || 'Contaminants that produce this compound during laser cleaning operations',
+        description: sourceContaminantsRaw?._section?.section_description || 'Contaminants that produce this compound during laser cleaning operations',
         cardComponent: ContaminantCard,
       }
     },
@@ -237,7 +248,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
       props: {
         items: enrichedMaterials.map(materialLinkageToGridItem),
         title: sourceMaterialsRaw?._section?.title || 'Material Sources',
-        description: sourceMaterialsRaw?._section?.description || 'Materials that produce this compound during laser cleaning operations',
+        description: sourceMaterialsRaw?._section?.section_description || 'Materials that produce this compound during laser cleaning operations',
         variant: 'relationship' as const,
       }
     },

@@ -1,19 +1,20 @@
 id: dolomite-settings
 name: Dolomite
-datePublished: '2026-01-03T07:49:37.068615Z'
-dateModified: '2026-01-03T07:49:37.068615Z'
+datePublished: '2026-01-03T22:28:03.659962Z'
+dateModified: '2026-01-03T22:28:03.659962Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/stone/sedimentary/dolomite-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Dolomite
-    href: ''
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Dolomite
+  href: ''
 page_title: 'Dolomite Settings: Laser Parameters'
-page_description: Before laser cleaning, Dolomite surfaces require careful parameter selection After cleaning, Dolomite surfaces show restored appearance with controlled parameters
+page_description: Before laser cleaning, Dolomite surfaces require careful parameter selection After cleaning, Dolomite surfaces
+  show restored appearance with controlled parameters
 meta_description: 'Dolomite: removes contamination removal. Industrial-grade parameters. No substrate damage.'
 images:
   hero:
@@ -35,23 +36,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-    - Laser Materials Processing
+  - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-    - Ph.D. Materials Engineering, National Taiwan University, 2018
-    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-    - 3+ years in laser processing R&D
-    - Assisted in projects on ultrafast laser applications
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-    - https://scholar.google.com/citations?user=ghi789
-    - https://linkedin.com/in/yi-chun-lin-engineer
-    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
   slug: yi-chun-lin
 card:
@@ -72,34 +73,34 @@ relationships:
     regulatory_standards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
   interactions:
     removes_contaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
     works_on_materials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
   operational:
     common_challenges:
       presentation: descriptive
       items:
-        - - Requires careful power calibration to prevent material damage
-          - Monitor surface temperature during processing
-          - Verify cleaning effectiveness through inspection
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
         section_title: Common Challenges
         description: Technical challenges and optimization strategies for these settings
@@ -109,7 +110,7 @@ machine_settings:
     value: 90
     unit: W
     description: Optimal power for stone surface restoration
-    min: 1
+    min: 1.0
     max: 120
   wavelength:
     value: 1064
@@ -134,7 +135,7 @@ machine_settings:
     unit: J/cm²
     description: Energy for contamination removal
     min: 0.1
-    max: 20
+    max: 20.0
   pulseWidth:
     value: 10
     unit: ns
@@ -164,50 +165,67 @@ machine_settings:
     max: 500
     unit: W
     value: 150
-    description: Typical range for industrial cleaning of carbonate stones like dolomite to remove contaminants without thermal damage; start at 150W for controlled ablation. Max safe ~300-500W depending on fluence. Based on manufacturer specs from IPG Photonics and Coherent for 1064 nm systems used in heritage stone cleaning (e.g., avoids decomposition above 900°C).
+    description: Typical range for industrial cleaning of carbonate stones like dolomite to remove contaminants without thermal
+      damage; start at 150W for controlled ablation. Max safe ~300-500W depending on fluence. Based on manufacturer specs
+      from IPG Photonics and Coherent for 1064 nm systems used in heritage stone cleaning (e.g., avoids decomposition above
+      900°C).
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: Effective speeds for 1064 nm cleaning of dolomite; slower for heavy contamination (500-1000 mm/s), faster for light (2000-5000 mm/s). Recommended 1500 mm/s for optimal contaminant removal with minimal passes. From industry standards in laser cleaning manuals (e.g., Adapt Laser Systems) and studies on stone surface preparation.
+    description: Effective speeds for 1064 nm cleaning of dolomite; slower for heavy contamination (500-1000 mm/s), faster
+      for light (2000-5000 mm/s). Recommended 1500 mm/s for optimal contaminant removal with minimal passes. From industry
+      standards in laser cleaning manuals (e.g., Adapt Laser Systems) and studies on stone surface preparation.
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: Nanosecond regime preferred for cost-effective cleaning of dolomite; picosecond (ps) or femtosecond for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat diffusion in low-conductivity dolomite. Supported by laser physics research in Optics & Lasers in Engineering (e.g., ns pulses reduce thermal effects in carbonates).
+    description: Nanosecond regime preferred for cost-effective cleaning of dolomite; picosecond (ps) or femtosecond for ultra-minimal
+      HAZ but less common industrially. 20 ns recommended to limit heat diffusion in low-conductivity dolomite. Supported
+      by laser physics research in Optics & Lasers in Engineering (e.g., ns pulses reduce thermal effects in carbonates).
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: Typical for 1064 nm cleaning to balance speed and heat; higher rates (50-100 kHz) enable faster processing but risk accumulation in low-thermal-conductivity dolomite. 50 kHz recommended for safe operation. From academic literature like Journal of Applied Physics on pulse train effects in stone ablation.
+    description: Typical for 1064 nm cleaning to balance speed and heat; higher rates (50-100 kHz) enable faster processing
+      but risk accumulation in low-thermal-conductivity dolomite. 50 kHz recommended for safe operation. From academic literature
+      like Journal of Applied Physics on pulse train effects in stone ablation.
   energy_density:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
     value: 1.5
-    description: Fluence range for contaminant removal on dolomite; damage threshold ~2-4 J/cm² (avoids carbonate decomposition). 1.5 J/cm² recommended for safe cleaning. Based on ablation threshold studies in Applied Surface Science (e.g., 1064 nm on calcite/dolomite analogs, conservative due to reflectivity ~0.2-0.3 at IR).
+    description: Fluence range for contaminant removal on dolomite; damage threshold ~2-4 J/cm² (avoids carbonate decomposition).
+      1.5 J/cm² recommended for safe cleaning. Based on ablation threshold studies in Applied Surface Science (e.g., 1064
+      nm on calcite/dolomite analogs, conservative due to reflectivity ~0.2-0.3 at IR).
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: Beam diameter for precise vs. broad cleaning; smaller for fine details on dolomite surfaces (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for uniform preparation. From equipment specs in Laserax and SPI Lasers systems for industrial stone applications.
+    description: Beam diameter for precise vs. broad cleaning; smaller for fine details on dolomite surfaces (100-200 μm),
+      larger for areas (300-500 μm). 200 μm recommended for uniform preparation. From equipment specs in Laserax and SPI Lasers
+      systems for industrial stone applications.
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on dolomite without over-ablation. Drawn from industry case studies in heritage conservation (e.g., ICSC World Heritage reports on laser cleaning of carbonate stones).
+    description: Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal
+      on dolomite without over-ablation. Drawn from industry case studies in heritage conservation (e.g., ICSC World Heritage
+      reports on laser cleaning of carbonate stones).
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on irregular dolomite surfaces. 60% recommended to prevent gaps in cleaning. From process optimization studies in Lasers in Engineering journal for scanned beam cleaning of minerals.
-component_summary: These settings use moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants from heat-sensitive dolomite while minimizing thermal damage to its carbonate structure.
+    description: Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on irregular dolomite surfaces. 60% recommended
+      to prevent gaps in cleaning. From process optimization studies in Lasers in Engineering journal for scanned beam cleaning
+      of minerals.
+component_summary: These settings use moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
+  from heat-sensitive dolomite while minimizing thermal damage to its carbonate structure.
 slug: dolomite-settings
-lastModified: '2026-01-02T23:49:37.068643'
-description: 'Dolomite: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+lastModified: '2026-01-03T14:28:03.659998'

@@ -644,8 +644,6 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
         title="Parameter Relationships"
         icon={getSectionIcon('machine-settings')}
         description="Shows how changing one parameter physically affects others. Click any node to see its downstream impacts and role."
-        thumbnail={heroImage}
-        thumbnailLink={materialLink}
       />
       <div className="space-y-6">
 

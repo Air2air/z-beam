@@ -23,8 +23,8 @@ describe('relationshipHelpers', () => {
           { osha_pel: '100 ppm', niosh_rel: '50 ppm' }
         ],
         _section: {
-          title: 'Exposure Limits',
-          description: 'Regulatory exposure limits',
+          section_title: 'Exposure Limits',
+          section_description: 'Regulatory exposure limits',
           order: 1,
           variant: 'default',
           icon: 'shield-check'
@@ -37,8 +37,8 @@ describe('relationshipHelpers', () => {
           { id: 'goggles', type: 'Eye Protection' }
         ],
         _section: {
-          title: 'PPE Requirements',
-          description: 'Required protective equipment',
+          section_title: 'PPE Requirements',
+          section_description: 'Required protective equipment',
           order: 2,
           variant: 'warning',
           icon: 'alert-triangle'
@@ -48,7 +48,7 @@ describe('relationshipHelpers', () => {
         presentation: 'card' as const,
         items: [],
         _section: {
-          title: 'Empty Section',
+          section_title: 'Empty Section',
           order: 3
         }
       }
@@ -59,7 +59,7 @@ describe('relationshipHelpers', () => {
         { color: 'red', texture: 'rough' }
       ],
       _section: {
-        title: 'Visual Characteristics',
+        section_title: 'Visual Characteristics',
         order: 10
       }
     },
@@ -77,7 +77,7 @@ describe('relationshipHelpers', () => {
       expect(result).not.toBeNull();
       expect(result?.items).toHaveLength(1);
       expect(result?.items[0]).toEqual({ osha_pel: '100 ppm', niosh_rel: '50 ppm' });
-      expect(result?.metadata.title).toBe('Exposure Limits');
+      expect(result?.metadata.section_title).toBe('Exposure Limits');
       expect(result?.presentation).toBe('descriptive');
     });
 
@@ -86,7 +86,7 @@ describe('relationshipHelpers', () => {
       
       expect(result).not.toBeNull();
       expect(result?.items).toHaveLength(1);
-      expect(result?.metadata.title).toBe('Visual Characteristics');
+      expect(result?.metadata.section_title).toBe('Visual Characteristics');
     });
 
     it('should return null for non-existent path', () => {
@@ -101,7 +101,7 @@ describe('relationshipHelpers', () => {
     });
 
     it('should return null for path without items array', () => {
-      const badData = { safety: { bad_section: { _section: { title: 'Bad' } } } };
+      const badData = { safety: { bad_section: { _section: { section_title: 'Bad' } } } };
       const result = getRelationshipSection(badData, 'safety.bad_section');
       expect(result).toBeNull();
     });
@@ -110,7 +110,7 @@ describe('relationshipHelpers', () => {
       const result = getRelationshipSection(mockRelationships, 'missing_metadata');
       
       expect(result).not.toBeNull();
-      expect(result?.metadata.title).toBe('Missing Metadata');
+      expect(result?.metadata.section_title).toBe('Missing Metadata');
       expect(result?.metadata.order).toBe(999);
       expect(result?.metadata.variant).toBe('default');
       expect(result?.metadata.icon).toBe('box');
@@ -280,7 +280,7 @@ describe('relationshipHelpers', () => {
           level2: {
             level3: {
               items: [{ value: 'deep' }],
-              _section: { title: 'Deep Section', order: 1 }
+              _section: { section_title: 'Deep Section', order: 1 }
             }
           }
         }
@@ -295,7 +295,7 @@ describe('relationshipHelpers', () => {
       const dataWithNulls = {
         test: {
           items: [null, { id: 'valid' }, null],
-          _section: { title: 'Test', order: 1 }
+          _section: { section_title: 'Test', order: 1 }
         }
       };
       

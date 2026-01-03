@@ -51,11 +51,11 @@ function extractSafetyItem<T>(field: any): T | undefined {
   
   // Normalized structure: {presentation: 'card', items: [...]}
   if (field.items && Array.isArray(field.items) && field.items.length > 0) {
-    return field.items[0];
+    return field.items[0] as T;
   }
   
   // Legacy structure: direct object or string
-  return field;
+  return field as T;
 }
 
 export function SafetyDataPanel({ 
@@ -82,7 +82,7 @@ export function SafetyDataPanel({
     const safetyDataObj: Record<string, any> = {};
     
     // Extract fire_explosion_risk
-    const fireRisk = extractSafetyItem(safetyData.fire_explosion_risk);
+    const fireRisk = extractSafetyItem<any>(safetyData.fire_explosion_risk);
     if (fireRisk) {
       safetyDataObj.fire_explosion_risk = {
         severity: fireRisk.severity || fireRisk,
@@ -92,7 +92,7 @@ export function SafetyDataPanel({
     }
     
     // Extract toxic_gas_risk
-    const toxicRisk = extractSafetyItem(safetyData.toxic_gas_risk);
+    const toxicRisk = extractSafetyItem<any>(safetyData.toxic_gas_risk);
     if (toxicRisk) {
       safetyDataObj.toxic_gas_risk = {
         severity: toxicRisk.severity || toxicRisk,
@@ -103,7 +103,7 @@ export function SafetyDataPanel({
     }
     
     // Extract visibility_hazard
-    const visRisk = extractSafetyItem(safetyData.visibility_hazard);
+    const visRisk = extractSafetyItem<any>(safetyData.visibility_hazard);
     if (visRisk) {
       safetyDataObj.visibility_hazard = {
         severity: visRisk.severity || visRisk,
@@ -113,7 +113,7 @@ export function SafetyDataPanel({
     }
     
     // Extract PPE requirements (handle both structured and string formats)
-    const ppeData = extractSafetyItem(safetyData.ppe_requirements);
+    const ppeData = extractSafetyItem<any>(safetyData.ppe_requirements);
     if (ppeData) {
       if (typeof ppeData === 'string') {
         safetyDataObj.ppe_requirements = {
@@ -130,7 +130,7 @@ export function SafetyDataPanel({
     }
     
     // Extract ventilation requirements
-    const ventData = extractSafetyItem(safetyData.ventilation_requirements);
+    const ventData = extractSafetyItem<any>(safetyData.ventilation_requirements);
     if (ventData) {
       safetyDataObj.ventilation_requirements = {
         minimum_air_changes_per_hour: ventData.minimum_air_changes_per_hour,
@@ -141,7 +141,7 @@ export function SafetyDataPanel({
     }
     
     // Extract particulate generation
-    const particulateData = extractSafetyItem(safetyData.particulate_generation);
+    const particulateData = extractSafetyItem<any>(safetyData.particulate_generation);
     if (particulateData) {
       safetyDataObj.particulate_generation = {
         respirable_fraction: particulateData.respirable_fraction,
@@ -205,8 +205,8 @@ export function SafetyDataPanel({
       <Collapsible
         items={collapsibleItems}
         sectionMetadata={{
-          title: entityName ? `${entityName} safety information` : "Safety Information",
-          description: isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"
+          section_title: entityName ? `${entityName} safety information` : "Safety Information",
+          section_description: isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"
         }}
       />
     );

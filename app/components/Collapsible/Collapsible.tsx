@@ -495,8 +495,8 @@ export function Collapsible({
   if (sectionMetadata) {
     return (
       <SectionContainer
-        title={sectionMetadata.title}
-        description={sectionMetadata.description}
+        title={sectionMetadata.section_title}
+        description={sectionMetadata.section_description}
         variant={sectionMetadata.variant as 'default' | 'dark' | undefined}
         className="mb-8"
       >

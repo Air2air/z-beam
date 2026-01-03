@@ -226,8 +226,6 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
         title={title}
         icon={getSectionIcon('technical')}
         description="See if your multi-pass cleaning will overheat and damage the material"
-        thumbnail={heroImage}
-        thumbnailLink={materialLink}
       />
 
       {/* Stacked Layout: Analysis Cards above Graph+Controls */}
