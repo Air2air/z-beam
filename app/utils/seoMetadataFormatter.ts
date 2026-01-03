@@ -352,7 +352,7 @@ function getMaterialChallenge(material: string, category?: string, _subcategory?
 /**
  * Get material-specific outcome/benefit
  */
-function getMaterialOutcome(material: string, category?: string, _subcategory?: string): string {
+function getMaterialOutcome(material: string, _category?: string, _subcategory?: string): string {
   const lower = material.toLowerCase();
   
   // Metal outcomes
