@@ -288,4 +288,7 @@ export default function sitemap(): SitemapEntry[] {
     ...staticRoutes,
     ...materialPageRoutes,
     ...settingsPageRoutes,
-    ...contaminantPage
+    ...contaminantPageRoutes,
+    ...compoundPageRoutes
+  ];
+}
