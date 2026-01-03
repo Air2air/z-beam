@@ -1,8 +1,8 @@
 id: manganese-laser-cleaning
 name: Manganese
 category: metal
-datePublished: '2026-01-03T22:26:17.807206Z'
-dateModified: '2026-01-03T22:26:17.807206Z'
+datePublished: '2026-01-03T23:42:10.047157Z'
+dateModified: '2026-01-03T23:42:10.047157Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/non-ferrous/manganese-laser-cleaning
@@ -120,7 +120,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -396,6 +396,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -436,12 +443,127 @@ relationships:
         - id: mining-equipment
           name: Mining Equipment
           description: Mining Equipment industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: hazardous-manganese-oxide-fumes
+        question: Does laser cleaning manganese-containing steel (like Hadfield steel) create hazardous manganese oxide fumes?
+        answer: Yeah, laser cleaning manganese alloys typically generates hazardous MnO and Mn3O4 fumes that demand strict
+          controls. With our 100W, 1064nm system running at 2.5 J/cm² fluence, proper fume extraction is basically non-negotiable.
+          Operators need NIOSH-approved P100 respirators plus engineered local exhaust ventilation to hold airborne concentrations
+          under the 5 mg/m³ OSHA ceiling limit.
+        topic: hazardous manganese oxide fumes
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Todd Dunning
+          title: MA
+          expertise: *id001
+      - id: manganese-steel
+        question: What laser parameters (wavelength, pulse duration, power) work best for removing rust from manganese steel
+          without damaging the base material?
+        answer: For manganese steel rust removal, I'd typically go with a 1064nm wavelength using 10ns pulses at 2.5 J/cm²
+          fluence. Hold average power steady at 100W and scan speed at 500mm/s to ablate oxides effectively, all while avoiding
+          micro-cracking in that fairly tough substrate. This setup basically balances contaminant removal with the base material's
+          structural integrity.
+        topic: manganese steel
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: manganese-phosphate-coatings
+        question: Can laser cleaning effectively remove manganese phosphate coatings from metal surfaces?
+        answer: Yes, laser cleaning pretty effectively removes manganese phosphate coatings using around 100W at 1064nm. The
+          process typically ablates the conversion layer at about 2.5 J/cm², avoiding damage to the underlying metal and ditching
+          chemical residue issues altogether.
+        topic: manganese phosphate coatings
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: high-hardness
+        question: How does the high hardness of manganese steel affect laser cleaning efficiency and potential for surface
+          damage?
+        answer: Manganese's pretty high hardness calls for precise fluence control around 2.5 J/cm² to prevent micro-cracking
+          from thermal stress. Typically, we apply a 50 µm spot at 500 mm/s to control heat input, ablating oxides while safeguarding
+          the substrate's tough integrity.
+        topic: high hardness
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: manganese-fumes
+        question: What are the OSHA exposure limits for manganese fumes during laser cleaning operations?
+        answer: OSHA basically sets the permissible exposure limit for manganese fumes at 5 mg/m³ as a ceiling. With the pretty
+          high fluence of 2.5 J/cm² needed for oxide removal, you'll want to perform initial air monitoring and keep exposure
+          records to meet this strict action level.
+        topic: manganese fumes
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: work-hardening-properties
+        question: Does laser cleaning affect the work-hardening properties of austenitic manganese steel surfaces?
+        answer: A properly configured laser cleaning at 2.5 J/cm² fluence fairly minimizes thermal input, preserving the austenitic
+          structure. This setup typically prevents altering the work-hardening characteristics essential for manganese steel's
+          wear resistance. The process avoids annealing effects that would soften the surface.
+        topic: work-hardening properties
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: manganese-oxide-nanoparticles
+        question: What filtration systems are recommended for capturing manganese oxide nanoparticles generated during laser
+          cleaning?
+        answer: For manganese oxide nanoparticles produced at a 1064 nm wavelength and 2.5 J/cm² fluence, a HEPA H14 or ULPA
+          filter is basically essential. These systems fairly effectively trap submicron particles, stopping hazardous fume
+          spread in the laser ablation process.
+        topic: manganese oxide nanoparticles
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: fatigue-strength
+        question: Can laser cleaning be used on manganese-based alloys in the railroad industry (frogs, crossings) without
+          compromising fatigue strength?
+        answer: Laser cleaning, properly calibrated at 2.5 J/cm² fluence, fairly effectively removes oxides from manganese
+          alloys. Pretty much, this approach preserves the underlying microstructure, which is vital for sustaining fatigue
+          strength in railroad parts like frogs and crossings.
+        topic: fatigue strength
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: manganese-rich-corrosion-products
+        question: How do you verify complete removal of manganese-rich corrosion products without leaving surface contamination?
+        answer: We typically verify complete manganese oxide removal using a 2.5 J/cm² fluence through visual inspection and
+          surface roughness analysis. For critical applications, EDS basically confirms no residual contamination, ensuring
+          the substrate stays pristine.
+        topic: manganese-rich corrosion products
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: manganese-alloys
+        question: What personal protective equipment (PPE) is specifically required for laser cleaning manganese alloys compared
+          to regular steel?
+        answer: Manganese fume risks call for ramped-up respiratory protection that goes beyond basic steel guidelines. Opt
+          for a NIOSH-approved P100 or N100 filter, since the manganese oxide particles we typically produce at 100W, 1064nm
+          settings pose a pretty serious inhalation threat. This cartridge proves essential for filtering the fine particulate
+          waste effectively.
+        topic: manganese alloys
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: discoloration-on-manganese-steels
+        question: Does laser cleaning create any surface oxidation or discoloration on manganese steels that requires post-treatment?
+        answer: Well-tuned 1064nm laser systems at roughly 2.5 J/cm² fluence pretty much ablate manganese oxides effectively,
+          without causing new discoloration. At optimal parameters like 500 mm/s scan speed, the process delivers a clean,
+          passivated surface that typically needs no extra finishing for industrial applications.
+        topic: discoloration on manganese steels
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -466,12 +588,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922195Z'
   normalization_applied: true
@@ -506,4 +627,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: manganese-laser-cleaning
-lastModified: '2026-01-03T14:26:17.807242'
+lastModified: '2026-01-03T15:42:10.047194'

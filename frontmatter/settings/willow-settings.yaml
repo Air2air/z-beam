@@ -1,7 +1,7 @@
 id: willow-settings
 name: Willow
-datePublished: '2026-01-03T22:28:03.132004Z'
-dateModified: '2026-01-03T22:28:03.132004Z'
+datePublished: '2026-01-03T23:17:32.742382Z'
+dateModified: '2026-01-03T23:17:32.742382Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/hardwood/willow-settings
@@ -81,6 +81,11 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      sectionMetadata:
+        section_title: Safety Standards & Compliance
+        section_description: OSHA, ANSI, ISO requirements and compliance standards
+        icon: shield-check
+        order: 10
   interactions:
     removes_contaminants:
       presentation: card
@@ -89,6 +94,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      sectionMetadata:
+        section_title: Effective Contaminants
+        section_description: Contamination types successfully removed
+        icon: droplet
+        order: 20
     works_on_materials:
       presentation: card
       items:
@@ -98,22 +108,50 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
+      sectionMetadata:
+        section_title: Compatible Materials
+        section_description: Materials optimized for these settings
+        icon: box
+        order: 30
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - id: charring-carbonization
-          type: challenge
-        - id: slow-thermal-diffusivity
-          type: challenge
-        contamination_challenges:
-        - id: varnish-coating-removal
-          type: challenge
-      _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
-        icon: triangle-exclamation
+      - id: charring-carbonization
+        category: Thermal Management
+        challenge: Charring and carbonization
+        description: Surface degradation, aesthetic damage, structural weakening
+        severity: high
+        solutions:
+        - Use ultrashort pulses (<10 ps) to minimize thermal diffusion
+        - Lower fluence (0.5-2 J/cm²) with multiple passes
+        - Assist gas (nitrogen) to remove pyrolysis products
+      - id: slow-thermal-diffusivity
+        category: Thermal Management
+        challenge: Slow thermal diffusivity
+        description: Heat accumulation and substrate damage
+        severity: medium
+        solutions:
+        - Reduce duty cycle with longer cooling intervals
+        - Lower average power while maintaining peak fluence
+        - Multiple light passes with cooling between
+      - id: varnish-coating-removal
+        category: Contamination
+        challenge: Varnish and coating removal
+        description: Organic coatings vaporize but can char if power too high
+        severity: medium
+        solutions:
+        - Use moderate fluence (2-4 J/cm²)
+        - Air assist to remove vaporized material
+        - Multiple passes if coating is thick
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 machine_settings:
   powerRange:
     description: Optimal average power for Willow surface cleaning without thermal damage
@@ -240,50 +278,5 @@ machine_settings:
       60% recommended to avoid gaps. Source: Process optimization in laser scanning studies (Procedia Manufacturing, 2019).'
 component_summary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise, non-thermal cleaning
   of Willow's delicate organic structure, effectively removing contaminants without causing fiber damage or discoloration.
-challenges:
-  thermal_management:
-  - challenge: Charring and carbonization
-    severity: high
-    threshold_temperature: 250-300°C
-    impact: Wood chars at low temperatures leaving black marks and structural damage
-    solutions:
-    - Use pulse mode with 2-5 second cooling between passes
-    - Reduce power by 30-40% compared to metals
-    - Increase scan speed to reduce dwell time
-    - Monitor surface for discoloration; stop if browning occurs
-  - challenge: Slow thermal diffusivity
-    severity: medium
-    property_value: 0.10-0.15 mm²/s (100x slower than aluminum)
-    impact: Heat accumulates rapidly causing thermal damage zones
-    solutions:
-    - Increase cooling time between passes
-    - Use lower repetition rates (<20 kHz)
-    - Apply crosshatch patterns to distribute heat
-  surface_characteristics:
-  - challenge: Grain direction sensitivity
-    severity: medium
-    variation: 20-40% absorption variation by grain orientation
-    impact: Laser absorption varies significantly with grain direction
-    solutions:
-    - Scan parallel to grain for consistent results
-    - Use crosshatch pattern (0° and 90°) for uniform cleaning
-    - Test on scrap to determine optimal scan direction
-  - challenge: Porous structure with deep contamination
-    severity: medium
-    porosity_range: 12-65% (softwoods highest)
-    impact: Contaminants penetrate deep into wood structure
-    solutions:
-    - Multiple passes with progressive power increase
-    - Reduce scan speed for deeper penetration (600 mm/s)
-    - Chemical pre-treatment for deep-seated contamination
-  contamination_challenges:
-  - challenge: Varnish and coating removal
-    severity: medium
-    impact: Thick coatings require multiple passes and generate smoke/fumes
-    solutions:
-    - First pass 80W fast (1500 mm/s) for bulk removal
-    - Second pass 60W slow (800 mm/s) for residue
-    - Use fume extraction to prevent redeposition
-    - Limit to 2-3 passes maximum to avoid substrate damage
 slug: willow-settings
-lastModified: '2026-01-03T14:28:03.132041'
+lastModified: '2026-01-03T15:17:32.742409'

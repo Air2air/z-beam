@@ -1,8 +1,8 @@
 id: titanium-alloy-ti-6al-4v-laser-cleaning
 name: Titanium Alloy (Ti-6Al-4V)
 category: metal
-datePublished: '2026-01-03T22:26:25.222306Z'
-dateModified: '2026-01-03T22:26:25.222306Z'
+datePublished: '2026-01-03T23:42:18.252216Z'
+dateModified: '2026-01-03T23:42:18.252216Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
@@ -59,7 +59,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -376,42 +376,121 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: annealing-scale-contamination
+        frequency: common
+        severity: moderate
       - id: aviation-sealant-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: ceramic-coating-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: cutting-fluid-contamination
+        frequency: common
+        severity: moderate
       - id: diamond-coating-contamination
+        frequency: common
+        severity: moderate
       - id: environmental-dust-contamination
+        frequency: common
+        severity: moderate
       - id: epoxy-residue-contamination
+        frequency: common
+        severity: moderate
       - id: exhaust-residue-contamination
+        frequency: common
+        severity: moderate
       - id: fertilizer-residue-contamination
+        frequency: common
+        severity: moderate
       - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
       - id: graphite-marks-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: ink-stains-contamination
+        frequency: common
+        severity: moderate
       - id: insect-residue-contamination
+        frequency: common
+        severity: moderate
       - id: laser-marking-contamination
+        frequency: common
+        severity: moderate
       - id: lime-scale-contamination
+        frequency: common
+        severity: moderate
       - id: mercury-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pesticide-residue-contamination
+        frequency: common
+        severity: moderate
       - id: plasma-spray-contamination
+        frequency: common
+        severity: moderate
       - id: plastic-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pollen-deposit-contamination
+        frequency: common
+        severity: moderate
       - id: radioactive-contamination
+        frequency: common
+        severity: moderate
       - id: rubber-residue-contamination
+        frequency: common
+        severity: moderate
       - id: salt-residue-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: silicone-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: surgical-marking-contamination
+        frequency: common
+        severity: moderate
       - id: tree-sap-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -426,12 +505,52 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: '[how-do-i-avoid-overheating-when-laser-cleaning-ti'
+        question: '[How do I avoid overheating when laser cleaning Ti-6Al-4V parts?'
+        answer: I've seen overheating ruin titanium surfaces during cleaning more than once. This alloy holds heat well but
+          can warp if you push too hard. Keep pulses short and move the beam steadily to stay safe.
+        topic: '[How do I avoid overheating when laser cleaning Ti'
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise: *id001
+      - id: '[whats-the-best-way-to-remove-oxide-layers-from-ti'
+        question: '[What''s the best way to remove oxide layers from Ti-6Al-4V using lasers?'
+        answer: When cleaning titanium alloys, oxide layers come off cleanly compared to steels that pit easily. Start with
+          lower power and scan slowly for even removal. This works best in a controlled atmosphere to prevent re-oxidation
+          right away.
+        topic: '[What''s the best way to remove oxide layers from T'
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: '[why-does-ti-6al-4v-sometimes-show-discoloration-a'
+        question: '[Why does Ti-6Al-4V sometimes show discoloration after laser cleaning?'
+        answer: Discoloration pops up on titanium because it reacts quickly with air during the process. I've found using
+          a shielding gas helps cut that down and keeps the finish bright. Adjust your speed to match the beam focus for cleaner
+          results.
+        topic: '[Why does Ti-6Al-4V sometimes show discoloration a'
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -444,4 +563,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: titanium-alloy-ti-6al-4v-laser-cleaning
-lastModified: '2026-01-03T14:26:25.222341'
+lastModified: '2026-01-03T15:42:18.252254'

@@ -1,8 +1,8 @@
 id: peek-laser-cleaning
 name: PEEK
 category: plastic
-datePublished: '2026-01-03T22:26:25.077197Z'
-dateModified: '2026-01-03T22:26:25.077197Z'
+datePublished: '2026-01-03T23:42:18.093150Z'
+dateModified: '2026-01-03T23:42:18.093150Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/plastic/thermoplastic/peek-laser-cleaning
@@ -60,7 +60,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -273,6 +273,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -287,12 +294,53 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-safely-start-laser-cleaning-peek-parts-wi
+        question: How do I safely start laser cleaning PEEK parts without causing damage?
+        answer: You must begin by selecting a low-power laser setting to match PEEK's heat resistance, ensuring the beam gently
+          removes contaminants without overheating the surface. Make sure you scan the area slowly and evenly, allowing the
+          material's strong structure to handle the process without warping or weakening. This approach brings back the smooth
+          finish effectively, keeping the part's durable properties intact for continued use.
+        topic: How do I safely start laser cleaning PEEK parts wi
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: what-happens-if-peek-surfaces-discolor-during-lase
+        question: What happens if PEEK surfaces discolor during laser cleaning?
+        answer: Start with checking your laser intensity right away, as PEEK's low absorption can lead to uneven heating if
+          the power is too high. You should adjust the pulse duration to shorter bursts, which helps dissipate heat quickly
+          through its moderate conductivity and prevents any color changes. Keep monitoring the surface closely, and this
+          will restore the original appearance without compromising the material's toughness.
+        topic: What happens if PEEK surfaces discolor during lase
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: can-laser-cleaning-affect-peeks-strength-after-mul
+        question: Can laser cleaning affect PEEK's strength after multiple sessions?
+        answer: You must test a small area
+        topic: Can laser cleaning affect PEEK's strength after mu
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -305,4 +353,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: peek-laser-cleaning
-lastModified: '2026-01-03T14:26:25.077231'
+lastModified: '2026-01-03T15:42:18.093187'

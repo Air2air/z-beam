@@ -1,8 +1,8 @@
 id: germanium-laser-cleaning
 name: Germanium
 category: semiconductor
-datePublished: '2026-01-03T22:26:24.785534Z'
-dateModified: '2026-01-03T22:26:24.785534Z'
+datePublished: '2026-01-03T23:42:17.743484Z'
+dateModified: '2026-01-03T23:42:17.743484Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/semiconductor/elemental/germanium-laser-cleaning
@@ -64,7 +64,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -270,6 +270,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -284,12 +291,47 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-avoid-damaging-germanium-during-laser-cle
+        question: How do I avoid damaging Germanium during laser cleaning?
+        answer: When laser cleaning Germanium, start by using a low-power pulse to gently remove surface contaminants without
+          overheating the material. I've seen that its good thermal conductivity helps spread heat evenly, so you maintain
+          a clean finish easily. But watch out midway—too much energy can cause cracks due to its brittleness, so adjust settings
+          gradually and test on a small area first. This approach keeps the semiconductor intact for reliable use.
+        topic: How do I avoid damaging Germanium during laser cle
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: whats-the-best-laser-setup-for-cleaning-germanium-
+        question: What's the best laser setup for cleaning Germanium optics?
+        answer: You'll want to begin with a short wavelength laser since Germanium absorbs light well in that range, pulling
+          off dirt without deep penetration. In my experience, keeping the beam focused on the smooth, non-porous surface
+          prevents any residue buildup during the process. Just be careful not to overexpose it, as the material's moderate
+          corrosion resistance means prolonged sessions could dull the edges over time. End by cooling it slowly to avoid
+          thermal stress.
+        topic: What's the best laser setup for cleaning Germanium
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -302,4 +344,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: germanium-laser-cleaning
-lastModified: '2026-01-03T14:26:24.785568'
+lastModified: '2026-01-03T15:42:17.743524'

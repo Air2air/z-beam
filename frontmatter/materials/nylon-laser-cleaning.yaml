@@ -1,8 +1,8 @@
 id: nylon-laser-cleaning
 name: Nylon
 category: plastic
-datePublished: '2026-01-03T22:26:25.004457Z'
-dateModified: '2026-01-03T22:26:25.004457Z'
+datePublished: '2026-01-03T23:42:18.012703Z'
+dateModified: '2026-01-03T23:42:18.012703Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/plastic/thermoplastic/nylon-laser-cleaning
@@ -58,7 +58,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -274,10 +274,25 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: uv-chalking-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -292,12 +307,52 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-laser-clean-nylon-without-causing-meltin
+        question: How can I laser clean Nylon without causing melting?
+        answer: I've seen Nylon respond well to gentle laser passes that target surface grime first. Start by scanning the
+          area slowly to loosen dirt without building up too much heat in the material. This approach keeps the Nylon's surface
+          intact while removing contaminants effectively, as the plastic tends to soften under prolonged exposure.
+        topic: How can I laser clean Nylon without causing meltin
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: what-are-the-best-practices-for-laser-cleaning-dir
+        question: What are the best practices for laser cleaning dirty Nylon gears?
+        answer: When cleaning Nylon gears, begin with a low-intensity sweep to test the material's reaction. Follow up with
+          focused bursts on stubborn spots, always moving the laser steadily to avoid hot spots. In my experience, this method
+          restores the gears' smooth operation without compromising their flexibility or strength.
+        topic: What are the best practices for laser cleaning dir
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: why-does-nylon-sometimes-discolor-during-laser-cle
+        question: Why does Nylon sometimes discolor during laser cleaning, and how to fix it?
+        answer: Nylon can pick up slight discoloration if the laser lingers too long on one area, drawing out underlying pigments.
+          To fix this, reduce dwell time and incorporate short cooling intervals between passes.
+        topic: Why does Nylon sometimes discolor during laser cle
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -310,4 +365,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: nylon-laser-cleaning
-lastModified: '2026-01-03T14:26:25.004497'
+lastModified: '2026-01-03T15:42:18.012743'

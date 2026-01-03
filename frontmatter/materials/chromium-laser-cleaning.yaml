@@ -1,8 +1,8 @@
 id: chromium-laser-cleaning
 name: Chromium
 category: metal
-datePublished: '2026-01-03T22:26:15.061148Z'
-dateModified: '2026-01-03T22:26:15.061148Z'
+datePublished: '2026-01-03T23:42:07.023973Z'
+dateModified: '2026-01-03T23:42:07.023973Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/specialty/chromium-laser-cleaning
@@ -110,7 +110,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -385,32 +385,91 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: epoxy-residue-contamination
+        frequency: common
+        severity: moderate
       - id: fertilizer-residue-contamination
+        frequency: common
+        severity: moderate
       - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
       - id: graphite-marks-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: ink-stains-contamination
+        frequency: common
+        severity: moderate
       - id: insect-residue-contamination
+        frequency: common
+        severity: moderate
       - id: lime-scale-contamination
+        frequency: common
+        severity: moderate
       - id: mercury-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pesticide-residue-contamination
+        frequency: common
+        severity: moderate
       - id: plastic-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pollen-deposit-contamination
+        frequency: common
+        severity: moderate
       - id: radioactive-contamination
+        frequency: common
+        severity: moderate
       - id: rubber-residue-contamination
+        frequency: common
+        severity: moderate
       - id: salt-residue-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: silicone-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: tree-sap-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -445,12 +504,120 @@ relationships:
         - id: wear-resistant-coatings
           name: Wear-Resistant Coatings
           description: Wear-Resistant Coatings industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: chrome-plating
+        question: Can laser cleaning safely remove chromium-containing coatings like chrome plating without damaging the base
+          metal?
+        answer: Yes, laser systems can safely strip chrome plating using pretty precise parameters like 2.5 J/cm² fluence
+          and 50 µm spot size. It selectively ablates the coating without harming softer substrates like aluminum, fairly
+          offering a big edge over harsh mechanical or chemical methods.
+        topic: chrome plating
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Todd Dunning
+          title: MA
+          expertise: *id001
+      - id: what-are-the-specific-safety-hazards-of-laser-clea
+        question: What are the specific safety hazards of laser cleaning chromium or chromium-containing materials like stainless
+          steel?
+        answer: Laser cleaning chromium typically generates hazardous hexavalent chromium fumes, particularly at fluences
+          above 2.5 J/cm². Employ a fume extractor with both HEPA and activated carbon filtration. This qualifies as a pretty
+          critical OSHA concern, demanding strict respiratory protection from the toxic plume.
+        topic: What are the specific safety hazards of laser clea
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: chromium-nickel-stainless-steel
+        question: What laser parameters (wavelength, pulse duration, power) are most effective for cleaning rust and contaminants
+          from chromium-nickel stainless steel (e.g., 304, 316)?
+        answer: For chromium-nickel steel, I'd typically recommend a 1064 nm wavelength with nanosecond pulses. This setup
+          pretty effectively ablates the chromium oxide at ~2.5 J/cm², while minimizing heat input to safeguard the underlying
+          passive layer and yield a clean, passivated surface.
+        topic: chromium-nickel stainless steel
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: how-do-you-verify-that-laser-cleaning-has-successf
+        question: How do you verify that laser cleaning has successfully restored the passive chromium oxide layer on stainless
+          steel for corrosion resistance?
+        answer: We typically verify the restored passive layer on chromium through water break and ferroxyl tests. After laser
+          processing at about 2.5 J/cm², the surface has to be pretty chemically clean for proper repassivation, which is
+          basically essential for corrosion resistance in tough applications.
+        topic: How do you verify that laser cleaning has successf
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: chromium-alloy-surfaces
+        question: Is laser cleaning suitable for preparing chromium-alloy surfaces (like tool steels) for subsequent processes
+          like welding or thermal spraying?
+        answer: Laser cleaning works pretty effectively to prepare chromium-alloy surfaces at ~2.5 J/cm² fluence with a 50
+          µm spot size. This basically removes oxides without embedding contaminants, yielding the right surface profile for
+          adhesion while dodging thermal damage that hurts fatigue life.
+        topic: chromium-alloy surfaces
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: creating-micro-cracks
+        question: What is the risk of creating micro-cracks or altering the surface hardness when laser cleaning high-chromium
+          content materials like D2 tool steel or Stellite?
+        answer: By choosing the right parameters, you can pretty much sidestep micro-cracks in high-chromium alloys. Typically,
+          nanosecond pulses at 1064 nm wavelength, with fluence controlled around 2.5 J/cm², cut down thermal stress and preserve
+          surface hardening in materials like D2 steel.
+        topic: creating micro-cracks
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: depleting-the-chromium
+        question: Can laser cleaning be used to selectively remove corrosion products from chromium-copper alloys without
+          depleting the chromium from the surface?
+        answer: Yes, by dialing in fairly precise 1064 nm settings like 2.5 J/cm² fluence, you can basically leverage chromium
+          oxide's stronger absorption to strip away corrosion. This method selectively vaporizes the oxide layer while keeping
+          the base alloy's structure intact.
+        topic: depleting the chromium
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: presence-of-chromium
+        question: How does the presence of chromium in an alloy affect the choice of laser type (Fiber, Pulsed Nd:YAG) for
+          cleaning?
+        answer: Chromium's oxide layer absorbs near-IR wavelengths like 1064 nm pretty strongly, making fiber lasers highly
+          effective. Typically, pulsed systems with fluence around 2.5 J/cm² deliver the controlled ablation required to remove
+          contaminants without thermally damaging the underlying alloy.
+        topic: presence of chromium
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: chromium-contaminated-surfaces
+        question: What are the waste disposal considerations for the debris and filters from laser cleaning chromium-contaminated
+          surfaces?
+        answer: Laser cleaning chromium produces hazardous Cr(VI) particulates, which must be classified as toxic metal waste.
+          The 1064 nm wavelength fairly effectively liberates these particles for capture by HEPA filters. Typically, you
+          dispose of those filters per EPA regulations for hazardous waste through permitted facilities handling toxic metals.
+        topic: chromium-contaminated surfaces
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: rainbow-colored-effect
+        question: Why does laser-cleaned stainless steel sometimes show a rainbow-colored effect or tint, and does it indicate
+          surface damage?
+        answer: That rainbow tint on laser-cleaned chromium is basically thin-film interference from a reformed oxide layer.
+          It's cosmetic and signals a healthy, self-passivating surface, not damage. This typically happens with controlled
+          heat input below the ~2.5 J/cm² ablation threshold, preserving the substrate.
+        topic: rainbow-colored effect
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -475,12 +642,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921807Z'
   normalization_applied: true
@@ -517,4 +683,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: chromium-laser-cleaning
-lastModified: '2026-01-03T14:26:15.061183'
+lastModified: '2026-01-03T15:42:07.024008'

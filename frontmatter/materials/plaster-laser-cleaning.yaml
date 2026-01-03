@@ -1,8 +1,8 @@
 id: plaster-laser-cleaning
 name: Plaster
 category: masonry
-datePublished: '2026-01-03T22:26:19.097874Z'
-dateModified: '2026-01-03T22:26:19.097874Z'
+datePublished: '2026-01-03T23:42:11.286132Z'
+dateModified: '2026-01-03T23:42:11.286132Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/masonry/general/plaster-laser-cleaning
@@ -103,7 +103,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -340,6 +340,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -380,12 +387,112 @@ relationships:
         - id: construction-restoration
           name: Construction Restoration
           description: Construction Restoration industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: damaging-the-underlying-surface
+        question: Can a laser cleaner remove paint from a plaster wall without damaging the underlying surface?
+        answer: Yes, laser cleaning effectively removes paint from plaster walls while preserving the underlying substrate.
+          Specifically, a 1064 nm wavelength at ~2.5 J/cm² fluence ablates the coating with minimal heat transfer. Thus, employing
+          nanosecond pulses avoids subsurface thermal damage that could weaken the porous plaster structure.
+        topic: damaging the underlying surface
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise: *id001
+      - id: historic-plaster
+        question: What is the safe laser power and fluence level for cleaning soot or smoke residue from historic plaster?
+        answer: For historic plaster, particularly with its delicate nature, start testing at 2.5 J/cm² fluence using a 100W
+          laser. Excessive power can thus lead to permanent discoloration or vitrification, which alters the surface. Always
+          test parameters first on a hidden area to confirm soot removal without harming the substrate.
+        topic: historic plaster
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: hazardous-dust
+        question: Does laser cleaning create hazardous dust when used on plaster, and how does it compare to traditional methods?
+        answer: Laser ablation at 2.5 J/cm² notably produces far less bulk dust than mechanical methods. Yet, it generates
+          fine particulates, thus requiring HEPA-filtered extraction and respiratory PPE, particularly for historic plasters
+          with unknown contaminants.
+        topic: hazardous dust
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: darkened-or-yellowed-stain
+        question: Why does my laser sometimes leave a darkened or yellowed stain on the plaster surface after cleaning?
+        answer: Low power may carbonize embedded organics, whereas, notably, fluence exceeding 2.5 J/cm² disrupts plaster's
+          mineral hydrates. Thus, fine-tune your 1064 nm laser parameters to sidestep these thermal issues, achieving contaminant
+          removal without substrate damage that causes yellowing.
+        topic: darkened or yellowed stain
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: biological-growth
+        question: Is laser cleaning effective for removing biological growth like mold or algae from exterior plaster (stucco)?
+        answer: Yes, notably, laser cleaning removes biological growth from plaster at 2.5 J/cm² fluence without introducing
+          moisture. However, the porous substrate often retains spores, thus requiring a follow-up chemical treatment for
+          full remediation and to curb rapid regrowth.
+        topic: biological growth
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-wavelength-(e.g.-1064nm-10600nm)-is-most-effe
+        question: What wavelength (e.g., 1064nm, 10600nm) is most effective for laser cleaning plaster, and why?
+        answer: For plaster cleaning, notably the 10600nm CO₂ laser wavelength proves most effective. This infrared light
+          is strongly absorbed by the hydrates in gypsum, thus enabling efficient contaminant removal at 2.5 J/cm² while minimizing
+          thermal damage to the delicate substrate.
+        topic: What wavelength (e.g., 1064nm, 10600nm) is most ef
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: different-types-of-plaster
+        question: How do I clean different types of plaster (e.g., gypsum, lime, cement-based) with a laser? Do the settings
+          change?
+        answer: Due to its softness, lime plaster particularly needs a gentle ~2.5 J/cm² fluence, whereas harder cement-based
+          materials handle slightly higher energy. First, identify your substrate always; incorrect 1064 nm settings can thus
+          cause thermal degradation.
+        topic: different types of plaster
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: can-laser-cleaning-be-used-to-delicately-clean-fra
+        question: Can laser cleaning be used to delicately clean fragile, historic plaster moldings and ornaments?
+        answer: Laser cleaning proves particularly effective for conserving delicate plaster, with a fluence of 2.5 J/cm²
+          and 100 µm spot size. Notably, this non-contact approach using nanosecond pulses selectively removes contaminants,
+          thus safeguarding fragile historic details without abrasion.
+        topic: Can laser cleaning be used to delicately clean fra
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: plaster-restoration
+        question: What are the main advantages of using laser cleaning over chemical or abrasive methods for plaster restoration?
+        answer: Laser cleaning delivers excellent selectivity, particularly for plaster, by removing contaminants at 2.5 J/cm²
+          without harming the delicate substrate. This contactless approach eliminates chemical residues and sidesteps mechanical
+          stress from abrasives, thus safeguarding original surfaces. Notably, our 1064 nm wavelength achieves thorough cleaning
+          with minimal thermal effects.
+        topic: plaster restoration
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: high-porosity
+        question: How does the high porosity of plaster affect the laser cleaning process and the final result?
+        answer: Plaster's high porosity particularly enables contaminants to penetrate deeply, necessitating multiple passes
+          at 2.5 J/cm² for full removal. Its structure traps ablation byproducts, thus complicating the procedure. Notably,
+          a 'clean' surface means extracting these embedded particles successfully without substrate damage.
+        topic: high porosity
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -410,12 +517,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922346Z'
   normalization_applied: true
@@ -452,4 +558,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: plaster-laser-cleaning
-lastModified: '2026-01-03T14:26:19.097909'
+lastModified: '2026-01-03T15:42:11.286168'

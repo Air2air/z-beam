@@ -1,8 +1,8 @@
 id: bluestone-laser-cleaning
 name: Bluestone
 category: stone
-datePublished: '2026-01-03T22:26:13.956297Z'
-dateModified: '2026-01-03T22:26:13.956297Z'
+datePublished: '2026-01-03T23:42:05.806623Z'
+dateModified: '2026-01-03T23:42:05.806623Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/stone/sedimentary/bluestone-laser-cleaning
@@ -79,7 +79,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -328,21 +328,58 @@ relationships:
       presentation: card
       items:
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: bitumen-tar-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: ceramic-glaze-contamination
+        frequency: common
+        severity: moderate
       - id: concrete-dust-contamination
+        frequency: common
+        severity: moderate
       - id: efflorescence-contamination
+        frequency: common
+        severity: moderate
       - id: fertilizer-residue-contamination
+        frequency: common
+        severity: moderate
       - id: fire-damage-contamination
+        frequency: common
+        severity: moderate
       - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-stain-contamination
+        frequency: common
+        severity: moderate
       - id: salt-residue-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -383,12 +420,73 @@ relationships:
         - id: interior-design
           name: Interior Design
           description: Interior Design industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: stained-bluestone-surfaces
+        question: How does laser cleaning restore stained Bluestone surfaces?
+        answer: Laser cleaning employs precise pulsed lasers to vaporize dirt, grime, and stains without harming the stone's
+          distinct texture. This essential technique suits Bluestone patios perfectly, clearing years of buildup in one efficient
+          pass.
+        topic: stained Bluestone surfaces
+        severity: high
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: laser-restoration
+        question: What makes Bluestone a good candidate for laser restoration?
+        answer: Bluestone's notable quartz-rich makeup endures laser energy effectively, enabling essential contaminant removal
+          while safeguarding its inherent color and resilience—ideal for weathered paving stones.
+        topic: laser restoration
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: bluestone-maintenance
+        question: Why choose laser cleaning over chemical methods for Bluestone maintenance?
+        answer: Laser cleaning stands out as eco-friendly, steering clear of harsh chemicals that could seep into Bluestone's
+          pores and inflict long-term damage. Essentially, it focuses solely on surface issues, minimizing environmental impact
+          and health risks for users.
+        topic: Bluestone maintenance
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: efflorescence-on-bluestone
+        question: Can laser cleaning fix efflorescence on Bluestone walls?
+        answer: Indeed, lasers ablate salt deposits from efflorescence in a notable manner, avoiding any stone abrasion. This
+          essential non-contact technique halts further moisture wicking—a typical Bluestone challenge—while yielding a clean,
+          dry surface.
+        topic: efflorescence on Bluestone
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: is-laser-cleaning-safe-for-porous-bluestone-materi
+        question: Is laser cleaning safe for porous Bluestone materials?
+        answer: Indeed. Adjustable laser wavelengths provide an essential advantage, penetrating only surface layers to gently
+          remove stains from Bluestone's porous structure without etching or weakening it—unlike abrasive techniques that
+          risk notable micro-cracks.
+        topic: Is laser cleaning safe for porous Bluestone materi
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: outdoor-bluestone-applications
+        question: How long does laser cleaning last on outdoor Bluestone applications?
+        answer: Results can last a notable 5-10 years on well-sealed Bluestone, influenced by traffic and weather exposure.
+          It's essential to perform regular inspections, proactively tackling Bluestone's staining vulnerability with minimal
+          downtime.
+        topic: outdoor Bluestone applications
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -413,12 +511,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921645Z'
   normalization_applied: true
@@ -453,4 +550,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: bluestone-laser-cleaning
-lastModified: '2026-01-03T14:26:13.956331'
+lastModified: '2026-01-03T15:42:05.806661'

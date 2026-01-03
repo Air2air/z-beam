@@ -1,8 +1,8 @@
 id: beech-laser-cleaning
 name: Beech
 category: wood
-datePublished: '2026-01-03T22:26:13.725922Z'
-dateModified: '2026-01-03T22:26:13.725922Z'
+datePublished: '2026-01-03T23:42:05.527896Z'
+dateModified: '2026-01-03T23:42:05.527896Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/wood/hardwood/beech-laser-cleaning
@@ -86,7 +86,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -427,6 +427,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -467,12 +474,81 @@ relationships:
         - id: musical-instruments
           name: Musical Instruments
           description: Musical Instruments industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: aged-beech-furniture
+        question: How does laser cleaning restore aged beech furniture?
+        answer: The distinct benefit of laser cleaning comes from its precise pulses, which strip away dirt, varnish, and
+          oxidation from beech while sparing the wood grain. This essential non-abrasive approach uncovers the natural beauty,
+          upholding the wood's integrity during restoration.
+        topic: aged beech furniture
+        severity: high
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: beech-wood-ideal
+        question: What makes beech wood ideal for laser cleaning applications?
+        answer: Beech wood features a distinct fine grain and even texture, allowing precise laser targeting of surface contaminants.
+          Its density plays an essential role in minimizing heat absorption, thus curbing charring risks during cleaning.
+        topic: beech wood ideal
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: why-is-laser-cleaning-better-than-chemical-methods
+        question: Why is laser cleaning better than chemical methods for beech?
+        answer: In contrast to chemicals that penetrate and discolor beech's porous structure, laser cleaning delivers a distinct,
+          contactless, and eco-friendly alternative. It evaporates grime instantly, avoiding residue while ensuring an essential,
+          safe restoration of the wood's original luster without swelling risks.
+        topic: Why is laser cleaning better than chemical methods
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: moisture-damage
+        question: Can laser cleaning fix moisture damage on beech flooring?
+        answer: Yes, but laser notably addresses surface effects like mold or moisture stains. It removes contaminants essential
+          to preventing further decay, though underlying warping may require additional structural repairs for full restoration.
+        topic: moisture damage
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: laser-induced-burning
+        question: Is beech susceptible to laser-induced burning during cleaning?
+        answer: With proper settings, risk stays minimal; low-fluence lasers gently ablate just the surface layers of beech,
+          avoiding deep penetration. Experts make it essential to tweak wavelengths for beech's light hue, yielding clean
+          results.
+        topic: laser-induced burning
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: beech-items
+        question: How to prepare beech items for effective laser cleaning?
+        answer: First off, confirm the surface is dry and clear of loose debris—essential precaution. Trial laser settings
+          on a small patch to adjust for beech's notable hardness, then advance methodically to prevent uneven results while
+          preserving the wood's smooth finish.
+        topic: beech items
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: preserving-beechs-value
+        question: What are the benefits of laser cleaning for preserving beech's value?
+        answer: It notably boosts beech's durability by eliminating pollutants that hasten decay, while restoring its appealing
+          grain and inherent strength. This essential, non-invasive method prolongs the life of prized items like antique
+          furniture, elevating aesthetic and market value without altering the wood's natural qualities.
+        topic: preserving beech's value
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -497,12 +573,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921618Z'
   normalization_applied: true
@@ -537,4 +612,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: beech-laser-cleaning
-lastModified: '2026-01-03T14:26:13.725957'
+lastModified: '2026-01-03T15:42:05.527931'

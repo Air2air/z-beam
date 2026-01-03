@@ -1,7 +1,7 @@
 id: acrylic-pmma-settings
 name: Acrylic (PMMA)
-datePublished: '2026-01-03T22:28:03.384643Z'
-dateModified: '2026-01-03T22:28:03.384643Z'
+datePublished: '2026-01-03T23:17:33.011604Z'
+dateModified: '2026-01-03T23:17:33.011604Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/plastic/thermoplastic/acrylic-pmma-settings
@@ -77,6 +77,11 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      sectionMetadata:
+        section_title: Safety Standards & Compliance
+        section_description: OSHA, ANSI, ISO requirements and compliance standards
+        icon: shield-check
+        order: 10
   interactions:
     removes_contaminants:
       presentation: card
@@ -85,17 +90,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  operational:
-    common_challenges:
-      presentation: descriptive
-      items:
-      - - Requires careful power calibration to prevent material damage
-        - Monitor surface temperature during processing
-        - Verify cleaning effectiveness through inspection
-      _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
-        icon: triangle-exclamation
+      sectionMetadata:
+        section_title: Effective Contaminants
+        section_description: Contamination types successfully removed
+        icon: droplet
+        order: 20
+  operational: {}
 machine_settings:
   powerRange:
     value: 30
@@ -217,4 +217,4 @@ machine_settings:
 component_summary: These settings employ moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from
   heat-sensitive Acrylic PMMA without causing melting or surface deformation.
 slug: acrylic-pmma-settings
-lastModified: '2026-01-03T14:28:03.384680'
+lastModified: '2026-01-03T15:17:33.011635'

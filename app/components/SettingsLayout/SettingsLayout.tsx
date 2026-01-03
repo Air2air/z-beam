@@ -221,73 +221,37 @@ export function SettingsLayout({
     pass_count: findParam('passCount')?.value || 4
   };
 
-  // Extract diagnostic data
-  const challenges = diagnosticConfig?.challenges || settings.machineSettings?.material_challenges;
-  const issues = diagnosticConfig?.troubleshooting || settings.machineSettings?.common_issues;
+  // Extract diagnostic data from relationships.operational.prevention
+  const preventionItems = relationships?.operational?.prevention?.items || [];
   
-  // Generate default challenges if none provided
-  const defaultChallenges = !challenges && settings.machineSettings ? {
-    thermal_management: [
-      {
-        challenge: 'Heat accumulation',
-        severity: 'medium',
-        impact: 'Excessive heat can damage substrate or alter material properties',
-        solutions: [
-          'Reduce repetition rate',
-          'Increase scan speed',
-          'Add cooling time between passes'
-        ],
-        prevention: 'Monitor surface temperature and adjust parameters accordingly'
-      }
-    ],
-    surface_characteristics: [
-      {
-        challenge: 'Variable surface roughness',
-        severity: 'medium',
-        impact: 'Inconsistent cleaning results across different surface textures',
-        solutions: [
-          'Adjust energy density based on surface condition',
-          'Use multiple passes with progressive settings',
-          'Pre-characterize surface before cleaning'
-        ],
-        prevention: 'Standardize surface preparation procedures'
-      }
-    ]
-  } : challenges;
+  // Transform prevention items to DiagnosticCenter challenges format
+  // Group by category (Thermal Management, Contamination, etc.)
+  const challenges = preventionItems.length > 0 ? preventionItems.reduce((acc: any, item: any) => {
+    const category = (item.category || 'other')
+      .toLowerCase()
+      .replace(/\s+/g, '_');
+    
+    if (!acc[category]) acc[category] = [];
+    
+    acc[category].push({
+      challenge: item.challenge || item.id,
+      severity: item.severity || 'medium',
+      impact: item.description || '',
+      solutions: Array.isArray(item.solutions) ? item.solutions : [],
+      prevention: item.threshold || ''
+    });
+    
+    return acc;
+  }, {} as Record<string, any[]>) : (
+    diagnosticConfig?.challenges || 
+    settings.machineSettings?.material_challenges || 
+    {}
+  );
   
-  // Generate default issues if none provided
-  const defaultIssues = !issues && settings.machineSettings ? [
-    {
-      symptom: 'Incomplete contamination removal',
-      causes: [
-        'Energy density too low',
-        'Insufficient overlap',
-        'Scan speed too high'
-      ],
-      solutions: [
-        'Increase laser power by 10-20%',
-        'Reduce scan speed by 20-30%',
-        'Add an additional pass'
-      ],
-      verification: 'Visual inspection under magnification',
-      prevention: 'Verify parameters on test piece before production'
-    },
-    {
-      symptom: 'Surface discoloration or damage',
-      causes: [
-        'Power too high',
-        'Excessive energy density',
-        'Too many passes'
-      ],
-      solutions: [
-        'Reduce laser power by 15-20%',
-        'Increase scan speed',
-        'Limit to 2-3 passes maximum'
-      ],
-      verification: 'Surface inspection and roughness measurement',
-      prevention: 'Start with conservative parameters and increase gradually'
-    }
-  ] : issues;
+  // Extract troubleshooting issues (not currently in relationships, use legacy if available)
+  const issues = diagnosticConfig?.troubleshooting || 
+    settings.machineSettings?.common_issues || 
+    [];
 
   return (
     <Layout 
@@ -550,13 +514,15 @@ export function SettingsLayout({
           />
 
         {/* Diagnostic & Prevention Center - Tabbed Interface */}
-        <DiagnosticCenter 
+        {(Object.keys(challenges).length > 0 || issues.length > 0) && (
+          <DiagnosticCenter 
             materialName={settings.name}
-            challenges={defaultChallenges!}
-            issues={defaultIssues!}
+            challenges={challenges}
+            issues={issues}
             heroImage={heroImage}
             materialLink={materialLink}
           />
+        )}
 
       {/* Research Citations - NEW */}
       {settings.research_library && (

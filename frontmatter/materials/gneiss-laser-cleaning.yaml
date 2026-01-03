@@ -1,8 +1,8 @@
 id: gneiss-laser-cleaning
 name: Gneiss
 category: stone
-datePublished: '2026-01-03T22:26:24.859520Z'
-dateModified: '2026-01-03T22:26:24.859520Z'
+datePublished: '2026-01-03T23:42:17.844494Z'
+dateModified: '2026-01-03T23:42:17.844494Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/stone/metamorphic/gneiss-laser-cleaning
@@ -75,7 +75,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -288,6 +288,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -302,12 +309,68 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-makes-laser-cleaning-effective-for-gneiss-sto
+        question: What makes laser cleaning effective for gneiss stone?
+        answer: When laser cleaning gneiss, you'll want to dial in the right power levels right from the start. This metamorphic
+          stone holds up well under controlled laser passes because its dense structure resists deep penetration, so the process
+          clears surface contaminants without cracking the material. In practice, operators line up short bursts to target
+          grime and oxidation layers that build up over time. Compared to softer sedimentary stones, gneiss demands a steadier
+          hand to avoid uneven heating, which can lead to micro-fractures if not managed. Overall, this approach achieves
+          a clean finish while preserving the stone's natural patterns. The key point here is starting slow to test adhesion
+          of the dirt. In most cases, it works out efficiently for restoration projects. Just wrap up with a cool-down period
+          to prevent thermal stress.
+        topic: What makes laser cleaning effective for gneiss sto
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Todd Dunning
+          title: MA
+          expertise: *id001
+      - id: what-safety-considerations-should-i-keep-in-mind-w
+        question: What safety considerations should I keep in mind when laser cleaning gneiss?
+        answer: The key with gneiss during laser cleaning is monitoring dust generation closely, as its hard surface can kick
+          up fine particles into the air. You'll find that protective gear lines up essential here—think respirators and sealed
+          suits—to handle any silica release from the stone's composition. In our experience, this metamorphic rock tends
+          to fracture along its bands if overheated, so set up barriers to contain debris. Operators typically ramp up ventilation
+          systems to clear fumes from vaporized contaminants. Compared to granite, gneiss shows more variable layering, which
+          heightens the risk of unexpected spalling. Essentially, conduct a site assessment first to address airflow. This
+          cuts down on health hazards significantly. Overall, prioritizing eye protection and training ensures safe operations.
+          End by inspecting for residual heat to avoid burns.
+        topic: What safety considerations should I keep in mind w
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: how-do-i-set-up-the-laser-cleaning-process-for-gne
+        question: How do I set up the laser cleaning process for gneiss effectively?
+        answer: When cleaning gneiss, watch the stone's layered structure as you set up your equipment. Start by positioning
+          the laser head at a consistent distance to maintain even coverage across its foliated patterns. This durable metamorphic
+          material responds best to pulsed modes that remove encrustations without compromising its compressive integrity.
+          We've found that scanning in overlapping paths helps address porosity pockets where dirt hides. In contrast to limestone,
+          gneiss requires finer control to prevent surface roughening from its inherent toughness. The process generally involves
+          pre-wetting the area to reduce dust, followed by methodical passes. This improves adhesion removal while keeping
+          the finish smooth. Typically, multiple light treatments achieve solid results. To wrap up, always calibrate for
+          the stone's resistance to ensure no subsurface damage occurs.
+        topic: How do I set up the laser cleaning process for gne
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -320,4 +383,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: gneiss-laser-cleaning
-lastModified: '2026-01-03T14:26:24.859554'
+lastModified: '2026-01-03T15:42:17.844538'

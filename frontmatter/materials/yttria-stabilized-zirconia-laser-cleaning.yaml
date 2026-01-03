@@ -1,8 +1,8 @@
 id: yttria-stabilized-zirconia-laser-cleaning
 name: Yttria-Stabilized Zirconia
 category: ceramic
-datePublished: '2026-01-03T22:26:25.990667Z'
-dateModified: '2026-01-03T22:26:25.990667Z'
+datePublished: '2026-01-03T23:42:19.136643Z'
+dateModified: '2026-01-03T23:42:19.136643Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning
@@ -60,7 +60,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -381,21 +381,103 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: blood-residue-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: ceramic-glaze-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: fire-damage-contamination
+        frequency: common
+        severity: moderate
       - id: graphite-marks-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: lime-scale-contamination
+        frequency: common
+        severity: moderate
       - id: medical-disinfectant-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: mold-mildew-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: semiconductor-residue-contamination
+        frequency: common
+        severity: moderate
       - id: silicone-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: soap-scum-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-safely-laser-clean-ysz-without-causing-cr
+        question: How do I safely laser clean YSZ without causing cracks?
+        answer: I've seen YSZ hold up well during cleaning if you start slow. Begin with low power to gently remove dirt and
+          oxides from the surface. Watch the heat buildup closely, as this material resists thermal shock but can crack under
+          sudden changes. Keep the beam moving steadily to avoid hot spots. This approach brings back the clean finish every
+          time.
+        topic: How do I safely laser clean YSZ without causing cr
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: whats-the-best-way-to-remove-contaminants-from-ysz
+        question: What's the best way to remove contaminants from YSZ coatings?
+        answer: When cleaning YSZ, focus on a pulsed laser setup first. This works well because the material's toughness lets
+          it handle short bursts without damage. I've found scanning in overlapping passes removes stubborn buildup like soot
+          effectively. Adjust speed based on layer thickness to ensure even results. Tends to restore the original smooth
+          texture nicely.
+        topic: What's the best way to remove contaminants from YS
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: can-laser-cleaning-affect-yszs-thermal-properties-
+        question: Can laser cleaning affect YSZ's thermal properties long-term?
+        answer: Start by testing a small area to check response. YSZ's stability means cleaning rarely alters its heat resistance
+          over time
+        topic: Can laser cleaning affect YSZ's thermal properties
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 slug: yttria-stabilized-zirconia-laser-cleaning
-lastModified: '2026-01-03T14:26:25.990700'
+lastModified: '2026-01-03T15:42:19.136685'

@@ -1,8 +1,8 @@
 id: silicon-germanium-laser-cleaning
 name: Silicon Germanium
 category: semiconductor
-datePublished: '2026-01-03T22:26:21.798143Z'
-dateModified: '2026-01-03T22:26:21.798143Z'
+datePublished: '2026-01-03T23:42:13.984883Z'
+dateModified: '2026-01-03T23:42:13.984883Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/semiconductor/elemental/silicon-germanium-laser-cleaning
@@ -103,7 +103,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -349,6 +349,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -389,12 +396,119 @@ relationships:
         - id: industrial-manufacturing
           name: Industrial Manufacturing
           description: Industrial Manufacturing industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: alloy-structure
+        question: What laser wavelengths are most effective for cleaning Silicon Germanium (SiGe) wafers without causing thermal
+          damage to the alloy structure?
+        answer: For SiGe wafers, near-IR lasers at 1064 nm offer a straightforward approach to contaminant removal, using
+          the alloy's bandgap for strong absorption while protecting the underlying structure from excess heat. This process
+          works efficiently with a 1.2 J/cm² fluence threshold and 15 ns pulses to ablate surface debris precisely, avoiding
+          thermal distortion.
+        topic: alloy structure
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: preserving-epitaxial-layers
+        question: How can laser cleaning be used to remove oxide layers from SiGe surfaces in semiconductor fabrication while
+          preserving epitaxial layers?
+        answer: Laser cleaning provides a straightforward approach to removing oxide from SiGe surfaces, employing a 1064
+          nm near-IR beam with 15 ns pulses at 1.2 J/cm² fluence. This selectively ablates contaminants, while low thermal
+          penetration in this process safeguards underlying epitaxial layers in semiconductors. For avoiding subsurface damage,
+          perform three passes at 500 mm/s scan speed with 50% overlap to achieve uniform coverage. It fits efficiently into
+          cleanroom protocols, delivering residue-free outcomes for aerospace and electronics uses.
+        topic: preserving epitaxial layers
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: germaniums-volatility
+        question: What are the safety concerns when using pulsed lasers for cleaning Silicon Germanium components, particularly
+          regarding germanium's volatility?
+        answer: 'When cleaning Silicon Germanium components using 1064 nm pulsed lasers, germanium''s high volatility produces
+          toxic oxide fumes, so practical extraction systems are vital to prevent respiratory risks. SiGe''s near-IR reflectivity
+          increases eye hazards from stray beams, requiring specialized laser goggles. Straightforward advice: keep fluence
+          below 1.2 J/cm² to minimize byproducts.'
+        topic: germanium's volatility
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: in-laser-cleaning-equipment-for-sige-heterostructu
+        question: In laser cleaning equipment for SiGe heterostructures, what beam scanning patterns minimize stress-induced
+          defects in the silicon-germanium lattice?
+        answer: When dealing with SiGe heterostructures, raster or meander scanning patterns at 500 mm/s—using 50 μm spots
+          and 50% overlap—offer a practical solution to mitigate stress defects efficiently. This process distributes heat
+          evenly across the strained lattice, preventing localized thermal gradients that worsen brittleness in silicon-germanium
+          alloys.
+        topic: In laser cleaning equipment for SiGe heterostructu
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-post-cleaning-inspection-methods-are-recommen
+        question: What post-cleaning inspection methods are recommended for Silicon Germanium surfaces treated with femtosecond
+          lasers to detect microcracks?
+        answer: For SiGe surfaces after femtosecond laser cleaning, this process calls for non-destructive SEM to spot microcracks
+          at the sub-micron scale, plus ellipsometry to check optical properties safely. Aim practically for roughness below
+          1 nm RMS, as elevated levels indicate thermal damage from fluences around 1.2 J/cm² on this brittle semiconductor.
+        topic: What post-cleaning inspection methods are recommen
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: how-does-the-germanium-content-in-sige-alloys-affe
+        question: How does the germanium content in SiGe alloys affect the laser fluence required for effective contaminant
+          removal during surface treatment?
+        answer: Increasing germanium content in SiGe alloys boosts near-IR absorption at 1064 nm, which straightforwardly
+          reduces the fluence for contaminant removal to about 1.2 J/cm². This keeps substrate melting risks low, thanks to
+          the lowered melting point. That method supports precise cleaning with 50 kHz pulses, efficiently curbing thermal
+          buildup in semiconductor uses.
+        topic: How does the germanium content in SiGe alloys affe
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: are-there-regulatory-compliance-issues-for-laser-c
+        question: Are there regulatory compliance issues for laser cleaning Silicon Germanium in EU semiconductor facilities,
+          especially regarding waste from ablated material?
+        answer: In EU semiconductor facilities, laser cleaning of Silicon Germanium requires strict REACH compliance, treating
+          ablated SiGe particulates as hazardous waste owing to germanium's toxicity. Using a 1064 nm wavelength and 1.2 J/cm²
+          fluence, this process generates vapors that risk the environment, so advanced filtration and ventilation are essential
+          to avoid airborne release.
+        topic: Are there regulatory compliance issues for laser c
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: thermal-conductivity-differences
+        question: What thermal conductivity differences between silicon and germanium in SiGe alloys impact heat dissipation
+          during nanosecond laser cleaning sessions?
+        answer: SiGe alloys show thermal conductivity ranging from silicon's 148 W/m·K to germanium's 60 W/m·K as Ge content
+          rises, which slows heat dissipation in nanosecond laser cleaning. For practical applications, higher Ge fractions
+          can risk substrate warping under 50 kHz pulses, so opt for Si-rich compositions and active cooling like chilled
+          stages to efficiently maintain even heat flow.
+        topic: thermal conductivity differences
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: photovoltaic-performance
+        question: 'In online forums, users ask: Can CO2 lasers safely clean Silicon Germanium solar cell surfaces without
+          altering the photovoltaic performance?'
+        answer: CO2 lasers at 10.6 μm wavelength carry risks for cleaning SiGe solar cells, since their weak absorption in
+          this semiconductor triggers uneven thermal effects that may alter the bandgap and drop efficiency by up to 5%. To
+          safely remove contaminants without harming photovoltaics, select 1064 nm near-IR lasers at fluences below 1.2 J/cm².
+          This process delivers precise ablation while preserving performance efficiently.
+        topic: photovoltaic performance
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -419,12 +533,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922705Z'
   normalization_applied: true
@@ -461,4 +574,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: silicon-germanium-laser-cleaning
-lastModified: '2026-01-03T14:26:21.798183'
+lastModified: '2026-01-03T15:42:13.984917'

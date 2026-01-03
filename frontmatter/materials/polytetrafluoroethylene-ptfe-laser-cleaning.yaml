@@ -1,8 +1,8 @@
 id: polytetrafluoroethylene-ptfe-laser-cleaning
 name: Polytetrafluoroethylene (PTFE)
 category: plastic
-datePublished: '2026-01-03T22:26:19.892575Z'
-dateModified: '2026-01-03T22:26:19.892575Z'
+datePublished: '2026-01-03T23:42:12.030423Z'
+dateModified: '2026-01-03T23:42:12.030423Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/plastic/thermoplastic/polytetrafluoroethylene-ptfe-laser-cleaning
@@ -106,7 +106,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -350,9 +350,22 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -393,12 +406,111 @@ relationships:
         - id: energy-sector
           name: Energy Sector
           description: Energy Sector industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: ptfe-surfaces
+        question: Can laser cleaning safely remove contaminants from PTFE surfaces without damaging the material?
+        answer: Given PTFE's low surface energy and thermal sensitivity, we apply a straightforward fluence of 5.1 J/cm² and
+          500 mm/s scan speed for safe contaminant removal. That method prevents ablation or discoloration through nanosecond
+          pulses at 1064 nm wavelength, which the material absorbs efficiently without subsurface damage.
+        topic: PTFE surfaces
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: ptfe-versus-other-plastics
+        question: What laser wavelength and parameters are optimal for cleaning PTFE versus other plastics?
+        answer: For PTFE's unique absorption profile, I suggest a straightforward 1064 nm wavelength with 5.1 J/cm² fluence.
+          This practical near-infrared setup, at 50 µm spot size and 100 W average power, efficiently removes contaminants
+          while avoiding thermal degradation typical in polymers like polyethylene.
+        topic: PTFE versus other plastics
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: does-laser-cleaning-ptfe-create-hazardous-fumes-or
+        question: Does laser cleaning PTFE create hazardous fumes or nanoparticles, and what extraction is required?
+        answer: In this process, laser cleaning PTFE at 5.1 J/cm² fluence generates hazardous PFAS compounds and HF gas. OSHA
+          requires practical fume extraction using HEPA/ULPA filtration for nanoparticles, plus acid gas scrubbers to capture
+          toxic byproducts, along with negative-pressure enclosures for operator safety.
+        topic: Does laser cleaning PTFE create hazardous fumes or
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: surface-energy
+        question: How does laser cleaning affect the surface energy of PTFE for subsequent adhesion or coating?
+        answer: Laser cleaning at 5.1 J/cm² offers a straightforward approach to boost PTFE's surface energy, forming microstructures
+          while stripping away fluorine. This process improves wettability for stronger coating adhesion, surpassing chemical
+          methods through precise, non-thermal 1064 nm treatment.
+        topic: surface energy
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: non-stick-properties
+        question: Can laser cleaning restore the non-stick properties of contaminated PTFE components?
+        answer: Laser cleaning at 5.1 J/cm² fluence straightforwardly removes baked-on contaminants from PTFE. This process
+          restores the original low surface energy, reinstating non-stick performance without thermal degradation via the
+          practical 1064 nm wavelength and 50% beam overlap.
+        topic: non-stick properties
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: embedded-contaminants
+        question: What are the limitations of laser cleaning for PTFE with embedded contaminants or deep penetration?
+        answer: PTFE's porous structure poses straightforward challenges in removing deep contaminants, as our optimal 5.1
+          J/cm² fluence mainly targets surface layers. Subsurface residues typically demand multiple passes in this process,
+          risking thermal buildup and unintended material alterations outside the treatment area.
+        topic: embedded contaminants
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: ptfe-maintenance
+        question: How does laser cleaning compare to traditional methods (sandblasting, chemical cleaning) for PTFE maintenance?
+        answer: Laser cleaning provides a practical edge over traditional methods, safeguarding PTFE's integrity through precise
+          5.1 J/cm² fluence and 50 μm spot size. This process cuts out chemical waste and abrasive media efficiently, delivering
+          a safer, non-contact option that upholds the low-friction surface essential for aerospace and medical uses.
+        topic: PTFE maintenance
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: visual-indicators
+        question: What visual indicators distinguish proper laser cleaning from damage on PTFE surfaces?
+        answer: Proper cleaning is a practical approach to preserve PTFE's white hue and smooth texture. Thermal damage shows
+          as browning or yellowing at fluences over ~5 J/cm², signaling polymer degradation. This process using optimal 1064
+          nm wavelength ablation removes contaminants without changing the substrate's inherent properties.
+        topic: visual indicators
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: medical-grade-ptfe
+        question: Is laser cleaning suitable for medical-grade PTFE implants or devices during refurbishment?
+        answer: Laser cleaning provides a practical way to sterilize medical PTFE implants with 1064 nm wavelength at 5.1
+          J/cm² fluence. This process ablates contaminants efficiently while maintaining the polymer's structural integrity.
+          Yet, post-process checks for surface chemistry and regulatory compliance remain essential for refurbished devices.
+        topic: medical-grade PTFE
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: high-thermal-expansion-coefficient
+        question: How does the high thermal expansion coefficient of PTFE affect laser cleaning process stability?
+        answer: PTFE's high thermal expansion coefficient of ~135×10⁻⁶/°C demands careful thermal stress management in laser
+          cleaning. We ensure process stability efficiently through a 50 kHz repetition rate and 500 mm/s scan speed, reducing
+          localized heating to avoid distortion and warping typical of this polymer. That method guarantees even material
+          removal while protecting substrate integrity.
+        topic: high thermal expansion coefficient
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -423,12 +535,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922448Z'
   normalization_applied: true
@@ -465,4 +576,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: polytetrafluoroethylene-ptfe-laser-cleaning
-lastModified: '2026-01-03T14:26:19.892614'
+lastModified: '2026-01-03T15:42:12.030480'

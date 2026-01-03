@@ -1,8 +1,8 @@
 id: mdf-laser-cleaning
 name: MDF
 category: wood
-datePublished: '2026-01-03T22:26:17.524249Z'
-dateModified: '2026-01-03T22:26:17.524249Z'
+datePublished: '2026-01-03T23:42:09.779777Z'
+dateModified: '2026-01-03T23:42:09.779777Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/wood/hardwood/mdf-laser-cleaning
@@ -112,7 +112,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -357,7 +357,16 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: wood-rot-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -398,12 +407,122 @@ relationships:
         - id: cultural-heritage-reproduction
           name: Cultural Heritage Reproduction
           description: Cultural Heritage Reproduction industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: scorching-the-surface
+        question: Can you safely laser clean MDF without damaging or scorching the surface?
+        answer: Yes, MDF can be laser cleaned safely without scorching through precise parameters. Employing a 1064 nm wavelength,
+          fluence at 2.5 J/cm², and 100 µm spot size effectively clears contaminants while dodging the charring threshold.
+          Notably, scanning speeds exceeding 500 mm/s prove essential to curb heat buildup in the wood composite.
+        topic: scorching the surface
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: removing-contaminants-from-mdf
+        question: What laser settings (wavelength, power, pulse duration) work best for removing contaminants from MDF?
+        answer: For cleaning MDF surfaces, I suggest a 1064 nm wavelength at roughly 100 W average power. It's essential to
+          hold fluence close to 2.5 J/cm² via nanosecond pulses, ensuring contaminants lift off cleanly without harming the
+          substrate. Such a strategy exploits the material's distinct absorption traits for targeted removal, sparing the
+          wood composite from charring.
+        topic: removing contaminants from MDF
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: paint-adhesives-or-sealers
+        question: Is laser cleaning effective for removing paint, adhesives, or sealers from MDF surfaces?
+        answer: Laser cleaning proves notably effective in removing coatings from MDF at a fluence of 2.5 J/cm². Yet, it's
+          essential to precisely manage the 100W power and 500 mm/s scan speed, preventing damage to the sensitive wood composite
+          that might char or retain residue.
+        topic: paint, adhesives, or sealers
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: formaldehyde-and-wood-dust
+        question: What are the health risks when laser cleaning MDF, particularly regarding formaldehyde and wood dust?
+        answer: Laser cleaning MDF at a fluence of 2.5 J/cm² releases hazardous formaldehyde and fine particulates. Essential
+          for safety, a high-efficiency fume extraction system is required, while operators need respiratory protection against
+          organic vapors and wood dust to counter these notable health risks.
+        topic: formaldehyde and wood dust
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: porous-structure
+        question: Does laser cleaning affect the porous structure or surface integrity of MDF for subsequent painting?
+        answer: With precise calibration, laser cleaning at 2.5 J/cm² fluence and 100W power notably enhances the porous MDF
+          surface for painting. This method removes contaminants without harming structural integrity, which is essential
+          for better adhesion and less reliance on heavy sealers.
+        topic: porous structure
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: resin-content-and-density
+        question: How does the resin content and density of MDF impact laser cleaning results?
+        answer: Higher resin content demands essential fluence control near 2.5 J/cm² to prevent urea-formaldehyde decomposition.
+          For denser MDF, notably slower scan speeds around 500 mm/s promote uniform thermal absorption, averting subsurface
+          charring from uneven heat dissipation.
+        topic: resin content and density
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: without-mechanical-abrasion
+        question: Can laser cleaning be used to prepare MDF for bonding or recoating without mechanical abrasion?
+        answer: Certainly. Laser cleaning at 2.5 J/cm² fluence notably activates MDF through contaminant removal and surface
+          micro-ablation, markedly improving bond strength. This approach delivers a distinct, non-contact edge over mechanical
+          sanding in recoating prep.
+        topic: without mechanical abrasion
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: laser-power-density
+        question: What's the maximum safe laser power density for MDF before irreversible damage occurs?
+        answer: In laser cleaning of MDF, it's essential to keep fluence below 2.5 J/cm² to avoid charring. Employing a 100
+          µm spot size and 100 µs dwell time, this limit delivers notable ablation efficiency while preventing lasting thermal
+          damage to the wood composite substrate.
+        topic: laser power density
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: specific-laser-types
+        question: Are there specific laser types (fiber, CO2, etc.) that work better or worse with MDF materials?
+        answer: When cleaning MDF, near-IR fiber lasers at 1064 nm deliver notable absorption in wood composites. It's essential
+          to hold fluence at ~2.5 J/cm² with 100W average power, removing contaminants efficiently without charring the substrate
+          or compromising surface quality.
+        topic: specific laser types
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: moisture-content
+        question: How does moisture content in MDF affect laser cleaning efficiency and safety?
+        answer: Elevated moisture in MDF notably heightens steam generation risk during laser ablation at our standard 2.5
+          J/cm² fluence. Variable water content disrupts absorption, necessitating recalibration of power settings to avert
+          subsurface damage. It's essential to precondition stored panels to a stable, low humidity level before processing,
+          ensuring uniform cleaning and operator safety.
+        topic: moisture content
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-are-the-alternatives-to-laser-cleaning-when-m
+        question: What are the alternatives to laser cleaning when MDF is too sensitive for laser treatment?
+        answer: For MDF surfaces under the 2.5 J/cm² fluence threshold, mechanical micro-abrasion using fine-grit pads offers
+          a distinct cleaning approach. As an alternative, low-VOC chemical cleaners reliably dissolve contaminants while
+          sparing the resin-bonded wood fibers. Such techniques prove essential in upholding substrate integrity, sidestepping
+          potential charring from laser settings.
+        topic: What are the alternatives to laser cleaning when M
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -428,12 +547,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922158Z'
   normalization_applied: true
@@ -468,4 +586,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: mdf-laser-cleaning
-lastModified: '2026-01-03T14:26:17.524284'
+lastModified: '2026-01-03T15:42:09.779814'

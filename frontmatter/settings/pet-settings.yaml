@@ -1,7 +1,7 @@
 id: pet-settings
 name: PET
-datePublished: '2026-01-03T22:28:04.037506Z'
-dateModified: '2026-01-03T22:28:04.037506Z'
+datePublished: '2026-01-03T23:17:33.795254Z'
+dateModified: '2026-01-03T23:17:33.795254Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/plastic/thermoplastic/pet-settings
@@ -77,6 +77,11 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      sectionMetadata:
+        section_title: Safety Standards & Compliance
+        section_description: OSHA, ANSI, ISO requirements and compliance standards
+        icon: shield-check
+        order: 10
   interactions:
     removes_contaminants:
       presentation: card
@@ -85,6 +90,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      sectionMetadata:
+        section_title: Effective Contaminants
+        section_description: Contamination types successfully removed
+        icon: droplet
+        order: 20
     works_on_materials:
       presentation: card
       items:
@@ -94,17 +104,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-  operational:
-    common_challenges:
-      presentation: descriptive
-      items:
-      - - Requires careful power calibration to prevent material damage
-        - Monitor surface temperature during processing
-        - Verify cleaning effectiveness through inspection
-      _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
-        icon: triangle-exclamation
+      sectionMetadata:
+        section_title: Compatible Materials
+        section_description: Materials optimized for these settings
+        icon: box
+        order: 30
+  operational: {}
 machine_settings:
   powerRange:
     value: 30
@@ -226,4 +231,4 @@ machine_settings:
 component_summary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for PET cleaning, delivering
   precise ablation of contaminants while minimizing thermal input to avoid melting the sensitive polymer substrate.
 slug: pet-settings
-lastModified: '2026-01-03T14:28:04.037540'
+lastModified: '2026-01-03T15:17:33.795284'

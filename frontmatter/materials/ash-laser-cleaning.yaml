@@ -1,8 +1,8 @@
 id: ash-laser-cleaning
 name: Ash
 category: wood
-datePublished: '2026-01-03T22:26:13.494444Z'
-dateModified: '2026-01-03T22:26:13.494444Z'
+datePublished: '2026-01-03T23:42:05.277985Z'
+dateModified: '2026-01-03T23:42:05.277985Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/wood/hardwood/ash-laser-cleaning
@@ -60,7 +60,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -312,12 +312,31 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: lead-paint-contamination
+        frequency: common
+        severity: moderate
       - id: mold-mildew-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -358,12 +377,38 @@ relationships:
         - id: museum-conservation
           name: Museum Conservation
           description: Museum Conservation industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: natural-grain
+        question: How does laser cleaning restore the natural grain of aged Ash wood?
+        answer: Laser cleaning gently ablates surface contaminants like dirt, varnish, or smoke residue from Ash wood without
+          harming the underlying grain. This non-contact approach typically preserves the wood's light color and prominent
+          patterns, uncovering its original beauty in 10-20 minutes per panel—pretty ideal for antique furniture restoration.
+        topic: natural grain
+        severity: high
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Todd Dunning
+          title: MA
+          expertise: *id001
+      - id: prone-to-warping
+        question: What are the risks of using laser cleaning on Ash wood prone to warping?
+        answer: Yeah, laser cleaning works pretty safely on Ash wood when handled right. It typically dodges the moisture
+          that worsens warping, unlike old methods. Still, too much heat risks micro-cracks; experts advise low-power pulsed
+          lasers plus close monitoring to avoid that, preserving the wood's flexibility for lasting strength.
+        topic: prone to warping
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -393,12 +438,11 @@ relationships:
         longName: Unknown Organization
         name: Unknown
         url: ''
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   regulatory_standards:
   - EPA Clean Air Act Compliance
@@ -436,4 +480,4 @@ regulatory_standards:
   name: Unknown
   url: ''
 slug: ash-laser-cleaning
-lastModified: '2026-01-03T14:26:13.494478'
+lastModified: '2026-01-03T15:42:05.278015'

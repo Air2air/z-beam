@@ -1,8 +1,8 @@
 id: fiber-reinforced-polyurethane-frpu-laser-cleaning
 name: Fiber Reinforced Polyurethane FRPU
 category: composite
-datePublished: '2026-01-03T22:26:15.692956Z'
-dateModified: '2026-01-03T22:26:15.692956Z'
+datePublished: '2026-01-03T23:42:07.744883Z'
+dateModified: '2026-01-03T23:42:07.744883Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning
@@ -103,7 +103,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -349,6 +349,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -389,12 +396,106 @@ relationships:
         - id: sports-equipment
           name: Sports Equipment
           description: Sports Equipment industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: fiber-reinforcement
+        question: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning contaminants from
+          FRPU without damaging the fiber reinforcement?
+        answer: For FRPU cleaning, employ nanosecond pulses at 1064 nm with a fluence around 2.5 J/cm². This wavelength proves
+          essential for absorption by contaminants and the polyurethane matrix, while the brief 10 ns pulse duration and 100
+          W power distinctly curb heat diffusion, safeguarding the sensitive fiber reinforcement from thermal degradation.
+        topic: fiber reinforcement
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: sub-surface-delamination
+        question: When laser cleaning FRPU, how do I avoid melting the polyurethane surface or causing sub-surface delamination?
+        answer: Keep fluence under 2.5 J/cm² by using a defocused 100 µm spot, essential for preventing polyurethane melting.
+          Apply scan speeds above 500 mm/s with multiple passes to ablate material gradually. This strategy controls thermal
+          load, sidestepping the notable sub-surface delamination from high energy density.
+        topic: sub-surface delamination
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: structural-integrity
+        question: Is laser cleaning safe for FRPU, or will it degrade the material's mechanical properties and structural
+          integrity?
+        answer: Properly configured laser cleaning at 2.5 J/cm² fluence and 100W power safely removes contaminants from FRPU.
+          This preserves the fiber-matrix interface far better than abrasives, but post-process validation through bond strength
+          testing is essential to confirm structural integrity.
+        topic: structural integrity
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: specific-safety-hazards
+        question: What specific safety hazards are created when lasing FRPU, and what extraction/filtration is required?
+        answer: When lasing FRPU at 2.5 J/cm², it releases toxic isocyanates, hydrogen cyanide gas, and fine carbon fiber
+          particulates. A notable aspect involves the HEPA filter managing particles, as a chemical scrubber captures the
+          gases—while maintaining sufficient airflow for these essential byproducts.
+        topic: specific safety hazards
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: can-a-laser-effectively-remove-release-agents-and-
+        question: Can a laser effectively remove release agents and mold residues from FRPU composite parts after demolding?
+        answer: Indeed, lasers show notable effectiveness in removing release agents from FRPU composites. By applying low
+          fluence around 2.5 J/cm² with a 100 µm spot size, we vaporize silicone residues without damaging the fiber reinforcement,
+          which stays essential for a flawless clean surface.
+        topic: 'Can a laser effectively remove release agents and '
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: adhesion-preparation
+        question: How does laser cleaning FRPU compare to traditional methods like dry ice blasting or plastic media blasting
+          for adhesion preparation?
+        answer: Laser cleaning at 1064nm wavelength with 2.5 J/cm² fluence offers a distinct advantage by selectively ablating
+          the polyurethane matrix, sparing the fibers—unlike abrasive blasting. This essential approach avoids media embedment,
+          delivering a pristine surface for optimal adhesion without secondary waste, albeit with higher upfront costs.
+        topic: adhesion preparation
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: before-bonding-or-painting
+        question: What is the best way to validate the success of a laser cleaning process on FRPU before bonding or painting?
+        answer: For FRPU, it's essential to first check for a visually clean surface free of fiber damage. Quantitatively,
+          employ dyne pens to ensure surface energy exceeds 42 mN/m. Yet, the notable confirmation comes from a lap shear
+          test on a coupon treated at 2.5 J/cm².
+        topic: before bonding or painting
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: why-is-the-fiber-type-(glass-vs.-carbon)-in-frpu-c
+        question: Why is the fiber type (glass vs. carbon) in FRPU critical for selecting a laser cleaning strategy?
+        answer: The notable conductivity and strong absorption of carbon fibers at 1064 nm demand careful handling. It's essential
+          to apply a reduced fluence of roughly 2.5 J/cm² alongside a swift 500 mm/s scan speed, avoiding any scorching. In
+          contrast, glass fibers' transparency supports higher energy density while preserving structural integrity.
+        topic: Why is the fiber type (glass vs. carbon) in FRPU c
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: high-elasticity-and-toughness
+        question: Does the high elasticity and toughness of polyurethane make it more or less susceptible to laser-induced
+          shock damage?
+        answer: The notable elasticity of polyurethane delivers inherent resistance to mechanical shock damage. Yet, thermal
+          degradation remains the essential risk, countered through nanosecond pulses at 100 W and 1064 nm wavelength. For
+          ultra-short pulses, fluence beyond ~2.5 J/cm² triggers stress-confinement effects, potentially leading to micro-cracking
+          at the fiber-matrix interface.
+        topic: high elasticity and toughness
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -419,12 +520,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921897Z'
   normalization_applied: true
@@ -460,4 +560,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: fiber-reinforced-polyurethane-frpu-laser-cleaning
-lastModified: '2026-01-03T14:26:15.692990'
+lastModified: '2026-01-03T15:42:07.744922'

@@ -1,8 +1,8 @@
 id: soda-lime-glass-laser-cleaning
 name: Soda-Lime Glass
 category: glass
-datePublished: '2026-01-03T22:26:22.213396Z'
-dateModified: '2026-01-03T22:26:22.213396Z'
+datePublished: '2026-01-03T23:42:14.435916Z'
+dateModified: '2026-01-03T23:42:14.435916Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/glass/specialty-glass/soda-lime-glass-laser-cleaning
@@ -107,7 +107,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -325,6 +325,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -365,12 +372,108 @@ relationships:
         - id: laboratory-equipment
           name: Laboratory Equipment
           description: Laboratory Equipment industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: organic-contaminants
+        question: What laser wavelengths are most effective for removing organic contaminants from soda-lime glass without
+          causing thermal damage?
+        answer: For cleaning organic residues from soda-lime glass, UV wavelengths around 355 nm prove particularly effective,
+          as the substrate transmits visible and near-IR light while organics absorb UV strongly, thus minimizing heat buildup.
+          Specifically, maintain fluence below 5 J/cm² with 50% beam overlap to achieve uniform removal without ablation.
+          This preserves the glass's integrity in electronics applications.
+        topic: organic contaminants
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise: *id001
+      - id: prevent-micro-cracks
+        question: How can I prevent micro-cracks in soda-lime glass during laser cleaning of metal oxide residues?
+        answer: To prevent micro-cracks in soda-lime glass while laser cleaning metal oxides, particularly keep fluences below
+          5 J/cm² to remain under the thermal shock limit linked to its 9 × 10^{-6} /°C expansion coefficient. Boost scanning
+          speeds to 1000 mm/s for swift heat dissipation, and use 50% beam overlap to achieve uniform coverage without hot
+          spots. Thus, temperature gradients stay gentle, protecting surface integrity.
+        topic: prevent micro-cracks
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: soda-lime-glass-surfaces
+        question: Is a CO2 laser suitable for cleaning soot from soda-lime glass surfaces, or should I use a fiber laser instead?
+        answer: For soot removal on soda-lime glass, a CO2 laser at 10.6 μm performs effectively, particularly since the material
+          absorbs strongly there. This allows efficient ablation of carbon contaminants at fluences around 5 J/cm² without
+          deep penetration. Fiber lasers near 1 μm transmit through the glass, thus risking uneven heating and potential substrate
+          damage—opt for CO2 with 50% beam overlap for uniform results.
+        topic: soda-lime glass surfaces
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: minimize-surface-roughness
+        question: What are the typical pulse durations used in laser cleaning of soda-lime glass to minimize surface roughness?
+        answer: Soda-lime glass, a brittle material notably prone to cracking, benefits from picosecond pulses of 10-100 ps
+          during cleaning to minimize surface roughness. These pulses specifically restrict thermal diffusion, unlike nanosecond
+          ones that threaten integrity at 5 J/cm² fluence, thus yielding smoother post-treatment surfaces.
+        topic: minimize surface roughness
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: in-laser-cleaning-soda-lime-glass-artifacts-how-do
+        question: In laser cleaning soda-lime glass artifacts, how do I ensure no color changes or devitrification occur?
+        answer: For soda-lime glass artifacts, maintain laser fluence below 5 J/cm² to prevent color shifts or devitrification,
+          particularly respecting its low thermal tolerance of 500-600°C. Thus, closely monitor heat-affected zones using
+          50% beam overlap, avoiding excessive buildup that could disrupt the vitreous structure during cleaning.
+        topic: In laser cleaning soda-lime glass artifacts, how d
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: soda-lime-glass
+        question: What safety protocols are required when using lasers to clean soda-lime glass in a manufacturing environment?
+        answer: When laser cleaning soda-lime glass, particularly prioritize ANSI Z136-compliant goggles matched to the laser
+          wavelength, since the material's reflectivity may amplify stray beams. At fluences around 5 J/cm², employ enclosed
+          systems with HEPA filtration to trap ejected particles, thus ensuring workplace safety compliance.
+        topic: soda-lime glass
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: chemical-composition
+        question: How does the chemical composition of soda-lime glass affect its response to laser surface treatment for
+          paint removal?
+        answer: With its high silica content around 72%, soda-lime glass particularly promotes transparency to near-infrared
+          lasers, thus minimizing substrate absorption during ablative paint removal. Sodium oxide (about 14%) and calcium
+          oxide (9%) notably enhance thermal sensitivity, allowing effective cleaning at fluences below 5 J/cm² without cracking.
+          This composition ensures compatibility with pulsed laser methods for precise, damage-free surface treatment.
+        topic: chemical composition
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: residue-redeposition
+        question: What are common issues with laser cleaning soda-lime glass windows, like residue redeposition?
+        answer: In laser cleaning of soda-lime glass windows, residue redeposition from expanding plasma plumes is particularly
+          prevalent, best addressed by robust extraction systems to capture ejecta. Thus, to maintain surface flatness in
+          this brittle material, use 5 J/cm² fluence with 50% beam overlap, reducing thermal gradients that might cause micro-cracks.
+        topic: residue redeposition
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: glasss-transparency
+        question: For soda-lime glass bottles, what laser parameters optimize cleaning without altering the glass's transparency?
+        answer: When cleaning soda-lime glass bottles, aim for a fluence of 5 J/cm² to ablate contaminants such as labels,
+          without surpassing the material's damage threshold and thus preserving its optical clarity. Particularly on curved
+          surfaces, apply 50% beam overlap with multiple low-power passes and active cooling to minimize thermal stress while
+          avoiding haze formation.
+        topic: glass's transparency
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -390,12 +493,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922765Z'
   normalization_applied: true
@@ -425,4 +527,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 slug: soda-lime-glass-laser-cleaning
-lastModified: '2026-01-03T14:26:22.213431'
+lastModified: '2026-01-03T15:42:14.435952'

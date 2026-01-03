@@ -1,7 +1,7 @@
 id: silicon-nitride-settings
 name: Silicon Nitride
-datePublished: '2026-01-03T22:28:01.853502Z'
-dateModified: '2026-01-03T22:28:01.853502Z'
+datePublished: '2026-01-03T23:17:31.197294Z'
+dateModified: '2026-01-03T23:17:31.197294Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/oxide/silicon-nitride-settings
@@ -79,6 +79,11 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      sectionMetadata:
+        section_title: Safety Standards & Compliance
+        section_description: OSHA, ANSI, ISO requirements and compliance standards
+        icon: shield-check
+        order: 10
   interactions:
     removes_contaminants:
       presentation: card
@@ -87,6 +92,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      sectionMetadata:
+        section_title: Effective Contaminants
+        section_description: Contamination types successfully removed
+        icon: droplet
+        order: 20
     works_on_materials:
       presentation: card
       items:
@@ -96,35 +106,50 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
+      sectionMetadata:
+        section_title: Compatible Materials
+        section_description: Materials optimized for these settings
+        icon: box
+        order: 30
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - challenge: Thermal shock and cracking
-          severity: critical
-          threshold_temperature: ΔT > 200-300°C rapid cooling
-          impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
-          solutions:
-          - Use pulse mode with 3-5 second cooling between passes
-          - Gradual power ramping (start 50W, increase 10W per pass)
-          - Preheat substrate to reduce thermal gradients
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Variable thermal conductivity
-          severity: medium
-          property_value: 0.8-120 W/m·K (150x variation between materials)
-          impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
-          solutions:
-          - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
-          - High conductivity ceramics (SiC, WC) tolerate higher power
-          - Test on scrap to determine cooling requirements
-        contamination_challenges:
-        - id: coating-residue-removal
-          type: challenge
-      _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
-        icon: triangle-exclamation
+      - id: coating-residue-removal
+        category: Contamination
+        challenge: Coating and residue removal
+        description: Varied absorption characteristics require adaptive approach
+        severity: medium
+        solutions:
+        - Start with medium power and adjust based on response
+        - Monitor real-time to prevent substrate damage
+        - Use multiple passes with progressively lower power
+      - category: Thermal Management
+        challenge: Thermal shock and cracking
+        description: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
+        severity: critical
+        solutions:
+        - Use pulse mode with 3-5 second cooling between passes
+        - Gradual power ramping (start 50W, increase 10W per pass)
+        - Preheat substrate to reduce thermal gradients
+        - Monitor for surface crazing; stop immediately if cracks appear
+        threshold: ΔT > 200-300°C rapid cooling
+      - category: Thermal Management
+        challenge: Variable thermal conductivity
+        description: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
+        severity: medium
+        solutions:
+        - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
+        - High conductivity ceramics (SiC, WC) tolerate higher power
+        - Test on scrap to determine cooling requirements
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 machine_settings:
   powerRange:
     description: Optimal average power for Silicon Nitride surface cleaning without thermal damage
@@ -254,51 +279,5 @@ machine_settings:
       in Laser & Photonics Reviews (2019).'
 component_summary: These settings utilize a 1064 nm wavelength for strong absorption in Silicon Nitride, with 100 W power
   and 10 ns pulses to ablate contaminants efficiently while minimizing thermal stress on the brittle ceramic.
-challenges:
-  thermal_management:
-  - challenge: Thermal shock and cracking
-    severity: critical
-    threshold_temperature: ΔT > 200-300°C rapid cooling
-    impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
-    solutions:
-    - Use pulse mode with 3-5 second cooling between passes
-    - Gradual power ramping (start 50W, increase 10W per pass)
-    - Preheat substrate to reduce thermal gradients
-    - Monitor for surface crazing; stop immediately if cracks appear
-  - challenge: Variable thermal conductivity
-    severity: medium
-    property_value: 0.8-120 W/m·K (150x variation between materials)
-    impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
-    solutions:
-    - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
-    - High conductivity ceramics (SiC, WC) tolerate higher power
-    - Test on scrap to determine cooling requirements
-  surface_characteristics:
-  - challenge: Surface defects and damage threshold
-    severity: high
-    impact: Micro-cracks, pores, and surface defects dramatically lower damage threshold
-    solutions:
-    - Inspect surface with magnification before cleaning
-    - Reduce power 30-40% for porous or aged ceramics
-    - Use multiple low-energy passes rather than single high-energy pass
-    - Polished ceramics tolerate 2-3x higher fluence than rough surfaces
-  - challenge: Porosity variation
-    severity: medium
-    porosity_range: 0-30% (dense vs porous ceramics)
-    impact: Porous ceramics trap contaminants deep in structure and scatter laser energy
-    solutions:
-    - Dense ceramics (0-5% porosity) clean easily at 100-150W
-    - Porous ceramics require multiple progressive passes
-    - Use crosshatch scan pattern for uniform penetration
-    - Chemical pre-treatment for deep contamination in porous ceramics
-  contamination_challenges:
-  - challenge: Coating and residue removal
-    severity: medium
-    impact: Hard coatings (PVD, thermal barrier) require high energy but risk substrate damage
-    solutions:
-    - First pass 120W fast (2000 mm/s) for bulk coating removal
-    - Second pass 80W slow (1000 mm/s) for residue
-    - Monitor for substrate exposure; adjust power accordingly
-    - PVD coatings may require chemical assist for complete removal
 slug: silicon-nitride-settings
-lastModified: '2026-01-03T14:28:01.853538'
+lastModified: '2026-01-03T15:17:31.197330'

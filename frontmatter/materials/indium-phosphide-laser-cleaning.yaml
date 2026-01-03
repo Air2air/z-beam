@@ -1,8 +1,8 @@
 id: indium-phosphide-laser-cleaning
 name: Indium Phosphide
 category: semiconductor
-datePublished: '2026-01-03T22:26:24.934087Z'
-dateModified: '2026-01-03T22:26:24.934087Z'
+datePublished: '2026-01-03T23:42:17.936028Z'
+dateModified: '2026-01-03T23:42:17.936028Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/semiconductor/compound/indium-phosphide-laser-cleaning
@@ -59,7 +59,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -260,6 +260,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -274,12 +281,53 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-avoid-damaging-indium-phosphide-during-la
+        question: How do I avoid damaging Indium Phosphide during laser cleaning?
+        answer: I've seen laser cleaning go wrong on Indium Phosphide if you push too hard. Start low on power to watch its
+          response without cracking the surface. This material tends to absorb heat evenly, so gradual passes restore cleanliness
+          safely compared to brittle semiconductors.
+        topic: How do I avoid damaging Indium Phosphide during la
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Todd Dunning
+          title: MA
+          expertise: *id001
+      - id: whats-the-best-way-to-remove-contaminants-from-ind
+        question: What's the best way to remove contaminants from Indium Phosphide wafers?
+        answer: When laser cleaning Indium Phosphide, you'll want to use short pulses first. This exposes the surface gently
+          and removes residues without altering the structure. I've found it works best on flat wafers, reducing haze unlike
+          with rougher compounds.
+        topic: What's the best way to remove contaminants from In
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: why-does-indium-phosphide-sometimes-show-uneven-cl
+        question: Why does Indium Phosphide sometimes show uneven cleaning results?
+        answer: Watch for uneven spots on Indium Phosphide during laser sessions. Its moderate reflectivity can scatter the
+          beam, leading to patchy removal compared to highly reflective materials. Adjust the angle carefully to reveal a
+          uniform finish across the whole piece.
+        topic: Why does Indium Phosphide sometimes show uneven cl
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -292,4 +340,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: indium-phosphide-laser-cleaning
-lastModified: '2026-01-03T14:26:24.934124'
+lastModified: '2026-01-03T15:42:17.936062'

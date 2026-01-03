@@ -1,8 +1,8 @@
 id: basalt-laser-cleaning
 name: Basalt
 category: stone
-datePublished: '2026-01-03T22:26:13.651592Z'
-dateModified: '2026-01-03T22:26:13.651592Z'
+datePublished: '2026-01-03T23:42:05.446120Z'
+dateModified: '2026-01-03T23:42:05.446120Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/stone/igneous/basalt-laser-cleaning
@@ -58,7 +58,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -308,21 +308,58 @@ relationships:
       presentation: card
       items:
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: bitumen-tar-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: ceramic-glaze-contamination
+        frequency: common
+        severity: moderate
       - id: concrete-dust-contamination
+        frequency: common
+        severity: moderate
       - id: efflorescence-contamination
+        frequency: common
+        severity: moderate
       - id: fertilizer-residue-contamination
+        frequency: common
+        severity: moderate
       - id: fire-damage-contamination
+        frequency: common
+        severity: moderate
       - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-stain-contamination
+        frequency: common
+        severity: moderate
       - id: salt-residue-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -363,12 +400,37 @@ relationships:
         - id: geotechnical-engineering
           name: Geotechnical Engineering
           description: Geotechnical Engineering industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: weathered-basalt-surfaces
+        question: How does laser cleaning restore the natural appearance of weathered basalt surfaces?
+        answer: Laser cleaning employs precise energy pulses to eliminate dirt, grime, and oxidation layers from basalt, particularly
+          without harming the stone itself. Notably, this non-abrasive approach restores the original dark luster and texture,
+          thus boosting durability while safeguarding historical or architectural value in just a few sessions.
+        topic: weathered basalt surfaces
+        severity: high
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise: *id001
+      - id: brittleness-issues
+        question: Can laser cleaning address the brittleness issues in basalt structures?
+        answer: 'Yes, but indirectly: it cleans contaminants that exacerbate cracking, thus improving surface integrity. However,
+          specifically for inherent brittleness, combine with sealants post-cleaning to boost resistance.'
+        topic: brittleness issues
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -393,12 +455,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921602Z'
   normalization_applied: true
@@ -433,4 +494,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: basalt-laser-cleaning
-lastModified: '2026-01-03T14:26:13.651626'
+lastModified: '2026-01-03T15:42:05.446156'

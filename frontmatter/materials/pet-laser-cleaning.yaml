@@ -1,8 +1,8 @@
 id: pet-laser-cleaning
 name: PET
 category: plastic
-datePublished: '2026-01-03T22:26:25.150918Z'
-dateModified: '2026-01-03T22:26:25.150918Z'
+datePublished: '2026-01-03T23:42:18.173151Z'
+dateModified: '2026-01-03T23:42:18.173151Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/plastic/thermoplastic/pet-laser-cleaning
@@ -56,7 +56,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -270,9 +270,22 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -287,12 +300,53 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: why-does-pet-sometimes-warp-during-laser-cleaning
+        question: Why does PET sometimes warp during laser cleaning?
+        answer: I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the
+          laser heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this,
+          keep the laser moving steadily and use shorter pulses so the material stays intact without deforming.
+        topic: Why does PET sometimes warp during laser cleaning?
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise: *id001
+      - id: how-do-i-prepare-pet-surfaces-for-effective-laser-
+        question: How do I prepare PET surfaces for effective laser cleaning?
+        answer: When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This
+          works best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove them
+          cleanly without residue. I've found wiping with a mild solvent beforehand makes the process faster and leaves a
+          spotless finish every time.
+        topic: 'How do I prepare PET surfaces for effective laser '
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: whats-the-best-speed-for-laser-cleaning-pet-to-avo
+        question: What's the best speed for laser cleaning PET to avoid damage?
+        answer: Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser
+          plastics, PET's flexibility means it
+        topic: What's the best speed for laser cleaning PET to av
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -305,4 +359,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: pet-laser-cleaning
-lastModified: '2026-01-03T14:26:25.150951'
+lastModified: '2026-01-03T15:42:18.173187'

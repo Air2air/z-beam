@@ -1,8 +1,8 @@
 id: gallium-nitride-laser-cleaning
 name: Gallium Nitride
 category: semiconductor
-datePublished: '2026-01-03T22:26:25.461740Z'
-dateModified: '2026-01-03T22:26:25.461740Z'
+datePublished: '2026-01-03T23:42:18.548496Z'
+dateModified: '2026-01-03T23:42:18.548496Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/semiconductor/compound/gallium-nitride-laser-cleaning
@@ -67,7 +67,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -274,7 +274,16 @@ relationships:
       presentation: card
       items:
       - id: environmental-dust-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   safety:
     regulatory_standards:
       presentation: card
@@ -289,12 +298,53 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-prepare-gallium-nitride-for-safe-laser-cl
+        question: How do I prepare Gallium Nitride for safe laser cleaning?
+        answer: When laser cleaning Gallium Nitride, we typically start by ensuring the surface is free from loose debris
+          to avoid uneven heating. We've found that a gentle pre-wipe with a soft cloth helps, especially compared to more
+          brittle semiconductors that might crack under initial stress. This step sets up the material's tough, heat-resistant
+          nature for effective contaminant removal without risking subsurface damage.
+        topic: How do I prepare Gallium Nitride for safe laser cl
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: what-causes-uneven-cleaning-on-gallium-nitride-dur
+        question: What causes uneven cleaning on Gallium Nitride during laser sessions?
+        answer: Uneven cleaning often happens if the laser power isn't adjusted for Gallium Nitride's reflective surface,
+          which bounces more energy than on absorbent materials like silicon. We recommend scanning in multiple passes at
+          lower intensity to distribute heat evenly across its dense structure. In our experience, this prevents hot spots
+          that could alter the material's strong mechanical properties.
+        topic: What causes uneven cleaning on Gallium Nitride dur
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: can-laser-cleaning-change-gallium-nitrides-semicon
+        question: Can laser cleaning change Gallium Nitride's semiconductor performance?
+        answer: Laser cleaning Gallium Nitride preserves its electrical conductivity when
+        topic: Can laser cleaning change Gallium Nitride's semico
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -307,4 +357,4 @@ regulatory_standards:
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
 slug: gallium-nitride-laser-cleaning
-lastModified: '2026-01-03T14:26:25.461774'
+lastModified: '2026-01-03T15:42:18.548535'

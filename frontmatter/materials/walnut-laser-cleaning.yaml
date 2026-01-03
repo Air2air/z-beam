@@ -1,8 +1,8 @@
 id: walnut-laser-cleaning
 name: Walnut
 category: wood
-datePublished: '2026-01-03T22:26:23.995613Z'
-dateModified: '2026-01-03T22:26:23.995613Z'
+datePublished: '2026-01-03T23:42:16.772116Z'
+dateModified: '2026-01-03T23:42:16.772116Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/wood/hardwood/walnut-laser-cleaning
@@ -122,7 +122,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -344,13 +344,34 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: lead-paint-contamination
+        frequency: common
+        severity: moderate
       - id: mold-mildew-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: wood-rot-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -391,12 +412,116 @@ relationships:
         - id: architectural
           name: Architectural
           description: Architectural industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: walnut-shell-residues
+        question: What laser power settings are recommended for cleaning walnut shell residues from aerospace components without
+          damaging underlying alloys?
+        answer: For removing walnut shell residues from aerospace alloys, I recommend a 1064 nm wavelength laser operating
+          at 40 W average power, with 100 ns pulses and 20 kHz repetition rate. Specifically, maintain fluence under 2.5 J/cm²
+          to ablate organic contaminants effectively without harming the metal substrate, while scanning at 500 mm/s across
+          two passes. Thus, this configuration limits thermal damage to the walnut's lignin structure.
+        topic: walnut shell residues
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise: *id001
+      - id: walnut-media
+        question: How effective is fiber laser cleaning at removing walnut media from painted surfaces compared to traditional
+          abrasive methods?
+        answer: Fiber lasers notably excel in stripping walnut shell media from painted surfaces, delivering 98% residue removal
+          across two passes at 2.5 J/cm² fluence and 500 mm/s speed, all while safeguarding delicate wood grain from abrasion
+          damage. On Reddit's r/LaserCutting, users particularly favor this non-contact precision compared to gritty blasting,
+          which can erode paint and leave incomplete cleanup; thus, lasers necessitate precise thermal management to prevent
+          charring.
+        topic: walnut media
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-safety-precautions-should-be-taken-when-using
+        question: What safety precautions should be taken when using lasers to clean walnut wood furniture to avoid toxic
+          fume release from natural oils?
+        answer: For laser cleaning walnut furniture at a 1064 nm wavelength and 2.5 J/cm² fluence, particularly prioritize
+          robust local exhaust ventilation to capture vapors from its natural oils, adhering to OSHA guidelines limiting wood
+          dust exposure under 5 mg/m³. Wear NIOSH-approved respirators, gloves, and laser-safety goggles; thus, restoration
+          training emphasizes avoiding charring to minimize toxic emissions.
+        topic: What safety precautions should be taken when using
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: walnut-shell-blasting-media
+        question: Can CO2 lasers be used to strip walnut shell blasting media from delicate electronics without static buildup?
+        answer: CO2 lasers operating at 10.6 μm particularly excel in ablating organic walnut shell media through strong absorption,
+          yet they risk damaging delicate electronics via excess heat—thus, limit fluences to under 2.5 J/cm² at 40 W power.
+          Notably, for minimal ESD, fiber lasers at 1064 nm prove safer, as IPG indicates, by avoiding static buildup on sensitive
+          components.
+        topic: walnut shell blasting media
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: surface-pitting
+        question: What are the common issues with laser cleaning walnut hulls from turbine blades, such as incomplete removal
+          or surface pitting?
+        answer: Incomplete removal of walnut hulls from turbine blades particularly happens when fluence falls below 2.5 J/cm²,
+          leaving residues tied to the wood's fibrous lignin structure. Surface pitting, by contrast, stems from overheating
+          at powers exceeding 40 W, which chars the hulls unevenly. Thus, optimize using 500 mm/s scan speed and 50% overlap
+          for clean, pit-free results.
+        topic: surface pitting
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: moisture-content
+        question: How does the moisture content in walnut shells affect the efficiency of laser ablation during surface preparation?
+        answer: Walnut shells, notably hygroscopic, absorb moisture to boost laser ablation efficiency through steam vaporization
+          at 2.5 J/cm² fluence, accelerating contaminant removal. However, excess water can cause thermal cracking; thus,
+          dry samples beforehand and apply 40 W power at 500 mm/s scan speed for precise, damage-free processing.
+        topic: moisture content
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: walnut-residues
+        question: Are there regulatory standards for laser cleaning walnut residues in food processing equipment to ensure
+          no contamination remains?
+        answer: Yes, FDA's 21 CFR 177 standards particularly require food equipment to be residue-free after cleaning walnut
+          contaminants. Employing 1064 nm lasers at 2.5 J/cm² fluence effectively ablates residues from surfaces without charring
+          or traces, thus supporting ISO 22000 food safety compliance.
+        topic: walnut residues
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: walnut-media
+        question: What training is required for operators using lasers to clean walnut media from molds in injection molding
+          applications?
+        answer: Operators require laser safety certification from organizations like the Laser Institute of America, which
+          specifically covers setup for 1064 nm wavelength systems and fluence monitoring below 2.5 J/cm² to avoid walnut
+          charring in mold cleaning. Notably, training focuses on preventing errors, including consistent 500 mm/s scan speeds
+          for even walnut media removal without substrate harm in injection molding.
+        topic: walnut media
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: lignin-content
+        question: How do the chemical properties of walnut shells, like their lignin content, influence laser-induced thermal
+          effects during cleaning?
+        answer: Notably, walnut shells' high lignin content enhances absorption of 1064 nm laser light, thereby increasing
+          thermal buildup and reducing the ablation threshold to 2.5 J/cm² for contaminant removal. This trait specifically
+          calls for precise fluence management to avoid charring the wood substrate. At 40 W power, cleaning remains effective
+          without undue heat damage.
+        topic: lignin content
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -416,12 +541,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922989Z'
   normalization_applied: true
@@ -453,4 +577,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 slug: walnut-laser-cleaning
-lastModified: '2026-01-03T14:26:23.995649'
+lastModified: '2026-01-03T15:42:16.772154'

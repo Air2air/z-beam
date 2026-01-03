@@ -1,7 +1,7 @@
 id: yttria-stabilized-zirconia-settings
 name: Yttria-Stabilized Zirconia
-datePublished: '2026-01-03T22:28:04.320337Z'
-dateModified: '2026-01-03T22:28:04.320337Z'
+datePublished: '2026-01-03T23:17:34.274266Z'
+dateModified: '2026-01-03T23:17:34.274266Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/technical/yttria-stabilized-zirconia-settings
@@ -78,6 +78,11 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      sectionMetadata:
+        section_title: Safety Standards & Compliance
+        section_description: OSHA, ANSI, ISO requirements and compliance standards
+        icon: shield-check
+        order: 10
   interactions:
     removes_contaminants:
       presentation: card
@@ -86,6 +91,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      sectionMetadata:
+        section_title: Effective Contaminants
+        section_description: Contamination types successfully removed
+        icon: droplet
+        order: 20
     works_on_materials:
       presentation: card
       items:
@@ -95,17 +105,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-  operational:
-    common_challenges:
-      presentation: descriptive
-      items:
-      - - Requires careful power calibration to prevent material damage
-        - Monitor surface temperature during processing
-        - Verify cleaning effectiveness through inspection
-      _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
-        icon: triangle-exclamation
+      sectionMetadata:
+        section_title: Compatible Materials
+        section_description: Materials optimized for these settings
+        icon: box
+        order: 30
+  operational: {}
 machine_settings:
   powerRange:
     value: 80
@@ -229,4 +234,4 @@ machine_settings:
 component_summary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise ablation of contaminants
   from Yttria Stabilized Zirconia while minimizing thermal diffusion to prevent cracking in this brittle ceramic.
 slug: yttria-stabilized-zirconia-settings
-lastModified: '2026-01-03T14:28:04.320374'
+lastModified: '2026-01-03T15:17:34.274304'

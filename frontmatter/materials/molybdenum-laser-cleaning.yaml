@@ -1,8 +1,8 @@
 id: molybdenum-laser-cleaning
 name: Molybdenum
 category: metal
-datePublished: '2026-01-03T22:26:18.143712Z'
-dateModified: '2026-01-03T22:26:18.143712Z'
+datePublished: '2026-01-03T23:42:10.408095Z'
+dateModified: '2026-01-03T23:42:10.408095Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/non-ferrous/molybdenum-laser-cleaning
@@ -120,7 +120,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -392,6 +392,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -426,12 +433,109 @@ relationships:
         - id: tooling-and-dies
           name: Tooling and Dies
           description: Tooling and Dies industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: damaging-the-base-metal
+        question: What are the best laser parameters (wavelength, power, pulse duration) for cleaning oxides and contaminants
+          from molybdenum surfaces without damaging the base metal?
+        answer: Given molybdenum's high reflectivity and melting point, I recommend a 1064 nm wavelength with nanosecond pulses
+          at 5.1 J/cm² fluence. Notably, this ablates oxides effectively, while the 10 ns pulse width specifically minimizes
+          thermal diffusion to prevent micro-cracking in the 2623°C base metal.
+        topic: damaging the base metal
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise: *id001
+      - id: low-sublimation-point
+        question: How do you safely remove the white, powdery molybdenum oxide (MoO3) with a laser, given its low sublimation
+          point and potential health risks?
+        answer: To safely remove MoO₃, employ a 100W nanosecond laser at 5.1 J/cm² for ablating the oxide with minimal heat
+          buildup. Notably, this procedure requires industrial fume extraction featuring HEPA filtration, since the oxide
+          sublimes around 700°C, generating hazardous inhalable particles that demand operator respiratory protection.
+        topic: low sublimation point
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: surface-quality-(sa)
+        question: Can laser cleaning be used to prepare a molybdenum surface for welding or brazing, and what surface quality
+          (Sa) is achievable?
+        answer: Laser cleaning particularly excels at preparing molybdenum for welding, removing oxides and hydrocarbons via
+          ~5.1 J/cm² fluence. This thus yields a chemically active surface, with final roughness (Sa) typically under 1.0
+          µm—ideal for high-integrity brazing.
+        topic: surface quality (Sa)
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: fiber-laser
+        question: Why is molybdenum sometimes difficult to clean with a fiber laser, and are there advantages to using a green
+          or UV laser instead?
+        answer: Molybdenum exhibits high reflectivity, particularly at 1064 nm, which renders standard fiber lasers inefficient.
+          Green or UV wavelengths, notably, yield much higher absorption, thus enabling effective cleaning at lower power—around
+          100 W—with minimal thermal impact on the substrate.
+        topic: fiber laser
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: creating-micro-cracks
+        question: What is the risk of creating micro-cracks or a hardened layer on molybdenum components during laser cleaning?
+        answer: By controlling pulses to a 10 ns duration and 5.1 J/cm² fluence, thermal stress is minimized. Particularly
+          in brittle molybdenum, this thus prevents micro-cracking through a limited heat-affected zone and no surface hardening.
+        topic: creating micro-cracks
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: molybdenum-re-oxidize
+        question: After laser cleaning, how quickly does molybdenum re-oxidize, and are there recommended passivation methods
+          to prevent this?
+        answer: Freshly laser-cleaned molybdenum re-oxidizes rapidly in air, notably forming a thin oxide layer within minutes.
+          Thus, for long-term stability, process components under inert atmosphere or apply passivation treatment right after
+          using your 1064 nm laser system.
+        topic: molybdenum re-oxidize
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: sintered-components
+        question: Is laser cleaning suitable for delicate molybdenum parts, like thin foil, wire, or sintered components,
+          without causing distortion?
+        answer: Laser cleaning suits delicate molybdenum components well, but precise control remains critical. Particularly
+          for thin foils or porous sintered parts, adopt a low-power, high-speed strategy—around 100 W average power at 500
+          mm/s scan speed—to minimize heat input and avoid thermal distortion. Thus, proper fixturing is essential for managing
+          thermal stresses.
+        topic: sintered components
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: molybdenum-compared-to
+        question: What are the key differences in laser cleaning molybdenum compared to more common metals like steel or aluminum?
+        answer: Molybdenum, with its notably high melting point of 2623°C and inherent brittleness, demands precise fluence
+          control around 5.1 J/cm² to prevent thermal stress cracking—unlike more forgiving materials like steel or aluminum.
+          Particularly for optimal cleaning, a 100W, 1064nm laser scanned at 500 mm/s manages reflectivity while avoiding
+          substrate damage from excess heat.
+        topic: molybdenum compared to
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: residual-contamination
+        question: How do you verify the effectiveness of laser cleaning on molybdenum, and what analytical methods are used
+          to check for residual contamination?
+        answer: We first assess molybdenum laser cleaning effectiveness via visual inspection, notably for the restored metallic
+          luster. For quantitative evaluation, XPS proves essential, specifically to verify oxide removal and measure residual
+          carbon under 5 at%, while a contact angle test gauges the surface's renewed hydrophilicity.
+        topic: residual contamination
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -456,12 +560,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922222Z'
   normalization_applied: true
@@ -497,4 +600,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: molybdenum-laser-cleaning
-lastModified: '2026-01-03T14:26:18.143748'
+lastModified: '2026-01-03T15:42:10.408131'

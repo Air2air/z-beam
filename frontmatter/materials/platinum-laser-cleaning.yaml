@@ -1,8 +1,8 @@
 id: platinum-laser-cleaning
 name: Platinum
 category: metal
-datePublished: '2026-01-03T22:26:19.176974Z'
-dateModified: '2026-01-03T22:26:19.176974Z'
+datePublished: '2026-01-03T23:42:11.373788Z'
+dateModified: '2026-01-03T23:42:11.373788Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/non-ferrous/platinum-laser-cleaning
@@ -109,7 +109,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -384,32 +384,91 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: epoxy-residue-contamination
+        frequency: common
+        severity: moderate
       - id: fertilizer-residue-contamination
+        frequency: common
+        severity: moderate
       - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
       - id: graphite-marks-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: ink-stains-contamination
+        frequency: common
+        severity: moderate
       - id: insect-residue-contamination
+        frequency: common
+        severity: moderate
       - id: lime-scale-contamination
+        frequency: common
+        severity: moderate
       - id: mercury-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pesticide-residue-contamination
+        frequency: common
+        severity: moderate
       - id: plastic-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pollen-deposit-contamination
+        frequency: common
+        severity: moderate
       - id: radioactive-contamination
+        frequency: common
+        severity: moderate
       - id: rubber-residue-contamination
+        frequency: common
+        severity: moderate
       - id: salt-residue-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: silicone-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: tree-sap-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -450,12 +509,118 @@ relationships:
         - id: cultural-heritage
           name: Cultural Heritage
           description: Cultural Heritage industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: thin-platinum-coating
+        question: Can laser cleaning damage the thin platinum coating on medical devices or catalytic converters?
+        answer: In a practical way, laser cleaning avoids damaging platinum coatings by keeping fluence below the ablation
+          threshold, typically under 5 J/cm². This process employs nanosecond pulses at 1064 nm to minimize thermal stress
+          effectively. Scanning electron microscopy then verifies the underlying layer stays intact afterward.
+        topic: thin platinum coating
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: causing-micro-pitting
+        question: What laser wavelength (nm) and pulse duration work best for cleaning platinum jewelry without causing micro-pitting?
+        answer: For platinum jewelry, a practical choice is 1064 nm wavelength fiber lasers with 10 ns pulses at 5 J/cm² fluence.
+          This process balances the metal's high reflectivity while minimizing heat penetration. A 50 μm spot size paired
+          with 500 mm/s scanning prevents micro-pitting by limiting thermal buildup in the substrate.
+        topic: causing micro-pitting
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: chemical-purity
+        question: How do you safely remove oxidation layers from platinum crucibles used in laboratory settings without altering
+          their chemical purity?
+        answer: Laser cleaning at 5 J/cm² fluence efficiently removes platinum oxides, leaving no chemical residues behind.
+          This process keeps surface purity intact for high-temperature uses, unlike that method of acid treatment, which
+          can introduce contamination. The 1064 nm wavelength minimizes thermal effects on the substrate.
+        topic: chemical purity
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-safety-precautions-are-needed-when-laser-clea
+        question: What safety precautions are needed when laser cleaning platinum components that may have absorbed hazardous
+          materials in industrial processes?
+        answer: For platinum parts contaminated with arsenic, a practical setup involves Class III fume extraction and full-face
+          respirators. This process uses the 1064 nm wavelength at 5 J/cm² to efficiently remove hazards while cutting down
+          toxic fumes. Always run a material safety analysis first.
+        topic: What safety precautions are needed when laser clea
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: electrochemical-properties
+        question: Does laser cleaning affect the electrochemical properties of platinum electrodes used in scientific instruments?
+        answer: Actually, laser cleaning tuned to 5 J/cm² fluence boosts platinum's electrochemical performance in a straightforward
+          manner. This process clears contaminants while generating useful micro-roughness, thereby expanding the active surface
+          area without adding impurities that impair catalytic activity.
+        topic: electrochemical properties
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-is-the-maximum-safe-laser-power-density-for-c
+        question: What is the maximum safe laser power density for cleaning platinum spark plug electrodes without melting
+          or deforming them?
+        answer: As a laser cleaning expert from Indonesia, I've found that for platinum spark plug electrodes, the maximum
+          safe power density is around 150-200 W/cm² using a pulsed Nd:YAG laser at 1064 nm. This prevents melting or deformation
+          while effectively removing deposits—always test on samples first, ya.
+        topic: What is the maximum safe laser power density for c
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: how-effective-is-laser-cleaning-for-removing-carbo
+        question: How effective is laser cleaning for removing carbon buildup from platinum-rhodium thermocouple wires in
+          high-temperature applications?
+        answer: Laser cleaning offers a practical solution for platinum-rhodium thermocouples, applying ~5 J/cm² fluence to
+          remove carbon selectively without affecting the alloy. That method, non-contact by nature, maintains calibration
+          accuracy far superior to abrasive approaches, which often cause surface harm and alloy shifts.
+        topic: How effective is laser cleaning for removing carbo
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: stress-corrosion-cracking
+        question: Can laser cleaning create surface defects in platinum that lead to stress corrosion cracking in chemical
+          processing equipment?
+        answer: Using optimal 5 J/cm² fluence and 50% overlap, this process efficiently minimizes microstructural changes
+          in platinum. Yet, improper parameters may induce residual stress, heightening vulnerability to chemical attack.
+          Practical post-cleaning checks for micro-cracks are vital to safeguard chemical processing equipment integrity.
+        topic: stress corrosion cracking
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: platinum-recovery-scrap
+        question: What are the economic considerations for laser cleaning platinum recovery scrap versus traditional refining
+          methods?
+        answer: Laser cleaning offers a practical way to preserve over 99.9% of your platinum scrap, avoiding the heavy material
+          losses from chemical refining. A 100W, 1064nm system at 5 J/cm² makes this process dramatically faster. It skips
+          hazardous chemical costs, upholds the metal's purity, and delivers economic advantages for high-value recovery.
+        topic: platinum recovery scrap
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: intricate-platinum-jewelry-designs
+        question: How does laser cleaning compare to ultrasonic cleaning for removing polishing compounds from intricate platinum
+          jewelry designs?
+        answer: Laser cleaning proves practical for intricate platinum jewelry, accessing complex geometries that ultrasonic
+          methods overlook. With precise 50 μm spot control at 5 J/cm² fluence, it efficiently removes polishing compounds
+          without embedding residues. This process preserves platinum's premium surface finish while cutting manufacturing
+          cycle times substantially.
+        topic: intricate platinum jewelry designs
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -480,12 +645,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   micro_corruption_detected: '2025-10-27T23:53:01.654591Z'
   micro_issue: Truncated JSON structure detected in caption fields
@@ -524,4 +688,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: platinum-laser-cleaning
-lastModified: '2026-01-03T14:26:19.177010'
+lastModified: '2026-01-03T15:42:11.373823'

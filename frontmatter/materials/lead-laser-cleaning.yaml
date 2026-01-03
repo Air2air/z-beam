@@ -1,8 +1,8 @@
 id: lead-laser-cleaning
 name: Lead
 category: metal
-datePublished: '2026-01-03T22:26:17.275368Z'
-dateModified: '2026-01-03T22:26:17.275368Z'
+datePublished: '2026-01-03T23:42:09.506615Z'
+dateModified: '2026-01-03T23:42:09.506615Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/non-ferrous/lead-laser-cleaning
@@ -108,7 +108,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -393,32 +393,91 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: epoxy-residue-contamination
+        frequency: common
+        severity: moderate
       - id: fertilizer-residue-contamination
+        frequency: common
+        severity: moderate
       - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
       - id: graphite-marks-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: ink-stains-contamination
+        frequency: common
+        severity: moderate
       - id: insect-residue-contamination
+        frequency: common
+        severity: moderate
       - id: lime-scale-contamination
+        frequency: common
+        severity: moderate
       - id: mercury-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pesticide-residue-contamination
+        frequency: common
+        severity: moderate
       - id: plastic-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pollen-deposit-contamination
+        frequency: common
+        severity: moderate
       - id: radioactive-contamination
+        frequency: common
+        severity: moderate
       - id: rubber-residue-contamination
+        frequency: common
+        severity: moderate
       - id: salt-residue-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: silicone-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: tree-sap-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -459,12 +518,115 @@ relationships:
         - id: industrial-machinery
           name: Industrial Machinery
           description: Industrial Machinery industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: lead-based-paint-removal
+        question: Is laser cleaning safe for lead-based paint removal, and what specific safety measures are required?
+        answer: Cleaning lead-based paint with lasers demands utmost caution owing to the toxic fumes it produces. A notable
+          strategy involves a 1064 nm wavelength at 2.5 J/cm² fluence, which curbs particulate emission. Operators should
+          always use high-efficiency local exhaust ventilation alongside supplied-air respirators for essential safety.
+        topic: lead-based paint removal
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: without-vaporizing-it
+        question: What laser parameters (wavelength, pulse duration, power) work best for removing lead contamination without
+          vaporizing it?
+        answer: For lead decontamination, employ nanosecond pulses at 1064 nm wavelength with fluence around 2.5 J/cm². This
+          configuration, using a fiber laser, effectively ablates surface contaminants while the short pulse duration minimizes
+          thermal penetration, thus preventing hazardous vaporization of the underlying lead substrate.
+        topic: without vaporizing it
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: lead-particles
+        question: How do you properly capture and filter lead particles generated during laser cleaning?
+        answer: It's notable that for lead particle capture, we rely on HEPA filtration rated for nanoparticles below 100nm.
+          Essential to the vacuum system is sustaining high velocity with our standard 50 μm spot size and 500 mm/s scan speed,
+          thereby containing the toxic plume effectively.
+        topic: lead particles
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: airborne-lead-levels
+        question: Does laser cleaning create airborne lead levels that exceed OSHA exposure limits?
+        answer: Yes, laser ablation of lead at 2.5 J/cm² can generate hazardous aerosols. Continuous air monitoring is mandatory,
+          as particulate levels often surpass the OSHA PEL of 50 μg/m³. Proper local exhaust ventilation is absolutely essential
+          to maintain compliance.
+        topic: airborne lead levels
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: lead-removal
+        question: What are the advantages of laser cleaning over traditional methods (blasting, chemical stripping) for lead
+          removal?
+        answer: Laser cleaning delivers a notable reduction in hazardous waste volume versus traditional methods. Employing
+          our 1064 nm wavelength and 2.5 J/cm² fluence ensures selective removal free of media contamination—essential for
+          delicate uses like nuclear components. In turn, this approach curbs secondary waste, boosting safety and efficiency.
+        topic: lead removal
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: driving-it-deeper
+        question: Can laser cleaning effectively remove lead from porous surfaces like concrete or wood without driving it
+          deeper?
+        answer: Proper laser parameters like 2.5 J/cm² fluence and 10 ns pulses effectively ablate surface lead without significant
+          substrate penetration. For porous materials like concrete, we recommend initial surface sealing. Post-process verification
+          testing is essential to confirm complete decontamination.
+        topic: driving it deeper
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-personal-protective-equipment-(ppe)-is-specif
+        question: What personal protective equipment (PPE) is specifically needed for laser cleaning of lead-containing materials?
+        answer: Due to lead's notable toxicity, don a P100 respirator and disposable coveralls without fail. Our 1064 nm laser,
+          running at 100 W, produces dangerous fumes and fine particulates. Rigorous decontamination of your PPE and equipment
+          remains absolutely essential after every session.
+        topic: What personal protective equipment (PPE) is specif
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: effectively-removed-lead
+        question: How do you test and verify that laser cleaning has effectively removed lead to meet regulatory standards?
+        answer: We confirm lead removal via XRF analysis and swipe tests, aiming for clearance under 10 µg/100 cm². Our 1064
+          nm laser system, at 2.5 J/cm², delivers notable decontamination. Documenting all parameters properly is essential
+          for regulatory approval.
+        topic: effectively removed lead
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: laser-ablated-lead-debris
+        question: What waste classification does laser-ablated lead debris fall under, and how should it be disposed?
+        answer: Laser-ablated lead debris stands as a notable hazardous waste under classification D008. For safe handling,
+          it requires sealing in certified containers during transport and disposal. Notably, the fine particulate produced
+          at 2.5 J/cm² fluence lends itself to recycling by specialized facilities—the essential preferred path for this toxic
+          metal.
+        topic: laser-ablated lead debris
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: confined-spaces
+        question: Are there specific laser safety considerations when cleaning lead in confined spaces?
+        answer: Cleaning lead in confined spaces requires extreme caution. Notably, the 1064 nm wavelength at 100W power produces
+          highly concentrated toxic fumes, necessitating continuous atmospheric monitoring. It is essential to deploy enhanced
+          local exhaust ventilation and emergency protocols, since airborne lead levels can swiftly surpass 500 µg/m³, the
+          standard occupational exposure limit.
+        topic: confined spaces
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -489,12 +651,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922132Z'
   normalization_applied: true
@@ -529,4 +690,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: lead-laser-cleaning
-lastModified: '2026-01-03T14:26:17.275404'
+lastModified: '2026-01-03T15:42:09.506650'

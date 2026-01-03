@@ -1,8 +1,8 @@
 id: bronze-laser-cleaning
 name: Bronze
 category: metal
-datePublished: '2026-01-03T22:26:14.346746Z'
-dateModified: '2026-01-03T22:26:14.346746Z'
+datePublished: '2026-01-03T23:42:06.233429Z'
+dateModified: '2026-01-03T23:42:06.233429Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/metal/non-ferrous/bronze-laser-cleaning
@@ -56,7 +56,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -321,35 +321,100 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: bronze-patina-contamination
+        frequency: common
+        severity: moderate
       - id: carbon-soot-contamination
+        frequency: common
+        severity: moderate
       - id: chemical-stains-contamination
+        frequency: common
+        severity: moderate
       - id: copper-patina-contamination
+        frequency: common
+        severity: moderate
       - id: epoxy-residue-contamination
+        frequency: common
+        severity: moderate
       - id: fertilizer-residue-contamination
+        frequency: common
+        severity: moderate
       - id: graffiti-paint-contamination
+        frequency: common
+        severity: moderate
       - id: graphite-marks-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: ink-stains-contamination
+        frequency: common
+        severity: moderate
       - id: insect-residue-contamination
+        frequency: common
+        severity: moderate
       - id: lime-scale-contamination
+        frequency: common
+        severity: moderate
       - id: mercury-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pesticide-residue-contamination
+        frequency: common
+        severity: moderate
       - id: plastic-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pollen-deposit-contamination
+        frequency: common
+        severity: moderate
       - id: radioactive-contamination
+        frequency: common
+        severity: moderate
       - id: rubber-residue-contamination
+        frequency: common
+        severity: moderate
       - id: salt-residue-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: silicone-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: silver-plating-contamination
+        frequency: common
+        severity: moderate
       - id: tree-sap-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -378,12 +443,38 @@ relationships:
         - id: musical-instruments
           name: Musical Instruments
           description: Musical Instruments industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-makes-bronze-a-reliable-metal-for-industrial-
+        question: What makes bronze a reliable metal for industrial use?
+        answer: Bronze is a copper-tin alloy we often turn to in manufacturing. It holds up well in tools, fittings, and even
+          marine parts because it resists corrosion. Density sits around 8.8 g/cm³, so pieces stay sturdy without getting
+          too heavy. Porosity hovers at about 0.5%, which means fewer voids that could trap dirt or weaken the structure.
+        topic: 'What makes bronze a reliable metal for industrial '
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise: *id001
+      - id: how-do-we-clean-bronze-with-lasers
+        question: How do we clean bronze with lasers?
+        answer: Laser cleaning works great here. You apply roughly 100 W power to remove rust or grime from surfaces. This
+          method clears contaminants fast and leaves the base metal intact. It suits restoration projects, like old statues,
+          without harsh chemicals. Just watch the settings to avoid heating the alloy too much.
+        topic: How do we clean bronze with lasers?
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -408,12 +499,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921726Z'
   normalization_applied: true
@@ -450,4 +540,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: bronze-laser-cleaning
-lastModified: '2026-01-03T14:26:14.346781'
+lastModified: '2026-01-03T15:42:06.233465'

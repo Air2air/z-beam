@@ -1,7 +1,7 @@
 id: kevlar-reinforced-polymer-settings
 name: Kevlar-Reinforced Polymer
-datePublished: '2026-01-03T22:27:59.295083Z'
-dateModified: '2026-01-03T22:27:59.295083Z'
+datePublished: '2026-01-03T23:17:28.124046Z'
+dateModified: '2026-01-03T23:17:28.124046Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/kevlar-reinforced-polymer-settings
@@ -80,6 +80,11 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      sectionMetadata:
+        section_title: Safety Standards & Compliance
+        section_description: OSHA, ANSI, ISO requirements and compliance standards
+        icon: shield-check
+        order: 10
   interactions:
     removes_contaminants:
       presentation: card
@@ -88,6 +93,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      sectionMetadata:
+        section_title: Effective Contaminants
+        section_description: Contamination types successfully removed
+        icon: droplet
+        order: 20
     works_on_materials:
       presentation: card
       items:
@@ -97,22 +107,50 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
+      sectionMetadata:
+        section_title: Compatible Materials
+        section_description: Materials optimized for these settings
+        icon: box
+        order: 30
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - id: matrix-degradation
-          type: challenge
-        - id: anisotropic-thermal
-          type: challenge
-        contamination_challenges:
-        - id: resin-contaminant-removal
-          type: challenge
-      _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
-        icon: triangle-exclamation
+      - id: matrix-degradation
+        category: Thermal Management
+        challenge: Matrix degradation and delamination
+        description: Structural integrity loss, fiber exposure
+        severity: high
+        solutions:
+        - Use low fluence (<2 J/cm²) to stay below matrix damage threshold
+        - Short pulse durations (<50 ns) for surface-only interaction
+        - Multiple light passes instead of aggressive single pass
+      - id: anisotropic-thermal
+        category: Thermal Management
+        challenge: Anisotropic thermal properties
+        description: Uneven heating and fiber/matrix damage risk
+        severity: medium
+        solutions:
+        - Optimize scan direction relative to fiber orientation
+        - Use lower fluence with multiple passes
+        - Monitor real-time temperature
+      - id: resin-contaminant-removal
+        category: Contamination
+        challenge: Resin-based contaminant removal
+        description: Resin carbonizes easily, requires careful power control
+        severity: medium
+        solutions:
+        - Use low fluence (1-2 J/cm²) to avoid carbonization
+        - Short pulse durations for precise removal
+        - Multiple passes with cooling between
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 machine_settings:
   powerRange:
     description: Optimal average power for Kevlar-Reinforced Polymer surface cleaning without thermal damage
@@ -235,51 +273,5 @@ machine_settings:
       Process optimization in Opt. Laser Technol. (2021); standards from scanning system manuals like Scanlab.'
 component_summary: These settings, featuring moderate 50 W power and 15 ns pulses at 1064 nm, enable gentle ablation of contaminants
   from Kevlar Reinforced Polymer while minimizing thermal degradation of its fiber-matrix composite.
-challenges:
-  thermal_management:
-  - challenge: Matrix degradation and delamination
-    severity: critical
-    threshold_temperature: Polymer matrix 150-350°C, ceramic matrix >1000°C
-    impact: Heat causes matrix decomposition, fiber-matrix debonding, and layer separation
-    solutions:
-    - Use pulse mode with 5-10 second cooling for polymer-matrix composites
-    - Reduce power by 40-50% compared to monolithic materials
-    - Monitor for discoloration, bubbling, or layer lifting
-    - Ceramic and metal-matrix composites tolerate higher power
-  - challenge: Anisotropic thermal properties
-    severity: high
-    property_value: 10-100x variation parallel vs perpendicular to fibers
-    impact: Heat conducts rapidly along fibers but poorly across layers
-    solutions:
-    - Scan parallel to fiber direction for best heat dissipation
-    - Use crosshatch pattern (0° and 90°) to identify fiber orientation
-    - Increase cooling time 2-3x when scanning perpendicular to fibers
-    - Carbon fiber composites require special attention due to electrical conductivity
-  surface_characteristics:
-  - challenge: Fiber exposure and damage
-    severity: high
-    impact: Aggressive cleaning exposes or damages reinforcing fibers
-    solutions:
-    - Use low energy density (0.5-2 J/cm²) to protect matrix
-    - Multiple gentle passes preferred over single aggressive pass
-    - Stop immediately if fibers become visible
-    - Fiber-rich surfaces (woven cloth) more sensitive than particle-filled
-  - challenge: Surface finish variability
-    severity: medium
-    impact: Gel coat, paint, or protective layers alter absorption and damage threshold
-    solutions:
-    - Test on edge or hidden area first
-    - Coated surfaces may require 50-100W initial pass for coating removal
-    - Bare composite requires 30-50% lower power
-    - Adjust parameters when transitioning between coated and uncoated areas
-  contamination_challenges:
-  - challenge: Resin-based contaminant removal
-    severity: medium
-    impact: Adhesives, sealants, and coatings chemically bond to matrix
-    solutions:
-    - First pass 80W fast (1500 mm/s) for bulk removal
-    - Second pass 50W slow (800 mm/s) for residue
-    - Chemical pre-treatment improves results for stubborn adhesives
-    - Monitor for matrix damage; stop if surface texture changes
 slug: kevlar-reinforced-polymer-settings
-lastModified: '2026-01-03T14:27:59.295121'
+lastModified: '2026-01-03T15:17:28.124080'

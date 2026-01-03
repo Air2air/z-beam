@@ -1,8 +1,8 @@
 id: quartz-glass-laser-cleaning
 name: Quartz Glass
 category: glass
-datePublished: '2026-01-03T22:26:20.578371Z'
-dateModified: '2026-01-03T22:26:20.578371Z'
+datePublished: '2026-01-03T23:42:12.647817Z'
+dateModified: '2026-01-03T23:42:12.647817Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/glass/soda-lime/quartz-glass-laser-cleaning
@@ -118,7 +118,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -361,6 +361,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -401,12 +408,114 @@ relationships:
         - id: high-temperature-processing
           name: High-Temperature Processing
           description: High-Temperature Processing industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: power/wavelength-settings
+        question: Can quartz glass be damaged by laser cleaning systems, and what power/wavelength settings are safe?
+        answer: Quartz glass handles up to 2.5 J/cm² fluence without damage in a straightforward manner. For safe operation,
+          stick to a 1064 nm near-IR wavelength and keep average power under 100 W to avoid devitrification. This process
+          of proper parameter control ensures contaminant removal efficiently while preserving substrate integrity.
+        topic: power/wavelength settings
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: protective-windows-and-lenses
+        question: Why is quartz glass used for laser cleaning system components like protective windows and lenses?
+        answer: Quartz glass components deliver straightforward optical clarity across UV to IR wavelengths, enduring intense
+          laser exposure up to 2.5 J/cm². Featuring an exceptionally low thermal expansion coefficient of 0.55 ppm/°C, it
+          ensures remarkable thermal stability and dimensional integrity during high-power 100W operations. This blend of
+          high transmission and laser damage resistance proves indispensable for protective windows and focusing lenses in
+          cleaning systems.
+        topic: protective windows and lenses
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: quartz-optics
+        question: How do you clean laser-contaminated quartz optics without damaging them?
+        answer: For quartz optics, a straightforward approach is to use nanosecond pulses at 1064 nm wavelength with fluence
+          below 2.5 J/cm². This selectively ablates contaminants, as the substrate's high transparency avoids damage. That
+          method works well, followed by isopropyl alcohol and lint-free wipes for final residue removal.
+        topic: quartz optics
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: contaminated-quartz-glass-surfaces
+        question: What happens if laser cleaning is performed on contaminated quartz glass surfaces?
+        answer: Contaminants such as metallic particles absorb 1064 nm laser energy far more than quartz, resulting in intense
+          localized heating. This process can create thermal shock that exceeds the material's fracture toughness, forming
+          micro-cracks. That method of precise fluence control below ~2.5 J/cm² is practical to prevent such damage.
+        topic: contaminated quartz glass surfaces
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: quartz-glass-transparency
+        question: Does quartz glass transparency affect laser cleaning effectiveness and safety?
+        answer: Quartz glass exhibits high transparency at 1064 nm, requiring practical fluence control around 2.5 J/cm² to
+          prevent beam passage through thin sections. That method also demands rigorous eye protection, since laser energy
+          transmits straight through the material.
+        topic: quartz glass transparency
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: laser-system-windows
+        question: How does quartz glass compare to other materials like sapphire for laser system windows?
+        answer: In a straightforward way, quartz glass delivers superior UV transmission and thermal shock resistance up to
+          1100°C, whereas sapphire brings greater hardness. For standard 1064 nm laser cleaning at 2.5 J/cm², fused silica
+          stands out as practical due to its lower cost and solid durability.
+        topic: laser system windows
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: quartz-optic-degradation
+        question: What are the signs of quartz optic degradation in laser cleaning systems?
+        answer: Clouding and discoloration straightforwardly signal cumulative thermal damage from fluence exceeding 2.5 J/cm².
+          This process heightens scatter, which lowers transmission efficiency and cleaning performance. That method of incorrect
+          50% overlap also causes pitting and coating damage, undermining the optic's integrity.
+        topic: quartz optic degradation
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: without-damaging-the-substrate
+        question: Can laser cleaning remove coatings or deposits from quartz surfaces without damaging the substrate?
+        answer: Yes, laser cleaning can effectively remove coatings or deposits from quartz surfaces without damaging the
+          substrate. Using controlled laser pulses, it ablates contaminants selectively, preserving quartz's delicate structure.
+          In my work here in Indonesia, we've successfully applied this for optical components, ya, with excellent results.
+        topic: without damaging the substrate
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: quartz-components
+        question: What safety precautions are needed when laser cleaning near quartz components?
+        answer: Keep fluence under 2.5 J/cm² in a straightforward manner to avoid damaging the quartz substrate. Use beam
+          dumps and complete optical enclosures practically to handle risky reflections and trap any flying debris. Watch
+          for surface wear continuously, since slight contamination can spark local heating and lasting optic harm at 1064
+          nm.
+        topic: quartz components
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: quartz-glass-purity
+        question: How does quartz glass purity (fused silica vs. natural quartz) affect laser cleaning applications?
+        answer: Fused silica, with superior UV transmission and low OH content (<5 ppm), enables efficiently 1064 nm laser
+          cleaning at 2.5 J/cm² without thermal stress. Natural quartz faces higher impurity inclusions, risking localized
+          absorption and micro-fractures that compromise this process integrity and may damage the substrate under standard
+          laser parameters.
+        topic: quartz glass purity
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -431,12 +540,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922525Z'
   normalization_applied: true
@@ -471,4 +579,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: quartz-glass-laser-cleaning
-lastModified: '2026-01-03T14:26:20.578408'
+lastModified: '2026-01-03T15:42:12.647852'

@@ -1,8 +1,8 @@
 id: crown-glass-laser-cleaning
 name: Crown Glass
 category: glass
-datePublished: '2026-01-03T22:26:15.384276Z'
-dateModified: '2026-01-03T22:26:15.384276Z'
+datePublished: '2026-01-03T23:42:07.389618Z'
+dateModified: '2026-01-03T23:42:07.389618Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/glass/soda-lime/crown-glass-laser-cleaning
@@ -115,7 +115,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -364,22 +364,61 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: biological-stains-contamination
+        frequency: common
+        severity: moderate
       - id: blood-residue-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: insect-residue-contamination
+        frequency: common
+        severity: moderate
       - id: lime-scale-contamination
+        frequency: common
+        severity: moderate
       - id: medical-disinfectant-contamination
+        frequency: common
+        severity: moderate
       - id: mineral-deposits-contamination
+        frequency: common
+        severity: moderate
       - id: pesticide-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pharmaceutical-residue-contamination
+        frequency: common
+        severity: moderate
       - id: plastic-residue-contamination
+        frequency: common
+        severity: moderate
       - id: pollen-deposit-contamination
+        frequency: common
+        severity: moderate
       - id: scale-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: silicone-buildup-contamination
+        frequency: common
+        severity: moderate
       - id: soap-scum-contamination
+        frequency: common
+        severity: moderate
       - id: tree-sap-contamination
+        frequency: common
+        severity: moderate
       - id: water-stain-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -420,12 +459,119 @@ relationships:
         - id: defense-systems
           name: Defense Systems
           description: Defense Systems industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-are-the-specific-laser-parameters-(wavelength
+        question: What are the specific laser parameters (wavelength, fluence, pulse duration) for safely cleaning contaminants
+          from Crown Glass without causing damage or microfractures?
+        answer: 'As a laser cleaning specialist from Indonesia, I suggest a practical approach: employ a Nd:YAG laser at 1064
+          nm wavelength, with fluence of 0.5-1.0 J/cm² and 5-10 ns pulse duration to safely remove contaminants from Crown
+          Glass. This process ablates dirt efficiently, avoiding thermal stress or microfractures, based on my hands-on work
+          in heritage restoration.'
+        topic: What are the specific laser parameters (wavelength
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: low-thermal-expansion-coefficient
+        question: How does the low thermal expansion coefficient of Crown Glass affect laser cleaning compared to other glass
+          types?
+        answer: Crown Glass features minimal thermal expansion, around 8.0 x 10⁻⁶/°C, which practically cuts down stress cracking
+          risks in laser cleaning. This process lets us apply a 1.2 J/cm² fluence safely for contaminant removal, avoiding
+          thermal shock issues that plague higher-expansion types like soda-lime.
+        topic: low thermal expansion coefficient
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: refractive-index-changes
+        question: Can laser cleaning cause permanent refractive index changes or optical distortion in Crown Glass components?
+        answer: Laser cleaning configured straightforward at 1.2 J/cm² fluence and 50 μm spot size prevents permanent refractive
+          index changes in Crown Glass. Practically, the focus is keeping parameters under the material's damage threshold,
+          which preserves optical integrity without distortion.
+        topic: refractive index changes
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: fingerprints-adhesives-coatings
+        question: What specific contaminants on Crown Glass (fingerprints, adhesives, coatings) respond best to laser cleaning
+          versus traditional methods?
+        answer: Laser cleaning offers a practical approach for removing organic residues, like fingerprints and thin adhesives,
+          from Crown Glass. This process employs a 1064 nm wavelength at 1.2 J/cm² to ablate contaminants efficiently without
+          substrate damage, unlike solvents that often leave streaks or demand mechanical contact.
+        topic: fingerprints, adhesives, coatings
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: crown-glass-compositions
+        question: Are there particular Crown Glass compositions (e.g., BK7, other crown variants) that are more or less suitable
+          for laser cleaning?
+        answer: BK7's minimal dopants yield excellent 1064 nm transmission straightforwardly, enabling safe cleaning at 1.2
+          J/cm². By contrast, cerium or other absorbing ion variants risk thermal stress, so they demand significantly lower
+          fluence efficiently to prevent subsurface damage.
+        topic: Crown Glass compositions
+        severity: high
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: what-safety-considerations-are-unique-to-laser-cle
+        question: What safety considerations are unique to laser cleaning Crown Glass compared to metals or other materials?
+        answer: For crown glass, maintaining fluence strictly below 1.2 J/cm² is essential to avoid subsurface fractures.
+          Its transparency at 1064 nm poses major reflection risks, and brittle failure produces hazardous fine particulates,
+          requiring practical containment plus real-time monitoring unlike that method for metals.
+        topic: What safety considerations are unique to laser cle
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: how-do-you-verify-the-surface-quality-and-optical-
+        question: How do you verify the surface quality and optical performance of Crown Glass after laser cleaning?
+        answer: To verify Crown Glass quality, we apply white-light interferometry straightforwardly for surface roughness
+          below 1 nm RMS, alongside spectrophotometry ensuring optical transmission exceeds 99.5%. This process of non-destructive
+          microscopic inspection at 200x magnification rules out subsurface cracking from 1.2 J/cm² fluence.
+        topic: 'How do you verify the surface quality and optical '
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: high-value-optical-components
+        question: What are the economic considerations of laser cleaning Crown Glass versus traditional cleaning methods for
+          high-value optical components?
+        answer: Laser cleaning, with its higher initial investment, provides practical superior economics for Crown Glass
+          optics. This process offers precise 1.2 J/cm² fluence control to eliminate consumable costs efficiently, prevent
+          surface damage, and maximize yield plus throughput in high-value manufacturing such as aerospace components.
+        topic: high-value optical components
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: anti-reflection-coatings
+        question: Can laser cleaning be used to remove anti-reflection coatings or other thin films from Crown Glass without
+          damaging the substrate?
+        answer: Laser cleaning offers a practical approach to removing anti-reflection coatings from Crown Glass via selective
+          ablation at 1.2 J/cm². Nanosecond pulses at 1064 nm precisely target the thin film for energy absorption, keeping
+          the transparent substrate intact. In this process, controlling parameters such as 50 µm spot size and 500 mm/s scan
+          speed ensures the glass surface stays pristine.
+        topic: anti-reflection coatings
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: subsurface-damage
+        question: What are the limitations of laser cleaning for Crown Glass with existing surface defects or subsurface damage?
+        answer: Pre-existing flaws in Crown Glass significantly lower the safe operational fluence below the typical 1.2 J/cm²
+          threshold. Subsurface damage absorbs 1064 nm laser energy, sparking localized thermal stress and catastrophic crack
+          propagation. A practical pre-cleaning assessment via microscopy is vital to detect and map these defects for straightforward
+          parameter tweaks.
+        topic: subsurface damage
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -450,12 +596,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921859Z'
   normalization_applied: true
@@ -491,4 +636,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: crown-glass-laser-cleaning
-lastModified: '2026-01-03T14:26:15.384311'
+lastModified: '2026-01-03T15:42:07.389655'

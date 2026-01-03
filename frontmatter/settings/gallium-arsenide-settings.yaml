@@ -1,7 +1,7 @@
 id: gallium-arsenide-settings
 name: Gallium Arsenide
-datePublished: '2026-01-03T22:27:58.711387Z'
-dateModified: '2026-01-03T22:27:58.711387Z'
+datePublished: '2026-01-03T23:17:27.384890Z'
+dateModified: '2026-01-03T23:17:27.384890Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/semiconductor/elemental/gallium-arsenide-settings
@@ -83,6 +83,11 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      sectionMetadata:
+        section_title: Safety Standards & Compliance
+        section_description: OSHA, ANSI, ISO requirements and compliance standards
+        icon: shield-check
+        order: 10
   interactions:
     removes_contaminants:
       presentation: card
@@ -91,6 +96,11 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      sectionMetadata:
+        section_title: Effective Contaminants
+        section_description: Contamination types successfully removed
+        icon: droplet
+        order: 20
     works_on_materials:
       presentation: card
       items:
@@ -100,43 +110,52 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
+      sectionMetadata:
+        section_title: Compatible Materials
+        section_description: Materials optimized for these settings
+        icon: box
+        order: 30
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - challenge: Crystal lattice damage and doping redistribution
-          severity: critical
-          threshold_temperature: Above 400-600°C causes dopant migration
-          impact: Heat causes permanent alteration of electronic properties and device failure
-          solutions:
-          - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
-          - Reduce power by 60-70% compared to structural materials
-          - Monitor temperature with IR camera; stop if >150°C surface temperature
-          - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
-        - challenge: Thermal stress and wafer cracking
-          severity: high
-          property_value: Low fracture toughness 0.75-3.0 MPa·√m
-          impact: Thermal gradients cause catastrophic wafer fracture
-          solutions:
-          - Use pulse mode with 10-15 second cooling for thick wafers
-          - Thin wafers (<200 μm) require substrate backing for thermal management
-          - Defocused beam reduces peak temperature gradients
-          - Gradual power ramping (start 10W, increase 5W per pass)
-        contamination_challenges:
-        - challenge: Photoresist and polymer residue removal
-          severity: medium
-          impact: Organic residues carbonize and become harder to remove
-          solutions:
-          - First pass 20W fast (1500 mm/s) for bulk removal
-          - Second pass 10W slow (800 mm/s) for residue
-          - UV laser (355nm) more effective for organic materials
-          - Oxygen-rich environment aids in organic ablation
-          - Post-cleaning oxygen plasma for complete residue removal
-      _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
-        icon: triangle-exclamation
+      - category: Thermal Management
+        challenge: Crystal lattice damage and doping redistribution
+        description: Heat causes permanent alteration of electronic properties and device failure
+        severity: critical
+        solutions:
+        - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
+        - Reduce power by 60-70% compared to structural materials
+        - Monitor temperature with IR camera; stop if >150°C surface temperature
+        - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
+        threshold: Above 400-600°C causes dopant migration
+      - category: Thermal Management
+        challenge: Thermal stress and wafer cracking
+        description: Thermal gradients cause catastrophic wafer fracture
+        severity: high
+        solutions:
+        - Use pulse mode with 10-15 second cooling for thick wafers
+        - Thin wafers (<200 μm) require substrate backing for thermal management
+        - Defocused beam reduces peak temperature gradients
+        - Gradual power ramping (start 10W, increase 5W per pass)
+      - category: Contamination Challenges
+        challenge: Photoresist and polymer residue removal
+        description: Organic residues carbonize and become harder to remove
+        severity: medium
+        solutions:
+        - First pass 20W fast (1500 mm/s) for bulk removal
+        - Second pass 10W slow (800 mm/s) for residue
+        - UV laser (355nm) more effective for organic materials
+        - Oxygen-rich environment aids in organic ablation
+        - Post-cleaning oxygen plasma for complete residue removal
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 machine_settings:
   powerRange:
     description: Optimal average power for GaAs surface cleaning without thermal damage
@@ -260,53 +279,5 @@ machine_settings:
       cleaning.'
 component_summary: These settings use moderate 20 W power and 15 ns pulses at 532 nm to gently ablate contaminants from GaAs,
   minimizing thermal damage to its heat-sensitive semiconductor surface.
-challenges:
-  thermal_management:
-  - challenge: Crystal lattice damage and doping redistribution
-    severity: critical
-    threshold_temperature: Above 400-600°C causes dopant migration
-    impact: Heat causes permanent alteration of electronic properties and device failure
-    solutions:
-    - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
-    - Reduce power by 60-70% compared to structural materials
-    - Monitor temperature with IR camera; stop if >150°C surface temperature
-    - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
-  - challenge: Thermal stress and wafer cracking
-    severity: high
-    property_value: Low fracture toughness 0.75-3.0 MPa·√m
-    impact: Thermal gradients cause catastrophic wafer fracture
-    solutions:
-    - Use pulse mode with 10-15 second cooling for thick wafers
-    - Thin wafers (<200 μm) require substrate backing for thermal management
-    - Defocused beam reduces peak temperature gradients
-    - Gradual power ramping (start 10W, increase 5W per pass)
-  surface_characteristics:
-  - challenge: Surface contamination and particulates
-    severity: critical
-    impact: Sub-micron particles cause device defects and yield loss
-    solutions:
-    - Class 100 cleanroom environment required
-    - Use dry laser cleaning (no liquid assist to avoid residue)
-    - Gas assist (nitrogen or argon) blows particles away during cleaning
-    - Post-cleaning inspection with particle counter (<0.1 μm detection)
-    - Follow with wet chemical clean for critical applications
-  - challenge: Native oxide layer removal
-    severity: high
-    impact: Silicon forms native oxide that must be removed without substrate damage
-    solutions:
-    - Low power (5-15W) for oxide removal only
-    - Multiple gentle passes (3-5 passes at 10W) preferred
-    - Hydrogen-rich environment prevents oxide reformation
-    - Verify oxide removal with ellipsometry or XPS
-  contamination_challenges:
-  - challenge: Photoresist and polymer residue removal
-    severity: medium
-    impact: Organic residues carbonize and become harder to remove
-    solutions:
-    - First pass 20W fast (1500 mm/s) for bulk removal
-    - Second pass 10W slow (800 mm/s) for residue
-    - UV laser (355nm) more effective for organic materials
-    - Oxygen-rich environment aids in organic ablation
-    - Post-cleaning oxygen plasma for complete residue removal
 slug: gallium-arsenide-settings
-lastModified: '2026-01-03T14:27:58.711422'
+lastModified: '2026-01-03T15:17:27.384924'

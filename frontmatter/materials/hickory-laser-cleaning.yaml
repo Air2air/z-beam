@@ -1,8 +1,8 @@
 id: hickory-laser-cleaning
 name: Hickory
 category: wood
-datePublished: '2026-01-03T22:26:16.721686Z'
-dateModified: '2026-01-03T22:26:16.721686Z'
+datePublished: '2026-01-03T23:42:08.893651Z'
+dateModified: '2026-01-03T23:42:08.893651Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/wood/hardwood/hickory-laser-cleaning
@@ -97,7 +97,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -337,6 +337,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -377,12 +384,107 @@ relationships:
         - id: sports-equipment
           name: Sports Equipment
           description: Sports Equipment industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: burning-or-yellowing
+        question: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning contaminants from
+          Hickory without burning or yellowing the surface?
+        answer: Given Hickory's pretty high lignin content, go with nanosecond pulses at 1064 nm wavelength and 1.2 J/cm²
+          fluence. This basically cuts down thermal input to avoid scorching. Keep average power under 100 W and scan speed
+          at 500 mm/s for solid contaminant removal without yellowing the wood.
+        topic: burning or yellowing
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Todd Dunning
+          title: MA
+          expertise: *id001
+      - id: smoke-stains-or-soot
+        question: How do you remove smoke stains or soot from a Hickory surface using a laser without causing further damage?
+        answer: For hickory, go with a defocused beam at 1.2 J/cm² and 500 mm/s scan speed. This pretty gently ablates the
+          superficial soot layer, all while minimizing heat transfer to the underlying wood and preventing further damage.
+          Basically, the trick is a high repetition rate paired with very low fluence to steer clear of cooking the compromised
+          surface.
+        topic: smoke stains or soot
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: natural-color-and-grain
+        question: Can a laser effectively clean old, oxidized finish or paint from Hickory while preserving the wood's natural
+          color and grain?
+        answer: This is basically a high-risk application on Hickory. The 1064 nm wavelength and 1.2 J/cm² fluence must ablate
+          the finish without interacting with the wood's lignin, which is fairly critical for preserving its natural color.
+        topic: natural color and grain
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: why-does-hickory-tend-to-turn-dark-or-black-when-l
+        question: Why does Hickory tend to turn dark or black when laser cleaned, unlike Maple or Pine?
+        answer: Hickory's pretty high density and lignin levels make it prone to carbonization above 1.2 J/cm² energy densities.
+          That's fairly different from less dense woods like pine, which hold fewer organic polymers that char readily under
+          1064 nm laser irradiation.
+        topic: Why does Hickory tend to turn dark or black when l
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: removing-the-patina
+        question: Is laser cleaning safe for restoring antique Hickory furniture or tools, or does it risk removing the patina?
+        answer: Laser cleaning at 1.2 J/cm² will basically ablate the wood's top layer, right where the patina resides. This
+          subtractive process fundamentally alters the antique's character, so it's not recommended for valuable Hickory pieces—preserving
+          that original surface is fairly critical.
+        topic: removing the patina
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: old-finishes
+        question: What are the primary fume extraction and safety concerns when laser cleaning Hickory, especially if it has
+          old finishes?
+        answer: When laser cleaning hickory at 1.2 J/cm², it typically produces fine particulates and potentially toxic VOCs
+          from old finishes. A Class I enclosure with HEPA and activated carbon filtration is basically essential for capturing
+          these hazardous byproducts and protecting operators.
+        topic: old finishes
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: how-does-the-high-density-and-janka-hardness-of-hi
+        question: How does the high density and Janka hardness of Hickory affect the laser cleaning process compared to softer
+          woods?
+        answer: Hickory's high density typically causes slower lateral heat diffusion, concentrating thermal energy at the
+          beam's 100 µm spot. This demands fairly precise tuning to our 1.2 J/cm² fluence threshold to avoid charring, unlike
+          more forgiving softwoods.
+        topic: How does the high density and Janka hardness of Hi
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: prevent-discoloration
+        question: Are there any surface pre-treatments or post-treatment steps recommended when laser cleaning Hickory to
+          prevent discoloration?
+        answer: For Hickory, a fairly light post-treatment sanding effectively strips away the superficial heat-affected layer
+          that often leads to discoloration. In the process, a low-power air assist basically cools the surface to ease thermal
+          stress near the 1.2 J/cm² fluence threshold. Typically, we skip pre-treatments to avoid surface contamination.
+        topic: prevent discoloration
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: removing-mill-scale
+        question: For preparing Hickory for a new finish, is laser cleaning a viable alternative to sanding for removing mill
+          scale or embedded dirt?
+        answer: Laser cleaning fairly effectively strips surface contaminants from Hickory without changing its texture, via
+          a 100W system at 500 mm/s. That said, the heat-affected zone may block stain absorption, potentially causing an
+          uneven finish. Basically, it won't flatten the surface, so sanding is still needed for deep stains or leveling adjustments.
+        topic: removing mill scale
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -407,12 +509,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922046Z'
   normalization_applied: true
@@ -448,4 +549,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: hickory-laser-cleaning
-lastModified: '2026-01-03T14:26:16.721719'
+lastModified: '2026-01-03T15:42:08.893687'

@@ -1,8 +1,8 @@
 id: fir-laser-cleaning
 name: Fir
 category: wood
-datePublished: '2026-01-03T22:26:15.849919Z'
-dateModified: '2026-01-03T22:26:15.849919Z'
+datePublished: '2026-01-03T23:42:07.919856Z'
+dateModified: '2026-01-03T23:42:07.919856Z'
 content_type: materials
 schema_version: 5.0.0
 full_path: /materials/wood/softwood/fir-laser-cleaning
@@ -101,7 +101,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -343,12 +343,31 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        frequency: common
+        severity: moderate
       - id: algae-growth-contamination
+        frequency: common
+        severity: moderate
       - id: industrial-oil-contamination
+        frequency: common
+        severity: moderate
       - id: lead-paint-contamination
+        frequency: common
+        severity: moderate
       - id: mold-mildew-contamination
+        frequency: common
+        severity: moderate
       - id: paint-residue-contamination
+        frequency: common
+        severity: moderate
       - id: wax-buildup-contamination
+        frequency: common
+        severity: moderate
+      sectionMetadata:
+        section_title: Common Contaminants
+        section_description: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
   operational:
     industry_applications:
       presentation: collapsible
@@ -389,12 +408,101 @@ relationships:
         - id: electronics-manufacturing
           name: Electronics Manufacturing
           description: Circuit boards and electronic components
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 3
-        variant: default
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: ablation-or-yellowing
+        question: What are the optimal laser settings (wavelength, power, pulse duration) for cleaning soot or biological
+          growth from Fir wood without causing ablation or yellowing?
+        answer: As a laser cleaning expert from Indonesia, where we deeply value our wooden heritage, I recommend a practical
+          1064 nm Nd:YAG laser with 200-300 mJ pulse energy and 10-20 ns duration. This process gently clears soot or biological
+          growth from Fir wood, preventing ablation or yellowing by limiting fluence to under 1 J/cm².
+        topic: ablation or yellowing
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: &id002
+          name: Ikmanda Roswati
+          title: Ph.D.
+          expertise: *id001
+      - id: variable-resin-content
+        question: How does the variable resin content in Fir wood affect the laser cleaning process and how do we adjust for
+          it?
+        answer: Fir wood's varying resin levels require precise fluence management at roughly 1.2 J/cm². Those resin pockets
+          vaporize faster than nearby wood fibers, risking irregular finishes. In this process, begin with a practical low-power
+          scan at 500 mm/s to pinpoint the issues, followed by targeted passes that methodically prevent resin from seeping
+          into cleared zones.
+        topic: variable resin content
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: softwood-surface
+        question: Can a fiber laser effectively remove old, lead-based paint from Fir clapboard without damaging the softwood
+          surface underneath?
+        answer: In this process, a fiber laser removes lead paint from Fir clapboard efficiently with ~1.2 J/cm² fluence and
+          100 µm spot size. Precise parameter control remains straightforward to prevent etching the softwood grain, while
+          a HEPA fume extractor is essential for capturing hazardous lead particulates.
+        topic: softwood surface
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: maximum-safe-surface-temperature
+        question: What is the maximum safe surface temperature for Fir during laser cleaning to prevent degradation of its
+          structural or aesthetic properties?
+        answer: Fir wood hits its thermal degradation threshold at around 150-200°C, causing permanent discoloration and charring.
+          For practical monitoring, efficiently apply IR thermography to maintain surface temperatures below this range, particularly
+          at 1.2 J/cm² fluence and 100 µm spot size, preserving structural integrity.
+        topic: maximum safe surface temperature
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: fume-extraction-systems
+        question: What specific safety precautions and fume extraction systems are required when laser cleaning Fir, especially
+          when removing paints or contaminants?
+        answer: For cleaning Fir at 1.2 J/cm², employ a HEPA/ULPA extraction system efficiently to capture explosive wood
+          dust and lead fumes. Operators require a P100 respirator in this process, given the hazardous pyrolysis by-products
+          from the wood substrate.
+        topic: fume extraction systems
+        severity: critical
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: original-patina
+        question: How do you evaluate the success of laser cleaning on Fir? What are the acceptable levels of micro-burning
+          or changes to the original patina?
+        answer: Assessing success in a straightforward manner involves preserving the original patina. In this process, we
+          apply colorimetry to maintain ΔE below 3, while microscopy confirms the 100 µm spot size avoids micro-charting.
+          Minor, uniform lightening is acceptable, but carbonization-induced darkening indicates failure.
+        topic: original patina
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: mold-or-fungi
+        question: Is laser cleaning a viable method for decontaminating Fir wood affected by mold or fungi without using chemicals?
+        answer: Laser cleaning provides a straightforward decontamination for Fir wood, employing 1064 nm wavelength light
+          absorbed by mold to trigger rapid thermal ablation. At 1.2 J/cm² fluence and 100 W power, this process eradicates
+          surface spores without carbonizing the substrate. Still, deeply embedded mycelial networks might linger, necessitating
+          multi-pass treatment.
+        topic: mold or fungi
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      - id: appear-lighter-or-darker
+        question: Why does laser-cleaned Fir sometimes appear lighter or darker than the surrounding untreated wood, and how
+          can this be minimized?
+        answer: Laser-cleaned Fir wood shows a lighter tone after removing darkened patina, though it may darken slightly
+          from carbonization if fluence exceeds limits. Straightforwardly, set fluence to 1.2 J/cm² with 500 mm/s scan speed
+          and 50% beam overlap. This process achieves uniform contaminant removal, preserving the natural color for even results.
+        topic: appear lighter or darker
+        severity: medium
+        acceptedAnswer: true
+        expertInfo: *id002
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -419,12 +527,11 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata:
+        section_title: Regulatory Standards
+        section_description: Safety and compliance standards applicable to laser cleaning of this material
         icon: shield-check
         order: 2
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921921Z'
   normalization_applied: true
@@ -460,4 +567,4 @@ regulatory_standards:
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 slug: fir-laser-cleaning
-lastModified: '2026-01-03T14:26:15.849952'
+lastModified: '2026-01-03T15:42:07.919896'
