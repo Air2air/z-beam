@@ -2005,9 +2005,12 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   // Extract material/contaminant slug from the full slug path
   const materialSlug = slug.split('/').pop() || slug;
   
-  // Dataset naming: IDs already include proper suffixes
+  // Dataset naming: Normalize slug to use proper dataset suffix
   const datasetFolder = isContaminant ? 'contaminants' : 'materials';
-  const datasetName = materialSlug;
+  // Remove any existing suffixes and add the correct dataset suffix
+  const baseSlug = materialSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '').replace(/-contamination$/, '').replace(/-contaminant-dataset$/, '').replace(/-material-dataset$/, '');
+  const datasetSuffix = isContaminant ? '-contaminant-dataset' : '-material-dataset';
+  const datasetName = `${baseSlug}${datasetSuffix}`;
   
   // For settings pages, use canonical dataset URL (points to materials page, not settings)
   const canonicalUrl = frontmatter.canonicalDatasetUrl && typeof frontmatter.canonicalDatasetUrl === 'string'
@@ -2018,6 +2021,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
         return `${baseUrl}/datasets/${datasetFolder}/${baseSlug}${suffix}`;
       })()
     : `${baseUrl}/datasets/${datasetFolder}/${datasetName}`;
+
 
   // **PHASE 1 ENHANCEMENT**: Load generated dataset file for enhanced data
   // These files contain: 20+ variableMeasured items, citation array, author E-E-A-T data, images

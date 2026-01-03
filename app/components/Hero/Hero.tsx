@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { HeroProps } from '@/types';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/app/config';
+import LazyYouTube from '@/app/components/LazyYouTube/LazyYouTube';
 
 /**
  * SIMPLIFIED Hero Component
@@ -31,7 +32,7 @@ export function Hero({
   const [_imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [_isInView, _setIsInView] = useState(true); // Hero is above-fold, always visible
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [_videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -74,17 +75,6 @@ export function Hero({
   const imageSource = typeof frontmatter?.images === 'string'
     ? frontmatter.images
     : (frontmatter?.image || frontmatter?.images?.hero?.url);
-
-  // Build YouTube URL with maximum branding removal
-  const buildYouTubeUrl = (id: string) => {
-    const params = new URLSearchParams({
-      ...SITE_CONFIG.media.youtube.defaultParams,
-      playlist: id, // Required for looping
-    });
-    return `${SITE_CONFIG.media.youtube.baseUrl}${id}?${params.toString()}`;
-  };
-
-  const videoUrl = videoId ? buildYouTubeUrl(videoId) : null;
   
   // Simplified accessibility text generation - only from frontmatter
   const getAccessibleAlt = (): string => {
@@ -105,7 +95,7 @@ export function Hero({
   const containerClasses = `container-hero`;
   
   // If no video and no image (or image failed to load), show shortened empty hero
-  const hasContent = videoUrl || (imageSource && !imageError);
+  const hasContent = videoId || (imageSource && !imageError);
   const aspectRatioClasses = hasContent 
     ? "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-md")
     : "relative w-full h-16"; // Shortened empty hero
@@ -116,69 +106,24 @@ export function Hero({
     : "relative z-[2] p-8 w-full h-full flex flex-col justify-center";
 
   return (
-    <section 
+    <section
       ref={heroRef}
       className={`${themeClass} ${containerClasses} ${aspectRatioClasses}`}
       aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
-      {/* Video Background - Facade pattern on mobile only */}
-      {videoUrl ? (
-        <>
-          {isMobile && !videoLoaded ? (
-            /* YouTube Facade - Poster image with play button */
-            <div 
-              className={`${backgroundClasses} bg-primary cursor-pointer group`}
-              onClick={() => setVideoLoaded(true)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && setVideoLoaded(true)}
-              aria-label="Load and play video"
-            >
-              {/* YouTube thumbnail as poster */}
-              <Image
-                src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-                alt={getAccessibleAlt()}
-                fill
-                className="object-cover"
-                priority
-                fetchPriority="high"
-                quality={85}
-                sizes="(max-width: 768px) 100vw, 1200px"
-              />
-              {/* Dark overlay - lower z-index */}
-              <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity z-10" />
-              {/* Play button - higher z-index to appear on top */}
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="icon-md bg-red-600 rounded-full flex items-center justify-center transition-transform shadow-2xl">
-                  <svg className="icon-sm ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-              {/* "Click to play" text */}
-              <div className="absolute bottom-4 left-0 right-0 text-center text-sm md:text-base font-medium opacity-0 transition-opacity">
-                Click to play video
-              </div>
-            </div>
-          ) : (
-            /* Actual YouTube iframe - only loads after user clicks */
-            <div className={`${backgroundClasses} bg-primary`}>
-              <iframe
-                src={videoUrl}
-                className={videoClasses}
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share; accelerometer; gyroscope"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                title={getVideoAriaLabel()}
-                aria-label={`${getVideoAriaLabel()} - Video player`}
-              />
-            </div>
-          )}
-        </>
+      {/* Video Background - Lazy loaded with facade on mobile */}
+      {videoId ? (
+        <div className={`${backgroundClasses} bg-primary`}>
+          <LazyYouTube
+            videoId={videoId}
+            title={getVideoAriaLabel()}
+            showFacade={isMobile}
+            autoplay={!isMobile}
+            onLoad={() => setVideoLoaded(true)}
+            className="w-full h-full"
+          />
+        </div>
       ) : imageSource && !imageError ? (
         /* Image Background - Next.js Image handles preloading, errors, loading states */
         <div 

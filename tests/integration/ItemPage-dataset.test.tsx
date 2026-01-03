@@ -285,8 +285,8 @@ describe('ItemPage → Dataset Schema Integration', () => {
     const jsonLd = JSON.parse(jsonLdScript?.textContent || '{}');
     const datasetSchema = jsonLd['@graph'].find((item: any) => item['@type'] === 'Dataset');
 
-    // @id should follow pattern: baseUrl/datasets/materials/{material}#dataset
-    expect(datasetSchema['@id']).toMatch(/\/datasets\/materials\/titanium-laser-cleaning#dataset$/);
+    // @id should follow pattern: baseUrl/datasets/materials/{material}-material-dataset#dataset
+    expect(datasetSchema['@id']).toMatch(/\/datasets\/materials\/titanium-material-dataset#dataset$/);
   });
 
   it('Dataset schema should include required v3.0 properties', async () => {

@@ -53,8 +53,8 @@ export function SettingsJsonLD({
     return null;
   }
 
-  // Extract material name from settings slug (remove -settings suffix)
-  const materialSlug = slug.replace(/-settings$/, '-laser-cleaning');
+  // Extract material name from settings slug (remove -settings suffix, add -material-dataset)
+  const materialSlug = slug.replace(/-settings$/, '-material-dataset');
   
   // Transform settings data to match SchemaFactory expectations
   // Pass canonical dataset URL so Dataset @id points to materials page, not settings page

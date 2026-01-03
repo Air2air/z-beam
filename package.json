@@ -45,7 +45,7 @@
     "validate:seo:advanced": "npm run seo:entity-map && npm run seo:featured-snippets && npm run seo:core-web-vitals",
     "validate:jsonld:syntax": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
     "validate:jsonld:rendering": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
-    "prebuild": "npm run validate:content && npm run validate:naming:semantic && npm run validate:types",
+    "prebuild": "npm run validate:content && npm run validate:naming:semantic && npm run validate:types && npm run test:ci",
     "postbuild": "npm run generate:image-sitemap && npm run validate:urls && npm run validate:seo:advanced",
     "postdeploy": "npm run validate:production:comprehensive",
     "build:analyze": "ANALYZE=true npm run build",

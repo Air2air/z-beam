@@ -34,7 +34,7 @@ export default function SubcategoryDatasetWrapper({
     const materialDataPromises = materials.map(async (m) => {
       try {
         const fullSlug = m.slug.endsWith('-laser-cleaning') ? m.slug : `${m.slug}-laser-cleaning`;
-        const response = await fetch(`/datasets/materials/${fullSlug}.json`);
+        const response = await fetch(`/datasets/materials/${fullSlug}-material-dataset.json`);
         if (!response.ok) throw new Error(`Failed to fetch ${fullSlug}`);
         return await response.json();
       } catch (error) {

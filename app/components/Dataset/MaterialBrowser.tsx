@@ -114,12 +114,12 @@ export default function MaterialBrowser({
                   name: material.name,
                   slug: material.slug 
                 } as any}
-                href={`/datasets/materials/${material.slug}`}
+                href={`/datasets/materials/${material.slug}-material-dataset`}
                 category={formatCategoryName(material.category)}
                 subcategory={formatCategoryName(material.subcategory)}
-                formats={[{ format: 'JSON', url: `/datasets/materials/${material.slug}.json` }]}
+                formats={[{ format: 'JSON', url: `/datasets/materials/${material.slug}-material-dataset.json` }]}
                 onQuickDownload={(format: string, url: string) => {
-                  triggerDownload(url, `${material.slug}.${format.toLowerCase()}`);
+                  triggerDownload(url, `${material.slug}-material-dataset.${format.toLowerCase()}`);
                 }}
               />
             ))}

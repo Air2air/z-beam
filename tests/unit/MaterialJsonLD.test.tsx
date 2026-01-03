@@ -260,7 +260,7 @@ describe('MaterialJsonLD Component', () => {
     
     // Should use unified dataset URL
     expect(dataset['@id']).toContain('/datasets/materials/');
-    expect(dataset.url).toContain('/datasets/materials/aluminum-laser-cleaning');
+    expect(dataset.url).toContain('/datasets/materials/aluminum-material-dataset');
   });
 
   it.skip('should include Person schema with author credentials', () => {

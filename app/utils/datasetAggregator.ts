@@ -24,7 +24,7 @@ export interface AggregateStats {
  */
 async function fetchMaterialDataset(slug: string): Promise<any | null> {
   try {
-    const response = await fetch(`/datasets/materials/${slug}.json`);
+    const response = await fetch(`/datasets/materials/${slug}-material-dataset.json`);
     
     if (!response.ok) {
       console.warn(`Failed to fetch dataset for ${slug}`);

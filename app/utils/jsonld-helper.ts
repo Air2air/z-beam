@@ -564,9 +564,10 @@ function createDatasetSchema(data: any) {
   
   return propertyCount > 0 ? {
     '@type': 'Dataset',
-    '@id': `${pageUrl}#dataset`,
+    '@id': `${datasetBasePath}#dataset`,
     name: `${materialName} Laser Cleaning Parameters Dataset`,
     description: `Comprehensive material properties and laser cleaning parameters for ${materialName}. Includes material characteristics, laser-material interaction properties, machine settings, and regulatory standards. Available in multiple formats for analysis and research.`,
+    url: datasetBasePath,
     
     // Author reference (E-E-A-T: Expertise)
     author: {
