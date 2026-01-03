@@ -252,7 +252,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const formattedTitle = actualTitle || SITE_CONFIG.shortName;
   
   // Enhanced description with subtitle and technical details for better SEO
-  let enhancedDescription = seoDescription || description;
+  // Use effectiveDescription which includes fallback to meta_description for settings
+  let enhancedDescription = seoDescription || effectiveDescription;
   
   // For material pages, add key technical specifications
   // Only enhance if we're NOT using SEO-formatted description (which is already optimized)
