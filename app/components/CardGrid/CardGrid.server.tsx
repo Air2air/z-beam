@@ -40,8 +40,22 @@ export async function CardGrid({
         const imageAlt = frontmatter?.images?.hero?.alt || frontmatter?.title || '';
         
         // Use full_path if available, otherwise construct from content type and slug
-        const itemPath = (frontmatter as any)?.full_path || 
-                        `/${contentType}/${(frontmatter as any)?.category || ''}/${(frontmatter as any)?.subcategory || ''}/${slug}`.replace(/\/+/g, '/');
+        // Ensure we prioritize full_path to maintain correct URL structure
+        let itemPath = (frontmatter as any)?.full_path;
+        
+        if (!itemPath) {
+          const category = (frontmatter as any)?.category || '';
+          const subcategory = (frontmatter as any)?.subcategory || '';
+          
+          // Only include path segments that exist
+          if (category && subcategory) {
+            itemPath = `/${contentType}/${category}/${subcategory}/${slug}`;
+          } else if (category) {
+            itemPath = `/${contentType}/${category}/${slug}`;
+          } else {
+            itemPath = `/${contentType}/${slug}`;
+          }
+        }
         
         return {
           title: frontmatter?.title || frontmatter?.name || 'Untitled',
