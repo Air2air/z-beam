@@ -33,7 +33,7 @@ function parseBreadcrumbPath(slug: string): Array<{ label: string; href: string 
   const breadcrumbs = [{ label: 'Home', href: '/' }];
   
   let currentPath = '';
-  parts.forEach((part, index) => {
+  parts.forEach((part, _index) => {
     currentPath += `/${part}`;
     const label = part
       .split('-')

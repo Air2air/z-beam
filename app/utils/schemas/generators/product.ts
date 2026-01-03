@@ -5,7 +5,6 @@
 
 import { SITE_CONFIG } from '../../constants';
 import { createAuthorReference } from './person';
-import type { Author } from '@/types';
 import type { SchemaContext, AuthorData, ImageData, PropertyValue } from './types';
 
 export interface ProductSchemaOptions {

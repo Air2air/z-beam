@@ -176,14 +176,14 @@ export function formatSettingsDescription(config: MetadataConfig): string {
     materialName,
     machineSettings,
     category,
-    subcategory
+    subcategory: _subcategory
   } = config;
   
   // Extract machine settings
   const power = machineSettings?.powerRange?.value;
   const wavelength = machineSettings?.wavelength?.value;
-  const scanSpeed = machineSettings?.scanSpeed?.value;
-  const passes = machineSettings?.passCount?.value;
+  const _scanSpeed = machineSettings?.scanSpeed?.value;
+  const _passes = machineSettings?.passCount?.value;
   
   // Build outcome-focused description: [Settings] → [What it removes] → [Quality outcome]
   let desc = `${materialName} settings: `;
@@ -219,7 +219,7 @@ export function formatSettingsDescription(config: MetadataConfig): string {
  * Extract key property from material description
  * Looks for: reflectivity, strength, conductivity, density, hardness, etc.
  */
-function extractKeyProperty(description?: string): string {
+function _extractKeyProperty(description?: string): string {
   if (!description) return '';
   
   // Property keywords to search for
@@ -278,7 +278,7 @@ function extractKeyProperty(description?: string): string {
  * Extract key consideration from settings description
  * Looks for: challenges, considerations, requirements
  */
-function extractKeyConsideration(description?: string): string {
+function _extractKeyConsideration(description?: string): string {
   if (!description) return '';
   
   // Keywords indicating important considerations
@@ -311,7 +311,7 @@ function extractKeyConsideration(description?: string): string {
 /**
  * Get material-specific challenge for description
  */
-function getMaterialChallenge(material: string, category?: string, subcategory?: string): string {
+function getMaterialChallenge(material: string, category?: string, _subcategory?: string): string {
   const lower = material.toLowerCase();
   
   // High reflectivity materials
@@ -352,7 +352,7 @@ function getMaterialChallenge(material: string, category?: string, subcategory?:
 /**
  * Get material-specific outcome/benefit
  */
-function getMaterialOutcome(material: string, category?: string, subcategory?: string): string {
+function getMaterialOutcome(material: string, category?: string, _subcategory?: string): string {
   const lower = material.toLowerCase();
   
   // Metal outcomes
@@ -420,7 +420,7 @@ function getRemovalTargets(material: string, category?: string): string {
 /**
  * Get settings benefit (damage prevention/quality outcome)
  */
-function getSettingsBenefit(material: string, category?: string): string {
+function getSettingsBenefit(material: string, _category?: string): string {
   const lower = material.toLowerCase();
   
   if (lower.includes('aluminum') || lower.includes('aluminium')) {
@@ -492,7 +492,7 @@ function getSubstrateProtection(contaminant: string): string {
 /**
  * Get industry/application context based on category
  */
-function getIndustryContext(category?: string, subcategory?: string): string {
+function _getIndustryContext(category?: string, subcategory?: string): string {
   const contexts: Record<string, string> = {
     // Metal contexts
     'metal-non-ferrous': 'Aerospace applications',
@@ -525,7 +525,7 @@ function getIndustryContext(category?: string, subcategory?: string): string {
 /**
  * Get category-specific title suffix
  */
-function getCategoryTitleSuffix(category?: string): string {
+function _getCategoryTitleSuffix(category?: string): string {
   const suffixes: Record<string, string> = {
     'metal': 'Industrial Parameters',
     'ceramic': 'Technical Specifications',

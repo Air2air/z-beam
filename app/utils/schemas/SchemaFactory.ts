@@ -115,6 +115,7 @@ export class SchemaFactory {
     // Debug: Log what we receive
     if (process.env.NODE_ENV === 'development' && slug.includes('alumina')) {
       const meta = getMetadata(data);
+      // eslint-disable-next-line no-console
       console.log('[SchemaFactory Debug]', {
         slug,
         contentType: getContentType(slug),

@@ -1,5 +1,5 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData, ChemicalProperties, ArticleMetadata } from '@/types';
+import { MaterialType, BadgeData, ChemicalProperties } from '@/types';
 import { capitalizeWords } from './formatting';
 import { getMaterialColor } from './badgeColors';
 

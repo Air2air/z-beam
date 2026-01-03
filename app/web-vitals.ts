@@ -48,6 +48,7 @@ function sendToGoogleAnalytics({ name, delta, value, id, rating }: Metric) {
 
   // Development logging
   if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line no-console
     console.log(`[Web Vitals] ${name}:`, {
       value: Math.round(name === 'CLS' ? value * 1000 : value) / (name === 'CLS' ? 1000 : 1),
       rating,

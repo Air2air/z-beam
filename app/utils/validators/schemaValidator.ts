@@ -192,14 +192,19 @@ export function logValidationResults(
 ): void {
   if (process.env.NODE_ENV === 'development') {
     if (result.isValid && result.warnings.length === 0) {
+      // eslint-disable-next-line no-console
       console.log(`✅ ${label}: Valid`);
     } else {
       if (!result.isValid) {
+        // eslint-disable-next-line no-console
         console.error(`❌ ${label}: Validation failed`);
+        // eslint-disable-next-line no-console
         result.errors.forEach(err => console.error(`   • ${err}`));
       }
       if (result.warnings.length > 0) {
+        // eslint-disable-next-line no-console
         console.warn(`⚠️  ${label}: Warnings`);
+        // eslint-disable-next-line no-console
         result.warnings.forEach(warn => console.warn(`   • ${warn}`));
       }
     }
