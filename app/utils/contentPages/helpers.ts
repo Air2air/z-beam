@@ -93,9 +93,22 @@ export async function generateItemMetadata(
     // Settings pages have flat structure, materials/contaminants have metadata wrapper
     const articleMeta = config.type === 'settings' ? article : (article.metadata as any);
     
-    // Verify category and subcategory match
-    const articleCategory = articleMeta.category ? normalizeForUrl(articleMeta.category) : undefined;
-    const articleSubcategory = articleMeta.subcategory ? normalizeForUrl(articleMeta.subcategory) : undefined;
+    // Extract category and subcategory from full_path (primary source for all domains)
+    let articleCategory: string | undefined;
+    let articleSubcategory: string | undefined;
+    
+    if (articleMeta.full_path) {
+      const pathParts = articleMeta.full_path.split('/').filter(Boolean);
+      // full_path format: /rootPath/category/subcategory/slug
+      if (pathParts.length >= 3 && pathParts[0] === config.rootPath) {
+        articleCategory = pathParts[1];
+        articleSubcategory = pathParts[2];
+      }
+    } else {
+      // Fallback to explicit fields (shouldn't happen in production)
+      articleCategory = articleMeta.category ? normalizeForUrl(articleMeta.category) : undefined;
+      articleSubcategory = articleMeta.subcategory ? normalizeForUrl(articleMeta.subcategory) : undefined;
+    }
     
     if (articleCategory !== categorySlug || articleSubcategory !== subcategorySlug) {
       // Wrong URL structure - will redirect in page component
