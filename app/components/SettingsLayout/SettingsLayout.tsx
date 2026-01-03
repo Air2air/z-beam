@@ -52,8 +52,6 @@ function prepareSettingsData(
     || relationships?.technical?.machine_settings?.essential_parameters
     || relationships?.machine_settings?.essential_parameters;
   
-  console.log('SettingsLayout machine_settings:', JSON.stringify(relationships?.machine_settings, null, 2));
-  
   // Use materialRef-loaded properties or passed properties
   const materialProps = (settings as any)?._materialProperties || materialProperties;
   
@@ -224,6 +222,18 @@ export function SettingsLayout({
   // Extract diagnostic data from relationships.operational.prevention
   const preventionItems = relationships?.operational?.prevention?.items || [];
   
+  console.log('SettingsLayout DiagnosticCenter data:', {
+    materialName: settings.name,
+    hasRelationships: !!relationships,
+    relationshipKeys: relationships ? Object.keys(relationships) : [],
+    hasOperational: !!relationships?.operational,
+    operationalKeys: relationships?.operational ? Object.keys(relationships.operational) : [],
+    hasPrevention: !!relationships?.operational?.prevention,
+    preventionStructure: relationships?.operational?.prevention,
+    preventionItemsCount: preventionItems.length,
+    preventionItems: preventionItems.slice(0, 2) // Log first 2 items for debugging
+  });
+  
   // Transform prevention items to DiagnosticCenter challenges format
   // Group by category (Thermal Management, Contamination, etc.)
   const challenges = preventionItems.length > 0 ? preventionItems.reduce((acc: any, item: any) => {
@@ -252,6 +262,14 @@ export function SettingsLayout({
   const issues = diagnosticConfig?.troubleshooting || 
     settings.machineSettings?.common_issues || 
     [];
+  
+  console.log('SettingsLayout DiagnosticCenter render check:', {
+    materialName: settings.name,
+    challengesCount: Object.keys(challenges).length,
+    challengesKeys: Object.keys(challenges),
+    issuesCount: issues.length,
+    willRender: Object.keys(challenges).length > 0 || issues.length > 0
+  });
 
   return (
     <Layout 
@@ -514,6 +532,20 @@ export function SettingsLayout({
           />
 
         {/* Diagnostic & Prevention Center - Tabbed Interface */}
+        {/* Debug: Always show to see what's happening */}
+        <div className="bg-yellow-900/20 border border-yellow-500 p-4 mb-4">
+          <p className="text-sm text-yellow-300">DEBUG: DiagnosticCenter Check</p>
+          <p className="text-xs">Material: {settings.name}</p>
+          <p className="text-xs">Challenges keys: {Object.keys(challenges).join(', ') || 'none'}</p>
+          <p className="text-xs">Challenges count: {Object.keys(challenges).length}</p>
+          <p className="text-xs">Issues count: {issues.length}</p>
+          <p className="text-xs">Will render: {(Object.keys(challenges).length > 0 || issues.length > 0).toString()}</p>
+          <p className="text-xs mt-2">Sample challenge categories:</p>
+          <pre className="text-[10px] bg-black/40 p-2 mt-1 overflow-auto max-h-40">
+            {JSON.stringify(challenges, null, 2)}
+          </pre>
+        </div>
+        
         {(Object.keys(challenges).length > 0 || issues.length > 0) && (
           <DiagnosticCenter 
             materialName={settings.name}

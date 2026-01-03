@@ -1171,6 +1171,7 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       
       // Cross-domain relationships
       domain_linkages: data.domain_linkages,
+      relationships: data.relationships, // CRITICAL: Include relationships for DiagnosticCenter and other components
       
       // Legacy support
       machineSettings: data.machineSettings,
