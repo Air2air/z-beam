@@ -1,21 +1,26 @@
 id: cutting-fluid-contamination
 name: Machining Coolant Residue
 category: organic-residue
-datePublished: '2026-01-04T21:42:48.292452Z'
-dateModified: '2026-01-04T21:42:48.292452Z'
+datePublished: '2025-12-27T21:04:24.037305Z'
+dateModified: '2025-12-27T21:04:24.037305Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Lubricant
+  href: /contaminants/organic-residue/lubricant
+- label: Machining Coolant Residue
+  href: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
 page_title: 'Machining Coolant Residue Removal: Laser Ablation Clean'
-page_description: Cutting fluid contamination builds up during machining operations, creating sticky organic residues that
-  cling to metal surfaces. These contaminants form unique patterns, like thin films mixed with metal shavings, which ramp
-  up adhesion in high-heat zones. In laser cleaning applications, removal turns out tricky; the fluid's oily nature resists
-  vaporization, often leaving charred spots that demand multiple passes. On steel, it penetrates pores tightly, while aluminum
-  shows looser buildup that clears more readily. Overall, addressing this holds up production flow—lasers break it down effectively,
-  yet material-specific behaviors call for dialing in pulse settings to achieve a clean finish without surface damage.
 meta_description: 'Machining Coolant Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images:
+images: &id001
   hero:
     url: /images/contaminant/cutting-fluid-contamination-hero.jpg
     alt: Machining Coolant Residue laser cleaning visualization showing process effects
@@ -52,113 +57,10 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
-  slug: todd-dunning
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards for handling this contaminant
-        icon: shield-check
-        order: 1
-        variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Aldehydes (formaldehyde, acrolein)
-        concentration_mg_m3: 2-15
-        exposure_limit_mg_m3: 0.37
-        hazard_class: irritant
-      - compound: Carbon monoxide
-        concentration_mg_m3: 25-100
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 0.5-5
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Metal oxides
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 5
-        hazard_class: toxic
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Thermal decomposition may create hazardous byproducts not present in original coolant
-    - Residue thickness and composition significantly affect fume generation rate
-    - Chlorinated or sulfurized extreme pressure additives may produce additional toxic gases
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Carbon monoxide
-          concentration_mg_m3: 25-100
-          hazard_class: toxic
-        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-          concentration_mg_m3: 0.5-5
-          hazard_class: carcinogenic
-        - compound: Metal oxides
-          concentration_mg_m3: 1-10
-          hazard_class: toxic
-        description: 'Multiple toxic compounds detected: Carbon monoxide, Polycyclic Aromatic Hydrocarbons (PAHs), Metal oxides
-          - requires enhanced protection'
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
-    ventilation_requirements:
-      presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
-  interactions:
-    produces_compounds:
-      presentation: card
-      items:
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: carbon-ash-compound
-      - id: vocs-compound
-      _section:
-        title: Produces Compounds
-        description: Chemical compounds formed when laser cleaning this contaminant
-        icon: flask
-        order: 1
-        variant: default
+  technical:
     affects_materials:
       presentation: card
       items:
@@ -193,263 +95,368 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Found On Materials
-        description: Materials commonly contaminated with this substance
+        title: Affects Materials
+        description: Materials impacted by this contaminant
         icon: box
-        order: 2
-        variant: default
-  visual:
-    appearance_on_categories:
-      presentation: descriptive
-      items:
-      - appearance_on_categories:
-          ceramic:
-            appearance: On ceramic, machining coolant residue shows up as a greasy, translucent film that may darken or dull
-              the glazed surface, often leaving a slippery or stained appearance.
-            coverage: Coverage is usually partial and uneven, varying from light, scattered spots to more concentrated areas
-              depending on surface texture and exposure.
-            pattern: It commonly forms irregular patches or streaks, adhering to smooth areas and accumulating in micro-cracks
-              or unglazed spots, with no set pattern.
-          composite:
-            appearance: On composites, machining coolant residue manifests as dark, oily stains or a thin film that can seep
-              into fibers, often creating a blotchy or discolored surface with a slippery texture.
-            coverage: Coverage is often uneven and localized, varying from minor spotting to extensive areas depending on
-              material porosity and machining conditions.
-            pattern: It usually appears as irregular patches or streaks, following the composite's layered or fibrous structure
-              and concentrating in porous regions.
-          concrete:
-            appearance: On concrete, the residue appears as dark, oily patches or a faint film that can darken the surface
-              and leave a slippery or stained finish, often highlighting the porous texture.
-            coverage: Coverage is generally sparse and uneven, varying from isolated spots to more extensive areas based on
-              concrete porosity and exposure.
-            pattern: It usually forms irregular spots or streaks, seeping into pores and cracks, and following surface irregularities
-              without a uniform distribution.
-          fabric:
-            appearance: On fabric, machining coolant residue shows up as dark, oily stains that can penetrate fibers, often
-              creating a wet-looking, discolored area with a greasy texture.
-            coverage: Coverage is typically localized and spotty, ranging from small stains to larger patches, with uneven
-              variation depending on fabric absorbency.
-            pattern: It tends to form irregular spots or blotches, spreading along the weave and concentrating in absorbent
-              areas, with distribution influenced by fabric type.
-          glass:
-            appearance: On glass, the residue appears as a translucent or slightly cloudy film that can cause haziness or
-              rainbow-like iridescence, often making the surface look smeared or less clear.
-            coverage: Coverage is often widespread but thin, ranging from nearly complete films in some areas to partial coverage
-              with variations in thickness.
-            pattern: It typically forms uniform thin layers or irregular streaks, spreading across the surface and sometimes
-              pooling at edges or in low spots.
-          metal:
-            appearance: Machining coolant residue on metal appears as a thin, oily film that can range from clear to milky
-              white or slightly discolored, often giving the surface a wet or greasy look.
-            coverage: Coverage is usually partial and uneven, varying from light spotting to extensive areas depending on
-              the machining process and coolant application.
-            pattern: It typically forms irregular streaks or patches, following the paths of coolant flow or machining operations,
-              and may concentrate in recessed areas or around tool contact points.
-          mineral:
-            appearance: On minerals, machining coolant residue manifests as a greasy, often dark film that can obscure natural
-              colors and crystal faces, leaving a dull or oily sheen.
-            coverage: Coverage is usually partial and irregular, ranging from light filming to concentrated patches depending
-              on mineral hardness and surface condition.
-            pattern: It typically appears as random spots or thin layers, adhering to surface features and accumulating in
-              fractures or rough areas, with no set pattern.
-          plastic:
-            appearance: On plastic, the residue appears as an oily, sometimes cloudy film that can cause discoloration or
-              a greasy feel, often making the surface look wet or smudged.
-            coverage: Coverage is typically irregular and partial, ranging from isolated spots to larger areas, with variations
-              based on plastic type and coolant properties.
-            pattern: It tends to form streaks or patches, spreading unevenly and possibly beading up on hydrophobic plastics,
-              with distribution influenced by surface energy.
-          rubber:
-            appearance: On rubber, the residue appears as a dark, greasy coating that can cause swelling or a tacky feel,
-              often leading to a shiny or stained surface.
-            coverage: Coverage is generally widespread but variable, ranging from thin, even layers to thicker, patchy areas
-              based on rubber composition and exposure time.
-            pattern: It typically forms uniform films or irregular patches, spreading across the surface and possibly absorbing
-              into the material, with no consistent pattern.
-          semiconductor:
-            appearance: On semiconductors, the residue appears as a thin, often invisible or slightly hazy film that can interfere
-              with electrical properties, sometimes visible under magnification as contaminants.
-            coverage: Coverage is typically extensive and uniform in thin layers, but can vary to partial coverage with micro-variations,
-              critical for performance integrity.
-            pattern: It tends to form uniform or micro-spotted layers, spreading evenly across the surface and potentially
-              concentrating at edges or defects, with precise distribution.
-          specialty:
-            appearance: On specialty materials, machining coolant residue varies widely but often appears as an oily or filmy
-              coating that can alter surface properties, such as causing discoloration or reduced functionality.
-            coverage: Coverage is highly variable and material-dependent, ranging from minimal, isolated areas to near-complete
-              films, influenced by specific composition and exposure.
-            pattern: It generally forms irregular distributions like patches or streaks, adapting to the material's unique
-              structure—e.g., layered in laminates or spotted on coated surfaces.
-          stone:
-            appearance: On stone, machining coolant residue manifests as dark, greasy spots or a faint film that can alter
-              the natural color, often leaving a slippery or dull finish on the surface.
-            coverage: Coverage is generally sparse and uneven, with variations from minor spotting to more extensive patches
-              based on surface roughness and coolant exposure.
-            pattern: It usually appears as random spots or streaks, concentrating in textured or porous regions and following
-              the contours of the stone, without a consistent pattern.
-          wood:
-            appearance: On wood, the residue appears as dark, oily stains that can penetrate the grain, often creating a blotchy
-              or discolored finish and sometimes leaving a glossy or sticky surface.
-            coverage: Coverage is typically localized and spotty, ranging from small, isolated areas to larger sections, depending
-              on exposure and wood porosity.
-            pattern: It tends to form irregular patches or streaks, spreading along the wood grain and accumulating in porous
-              areas, with no uniform distribution.
-      _section:
-        title: Visual Appearance
-        description: How this contaminant appears on different material types
-        icon: eye
         order: 1
         variant: default
-  operational:
-    laser_properties:
-      presentation: descriptive
+    produces_compounds:
+      presentation: card
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.4
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
-          polarization: circular
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 10
-            recommended_ns: 100
-          repetition_rate_khz:
-            max: 300
-            min: 20
-            recommended: 100
-          safety_margin_factor: 0.6
-          scan_speed_mm_s:
-            max: 3000
-            min: 500
-            recommended: 1500
-          spot_size_mm:
-            max: 0.1
-            min: 0.03
-            recommended: 0.05
-          wavelength_preference:
-          - 1064
-          - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 1200
-            wavelength_355nm: 28000
-            wavelength_532nm: 4500
-          reflectivity:
-            wavelength_1064nm: 0.15
-            wavelength_355nm: 0.04
-            wavelength_532nm: 0.08
-          refractive_index:
-            imaginary_part: 0.023
-            real_part: 1.48
-          transmission_depth: 8.3
-        removal_characteristics:
-          byproducts:
-          - compound: carbon-dioxide
-            hazard_level: low
-            phase: gas
-          - compound: water-vapor
-            hazard_level: low
-            phase: gas
-          - compound: carbon-ash
-            hazard_level: moderate
-            phase: solid
-          - compound: vocs
-            hazard_level: moderate
-            phase: gas
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 480
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.85
-          secondary_mechanisms:
-          - photochemical
-          - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: none
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 0.4
-            pulse_duration_10ns: 0.6
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 300
-          heat_affected_zone_depth: 15
-          melting_point: N/A
-          specific_heat: 2000
-          thermal_conductivity: 0.2
-          thermal_diffusivity: 0.1
-          vaporization_temperature: 450
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: carbon-ash-compound
+      - id: vocs-compound
       _section:
-        title: Laser Properties
-        description: Absorption characteristics and laser interaction data
-        icon: zap
+        title: Produces Compounds
+        description: Hazardous compounds generated during laser removal
+        icon: flask
+        order: 3
+        variant: warning
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
         order: 1
         variant: default
+  visual_characteristics:
+    presentation: descriptive
+    items:
+    - appearance_on_categories:
+        ceramic:
+          appearance: On ceramic, machining coolant residue shows up as a greasy, translucent film that may darken or dull
+            the glazed surface, often leaving a slippery or stained appearance.
+          coverage: Coverage is usually partial and uneven, varying from light, scattered spots to more concentrated areas
+            depending on surface texture and exposure.
+          pattern: It commonly forms irregular patches or streaks, adhering to smooth areas and accumulating in micro-cracks
+            or unglazed spots, with no set pattern.
+        composite:
+          appearance: On composites, machining coolant residue manifests as dark, oily stains or a thin film that can seep
+            into fibers, often creating a blotchy or discolored surface with a slippery texture.
+          coverage: Coverage is often uneven and localized, varying from minor spotting to extensive areas depending on material
+            porosity and machining conditions.
+          pattern: It usually appears as irregular patches or streaks, following the composite's layered or fibrous structure
+            and concentrating in porous regions.
+        concrete:
+          appearance: On concrete, the residue appears as dark, oily patches or a faint film that can darken the surface and
+            leave a slippery or stained finish, often highlighting the porous texture.
+          coverage: Coverage is generally sparse and uneven, varying from isolated spots to more extensive areas based on
+            concrete porosity and exposure.
+          pattern: It usually forms irregular spots or streaks, seeping into pores and cracks, and following surface irregularities
+            without a uniform distribution.
+        fabric:
+          appearance: On fabric, machining coolant residue shows up as dark, oily stains that can penetrate fibers, often
+            creating a wet-looking, discolored area with a greasy texture.
+          coverage: Coverage is typically localized and spotty, ranging from small stains to larger patches, with uneven variation
+            depending on fabric absorbency.
+          pattern: It tends to form irregular spots or blotches, spreading along the weave and concentrating in absorbent
+            areas, with distribution influenced by fabric type.
+        glass:
+          appearance: On glass, the residue appears as a translucent or slightly cloudy film that can cause haziness or rainbow-like
+            iridescence, often making the surface look smeared or less clear.
+          coverage: Coverage is often widespread but thin, ranging from nearly complete films in some areas to partial coverage
+            with variations in thickness.
+          pattern: It typically forms uniform thin layers or irregular streaks, spreading across the surface and sometimes
+            pooling at edges or in low spots.
+        metal:
+          appearance: Machining coolant residue on metal appears as a thin, oily film that can range from clear to milky white
+            or slightly discolored, often giving the surface a wet or greasy look.
+          coverage: Coverage is usually partial and uneven, varying from light spotting to extensive areas depending on the
+            machining process and coolant application.
+          pattern: It typically forms irregular streaks or patches, following the paths of coolant flow or machining operations,
+            and may concentrate in recessed areas or around tool contact points.
+        mineral:
+          appearance: On minerals, machining coolant residue manifests as a greasy, often dark film that can obscure natural
+            colors and crystal faces, leaving a dull or oily sheen.
+          coverage: Coverage is usually partial and irregular, ranging from light filming to concentrated patches depending
+            on mineral hardness and surface condition.
+          pattern: It typically appears as random spots or thin layers, adhering to surface features and accumulating in fractures
+            or rough areas, with no set pattern.
+        plastic:
+          appearance: On plastic, the residue appears as an oily, sometimes cloudy film that can cause discoloration or a
+            greasy feel, often making the surface look wet or smudged.
+          coverage: Coverage is typically irregular and partial, ranging from isolated spots to larger areas, with variations
+            based on plastic type and coolant properties.
+          pattern: It tends to form streaks or patches, spreading unevenly and possibly beading up on hydrophobic plastics,
+            with distribution influenced by surface energy.
+        rubber:
+          appearance: On rubber, the residue appears as a dark, greasy coating that can cause swelling or a tacky feel, often
+            leading to a shiny or stained surface.
+          coverage: Coverage is generally widespread but variable, ranging from thin, even layers to thicker, patchy areas
+            based on rubber composition and exposure time.
+          pattern: It typically forms uniform films or irregular patches, spreading across the surface and possibly absorbing
+            into the material, with no consistent pattern.
+        semiconductor:
+          appearance: On semiconductors, the residue appears as a thin, often invisible or slightly hazy film that can interfere
+            with electrical properties, sometimes visible under magnification as contaminants.
+          coverage: Coverage is typically extensive and uniform in thin layers, but can vary to partial coverage with micro-variations,
+            critical for performance integrity.
+          pattern: It tends to form uniform or micro-spotted layers, spreading evenly across the surface and potentially concentrating
+            at edges or defects, with precise distribution.
+        specialty:
+          appearance: On specialty materials, machining coolant residue varies widely but often appears as an oily or filmy
+            coating that can alter surface properties, such as causing discoloration or reduced functionality.
+          coverage: Coverage is highly variable and material-dependent, ranging from minimal, isolated areas to near-complete
+            films, influenced by specific composition and exposure.
+          pattern: It generally forms irregular distributions like patches or streaks, adapting to the material's unique structure—e.g.,
+            layered in laminates or spotted on coated surfaces.
+        stone:
+          appearance: On stone, machining coolant residue manifests as dark, greasy spots or a faint film that can alter the
+            natural color, often leaving a slippery or dull finish on the surface.
+          coverage: Coverage is generally sparse and uneven, with variations from minor spotting to more extensive patches
+            based on surface roughness and coolant exposure.
+          pattern: It usually appears as random spots or streaks, concentrating in textured or porous regions and following
+            the contours of the stone, without a consistent pattern.
+        wood:
+          appearance: On wood, the residue appears as dark, oily stains that can penetrate the grain, often creating a blotchy
+            or discolored finish and sometimes leaving a glossy or sticky surface.
+          coverage: Coverage is typically localized and spotty, ranging from small, isolated areas to larger sections, depending
+            on exposure and wood porosity.
+          pattern: It tends to form irregular patches or streaks, spreading along the wood grain and accumulating in porous
+            areas, with no uniform distribution.
+    _section:
+      title: Visual Characteristics
+      description: Physical appearance and identification features of this contamination
+      icon: eye
+      order: 10
+      variant: default
+  laser_properties:
+    presentation: descriptive
+    items:
+    - laser_parameters:
+        beam_profile: flat_top
+        fluence_range:
+          max_j_cm2: 1.4
+          min_j_cm2: 0.3
+          recommended_j_cm2: 0.8
+        overlap_percentage: 50
+        polarization: circular
+        pulse_duration_range:
+          max_ns: 200
+          min_ns: 10
+          recommended_ns: 100
+        repetition_rate_khz:
+          max: 300
+          min: 20
+          recommended: 100
+        safety_margin_factor: 0.6
+        scan_speed_mm_s:
+          max: 3000
+          min: 500
+          recommended: 1500
+        spot_size_mm:
+          max: 0.1
+          min: 0.03
+          recommended: 0.05
+        wavelength_preference:
+        - 1064
+        - 532
+      optical_properties:
+        absorption_coefficient:
+          wavelength_1064nm: 1200
+          wavelength_355nm: 28000
+          wavelength_532nm: 4500
+        reflectivity:
+          wavelength_1064nm: 0.15
+          wavelength_355nm: 0.04
+          wavelength_532nm: 0.08
+        refractive_index:
+          imaginary_part: 0.023
+          real_part: 1.48
+        transmission_depth: 8.3
+      removal_characteristics:
+        byproducts:
+        - compound: carbon-dioxide
+          hazard_level: low
+          phase: gas
+        - compound: water-vapor
+          hazard_level: low
+          phase: gas
+        - compound: carbon-ash
+          hazard_level: moderate
+          phase: solid
+        - compound: vocs
+          hazard_level: moderate
+          phase: gas
+        damage_risk_to_substrate: low
+        primary_mechanism: thermal_ablation
+        process_speed:
+          area_coverage_rate_cm2_min: 480
+          typical_scan_speed_mm_s: 800
+        removal_efficiency:
+          diminishing_returns_after: 3
+          optimal_passes: 2
+          single_pass: 0.85
+        secondary_mechanisms:
+        - photochemical
+        - mechanical_spallation
+        surface_quality_after_removal:
+          color_change: 'no'
+          residual_stress: none
+          roughness_increase: minimal
+      safety_data:
+        fire_explosion_risk:
+          severity: low
+          description: Minimal fire risk with standard precautions and adequate ventilation
+          mitigation: Standard fire safety precautions, extinguisher available within 15m
+        fumes_generated:
+        - compound: Aldehydes (formaldehyde, acrolein)
+          concentration_mg_m3: 2-15
+          exposure_limit_mg_m3: 0.37
+          hazard_class: irritant
+        - compound: Carbon monoxide
+          concentration_mg_m3: 25-100
+          exposure_limit_mg_m3: 29
+          hazard_class: toxic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 0.5-5
+          exposure_limit_mg_m3: 0.2
+          hazard_class: carcinogenic
+        - compound: Metal oxides
+          concentration_mg_m3: 1-10
+          exposure_limit_mg_m3: 5
+          hazard_class: toxic
+        particulate_generation:
+          respirable_fraction: 0.8
+          size_range_um:
+          - 0.1
+          - 10
+        ppe_requirements:
+          eye_protection: goggles
+          respiratory: PAPR
+          skin_protection: gloves
+          rationale: Standard protection against workplace hazards
+        substrate_compatibility_warnings:
+        - Thermal decomposition may create hazardous byproducts not present in original coolant
+        - Residue thickness and composition significantly affect fume generation rate
+        - Chlorinated or sulfurized extreme pressure additives may produce additional toxic gases
+        toxic_gas_risk:
+          severity: moderate
+          primary_hazards:
+          - compound: Carbon monoxide
+            concentration_mg_m3: 25-100
+            hazard_class: toxic
+          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+            concentration_mg_m3: 0.5-5
+            hazard_class: carcinogenic
+          - compound: Metal oxides
+            concentration_mg_m3: 1-10
+            hazard_class: toxic
+          description: 'Multiple toxic compounds detected: Carbon monoxide, Polycyclic Aromatic Hydrocarbons (PAHs), Metal
+            oxides - requires enhanced protection'
+          mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+            WARNING: Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
+        ventilation_requirements:
+          exhaust_velocity_m_s: 0.5
+          filtration_type: carbon
+          minimum_air_changes_per_hour: 12
+          rationale: Standard industrial ventilation (12 ACH) for particulate control
+        visibility_hazard:
+          severity: moderate
+          description: Moderate visibility reduction (40-60%), significant particulate haze
+          source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+          related_field: particulate_generation.respirable_fraction
+      thermal_properties:
+        ablation_threshold:
+          pulse_duration_100ns: 0.4
+          pulse_duration_10ns: 0.6
+          wavelength_1064nm: 0.8
+        decomposition_temperature: 300
+        heat_affected_zone_depth: 15
+        melting_point: N/A
+        specific_heat: 2000
+        thermal_conductivity: 0.2
+        thermal_diffusivity: 0.1
+        vaporization_temperature: 450
+    _section:
+      title: Laser Parameters
+      description: Optimal laser settings and technical parameters for removal
+      icon: zap
+      order: 9
+      variant: default
+  prohibited_materials:
+    presentation: card
+    _section:
+      title: Prohibited Materials
+      description: Materials where laser removal of this contamination is not recommended
+      icon: alert-triangle
+      order: 7
+      variant: danger
+    items:
+    - Plastics
+    - Wood
+  category: organic-residue
+  subcategory: lubricant
+  images: *id001
   materials:
-  - id: aluminum-laser-cleaning
-    title: Aluminum
-    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-    image: /images/material/aluminum-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: brass-laser-cleaning
-    title: Brass
-    url: /materials/metal/non-ferrous/brass-laser-cleaning
-    image: /images/material/brass-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: steel-laser-cleaning
-    title: Steel
-    url: /materials/metal/ferrous/steel-laser-cleaning
-    image: /images/material/steel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: titanium-laser-cleaning
-    title: Titanium
-    url: /materials/metal/specialty/titanium-laser-cleaning
-    image: /images/material/titanium-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
+    presentation: card
+    items:
+    - title: Affected Materials
+      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+      groups:
+        metals:
+          title: Metal Substrates
+          description: Ferrous and non-ferrous metals affected by this contamination
+          items:
+          - id: aluminum-laser-cleaning
+            title: Aluminum
+            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+            image: /images/material/aluminum-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: brass-laser-cleaning
+            title: Brass
+            url: /materials/metal/non-ferrous/brass-laser-cleaning
+            image: /images/material/brass-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: steel-laser-cleaning
+            title: Steel
+            url: /materials/metal/ferrous/steel-laser-cleaning
+            image: /images/material/steel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: titanium-laser-cleaning
+            title: Titanium
+            url: /materials/metal/specialty/titanium-laser-cleaning
+            image: /images/material/titanium-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+    _section:
+      title: Found On Materials
+      description: Materials where this contaminant is commonly found
+      icon: box
+      order: 10
+      variant: default
 subcategory: lubricant
 composition:
 - Emulsified Oil
 - Biocides
 - Surfactants
-prohibited_materials:
-- Plastics
-- Wood
-valid_materials:
-- aluminum-laser-cleaning
-- brass-laser-cleaning
-- steel-laser-cleaning
-- titanium-laser-cleaning
-slug: cutting-fluid-contamination
-lastModified: '2026-01-04T13:42:48.292483'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Machining Coolant Residue
-  href: ''
-title: Machining Coolant Residue
+page_description: Cutting fluid contamination builds up during machining operations, creating sticky organic residues that
+  cling to metal surfaces. These contaminants form unique patterns, like thin films mixed with metal shavings, which ramp
+  up adhesion in high-heat zones. In laser cleaning applications, removal turns out tricky; the fluid's oily nature resists
+  vaporization, often leaving charred spots that demand multiple passes. On steel, it penetrates pores tightly, while aluminum
+  shows looser buildup that clears more readily. Overall, addressing this holds up production flow—lasers break it down effectively,
+  yet material-specific behaviors call for dialing in pulse settings to achieve a clean finish without surface damage.

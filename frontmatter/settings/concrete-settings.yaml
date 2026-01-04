@@ -1,16 +1,24 @@
 id: concrete-settings
 name: Concrete
-datePublished: '2026-01-04T21:43:50.475633Z'
-dateModified: '2026-01-04T21:43:50.475633Z'
+datePublished: '2025-12-27T21:06:07.400627Z'
+dateModified: '2025-12-27T21:06:07.400627Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/masonry/general/concrete-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Masonry
+  href: /settings/masonry
+- label: General
+  href: /settings/masonry/general
+- label: Concrete
+  href: /settings/masonry/general/concrete-settings
 page_title: 'Concrete Settings: Laser Parameters'
-page_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
-  a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy,
-  which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans
-  to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
-meta_description: 'Concrete: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Concrete: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/concrete-settings-hero.jpg
@@ -43,16 +51,17 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
+    with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
-  slug: todd-dunning
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -64,34 +73,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -102,96 +84,104 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: moisture-spalling
-        category: Thermal Management
-        challenge: Moisture-induced spalling and explosive failure
-        description: Rapid steam generation causes explosive material removal
-        severity: high
-        solutions:
-        - Pre-dry material (80°C, 24h) before laser processing
-        - Use lower fluence (<1 J/cm²) to allow gradual moisture release
-        - Longer pulse durations (>100 ns) for gentler heating
-        threshold: 0.5-5% moisture by weight in porous materials
-      - id: low-thermal-diffusivity
-        category: Thermal Management
-        challenge: Low thermal diffusivity and heat accumulation
-        description: Heat accumulates, risk of substrate damage
-        severity: high
-        solutions:
-        - Use pulsed mode with extended dwell-off time
-        - Reduce repetition rate to allow cooling
-        - Multiple light passes instead of single high-power pass
-      - id: paint-coating-removal
-        category: Contamination
-        challenge: Paint and coating removal
-        description: Thick coatings require multiple passes, risk of substrate damage
-        severity: medium
-        solutions:
-        - Use higher fluence (3-5 J/cm²) for first pass
-        - Reduce power progressively as coating thins
-        - Monitor substrate to prevent over-processing
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: moisture-spalling
+          type: challenge
+        - id: low-thermal-diffusivity
+          type: challenge
+        contamination_challenges:
+        - id: paint-coating-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: masonry
+subcategory: general
 machine_settings:
   powerRange:
-    description: Optimal average power for concrete surface cleaning and contaminant removal
+    description: Optimal average power for concrete surface cleaning and contaminant
+      removal
     unit: W
     value: 100
     min: 1.0
     max: 120
   wavelength:
-    description: Near-infrared wavelength optimized for concrete absorption and minimal substrate damage
+    description: Near-infrared wavelength optimized for concrete absorption and minimal
+      substrate damage
     unit: nm
     value: 1064
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for effective cleaning coverage and energy density control
+    description: Beam spot diameter for effective cleaning coverage and energy density
+      control
     unit: mm
     value: 0.8
     min: 0.1
     max: 500
   repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage without thermal buildup
+    description: Optimal repetition rate for continuous cleaning coverage without
+      thermal buildup
     unit: kHz
     value: 50
     min: 1
     max: 200
   energyDensity:
-    description: Fluence threshold for effective contaminant removal while preserving concrete integrity
+    description: Fluence threshold for effective contaminant removal while preserving
+      concrete integrity
     unit: J/cm²
     value: 2.5
     min: 0.1
     max: 20.0
   pulseWidth:
-    description: Pulse duration balancing efficient contaminant removal with concrete substrate preservation
+    description: Pulse duration balancing efficient contaminant removal with concrete
+      substrate preservation
     unit: ns
     value: 12
     min: 0.1
     max: 1000
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning with sufficient energy deposition
+    description: Optimal scanning speed for uniform cleaning with sufficient energy
+      deposition
     unit: mm/s
     value: 500
     min: 10
@@ -213,78 +203,82 @@ machine_settings:
     max: 2000
     value: 500
     unit: W
-    description: 'Typical range for industrial 1064 nm laser cleaning of concrete surfaces (e.g., graffiti or rust removal);
-      starting at 500 W balances efficiency and safety to avoid thermal cracking. Max safe below substrate damage threshold
-      (~1000-1500 W depending on fluence). Source: CleanLaser and IPG Photonics equipment specs; academic review in J. Laser
-      Appl. (2018) on stone/concrete cleaning.'
+    description: 'Typical range for industrial 1064 nm laser cleaning of concrete
+      surfaces (e.g., graffiti or rust removal); starting at 500 W balances efficiency
+      and safety to avoid thermal cracking. Max safe below substrate damage threshold
+      (~1000-1500 W depending on fluence). Source: CleanLaser and IPG Photonics equipment
+      specs; academic review in J. Laser Appl. (2018) on stone/concrete cleaning.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective range for contamination removal on concrete; slower (100-500 mm/s) for heavy soiling like rust,
-      faster (2000-5000 mm/s) for light contaminants. Recommended 1000 mm/s for optimal balance of cleaning rate and uniformity,
-      considering concrete''s low thermal conductivity. Source: Industry standards from Laser Clean Tech manuals; case study
-      in Opt. Lasers Eng. (2020).'
+    description: 'Effective range for contamination removal on concrete; slower (100-500
+      mm/s) for heavy soiling like rust, faster (2000-5000 mm/s) for light contaminants.
+      Recommended 1000 mm/s for optimal balance of cleaning rate and uniformity, considering
+      concrete''s low thermal conductivity. Source: Industry standards from Laser
+      Clean Tech manuals; case study in Opt. Lasers Eng. (2020).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime (10-150 ns) typical for concrete to enable ablation with minimal heat-affected zone (HAZ);
-      picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 50 ns for efficient contaminant
-      removal without cracking porous concrete. Source: Laser physics research in Appl. Surf. Sci. (2019) on pulsed laser
-      ablation of cementitious materials.'
+    description: 'Nanosecond regime (10-150 ns) typical for concrete to enable ablation
+      with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces
+      HAZ further but increases cost. Recommended 50 ns for efficient contaminant
+      removal without cracking porous concrete. Source: Laser physics research in
+      Appl. Surf. Sci. (2019) on pulsed laser ablation of cementitious materials.'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation
-      in low-conductivity concrete. Recommended 50 kHz for balanced throughput and thermal management. Source: Academic literature
+    description: 'Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed
+      up process but risk heat accumulation in low-conductivity concrete. Recommended
+      50 kHz for balanced throughput and thermal management. Source: Academic literature
       in J. Clean. Prod. (2021) on industrial laser parameters for building materials.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence range for safe contaminant ablation (e.g., paints or oxides); concrete damage threshold ~8-12 J/cm²
-      to prevent spalling. Recommended 2 J/cm² for effective cleaning below threshold, accounting for variable reflectivity
-      at 1064 nm. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) and Opt. Express (2022) on concrete laser
-      interactions.'
+    description: 'Fluence range for safe contaminant ablation (e.g., paints or oxides);
+      concrete damage threshold ~8-12 J/cm² to prevent spalling. Recommended 2 J/cm²
+      for effective cleaning below threshold, accounting for variable reflectivity
+      at 1064 nm. Source: Ablation threshold studies in Surf. Coat. Technol. (2017)
+      and Opt. Express (2022) on concrete laser interactions.'
   spot_size:
     min: 0.1
     max: 1200
     value: 1000
     unit: μm
-    description: 'Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for
-      broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications
-      from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020).'
+    description: 'Beam diameter range for cleaning; smaller (100-500 μm) for fine
+      details like cracks, larger (1-5 mm) for broad surface prep. Recommended 1000
+      μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment
+      specifications from Coherent and Trumpf lasers; process optimization in Lasers
+      Manuf. Mater. Process. (2020).'
   pass_count:
     min: 1
     max: 10
     value: 3
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (3-5) for heavy layers to ensure complete removal without
-      excessive energy input. Recommended 3 passes for typical industrial concrete cleaning to achieve uniform results. Source:
-      Industry case studies in Constr. Build. Mater. (2019) on laser surface preparation.'
+    description: 'Single pass for light contamination, multi-pass (3-5) for heavy
+      layers to ensure complete removal without excessive energy input. Recommended
+      3 passes for typical industrial concrete cleaning to achieve uniform results.
+      Source: Industry case studies in Constr. Build. Mater. (2019) on laser surface
+      preparation.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Standard overlap for uniform scan coverage; 30-50% for faster large-area cleaning, 50-80% for detailed work
-      to avoid gaps on uneven concrete. Recommended 50% for balanced efficiency and homogeneity. Source: Process optimization
-      studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems.'
-component_summary: These settings deliver moderate power with short 12 ns pulses at 1064 nm to ablate contaminants from concrete's
-  tough surface while minimizing thermal stress that could cause cracking.
-slug: concrete-settings
-lastModified: '2026-01-04T13:43:50.475666'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Concrete
-  href: ''
-title: Concrete
+    description: 'Standard overlap for uniform scan coverage; 30-50% for faster large-area
+      cleaning, 50-80% for detailed work to avoid gaps on uneven concrete. Recommended
+      50% for balanced efficiency and homogeneity. Source: Process optimization studies
+      in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems.'
+page_description: We've found that concrete demands initial low-power passes in laser
+  cleaning to avoid aggregate spalling, a risk not as prevalent in denser stones like
+  granite. Its inherent porosity allows effective absorption of laser energy, which
+  reveals embedded contaminants without excessive heat buildup. We typically follow
+  with multiple overlapping scans to restore surface uniformity in infrastructure
+  settings, reducing the chance of uneven ablation.

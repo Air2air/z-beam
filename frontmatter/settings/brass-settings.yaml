@@ -1,17 +1,24 @@
 id: brass-settings
 name: Brass
-datePublished: '2026-01-04T21:43:49.604000Z'
-dateModified: '2026-01-04T21:43:49.604000Z'
+datePublished: '2025-12-27T21:06:07.194943Z'
+dateModified: '2025-12-27T21:06:07.194943Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/brass-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Non Ferrous
+  href: /settings/metal/non-ferrous
+- label: Brass
+  href: /settings/metal/non-ferrous/brass-settings
 page_title: 'Brass Settings: Laser Parameters'
-page_description: When laser cleaning brass, you'll want to start with a lower pulse frequency because it reflects light so
-  well, which means you avoid overheating the surface right away. We've found that gentle passes work best on fittings or
-  instruments, as brass stays durable and corrosion-resistant without pitting. If buildup is stubborn, adjust the scan speed
-  slower to clear contaminants fully, so the finish looks polished and even afterward. Watch for any color shifts, though—they
-  usually fade with a quick follow-up.
-meta_description: 'Brass: removes oxidation treatment. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Brass: removes oxidation treatment. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/brass-settings-hero.jpg
@@ -43,17 +50,18 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
+    in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
-  slug: yi-chun-lin
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -65,21 +73,18 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
+  technical:
+    works_on_materials:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+      - id: brass-laser-cleaning
+        effectiveness: high
       _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
         variant: default
-  interactions:
     removes_contaminants:
       presentation: card
       items:
@@ -90,75 +95,45 @@ relationships:
       _section:
         title: Removes Contaminants
         description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
+        icon: droplet
+        order: 3
         variant: default
-    works_on_materials:
+  safety:
+    regulatory_standards:
       presentation: card
       items:
-      - id: brass-laser-cleaning
-        effectiveness: high
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
         variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: metal
+subcategory: non-ferrous
 machine_settings:
   powerRange:
     description: Optimal average power for Brass oxide removal without substrate damage
@@ -209,7 +184,8 @@ machine_settings:
     min: 1
     max: 10
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive heat accumulation
+    description: Optimal beam overlap for uniform cleaning without excessive heat
+      accumulation
     unit: '%'
     value: 50
     min: 10
@@ -219,73 +195,77 @@ machine_settings:
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for industrial 1064 nm laser cleaning of reflective metals like brass to avoid thermal damage;
-      starting at 100W for light contamination. Max limited by brass''s high reflectivity and melting point (~900°C). Source:
+    description: 'Typical range for industrial 1064 nm laser cleaning of reflective
+      metals like brass to avoid thermal damage; starting at 100W for light contamination.
+      Max limited by brass''s high reflectivity and melting point (~900°C). Source:
       CleanLaser and IPG Photonics specs for metal cleaning systems.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (e.g., oxides),
-      faster for light rust/oil. Recommended 1500 mm/s for uniform brass surface prep. Source: Industry standards from Laserax
+    description: 'Effective speeds balance cleaning efficiency and heat input; slower
+      for heavy contamination (e.g., oxides), faster for light rust/oil. Recommended
+      1500 mm/s for uniform brass surface prep. Source: Industry standards from Laserax
       and academic studies on scan optimization (e.g., J. Laser Appl. 2018).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 10
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning of brass; 10 ns minimizes heat-affected zone (HAZ)
-      due to brass''s thermal conductivity (~120 W/mK). Picosecond (<1 ns) for ultra-fine work but less common industrially.
-      Source: Laser physics research in Opt. Lasers Eng. (2015) on metal ablation thresholds.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning of brass;
+      10 ns minimizes heat-affected zone (HAZ) due to brass''s thermal conductivity
+      (~120 W/mK). Picosecond (<1 ns) for ultra-fine work but less common industrially.
+      Source: Laser physics research in Opt. Lasers Eng. (2015) on metal ablation
+      thresholds.'
   repetition_rate:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: '20-50 kHz balances speed and heat accumulation on reflective brass; higher rates (>50 kHz) risk overheating
-      despite good conductivity. Source: Academic literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019), noting
-      trade-offs for Cu-based alloys.'
+    description: '20-50 kHz balances speed and heat accumulation on reflective brass;
+      higher rates (>50 kHz) risk overheating despite good conductivity. Source: Academic
+      literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019), noting trade-offs
+      for Cu-based alloys.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence below brass damage threshold (~2-4 J/cm² at 1064 nm) for contaminant removal without substrate ablation;
-      1.5 J/cm² safe for oils/rust. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017) for brass and similar
-      alloys.'
+    description: 'Fluence below brass damage threshold (~2-4 J/cm² at 1064 nm) for
+      contaminant removal without substrate ablation; 1.5 J/cm² safe for oils/rust.
+      Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017) for brass
+      and similar alloys.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: '200-300 μm ideal for brass to achieve uniform cleaning on detailed surfaces; smaller for precision, larger
-      for broad areas. Accounts for beam divergence on reflective surfaces. Source: Equipment specs from Coherent and Trumpf
-      laser cleaning heads.'
+    description: '200-300 μm ideal for brass to achieve uniform cleaning on detailed
+      surfaces; smaller for precision, larger for broad areas. Accounts for beam divergence
+      on reflective surfaces. Source: Equipment specs from Coherent and Trumpf laser
+      cleaning heads.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: '1-3 passes typical for complete removal of contaminants on brass; multi-pass for layered dirt to stay below
-      damage threshold. Single pass sufficient for light prep. Source: Industry case studies (e.g., Laser Cleaning Technol.
+    description: '1-3 passes typical for complete removal of contaminants on brass;
+      multi-pass for layered dirt to stay below damage threshold. Single pass sufficient
+      for light prep. Source: Industry case studies (e.g., Laser Cleaning Technol.
       reports) and practical optimization.'
   overlap_ratio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: '70% overlap ensures uniform coverage without excessive heat buildup on brass; higher for fine contaminants,
-      lower for speed. Source: Process optimization studies in Surf. Coat. Technol. (2020) for scanned laser cleaning of metals.'
-component_summary: These settings utilize 1064 nm wavelength for optimal absorption in brass, with 100 W power and 10 ns pulses
-  to efficiently remove oxides while minimizing heat-induced discoloration on the soft alloy.
-slug: brass-settings
-lastModified: '2026-01-04T13:43:49.604031'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Brass
-  href: ''
-title: Brass
+    description: '70% overlap ensures uniform coverage without excessive heat buildup
+      on brass; higher for fine contaminants, lower for speed. Source: Process optimization
+      studies in Surf. Coat. Technol. (2020) for scanned laser cleaning of metals.'
+page_description: When laser cleaning brass, you'll want to start with a lower pulse
+  frequency because it reflects light so well, which means you avoid overheating the
+  surface right away. We've found that gentle passes work best on fittings or instruments,
+  as brass stays durable and corrosion-resistant without pitting. If buildup is stubborn,
+  adjust the scan speed slower to clear contaminants fully, so the finish looks polished
+  and even afterward. Watch for any color shifts, though—they usually fade with a
+  quick follow-up.

@@ -1,24 +1,24 @@
 id: terracotta-settings
 name: Terracotta
-datePublished: '2026-01-04T21:43:58.243551Z'
-dateModified: '2026-01-04T21:43:58.243551Z'
+datePublished: '2025-12-27T21:06:08.767206Z'
+dateModified: '2025-12-27T21:06:08.767206Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/masonry/concrete/terracotta-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Masonry
+  href: /settings/masonry
+- label: Concrete
+  href: /settings/masonry/concrete
+- label: Terracotta
+  href: /settings/masonry/concrete/terracotta-settings
 page_title: 'Terracotta Settings: Laser Parameters'
-page_description: 'When laser cleaning terracotta, watch out for its porous nature right from the start—it can trap heat unevenly
-  and lead to cracks if you''re not careful. I''ve seen this happen when folks push too hard too soon, so begin by testing
-  a small area with gentle pulses to gauge how the surface responds. This material tends to absorb laser energy moderately
-  well, which helps remove dirt and grime without much effort, but its low heat spreading means you should keep dwell times
-  short to avoid localized overheating.
-
-
-  Move to a multi-pass approach next, starting low on power and building up only as needed. Terracotta''s relative fragility
-  compared to denser stones calls for wider scan overlaps, ensuring even coverage without stressing the structure. What sets
-  it apart is that baked-clay makeup, so it cleans up beautifully for heritage pieces but demands you pause between passes
-  to let it cool. Avoid high speeds early on; slower ones prevent surface pitting. In my experience, this setup preserves
-  the earthy texture while stripping away years of buildup safely.'
-meta_description: 'Terracotta: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Terracotta: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/terracotta-settings-hero.jpg
@@ -50,17 +50,18 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
+    in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
-  slug: yi-chun-lin
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -72,21 +73,18 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
+  technical:
+    works_on_materials:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+      - id: terracotta-laser-cleaning
+        effectiveness: high
       _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
         variant: default
-  interactions:
     removes_contaminants:
       presentation: card
       items:
@@ -97,99 +95,82 @@ relationships:
       _section:
         title: Removes Contaminants
         description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
+        icon: droplet
+        order: 3
         variant: default
-    works_on_materials:
+  safety:
+    regulatory_standards:
       presentation: card
       items:
-      - id: terracotta-laser-cleaning
-        effectiveness: high
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
         variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: moisture-spalling
-        category: Thermal Management
-        challenge: Moisture-induced spalling and explosive failure
-        description: Rapid steam generation causes explosive material removal
-        severity: high
-        solutions:
-        - Pre-dry material (80°C, 24h) before laser processing
-        - Use lower fluence (<1 J/cm²) to allow gradual moisture release
-        - Longer pulse durations (>100 ns) for gentler heating
-        threshold: 0.5-5% moisture by weight in porous materials
-      - id: low-thermal-diffusivity
-        category: Thermal Management
-        challenge: Low thermal diffusivity and heat accumulation
-        description: Heat accumulates, risk of substrate damage
-        severity: high
-        solutions:
-        - Use pulsed mode with extended dwell-off time
-        - Reduce repetition rate to allow cooling
-        - Multiple light passes instead of single high-power pass
-      - id: paint-coating-removal
-        category: Contamination
-        challenge: Paint and coating removal
-        description: Thick coatings require multiple passes, risk of substrate damage
-        severity: medium
-        solutions:
-        - Use higher fluence (3-5 J/cm²) for first pass
-        - Reduce power progressively as coating thins
-        - Monitor substrate to prevent over-processing
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: moisture-spalling
+          type: challenge
+        - id: low-thermal-diffusivity
+          type: challenge
+        contamination_challenges:
+        - id: paint-coating-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: masonry
+subcategory: concrete
 machine_settings:
   powerRange:
-    description: Optimal average power for Terracotta surface cleaning without thermal damage
+    description: Optimal average power for Terracotta surface cleaning without thermal
+      damage
     unit: W
     value: 100
     min: 1.0
     max: 120
   wavelength:
-    description: Near-infrared wavelength optimized for Terracotta absorption and minimal substrate damage
+    description: Near-infrared wavelength optimized for Terracotta absorption and
+      minimal substrate damage
     unit: nm
     value: 1064
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning control and adequate energy density
+    description: Beam spot diameter for precise cleaning control and adequate energy
+      density
     unit: μm
     value: 100
     min: 0.1
     max: 500
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
+    description: Optimal repetition rate for efficient cleaning coverage and thermal
+      management
     unit: kHz
     value: 50
     min: 1
     max: 200
   energyDensity:
-    description: Fluence level sufficient for contaminant removal while preserving Terracotta substrate
+    description: Fluence level sufficient for contaminant removal while preserving
+      Terracotta substrate
     unit: J/cm²
     value: 2.5
     min: 0.1
     max: 20.0
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration
+    description: Nanosecond pulse duration for effective contaminant removal with
+      controlled thermal penetration
     unit: ns
     value: 10
     min: 0.1
@@ -207,13 +188,15 @@ machine_settings:
     min: 1
     max: 10
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage without excessive thermal buildup
+    description: Optimal beam overlap for uniform cleaning coverage without excessive
+      thermal buildup
     unit: '%'
     value: 50
     min: 10
     max: 90
   dwellTime:
-    description: Effective dwell time per spot for contaminant ablation without substrate damage
+    description: Effective dwell time per spot for contaminant ablation without substrate
+      damage
     unit: μs
     value: 100
     min: 0.2
@@ -223,72 +206,85 @@ machine_settings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for delicate ceramics like terracotta to avoid thermal damage; starting at 50W for light contamination
-      removal. Max safe ~200W to prevent cracking. Source: Studies on Nd:YAG laser cleaning of archaeological ceramics (e.g.,
-      Verges-Belmin et al., 2008, J. Cult. Herit.).'
+    description: 'Typical range for delicate ceramics like terracotta to avoid thermal
+      damage; starting at 50W for light contamination removal. Max safe ~200W to prevent
+      cracking. Source: Studies on Nd:YAG laser cleaning of archaeological ceramics
+      (e.g., Verges-Belmin et al., 2008, J. Cult. Herit.).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s),
-      faster for light (2000-3000 mm/s). Recommended 1500 mm/s for uniform terracotta surface preparation. Source: Industry
+    description: 'Effective speeds balance cleaning efficiency and heat input; slower
+      for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s).
+      Recommended 1500 mm/s for uniform terracotta surface preparation. Source: Industry
       manuals from IPG Photonics and Laserax equipment guidelines.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 15
     unit: ns
-    description: 'Nanosecond regime preferred for terracotta to minimize heat-affected zone (HAZ) while ablating contaminants;
-      picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially. 15 ns optimal for low thermal
-      conductivity materials. Source: Laser ablation research (e.g., Anisimov et al., 2015, Appl. Phys. A).'
+    description: 'Nanosecond regime preferred for terracotta to minimize heat-affected
+      zone (HAZ) while ablating contaminants; picosecond (ps) or femtosecond (fs)
+      for ultra-precision but less common industrially. 15 ns optimal for low thermal
+      conductivity materials. Source: Laser ablation research (e.g., Anisimov et al.,
+      2015, Appl. Phys. A).'
   repetition_rate:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: 'Typical for 1064 nm cleaning to achieve good overlap without excessive heat buildup; higher rates speed
-      up process but risk accumulation on porous terracotta. 20 kHz balances speed and safety. Source: Academic literature
-      on pulsed laser cleaning (e.g., Pouli et al., 2010, Spectrochim. Acta B).'
+    description: 'Typical for 1064 nm cleaning to achieve good overlap without excessive
+      heat buildup; higher rates speed up process but risk accumulation on porous
+      terracotta. 20 kHz balances speed and safety. Source: Academic literature on
+      pulsed laser cleaning (e.g., Pouli et al., 2010, Spectrochim. Acta B).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.0
     unit: J/cm²
-    description: 'Fluence range for contaminant ablation without substrate damage; terracotta damage threshold ~2-4 J/cm²
-      due to low melting point (~1000-1200°C). Recommended 1 J/cm² for safe industrial cleaning. Source: Ablation threshold
+    description: 'Fluence range for contaminant ablation without substrate damage;
+      terracotta damage threshold ~2-4 J/cm² due to low melting point (~1000-1200°C).
+      Recommended 1 J/cm² for safe industrial cleaning. Source: Ablation threshold
       studies on ceramics (e.g., Marla et al., 2012, J. Appl. Phys.).'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller spots for fine detail on terracotta artifacts, larger for broad industrial areas; 200 μm recommended
-      for balanced resolution and coverage on uneven surfaces. Source: Equipment specs from Coherent and Trumpf laser systems.'
+    description: 'Smaller spots for fine detail on terracotta artifacts, larger for
+      broad industrial areas; 200 μm recommended for balanced resolution and coverage
+      on uneven surfaces. Source: Equipment specs from Coherent and Trumpf laser systems.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light soiling, multi-pass for heavy contamination; 2 passes typical for complete terracotta
-      cleaning without overexposure. Source: Case studies in cultural heritage laser cleaning (e.g., Radvan et al., 2007,
+    description: 'Single pass for light soiling, multi-pass for heavy contamination;
+      2 passes typical for complete terracotta cleaning without overexposure. Source:
+      Case studies in cultural heritage laser cleaning (e.g., Radvan et al., 2007,
       Lasers in the Conservation of Artworks).'
   overlap_ratio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform coverage on porous terracotta; 70% optimal to avoid gaps or uneven heating. Source: Process
-      optimization in laser scanning studies (e.g., Salonitis et al., 2013, Opt. Lasers Eng.).'
-component_summary: These settings use moderate 50 W power and 10 ns pulses at 1064 nm to gently remove contaminants from terracotta's
-  porous surface, preventing thermal cracking or discoloration.
-slug: terracotta-settings
-lastModified: '2026-01-04T13:43:58.243594'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Terracotta
-  href: ''
-title: Terracotta
+    description: 'Ensures uniform coverage on porous terracotta; 70% optimal to avoid
+      gaps or uneven heating. Source: Process optimization in laser scanning studies
+      (e.g., Salonitis et al., 2013, Opt. Lasers Eng.).'
+page_description: 'When laser cleaning terracotta, watch out for its porous nature
+  right from the start—it can trap heat unevenly and lead to cracks if you''re not
+  careful. I''ve seen this happen when folks push too hard too soon, so begin by testing
+  a small area with gentle pulses to gauge how the surface responds. This material
+  tends to absorb laser energy moderately well, which helps remove dirt and grime
+  without much effort, but its low heat spreading means you should keep dwell times
+  short to avoid localized overheating.
+
+
+  Move to a multi-pass approach next, starting low on power and building up only as
+  needed. Terracotta''s relative fragility compared to denser stones calls for wider
+  scan overlaps, ensuring even coverage without stressing the structure. What sets
+  it apart is that baked-clay makeup, so it cleans up beautifully for heritage pieces
+  but demands you pause between passes to let it cool. Avoid high speeds early on;
+  slower ones prevent surface pitting. In my experience, this setup preserves the
+  earthy texture while stripping away years of buildup safely.'

@@ -1,24 +1,24 @@
 id: cobalt-settings
 name: Cobalt
-datePublished: '2026-01-04T21:43:50.401037Z'
-dateModified: '2026-01-04T21:43:50.401037Z'
+datePublished: '2025-12-27T21:06:07.384249Z'
+dateModified: '2025-12-27T21:06:07.384249Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/cobalt-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Specialty
+  href: /settings/metal/specialty
+- label: Cobalt
+  href: /settings/metal/specialty/cobalt-settings
 page_title: 'Cobalt Settings: Laser Parameters'
-page_description: 'When laser cleaning cobalt, you must tackle its moderate reflectivity first. This sets it apart from highly
-  absorptive metals like titanium, where energy soaks in quickly. With cobalt, the laser beam bounces back more, so contaminants
-  linger longer if you blast too hard.
-
-
-  Start with lower power settings to build absorption gradually. Make sure you scan slowly at first. This avoids surface pitting,
-  a common pitfall mid-process when heat builds unevenly.
-
-
-  Cobalt''s strength and heat resistance shine here compared to softer alloys. They let you ramp up passes without warping.
-  Just overlap beams well to clear tough buildup from aerospace parts or medical tools. Adjust fluence as you go to keep the
-  base intact.'
-meta_description: 'Cobalt: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Cobalt: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/cobalt-settings-hero.jpg
@@ -50,17 +50,18 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
+    in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
-  slug: yi-chun-lin
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -72,34 +73,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -110,69 +84,64 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: metal
+subcategory: specialty
 machine_settings:
   powerRange:
-    description: Optimal average power for Cobalt oxide removal without substrate damage
+    description: Optimal average power for Cobalt oxide removal without substrate
+      damage
     unit: W
     value: 100
     min: 1.0
@@ -230,74 +199,87 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial cleaning of reflective metals like cobalt to avoid thermal damage; starting
-      at 100 W balances efficiency and safety. Max limited to prevent melting (cobalt MP ~1495°C). Source: IPG Photonics YLR
+    description: 'Typical range for industrial cleaning of reflective metals like
+      cobalt to avoid thermal damage; starting at 100 W balances efficiency and safety.
+      Max limited to prevent melting (cobalt MP ~1495°C). Source: IPG Photonics YLR
       series specs for metal cleaning.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective range for contamination removal; slower for heavy contaminants (e.g., oxides), faster for light;
-      1500 mm/s optimal for uniform cleaning without overheating. Source: CleanLaser equipment manuals and industry standards
-      for 1064 nm cleaning.'
+    description: 'Effective range for contamination removal; slower for heavy contaminants
+      (e.g., oxides), faster for light; 1500 mm/s optimal for uniform cleaning without
+      overheating. Source: CleanLaser equipment manuals and industry standards for
+      1064 nm cleaning.'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime typical for industrial cleaning to ablate contaminants while minimizing HAZ on high-conductivity
-      cobalt; picosecond (ps) or femtosecond (fs) for ultra-low heat but less common industrially. 20 ns recommended for balance.
-      Source: Laser physics studies in Optics & Laser Technology (e.g., ns vs ps ablation thresholds).'
+    description: 'Nanosecond regime typical for industrial cleaning to ablate contaminants
+      while minimizing HAZ on high-conductivity cobalt; picosecond (ps) or femtosecond
+      (fs) for ultra-low heat but less common industrially. 20 ns recommended for
+      balance. Source: Laser physics studies in Optics & Laser Technology (e.g., ns
+      vs ps ablation thresholds).'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Standard for pulsed cleaning; higher rates speed up process but risk heat accumulation on reflective cobalt;
-      50 kHz optimal for controlled energy delivery. Trade-off: high freq increases throughput but requires monitoring temperature.
-      Source: Academic literature in Applied Surface Science on metal cleaning parameters.'
+    description: 'Standard for pulsed cleaning; higher rates speed up process but
+      risk heat accumulation on reflective cobalt; 50 kHz optimal for controlled energy
+      delivery. Trade-off: high freq increases throughput but requires monitoring
+      temperature. Source: Academic literature in Applied Surface Science on metal
+      cleaning parameters.'
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence range for safe contaminant ablation; cobalt damage threshold ~2-4 J/cm² at 1064 nm due to reflectivity
-      (~60%); 1.5 J/cm² recommended for cleaning without substrate harm. Conservative for cobalt''s properties. Source: Ablation
-      threshold studies in Journal of Applied Physics (similar to Ni/Co alloys).'
+    description: 'Fluence range for safe contaminant ablation; cobalt damage threshold
+      ~2-4 J/cm² at 1064 nm due to reflectivity (~60%); 1.5 J/cm² recommended for
+      cleaning without substrate harm. Conservative for cobalt''s properties. Source:
+      Ablation threshold studies in Journal of Applied Physics (similar to Ni/Co alloys).'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter range for precision vs area coverage; smaller for fine surface prep on cobalt, larger for
-      broad cleaning; 200 μm recommended for effective fluence distribution. Source: Laser equipment specs from Coherent and
-      Trumpf for industrial applications.'
+    description: 'Beam diameter range for precision vs area coverage; smaller for
+      fine surface prep on cobalt, larger for broad cleaning; 200 μm recommended for
+      effective fluence distribution. Source: Laser equipment specs from Coherent
+      and Trumpf for industrial applications.'
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete removal on cobalt
-      without excessive heat buildup. Source: Industry case studies in laser cleaning of aerospace alloys (e.g., similar to
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes
+      typical for complete removal on cobalt without excessive heat buildup. Source:
+      Industry case studies in laser cleaning of aerospace alloys (e.g., similar to
       Co-based superalloys).'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage; 60% recommended for even cleaning on metallic surfaces like cobalt, avoiding gaps
-      or overexposure. Range balances efficiency and homogeneity. Source: Process optimization in Surface & Coatings Technology
+    description: 'Ensures uniform coverage; 60% recommended for even cleaning on metallic
+      surfaces like cobalt, avoiding gaps or overexposure. Range balances efficiency
+      and homogeneity. Source: Process optimization in Surface & Coatings Technology
       journals.'
-component_summary: The 100 W power, 1064 nm wavelength, and 10 ns pulses are ideal for Cobalt, delivering targeted ablation
-  of contaminants while leveraging its high reflectivity and thermal conductivity to prevent subsurface damage.
-slug: cobalt-settings
-lastModified: '2026-01-04T13:43:50.401069'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Cobalt
-  href: ''
-title: Cobalt
+page_description: 'When laser cleaning cobalt, you must tackle its moderate reflectivity
+  first. This sets it apart from highly absorptive metals like titanium, where energy
+  soaks in quickly. With cobalt, the laser beam bounces back more, so contaminants
+  linger longer if you blast too hard.
+
+
+  Start with lower power settings to build absorption gradually. Make sure you scan
+  slowly at first. This avoids surface pitting, a common pitfall mid-process when
+  heat builds unevenly.
+
+
+  Cobalt''s strength and heat resistance shine here compared to softer alloys. They
+  let you ramp up passes without warping. Just overlap beams well to clear tough buildup
+  from aerospace parts or medical tools. Adjust fluence as you go to keep the base
+  intact.'

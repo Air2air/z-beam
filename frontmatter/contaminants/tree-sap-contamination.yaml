@@ -1,23 +1,26 @@
 id: tree-sap-contamination
 name: Tree Sap and Resin
 category: organic-residue
-datePublished: '2026-01-04T21:42:53.871329Z'
-dateModified: '2026-01-04T21:42:53.871329Z'
+datePublished: '2025-12-27T21:04:26.102362Z'
+dateModified: '2025-12-27T21:04:26.102362Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/natural/tree-sap-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Natural
+  href: /contaminants/organic-residue/natural
+- label: Tree Sap and Resin
+  href: /contaminants/organic-residue/natural/tree-sap-contamination
 page_title: 'Tree Sap and Resin Removal: Laser Ablation Clean Remova'
-page_description: Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
-  elements. This organic residue hardens over time, creating irregular patterns like drips and streaks that cling tightly
-  to substrates. In laser cleaning applications, operators face distinct removal challenges because the sap's polymeric structure
-  absorbs laser energy variably, often leading to incomplete ablation and stubborn charring. On metal surfaces, it penetrates
-  pores and resists vaporization, while on stone or wood, it embeds deeply, demanding precise pulse adjustments to avoid substrate
-  damage. Testing shows that dialing in the right wavelength clears these contaminants effectively, yet the process typically
-  requires multiple passes to achieve a clean finish. Overall, addressing tree sap demands tailored approaches that work out
-  material-specific behaviors for solid results.
 meta_description: 'Tree Sap and Resin: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate integrity.
   No chemicals, no media waste.'
-images:
+images: &id001
   hero:
     url: /images/contaminant/tree-sap-contamination-hero.jpg
     alt: Tree Sap and Resin laser cleaning visualization showing process effects
@@ -54,119 +57,10 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
-  slug: todd-dunning
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards for handling this contaminant
-        icon: shield-check
-        order: 1
-        variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Formaldehyde
-        concentration_mg_m3: 2.5
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Acetaldehyde
-        concentration_mg_m3: 1.8
-        exposure_limit_mg_m3: 45
-        hazard_class: carcinogenic
-      - compound: Methanol
-        concentration_mg_m3: 15.2
-        exposure_limit_mg_m3: 262
-        hazard_class: toxic
-      - compound: Terpenes (alpha-pinene, beta-pinene)
-        concentration_mg_m3: 12.5
-        exposure_limit_mg_m3: 20
-        hazard_class: irritant
-      - compound: Particulate Polycyclic Aromatic Hydrocarbons
-        concentration_mg_m3: 0.8
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.65
-        size_range_um:
-        - 0.1
-        - 10.0
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Laser parameters must be carefully controlled to prevent charring of underlying wood surface
-    - Moisture content in wood may affect fume generation and cleaning efficiency
-    - Test on inconspicuous area first to determine optimal laser settings
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Formaldehyde
-          concentration_mg_m3: 2.5
-          hazard_class: carcinogenic
-        - compound: Acetaldehyde
-          concentration_mg_m3: 1.8
-          hazard_class: carcinogenic
-        - compound: Methanol
-          concentration_mg_m3: 15.2
-          hazard_class: toxic
-        - compound: Particulate Polycyclic Aromatic Hydrocarbons
-          concentration_mg_m3: 0.8
-          hazard_class: carcinogenic
-        description: 'Multiple toxic compounds detected: Formaldehyde, Acetaldehyde, Methanol - requires enhanced protection'
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
-    ventilation_requirements:
-      presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.65 (65% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
-  interactions:
-    produces_compounds:
-      presentation: card
-      items:
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: carbon-particulates-compound
-      - id: vocs-compound
-      _section:
-        title: Produces Compounds
-        description: Chemical compounds formed when laser cleaning this contaminant
-        icon: flask
-        order: 1
-        variant: default
+  technical:
     affects_materials:
       presentation: card
       items:
@@ -201,428 +95,518 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Found On Materials
-        description: Materials commonly contaminated with this substance
+        title: Affects Materials
+        description: Materials impacted by this contaminant
         icon: box
-        order: 2
-        variant: default
-  visual:
-    appearance_on_categories:
-      presentation: descriptive
-      items:
-      - appearance_on_categories:
-          ceramic:
-            appearance: Contamination presents as sticky, amber to brown spots that may harden into a glossy or rough texture,
-              sometimes adhering firmly to the glazed or unglazed surface.
-            coverage: Usually sparse, with small, scattered areas; coverage can increase if the surface is rough or porous,
-              enhancing adhesion.
-            pattern: Often appears as isolated spots or small patches, distributed randomly where sap lands, without following
-              any specific ceramic pattern.
-          composite:
-            appearance: Appears as sticky, resinous patches that may vary in color from light amber to dark brown, adhering
-              to the composite matrix and potentially causing surface irregularities.
-            coverage: Can be moderate, with uneven coverage; depends on the material's porosity and orientation, often more
-              pronounced on exposed areas.
-            pattern: Distributed in irregular patches or streaks, influenced by the composite's texture and how sap flows
-              across it.
-          concrete:
-            appearance: Sap and resin show as dark, sticky deposits that harden into rough, crusty patches, often embedded
-              in the porous surface and contrasting with the concrete's gray tone.
-            coverage: Can range from sparse to extensive, with higher coverage on horizontal surfaces like pavements, varying
-              with environmental conditions.
-            pattern: Typically appears in irregular patches or drips, accumulating in cracks and low spots where moisture
-              and debris gather.
-          fabric:
-            appearance: Contamination appears as dark, sticky stains that can harden into crusty patches, often attracting
-              fibers and dirt, leading to a matte or rough texture.
-            coverage: Variable, from small spots to larger stained areas; coverage depends on fabric absorbency and the amount
-              of sap exposure.
-            pattern: Forms in blotches or streaks, spreading along the fabric weave if the sap is liquid, resulting in irregular
-              patterns.
-          glass:
-            appearance: Sap and resin appear as clear to yellowish sticky smears that can harden into brittle, translucent
-              films, potentially obscuring transparency and attracting dust.
-            coverage: Typically minimal to moderate, with variations from thin films to thicker accumulations in areas of
-              direct contact.
-            pattern: Usually forms as streaks or smears from dripping, often in vertical patterns if on windows or other upright
-              surfaces.
-          metal:
-            appearance: Tree sap and resin appear as sticky, amber to dark brown translucent spots that can harden into a
-              glossy or matte finish, often trapping dirt and debris.
-            coverage: Usually sparse to moderate, with isolated patches; coverage varies based on exposure and can be minimal
-              on vertical surfaces.
-            pattern: Typically forms in irregular spots or streaks, concentrated in areas where sap drips or accumulates,
-              such as under tree branches.
-          mineral:
-            appearance: Contamination manifests as glossy, resinous coatings that can range from clear to brown, adhering
-              to mineral surfaces and potentially altering their natural luster.
-            coverage: Generally low to moderate, with patchy distribution; coverage is influenced by the mineral's porosity
-              and exposure to sap sources.
-            pattern: Often forms in thin films or localized spots, following the mineral's crystal structure or surface irregularities.
-          plastic:
-            appearance: Sap and resin show as tacky, translucent to dark brown spots that can become embedded, creating a
-              sticky or hardened film that may discolor the plastic.
-            coverage: Generally low, with isolated instances; coverage varies based on surface texture and exposure, but is
-              often easy to spot and remove.
-            pattern: Typically forms in random spots or smears, spreading slightly if the plastic is smooth, but not penetrating
-              deeply.
-          rubber:
-            appearance: Sap and resin manifest as dark, sticky blobs that may not penetrate deeply but can leave a glossy
-              or tacky residue, sometimes causing slight swelling or discoloration.
-            coverage: Typically minimal, with small, isolated areas; coverage is low as rubber's non-porous nature limits
-              adhesion.
-            pattern: Usually forms in spots or smears, clinging to the rubber surface without significant spreading due to
-              its elasticity.
-          semiconductor:
-            appearance: Sap and resin appear as microscopic sticky residues that can cause discoloration or hazing, potentially
-              interfering with electronic properties by forming insulating layers.
-            coverage: Usually minimal but critical, with low coverage that can vary; even small amounts may lead to significant
-              functional issues.
-            pattern: Typically forms as fine spots or uniform thin films, distributed evenly or in clusters on sensitive surfaces.
-          specialty:
-            appearance: Varies widely by material, but generally appears as sticky, resinous deposits that may harden, adapting
-              to the surface's unique properties like reflectivity or texture.
-            coverage: Highly variable, from isolated spots to extensive films; coverage is tailored to the material's exposure
-              and sensitivity, requiring specific handling.
-            pattern: Distribution depends on the specialty material's characteristics, often forming irregular patches or
-              coatings that follow surface contours.
-          stone:
-            appearance: Contamination shows as dark, sticky patches that may appear glossy when fresh and turn dull or crusty
-              as they harden, often contrasting with the stone's natural color.
-            coverage: Generally low to moderate, with uneven distribution; coverage is higher on horizontal surfaces exposed
-              to dripping sap.
-            pattern: Typically forms in irregular patches or drips, following the contours of the stone surface and accumulating
-              in depressions.
-          wood:
-            appearance: Sap and resin manifest as sticky, amber-colored blobs that may darken over time, blending with the
-              wood grain and creating a raised, glossy texture.
-            coverage: Can range from small, isolated spots to extensive patches, depending on the wood type and environmental
-              factors like temperature.
-            pattern: Often appears in localized spots or streaks along the grain, especially near knots or cuts where sap
-              naturally exudes.
-      _section:
-        title: Visual Appearance
-        description: How this contaminant appears on different material types
-        icon: eye
         order: 1
         variant: default
-  operational:
-    laser_properties:
-      presentation: descriptive
+    produces_compounds:
+      presentation: card
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
-          polarization: circular
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 10
-            recommended_ns: 50
-          repetition_rate_khz:
-            max: 200
-            min: 20
-            recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spot_size_mm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelength_preference:
-          - 355
-          - 1064
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 120
-            wavelength_532nm: 850
-          reflectivity:
-            wavelength_1064nm: 0.08
-            wavelength_355nm: 0.03
-            wavelength_532nm: 0.05
-          refractive_index:
-            imaginary_part: 0.015
-            real_part: 1.52
-          transmission_depth: 118
-        removal_characteristics:
-          byproducts:
-          - compound: carbon-dioxide
-            hazard_level: low
-            phase: gas
-          - compound: water-vapor
-            hazard_level: low
-            phase: gas
-          - compound: carbon-particulates
-            hazard_level: moderate
-            phase: solid
-          - compound: vocs
-            hazard_level: moderate
-            phase: gas
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.7
-          secondary_mechanisms:
-          - photochemical
-          - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 1.2
-            pulse_duration_10ns: 0.6
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 180
-          heat_affected_zone_depth: 15
-          melting_point: null
-          specific_heat: 1800
-          thermal_conductivity: 0.2
-          thermal_diffusivity: 0.06
-          vaporization_temperature: 300
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: carbon-particulates-compound
+      - id: vocs-compound
       _section:
-        title: Laser Properties
-        description: Absorption characteristics and laser interaction data
-        icon: zap
+        title: Produces Compounds
+        description: Hazardous compounds generated during laser removal
+        icon: flask
+        order: 3
+        variant: warning
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
         order: 1
         variant: default
+  visual_characteristics:
+    presentation: descriptive
+    items:
+    - appearance_on_categories:
+        ceramic:
+          appearance: Contamination presents as sticky, amber to brown spots that may harden into a glossy or rough texture,
+            sometimes adhering firmly to the glazed or unglazed surface.
+          coverage: Usually sparse, with small, scattered areas; coverage can increase if the surface is rough or porous,
+            enhancing adhesion.
+          pattern: Often appears as isolated spots or small patches, distributed randomly where sap lands, without following
+            any specific ceramic pattern.
+        composite:
+          appearance: Appears as sticky, resinous patches that may vary in color from light amber to dark brown, adhering
+            to the composite matrix and potentially causing surface irregularities.
+          coverage: Can be moderate, with uneven coverage; depends on the material's porosity and orientation, often more
+            pronounced on exposed areas.
+          pattern: Distributed in irregular patches or streaks, influenced by the composite's texture and how sap flows across
+            it.
+        concrete:
+          appearance: Sap and resin show as dark, sticky deposits that harden into rough, crusty patches, often embedded in
+            the porous surface and contrasting with the concrete's gray tone.
+          coverage: Can range from sparse to extensive, with higher coverage on horizontal surfaces like pavements, varying
+            with environmental conditions.
+          pattern: Typically appears in irregular patches or drips, accumulating in cracks and low spots where moisture and
+            debris gather.
+        fabric:
+          appearance: Contamination appears as dark, sticky stains that can harden into crusty patches, often attracting fibers
+            and dirt, leading to a matte or rough texture.
+          coverage: Variable, from small spots to larger stained areas; coverage depends on fabric absorbency and the amount
+            of sap exposure.
+          pattern: Forms in blotches or streaks, spreading along the fabric weave if the sap is liquid, resulting in irregular
+            patterns.
+        glass:
+          appearance: Sap and resin appear as clear to yellowish sticky smears that can harden into brittle, translucent films,
+            potentially obscuring transparency and attracting dust.
+          coverage: Typically minimal to moderate, with variations from thin films to thicker accumulations in areas of direct
+            contact.
+          pattern: Usually forms as streaks or smears from dripping, often in vertical patterns if on windows or other upright
+            surfaces.
+        metal:
+          appearance: Tree sap and resin appear as sticky, amber to dark brown translucent spots that can harden into a glossy
+            or matte finish, often trapping dirt and debris.
+          coverage: Usually sparse to moderate, with isolated patches; coverage varies based on exposure and can be minimal
+            on vertical surfaces.
+          pattern: Typically forms in irregular spots or streaks, concentrated in areas where sap drips or accumulates, such
+            as under tree branches.
+        mineral:
+          appearance: Contamination manifests as glossy, resinous coatings that can range from clear to brown, adhering to
+            mineral surfaces and potentially altering their natural luster.
+          coverage: Generally low to moderate, with patchy distribution; coverage is influenced by the mineral's porosity
+            and exposure to sap sources.
+          pattern: Often forms in thin films or localized spots, following the mineral's crystal structure or surface irregularities.
+        plastic:
+          appearance: Sap and resin show as tacky, translucent to dark brown spots that can become embedded, creating a sticky
+            or hardened film that may discolor the plastic.
+          coverage: Generally low, with isolated instances; coverage varies based on surface texture and exposure, but is
+            often easy to spot and remove.
+          pattern: Typically forms in random spots or smears, spreading slightly if the plastic is smooth, but not penetrating
+            deeply.
+        rubber:
+          appearance: Sap and resin manifest as dark, sticky blobs that may not penetrate deeply but can leave a glossy or
+            tacky residue, sometimes causing slight swelling or discoloration.
+          coverage: Typically minimal, with small, isolated areas; coverage is low as rubber's non-porous nature limits adhesion.
+          pattern: Usually forms in spots or smears, clinging to the rubber surface without significant spreading due to its
+            elasticity.
+        semiconductor:
+          appearance: Sap and resin appear as microscopic sticky residues that can cause discoloration or hazing, potentially
+            interfering with electronic properties by forming insulating layers.
+          coverage: Usually minimal but critical, with low coverage that can vary; even small amounts may lead to significant
+            functional issues.
+          pattern: Typically forms as fine spots or uniform thin films, distributed evenly or in clusters on sensitive surfaces.
+        specialty:
+          appearance: Varies widely by material, but generally appears as sticky, resinous deposits that may harden, adapting
+            to the surface's unique properties like reflectivity or texture.
+          coverage: Highly variable, from isolated spots to extensive films; coverage is tailored to the material's exposure
+            and sensitivity, requiring specific handling.
+          pattern: Distribution depends on the specialty material's characteristics, often forming irregular patches or coatings
+            that follow surface contours.
+        stone:
+          appearance: Contamination shows as dark, sticky patches that may appear glossy when fresh and turn dull or crusty
+            as they harden, often contrasting with the stone's natural color.
+          coverage: Generally low to moderate, with uneven distribution; coverage is higher on horizontal surfaces exposed
+            to dripping sap.
+          pattern: Typically forms in irregular patches or drips, following the contours of the stone surface and accumulating
+            in depressions.
+        wood:
+          appearance: Sap and resin manifest as sticky, amber-colored blobs that may darken over time, blending with the wood
+            grain and creating a raised, glossy texture.
+          coverage: Can range from small, isolated spots to extensive patches, depending on the wood type and environmental
+            factors like temperature.
+          pattern: Often appears in localized spots or streaks along the grain, especially near knots or cuts where sap naturally
+            exudes.
+    _section:
+      title: Visual Characteristics
+      description: Physical appearance and identification features of this contamination
+      icon: eye
+      order: 10
+      variant: default
+  laser_properties:
+    presentation: descriptive
+    items:
+    - laser_parameters:
+        beam_profile: flat_top
+        fluence_range:
+          max_j_cm2: 1.2
+          min_j_cm2: 0.3
+          recommended_j_cm2: 0.8
+        overlap_percentage: 50
+        polarization: circular
+        pulse_duration_range:
+          max_ns: 200
+          min_ns: 10
+          recommended_ns: 50
+        repetition_rate_khz:
+          max: 200
+          min: 20
+          recommended: 50
+        safety_margin_factor: 0.7
+        scan_speed_mm_s:
+          max: 2000
+          min: 500
+          recommended: 1000
+        spot_size_mm:
+          max: 0.1
+          min: 0.02
+          recommended: 0.05
+        wavelength_preference:
+        - 355
+        - 1064
+      optical_properties:
+        absorption_coefficient:
+          wavelength_1064nm: 120
+          wavelength_532nm: 850
+        reflectivity:
+          wavelength_1064nm: 0.08
+          wavelength_355nm: 0.03
+          wavelength_532nm: 0.05
+        refractive_index:
+          imaginary_part: 0.015
+          real_part: 1.52
+        transmission_depth: 118
+      removal_characteristics:
+        byproducts:
+        - compound: carbon-dioxide
+          hazard_level: low
+          phase: gas
+        - compound: water-vapor
+          hazard_level: low
+          phase: gas
+        - compound: carbon-particulates
+          hazard_level: moderate
+          phase: solid
+        - compound: vocs
+          hazard_level: moderate
+          phase: gas
+        damage_risk_to_substrate: low
+        primary_mechanism: thermal_ablation
+        process_speed:
+          area_coverage_rate_cm2_min: 240
+          typical_scan_speed_mm_s: 800
+        removal_efficiency:
+          diminishing_returns_after: 3
+          optimal_passes: 2
+          single_pass: 0.7
+        secondary_mechanisms:
+        - photochemical
+        - mechanical_spallation
+        surface_quality_after_removal:
+          color_change: 'no'
+          residual_stress: compressive
+          roughness_increase: minimal
+      safety_data:
+        fire_explosion_risk:
+          severity: low
+          description: Minimal fire risk with standard precautions and adequate ventilation
+          mitigation: Standard fire safety precautions, extinguisher available within 15m
+        fumes_generated:
+        - compound: Formaldehyde
+          concentration_mg_m3: 2.5
+          exposure_limit_mg_m3: 0.37
+          hazard_class: carcinogenic
+        - compound: Acetaldehyde
+          concentration_mg_m3: 1.8
+          exposure_limit_mg_m3: 45
+          hazard_class: carcinogenic
+        - compound: Methanol
+          concentration_mg_m3: 15.2
+          exposure_limit_mg_m3: 262
+          hazard_class: toxic
+        - compound: Terpenes (alpha-pinene, beta-pinene)
+          concentration_mg_m3: 12.5
+          exposure_limit_mg_m3: 20
+          hazard_class: irritant
+        - compound: Particulate Polycyclic Aromatic Hydrocarbons
+          concentration_mg_m3: 0.8
+          exposure_limit_mg_m3: 0.2
+          hazard_class: carcinogenic
+        particulate_generation:
+          respirable_fraction: 0.65
+          size_range_um:
+          - 0.1
+          - 10.0
+        ppe_requirements:
+          eye_protection: goggles
+          respiratory: half_mask
+          skin_protection: gloves
+          rationale: Standard protection against workplace hazards
+        substrate_compatibility_warnings:
+        - Laser parameters must be carefully controlled to prevent charring of underlying wood surface
+        - Moisture content in wood may affect fume generation and cleaning efficiency
+        - Test on inconspicuous area first to determine optimal laser settings
+        toxic_gas_risk:
+          severity: moderate
+          primary_hazards:
+          - compound: Formaldehyde
+            concentration_mg_m3: 2.5
+            hazard_class: carcinogenic
+          - compound: Acetaldehyde
+            concentration_mg_m3: 1.8
+            hazard_class: carcinogenic
+          - compound: Methanol
+            concentration_mg_m3: 15.2
+            hazard_class: toxic
+          - compound: Particulate Polycyclic Aromatic Hydrocarbons
+            concentration_mg_m3: 0.8
+            hazard_class: carcinogenic
+          description: 'Multiple toxic compounds detected: Formaldehyde, Acetaldehyde, Methanol - requires enhanced protection'
+          mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+            WARNING: Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
+        ventilation_requirements:
+          exhaust_velocity_m_s: 0.5
+          filtration_type: carbon
+          minimum_air_changes_per_hour: 12
+          rationale: Standard industrial ventilation (12 ACH) for particulate control
+        visibility_hazard:
+          severity: moderate
+          description: Moderate visibility reduction (40-60%), significant particulate haze
+          source: 'Respirable fraction: 0.65 (65% of particles <10μm)'
+          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+          related_field: particulate_generation.respirable_fraction
+      thermal_properties:
+        ablation_threshold:
+          pulse_duration_100ns: 1.2
+          pulse_duration_10ns: 0.6
+          wavelength_1064nm: 0.8
+        decomposition_temperature: 180
+        heat_affected_zone_depth: 15
+        melting_point: null
+        specific_heat: 1800
+        thermal_conductivity: 0.2
+        thermal_diffusivity: 0.06
+        vaporization_temperature: 300
+    _section:
+      title: Laser Parameters
+      description: Optimal laser settings and technical parameters for removal
+      icon: zap
+      order: 9
+      variant: default
+  category: organic-residue
+  subcategory: natural
+  images: *id001
   materials:
-  - id: aluminosilicate-glass-laser-cleaning
-    title: Aluminosilicate Glass
-    url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
-    image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
-    category: glass
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: aluminum-laser-cleaning
-    title: Aluminum
-    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-    image: /images/material/aluminum-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: borosilicate-glass-laser-cleaning
-    title: Borosilicate Glass
-    url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
-    image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
-    category: glass
-    subcategory: soda-lime
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: brass-laser-cleaning
-    title: Brass
-    url: /materials/metal/non-ferrous/brass-laser-cleaning
-    image: /images/material/brass-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: bronze-laser-cleaning
-    title: Bronze
-    url: /materials/metal/non-ferrous/bronze-laser-cleaning
-    image: /images/material/bronze-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: cast-iron-laser-cleaning
-    title: Cast Iron
-    url: /materials/metal/ferrous/cast-iron-laser-cleaning
-    image: /images/material/cast-iron-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: chromium-laser-cleaning
-    title: Chromium
-    url: /materials/metal/specialty/chromium-laser-cleaning
-    image: /images/material/chromium-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: cobalt-laser-cleaning
-    title: Cobalt
-    url: /materials/metal/specialty/cobalt-laser-cleaning
-    image: /images/material/cobalt-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: copper-laser-cleaning
-    title: Copper
-    url: /materials/metal/non-ferrous/copper-laser-cleaning
-    image: /images/material/copper-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: crown-glass-laser-cleaning
-    title: Crown Glass
-    url: /materials/glass/soda-lime/crown-glass-laser-cleaning
-    image: /images/material/crown-glass-laser-cleaning-hero.jpg
-    category: glass
-    subcategory: soda-lime
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: float-glass-laser-cleaning
-    title: Float Glass
-    url: /materials/glass/soda-lime/float-glass-laser-cleaning
-    image: /images/material/float-glass-laser-cleaning-hero.jpg
-    category: glass
-    subcategory: soda-lime
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: fused-silica-laser-cleaning
-    title: Fused Silica
-    url: /materials/glass/soda-lime/fused-silica-laser-cleaning
-    image: /images/material/fused-silica-laser-cleaning-hero.jpg
-    category: glass
-    subcategory: soda-lime
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: gorilla-glass-laser-cleaning
-    title: Gorilla Glass
-    url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
-    image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
-    category: glass
-    subcategory: soda-lime
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: lead-laser-cleaning
-    title: Lead
-    url: /materials/metal/non-ferrous/lead-laser-cleaning
-    image: /images/material/lead-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: nickel-laser-cleaning
-    title: Nickel
-    url: /materials/metal/specialty/nickel-laser-cleaning
-    image: /images/material/nickel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: stainless-steel-laser-cleaning
-    title: Stainless Steel
-    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: steel-laser-cleaning
-    title: Steel
-    url: /materials/metal/ferrous/steel-laser-cleaning
-    image: /images/material/steel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: tempered-glass-laser-cleaning
-    title: Tempered Glass
-    url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
-    image: /images/material/tempered-glass-laser-cleaning-hero.jpg
-    category: glass
-    subcategory: specialty-glass
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: tin-laser-cleaning
-    title: Tin
-    url: /materials/metal/alloy/tin-laser-cleaning
-    image: /images/material/tin-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: alloy
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: titanium-laser-cleaning
-    title: Titanium
-    url: /materials/metal/specialty/titanium-laser-cleaning
-    image: /images/material/titanium-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: zinc-laser-cleaning
-    title: Zinc
-    url: /materials/metal/alloy/zinc-laser-cleaning
-    image: /images/material/zinc-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: alloy
-    frequency: common
-    severity: moderate
-    typical_context: ''
+    presentation: card
+    items:
+    - title: Affected Materials
+      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+      groups:
+        glass:
+          title: Glass Materials
+          description: Materials in the glass category
+          items:
+          - id: aluminosilicate-glass-laser-cleaning
+            title: Aluminosilicate Glass
+            url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+            image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+            category: glass
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: borosilicate-glass-laser-cleaning
+            title: Borosilicate Glass
+            url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+            image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
+            category: glass
+            subcategory: soda-lime
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: crown-glass-laser-cleaning
+            title: Crown Glass
+            url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+            image: /images/material/crown-glass-laser-cleaning-hero.jpg
+            category: glass
+            subcategory: soda-lime
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: float-glass-laser-cleaning
+            title: Float Glass
+            url: /materials/glass/soda-lime/float-glass-laser-cleaning
+            image: /images/material/float-glass-laser-cleaning-hero.jpg
+            category: glass
+            subcategory: soda-lime
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: fused-silica-laser-cleaning
+            title: Fused Silica
+            url: /materials/glass/soda-lime/fused-silica-laser-cleaning
+            image: /images/material/fused-silica-laser-cleaning-hero.jpg
+            category: glass
+            subcategory: soda-lime
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: gorilla-glass-laser-cleaning
+            title: Gorilla Glass
+            url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+            image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
+            category: glass
+            subcategory: soda-lime
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: tempered-glass-laser-cleaning
+            title: Tempered Glass
+            url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+            image: /images/material/tempered-glass-laser-cleaning-hero.jpg
+            category: glass
+            subcategory: specialty-glass
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        metals:
+          title: Metal Substrates
+          description: Ferrous and non-ferrous metals affected by this contamination
+          items:
+          - id: aluminum-laser-cleaning
+            title: Aluminum
+            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+            image: /images/material/aluminum-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: brass-laser-cleaning
+            title: Brass
+            url: /materials/metal/non-ferrous/brass-laser-cleaning
+            image: /images/material/brass-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: bronze-laser-cleaning
+            title: Bronze
+            url: /materials/metal/non-ferrous/bronze-laser-cleaning
+            image: /images/material/bronze-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: cast-iron-laser-cleaning
+            title: Cast Iron
+            url: /materials/metal/ferrous/cast-iron-laser-cleaning
+            image: /images/material/cast-iron-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: chromium-laser-cleaning
+            title: Chromium
+            url: /materials/metal/specialty/chromium-laser-cleaning
+            image: /images/material/chromium-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: cobalt-laser-cleaning
+            title: Cobalt
+            url: /materials/metal/specialty/cobalt-laser-cleaning
+            image: /images/material/cobalt-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: copper-laser-cleaning
+            title: Copper
+            url: /materials/metal/non-ferrous/copper-laser-cleaning
+            image: /images/material/copper-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: lead-laser-cleaning
+            title: Lead
+            url: /materials/metal/non-ferrous/lead-laser-cleaning
+            image: /images/material/lead-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: nickel-laser-cleaning
+            title: Nickel
+            url: /materials/metal/specialty/nickel-laser-cleaning
+            image: /images/material/nickel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: stainless-steel-laser-cleaning
+            title: Stainless Steel
+            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: steel-laser-cleaning
+            title: Steel
+            url: /materials/metal/ferrous/steel-laser-cleaning
+            image: /images/material/steel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: tin-laser-cleaning
+            title: Tin
+            url: /materials/metal/alloy/tin-laser-cleaning
+            image: /images/material/tin-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: alloy
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: titanium-laser-cleaning
+            title: Titanium
+            url: /materials/metal/specialty/titanium-laser-cleaning
+            image: /images/material/titanium-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: zinc-laser-cleaning
+            title: Zinc
+            url: /materials/metal/alloy/zinc-laser-cleaning
+            image: /images/material/zinc-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: alloy
+            frequency: common
+            severity: moderate
+            typical_context: ''
+    _section:
+      title: Found On Materials
+      description: Materials where this contaminant is commonly found
+      icon: box
+      order: 10
+      variant: default
 subcategory: natural
 composition:
 - Terpenes
 - Resin Acids
 - Sugars
-prohibited_materials: []
-valid_materials:
-- aluminosilicate-glass-laser-cleaning
-- aluminum-laser-cleaning
-- borosilicate-glass-laser-cleaning
-- brass-laser-cleaning
-- bronze-laser-cleaning
-- cast-iron-laser-cleaning
-- chromium-laser-cleaning
-- cobalt-laser-cleaning
-- copper-laser-cleaning
-- crown-glass-laser-cleaning
-- float-glass-laser-cleaning
-- fused-silica-laser-cleaning
-- gorilla-glass-laser-cleaning
-- lead-laser-cleaning
-- nickel-laser-cleaning
-- stainless-steel-laser-cleaning
-- steel-laser-cleaning
-- tempered-glass-laser-cleaning
-- tin-laser-cleaning
-- titanium-laser-cleaning
-- zinc-laser-cleaning
-slug: tree-sap-contamination
-lastModified: '2026-01-04T13:42:53.871364'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Tree Sap and Resin
-  href: ''
-title: Tree Sap and Resin
+page_description: Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
+  elements. This organic residue hardens over time, creating irregular patterns like drips and streaks that cling tightly
+  to substrates. In laser cleaning applications, operators face distinct removal challenges because the sap's polymeric structure
+  absorbs laser energy variably, often leading to incomplete ablation and stubborn charring. On metal surfaces, it penetrates
+  pores and resists vaporization, while on stone or wood, it embeds deeply, demanding precise pulse adjustments to avoid substrate
+  damage. Testing shows that dialing in the right wavelength clears these contaminants effectively, yet the process typically
+  requires multiple passes to achieve a clean finish. Overall, addressing tree sap demands tailored approaches that work out
+  material-specific behaviors for solid results.

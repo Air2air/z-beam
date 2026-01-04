@@ -1,19 +1,24 @@
 id: float-glass-settings
 name: Float Glass
-datePublished: '2026-01-04T21:43:51.078177Z'
-dateModified: '2026-01-04T21:43:51.078177Z'
+datePublished: '2025-12-27T21:06:07.548581Z'
+dateModified: '2025-12-27T21:06:07.548581Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/soda-lime/float-glass-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Glass
+  href: /settings/glass
+- label: Soda Lime
+  href: /settings/glass/soda-lime
+- label: Float Glass
+  href: /settings/glass/soda-lime/float-glass-settings
 page_title: 'Float Glass Settings: Laser Parameters'
-page_description: When laser cleaning Float Glass, I've found you get the best results by starting with a gentle scan to test
-  its smooth, even surface. This glass, made through the float process, holds up well to contaminants like oils or residues
-  from manufacturing, but its brittleness means you must keep the energy low right from the first pass to prevent micro-cracks.
-  Tends to absorb heat slowly, so overlap your paths just enough for thorough coverage without building up too much warmth
-  that could warp the edges. I've seen it restore architectural panels beautifully this way, but watch out midway—ramp up
-  passes only if needed, or you'll risk thermal stress on its thin structure. Finish by cooling naturally to maintain that
-  clear finish.
-meta_description: 'Float Glass: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Float Glass: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/float-glass-settings-hero.jpg
@@ -42,23 +47,22 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
+    Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
-  slug: ikmanda-roswati
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -70,34 +74,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -108,67 +85,85 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: adhesive-paint-removal
-        category: Contamination
-        challenge: Adhesive and paint removal
-        description: Sticky residues can redeposit, multiple passes needed
-        severity: medium
-        solutions:
-        - Use air assist to remove vaporized material
-        - Multiple light passes better than single high-power
-        - Consider solvent pre-treatment for heavy buildup
-      - category: Thermal Management
-        challenge: Thermal shock and catastrophic failure
-        description: Glass shatters from thermal gradients due to low thermal expansion and brittleness
-        severity: critical
-        solutions:
-        - Use pulse mode with 5-8 second cooling between passes
-        - Preheat substrate to room temperature before cleaning
-        - Avoid cold spots (air vents, cold backing) during processing
-        - Tempered glass more resistant but still susceptible to thermal shock
-        - Monitor for stress fractures; stop immediately if cracks appear
-        threshold: ΔT > 40-100°C rapid cooling (glass-dependent)
-      - category: Thermal Management
-        challenge: Low thermal diffusivity
-        description: Heat accumulates in localized zones creating thermal gradients
-        severity: high
-        solutions:
-        - Reduce power by 30-40% compared to metals
-        - Increase scan speed to distribute heat (1000-2000 mm/s)
-        - Use defocused beam to spread energy over larger area
-        - Optical-grade glass (fused silica) tolerates higher power
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - challenge: Thermal shock and catastrophic failure
+          severity: critical
+          threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+          impact: Glass shatters from thermal gradients due to low thermal expansion
+            and brittleness
+          solutions:
+          - Use pulse mode with 5-8 second cooling between passes
+          - Preheat substrate to room temperature before cleaning
+          - Avoid cold spots (air vents, cold backing) during processing
+          - Tempered glass more resistant but still susceptible to thermal shock
+          - Monitor for stress fractures; stop immediately if cracks appear
+        - challenge: Low thermal diffusivity
+          severity: high
+          property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+          impact: Heat accumulates in localized zones creating thermal gradients
+          solutions:
+          - Reduce power by 30-40% compared to metals
+          - Increase scan speed to distribute heat (1000-2000 mm/s)
+          - Use defocused beam to spread energy over larger area
+          - Optical-grade glass (fused silica) tolerates higher power
+        contamination_challenges:
+        - id: adhesive-paint-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: glass
+subcategory: soda-lime
 machine_settings:
   powerRange:
-    description: Optimal average power for Float Glass surface cleaning without thermal damage
+    description: Optimal average power for Float Glass surface cleaning without thermal
+      damage
     unit: W
     value: 100
     min: 1.0
     max: 120
   wavelength:
-    description: Near-IR wavelength optimized for Float Glass absorption and minimal subsurface damage
+    description: Near-IR wavelength optimized for Float Glass absorption and minimal
+      subsurface damage
     unit: nm
     value: 1064
     min: 355
@@ -180,19 +175,22 @@ machine_settings:
     min: 0.1
     max: 500
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
+    description: Optimal repetition rate for efficient cleaning coverage and thermal
+      management
     unit: kHz
     value: 50
     min: 1
     max: 200
   energyDensity:
-    description: Fluence threshold for effective contaminant removal below glass damage threshold
+    description: Fluence threshold for effective contaminant removal below glass damage
+      threshold
     unit: J/cm²
     value: 2.5
     min: 0.1
     max: 20.0
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal without glass damage
+    description: Nanosecond pulse duration for effective contaminant removal without
+      glass damage
     unit: ns
     value: 10
     min: 0.1
@@ -210,7 +208,8 @@ machine_settings:
     min: 1
     max: 10
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
+    description: Optimal beam overlap for uniform cleaning without excessive thermal
+      buildup
     unit: '%'
     value: 50
     min: 10
@@ -226,74 +225,83 @@ machine_settings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for industrial 1064 nm fiber lasers in glass cleaning to balance efficiency and safety; starting
-      at 200 W for contamination removal without overheating. Max safe below 500 W to avoid thermal stress on float glass
-      (melting point ~500°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018).'
+    description: 'Typical range for industrial 1064 nm fiber lasers in glass cleaning
+      to balance efficiency and safety; starting at 200 W for contamination removal
+      without overheating. Max safe below 500 W to avoid thermal stress on float glass
+      (melting point ~500°C). Source: IPG Photonics specs and studies in Optics and
+      Lasers in Engineering (2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: 'Effective speeds for 1064 nm cleaning; slower (500-1000 mm/s) for heavy contamination, faster (up to 5000
-      mm/s) for light residues. Recommended 2000 mm/s for optimal contaminant removal on float glass while minimizing heat
-      accumulation. Source: Industry standards from Laser Cleaning Europe guidelines and J. Cleaner Production (2020).'
+    description: 'Effective speeds for 1064 nm cleaning; slower (500-1000 mm/s) for
+      heavy contamination, faster (up to 5000 mm/s) for light residues. Recommended
+      2000 mm/s for optimal contaminant removal on float glass while minimizing heat
+      accumulation. Source: Industry standards from Laser Cleaning Europe guidelines
+      and J. Cleaner Production (2020).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for float glass to enable selective ablation of contaminants with minimal heat-affected
-      zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended to limit thermal
-      diffusion in low-conductivity glass. Source: Laser physics research in Applied Surface Science (2019).'
+    description: 'Nanosecond regime preferred for float glass to enable selective
+      ablation of contaminants with minimal heat-affected zone (HAZ); picosecond (ps)
+      or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended to limit
+      thermal diffusion in low-conductivity glass. Source: Laser physics research
+      in Applied Surface Science (2019).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat buildup on reflective
-      float glass. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases overlap heating.
-      Source: Academic literature in Optics Express (2017).'
+    description: 'Typical for pulsed cleaning; higher rates (50-100 kHz) speed up
+      process but risk heat buildup on reflective float glass. 50 kHz balances speed
+      and safety for contamination removal. Trade-off: High freq increases overlap
+      heating. Source: Academic literature in Optics Express (2017).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Fluence range for safe cleaning below float glass damage threshold (~3 J/cm² at 1064 nm due to partial IR
-      absorption). 0.5 J/cm² recommended for contaminant removal without substrate ablation or cracking. Source: Ablation
+    description: 'Fluence range for safe cleaning below float glass damage threshold
+      (~3 J/cm² at 1064 nm due to partial IR absorption). 0.5 J/cm² recommended for
+      contaminant removal without substrate ablation or cracking. Source: Ablation
       threshold studies in Journal of Applied Physics (2021).'
   spot_size:
     min: 0.1
     max: 500
     value: 300
     unit: μm
-    description: 'Beam diameter range for precision (100-300 μm) vs. large-area cleaning (up to 1000 μm); 300 μm recommended
-      for uniform coverage on float glass surfaces without excessive energy concentration. Source: Equipment specs from Coherent
+    description: 'Beam diameter range for precision (100-300 μm) vs. large-area cleaning
+      (up to 1000 μm); 300 μm recommended for uniform coverage on float glass surfaces
+      without excessive energy concentration. Source: Equipment specs from Coherent
       Inc. and industry manuals.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
-      removal on float glass to ensure uniformity without cumulative damage. Source: Industry case studies in Surface and
-      Coatings Technology (2022).'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy
+      layers; 2 passes recommended for complete removal on float glass to ensure uniformity
+      without cumulative damage. Source: Industry case studies in Surface and Coatings
+      Technology (2022).'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage; 50% recommended for float glass to avoid gaps or overexposure, balancing efficiency
-      and preventing thermal gradients. Typical 30-80% in optimization. Source: Process studies in Lasers in Manufacturing
+    description: 'Ensures uniform coverage; 50% recommended for float glass to avoid
+      gaps or overexposure, balancing efficiency and preventing thermal gradients.
+      Typical 30-80% in optimization. Source: Process studies in Lasers in Manufacturing
       and Materials Processing (2019).'
-component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
-  from float glass while minimizing thermal stress on its fragile, heat-sensitive surface.
-slug: float-glass-settings
-lastModified: '2026-01-04T13:43:51.078206'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Float Glass
-  href: ''
-title: Float Glass
+page_description: When laser cleaning Float Glass, I've found you get the best results
+  by starting with a gentle scan to test its smooth, even surface. This glass, made
+  through the float process, holds up well to contaminants like oils or residues from
+  manufacturing, but its brittleness means you must keep the energy low right from
+  the first pass to prevent micro-cracks. Tends to absorb heat slowly, so overlap
+  your paths just enough for thorough coverage without building up too much warmth
+  that could warp the edges. I've seen it restore architectural panels beautifully
+  this way, but watch out midway—ramp up passes only if needed, or you'll risk thermal
+  stress on its thin structure. Finish by cooling naturally to maintain that clear
+  finish.

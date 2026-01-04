@@ -1,17 +1,24 @@
 id: rhenium-settings
 name: Rhenium
-datePublished: '2026-01-04T21:43:55.929967Z'
-dateModified: '2026-01-04T21:43:55.929967Z'
+datePublished: '2025-12-27T21:06:08.382912Z'
+dateModified: '2025-12-27T21:06:08.382912Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/rhenium-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Non Ferrous
+  href: /settings/metal/non-ferrous
+- label: Rhenium
+  href: /settings/metal/non-ferrous/rhenium-settings
 page_title: 'Rhenium Settings: Laser Parameters'
-page_description: When laser cleaning rhenium, watch its strong reflectivity first. It bounces back much of the beam, so energy
-  absorption stays low. This makes surface buildup stubborn to remove. I've seen it take extra care to avoid uneven heating.
-  Start with lower power settings to build heat gradually. That prevents hot spots on this dense metal. Rhenium's extreme
-  heat resistance helps here—it won't warp easily. But go slow on passes. Overlap scans to cover fully without stressing the
-  surface. Tends to shine up nicely once clean, restoring that aerospace-grade finish.
-meta_description: 'Rhenium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Rhenium: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/rhenium-settings-hero.jpg
@@ -36,25 +43,26 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
   - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's
+    Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -66,34 +74,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -104,69 +85,64 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: metal
+subcategory: non-ferrous
 machine_settings:
   powerRange:
-    description: Optimal average power for Rhenium oxide removal without substrate damage
+    description: Optimal average power for Rhenium oxide removal without substrate
+      damage
     unit: W
     value: 150
     min: 1.0
@@ -224,82 +200,92 @@ machine_settings:
     max: 300
     value: 150
     unit: W
-    description: 'Typical range for industrial cleaning of refractory metals like Rhenium to balance efficiency and avoid
-      thermal damage; recommended starting at 150 W for 1064 nm Nd:YAG lasers. Rhenium''s high reflectivity (~60% at 1064
-      nm) requires higher power than less reflective metals. Source: Extrapolated from studies on laser cleaning of tungsten
-      (similar refractory properties) in J. Laser Appl. 32, 022064 (2020); manufacturer specs from IPG Photonics YLR series.'
+    description: 'Typical range for industrial cleaning of refractory metals like
+      Rhenium to balance efficiency and avoid thermal damage; recommended starting
+      at 150 W for 1064 nm Nd:YAG lasers. Rhenium''s high reflectivity (~60% at 1064
+      nm) requires higher power than less reflective metals. Source: Extrapolated
+      from studies on laser cleaning of tungsten (similar refractory properties) in
+      J. Laser Appl. 32, 022064 (2020); manufacturer specs from IPG Photonics YLR
+      series.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Range for effective contaminant removal without substrate ablation; slower for heavy contamination (e.g.,
-      oxides), faster for light surface prep. Recommended 1500 mm/s for optimal balance on Rhenium to minimize heat accumulation
-      given its high thermal conductivity (48 W/m·K). Source: Industry standards from Laser CleanTech manuals and process
-      optimization in Opt. Lasers Eng. 128, 106010 (2020); conservative for Rhenium''s properties.'
+    description: 'Range for effective contaminant removal without substrate ablation;
+      slower for heavy contamination (e.g., oxides), faster for light surface prep.
+      Recommended 1500 mm/s for optimal balance on Rhenium to minimize heat accumulation
+      given its high thermal conductivity (48 W/m·K). Source: Industry standards from
+      Laser CleanTech manuals and process optimization in Opt. Lasers Eng. 128, 106010
+      (2020); conservative for Rhenium''s properties.'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime typical for industrial cleaning to ablate contaminants while sparing Rhenium substrate;
-      picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common industrially due to cost. Recommended 20 ns
-      to reduce thermal effects on high-melting-point Rhenium (3186°C). Source: Laser physics research in Appl. Surf. Sci.
-      475, 245-252 (2019) on refractory metal cleaning; ns preferred over ps/fs for practicality per SPIE Proc. Vol. 10911.'
+    description: 'Nanosecond regime typical for industrial cleaning to ablate contaminants
+      while sparing Rhenium substrate; picosecond (ps) or femtosecond (fs) for ultra-minimal
+      HAZ but less common industrially due to cost. Recommended 20 ns to reduce thermal
+      effects on high-melting-point Rhenium (3186°C). Source: Laser physics research
+      in Appl. Surf. Sci. 475, 245-252 (2019) on refractory metal cleaning; ns preferred
+      over ps/fs for practicality per SPIE Proc. Vol. 10911.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed fiber lasers in cleaning; higher rates speed up process but increase heat buildup on
-      reflective Rhenium, risking subsurface damage. Recommended 50 kHz balances speed and thermal management. Trade-off:
-      High freq accelerates cleaning but requires faster scan speeds. Source: Academic literature in J. Phys. D: Appl. Phys.
-      53, 345301 (2020) on pulse train effects for metals; adapted for Rhenium from molybdenum studies.'
+    description: 'Typical for pulsed fiber lasers in cleaning; higher rates speed
+      up process but increase heat buildup on reflective Rhenium, risking subsurface
+      damage. Recommended 50 kHz balances speed and thermal management. Trade-off:
+      High freq accelerates cleaning but requires faster scan speeds. Source: Academic
+      literature in J. Phys. D: Appl. Phys. 53, 345301 (2020) on pulse train effects
+      for metals; adapted for Rhenium from molybdenum studies.'
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence range below Rhenium''s ablation threshold (~4-5 J/cm² at 1064 nm) for safe contaminant removal;
-      lower for light cleaning, higher for heavy. Recommended 1.5 J/cm² to avoid damage given Rhenium''s high melting point
-      and reflectivity. Damage threshold estimated >3 J/cm². Source: Ablation threshold studies in Appl. Phys. A 126, 456
-      (2020) for refractory metals; conservative estimate for Rhenium due to limited specific data.'
+    description: 'Fluence range below Rhenium''s ablation threshold (~4-5 J/cm² at
+      1064 nm) for safe contaminant removal; lower for light cleaning, higher for
+      heavy. Recommended 1.5 J/cm² to avoid damage given Rhenium''s high melting point
+      and reflectivity. Damage threshold estimated >3 J/cm². Source: Ablation threshold
+      studies in Appl. Phys. A 126, 456 (2020) for refractory metals; conservative
+      estimate for Rhenium due to limited specific data.'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 300
-    description: 'Beam diameter range for precision vs. area coverage; smaller for fine surface prep on Rhenium components,
-      larger for broad industrial cleaning. Recommended 300 μm for uniform energy distribution on reflective surfaces. Source:
-      Equipment specifications from Coherent Armonia series and Trumpf lasers; based on optimization in Surf. Coat. Technol.
-      384, 125347 (2020) for metal cleaning applications.'
+    description: 'Beam diameter range for precision vs. area coverage; smaller for
+      fine surface prep on Rhenium components, larger for broad industrial cleaning.
+      Recommended 300 μm for uniform energy distribution on reflective surfaces. Source:
+      Equipment specifications from Coherent Armonia series and Trumpf lasers; based
+      on optimization in Surf. Coat. Technol. 384, 125347 (2020) for metal cleaning
+      applications.'
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy or uneven layers; recommended 2 passes for complete
-      Rhenium cleaning to ensure uniformity without excessive heat input. Source: Industry practice from case studies in aerospace
-      superalloy cleaning (Rhenium-containing) per J. Manuf. Processes 52, 1-12 (2020); multi-pass reduces risk of incomplete
-      removal.'
+    description: 'Single pass for light contamination, multi-pass for heavy or uneven
+      layers; recommended 2 passes for complete Rhenium cleaning to ensure uniformity
+      without excessive heat input. Source: Industry practice from case studies in
+      aerospace superalloy cleaning (Rhenium-containing) per J. Manuf. Processes 52,
+      1-12 (2020); multi-pass reduces risk of incomplete removal.'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 70
-    description: 'Ensures uniform coverage without gaps or over-ablation; higher overlap for fine Rhenium surface prep to
-      account for reflectivity variations. Recommended 70% for optimal uniformity in industrial settings. Source: Process
-      optimization studies in Opt. Laser Technol. 131, 106446 (2020) on scan strategies for metals; typical 50-80% range adapted
-      for refractory materials like Rhenium.'
-component_summary: These settings employ moderate power and short 15 ns pulses at 1064 nm to precisely remove contaminants
-  from Rhenium's refractory surface without risking melting or structural damage.
-slug: rhenium-settings
-lastModified: '2026-01-04T13:43:55.930003'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Rhenium
-  href: ''
-title: Rhenium
+    description: 'Ensures uniform coverage without gaps or over-ablation; higher overlap
+      for fine Rhenium surface prep to account for reflectivity variations. Recommended
+      70% for optimal uniformity in industrial settings. Source: Process optimization
+      studies in Opt. Laser Technol. 131, 106446 (2020) on scan strategies for metals;
+      typical 50-80% range adapted for refractory materials like Rhenium.'
+page_description: When laser cleaning rhenium, watch its strong reflectivity first.
+  It bounces back much of the beam, so energy absorption stays low. This makes surface
+  buildup stubborn to remove. I've seen it take extra care to avoid uneven heating.
+  Start with lower power settings to build heat gradually. That prevents hot spots
+  on this dense metal. Rhenium's extreme heat resistance helps here—it won't warp
+  easily. But go slow on passes. Overlap scans to cover fully without stressing the
+  surface. Tends to shine up nicely once clean, restoring that aerospace-grade finish.

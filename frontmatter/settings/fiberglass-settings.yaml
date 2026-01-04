@@ -1,18 +1,24 @@
 id: fiberglass-settings
 name: Fiberglass
-datePublished: '2026-01-04T21:43:50.959797Z'
-dateModified: '2026-01-04T21:43:50.959797Z'
+datePublished: '2025-12-27T21:06:07.516015Z'
+dateModified: '2025-12-27T21:06:07.516015Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/fiberglass-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Composite
+  href: /settings/composite
+- label: Fiber Reinforced
+  href: /settings/composite/fiber-reinforced
+- label: Fiberglass
+  href: /settings/composite/fiber-reinforced/fiberglass-settings
 page_title: 'Fiberglass Settings: Laser Parameters'
-page_description: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process go smoothly.
-  This composite material holds up well because of its strong, lightweight fibers that resist corrosion in tough environments
-  like marine or aerospace settings. But watch out midway—its poor heat spread can cause localized damage if you push too
-  hard, so adjust to multiple light passes instead of one heavy go. Tends to clean contaminants without scratching the surface
-  when you keep the energy low and overlap spots just right. This way, you preserve its flexibility for applications in wind
-  energy or construction.
-meta_description: 'Fiberglass: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Fiberglass: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/fiberglass-settings-hero.jpg
@@ -44,17 +50,18 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
+    in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
-  slug: yi-chun-lin
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -66,21 +73,18 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
+  technical:
+    works_on_materials:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+      - id: fiberglass-laser-cleaning
+        effectiveness: high
       _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
         variant: default
-  interactions:
     removes_contaminants:
       presentation: card
       items:
@@ -91,74 +95,54 @@ relationships:
       _section:
         title: Removes Contaminants
         description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
+        icon: droplet
+        order: 3
         variant: default
-    works_on_materials:
+  safety:
+    regulatory_standards:
       presentation: card
       items:
-      - id: fiberglass-laser-cleaning
-        effectiveness: high
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
         variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: matrix-degradation
-        category: Thermal Management
-        challenge: Matrix degradation and delamination
-        description: Structural integrity loss, fiber exposure
-        severity: high
-        solutions:
-        - Use low fluence (<2 J/cm²) to stay below matrix damage threshold
-        - Short pulse durations (<50 ns) for surface-only interaction
-        - Multiple light passes instead of aggressive single pass
-      - id: anisotropic-thermal
-        category: Thermal Management
-        challenge: Anisotropic thermal properties
-        description: Uneven heating and fiber/matrix damage risk
-        severity: medium
-        solutions:
-        - Optimize scan direction relative to fiber orientation
-        - Use lower fluence with multiple passes
-        - Monitor real-time temperature
-      - id: resin-contaminant-removal
-        category: Contamination
-        challenge: Resin-based contaminant removal
-        description: Resin carbonizes easily, requires careful power control
-        severity: medium
-        solutions:
-        - Use low fluence (1-2 J/cm²) to avoid carbonization
-        - Short pulse durations for precise removal
-        - Multiple passes with cooling between
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: matrix-degradation
+          type: challenge
+        - id: anisotropic-thermal
+          type: challenge
+        contamination_challenges:
+        - id: resin-contaminant-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: composite
+subcategory: fiber-reinforced
 machine_settings:
   powerRange:
-    description: Optimal average power for Fiberglass surface cleaning without thermal damage
+    description: Optimal average power for Fiberglass surface cleaning without thermal
+      damage
     unit: W
     value: 100
     min: 1.0
     max: 120
   wavelength:
-    description: Near-infrared wavelength for optimal Fiberglass absorption and minimal transmission
+    description: Near-infrared wavelength for optimal Fiberglass absorption and minimal
+      transmission
     unit: nm
     value: 1064
     min: 355
@@ -216,68 +200,72 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage to polymer matrix; starting
-      at 100W for light contamination (IPG Photonics specs for CL series cleaners; conservative for fiberglass melting point
-      ~200-300°C).
+    description: Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid
+      thermal damage to polymer matrix; starting at 100W for light contamination (IPG
+      Photonics specs for CL series cleaners; conservative for fiberglass melting
+      point ~200-300°C).
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 500-1000
-      mm/s), faster for light (2000-3000 mm/s); recommended for uniform fiberglass surface prep (industry standards from Laserax
+    description: Effective speeds balance removal efficiency and heat input; slower
+      for heavy contamination (e.g., 500-1000 mm/s), faster for light (2000-3000 mm/s);
+      recommended for uniform fiberglass surface prep (industry standards from Laserax
       and Adapt Laser manuals).
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 30
-    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning of organics on fiberglass; 30 ns minimizes
-      HAZ in low-conductivity composites (laser physics studies in Optics & Lasers in Engineering, 2018, on polymer ablation).
+    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning
+      of organics on fiberglass; 30 ns minimizes HAZ in low-conductivity composites
+      (laser physics studies in Optics & Lasers in Engineering, 2018, on polymer ablation).
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: Moderate rates prevent heat accumulation in thermally sensitive fiberglass; higher rates speed cleaning but
-      risk delamination (trade-off noted in Applied Surface Science, 2020, for composite applications).
+    description: Moderate rates prevent heat accumulation in thermally sensitive fiberglass;
+      higher rates speed cleaning but risk delamination (trade-off noted in Applied
+      Surface Science, 2020, for composite applications).
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: Fluence below fiberglass damage threshold (~2-4 J/cm² for polymers, higher for glass fibers); safe for contaminant
-      ablation without substrate melting (ablation studies in Journal of Applied Physics, 2019, on epoxy composites).
+    description: Fluence below fiberglass damage threshold (~2-4 J/cm² for polymers,
+      higher for glass fibers); safe for contaminant ablation without substrate melting
+      (ablation studies in Journal of Applied Physics, 2019, on epoxy composites).
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 300
-    description: Smaller spots for precision on fiberglass textures, larger for broad areas; 300 μm balances resolution and
-      efficiency (equipment specs from Coherent and Trumpf laser cleaners for industrial surface prep).
+    description: Smaller spots for precision on fiberglass textures, larger for broad
+      areas; 300 μm balances resolution and efficiency (equipment specs from Coherent
+      and Trumpf laser cleaners for industrial surface prep).
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: Multi-pass for layered contamination removal without excessive heat; 1-2 passes typical for light industrial
-      cleaning on fiberglass (case studies in Composites Part B, 2021, on laser surface preparation).
+    description: Multi-pass for layered contamination removal without excessive heat;
+      1-2 passes typical for light industrial cleaning on fiberglass (case studies
+      in Composites Part B, 2021, on laser surface preparation).
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: Ensures uniform coverage and avoids gaps/striping on uneven fiberglass surfaces; 50% optimal for energy overlap
-      without redundancy (process optimization in International Journal of Advanced Manufacturing Technology, 2017).
-component_summary: These settings use moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
-  from heat-sensitive fiberglass without causing thermal degradation or fiber damage.
-slug: fiberglass-settings
-lastModified: '2026-01-04T13:43:50.959828'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Fiberglass
-  href: ''
-title: Fiberglass
+    description: Ensures uniform coverage and avoids gaps/striping on uneven fiberglass
+      surfaces; 50% optimal for energy overlap without redundancy (process optimization
+      in International Journal of Advanced Manufacturing Technology, 2017).
+page_description: When laser cleaning fiberglass, I've found that starting with a
+  gentle scan speed helps the process go smoothly. This composite material holds up
+  well because of its strong, lightweight fibers that resist corrosion in tough environments
+  like marine or aerospace settings. But watch out midway—its poor heat spread can
+  cause localized damage if you push too hard, so adjust to multiple light passes
+  instead of one heavy go. Tends to clean contaminants without scratching the surface
+  when you keep the energy low and overlap spots just right. This way, you preserve
+  its flexibility for applications in wind energy or construction.

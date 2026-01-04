@@ -46,21 +46,21 @@ export default function sitemap(): SitemapEntry[] {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      priority: 0.7, // Informational page - lower priority
       alternates: getAlternates(`${baseUrl}/about`),
     },
     {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 0.95, // Money page - high priority
       alternates: getAlternates(`${baseUrl}/services`),
     },
     {
       url: `${baseUrl}/rental`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      priority: 0.95, // Money page - high priority
       alternates: getAlternates(`${baseUrl}/rental`),
     },
     {
@@ -81,7 +81,7 @@ export default function sitemap(): SitemapEntry[] {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      priority: 0.7, // Already accessible via CTA buttons
       alternates: getAlternates(`${baseUrl}/contact`),
     },
     {
@@ -118,6 +118,13 @@ export default function sitemap(): SitemapEntry[] {
       changeFrequency: 'weekly' as const,
       priority: 0.9,
       alternates: getAlternates(`${baseUrl}/compounds`),
+    },
+    {
+      url: `${baseUrl}/settings`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9, // Hub page for all machine settings
+      alternates: getAlternates(`${baseUrl}/settings`),
     },
   ];
 
@@ -163,7 +170,7 @@ export default function sitemap(): SitemapEntry[] {
             url: categoryUrl,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
-            priority: 0.7,
+            priority: 0.85, // Important taxonomy pages
             alternates: getAlternates(categoryUrl),
           });
         }
@@ -221,7 +228,7 @@ export default function sitemap(): SitemapEntry[] {
           url: settingsPageUrl,
           lastModified: stats.mtime,
           changeFrequency: 'weekly' as const,
-          priority: 0.7, // Slightly lower priority than materials pages
+          priority: 0.6, // Lower priority than materials (0.8) - technical reference
           alternates: getAlternates(settingsPageUrl),
         });
       }

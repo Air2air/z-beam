@@ -1,14 +1,24 @@
 id: gallium-nitride-settings
 name: Gallium Nitride
-datePublished: '2026-01-04T21:44:00.214938Z'
-dateModified: '2026-01-04T21:44:00.214938Z'
+datePublished: '2025-12-27T21:06:09.102769Z'
+dateModified: '2025-12-27T21:06:09.102769Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/semiconductor/compound/gallium-nitride-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Semiconductor
+  href: /settings/semiconductor
+- label: Compound
+  href: /settings/semiconductor/compound
+- label: Gallium Nitride
+  href: /settings/semiconductor/compound/gallium-nitride-settings
 page_title: 'Gallium Nitride Settings: Laser Parameters'
-page_description: Before laser cleaning, Gallium Nitride surfaces require careful parameter selection After cleaning, Gallium
-  Nitride surfaces show restored appearance with controlled parameters
-meta_description: 'Gallium Nitride: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Gallium Nitride: removes contamination removal. Industrial-grade
+  parameters. No substrate damage.'
 images:
   hero:
     url: /images/settings/gallium-nitride-settings-hero.jpg
@@ -37,23 +47,22 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
+    Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
-  slug: ikmanda-roswati
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -65,34 +74,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -103,12 +85,53 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational: {}
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+category: semiconductor
+subcategory: compound
 machine_settings:
   powerRange:
     value: 60
@@ -169,72 +192,72 @@ machine_settings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for pulsed fiber lasers in semiconductor cleaning; starting at 50 W balances efficiency and
-      safety for GaN''s sensitivity to heat (thermal conductivity ~130 W/mK); max avoids melting point (~2500°C). Source:
-      IPG Photonics specs for YLR series; extrapolated from GaN ablation studies (e.g., J. Appl. Phys. 2015).'
+    description: 'Typical range for pulsed fiber lasers in semiconductor cleaning;
+      starting at 50 W balances efficiency and safety for GaN''s sensitivity to heat
+      (thermal conductivity ~130 W/mK); max avoids melting point (~2500°C). Source:
+      IPG Photonics specs for YLR series; extrapolated from GaN ablation studies (e.g.,
+      J. Appl. Phys. 2015).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective for light contaminants at higher speeds, slower for heavy; 1000 mm/s optimal for uniform GaN surface
-      prep without overheating. Range from industry standards for 1064 nm cleaning. Source: Laserax equipment manuals; case
-      studies on III-V semiconductors.'
+    description: 'Effective for light contaminants at higher speeds, slower for heavy;
+      1000 mm/s optimal for uniform GaN surface prep without overheating. Range from
+      industry standards for 1064 nm cleaning. Source: Laserax equipment manuals;
+      case studies on III-V semiconductors.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 10
     unit: ps
-    description: 'Picosecond preferred over ns for minimal HAZ on reflective GaN (reflectivity ~40% at 1064 nm); avoids thermal
-      accumulation. Femtosecond possible but less common industrially. Source: Laser physics research (Opt. Express 2018 on
-      ultrashort pulse cleaning of nitrides).'
+    description: 'Picosecond preferred over ns for minimal HAZ on reflective GaN (reflectivity
+      ~40% at 1064 nm); avoids thermal accumulation. Femtosecond possible but less
+      common industrially. Source: Laser physics research (Opt. Express 2018 on ultrashort
+      pulse cleaning of nitrides).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: '50 kHz balances speed and heat management for GaN; higher rates risk accumulation on low-absorptivity material,
-      slower for precision. Trade-off: faster cleaning but potential thermal damage. Source: Academic literature (Appl. Surf.
-      Sci. 2020 on pulsed laser cleaning of GaN).'
+    description: '50 kHz balances speed and heat management for GaN; higher rates
+      risk accumulation on low-absorptivity material, slower for precision. Trade-off:
+      faster cleaning but potential thermal damage. Source: Academic literature (Appl.
+      Surf. Sci. 2020 on pulsed laser cleaning of GaN).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Below GaN damage threshold (~1-2 J/cm² at 1064 nm ns pulses) for safe contaminant removal; 0.5 J/cm² recommended
-      for light industrial cleaning. Conservative for GaN''s high melting point but low IR absorption. Source: Ablation threshold
-      studies (J. Phys. D: Appl. Phys. 2017).'
+    description: 'Below GaN damage threshold (~1-2 J/cm² at 1064 nm ns pulses) for
+      safe contaminant removal; 0.5 J/cm² recommended for light industrial cleaning.
+      Conservative for GaN''s high melting point but low IR absorption. Source: Ablation
+      threshold studies (J. Phys. D: Appl. Phys. 2017).'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: '200 μm for fine GaN surface prep (e.g., LED substrates); smaller for detail, larger for area coverage. Matches
-      typical Gaussian beam in cleaning heads. Source: Coherent and Trumpf equipment specifications for micro-cleaning.'
+    description: '200 μm for fine GaN surface prep (e.g., LED substrates); smaller
+      for detail, larger for area coverage. Matches typical Gaussian beam in cleaning
+      heads. Source: Coherent and Trumpf equipment specifications for micro-cleaning.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Multi-pass (2 recommended) for complete removal of heavy contaminants without single-pass overload on delicate
-      GaN; single pass for light. Based on industrial practice for semiconductors. Source: Case studies in Surf. Coat. Technol.
-      2019.'
+    description: 'Multi-pass (2 recommended) for complete removal of heavy contaminants
+      without single-pass overload on delicate GaN; single pass for light. Based on
+      industrial practice for semiconductors. Source: Case studies in Surf. Coat.
+      Technol. 2019.'
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: '60% ensures uniform coverage on GaN without excessive energy overlap causing damage; typical range for pulsed
-      scanning. Optimizes for even ablation of contaminants. Source: Process optimization studies (Opt. Lasers Eng. 2021).'
-component_summary: These settings employ moderate 50 W power and 10 ns pulses at 1064 nm to selectively ablate contaminants
-  from GaN's sensitive surface while minimizing thermal damage to its wide-bandgap structure.
-slug: gallium-nitride-settings
-lastModified: '2026-01-04T13:44:00.214967'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Gallium Nitride
-  href: ''
-title: Gallium Nitride
+    description: '60% ensures uniform coverage on GaN without excessive energy overlap
+      causing damage; typical range for pulsed scanning. Optimizes for even ablation
+      of contaminants. Source: Process optimization studies (Opt. Lasers Eng. 2021).'
+page_description: Before laser cleaning, Gallium Nitride surfaces require careful
+  parameter selection After cleaning, Gallium Nitride surfaces show restored appearance
+  with controlled parameters

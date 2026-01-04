@@ -1,22 +1,26 @@
 id: diamond-coating-contamination
 name: Diamond-Like Carbon Removal
 category: inorganic-coating
-datePublished: '2026-01-04T21:42:48.382578Z'
-dateModified: '2026-01-04T21:42:48.382578Z'
+datePublished: '2025-12-27T21:04:24.071019Z'
+dateModified: '2025-12-27T21:04:24.071019Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/diamond-coating-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Inorganic Coating
+  href: /contaminants/inorganic-coating
+- label: Coating
+  href: /contaminants/inorganic-coating/coating
+- label: Diamond-Like Carbon Removal
+  href: /contaminants/inorganic-coating/coating/diamond-coating-contamination
 page_title: 'Diamond-Like Carbon Removal Removal: Laser Ablation'
-page_description: "Diamond-coating contamination poses removal challenges in laser cleaning. Contaminants form unique patterns\
-  \ on diamond surfaces because heat resistance causes uneven buildup during exposure. Layer adheres strongly, so laser pulses\
-  \ struggle to detach it without damaging coating. After initial cleaning, residue persists on edges. Process targets inorganic\
-  \ layers effectively, yet material hardness demands precise control. Contamination exhibits dense attachment, and removal\
-  \ requires adjusted wavelengths for safety. In observations, patterns vary by substrate, so intervals prevent overheating.\
-  \ Buildup is detected early on polished areas. Treatment removes layers gradually, and surface regains uniformity afterward.\n\
-  \nIkmanda Roswati, Ph.D.  \nIndonesia"
 meta_description: 'Diamond-Like Carbon Removal: 95% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images:
+images: &id001
   hero:
     url: /images/contaminant/diamond-coating-contamination-hero.jpg
     alt: Diamond-Like Carbon Removal laser cleaning visualization showing process effects
@@ -53,115 +57,10 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
-  slug: yi-chun-lin
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards for handling this contaminant
-        icon: shield-check
-        order: 1
-        variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 900-5000
-        exposure_limit_mg_m3: 9000
-        hazard_class: toxic
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 0.1-2.0
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Ultrafine Carbon Particles
-        concentration_mg_m3: 1-20
-        exposure_limit_mg_m3: 3
-        hazard_class: toxic
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.85
-        size_range_um:
-        - 0.01
-        - 10
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Avoid laser cleaning on substrates containing chlorinated compounds (risk of phosgene generation)
-    - Ensure substrate does not contain heavy metals that could vaporize
-    - Test for potential hydrogen cyanide generation if nitrogen-containing compounds are present
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Carbon Monoxide
-          concentration_mg_m3: 5-50
-          hazard_class: toxic
-        - compound: Carbon Dioxide
-          concentration_mg_m3: 900-5000
-          hazard_class: toxic
-        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-          concentration_mg_m3: 0.1-2.0
-          hazard_class: carcinogenic
-        - compound: Ultrafine Carbon Particles
-          concentration_mg_m3: 1-20
-          hazard_class: toxic
-        description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Polycyclic Aromatic Hydrocarbons
-          (PAHs) - requires enhanced protection'
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
-    ventilation_requirements:
-      presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
-  interactions:
-    produces_compounds:
-      presentation: card
-      items:
-      - id: carbon-monoxide-compound
-      - id: carbon-dioxide-compound
-      - id: carbon-particulates-compound
-      _section:
-        title: Produces Compounds
-        description: Chemical compounds formed when laser cleaning this contaminant
-        icon: flask
-        order: 1
-        variant: default
+  technical:
     affects_materials:
       presentation: card
       items:
@@ -203,247 +102,360 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Found On Materials
-        description: Materials commonly contaminated with this substance
+        title: Affects Materials
+        description: Materials impacted by this contaminant
         icon: box
-        order: 2
-        variant: default
-  visual:
-    appearance_on_categories:
-      presentation: descriptive
-      items:
-      - appearance_on_categories:
-          ceramic:
-            appearance: Contamination presents as dark, smeary residues on ceramic surfaces, dulling the glaze and creating
-              a grimy appearance.
-            coverage: Coverage is generally partial and inconsistent, with amounts varying from light films to heavier deposits
-              in specific zones.
-            pattern: It often appears in streaks or blotches, following application or removal patterns, and may cluster in
-              recessed areas or edges.
-          composite:
-            appearance: On composites, it appears as dark, streaky residues that can highlight material interfaces and create
-              a mottled, unclean look.
-            coverage: Coverage is usually partial and variable, depending on composite composition and exposure, with uneven
-              distribution across the surface.
-            pattern: It tends to form irregular patches or lines, following the composite structure or tool paths, and may
-              be concentrated in porous regions.
-          concrete:
-            appearance: It appears as dark, shadowy films or stains on concrete, obscuring the rough texture and natural gray
-              color with a dirty overlay.
-            coverage: Coverage is often partial and variable, ranging from isolated patches to broader areas, depending on
-              concrete condition and exposure.
-            pattern: Distribution is typically in blotches or streaks, influenced by surface porosity and environmental factors,
-              sometimes forming uniform discolorations.
-          fabric:
-            appearance: On fabric, it shows as dark, stain-like discolorations that may feel slightly stiff or greasy, altering
-              the original color and texture.
-            coverage: Coverage is generally sparse and patchy, with amounts varying from light tinges to more pronounced stains
-              in affected areas.
-            pattern: It often forms irregular spots or streaks, following weave patterns or application methods, and can be
-              randomly distributed.
-          glass:
-            appearance: On glass, it appears as hazy, translucent films or streaks that reduce clarity and may have a slight
-              gray or smoky tint.
-            coverage: Coverage is usually light and uneven, often partial with variations in thickness, leading to differences
-              in transparency across the surface.
-            pattern: It typically forms streaks or smudges in the direction of wiping or removal, and can be uniform in thin
-              layers or spotty in thicker accumulations.
-          metal:
-            appearance: Diamond-like carbon removal contamination appears as dull, grayish smudges or streaks on the metal
-              surface, often contrasting with the original shiny or polished finish.
-            coverage: Coverage is usually partial and localized, varying from small spots to larger areas depending on the
-              removal method and surface exposure.
-            pattern: It typically forms irregular streaks or patches, following the path of removal tools or abrasion, and
-              may concentrate in high-wear areas.
-          mineral:
-            appearance: On minerals, it looks like dark, oily coatings that can mask crystalline structures and natural colors,
-              giving a dull or contaminated sheen.
-            coverage: Coverage is usually light and uneven, with variations based on mineral hardness and the extent of removal
-              activities.
-            pattern: It commonly forms in patches or thin layers, following mineral cleavage or external contacts, and may
-              be spotty or uniform.
-          plastic:
-            appearance: It looks like faint, grayish films or scratches on plastic, potentially causing a loss of luster and
-              introducing a dirty, matte finish.
-            coverage: Coverage is often light and patchy, with variations based on plastic type and the intensity of removal
-              processes.
-            pattern: Distribution is typically in streaks or spots, influenced by surface smoothness and mechanical actions,
-              sometimes forming uniform thin layers.
-          rubber:
-            appearance: It manifests as black, greasy smudges or films on rubber, often deepening the natural dark color and
-              adding a slick, contaminated texture.
-            coverage: Coverage is typically light to moderate and uneven, with higher amounts in high-contact zones and variations
-              due to rubber elasticity.
-            pattern: The contamination commonly appears in smears or spots, aligning with flex points or handling areas, and
-              can be streaky or blotchy.
-          semiconductor:
-            appearance: It appears as microscopic, hazy films or particles on semiconductor surfaces, potentially causing
-              visual defects and interfering with optical properties.
-            coverage: Coverage is typically minimal and highly variable, with precise amounts critical to performance, often
-              partial and controlled to avoid damage.
-            pattern: Distribution is often in fine spots or uniform layers, influenced by processing steps and contamination
-              sources, and may be concentrated in specific regions.
-          specialty:
-            appearance: On specialty materials, it manifests as tailored discolorations or residues, such as dull films on
-              coatings or smudges on advanced polymers, adapting to material specifics.
-            coverage: Coverage is highly variable and material-dependent, ranging from sparse to extensive, with careful control
-              to maintain functionality and appearance.
-            pattern: It forms in patterns specific to the material's use, like streaks on high-tech surfaces or patches on
-              custom composites, often irregular or designed.
-          stone:
-            appearance: It shows up as dark, greasy-looking films or discolorations on stone surfaces, potentially masking
-              the natural texture and hues.
-            coverage: Coverage is often patchy and variable, ranging from isolated areas to broader sections, depending on
-              stone type and exposure.
-            pattern: Distribution is commonly in irregular patches or smears, influenced by surface roughness and cleaning
-              actions, sometimes forming concentrated spots.
-          wood:
-            appearance: On wood, it manifests as dark, sooty stains or smears that can obscure the natural grain and color,
-              giving a dirty or weathered look.
-            coverage: Coverage tends to be sporadic and light to moderate, with variations based on wood porosity and the
-              extent of removal efforts.
-            pattern: The contamination often appears in blotchy patches or streaks, aligning with wood grain or tool marks,
-              and may be unevenly distributed.
-      _section:
-        title: Visual Appearance
-        description: How this contaminant appears on different material types
-        icon: eye
         order: 1
         variant: default
-  operational:
-    laser_properties:
-      presentation: descriptive
+    produces_compounds:
+      presentation: card
       items:
-      - laser_parameters:
-          beam_profile: gaussian
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.4
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
-          polarization: any
-          pulse_duration_range:
-            max_ns: 100
-            min_ns: 4
-            recommended_ns: 10
-          repetition_rate_khz:
-            max: 300
-            min: 20
-            recommended: 100
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spot_size_mm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelength_preference:
-          - 1064
-          - 355
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 80000
-            wavelength_355nm: 450000
-            wavelength_532nm: 150000
-          reflectivity:
-            wavelength_1064nm: 0.25
-            wavelength_355nm: 0.12
-            wavelength_532nm: 0.18
-          refractive_index:
-            imaginary_part: 0.15
-            real_part: 2.4
-          transmission_depth: 1.25
-        removal_characteristics:
-          byproducts:
-          - compound: carbon-monoxide
-            hazard_level: high
-            phase: gas
-          - compound: carbon-dioxide
-            hazard_level: moderate
-            phase: gas
-          - compound: carbon-particulates
-            hazard_level: moderate
-            phase: solid
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 120
-            typical_scan_speed_mm_s: 500
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.85
-          secondary_mechanisms:
-          - photochemical
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 1.2
-            pulse_duration_10ns: 0.6
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 450
-          heat_affected_zone_depth: 2.5
-          melting_point: N/A
-          specific_heat: 750
-          thermal_conductivity: 1.5
-          thermal_diffusivity: 0.8
-          vaporization_temperature: 1200
+      - id: carbon-monoxide-compound
+      - id: carbon-dioxide-compound
+      - id: carbon-particulates-compound
       _section:
-        title: Laser Properties
-        description: Absorption characteristics and laser interaction data
-        icon: zap
+        title: Produces Compounds
+        description: Hazardous compounds generated during laser removal
+        icon: flask
+        order: 3
+        variant: warning
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
         order: 1
         variant: default
+  visual_characteristics:
+    presentation: descriptive
+    items:
+    - appearance_on_categories:
+        ceramic:
+          appearance: Contamination presents as dark, smeary residues on ceramic surfaces, dulling the glaze and creating
+            a grimy appearance.
+          coverage: Coverage is generally partial and inconsistent, with amounts varying from light films to heavier deposits
+            in specific zones.
+          pattern: It often appears in streaks or blotches, following application or removal patterns, and may cluster in
+            recessed areas or edges.
+        composite:
+          appearance: On composites, it appears as dark, streaky residues that can highlight material interfaces and create
+            a mottled, unclean look.
+          coverage: Coverage is usually partial and variable, depending on composite composition and exposure, with uneven
+            distribution across the surface.
+          pattern: It tends to form irregular patches or lines, following the composite structure or tool paths, and may be
+            concentrated in porous regions.
+        concrete:
+          appearance: It appears as dark, shadowy films or stains on concrete, obscuring the rough texture and natural gray
+            color with a dirty overlay.
+          coverage: Coverage is often partial and variable, ranging from isolated patches to broader areas, depending on concrete
+            condition and exposure.
+          pattern: Distribution is typically in blotches or streaks, influenced by surface porosity and environmental factors,
+            sometimes forming uniform discolorations.
+        fabric:
+          appearance: On fabric, it shows as dark, stain-like discolorations that may feel slightly stiff or greasy, altering
+            the original color and texture.
+          coverage: Coverage is generally sparse and patchy, with amounts varying from light tinges to more pronounced stains
+            in affected areas.
+          pattern: It often forms irregular spots or streaks, following weave patterns or application methods, and can be
+            randomly distributed.
+        glass:
+          appearance: On glass, it appears as hazy, translucent films or streaks that reduce clarity and may have a slight
+            gray or smoky tint.
+          coverage: Coverage is usually light and uneven, often partial with variations in thickness, leading to differences
+            in transparency across the surface.
+          pattern: It typically forms streaks or smudges in the direction of wiping or removal, and can be uniform in thin
+            layers or spotty in thicker accumulations.
+        metal:
+          appearance: Diamond-like carbon removal contamination appears as dull, grayish smudges or streaks on the metal surface,
+            often contrasting with the original shiny or polished finish.
+          coverage: Coverage is usually partial and localized, varying from small spots to larger areas depending on the removal
+            method and surface exposure.
+          pattern: It typically forms irregular streaks or patches, following the path of removal tools or abrasion, and may
+            concentrate in high-wear areas.
+        mineral:
+          appearance: On minerals, it looks like dark, oily coatings that can mask crystalline structures and natural colors,
+            giving a dull or contaminated sheen.
+          coverage: Coverage is usually light and uneven, with variations based on mineral hardness and the extent of removal
+            activities.
+          pattern: It commonly forms in patches or thin layers, following mineral cleavage or external contacts, and may be
+            spotty or uniform.
+        plastic:
+          appearance: It looks like faint, grayish films or scratches on plastic, potentially causing a loss of luster and
+            introducing a dirty, matte finish.
+          coverage: Coverage is often light and patchy, with variations based on plastic type and the intensity of removal
+            processes.
+          pattern: Distribution is typically in streaks or spots, influenced by surface smoothness and mechanical actions,
+            sometimes forming uniform thin layers.
+        rubber:
+          appearance: It manifests as black, greasy smudges or films on rubber, often deepening the natural dark color and
+            adding a slick, contaminated texture.
+          coverage: Coverage is typically light to moderate and uneven, with higher amounts in high-contact zones and variations
+            due to rubber elasticity.
+          pattern: The contamination commonly appears in smears or spots, aligning with flex points or handling areas, and
+            can be streaky or blotchy.
+        semiconductor:
+          appearance: It appears as microscopic, hazy films or particles on semiconductor surfaces, potentially causing visual
+            defects and interfering with optical properties.
+          coverage: Coverage is typically minimal and highly variable, with precise amounts critical to performance, often
+            partial and controlled to avoid damage.
+          pattern: Distribution is often in fine spots or uniform layers, influenced by processing steps and contamination
+            sources, and may be concentrated in specific regions.
+        specialty:
+          appearance: On specialty materials, it manifests as tailored discolorations or residues, such as dull films on coatings
+            or smudges on advanced polymers, adapting to material specifics.
+          coverage: Coverage is highly variable and material-dependent, ranging from sparse to extensive, with careful control
+            to maintain functionality and appearance.
+          pattern: It forms in patterns specific to the material's use, like streaks on high-tech surfaces or patches on custom
+            composites, often irregular or designed.
+        stone:
+          appearance: It shows up as dark, greasy-looking films or discolorations on stone surfaces, potentially masking the
+            natural texture and hues.
+          coverage: Coverage is often patchy and variable, ranging from isolated areas to broader sections, depending on stone
+            type and exposure.
+          pattern: Distribution is commonly in irregular patches or smears, influenced by surface roughness and cleaning actions,
+            sometimes forming concentrated spots.
+        wood:
+          appearance: On wood, it manifests as dark, sooty stains or smears that can obscure the natural grain and color,
+            giving a dirty or weathered look.
+          coverage: Coverage tends to be sporadic and light to moderate, with variations based on wood porosity and the extent
+            of removal efforts.
+          pattern: The contamination often appears in blotchy patches or streaks, aligning with wood grain or tool marks,
+            and may be unevenly distributed.
+    _section:
+      title: Visual Characteristics
+      description: Physical appearance and identification features of this contamination
+      icon: eye
+      order: 10
+      variant: default
+  laser_properties:
+    presentation: descriptive
+    items:
+    - laser_parameters:
+        beam_profile: gaussian
+        fluence_range:
+          max_j_cm2: 1.2
+          min_j_cm2: 0.4
+          recommended_j_cm2: 0.8
+        overlap_percentage: 50
+        polarization: any
+        pulse_duration_range:
+          max_ns: 100
+          min_ns: 4
+          recommended_ns: 10
+        repetition_rate_khz:
+          max: 300
+          min: 20
+          recommended: 100
+        safety_margin_factor: 0.7
+        scan_speed_mm_s:
+          max: 2000
+          min: 500
+          recommended: 1000
+        spot_size_mm:
+          max: 0.1
+          min: 0.02
+          recommended: 0.05
+        wavelength_preference:
+        - 1064
+        - 355
+      optical_properties:
+        absorption_coefficient:
+          wavelength_1064nm: 80000
+          wavelength_355nm: 450000
+          wavelength_532nm: 150000
+        reflectivity:
+          wavelength_1064nm: 0.25
+          wavelength_355nm: 0.12
+          wavelength_532nm: 0.18
+        refractive_index:
+          imaginary_part: 0.15
+          real_part: 2.4
+        transmission_depth: 1.25
+      removal_characteristics:
+        byproducts:
+        - compound: carbon-monoxide
+          hazard_level: high
+          phase: gas
+        - compound: carbon-dioxide
+          hazard_level: moderate
+          phase: gas
+        - compound: carbon-particulates
+          hazard_level: moderate
+          phase: solid
+        damage_risk_to_substrate: low
+        primary_mechanism: thermal_ablation
+        process_speed:
+          area_coverage_rate_cm2_min: 120
+          typical_scan_speed_mm_s: 500
+        removal_efficiency:
+          diminishing_returns_after: 3
+          optimal_passes: 2
+          single_pass: 0.85
+        secondary_mechanisms:
+        - photochemical
+        surface_quality_after_removal:
+          color_change: 'no'
+          residual_stress: compressive
+          roughness_increase: minimal
+      safety_data:
+        fire_explosion_risk:
+          severity: low
+          description: Minimal fire risk with standard precautions and adequate ventilation
+          mitigation: Standard fire safety precautions, extinguisher available within 15m
+        fumes_generated:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 5-50
+          exposure_limit_mg_m3: 29
+          hazard_class: toxic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 900-5000
+          exposure_limit_mg_m3: 9000
+          hazard_class: toxic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 0.1-2.0
+          exposure_limit_mg_m3: 0.2
+          hazard_class: carcinogenic
+        - compound: Ultrafine Carbon Particles
+          concentration_mg_m3: 1-20
+          exposure_limit_mg_m3: 3
+          hazard_class: toxic
+        particulate_generation:
+          respirable_fraction: 0.85
+          size_range_um:
+          - 0.01
+          - 10
+        ppe_requirements:
+          eye_protection: goggles
+          respiratory: PAPR
+          skin_protection: gloves
+          rationale: Standard protection against workplace hazards
+        substrate_compatibility_warnings:
+        - Avoid laser cleaning on substrates containing chlorinated compounds (risk of phosgene generation)
+        - Ensure substrate does not contain heavy metals that could vaporize
+        - Test for potential hydrogen cyanide generation if nitrogen-containing compounds are present
+        toxic_gas_risk:
+          severity: moderate
+          primary_hazards:
+          - compound: Carbon Monoxide
+            concentration_mg_m3: 5-50
+            hazard_class: toxic
+          - compound: Carbon Dioxide
+            concentration_mg_m3: 900-5000
+            hazard_class: toxic
+          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+            concentration_mg_m3: 0.1-2.0
+            hazard_class: carcinogenic
+          - compound: Ultrafine Carbon Particles
+            concentration_mg_m3: 1-20
+            hazard_class: toxic
+          description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Polycyclic Aromatic Hydrocarbons
+            (PAHs) - requires enhanced protection'
+          mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+            WARNING: Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
+        ventilation_requirements:
+          exhaust_velocity_m_s: 0.5
+          filtration_type: HEPA
+          minimum_air_changes_per_hour: 12
+          rationale: Standard industrial ventilation (12 ACH) for particulate control
+        visibility_hazard:
+          severity: moderate
+          description: Moderate visibility reduction (40-60%), significant particulate haze
+          source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+          related_field: particulate_generation.respirable_fraction
+      thermal_properties:
+        ablation_threshold:
+          pulse_duration_100ns: 1.2
+          pulse_duration_10ns: 0.6
+          wavelength_1064nm: 0.8
+        decomposition_temperature: 450
+        heat_affected_zone_depth: 2.5
+        melting_point: N/A
+        specific_heat: 750
+        thermal_conductivity: 1.5
+        thermal_diffusivity: 0.8
+        vaporization_temperature: 1200
+    _section:
+      title: Laser Parameters
+      description: Optimal laser settings and technical parameters for removal
+      icon: zap
+      order: 9
+      variant: default
+  prohibited_materials:
+    presentation: card
+    _section:
+      title: Prohibited Materials
+      description: Materials where laser removal of this contamination is not recommended
+      icon: alert-triangle
+      order: 7
+      variant: danger
+    items:
+    - Ceramics
+  category: inorganic-coating
+  subcategory: coating
+  images: *id001
   materials:
-  - id: steel-laser-cleaning
-    title: Steel
-    url: /materials/metal/ferrous/steel-laser-cleaning
-    image: /images/material/steel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: titanium-laser-cleaning
-    title: Titanium
-    url: /materials/metal/specialty/titanium-laser-cleaning
-    image: /images/material/titanium-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: tungsten-carbide-laser-cleaning
-    title: Tungsten Carbide
-    url: /materials/ceramic/carbide/tungsten-carbide-laser-cleaning
-    image: /images/material/tungsten-carbide-laser-cleaning-hero.jpg
-    category: ceramic
-    subcategory: carbide
-    frequency: common
-    severity: moderate
-    typical_context: ''
+    presentation: card
+    items:
+    - title: Affected Materials
+      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+      groups:
+        metals:
+          title: Metal Substrates
+          description: Ferrous and non-ferrous metals affected by this contamination
+          items:
+          - id: steel-laser-cleaning
+            title: Steel
+            url: /materials/metal/ferrous/steel-laser-cleaning
+            image: /images/material/steel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: titanium-laser-cleaning
+            title: Titanium
+            url: /materials/metal/specialty/titanium-laser-cleaning
+            image: /images/material/titanium-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        ceramics:
+          title: Ceramic Materials
+          description: Ceramic and glass materials affected by this contamination
+          items:
+          - id: tungsten-carbide-laser-cleaning
+            title: Tungsten Carbide
+            url: /materials/ceramic/carbide/tungsten-carbide-laser-cleaning
+            image: /images/material/tungsten-carbide-laser-cleaning-hero.jpg
+            category: ceramic
+            subcategory: carbide
+            frequency: common
+            severity: moderate
+            typical_context: ''
+    _section:
+      title: Found On Materials
+      description: Materials where this contaminant is commonly found
+      icon: box
+      order: 10
+      variant: default
 subcategory: coating
 composition:
 - Amorphous Carbon
 - Diamond
-prohibited_materials:
-- Ceramics
-valid_materials:
-- steel-laser-cleaning
-- titanium-laser-cleaning
-- tungsten-carbide-laser-cleaning
-slug: diamond-coating-contamination
-lastModified: '2026-01-04T13:42:48.382626'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Diamond-Like Carbon Removal
-  href: ''
-title: Diamond-Like Carbon Removal
+page_description: "Diamond-coating contamination poses removal challenges in laser cleaning. Contaminants form unique patterns\
+  \ on diamond surfaces because heat resistance causes uneven buildup during exposure. Layer adheres strongly, so laser pulses\
+  \ struggle to detach it without damaging coating. After initial cleaning, residue persists on edges. Process targets inorganic\
+  \ layers effectively, yet material hardness demands precise control. Contamination exhibits dense attachment, and removal\
+  \ requires adjusted wavelengths for safety. In observations, patterns vary by substrate, so intervals prevent overheating.\
+  \ Buildup is detected early on polished areas. Treatment removes layers gradually, and surface regains uniformity afterward.\n\
+  \nIkmanda Roswati, Ph.D.  \nIndonesia"

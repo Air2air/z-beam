@@ -1,28 +1,30 @@
 id: chemical-stains-contamination
 name: Chemical Stains / Acid Etching
 category: chemical-residue
-datePublished: '2026-01-04T21:42:47.591718Z'
-dateModified: '2026-01-04T21:42:47.591718Z'
+datePublished: '2025-12-27T21:04:23.750274Z'
+dateModified: '2025-12-27T21:04:23.750274Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Chemical Residue
+  href: /contaminants/chemical-residue
+- label: Industrial
+  href: /contaminants/chemical-residue/industrial
+- label: Chemical Stains / Acid Etching
+  href: /contaminants/chemical-residue/industrial/chemical-stains-contamination
 page_title: 'Chemical Stains / Acid Etching Removal: Laser Ablation'
-page_description: Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in laser
-  cleaning applications. Formation patterns of this contamination, they arise from residue buildup during chemical exposure,
-  and create irregular, adherent films on surfaces like ceramics and polymers. On metals, stains exhibit patchy distribution,
-  while on glass, they form diffuse layers that penetrate deeply. Removal process, it demands precise laser parameters to
-  avoid substrate damage, so efficiency varies by material. For instance, polymer surfaces show improved cleanliness after
-  treatment, yet residues still persist in crevices due to thermal sensitivity. This contamination, it resists ablation because
-  of its organic composition, and thus requires multi-pass scanning for complete elimination. Challenges emerge from uneven
-  vaporization, leading to potential re-deposition on adjacent areas. Analysis confirms that material-specific behaviors dictate
-  success, with ceramics yielding smoother results compared to flexible substrates.
 meta_description: 'Chemical Stains / Acid Etching: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves
   substrate integrity. No chemicals, no media waste.'
 micro:
   after: Post-cleaning reveals restored surface with chemical stains / acid etching successfully removed through precise laser
     ablation.
   before: Surface shows contamination from chemical stains / acid etching affecting material appearance and properties.
-images:
+images: &id001
   hero:
     url: /images/contaminant/chemical-stains-contamination-hero.jpg
     alt: Chemical Stains / Acid Etching laser cleaning visualization showing process effects
@@ -50,6 +52,9 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -58,104 +63,10 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
-  slug: ikmanda-roswati
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards for handling this contaminant
-        icon: shield-check
-        order: 1
-        variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Hydrogen chloride
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 7
-        hazard_class: corrosive
-      - compound: Chlorine
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 2.9
-        hazard_class: toxic
-      - compound: Metal oxides
-        concentration_mg_m3: 10-100
-        exposure_limit_mg_m3: 5
-        hazard_class: irritant
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: full_face
-        skin_protection: full_suit
-        rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Laser heating may convert surface chlorides to toxic gases
-    - Acid residues can react violently under laser irradiation
-    - May generate chlorine gas from chloride-containing stains
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Chlorine
-          concentration_mg_m3: 1-10
-          hazard_class: toxic
-        description: Chlorine generation detected - moderate toxicity risk
-        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
-    ventilation_requirements:
-      presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
-  interactions:
-    produces_compounds:
-      presentation: card
-      items:
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: metal-oxides-mixed-compound
-      _section:
-        title: Produces Compounds
-        description: Chemical compounds formed when laser cleaning this contaminant
-        icon: flask
-        order: 1
-        variant: default
+  technical:
     affects_materials:
       presentation: card
       items:
@@ -190,489 +101,578 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Found On Materials
-        description: Materials commonly contaminated with this substance
+        title: Affects Materials
+        description: Materials impacted by this contaminant
         icon: box
-        order: 2
-        variant: default
-  visual:
-    appearance_on_categories:
-      presentation: descriptive
-      items:
-      - appearance_on_categories:
-          ceramic:
-            appearance: Dull, matte patches, discoloration, or pitting that contrasts with the original glaze.
-            coverage: Localized, with uneven coverage depending on glaze integrity.
-            pattern: Spots or patches, typically irregular and concentrated where chemicals pool.
-          composite:
-            appearance: Discoloration, delamination, or surface roughness, with possible fiber exposure.
-            coverage: Variable, often localized but can spread along weak points.
-            pattern: Patches or streaks, irregular due to material heterogeneity.
-          concrete:
-            appearance: Etched, powdery surfaces with discoloration, pitting, or loss of aggregate.
-            coverage: Partial to extensive, varying with concrete density and acid concentration.
-            pattern: Patches or streaks, often irregular and deepening in low areas.
-          fabric:
-            appearance: Bleached or darkened stains, weakened fibers, and a rough, brittle feel.
-            coverage: Localized, uneven depending on fabric absorbency and chemical type.
-            pattern: Spots or streaks, following the fabric weave or spill paths.
-          glass:
-            appearance: Frosted or hazy spots, loss of transparency, and a rough, etched surface.
-            coverage: Partial, with variation based on exposure time and glass composition.
-            pattern: Spots or streaks, often uniform in affected areas but irregular overall.
-          metal:
-            appearance: Discolored patches or streaks, often with a dull, etched finish and possible color changes like rust
-              or iridescence.
-            coverage: Partial, localized coverage with high variation depending on exposure.
-            pattern: Irregular spots or streaks, often following the path of chemical contact or pooling.
-          mineral:
-            appearance: Pitted, frosted, or discolored surfaces, with possible crystal damage or dissolution.
-            coverage: Localized, with high variation based on mineral type and exposure.
-            pattern: Spots or patches, irregular and influenced by mineral hardness and structure.
-          plastic:
-            appearance: Cloudy, cracked, or discolored areas, often with a rough texture and possible whitening.
-            coverage: Partial to full in affected areas, varying with plastic type and chemical strength.
-            pattern: Spots or streaks, sometimes uniform in high-exposure zones.
-          rubber:
-            appearance: Swelling, cracking, or discolored spots, with a sticky or brittle texture.
-            coverage: Partial, with variation based on rubber composition and exposure.
-            pattern: Spots or patches, often irregular and expanding from contact points.
-          semiconductor:
-            appearance: Microscopic pits, discoloration, or hazing that disrupts smooth surfaces.
-            coverage: Partial, precise but variable depending on masking and process control.
-            pattern: Uniform or spotty at a fine scale, often following circuit patterns.
-          specialty:
-            appearance: Varies widely; may include delamination, color shifts, or texture changes specific to the material.
-            coverage: Highly variable, ranging from localized to widespread based on specialty use.
-            pattern: Irregular or defined patterns, dependent on material properties and application.
-          stone:
-            appearance: Discolored areas, pitting, or a frosted look with possible color loss or darkening.
-            coverage: Localized to extensive, varying with stone type and acid concentration.
-            pattern: Patches or streaks, often irregular and following surface contours or cracks.
-          wood:
-            appearance: Dark or bleached stains, raised grain, and a rough, etched texture that may appear splotchy.
-            coverage: Variable, typically partial with uneven distribution based on wood porosity.
-            pattern: Spots or patches, often concentrated in areas of direct contact or absorption.
-        color_range:
-        - varies by chemical
-        - often lighter or darker than base material
-        texture: smooth to etched, may pit surface
-        thickness: surface staining to deep etching
-      _section:
-        title: Visual Appearance
-        description: How this contaminant appears on different material types
-        icon: eye
         order: 1
         variant: default
-  operational:
-    laser_properties:
-      presentation: descriptive
+    produces_compounds:
+      presentation: card
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.4
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
-          polarization: circular
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 10
-            recommended_ns: 50
-          repetition_rate_khz:
-            max: 200
-            min: 20
-            recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
-            max: 3000
-            min: 500
-            recommended: 1200
-          spot_size_mm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelength_preference:
-          - 1064
-          - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 8500
-            wavelength_355nm: 45000
-            wavelength_532nm: 22000
-          reflectivity:
-            wavelength_1064nm: 0.15
-            wavelength_355nm: 0.05
-            wavelength_532nm: 0.08
-          refractive_index:
-            imaginary_part: 0.12
-            real_part: 1.55
-          transmission_depth: 11.8
-        removal_characteristics:
-          byproducts:
-          - compound: carbon-dioxide
-            hazard_level: low
-            phase: gas
-          - compound: water-vapor
-            hazard_level: low
-            phase: gas
-          - compound: metal-oxides-mixed
-            hazard_level: moderate
-            phase: solid
-          - compound: acid vapors
-            hazard_level: high
-            phase: gas
-          damage_risk_to_substrate: medium
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 5
-            optimal_passes: 3
-            single_pass: 0.7
-          secondary_mechanisms:
-          - photochemical
-          - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 4.5
-            pulse_duration_10ns: 3.2
-            wavelength_1064nm: 2.8
-          decomposition_temperature: 450
-          heat_affected_zone_depth: 15
-          melting_point: 180
-          specific_heat: 1200
-          thermal_conductivity: 0.15
-          thermal_diffusivity: 0.12
-          vaporization_temperature: 280
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: metal-oxides-mixed-compound
       _section:
-        title: Laser Properties
-        description: Absorption characteristics and laser interaction data
-        icon: zap
+        title: Produces Compounds
+        description: Hazardous compounds generated during laser removal
+        icon: flask
+        order: 3
+        variant: warning
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
         order: 1
         variant: default
+  visual_characteristics:
+    presentation: descriptive
+    items:
+    - appearance_on_categories:
+        ceramic:
+          appearance: Dull, matte patches, discoloration, or pitting that contrasts with the original glaze.
+          coverage: Localized, with uneven coverage depending on glaze integrity.
+          pattern: Spots or patches, typically irregular and concentrated where chemicals pool.
+        composite:
+          appearance: Discoloration, delamination, or surface roughness, with possible fiber exposure.
+          coverage: Variable, often localized but can spread along weak points.
+          pattern: Patches or streaks, irregular due to material heterogeneity.
+        concrete:
+          appearance: Etched, powdery surfaces with discoloration, pitting, or loss of aggregate.
+          coverage: Partial to extensive, varying with concrete density and acid concentration.
+          pattern: Patches or streaks, often irregular and deepening in low areas.
+        fabric:
+          appearance: Bleached or darkened stains, weakened fibers, and a rough, brittle feel.
+          coverage: Localized, uneven depending on fabric absorbency and chemical type.
+          pattern: Spots or streaks, following the fabric weave or spill paths.
+        glass:
+          appearance: Frosted or hazy spots, loss of transparency, and a rough, etched surface.
+          coverage: Partial, with variation based on exposure time and glass composition.
+          pattern: Spots or streaks, often uniform in affected areas but irregular overall.
+        metal:
+          appearance: Discolored patches or streaks, often with a dull, etched finish and possible color changes like rust
+            or iridescence.
+          coverage: Partial, localized coverage with high variation depending on exposure.
+          pattern: Irregular spots or streaks, often following the path of chemical contact or pooling.
+        mineral:
+          appearance: Pitted, frosted, or discolored surfaces, with possible crystal damage or dissolution.
+          coverage: Localized, with high variation based on mineral type and exposure.
+          pattern: Spots or patches, irregular and influenced by mineral hardness and structure.
+        plastic:
+          appearance: Cloudy, cracked, or discolored areas, often with a rough texture and possible whitening.
+          coverage: Partial to full in affected areas, varying with plastic type and chemical strength.
+          pattern: Spots or streaks, sometimes uniform in high-exposure zones.
+        rubber:
+          appearance: Swelling, cracking, or discolored spots, with a sticky or brittle texture.
+          coverage: Partial, with variation based on rubber composition and exposure.
+          pattern: Spots or patches, often irregular and expanding from contact points.
+        semiconductor:
+          appearance: Microscopic pits, discoloration, or hazing that disrupts smooth surfaces.
+          coverage: Partial, precise but variable depending on masking and process control.
+          pattern: Uniform or spotty at a fine scale, often following circuit patterns.
+        specialty:
+          appearance: Varies widely; may include delamination, color shifts, or texture changes specific to the material.
+          coverage: Highly variable, ranging from localized to widespread based on specialty use.
+          pattern: Irregular or defined patterns, dependent on material properties and application.
+        stone:
+          appearance: Discolored areas, pitting, or a frosted look with possible color loss or darkening.
+          coverage: Localized to extensive, varying with stone type and acid concentration.
+          pattern: Patches or streaks, often irregular and following surface contours or cracks.
+        wood:
+          appearance: Dark or bleached stains, raised grain, and a rough, etched texture that may appear splotchy.
+          coverage: Variable, typically partial with uneven distribution based on wood porosity.
+          pattern: Spots or patches, often concentrated in areas of direct contact or absorption.
+      color_range:
+      - varies by chemical
+      - often lighter or darker than base material
+      texture: smooth to etched, may pit surface
+      thickness: surface staining to deep etching
+    _section:
+      title: Visual Characteristics
+      description: Physical appearance and identification features of this contamination
+      icon: eye
+      order: 10
+      variant: default
+  laser_properties:
+    presentation: descriptive
+    items:
+    - laser_parameters:
+        beam_profile: flat_top
+        fluence_range:
+          max_j_cm2: 1.4
+          min_j_cm2: 0.3
+          recommended_j_cm2: 0.8
+        overlap_percentage: 50
+        polarization: circular
+        pulse_duration_range:
+          max_ns: 200
+          min_ns: 10
+          recommended_ns: 50
+        repetition_rate_khz:
+          max: 200
+          min: 20
+          recommended: 50
+        safety_margin_factor: 0.7
+        scan_speed_mm_s:
+          max: 3000
+          min: 500
+          recommended: 1200
+        spot_size_mm:
+          max: 0.1
+          min: 0.02
+          recommended: 0.05
+        wavelength_preference:
+        - 1064
+        - 532
+      optical_properties:
+        absorption_coefficient:
+          wavelength_1064nm: 8500
+          wavelength_355nm: 45000
+          wavelength_532nm: 22000
+        reflectivity:
+          wavelength_1064nm: 0.15
+          wavelength_355nm: 0.05
+          wavelength_532nm: 0.08
+        refractive_index:
+          imaginary_part: 0.12
+          real_part: 1.55
+        transmission_depth: 11.8
+      removal_characteristics:
+        byproducts:
+        - compound: carbon-dioxide
+          hazard_level: low
+          phase: gas
+        - compound: water-vapor
+          hazard_level: low
+          phase: gas
+        - compound: metal-oxides-mixed
+          hazard_level: moderate
+          phase: solid
+        - compound: acid vapors
+          hazard_level: high
+          phase: gas
+        damage_risk_to_substrate: medium
+        primary_mechanism: thermal_ablation
+        process_speed:
+          area_coverage_rate_cm2_min: 240
+          typical_scan_speed_mm_s: 800
+        removal_efficiency:
+          diminishing_returns_after: 5
+          optimal_passes: 3
+          single_pass: 0.7
+        secondary_mechanisms:
+        - photochemical
+        - mechanical_spallation
+        surface_quality_after_removal:
+          color_change: 'no'
+          residual_stress: compressive
+          roughness_increase: minimal
+      safety_data:
+        fire_explosion_risk:
+          severity: low
+          description: Minimal fire risk with standard precautions and adequate ventilation
+          mitigation: Standard fire safety precautions, extinguisher available within 15m
+        fumes_generated:
+        - compound: Hydrogen chloride
+          concentration_mg_m3: 5-50
+          exposure_limit_mg_m3: 7
+          hazard_class: corrosive
+        - compound: Chlorine
+          concentration_mg_m3: 1-10
+          exposure_limit_mg_m3: 2.9
+          hazard_class: toxic
+        - compound: Metal oxides
+          concentration_mg_m3: 10-100
+          exposure_limit_mg_m3: 5
+          hazard_class: irritant
+        particulate_generation:
+          respirable_fraction: 0.7
+          size_range_um:
+          - 0.1
+          - 10
+        ppe_requirements:
+          eye_protection: goggles
+          respiratory: full_face
+          skin_protection: full_suit
+          rationale: Standard protection against workplace hazards
+        substrate_compatibility_warnings:
+        - Laser heating may convert surface chlorides to toxic gases
+        - Acid residues can react violently under laser irradiation
+        - May generate chlorine gas from chloride-containing stains
+        toxic_gas_risk:
+          severity: moderate
+          primary_hazards:
+          - compound: Chlorine
+            concentration_mg_m3: 1-10
+            hazard_class: toxic
+          description: Chlorine generation detected - moderate toxicity risk
+          mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+        ventilation_requirements:
+          exhaust_velocity_m_s: 0.5
+          filtration_type: carbon
+          minimum_air_changes_per_hour: 12
+          rationale: Standard industrial ventilation (12 ACH) for particulate control
+        visibility_hazard:
+          severity: moderate
+          description: Moderate visibility reduction (40-60%), significant particulate haze
+          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+          related_field: particulate_generation.respirable_fraction
+      thermal_properties:
+        ablation_threshold:
+          pulse_duration_100ns: 4.5
+          pulse_duration_10ns: 3.2
+          wavelength_1064nm: 2.8
+        decomposition_temperature: 450
+        heat_affected_zone_depth: 15
+        melting_point: 180
+        specific_heat: 1200
+        thermal_conductivity: 0.15
+        thermal_diffusivity: 0.12
+        vaporization_temperature: 280
+    _section:
+      title: Laser Parameters
+      description: Optimal laser settings and technical parameters for removal
+      icon: zap
+      order: 9
+      variant: default
+  realism_notes: Chemical stains vary dramatically by material and chemical type. Research specific material-chemical interactions.
+  formation_conditions:
+    presentation: card
+    _section:
+      title: Formation Conditions
+      description: Environmental and process conditions that create this contamination
+      icon: wind
+      order: 4
+      variant: default
+    items:
+    - chemical_exposure
+    - spills
+    - industrial_process
+  category: chemical-residue
+  subcategory: industrial
+  images: *id001
   materials:
-  - id: abs-laser-cleaning
-    title: Abs Laser Cleaning
-    url: /materials/general/misc/abs-laser-cleaning
-    image: /images/material/abs-laser-cleaning-hero.jpg
-    category: general
-    subcategory: misc
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: acrylic-(pmma)-laser-cleaning
-    title: Acrylic (Pmma) Laser Cleaning
-    url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
-    image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
-    category: general
-    subcategory: misc
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: alumina-laser-cleaning
-    title: Alumina
-    url: /materials/ceramic/oxide/alumina-laser-cleaning
-    image: /images/material/alumina-laser-cleaning-hero.jpg
-    category: ceramic
-    subcategory: oxide
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: aluminum-laser-cleaning
-    title: Aluminum
-    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-    image: /images/material/aluminum-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: aluminum-nitride-laser-cleaning
-    title: Aluminum Nitride
-    url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-    image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-    category: ceramic
-    subcategory: technical
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: boron-carbide-laser-cleaning
-    title: Boron Carbide
-    url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
-    image: /images/material/boron-carbide-laser-cleaning-hero.jpg
-    category: ceramic
-    subcategory: carbide
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: boron-nitride-laser-cleaning
-    title: Boron Nitride
-    url: /materials/ceramic/technical/boron-nitride-laser-cleaning
-    image: /images/material/boron-nitride-laser-cleaning-hero.jpg
-    category: ceramic
-    subcategory: technical
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: brass-laser-cleaning
-    title: Brass
-    url: /materials/metal/non-ferrous/brass-laser-cleaning
-    image: /images/material/brass-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: bronze-laser-cleaning
-    title: Bronze
-    url: /materials/metal/non-ferrous/bronze-laser-cleaning
-    image: /images/material/bronze-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: cast-iron-laser-cleaning
-    title: Cast Iron
-    url: /materials/metal/ferrous/cast-iron-laser-cleaning
-    image: /images/material/cast-iron-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: chromium-laser-cleaning
-    title: Chromium
-    url: /materials/metal/specialty/chromium-laser-cleaning
-    image: /images/material/chromium-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: cobalt-laser-cleaning
-    title: Cobalt
-    url: /materials/metal/specialty/cobalt-laser-cleaning
-    image: /images/material/cobalt-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: concrete-laser-cleaning
-    title: Concrete
-    url: /materials/masonry/general/concrete-laser-cleaning
-    image: /images/material/concrete-laser-cleaning-hero.jpg
-    category: masonry
-    subcategory: general
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: copper-laser-cleaning
-    title: Copper
-    url: /materials/metal/non-ferrous/copper-laser-cleaning
-    image: /images/material/copper-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: lead-laser-cleaning
-    title: Lead
-    url: /materials/metal/non-ferrous/lead-laser-cleaning
-    image: /images/material/lead-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: nickel-laser-cleaning
-    title: Nickel
-    url: /materials/metal/specialty/nickel-laser-cleaning
-    image: /images/material/nickel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: nylon-laser-cleaning
-    title: Nylon
-    url: /materials/plastic/thermoplastic/nylon-laser-cleaning
-    image: /images/material/nylon-laser-cleaning-hero.jpg
-    category: plastic
-    subcategory: thermoplastic
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: pet-laser-cleaning
-    title: PET
-    url: /materials/plastic/thermoplastic/pet-laser-cleaning
-    image: /images/material/pet-laser-cleaning-hero.jpg
-    category: plastic
-    subcategory: thermoplastic
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: polycarbonate-laser-cleaning
-    title: Polycarbonate
-    url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
-    image: /images/material/polycarbonate-laser-cleaning-hero.jpg
-    category: plastic
-    subcategory: thermoplastic
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: polypropylene-laser-cleaning
-    title: Polypropylene
-    url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
-    image: /images/material/polypropylene-laser-cleaning-hero.jpg
-    category: plastic
-    subcategory: thermoplastic
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: ptfe-laser-cleaning
-    title: Ptfe Laser Cleaning
-    url: /materials/general/misc/ptfe-laser-cleaning
-    image: /images/material/ptfe-laser-cleaning-hero.jpg
-    category: general
-    subcategory: misc
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: pvc-laser-cleaning
-    title: Pvc Laser Cleaning
-    url: /materials/general/misc/pvc-laser-cleaning
-    image: /images/material/pvc-laser-cleaning-hero.jpg
-    category: general
-    subcategory: misc
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: silicon-carbide-laser-cleaning
-    title: Silicon Carbide Laser Cleaning
-    url: /materials/general/misc/silicon-carbide-laser-cleaning
-    image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
-    category: general
-    subcategory: misc
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: silicon-nitride-laser-cleaning
-    title: Silicon Nitride
-    url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
-    image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
-    category: ceramic
-    subcategory: oxide
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: stainless-steel-laser-cleaning
-    title: Stainless Steel
-    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: steel-laser-cleaning
-    title: Steel
-    url: /materials/metal/ferrous/steel-laser-cleaning
-    image: /images/material/steel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: tin-laser-cleaning
-    title: Tin
-    url: /materials/metal/alloy/tin-laser-cleaning
-    image: /images/material/tin-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: alloy
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: titanium-laser-cleaning
-    title: Titanium
-    url: /materials/metal/specialty/titanium-laser-cleaning
-    image: /images/material/titanium-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: specialty
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: zinc-laser-cleaning
-    title: Zinc
-    url: /materials/metal/alloy/zinc-laser-cleaning
-    image: /images/material/zinc-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: alloy
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: zirconia-laser-cleaning
-    title: Zirconia
-    url: /materials/ceramic/oxide/zirconia-laser-cleaning
-    image: /images/material/zirconia-laser-cleaning-hero.jpg
-    category: ceramic
-    subcategory: oxide
-    frequency: common
-    severity: moderate
-    typical_context: ''
+    presentation: card
+    items:
+    - title: Affected Materials
+      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+      groups:
+        general:
+          title: General Materials
+          description: Materials in the general category
+          items:
+          - id: abs-laser-cleaning
+            title: Abs Laser Cleaning
+            url: /materials/general/misc/abs-laser-cleaning
+            image: /images/material/abs-laser-cleaning-hero.jpg
+            category: general
+            subcategory: misc
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: acrylic-(pmma)-laser-cleaning
+            title: Acrylic (Pmma) Laser Cleaning
+            url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
+            image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
+            category: general
+            subcategory: misc
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: ptfe-laser-cleaning
+            title: Ptfe Laser Cleaning
+            url: /materials/general/misc/ptfe-laser-cleaning
+            image: /images/material/ptfe-laser-cleaning-hero.jpg
+            category: general
+            subcategory: misc
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: pvc-laser-cleaning
+            title: Pvc Laser Cleaning
+            url: /materials/general/misc/pvc-laser-cleaning
+            image: /images/material/pvc-laser-cleaning-hero.jpg
+            category: general
+            subcategory: misc
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: silicon-carbide-laser-cleaning
+            title: Silicon Carbide Laser Cleaning
+            url: /materials/general/misc/silicon-carbide-laser-cleaning
+            image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
+            category: general
+            subcategory: misc
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        ceramics:
+          title: Ceramic Materials
+          description: Ceramic and glass materials affected by this contamination
+          items:
+          - id: alumina-laser-cleaning
+            title: Alumina
+            url: /materials/ceramic/oxide/alumina-laser-cleaning
+            image: /images/material/alumina-laser-cleaning-hero.jpg
+            category: ceramic
+            subcategory: oxide
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: aluminum-nitride-laser-cleaning
+            title: Aluminum Nitride
+            url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+            image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+            category: ceramic
+            subcategory: technical
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: boron-carbide-laser-cleaning
+            title: Boron Carbide
+            url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
+            image: /images/material/boron-carbide-laser-cleaning-hero.jpg
+            category: ceramic
+            subcategory: carbide
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: boron-nitride-laser-cleaning
+            title: Boron Nitride
+            url: /materials/ceramic/technical/boron-nitride-laser-cleaning
+            image: /images/material/boron-nitride-laser-cleaning-hero.jpg
+            category: ceramic
+            subcategory: technical
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: silicon-nitride-laser-cleaning
+            title: Silicon Nitride
+            url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
+            image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
+            category: ceramic
+            subcategory: oxide
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: zirconia-laser-cleaning
+            title: Zirconia
+            url: /materials/ceramic/oxide/zirconia-laser-cleaning
+            image: /images/material/zirconia-laser-cleaning-hero.jpg
+            category: ceramic
+            subcategory: oxide
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        metals:
+          title: Metal Substrates
+          description: Ferrous and non-ferrous metals affected by this contamination
+          items:
+          - id: aluminum-laser-cleaning
+            title: Aluminum
+            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+            image: /images/material/aluminum-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: brass-laser-cleaning
+            title: Brass
+            url: /materials/metal/non-ferrous/brass-laser-cleaning
+            image: /images/material/brass-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: bronze-laser-cleaning
+            title: Bronze
+            url: /materials/metal/non-ferrous/bronze-laser-cleaning
+            image: /images/material/bronze-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: cast-iron-laser-cleaning
+            title: Cast Iron
+            url: /materials/metal/ferrous/cast-iron-laser-cleaning
+            image: /images/material/cast-iron-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: chromium-laser-cleaning
+            title: Chromium
+            url: /materials/metal/specialty/chromium-laser-cleaning
+            image: /images/material/chromium-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: cobalt-laser-cleaning
+            title: Cobalt
+            url: /materials/metal/specialty/cobalt-laser-cleaning
+            image: /images/material/cobalt-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: copper-laser-cleaning
+            title: Copper
+            url: /materials/metal/non-ferrous/copper-laser-cleaning
+            image: /images/material/copper-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: lead-laser-cleaning
+            title: Lead
+            url: /materials/metal/non-ferrous/lead-laser-cleaning
+            image: /images/material/lead-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: nickel-laser-cleaning
+            title: Nickel
+            url: /materials/metal/specialty/nickel-laser-cleaning
+            image: /images/material/nickel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: stainless-steel-laser-cleaning
+            title: Stainless Steel
+            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: steel-laser-cleaning
+            title: Steel
+            url: /materials/metal/ferrous/steel-laser-cleaning
+            image: /images/material/steel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: tin-laser-cleaning
+            title: Tin
+            url: /materials/metal/alloy/tin-laser-cleaning
+            image: /images/material/tin-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: alloy
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: titanium-laser-cleaning
+            title: Titanium
+            url: /materials/metal/specialty/titanium-laser-cleaning
+            image: /images/material/titanium-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: specialty
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: zinc-laser-cleaning
+            title: Zinc
+            url: /materials/metal/alloy/zinc-laser-cleaning
+            image: /images/material/zinc-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: alloy
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        masonry:
+          title: Masonry Materials
+          description: Materials in the masonry category
+          items:
+          - id: concrete-laser-cleaning
+            title: Concrete
+            url: /materials/masonry/general/concrete-laser-cleaning
+            image: /images/material/concrete-laser-cleaning-hero.jpg
+            category: masonry
+            subcategory: general
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        plastics:
+          title: Plastic Materials
+          description: Thermoplastic and composite materials affected by this contamination
+          items:
+          - id: nylon-laser-cleaning
+            title: Nylon
+            url: /materials/plastic/thermoplastic/nylon-laser-cleaning
+            image: /images/material/nylon-laser-cleaning-hero.jpg
+            category: plastic
+            subcategory: thermoplastic
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: pet-laser-cleaning
+            title: PET
+            url: /materials/plastic/thermoplastic/pet-laser-cleaning
+            image: /images/material/pet-laser-cleaning-hero.jpg
+            category: plastic
+            subcategory: thermoplastic
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: polycarbonate-laser-cleaning
+            title: Polycarbonate
+            url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
+            image: /images/material/polycarbonate-laser-cleaning-hero.jpg
+            category: plastic
+            subcategory: thermoplastic
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: polypropylene-laser-cleaning
+            title: Polypropylene
+            url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
+            image: /images/material/polypropylene-laser-cleaning-hero.jpg
+            category: plastic
+            subcategory: thermoplastic
+            frequency: common
+            severity: moderate
+            typical_context: ''
+    _section:
+      title: Found On Materials
+      description: Materials where this contaminant is commonly found
+      icon: box
+      order: 10
+      variant: default
+title: Chemical Stains / Acid Etching Laser Cleaning
 subcategory: industrial
-formation_conditions:
-- chemical_exposure
-- spills
-- industrial_process
 material_specific_notes:
   ceramics: Acid etching of surface
   metals: Acid etching creates pits and discoloration
   plastics: Solvent damage, crazing, discoloration
-realism_notes: Chemical stains vary dramatically by material and chemical type. Research specific material-chemical interactions.
-title: Chemical Stains / Acid Etching Laser Cleaning
-valid_materials:
-- acrylic-pmma-laser-cleaning
-- alumina-laser-cleaning
-- aluminum-laser-cleaning
-- aluminum-nitride-laser-cleaning
-- boron-carbide-laser-cleaning
-- boron-nitride-laser-cleaning
-- brass-laser-cleaning
-- bronze-laser-cleaning
-- cast-iron-laser-cleaning
-- chromium-laser-cleaning
-- cobalt-laser-cleaning
-- concrete-laser-cleaning
-- copper-laser-cleaning
-- lead-laser-cleaning
-- nickel-laser-cleaning
-- nylon-laser-cleaning
-- pet-laser-cleaning
-- polycarbonate-laser-cleaning
-- polypropylene-laser-cleaning
-- silicon-carbide-sic-laser-cleaning
-- silicon-nitride-laser-cleaning
-- stainless-steel-laser-cleaning
-- steel-laser-cleaning
-- tin-laser-cleaning
-- titanium-laser-cleaning
-- zinc-laser-cleaning
-- zirconia-laser-cleaning
-slug: chemical-stains-contamination
-lastModified: '2026-01-04T13:42:47.591748'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Chemical Stains / Acid Etching
-  href: ''
+page_description: Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in laser
+  cleaning applications. Formation patterns of this contamination, they arise from residue buildup during chemical exposure,
+  and create irregular, adherent films on surfaces like ceramics and polymers. On metals, stains exhibit patchy distribution,
+  while on glass, they form diffuse layers that penetrate deeply. Removal process, it demands precise laser parameters to
+  avoid substrate damage, so efficiency varies by material. For instance, polymer surfaces show improved cleanliness after
+  treatment, yet residues still persist in crevices due to thermal sensitivity. This contamination, it resists ablation because
+  of its organic composition, and thus requires multi-pass scanning for complete elimination. Challenges emerge from uneven
+  vaporization, leading to potential re-deposition on adjacent areas. Analysis confirms that material-specific behaviors dictate
+  success, with ceramics yielding smoother results compared to flexible substrates.

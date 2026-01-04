@@ -1,23 +1,26 @@
 id: thermal-paste-contamination
 name: Thermal Compound Deposits
 category: organic-residue
-datePublished: '2026-01-04T21:42:53.625735Z'
-dateModified: '2026-01-04T21:42:53.625735Z'
+datePublished: '2025-12-27T21:04:26.015706Z'
+dateModified: '2025-12-27T21:04:26.015706Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/thermal-paste-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Other
+  href: /contaminants/organic-residue/other
+- label: Thermal Compound Deposits
+  href: /contaminants/organic-residue/other/thermal-paste-contamination
 page_title: 'Thermal Compound Deposits Removal: Laser Ablation Clean'
-page_description: "Thermal paste contamination forms during heat transfer applications. Paste spreads thinly on surfaces and\
-  \ adheres strongly because of its viscous nature. After exposure to heat, residue hardens, so unique patterns emerge like\
-  \ uneven layers on metals. On aluminum, contamination shows patchy buildup, while on copper, it creates smooth films. \n\
-  \nRemoval challenges arise from this adhesion. Laser cleaning targets organic residue, but paste resists ablation because\
-  \ it embeds deeply. During treatment, surface is cleaned gradually, and multiple passes achieve better results. Material-specific\
-  \ behaviors differ; steel surfaces exhibit cracking under laser, so careful energy control prevents damage. In observations,\
-  \ process removes contamination effectively without harming substrate. Analysis is performed on samples to confirm uniformity\
-  \ after cleaning."
 meta_description: 'Thermal Compound Deposits: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images:
+images: &id001
   hero:
     url: /images/contaminant/thermal-paste-contamination-hero.jpg
     alt: Thermal Compound Deposits laser cleaning visualization showing process effects
@@ -54,119 +57,10 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
-  slug: yi-chun-lin
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards for handling this contaminant
-        icon: shield-check
-        order: 1
-        variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 5-50
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 100-500
-        exposure_limit_mg_m3: 9000
-        hazard_class: irritant
-      - compound: Formaldehyde
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Acetaldehyde
-        concentration_mg_m3: 1-15
-        exposure_limit_mg_m3: 45
-        hazard_class: carcinogenic
-      - compound: Particulate Polycyclic Aromatic Hydrocarbons
-        concentration_mg_m3: 2-20
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10.0
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Thermal damage possible to underlying materials - conduct test patch first
-    - May leave residue on certain substrates requiring secondary cleaning
-    - Avoid use on heat-sensitive materials near electronics
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Carbon Monoxide
-          concentration_mg_m3: 5-50
-          hazard_class: toxic
-        - compound: Formaldehyde
-          concentration_mg_m3: 1-10
-          hazard_class: carcinogenic
-        - compound: Acetaldehyde
-          concentration_mg_m3: 1-15
-          hazard_class: carcinogenic
-        - compound: Particulate Polycyclic Aromatic Hydrocarbons
-          concentration_mg_m3: 2-20
-          hazard_class: carcinogenic
-        description: 'Multiple toxic compounds detected: Carbon Monoxide, Formaldehyde, Acetaldehyde - requires enhanced protection'
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
-    ventilation_requirements:
-      presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
-  interactions:
-    produces_compounds:
-      presentation: card
-      items:
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: carbon-particulates-compound
-      - id: nanoparticulates-compound
-      _section:
-        title: Produces Compounds
-        description: Chemical compounds formed when laser cleaning this contaminant
-        icon: flask
-        order: 1
-        variant: default
+  technical:
     affects_materials:
       presentation: card
       items:
@@ -201,228 +95,347 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Found On Materials
-        description: Materials commonly contaminated with this substance
+        title: Affects Materials
+        description: Materials impacted by this contaminant
         icon: box
-        order: 2
-        variant: default
-  visual:
-    appearance_on_categories:
-      presentation: descriptive
-      items:
-      - appearance_on_categories:
-          ceramic:
-            appearance: The contamination appears as a greasy, matte or glossy layer in gray or white, adhering to the smooth
-              or glazed surface.
-            coverage: Coverage is often partial and uneven, with variations from light films to heavy clumps.
-            pattern: Distribution is usually spotty or streaky, with accumulation in low areas or along edges.
-          composite:
-            appearance: Thermal compound appears as a greasy film in gray or white, blending with or contrasting the composite's
-              varied texture.
-            coverage: Coverage is typically uneven, with dense deposits in some regions and minimal coverage elsewhere.
-            pattern: Distribution is patchy or streaky, following the material's fibers or layers unevenly.
-          concrete:
-            appearance: It shows as a slick, discolored coating in gray or white, filling pores and creating a shiny or matte
-              finish.
-            coverage: Coverage is typically incomplete and varied, from light films to heavy accumulations.
-            pattern: Distribution is blotchy or streaky, with pooling in rough areas or uneven application.
-          fabric:
-            appearance: Contamination appears as greasy, stained areas in gray or white, causing darkening and a stiff or
-              oily texture.
-            coverage: Coverage is sparse and irregular, with concentrated spots and large untreated areas.
-            pattern: Patterns are blotchy or streaked, often following the weave or application motion.
-          glass:
-            appearance: Thermal compound looks like a translucent or opaque smear, often grayish, that can cloud the glass
-              and reduce clarity.
-            coverage: Coverage ranges from thin, even layers to thick, spotty deposits, depending on application method.
-            pattern: It forms streaks or smudges, sometimes uniform if applied evenly, but often irregular.
-          metal:
-            appearance: Thermal compound appears as a greasy, often gray or white paste, creating a glossy or matte finish
-              on the metal surface.
-            coverage: Coverage is usually partial and uneven, varying from thin films to thick deposits depending on application.
-            pattern: It typically forms irregular spots or streaks, often concentrated around heat sources or application
-              points.
-          mineral:
-            appearance: Thermal compound appears as a greasy, often gray or white layer, contrasting with the mineral's crystalline
-              or rough surface.
-            coverage: Coverage is uneven, with some areas heavily coated and others exposed.
-            pattern: Patterns are irregular, such as spots or streaks, concentrating in fissures or low points.
-          plastic:
-            appearance: It shows as an oily, discolored coating, typically gray or white, that may cause slight swelling or
-              a tacky feel.
-            coverage: Coverage is generally inconsistent, with some areas fully coated and others bare.
-            pattern: Patterns are irregular, such as blotches or streaks, often spreading from application points.
-          rubber:
-            appearance: The compound looks like an oily, discolored layer, often gray or white, that can penetrate and soften
-              the rubber surface.
-            coverage: Coverage is variable, from thin, widespread films to thick, localized patches.
-            pattern: It forms irregular spots or smears, sometimes seeping into cracks or spreading unevenly.
-          semiconductor:
-            appearance: It looks like a thin, greasy film in gray or white, potentially interfering with electronic properties
-              and surface smoothness.
-            coverage: Coverage is typically controlled and even in intentional use, but variable in contamination scenarios.
-            pattern: Distribution is often uniform if applied precisely, but can be spotty or streaky from contamination.
-          specialty:
-            appearance: Appearance varies widely; it may show as a greasy, discolored layer in gray or white, adapting to
-              the material's unique properties.
-            coverage: Coverage is highly variable, ranging from minimal to extensive, based on application and material interaction.
-            pattern: Patterns depend on the surface, often irregular like spots or streaks, with distribution influenced by
-              material specifics.
-          stone:
-            appearance: It appears as a slick, greasy film in gray or white hues, contrasting with the stone's porous or rough
-              texture.
-            coverage: Coverage is typically incomplete and variable, with dense patches and exposed areas.
-            pattern: Patterns are often blotchy or streaked, pooling in crevices or spreading unevenly across the surface.
-          wood:
-            appearance: The compound shows as oily, discolored patches, usually gray or white, that can darken the wood grain
-              and create a wet look.
-            coverage: Coverage is generally sparse and irregular, with areas of heavy buildup and bare spots.
-            pattern: Distribution is patchy or streaky, often following the wood's natural grooves or application strokes.
-      _section:
-        title: Visual Appearance
-        description: How this contaminant appears on different material types
-        icon: eye
         order: 1
         variant: default
-  operational:
-    laser_properties:
-      presentation: descriptive
+    produces_compounds:
+      presentation: card
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 40
-          polarization: circular
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 10
-            recommended_ns: 50
-          repetition_rate_khz:
-            max: 200
-            min: 20
-            recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spot_size_mm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelength_preference:
-          - 1064
-          - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 850
-            wavelength_532nm: 12500
-          reflectivity:
-            wavelength_1064nm: 0.15
-            wavelength_355nm: 0.05
-            wavelength_532nm: 0.08
-          refractive_index:
-            imaginary_part: 0.023
-            real_part: 1.52
-          transmission_depth: 11.8
-        removal_characteristics:
-          byproducts:
-          - compound: carbon-dioxide
-            hazard_level: low
-            phase: gas
-          - compound: water-vapor
-            hazard_level: low
-            phase: gas
-          - compound: carbon-particulates
-            hazard_level: low
-            phase: solid
-          - compound: nanoparticulates
-            hazard_level: moderate
-            phase: solid
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.85
-          secondary_mechanisms:
-          - photochemical
-          - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: none
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 0.4
-            pulse_duration_10ns: 0.6
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 300
-          heat_affected_zone_depth: 15
-          melting_point: 180
-          specific_heat: 1500
-          thermal_conductivity: 0.25
-          thermal_diffusivity: 0.15
-          vaporization_temperature: 450
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: carbon-particulates-compound
+      - id: nanoparticulates-compound
       _section:
-        title: Laser Properties
-        description: Absorption characteristics and laser interaction data
-        icon: zap
+        title: Produces Compounds
+        description: Hazardous compounds generated during laser removal
+        icon: flask
+        order: 3
+        variant: warning
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
         order: 1
         variant: default
+  visual_characteristics:
+    presentation: descriptive
+    items:
+    - appearance_on_categories:
+        ceramic:
+          appearance: The contamination appears as a greasy, matte or glossy layer in gray or white, adhering to the smooth
+            or glazed surface.
+          coverage: Coverage is often partial and uneven, with variations from light films to heavy clumps.
+          pattern: Distribution is usually spotty or streaky, with accumulation in low areas or along edges.
+        composite:
+          appearance: Thermal compound appears as a greasy film in gray or white, blending with or contrasting the composite's
+            varied texture.
+          coverage: Coverage is typically uneven, with dense deposits in some regions and minimal coverage elsewhere.
+          pattern: Distribution is patchy or streaky, following the material's fibers or layers unevenly.
+        concrete:
+          appearance: It shows as a slick, discolored coating in gray or white, filling pores and creating a shiny or matte
+            finish.
+          coverage: Coverage is typically incomplete and varied, from light films to heavy accumulations.
+          pattern: Distribution is blotchy or streaky, with pooling in rough areas or uneven application.
+        fabric:
+          appearance: Contamination appears as greasy, stained areas in gray or white, causing darkening and a stiff or oily
+            texture.
+          coverage: Coverage is sparse and irregular, with concentrated spots and large untreated areas.
+          pattern: Patterns are blotchy or streaked, often following the weave or application motion.
+        glass:
+          appearance: Thermal compound looks like a translucent or opaque smear, often grayish, that can cloud the glass and
+            reduce clarity.
+          coverage: Coverage ranges from thin, even layers to thick, spotty deposits, depending on application method.
+          pattern: It forms streaks or smudges, sometimes uniform if applied evenly, but often irregular.
+        metal:
+          appearance: Thermal compound appears as a greasy, often gray or white paste, creating a glossy or matte finish on
+            the metal surface.
+          coverage: Coverage is usually partial and uneven, varying from thin films to thick deposits depending on application.
+          pattern: It typically forms irregular spots or streaks, often concentrated around heat sources or application points.
+        mineral:
+          appearance: Thermal compound appears as a greasy, often gray or white layer, contrasting with the mineral's crystalline
+            or rough surface.
+          coverage: Coverage is uneven, with some areas heavily coated and others exposed.
+          pattern: Patterns are irregular, such as spots or streaks, concentrating in fissures or low points.
+        plastic:
+          appearance: It shows as an oily, discolored coating, typically gray or white, that may cause slight swelling or
+            a tacky feel.
+          coverage: Coverage is generally inconsistent, with some areas fully coated and others bare.
+          pattern: Patterns are irregular, such as blotches or streaks, often spreading from application points.
+        rubber:
+          appearance: The compound looks like an oily, discolored layer, often gray or white, that can penetrate and soften
+            the rubber surface.
+          coverage: Coverage is variable, from thin, widespread films to thick, localized patches.
+          pattern: It forms irregular spots or smears, sometimes seeping into cracks or spreading unevenly.
+        semiconductor:
+          appearance: It looks like a thin, greasy film in gray or white, potentially interfering with electronic properties
+            and surface smoothness.
+          coverage: Coverage is typically controlled and even in intentional use, but variable in contamination scenarios.
+          pattern: Distribution is often uniform if applied precisely, but can be spotty or streaky from contamination.
+        specialty:
+          appearance: Appearance varies widely; it may show as a greasy, discolored layer in gray or white, adapting to the
+            material's unique properties.
+          coverage: Coverage is highly variable, ranging from minimal to extensive, based on application and material interaction.
+          pattern: Patterns depend on the surface, often irregular like spots or streaks, with distribution influenced by
+            material specifics.
+        stone:
+          appearance: It appears as a slick, greasy film in gray or white hues, contrasting with the stone's porous or rough
+            texture.
+          coverage: Coverage is typically incomplete and variable, with dense patches and exposed areas.
+          pattern: Patterns are often blotchy or streaked, pooling in crevices or spreading unevenly across the surface.
+        wood:
+          appearance: The compound shows as oily, discolored patches, usually gray or white, that can darken the wood grain
+            and create a wet look.
+          coverage: Coverage is generally sparse and irregular, with areas of heavy buildup and bare spots.
+          pattern: Distribution is patchy or streaky, often following the wood's natural grooves or application strokes.
+    _section:
+      title: Visual Characteristics
+      description: Physical appearance and identification features of this contamination
+      icon: eye
+      order: 10
+      variant: default
+  laser_properties:
+    presentation: descriptive
+    items:
+    - laser_parameters:
+        beam_profile: flat_top
+        fluence_range:
+          max_j_cm2: 1.2
+          min_j_cm2: 0.3
+          recommended_j_cm2: 0.8
+        overlap_percentage: 40
+        polarization: circular
+        pulse_duration_range:
+          max_ns: 200
+          min_ns: 10
+          recommended_ns: 50
+        repetition_rate_khz:
+          max: 200
+          min: 20
+          recommended: 50
+        safety_margin_factor: 0.7
+        scan_speed_mm_s:
+          max: 2000
+          min: 500
+          recommended: 1000
+        spot_size_mm:
+          max: 0.1
+          min: 0.02
+          recommended: 0.05
+        wavelength_preference:
+        - 1064
+        - 532
+      optical_properties:
+        absorption_coefficient:
+          wavelength_1064nm: 850
+          wavelength_532nm: 12500
+        reflectivity:
+          wavelength_1064nm: 0.15
+          wavelength_355nm: 0.05
+          wavelength_532nm: 0.08
+        refractive_index:
+          imaginary_part: 0.023
+          real_part: 1.52
+        transmission_depth: 11.8
+      removal_characteristics:
+        byproducts:
+        - compound: carbon-dioxide
+          hazard_level: low
+          phase: gas
+        - compound: water-vapor
+          hazard_level: low
+          phase: gas
+        - compound: carbon-particulates
+          hazard_level: low
+          phase: solid
+        - compound: nanoparticulates
+          hazard_level: moderate
+          phase: solid
+        damage_risk_to_substrate: low
+        primary_mechanism: thermal_ablation
+        process_speed:
+          area_coverage_rate_cm2_min: 240
+          typical_scan_speed_mm_s: 800
+        removal_efficiency:
+          diminishing_returns_after: 3
+          optimal_passes: 2
+          single_pass: 0.85
+        secondary_mechanisms:
+        - photochemical
+        - mechanical_spallation
+        surface_quality_after_removal:
+          color_change: 'no'
+          residual_stress: none
+          roughness_increase: minimal
+      safety_data:
+        fire_explosion_risk:
+          severity: low
+          description: Minimal fire risk with standard precautions and adequate ventilation
+          mitigation: Standard fire safety precautions, extinguisher available within 15m
+        fumes_generated:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 5-50
+          exposure_limit_mg_m3: 29
+          hazard_class: toxic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 100-500
+          exposure_limit_mg_m3: 9000
+          hazard_class: irritant
+        - compound: Formaldehyde
+          concentration_mg_m3: 1-10
+          exposure_limit_mg_m3: 0.37
+          hazard_class: carcinogenic
+        - compound: Acetaldehyde
+          concentration_mg_m3: 1-15
+          exposure_limit_mg_m3: 45
+          hazard_class: carcinogenic
+        - compound: Particulate Polycyclic Aromatic Hydrocarbons
+          concentration_mg_m3: 2-20
+          exposure_limit_mg_m3: 0.2
+          hazard_class: carcinogenic
+        particulate_generation:
+          respirable_fraction: 0.8
+          size_range_um:
+          - 0.1
+          - 10.0
+        ppe_requirements:
+          eye_protection: goggles
+          respiratory: PAPR
+          skin_protection: gloves
+          rationale: Standard protection against workplace hazards
+        substrate_compatibility_warnings:
+        - Thermal damage possible to underlying materials - conduct test patch first
+        - May leave residue on certain substrates requiring secondary cleaning
+        - Avoid use on heat-sensitive materials near electronics
+        toxic_gas_risk:
+          severity: moderate
+          primary_hazards:
+          - compound: Carbon Monoxide
+            concentration_mg_m3: 5-50
+            hazard_class: toxic
+          - compound: Formaldehyde
+            concentration_mg_m3: 1-10
+            hazard_class: carcinogenic
+          - compound: Acetaldehyde
+            concentration_mg_m3: 1-15
+            hazard_class: carcinogenic
+          - compound: Particulate Polycyclic Aromatic Hydrocarbons
+            concentration_mg_m3: 2-20
+            hazard_class: carcinogenic
+          description: 'Multiple toxic compounds detected: Carbon Monoxide, Formaldehyde, Acetaldehyde - requires enhanced
+            protection'
+          mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+            WARNING: Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
+        ventilation_requirements:
+          exhaust_velocity_m_s: 0.5
+          filtration_type: carbon
+          minimum_air_changes_per_hour: 12
+          rationale: Standard industrial ventilation (12 ACH) for particulate control
+        visibility_hazard:
+          severity: moderate
+          description: Moderate visibility reduction (40-60%), significant particulate haze
+          source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+          related_field: particulate_generation.respirable_fraction
+      thermal_properties:
+        ablation_threshold:
+          pulse_duration_100ns: 0.4
+          pulse_duration_10ns: 0.6
+          wavelength_1064nm: 0.8
+        decomposition_temperature: 300
+        heat_affected_zone_depth: 15
+        melting_point: 180
+        specific_heat: 1500
+        thermal_conductivity: 0.25
+        thermal_diffusivity: 0.15
+        vaporization_temperature: 450
+    _section:
+      title: Laser Parameters
+      description: Optimal laser settings and technical parameters for removal
+      icon: zap
+      order: 9
+      variant: default
+  prohibited_materials:
+    presentation: card
+    _section:
+      title: Prohibited Materials
+      description: Materials where laser removal of this contamination is not recommended
+      icon: alert-triangle
+      order: 7
+      variant: danger
+    items:
+    - PCB
+    - Plastics
+  category: organic-residue
+  subcategory: other
+  images: *id001
   materials:
-  - id: aluminum-laser-cleaning
-    title: Aluminum
-    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-    image: /images/material/aluminum-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: copper-laser-cleaning
-    title: Copper
-    url: /materials/metal/non-ferrous/copper-laser-cleaning
-    image: /images/material/copper-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: nickel-plated-surfaces-laser-cleaning
-    title: Nickel Plated Surfaces Laser Cleaning
-    url: /materials/general/misc/nickel-plated-surfaces-laser-cleaning
-    image: /images/material/nickel-plated-surfaces-laser-cleaning-hero.jpg
-    category: general
-    subcategory: misc
-    frequency: common
-    severity: moderate
-    typical_context: ''
+    presentation: card
+    items:
+    - title: Affected Materials
+      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+      groups:
+        metals:
+          title: Metal Substrates
+          description: Ferrous and non-ferrous metals affected by this contamination
+          items:
+          - id: aluminum-laser-cleaning
+            title: Aluminum
+            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+            image: /images/material/aluminum-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: copper-laser-cleaning
+            title: Copper
+            url: /materials/metal/non-ferrous/copper-laser-cleaning
+            image: /images/material/copper-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        general:
+          title: General Materials
+          description: Materials in the general category
+          items:
+          - id: nickel-plated-surfaces-laser-cleaning
+            title: Nickel Plated Surfaces Laser Cleaning
+            url: /materials/general/misc/nickel-plated-surfaces-laser-cleaning
+            image: /images/material/nickel-plated-surfaces-laser-cleaning-hero.jpg
+            category: general
+            subcategory: misc
+            frequency: common
+            severity: moderate
+            typical_context: ''
+    _section:
+      title: Found On Materials
+      description: Materials where this contaminant is commonly found
+      icon: box
+      order: 10
+      variant: default
 subcategory: other
 composition:
 - ZnO
 - Ag
 - Al₂O₃
 - Silicone Oil
-prohibited_materials:
-- PCB
-- Plastics
-valid_materials:
-- aluminum-laser-cleaning
-- copper-laser-cleaning
-slug: thermal-paste-contamination
-lastModified: '2026-01-04T13:42:53.625766'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Thermal Compound Deposits
-  href: ''
-title: Thermal Compound Deposits
+page_description: "Thermal paste contamination forms during heat transfer applications. Paste spreads thinly on surfaces and\
+  \ adheres strongly because of its viscous nature. After exposure to heat, residue hardens, so unique patterns emerge like\
+  \ uneven layers on metals. On aluminum, contamination shows patchy buildup, while on copper, it creates smooth films. \n\
+  \nRemoval challenges arise from this adhesion. Laser cleaning targets organic residue, but paste resists ablation because\
+  \ it embeds deeply. During treatment, surface is cleaned gradually, and multiple passes achieve better results. Material-specific\
+  \ behaviors differ; steel surfaces exhibit cracking under laser, so careful energy control prevents damage. In observations,\
+  \ process removes contamination effectively without harming substrate. Analysis is performed on samples to confirm uniformity\
+  \ after cleaning."

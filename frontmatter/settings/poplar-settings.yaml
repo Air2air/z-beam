@@ -1,18 +1,24 @@
 id: poplar-settings
 name: Poplar
-datePublished: '2026-01-04T21:43:55.262459Z'
-dateModified: '2026-01-04T21:43:55.262459Z'
+datePublished: '2025-12-27T21:06:08.262619Z'
+dateModified: '2025-12-27T21:06:08.262619Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/wood/hardwood/poplar-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Wood
+  href: /settings/wood
+- label: Hardwood
+  href: /settings/wood/hardwood
+- label: Poplar
+  href: /settings/wood/hardwood/poplar-settings
 page_title: 'Poplar Settings: Laser Parameters'
-page_description: 'When laser cleaning Poplar, compare it to denser hardwoods like oak. Poplar''s lighter structure sets it
-  apart. This lower density speeds up the process. It exposes contaminants more easily. But higher porosity changes your approach.
-  You must reduce power to prevent charring. Start with shorter passes on the surface. This restores the wood without deep
-  damage. Unlike oak, Poplar absorbs energy quickly. So adjust overlap to avoid uneven heating. Make sure you scan at steady
-  speeds. This improves cleaning on delicate grains. Poplar suits cultural heritage work well. It reveals fine details in
-  furniture or instruments. But end with caution: Overlap too much, and it warps the soft fibers.'
-meta_description: 'Poplar: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Poplar: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/poplar-settings-hero.jpg
@@ -45,16 +51,17 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
+    with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
-  slug: todd-dunning
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -66,34 +73,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -104,56 +84,58 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: charring-carbonization
-        category: Thermal Management
-        challenge: Charring and carbonization
-        description: Surface degradation, aesthetic damage, structural weakening
-        severity: high
-        solutions:
-        - Use ultrashort pulses (<10 ps) to minimize thermal diffusion
-        - Lower fluence (0.5-2 J/cm²) with multiple passes
-        - Assist gas (nitrogen) to remove pyrolysis products
-      - id: slow-thermal-diffusivity
-        category: Thermal Management
-        challenge: Slow thermal diffusivity
-        description: Heat accumulation and substrate damage
-        severity: medium
-        solutions:
-        - Reduce duty cycle with longer cooling intervals
-        - Lower average power while maintaining peak fluence
-        - Multiple light passes with cooling between
-      - id: varnish-coating-removal
-        category: Contamination
-        challenge: Varnish and coating removal
-        description: Organic coatings vaporize but can char if power too high
-        severity: medium
-        solutions:
-        - Use moderate fluence (2-4 J/cm²)
-        - Air assist to remove vaporized material
-        - Multiple passes if coating is thick
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: charring-carbonization
+          type: challenge
+        - id: slow-thermal-diffusivity
+          type: challenge
+        contamination_challenges:
+        - id: varnish-coating-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: wood
+subcategory: hardwood
 machine_settings:
   powerRange:
     description: Optimal average power for Poplar surface cleaning without charring
@@ -162,7 +144,8 @@ machine_settings:
     min: 1.0
     max: 120
   wavelength:
-    description: Near-infrared wavelength for optimal Poplar absorption and minimal subsurface damage
+    description: Near-infrared wavelength for optimal Poplar absorption and minimal
+      subsurface damage
     unit: nm
     value: 1064
     min: 355
@@ -174,19 +157,22 @@ machine_settings:
     min: 0.1
     max: 500
   repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage on Poplar surfaces
+    description: Optimal repetition rate for continuous cleaning coverage on Poplar
+      surfaces
     unit: kHz
     value: 50
     min: 1
     max: 200
   energyDensity:
-    description: Fluence threshold for effective contaminant removal without wood substrate damage
+    description: Fluence threshold for effective contaminant removal without wood
+      substrate damage
     unit: J/cm²
     value: 1.2
     min: 0.1
     max: 20.0
   pulseWidth:
-    description: Nanosecond pulse duration for efficient contaminant removal with minimal wood damage
+    description: Nanosecond pulse duration for efficient contaminant removal with
+      minimal wood damage
     unit: ns
     value: 10
     min: 0.1
@@ -198,7 +184,8 @@ machine_settings:
     min: 10
     max: 5000
   passCount:
-    description: Recommended number of passes for complete contaminant removal from Poplar
+    description: Recommended number of passes for complete contaminant removal from
+      Poplar
     unit: passes
     value: 2
     min: 1
@@ -210,7 +197,8 @@ machine_settings:
     min: 10
     max: 90
   dwellTime:
-    description: Optimal dwell time per spot for effective cleaning without thermal accumulation
+    description: Optimal dwell time per spot for effective cleaning without thermal
+      accumulation
     unit: μs
     value: 100
     min: 0.2
@@ -220,71 +208,76 @@ machine_settings:
     max: 200
     value: 50
     unit: W
-    description: Typical range for wood cleaning at 1064 nm to avoid charring; starting at 50 W for light contamination on
-      Poplar (low thermal conductivity ~0.1 W/m·K). Max ~200 W risks substrate damage. Based on CleanLaser equipment specs
-      and studies in J. Laser Appl. (2018).
+    description: Typical range for wood cleaning at 1064 nm to avoid charring; starting
+      at 50 W for light contamination on Poplar (low thermal conductivity ~0.1 W/m·K).
+      Max ~200 W risks substrate damage. Based on CleanLaser equipment specs and studies
+      in J. Laser Appl. (2018).
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: Effective for contaminant removal without excessive heat buildup; recommended 1500 mm/s for optimal balance
-      on Poplar. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. From industry standards
+    description: Effective for contaminant removal without excessive heat buildup;
+      recommended 1500 mm/s for optimal balance on Poplar. Slower (500-1000 mm/s)
+      for heavy contamination, faster (2000-3000 mm/s) for light. From industry standards
       in Laser Cleaning Handbook (SPI Lasers, 2020).
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: Nanosecond regime preferred for Poplar to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) reduces
-      thermal damage further but increases cost. Avoid fs for industrial scale. Supported by laser physics in Opt. Express
+    description: Nanosecond regime preferred for Poplar to minimize heat-affected
+      zone (HAZ <50 μm); picosecond (ps) reduces thermal damage further but increases
+      cost. Avoid fs for industrial scale. Supported by laser physics in Opt. Express
       (2015) on wood ablation thresholds.
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 40
-    description: Typical for pulsed cleaning; 40 kHz recommended for Poplar to balance speed and heat accumulation (Poplar's
-      low reflectivity ~20% at 1064 nm aids absorption). Higher rates (>50 kHz) speed up but risk overheating. From academic
+    description: Typical for pulsed cleaning; 40 kHz recommended for Poplar to balance
+      speed and heat accumulation (Poplar's low reflectivity ~20% at 1064 nm aids
+      absorption). Higher rates (>50 kHz) speed up but risk overheating. From academic
       lit. in Appl. Surf. Sci. (2019).
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 2
-    description: Fluence range for safe contaminant removal; Poplar damage threshold ~3-5 J/cm² due to charring onset. Recommended
-      2 J/cm² for cleaning without substrate harm. Based on ablation studies in Wood Sci. Technol. (2021).
+    description: Fluence range for safe contaminant removal; Poplar damage threshold
+      ~3-5 J/cm² due to charring onset. Recommended 2 J/cm² for cleaning without substrate
+      harm. Based on ablation studies in Wood Sci. Technol. (2021).
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: Beam diameter for uniform coverage; 200 μm recommended for Poplar surface prep (fine detail). Smaller for
-      precision, larger for broad areas. From manufacturer specs (e.g., Coherent lasers) and process optimization in Ind.
+    description: Beam diameter for uniform coverage; 200 μm recommended for Poplar
+      surface prep (fine detail). Smaller for precision, larger for broad areas. From
+      manufacturer specs (e.g., Coherent lasers) and process optimization in Ind.
       Laser Sol. (2017).
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Poplar
-      without damage. Industry practice from case studies in J. Clean. Prod. (2020).
+    description: Single pass for light contamination, multi-pass for heavy; 2 passes
+      recommended for complete removal on Poplar without damage. Industry practice
+      from case studies in J. Clean. Prod. (2020).
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: Ensures uniform cleaning; 60% recommended for Poplar to avoid gaps or overexposure. Typical 30-50% for large
-      areas, 70-80% for detail. From process studies in Laser & Optoelectron. Prog. (2016).
-component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants
-  from Poplar wood while minimizing charring and thermal damage to its delicate fibers.
-slug: poplar-settings
-lastModified: '2026-01-04T13:43:55.262508'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Poplar
-  href: ''
-title: Poplar
+    description: Ensures uniform cleaning; 60% recommended for Poplar to avoid gaps
+      or overexposure. Typical 30-50% for large areas, 70-80% for detail. From process
+      studies in Laser & Optoelectron. Prog. (2016).
+page_description: 'When laser cleaning Poplar, compare it to denser hardwoods like
+  oak. Poplar''s lighter structure sets it apart. This lower density speeds up the
+  process. It exposes contaminants more easily. But higher porosity changes your approach.
+  You must reduce power to prevent charring. Start with shorter passes on the surface.
+  This restores the wood without deep damage. Unlike oak, Poplar absorbs energy quickly.
+  So adjust overlap to avoid uneven heating. Make sure you scan at steady speeds.
+  This improves cleaning on delicate grains. Poplar suits cultural heritage work well.
+  It reveals fine details in furniture or instruments. But end with caution: Overlap
+  too much, and it warps the soft fibers.'

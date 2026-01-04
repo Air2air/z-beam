@@ -1,18 +1,24 @@
 id: tin-settings
 name: Tin
-datePublished: '2026-01-04T21:43:58.387326Z'
-dateModified: '2026-01-04T21:43:58.387326Z'
+datePublished: '2025-12-27T21:06:08.793720Z'
+dateModified: '2025-12-27T21:06:08.793720Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/tin-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Alloy
+  href: /settings/metal/alloy
+- label: Tin
+  href: /settings/metal/alloy/tin-settings
 page_title: 'Tin Settings: Laser Parameters'
-page_description: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because
-  its low melting point means the surface can soften or deform quickly if heat builds up. You'll need to adjust by using short
-  pulses and slower scan speeds to control the energy input, so the contaminants lift off without damaging the soft base material.
-  This approach works well for Tin's high reflectivity too, which scatters the beam and slows absorption—keep passes minimal
-  and overlap low to avoid uneven spots. Watch out for overexposure on thin layers, as it might lead to pitting; instead,
-  test on a small area first and build up gradually for clean results in electronics or heritage work.
-meta_description: 'Tin: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Tin: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/tin-settings-hero.jpg
@@ -44,17 +50,18 @@ author:
   - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University,
+    in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
-  slug: yi-chun-lin
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -66,34 +73,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -104,66 +84,60 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: metal
+subcategory: alloy
 machine_settings:
   powerRange:
     description: Optimal average power for Tin oxide removal without substrate damage
@@ -172,7 +146,8 @@ machine_settings:
     min: 1.0
     max: 120
   wavelength:
-    description: Near-IR wavelength for efficient Tin oxide absorption with minimal substrate heating
+    description: Near-IR wavelength for efficient Tin oxide absorption with minimal
+      substrate heating
     unit: nm
     value: 1064
     min: 355
@@ -224,82 +199,92 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial 1064 nm pulsed laser cleaning of reflective metals like tin to balance efficiency
-      and avoid melting (tin melting point ~232°C); starting at 100W for light contamination. Max safe ~300-500W with proper
-      pulsing to prevent substrate damage due to high reflectivity (~70% at 1064 nm). Source: Manufacturer specs (e.g., IPG
-      Photonics YLR series for metal cleaning); academic review in ''Laser Cleaning'' by Kononenko et al. (Optics & Lasers
-      in Engineering, 2016).'
+    description: 'Typical range for industrial 1064 nm pulsed laser cleaning of reflective
+      metals like tin to balance efficiency and avoid melting (tin melting point ~232°C);
+      starting at 100W for light contamination. Max safe ~300-500W with proper pulsing
+      to prevent substrate damage due to high reflectivity (~70% at 1064 nm). Source:
+      Manufacturer specs (e.g., IPG Photonics YLR series for metal cleaning); academic
+      review in ''Laser Cleaning'' by Kononenko et al. (Optics & Lasers in Engineering,
+      2016).'
   scan_speed:
     min: 10
     max: 5000
     value: 1000
     unit: mm/s
-    description: 'Range for effective contaminant removal on tin; slower speeds (100-500 mm/s) for heavy oxides, faster (2000-5000
-      mm/s) for light surface prep. Recommended 1000 mm/s for optimal balance of cleaning rate and heat input, considering
-      tin''s thermal conductivity (~67 W/m·K). Source: Industry standards from Laser Institute of America guidelines; equipment
-      manuals (e.g., CleanLaser CL series).'
+    description: 'Range for effective contaminant removal on tin; slower speeds (100-500
+      mm/s) for heavy oxides, faster (2000-5000 mm/s) for light surface prep. Recommended
+      1000 mm/s for optimal balance of cleaning rate and heat input, considering tin''s
+      thermal conductivity (~67 W/m·K). Source: Industry standards from Laser Institute
+      of America guidelines; equipment manuals (e.g., CleanLaser CL series).'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime (5-200 ns) preferred for industrial tin cleaning to ablate contaminants without excessive
-      heat; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. 20 ns recommended for tin to minimize
-      thermal effects on reflective, low-melting substrate. Source: Laser physics research in ''Ultrashort Pulse Laser Ablation''
-      by Bauerle (Laser Processing and Chemisty, 2011); studies on metal ablation thresholds.'
+    description: 'Nanosecond regime (5-200 ns) preferred for industrial tin cleaning
+      to ablate contaminants without excessive heat; picosecond (ps) or femtosecond
+      (fs) for ultra-minimal HAZ but costlier. 20 ns recommended for tin to minimize
+      thermal effects on reflective, low-melting substrate. Source: Laser physics
+      research in ''Ultrashort Pulse Laser Ablation'' by Bauerle (Laser Processing
+      and Chemisty, 2011); studies on metal ablation thresholds.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 30
-    description: 'Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for tin to achieve fast coverage without excessive
-      heat accumulation (trade-off: higher rates speed up process but risk melting if fluence too high). Lower rates for heavy
-      contamination. Source: Academic literature, e.g., ''Pulsed Laser Cleaning of Metals'' in Journal of Applied Physics
-      (Anisimov et al., 2018).'
+    description: 'Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for tin
+      to achieve fast coverage without excessive heat accumulation (trade-off: higher
+      rates speed up process but risk melting if fluence too high). Lower rates for
+      heavy contamination. Source: Academic literature, e.g., ''Pulsed Laser Cleaning
+      of Metals'' in Journal of Applied Physics (Anisimov et al., 2018).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal on tin; ablation threshold ~0.5-1 J/cm² for ns pulses at 1064 nm,
-      damage threshold ~3-5 J/cm² to avoid substrate melting. Recommended 1.5 J/cm² for safe cleaning of light contaminants,
-      accounting for high reflectivity reducing effective absorption. Source: Ablation threshold studies, e.g., ''Laser Ablation
-      of Tin'' in Applied Surface Science (Lorenz et al., 2009); conservative for industrial use.'
+    description: 'Fluence range for contaminant removal on tin; ablation threshold
+      ~0.5-1 J/cm² for ns pulses at 1064 nm, damage threshold ~3-5 J/cm² to avoid
+      substrate melting. Recommended 1.5 J/cm² for safe cleaning of light contaminants,
+      accounting for high reflectivity reducing effective absorption. Source: Ablation
+      threshold studies, e.g., ''Laser Ablation of Tin'' in Applied Surface Science
+      (Lorenz et al., 2009); conservative for industrial use.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter range: 50-200 μm for fine detail on tin surfaces (e.g., electronics), 500-1000 μm for large-area
-      industrial prep. 200 μm recommended for uniform cleaning without over-focusing heat on low-melting tin. Source: Equipment
-      specifications from Coherent and Trumpf laser systems for cleaning applications.'
+    description: 'Beam diameter range: 50-200 μm for fine detail on tin surfaces (e.g.,
+      electronics), 500-1000 μm for large-area industrial prep. 200 μm recommended
+      for uniform cleaning without over-focusing heat on low-melting tin. Source:
+      Equipment specifications from Coherent and Trumpf laser systems for cleaning
+      applications.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on tin to ensure complete removal
-      without cumulative damage. Recommended 2 passes for typical industrial surface preparation, allowing cooling between
-      passes. Source: Industry practice in case studies, e.g., ''Laser Cleaning of Metallic Substrates'' (SPI Lasers application
-      notes); empirical from metal cleaning trials.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy
+      layers on tin to ensure complete removal without cumulative damage. Recommended
+      2 passes for typical industrial surface preparation, allowing cooling between
+      passes. Source: Industry practice in case studies, e.g., ''Laser Cleaning of
+      Metallic Substrates'' (SPI Lasers application notes); empirical from metal cleaning
+      trials.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '30-80% overlap for uniform coverage in scanned cleaning; 50% recommended for tin to avoid gaps or uneven
-      heating, optimizing for reflective surfaces and contamination uniformity. Higher overlap for heavy soiling. Source:
-      Process optimization studies in ''Laser Surface Cleaning'' (Optics and Lasers in Engineering, 2020); manufacturer guidelines
-      (e.g., Adapt Laser Systems).'
-component_summary: These settings employ moderate 100 W power and 12 ns pulses at 1064 nm to gently ablate contaminants from
-  Tin, preventing thermal damage to its low-melting-point surface.
-slug: tin-settings
-lastModified: '2026-01-04T13:43:58.387358'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Tin
-  href: ''
-title: Tin
+    description: '30-80% overlap for uniform coverage in scanned cleaning; 50% recommended
+      for tin to avoid gaps or uneven heating, optimizing for reflective surfaces
+      and contamination uniformity. Higher overlap for heavy soiling. Source: Process
+      optimization studies in ''Laser Surface Cleaning'' (Optics and Lasers in Engineering,
+      2020); manufacturer guidelines (e.g., Adapt Laser Systems).'
+page_description: When laser cleaning Tin, make sure you start with the lowest possible
+  power settings right away, because its low melting point means the surface can soften
+  or deform quickly if heat builds up. You'll need to adjust by using short pulses
+  and slower scan speeds to control the energy input, so the contaminants lift off
+  without damaging the soft base material. This approach works well for Tin's high
+  reflectivity too, which scatters the beam and slows absorption—keep passes minimal
+  and overlap low to avoid uneven spots. Watch out for overexposure on thin layers,
+  as it might lead to pitting; instead, test on a small area first and build up gradually
+  for clean results in electronics or heritage work.

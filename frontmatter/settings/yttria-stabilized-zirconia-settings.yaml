@@ -1,14 +1,24 @@
 id: yttria-stabilized-zirconia-settings
 name: Yttria-Stabilized Zirconia
-datePublished: '2026-01-04T21:44:00.938006Z'
-dateModified: '2026-01-04T21:44:00.938006Z'
+datePublished: '2025-12-27T21:06:09.261432Z'
+dateModified: '2025-12-27T21:06:09.261432Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/ceramic/technical/yttria-stabilized-zirconia-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Ceramic
+  href: /settings/ceramic
+- label: Technical
+  href: /settings/ceramic/technical
+- label: Yttria-Stabilized Zirconia
+  href: /settings/ceramic/technical/yttria-stabilized-zirconia-settings
 page_title: 'Yttria-Stabilized Zirconia Settings: Laser Parameters'
-page_description: Before laser cleaning, Yttria-Stabilized Zirconia surfaces require careful parameter selection After cleaning,
-  Yttria-Stabilized Zirconia surfaces show restored appearance with controlled parameters
-meta_description: 'Yttria-Stabilized Zirconia: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Yttria-Stabilized Zirconia: removes contamination removal. Industrial-grade
+  parameters. No substrate damage.'
 images:
   hero:
     url: /images/settings/yttria-stabilized-zirconia-settings-hero.jpg
@@ -33,25 +43,26 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
   - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's
+    Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -63,34 +74,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -101,12 +85,53 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational: {}
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+category: ceramic
+subcategory: technical
 machine_settings:
   powerRange:
     value: 80
@@ -167,75 +192,75 @@ machine_settings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning of ceramics like YSZ to ablate contaminants without thermal
-      damage; starting at 200W for balanced efficiency. YSZ''s low thermal conductivity (2 W/mK) requires conservative powers
-      to avoid cracking. Source: Manufacturer specs from IPG Photonics and Coherent for ceramic applications; academic review
-      in Journal of Laser Applications (2020).'
+    description: 'Typical range for industrial Nd:YAG laser cleaning of ceramics like
+      YSZ to ablate contaminants without thermal damage; starting at 200W for balanced
+      efficiency. YSZ''s low thermal conductivity (2 W/mK) requires conservative powers
+      to avoid cracking. Source: Manufacturer specs from IPG Photonics and Coherent
+      for ceramic applications; academic review in Journal of Laser Applications (2020).'
   scan_speed:
     min: 10
     max: 5000
     value: 500
     unit: mm/s
-    description: 'Effective range for 1064 nm cleaning, slower for heavy contamination (e.g., oxides) and faster for light;
-      500 mm/s recommended for optimal fluence delivery on YSZ without overheating. Source: Industry standards from Laser
-      Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems).'
+    description: 'Effective range for 1064 nm cleaning, slower for heavy contamination
+      (e.g., oxides) and faster for light; 500 mm/s recommended for optimal fluence
+      delivery on YSZ without overheating. Source: Industry standards from Laser Cleaning
+      Association guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for industrial YSZ cleaning to minimize heat-affected zone (HAZ) due to YSZ''s
-      high melting point (~2700°C) and moderate reflectivity at 1064 nm; picosecond (ps) or femtosecond (fs) for ultra-precise
-      but costlier. Source: Laser physics research in Optics Express (e.g., study on ceramic ablation thresholds, 2018).'
+    description: 'Nanosecond regime preferred for industrial YSZ cleaning to minimize
+      heat-affected zone (HAZ) due to YSZ''s high melting point (~2700°C) and moderate
+      reflectivity at 1064 nm; picosecond (ps) or femtosecond (fs) for ultra-precise
+      but costlier. Source: Laser physics research in Optics Express (e.g., study
+      on ceramic ablation thresholds, 2018).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Standard for pulsed cleaning to ensure pulse overlap without excessive heat accumulation on low-conductivity
-      YSZ; higher rates speed up process but risk thermal buildup. Source: Academic literature in Applied Surface Science
+    description: 'Standard for pulsed cleaning to ensure pulse overlap without excessive
+      heat accumulation on low-conductivity YSZ; higher rates speed up process but
+      risk thermal buildup. Source: Academic literature in Applied Surface Science
       (review on pulse repetition effects, 2019).'
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 2
-    description: 'Fluence range for contaminant removal (e.g., oils, rust) below YSZ damage threshold (~6-10 J/cm² at 1064
-      nm ns pulses); 2 J/cm² recommended for safe surface preparation. Source: Ablation threshold studies in Journal of Applied
+    description: 'Fluence range for contaminant removal (e.g., oils, rust) below YSZ
+      damage threshold (~6-10 J/cm² at 1064 nm ns pulses); 2 J/cm² recommended for
+      safe surface preparation. Source: Ablation threshold studies in Journal of Applied
       Physics (zirconia laser interaction, 2017) and SPIE proceedings.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter range for precise vs. broad cleaning; 200 μm ideal for YSZ industrial applications like coating
-      prep to focus energy without substrate etching. Source: Equipment specifications from Trumpf and CleanLaser systems
+    description: 'Beam diameter range for precise vs. broad cleaning; 200 μm ideal
+      for YSZ industrial applications like coating prep to focus energy without substrate
+      etching. Source: Equipment specifications from Trumpf and CleanLaser systems
       for ceramic processing.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete YSZ cleaning
-      while monitoring for microcracks. Source: Industry case studies in Surface and Coatings Technology (YSZ thermal barrier
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes
+      recommended for complete YSZ cleaning while monitoring for microcracks. Source:
+      Industry case studies in Surface and Coatings Technology (YSZ thermal barrier
       cleaning, 2021).'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or over-ablation on brittle YSZ; 50% balances efficiency and even
-      energy distribution. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (scan
-      strategy for ceramics, 2022).'
-component_summary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise ablation of contaminants
-  from Yttria Stabilized Zirconia while minimizing thermal diffusion to prevent cracking in this brittle ceramic.
-slug: yttria-stabilized-zirconia-settings
-lastModified: '2026-01-04T13:44:00.938037'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Yttria-Stabilized Zirconia
-  href: ''
-title: Yttria-Stabilized Zirconia
+    description: 'Ensures uniform coverage without gaps or over-ablation on brittle
+      YSZ; 50% balances efficiency and even energy distribution. Source: Process optimization
+      studies in Lasers in Manufacturing and Materials Processing (scan strategy for
+      ceramics, 2022).'
+page_description: Before laser cleaning, Yttria-Stabilized Zirconia surfaces require
+  careful parameter selection After cleaning, Yttria-Stabilized Zirconia surfaces
+  show restored appearance with controlled parameters

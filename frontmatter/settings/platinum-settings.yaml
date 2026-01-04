@@ -1,17 +1,24 @@
 id: platinum-settings
 name: Platinum
-datePublished: '2026-01-04T21:43:54.587103Z'
-dateModified: '2026-01-04T21:43:54.587103Z'
+datePublished: '2025-12-27T21:06:08.132393Z'
+dateModified: '2025-12-27T21:06:08.132393Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/platinum-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Non Ferrous
+  href: /settings/metal/non-ferrous
+- label: Platinum
+  href: /settings/metal/non-ferrous/platinum-settings
 page_title: 'Platinum Settings: Laser Parameters'
-page_description: When laser cleaning platinum, watch its high reflectivity first. It bounces back most laser energy. This
-  scatters the beam and slows contaminant removal. I've seen jobs drag on without adjustments. Start low on power to build
-  heat gradually. Tends to work best with multiple passes. Overlap scans tightly for even coverage. Avoid high fluence early—it
-  risks uneven heating. Platinum's heat resistance helps here. It stays stable under steady pulses. This restores surfaces
-  cleanly without warping. Just keep scans slow to control buildup.
-meta_description: 'Platinum: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Platinum: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/platinum-settings-hero.jpg
@@ -40,23 +47,22 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
+    Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
-  slug: ikmanda-roswati
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -68,34 +74,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -106,75 +85,71 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: metal
+subcategory: non-ferrous
 machine_settings:
   powerRange:
-    description: Optimal average power for Platinum surface cleaning without thermal damage
+    description: Optimal average power for Platinum surface cleaning without thermal
+      damage
     unit: W
     value: 100
     min: 1.0
     max: 120
   wavelength:
-    description: Near-IR wavelength optimized for Platinum's moderate reflectivity and thermal processing
+    description: Near-IR wavelength optimized for Platinum's moderate reflectivity
+      and thermal processing
     unit: nm
     value: 1064
     min: 355
@@ -186,13 +161,15 @@ machine_settings:
     min: 0.1
     max: 500
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage with controlled thermal input
+    description: Optimal repetition rate for efficient cleaning coverage with controlled
+      thermal input
     unit: kHz
     value: 50
     min: 1
     max: 200
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal while minimizing Platinum substrate heating
+    description: Nanosecond pulse duration for effective contaminant removal while
+      minimizing Platinum substrate heating
     unit: ns
     value: 10
     min: 0.1
@@ -210,13 +187,15 @@ machine_settings:
     min: 1
     max: 10
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal accumulation
+    description: Optimal beam overlap for uniform cleaning without excessive thermal
+      accumulation
     unit: '%'
     value: 50
     min: 10
     max: 90
   fluence:
-    description: Energy density threshold for effective contaminant removal without Platinum damage
+    description: Energy density threshold for effective contaminant removal without
+      Platinum damage
     unit: J/cm²
     value: 5
     min: 3.0
@@ -226,72 +205,74 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: Typical range for industrial cleaning of precious metals like platinum to avoid thermal damage; starting
-      at 100W for light contamination. Based on CleanLaser and IPG Photonics specs for 1064 nm systems (e.g., CL 100 series).
+    description: Typical range for industrial cleaning of precious metals like platinum
+      to avoid thermal damage; starting at 100W for light contamination. Based on
+      CleanLaser and IPG Photonics specs for 1064 nm systems (e.g., CL 100 series).
   scan_speed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: Effective speeds for contaminant removal on reflective metals; higher for light contamination (e.g., oils),
-      lower for heavy (e.g., oxides). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser
-      cleaning manuals (e.g., Adapt Laser Systems guidelines).
+    description: Effective speeds for contaminant removal on reflective metals; higher
+      for light contamination (e.g., oils), lower for heavy (e.g., oxides). Recommended
+      1500 mm/s balances efficiency and safety. From industry standards in laser cleaning
+      manuals (e.g., Adapt Laser Systems guidelines).
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 30
-    description: Nanosecond regime preferred for cost-effective cleaning of platinum with minimal HAZ due to its high thermal
-      conductivity; picosecond (ps) or femtosecond (fs) for ultra-precise work but less common industrially. 30 ns recommended.
+    description: Nanosecond regime preferred for cost-effective cleaning of platinum
+      with minimal HAZ due to its high thermal conductivity; picosecond (ps) or femtosecond
+      (fs) for ultra-precise work but less common industrially. 30 ns recommended.
       Supported by laser physics studies (e.g., J. Appl. Phys. on metal ablation thresholds).
   repetition_rate:
     min: 1
     max: 200
     value: 40
     unit: kHz
-    description: Typical for pulsed cleaning to control heat accumulation on high-reflectivity platinum; higher rates speed
-      up process but risk buildup—40 kHz optimal trade-off. From academic literature (e.g., Opt. Lasers Eng. reviews on pulse
-      repetition in metal cleaning).
+    description: Typical for pulsed cleaning to control heat accumulation on high-reflectivity
+      platinum; higher rates speed up process but risk buildup—40 kHz optimal trade-off.
+      From academic literature (e.g., Opt. Lasers Eng. reviews on pulse repetition
+      in metal cleaning).
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: Fluence below platinum's ablation threshold (~2-4 J/cm² at 1064 nm) for safe contaminant removal; 1.5 J/cm²
-      recommended to vaporize organics without substrate damage. Based on ablation threshold studies (e.g., Appl. Surf. Sci.
+    description: Fluence below platinum's ablation threshold (~2-4 J/cm² at 1064 nm)
+      for safe contaminant removal; 1.5 J/cm² recommended to vaporize organics without
+      substrate damage. Based on ablation threshold studies (e.g., Appl. Surf. Sci.
       on noble metals, noting Pt's high reflectivity reduces absorption).
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: Smaller spots for detailed surface prep on platinum jewelry or components; 200 μm balances precision and
-      coverage for industrial use. From equipment specs (e.g., SPI Lasers cleaning heads for fine metal work).
+    description: Smaller spots for detailed surface prep on platinum jewelry or components;
+      200 μm balances precision and coverage for industrial use. From equipment specs
+      (e.g., SPI Lasers cleaning heads for fine metal work).
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: Single pass for light contamination, multi-pass for thorough removal; 2 passes recommended for uniform platinum
-      cleaning without overexposure. Drawn from industry case studies (e.g., laser cleaning of precious metals in J. Laser
+    description: Single pass for light contamination, multi-pass for thorough removal;
+      2 passes recommended for uniform platinum cleaning without overexposure. Drawn
+      from industry case studies (e.g., laser cleaning of precious metals in J. Laser
       Appl.).
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: Ensures uniform coverage on irregular platinum surfaces; 60% optimal for even energy distribution without
-      excessive heat. From process optimization studies (e.g., Opt. Eng. on scan strategies for laser cleaning).
-component_summary: These settings leverage the 1064 nm wavelength for strong absorption in Platinum's reflective surface,
-  with 100 W power and 10 ns pulses ensuring precise contaminant removal without risking thermal distortion of the high-melting-point
-  metal.
-slug: platinum-settings
-lastModified: '2026-01-04T13:43:54.587136'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Platinum
-  href: ''
-title: Platinum
+    description: Ensures uniform coverage on irregular platinum surfaces; 60% optimal
+      for even energy distribution without excessive heat. From process optimization
+      studies (e.g., Opt. Eng. on scan strategies for laser cleaning).
+page_description: When laser cleaning platinum, watch its high reflectivity first.
+  It bounces back most laser energy. This scatters the beam and slows contaminant
+  removal. I've seen jobs drag on without adjustments. Start low on power to build
+  heat gradually. Tends to work best with multiple passes. Overlap scans tightly for
+  even coverage. Avoid high fluence early—it risks uneven heating. Platinum's heat
+  resistance helps here. It stays stable under steady pulses. This restores surfaces
+  cleanly without warping. Just keep scans slow to control buildup.

@@ -1,19 +1,24 @@
 id: iridium-settings
 name: Iridium
-datePublished: '2026-01-04T21:43:51.889567Z'
-dateModified: '2026-01-04T21:43:51.889567Z'
+datePublished: '2025-12-27T21:06:07.762886Z'
+dateModified: '2025-12-27T21:06:07.762886Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/iridium-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Non Ferrous
+  href: /settings/metal/non-ferrous
+- label: Iridium
+  href: /settings/metal/non-ferrous/iridium-settings
 page_title: 'Iridium Settings: Laser Parameters'
-page_description: I've found that laser cleaning Iridium stands apart from other precious metals like platinum, which yield
-  more easily to standard pulses. Its extreme density and hardness demand a more controlled approach, so this works best when
-  you begin with reduced power to prevent surface scattering. Unlike those softer counterparts, Iridium's low thermal expansion
-  keeps it stable under heat, allowing multiple passes without warping, but watch for its high reflectivity in the middle
-  of the process—it can bounce energy away and leave residues if you ramp up too quickly. Adjust by tightening the focus and
-  slowing the scan to expose contaminants fully while restoring the underlying shine. This reduces the risk of incomplete
-  removal and preserves the material's corrosion resistance for applications in aerospace or jewelry.
-meta_description: 'Iridium: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Iridium: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/iridium-settings-hero.jpg
@@ -46,16 +51,17 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
+    with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
-  slug: todd-dunning
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -67,34 +73,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -105,69 +84,64 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    removes_contaminants:
+      presentation: card
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: metal
+subcategory: non-ferrous
 machine_settings:
   powerRange:
-    description: Optimal average power for Iridium surface cleaning without thermal damage
+    description: Optimal average power for Iridium surface cleaning without thermal
+      damage
     unit: W
     value: 45
     min: 1.0
@@ -225,76 +199,87 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning of refractory metals like Iridium, starting low due to
-      high reflectivity (~90% at 1064 nm) to avoid excessive heating; max limited to prevent melting (mp 2446°C). Recommended
-      start at 100 W for contamination removal. Source: IPG Photonics specs for YLR series; conservative estimate from metal
-      cleaning studies (e.g., J. Laser Appl. 2018).'
+    description: 'Typical range for industrial Nd:YAG laser cleaning of refractory
+      metals like Iridium, starting low due to high reflectivity (~90% at 1064 nm)
+      to avoid excessive heating; max limited to prevent melting (mp 2446°C). Recommended
+      start at 100 W for contamination removal. Source: IPG Photonics specs for YLR
+      series; conservative estimate from metal cleaning studies (e.g., J. Laser Appl.
+      2018).'
   scan_speed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective speeds balance fluence and coverage; slower for heavy contamination (e.g., oxides), faster for
-      light surface prep. Recommended 1500 mm/s for optimal Iridium cleaning without thermal buildup, considering low thermal
-      conductivity (14.8 W/m·K). Source: CleanLaser equipment manuals; industry standards for 1064 nm cleaning (Opt. Lasers
-      Eng. 2020).'
+    description: 'Effective speeds balance fluence and coverage; slower for heavy
+      contamination (e.g., oxides), faster for light surface prep. Recommended 1500
+      mm/s for optimal Iridium cleaning without thermal buildup, considering low thermal
+      conductivity (14.8 W/m·K). Source: CleanLaser equipment manuals; industry standards
+      for 1064 nm cleaning (Opt. Lasers Eng. 2020).'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs)
-      for minimal HAZ on heat-sensitive Iridium, but ns sufficient due to high melting point. Recommended 20 ns to limit heat
-      diffusion. Source: Laser physics reviews (e.g., Prog. Quantum Electron. 2019); ns common in metal ablation studies.'
+    description: 'Nanosecond regime preferred for cost-effective industrial cleaning;
+      picosecond (ps) or femtosecond (fs) for minimal HAZ on heat-sensitive Iridium,
+      but ns sufficient due to high melting point. Recommended 20 ns to limit heat
+      diffusion. Source: Laser physics reviews (e.g., Prog. Quantum Electron. 2019);
+      ns common in metal ablation studies.'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed cleaning to achieve high average power without excessive heat accumulation; higher rates
-      speed up process but risk thermal effects on reflective Iridium. Recommended 50 kHz balances speed and safety. Source:
-      Academic literature on Nd:YAG cleaning (Appl. Surf. Sci. 2017); trade-off noted in high-rep-rate studies.'
+    description: 'Typical for pulsed cleaning to achieve high average power without
+      excessive heat accumulation; higher rates speed up process but risk thermal
+      effects on reflective Iridium. Recommended 50 kHz balances speed and safety.
+      Source: Academic literature on Nd:YAG cleaning (Appl. Surf. Sci. 2017); trade-off
+      noted in high-rep-rate studies.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence below Iridium damage threshold (~3-6 J/cm² at 1064 nm due to reflectivity); typical for contaminant
-      ablation without substrate damage. Recommended 2 J/cm² for safe removal of light contaminants. Source: Ablation threshold
-      studies for PGMs (J. Phys. D: Appl. Phys. 2021); conservative for Iridium''s properties.'
+    description: 'Fluence below Iridium damage threshold (~3-6 J/cm² at 1064 nm due
+      to reflectivity); typical for contaminant ablation without substrate damage.
+      Recommended 2 J/cm² for safe removal of light contaminants. Source: Ablation
+      threshold studies for PGMs (J. Phys. D: Appl. Phys. 2021); conservative for
+      Iridium''s properties.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller spots for fine detail on valuable Iridium surfaces, larger for broad areas; 1064 nm beam focused
-      tightly for precision. Recommended 200 μm for uniform cleaning without over-ablation. Source: Equipment specs from Coherent
-      and Trumpf lasers; application-based ranges in industrial cleaning (Lasers Manuf. Mater. Process. 2019).'
+    description: 'Smaller spots for fine detail on valuable Iridium surfaces, larger
+      for broad areas; 1064 nm beam focused tightly for precision. Recommended 200
+      μm for uniform cleaning without over-ablation. Source: Equipment specs from
+      Coherent and Trumpf lasers; application-based ranges in industrial cleaning
+      (Lasers Manuf. Mater. Process. 2019).'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers; Iridium''s durability allows 2 passes
-      without damage. Recommended 2 for complete removal in surface prep. Source: Industry case studies on metal cleaning
-      (e.g., SPIE Proc. 2022); practice for refractory metals.'
+    description: 'Single pass for light contamination, multi-pass for heavy layers;
+      Iridium''s durability allows 2 passes without damage. Recommended 2 for complete
+      removal in surface prep. Source: Industry case studies on metal cleaning (e.g.,
+      SPIE Proc. 2022); practice for refractory metals.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or excessive overlap heating; 50% optimal for Iridium to minimize
-      heat-affected zones while covering reflective surfaces evenly. Source: Process optimization studies (Opt. Express 2018);
-      typical range 30-80% in scanning laser cleaning standards.'
-component_summary: The 100 W power, 1064 nm wavelength, and 8 ns pulse width suit Iridium's high melting point and reflectivity,
-  enabling precise contaminant ablation with minimal thermal damage to the robust substrate.
-slug: iridium-settings
-lastModified: '2026-01-04T13:43:51.889596'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Iridium
-  href: ''
-title: Iridium
+    description: 'Ensures uniform coverage without gaps or excessive overlap heating;
+      50% optimal for Iridium to minimize heat-affected zones while covering reflective
+      surfaces evenly. Source: Process optimization studies (Opt. Express 2018); typical
+      range 30-80% in scanning laser cleaning standards.'
+page_description: I've found that laser cleaning Iridium stands apart from other precious
+  metals like platinum, which yield more easily to standard pulses. Its extreme density
+  and hardness demand a more controlled approach, so this works best when you begin
+  with reduced power to prevent surface scattering. Unlike those softer counterparts,
+  Iridium's low thermal expansion keeps it stable under heat, allowing multiple passes
+  without warping, but watch for its high reflectivity in the middle of the process—it
+  can bounce energy away and leave residues if you ramp up too quickly. Adjust by
+  tightening the focus and slowing the scan to expose contaminants fully while restoring
+  the underlying shine. This reduces the risk of incomplete removal and preserves
+  the material's corrosion resistance for applications in aerospace or jewelry.

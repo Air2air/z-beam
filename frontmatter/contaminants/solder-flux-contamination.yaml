@@ -1,24 +1,26 @@
 id: solder-flux-contamination
 name: Soldering Flux Residue
 category: organic-residue
-datePublished: '2026-01-04T21:42:53.295485Z'
-dateModified: '2026-01-04T21:42:53.295485Z'
+datePublished: '2025-12-27T21:04:25.900952Z'
+dateModified: '2025-12-27T21:04:25.900952Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/lubricant/solder-flux-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Lubricant
+  href: /contaminants/organic-residue/lubricant
+- label: Soldering Flux Residue
+  href: /contaminants/organic-residue/lubricant/solder-flux-contamination
 page_title: 'Soldering Flux Residue Removal: Laser Ablation Clean'
-page_description: Solder-flux contamination, it manifests as an organic residue during soldering processes, where flux vapors
-  condense tenaciously on nearby surfaces, forming irregular, patchy layers that adhere strongly to metals. This contamination,
-  dependent from the flux composition and ambient humidity, exhibits unique patterns, such as dendritic growths on copper
-  substrates, which lead to uneven distribution unlike simpler oxide films. In laser cleaning applications, the removal challenges
-  arise from its thermal sensitivity; it appears that organic binders vaporize rapidly, yet residual charring persists under
-  short pulses, complicating complete elimination. On aluminum, these residues show heightened resistance, manifesting as
-  blistering that hinders uniform ablation, while steel surfaces demonstrate smoother detachment, though re-deposition occurs
-  if fluence varies. The process yields effective cleaning, as confirmed by surface inspections, yet demands precise parameter
-  tuning to avoid substrate damage.
 meta_description: 'Soldering Flux Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemicals, no media waste.'
-images:
+images: &id001
   hero:
     url: /images/contaminant/solder-flux-contamination-hero.jpg
     alt: Soldering Flux Residue laser cleaning visualization showing process effects
@@ -42,6 +44,9 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -53,112 +58,10 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards for handling this contaminant
-        icon: shield-check
-        order: 1
-        variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Formaldehyde
-        concentration_mg_m3: 0.5-5.0
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Phenol
-        concentration_mg_m3: 0.2-2.0
-        exposure_limit_mg_m3: 19.0
-        hazard_class: toxic
-      - compound: Acetic Acid
-        concentration_mg_m3: 1.0-8.0
-        exposure_limit_mg_m3: 25.0
-        hazard_class: irritant
-      - compound: Rosin-based resin acids
-        concentration_mg_m3: 2.0-15.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: half_mask
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Laser parameters must be optimized to avoid substrate damage to underlying metals
-    - Thermal decomposition increases with higher laser power and slower scanning speeds
-    - May generate heavy smoke on non-metallic substrates
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Formaldehyde
-          concentration_mg_m3: 0.5-5.0
-          hazard_class: carcinogenic
-        - compound: Phenol
-          concentration_mg_m3: 0.2-2.0
-          hazard_class: toxic
-        description: Formaldehyde and Phenol generation - multiple toxic compounds
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Formaldehyde - known carcinogen(s), minimize exposure'
-    ventilation_requirements:
-      presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
-  interactions:
-    produces_compounds:
-      presentation: card
-      items:
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: vocs-compound
-      - id: carbon-ash-compound
-      _section:
-        title: Produces Compounds
-        description: Chemical compounds formed when laser cleaning this contaminant
-        icon: flask
-        order: 1
-        variant: default
+  technical:
     affects_materials:
       presentation: card
       items:
@@ -193,235 +96,342 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Found On Materials
-        description: Materials commonly contaminated with this substance
+        title: Affects Materials
+        description: Materials impacted by this contaminant
         icon: box
-        order: 2
-        variant: default
-  visual:
-    appearance_on_categories:
-      presentation: descriptive
-      items:
-      - appearance_on_categories:
-          ceramic:
-            appearance: Flux residue appears as a crusty, dull coating in white, yellow, or brown, often masking the ceramic's
-              smooth, glossy surface.
-            coverage: Coverage is generally limited to small, isolated areas, with variation based on flux use and cleaning
-              efforts.
-            pattern: It distributes in patches or spots around soldered areas, with no uniform pattern due to surface irregularities.
-          composite:
-            appearance: It appears as a dull, crusty, or sticky layer in white, yellow, or brown, blending with or contrasting
-              the composite's varied texture.
-            coverage: Coverage is usually localized and variable, limited to affected zones, with little uniform spread.
-            pattern: Distribution is patchy or spotty, following the application points, with no consistent pattern due to
-              material heterogeneity.
-          concrete:
-            appearance: Residue shows as a dull, crusty, or sticky coating in white, yellow, or brown, contrasting with concrete's
-              rough, porous surface.
-            coverage: Coverage is usually sparse and localized, with variation based on porosity and cleaning.
-            pattern: It forms random spots or patches, affected by surface texture and flux application method.
-          fabric:
-            appearance: Flux residue appears as stiff, discolored spots in white, yellow, or brown, often causing a crusty
-              or waxy feel on the fabric.
-            coverage: Coverage is minimal and uneven, typically limited to specific areas, with no broad uniform coverage.
-            pattern: It distributes in isolated spots or small patches, following accidental drips or contact during soldering.
-          glass:
-            appearance: Residue is visible as a hazy, streaky, or spotted film in white or yellowish tones, reducing the glass's
-              transparency and clarity.
-            coverage: Coverage is usually light and localized, varying from thin films to thicker accumulations in specific
-              zones.
-            pattern: It commonly forms streaks or spots along edges or where flux was applied, sometimes appearing smeared.
-          metal:
-            appearance: Flux residue appears as a white, yellow, or brown crusty or sticky film, often with a dull finish
-              that contrasts with the metal's shine.
-            coverage: Coverage is usually localized to small areas near joints, with minimal spread, varying based on flux
-              amount and cleaning.
-            pattern: It typically forms in spots or streaks around solder joints, following the path of flux application during
-              soldering.
-          mineral:
-            appearance: It appears as a crusty, discolored film in white, yellow, or brown, often obscuring the mineral's
-              natural luster and color.
-            coverage: Coverage is minimal and uneven, confined to exposed areas, with little uniform spread.
-            pattern: Distribution is typically in spots or small patches, influenced by mineral hardness and flux contact.
-          plastic:
-            appearance: Residue shows as a sticky, discolored film in white, yellow, or brown, potentially causing clouding
-              or a greasy look on the plastic.
-            coverage: Coverage is typically sparse and uneven, with minimal spread, varying with plastic type and flux exposure.
-            pattern: It forms irregular spots or streaks, often concentrated where flux contacted the surface during soldering.
-          rubber:
-            appearance: Residue manifests as a greasy, discolored film in white, yellow, or brown, often making the rubber
-              surface look stained or tacky.
-            coverage: Coverage is generally light and spotty, confined to areas of exposure, with high variation.
-            pattern: It tends to form irregular patches or smears, influenced by rubber's flexibility and flux contact.
-          semiconductor:
-            appearance: Residue is visible as a thin, hazy, or crystalline film in white or yellowish hues, potentially interfering
-              with electronic properties and appearance.
-            coverage: Coverage is typically controlled and minimal, varying from sparse spots to even films in critical areas.
-            pattern: It often forms uniform thin layers or localized spots around solder points, depending on application
-              precision.
-          specialty:
-            appearance: Flux residue appears as a variable crusty, sticky, or filmy layer in white, yellow, or brown, adapting
-              to the material's unique surface properties.
-            coverage: Coverage is irregular and context-specific, often minimal and localized, with significant variation
-              based on specialty material traits.
-            pattern: Distribution is highly material-dependent, ranging from spots to streaks or patches, with no standard
-              pattern.
-          stone:
-            appearance: It appears as a dull, crusty, or sticky film in white, yellow, or brown colors, contrasting with the
-              stone's natural texture and color.
-            coverage: Coverage is typically minimal and uneven, confined to areas of direct contact, with little spread.
-            pattern: Distribution is often in random spots or small patches, influenced by surface porosity and flux application.
-          wood:
-            appearance: Residue shows as discolored, greasy patches in white, yellow, or brown hues, often making the wood
-              surface appear stained or waxy.
-            coverage: Coverage is generally sparse and spotty, limited to contact points, with high variation due to wood
-              absorption.
-            pattern: It tends to form irregular patches or streaks where flux was accidentally applied, with no uniform distribution.
-      _section:
-        title: Visual Appearance
-        description: How this contaminant appears on different material types
-        icon: eye
         order: 1
         variant: default
-  operational:
-    laser_properties:
-      presentation: descriptive
+    produces_compounds:
+      presentation: card
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.6
-          overlap_percentage: 50
-          polarization: circular
-          pulse_duration_range:
-            max_ns: 100
-            min_ns: 10
-            recommended_ns: 30
-          repetition_rate_khz:
-            max: 200
-            min: 20
-            recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
-            max: 3000
-            min: 500
-            recommended: 1500
-          spot_size_mm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelength_preference:
-          - 355
-          - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 850
-            wavelength_355nm: 18500
-            wavelength_532nm: 4200
-          reflectivity:
-            wavelength_1064nm: 0.35
-            wavelength_355nm: 0.08
-            wavelength_532nm: 0.18
-          refractive_index:
-            imaginary_part: 0.024
-            real_part: 1.52
-          transmission_depth: 11.8
-        removal_characteristics:
-          byproducts:
-          - compound: carbon-dioxide
-            hazard_level: low
-            phase: gas
-          - compound: water-vapor
-            hazard_level: low
-            phase: gas
-          - compound: vocs
-            hazard_level: moderate
-            phase: gas
-          - compound: carbon-ash
-            hazard_level: low
-            phase: solid
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.85
-          secondary_mechanisms:
-          - photochemical
-          - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: none
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 1.2
-            pulse_duration_10ns: 0.6
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 300
-          heat_affected_zone_depth: 15
-          melting_point: N/A
-          specific_heat: 1500
-          thermal_conductivity: 0.2
-          thermal_diffusivity: 0.08
-          vaporization_temperature: 450
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: vocs-compound
+      - id: carbon-ash-compound
       _section:
-        title: Laser Properties
-        description: Absorption characteristics and laser interaction data
-        icon: zap
+        title: Produces Compounds
+        description: Hazardous compounds generated during laser removal
+        icon: flask
+        order: 3
+        variant: warning
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
         order: 1
         variant: default
+  visual_characteristics:
+    presentation: descriptive
+    items:
+    - appearance_on_categories:
+        ceramic:
+          appearance: Flux residue appears as a crusty, dull coating in white, yellow, or brown, often masking the ceramic's
+            smooth, glossy surface.
+          coverage: Coverage is generally limited to small, isolated areas, with variation based on flux use and cleaning
+            efforts.
+          pattern: It distributes in patches or spots around soldered areas, with no uniform pattern due to surface irregularities.
+        composite:
+          appearance: It appears as a dull, crusty, or sticky layer in white, yellow, or brown, blending with or contrasting
+            the composite's varied texture.
+          coverage: Coverage is usually localized and variable, limited to affected zones, with little uniform spread.
+          pattern: Distribution is patchy or spotty, following the application points, with no consistent pattern due to material
+            heterogeneity.
+        concrete:
+          appearance: Residue shows as a dull, crusty, or sticky coating in white, yellow, or brown, contrasting with concrete's
+            rough, porous surface.
+          coverage: Coverage is usually sparse and localized, with variation based on porosity and cleaning.
+          pattern: It forms random spots or patches, affected by surface texture and flux application method.
+        fabric:
+          appearance: Flux residue appears as stiff, discolored spots in white, yellow, or brown, often causing a crusty or
+            waxy feel on the fabric.
+          coverage: Coverage is minimal and uneven, typically limited to specific areas, with no broad uniform coverage.
+          pattern: It distributes in isolated spots or small patches, following accidental drips or contact during soldering.
+        glass:
+          appearance: Residue is visible as a hazy, streaky, or spotted film in white or yellowish tones, reducing the glass's
+            transparency and clarity.
+          coverage: Coverage is usually light and localized, varying from thin films to thicker accumulations in specific
+            zones.
+          pattern: It commonly forms streaks or spots along edges or where flux was applied, sometimes appearing smeared.
+        metal:
+          appearance: Flux residue appears as a white, yellow, or brown crusty or sticky film, often with a dull finish that
+            contrasts with the metal's shine.
+          coverage: Coverage is usually localized to small areas near joints, with minimal spread, varying based on flux amount
+            and cleaning.
+          pattern: It typically forms in spots or streaks around solder joints, following the path of flux application during
+            soldering.
+        mineral:
+          appearance: It appears as a crusty, discolored film in white, yellow, or brown, often obscuring the mineral's natural
+            luster and color.
+          coverage: Coverage is minimal and uneven, confined to exposed areas, with little uniform spread.
+          pattern: Distribution is typically in spots or small patches, influenced by mineral hardness and flux contact.
+        plastic:
+          appearance: Residue shows as a sticky, discolored film in white, yellow, or brown, potentially causing clouding
+            or a greasy look on the plastic.
+          coverage: Coverage is typically sparse and uneven, with minimal spread, varying with plastic type and flux exposure.
+          pattern: It forms irregular spots or streaks, often concentrated where flux contacted the surface during soldering.
+        rubber:
+          appearance: Residue manifests as a greasy, discolored film in white, yellow, or brown, often making the rubber surface
+            look stained or tacky.
+          coverage: Coverage is generally light and spotty, confined to areas of exposure, with high variation.
+          pattern: It tends to form irregular patches or smears, influenced by rubber's flexibility and flux contact.
+        semiconductor:
+          appearance: Residue is visible as a thin, hazy, or crystalline film in white or yellowish hues, potentially interfering
+            with electronic properties and appearance.
+          coverage: Coverage is typically controlled and minimal, varying from sparse spots to even films in critical areas.
+          pattern: It often forms uniform thin layers or localized spots around solder points, depending on application precision.
+        specialty:
+          appearance: Flux residue appears as a variable crusty, sticky, or filmy layer in white, yellow, or brown, adapting
+            to the material's unique surface properties.
+          coverage: Coverage is irregular and context-specific, often minimal and localized, with significant variation based
+            on specialty material traits.
+          pattern: Distribution is highly material-dependent, ranging from spots to streaks or patches, with no standard pattern.
+        stone:
+          appearance: It appears as a dull, crusty, or sticky film in white, yellow, or brown colors, contrasting with the
+            stone's natural texture and color.
+          coverage: Coverage is typically minimal and uneven, confined to areas of direct contact, with little spread.
+          pattern: Distribution is often in random spots or small patches, influenced by surface porosity and flux application.
+        wood:
+          appearance: Residue shows as discolored, greasy patches in white, yellow, or brown hues, often making the wood surface
+            appear stained or waxy.
+          coverage: Coverage is generally sparse and spotty, limited to contact points, with high variation due to wood absorption.
+          pattern: It tends to form irregular patches or streaks where flux was accidentally applied, with no uniform distribution.
+    _section:
+      title: Visual Characteristics
+      description: Physical appearance and identification features of this contamination
+      icon: eye
+      order: 10
+      variant: default
+  laser_properties:
+    presentation: descriptive
+    items:
+    - laser_parameters:
+        beam_profile: flat_top
+        fluence_range:
+          max_j_cm2: 1.2
+          min_j_cm2: 0.3
+          recommended_j_cm2: 0.6
+        overlap_percentage: 50
+        polarization: circular
+        pulse_duration_range:
+          max_ns: 100
+          min_ns: 10
+          recommended_ns: 30
+        repetition_rate_khz:
+          max: 200
+          min: 20
+          recommended: 50
+        safety_margin_factor: 0.7
+        scan_speed_mm_s:
+          max: 3000
+          min: 500
+          recommended: 1500
+        spot_size_mm:
+          max: 0.1
+          min: 0.02
+          recommended: 0.05
+        wavelength_preference:
+        - 355
+        - 532
+      optical_properties:
+        absorption_coefficient:
+          wavelength_1064nm: 850
+          wavelength_355nm: 18500
+          wavelength_532nm: 4200
+        reflectivity:
+          wavelength_1064nm: 0.35
+          wavelength_355nm: 0.08
+          wavelength_532nm: 0.18
+        refractive_index:
+          imaginary_part: 0.024
+          real_part: 1.52
+        transmission_depth: 11.8
+      removal_characteristics:
+        byproducts:
+        - compound: carbon-dioxide
+          hazard_level: low
+          phase: gas
+        - compound: water-vapor
+          hazard_level: low
+          phase: gas
+        - compound: vocs
+          hazard_level: moderate
+          phase: gas
+        - compound: carbon-ash
+          hazard_level: low
+          phase: solid
+        damage_risk_to_substrate: low
+        primary_mechanism: thermal_ablation
+        process_speed:
+          area_coverage_rate_cm2_min: 240
+          typical_scan_speed_mm_s: 800
+        removal_efficiency:
+          diminishing_returns_after: 3
+          optimal_passes: 2
+          single_pass: 0.85
+        secondary_mechanisms:
+        - photochemical
+        - mechanical_spallation
+        surface_quality_after_removal:
+          color_change: 'no'
+          residual_stress: none
+          roughness_increase: minimal
+      safety_data:
+        fire_explosion_risk:
+          severity: low
+          description: Minimal fire risk with standard precautions and adequate ventilation
+          mitigation: Standard fire safety precautions, extinguisher available within 15m
+        fumes_generated:
+        - compound: Formaldehyde
+          concentration_mg_m3: 0.5-5.0
+          exposure_limit_mg_m3: 0.37
+          hazard_class: carcinogenic
+        - compound: Phenol
+          concentration_mg_m3: 0.2-2.0
+          exposure_limit_mg_m3: 19.0
+          hazard_class: toxic
+        - compound: Acetic Acid
+          concentration_mg_m3: 1.0-8.0
+          exposure_limit_mg_m3: 25.0
+          hazard_class: irritant
+        - compound: Rosin-based resin acids
+          concentration_mg_m3: 2.0-15.0
+          exposure_limit_mg_m3: 5.0
+          hazard_class: irritant
+        particulate_generation:
+          respirable_fraction: 0.7
+          size_range_um:
+          - 0.1
+          - 10.0
+        ppe_requirements:
+          eye_protection: goggles
+          respiratory: half_mask
+          skin_protection: gloves
+          rationale: Standard protection against workplace hazards
+        substrate_compatibility_warnings:
+        - Laser parameters must be optimized to avoid substrate damage to underlying metals
+        - Thermal decomposition increases with higher laser power and slower scanning speeds
+        - May generate heavy smoke on non-metallic substrates
+        toxic_gas_risk:
+          severity: moderate
+          primary_hazards:
+          - compound: Formaldehyde
+            concentration_mg_m3: 0.5-5.0
+            hazard_class: carcinogenic
+          - compound: Phenol
+            concentration_mg_m3: 0.2-2.0
+            hazard_class: toxic
+          description: Formaldehyde and Phenol generation - multiple toxic compounds
+          mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+            WARNING: Formaldehyde - known carcinogen(s), minimize exposure'
+        ventilation_requirements:
+          exhaust_velocity_m_s: 0.5
+          filtration_type: carbon
+          minimum_air_changes_per_hour: 12
+          rationale: Standard industrial ventilation (12 ACH) for particulate control
+        visibility_hazard:
+          severity: moderate
+          description: Moderate visibility reduction (40-60%), significant particulate haze
+          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+          related_field: particulate_generation.respirable_fraction
+      thermal_properties:
+        ablation_threshold:
+          pulse_duration_100ns: 1.2
+          pulse_duration_10ns: 0.6
+          wavelength_1064nm: 0.8
+        decomposition_temperature: 300
+        heat_affected_zone_depth: 15
+        melting_point: N/A
+        specific_heat: 1500
+        thermal_conductivity: 0.2
+        thermal_diffusivity: 0.08
+        vaporization_temperature: 450
+    _section:
+      title: Laser Parameters
+      description: Optimal laser settings and technical parameters for removal
+      icon: zap
+      order: 9
+      variant: default
+  prohibited_materials:
+    presentation: card
+    _section:
+      title: Prohibited Materials
+      description: Materials where laser removal of this contamination is not recommended
+      icon: alert-triangle
+      order: 7
+      variant: danger
+    items:
+    - Optical Components
+    - Plastics
+  category: organic-residue
+  subcategory: lubricant
+  images: *id001
   materials:
-  - id: brass-laser-cleaning
-    title: Brass
-    url: /materials/metal/non-ferrous/brass-laser-cleaning
-    image: /images/material/brass-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: copper-laser-cleaning
-    title: Copper
-    url: /materials/metal/non-ferrous/copper-laser-cleaning
-    image: /images/material/copper-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: pcb-laser-cleaning
-    title: Pcb Laser Cleaning
-    url: /materials/general/misc/pcb-laser-cleaning
-    image: /images/material/pcb-laser-cleaning-hero.jpg
-    category: general
-    subcategory: misc
-    frequency: common
-    severity: moderate
-    typical_context: ''
+    presentation: card
+    items:
+    - title: Affected Materials
+      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+      groups:
+        metals:
+          title: Metal Substrates
+          description: Ferrous and non-ferrous metals affected by this contamination
+          items:
+          - id: brass-laser-cleaning
+            title: Brass
+            url: /materials/metal/non-ferrous/brass-laser-cleaning
+            image: /images/material/brass-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: copper-laser-cleaning
+            title: Copper
+            url: /materials/metal/non-ferrous/copper-laser-cleaning
+            image: /images/material/copper-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+        general:
+          title: General Materials
+          description: Materials in the general category
+          items:
+          - id: pcb-laser-cleaning
+            title: Pcb Laser Cleaning
+            url: /materials/general/misc/pcb-laser-cleaning
+            image: /images/material/pcb-laser-cleaning-hero.jpg
+            category: general
+            subcategory: misc
+            frequency: common
+            severity: moderate
+            typical_context: ''
+    _section:
+      title: Found On Materials
+      description: Materials where this contaminant is commonly found
+      icon: box
+      order: 10
+      variant: default
 subcategory: lubricant
 composition:
 - Abietic Acid
 - Activators
 - Surfactants
-prohibited_materials:
-- Optical Components
-- Plastics
-valid_materials:
-- brass-laser-cleaning
-- copper-laser-cleaning
-slug: solder-flux-contamination
-lastModified: '2026-01-04T13:42:53.295530'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Soldering Flux Residue
-  href: ''
-title: Soldering Flux Residue
+page_description: Solder-flux contamination, it manifests as an organic residue during soldering processes, where flux vapors
+  condense tenaciously on nearby surfaces, forming irregular, patchy layers that adhere strongly to metals. This contamination,
+  dependent from the flux composition and ambient humidity, exhibits unique patterns, such as dendritic growths on copper
+  substrates, which lead to uneven distribution unlike simpler oxide films. In laser cleaning applications, the removal challenges
+  arise from its thermal sensitivity; it appears that organic binders vaporize rapidly, yet residual charring persists under
+  short pulses, complicating complete elimination. On aluminum, these residues show heightened resistance, manifesting as
+  blistering that hinders uniform ablation, while steel surfaces demonstrate smoother detachment, though re-deposition occurs
+  if fluence varies. The process yields effective cleaning, as confirmed by surface inspections, yet demands precise parameter
+  tuning to avoid substrate damage.

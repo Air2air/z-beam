@@ -1,14 +1,24 @@
 id: indium-phosphide-settings
 name: Indium Phosphide
-datePublished: '2026-01-04T21:44:00.388207Z'
-dateModified: '2026-01-04T21:44:00.388207Z'
+datePublished: '2025-12-27T21:06:09.141798Z'
+dateModified: '2025-12-27T21:06:09.141798Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/semiconductor/compound/indium-phosphide-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Semiconductor
+  href: /settings/semiconductor
+- label: Compound
+  href: /settings/semiconductor/compound
+- label: Indium Phosphide
+  href: /settings/semiconductor/compound/indium-phosphide-settings
 page_title: 'Indium Phosphide Settings: Laser Parameters'
-page_description: Before laser cleaning, Indium Phosphide surfaces require careful parameter selection After cleaning, Indium
-  Phosphide surfaces show restored appearance with controlled parameters
-meta_description: 'Indium Phosphide: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Indium Phosphide: removes contamination removal. Industrial-grade
+  parameters. No substrate damage.'
 images:
   hero:
     url: /images/settings/indium-phosphide-settings-hero.jpg
@@ -41,16 +51,17 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
+    with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
-  slug: todd-dunning
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -62,34 +73,7 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
+  technical:
     works_on_materials:
       presentation: card
       items:
@@ -100,12 +84,53 @@ relationships:
       - id: pine-laser-cleaning
         effectiveness: medium
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
         icon: box
         order: 2
         variant: default
-  operational: {}
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet
+        order: 3
+        variant: default
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
+        variant: default
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and considerations when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
+category: semiconductor
+subcategory: compound
 machine_settings:
   powerRange:
     value: 60
@@ -166,80 +191,84 @@ machine_settings:
     max: 100
     value: 30
     unit: W
-    description: 'Typical range for ns-pulsed Nd:YAG lasers in semiconductor cleaning to balance efficiency and avoid thermal
-      damage to InP (melting point ~1062°C, moderate reflectivity at 1064 nm). Recommended starting at 30W for light contamination;
-      max safe below 100W to prevent substrate ablation. Source: Manufacturer specs from IPG Photonics and Coherent for industrial
-      cleaners; ablation studies in J. Appl. Phys. (e.g., InP thresholds imply power limits).'
+    description: 'Typical range for ns-pulsed Nd:YAG lasers in semiconductor cleaning
+      to balance efficiency and avoid thermal damage to InP (melting point ~1062°C,
+      moderate reflectivity at 1064 nm). Recommended starting at 30W for light contamination;
+      max safe below 100W to prevent substrate ablation. Source: Manufacturer specs
+      from IPG Photonics and Coherent for industrial cleaners; ablation studies in
+      J. Appl. Phys. (e.g., InP thresholds imply power limits).'
   scan_speed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Range for effective contaminant removal without excessive heat accumulation on InP''s thermally conductive
-      surface. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for
-      optimal balance. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g.,
-      CleanLaser systems); case studies on III-V semiconductors.'
+    description: 'Range for effective contaminant removal without excessive heat accumulation
+      on InP''s thermally conductive surface. Slower (500-1000 mm/s) for heavy contamination,
+      faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for optimal balance.
+      Source: Industry standards from Laser Institute of America guidelines and equipment
+      manuals (e.g., CleanLaser systems); case studies on III-V semiconductors.'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 10
-    description: 'Nanosecond regime preferred for industrial cleaning of InP to achieve ablation of contaminants with minimal
-      heat-affected zone (HAZ <10 μm due to InP''s properties). Picosecond (ps) or femtosecond (fs) for ultra-precision but
-      costlier; ns sufficient and common. Recommended 10 ns for low HAZ. Source: Laser physics research in Appl. Surf. Sci.
-      (e.g., ns pulses at 1064 nm for InP show effective cleaning thresholds).'
+    description: 'Nanosecond regime preferred for industrial cleaning of InP to achieve
+      ablation of contaminants with minimal heat-affected zone (HAZ <10 μm due to
+      InP''s properties). Picosecond (ps) or femtosecond (fs) for ultra-precision
+      but costlier; ns sufficient and common. Recommended 10 ns for low HAZ. Source:
+      Laser physics research in Appl. Surf. Sci. (e.g., ns pulses at 1064 nm for InP
+      show effective cleaning thresholds).'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 20
-    description: 'Typical for pulsed cleaning to ensure overlap without excessive heat buildup on InP (high rep rate increases
-      speed but risks thermal accumulation). Recommended 20 kHz for InP to optimize fluence delivery. Trade-off: higher rates
-      (>50 kHz) faster but monitor temperature. Source: Academic literature in Opt. Lasers Eng. (studies on rep rate effects
-      in semiconductor laser processing).'
+    description: 'Typical for pulsed cleaning to ensure overlap without excessive
+      heat buildup on InP (high rep rate increases speed but risks thermal accumulation).
+      Recommended 20 kHz for InP to optimize fluence delivery. Trade-off: higher rates
+      (>50 kHz) faster but monitor temperature. Source: Academic literature in Opt.
+      Lasers Eng. (studies on rep rate effects in semiconductor laser processing).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Fluence range for safe removal of contaminants (e.g., oxides, particles) on InP without exceeding damage
-      threshold (~2 J/cm² at 1064 nm ns pulses). Recommended 0.5 J/cm² for cleaning; conservative to account for InP''s absorption
-      and low thermal conductivity limits. Source: Ablation threshold studies in Phys. Rev. B and Surf. Coat. Technol. (InP
-      single-pulse threshold ~1.8-2.5 J/cm² at 1064 nm).'
+    description: 'Fluence range for safe removal of contaminants (e.g., oxides, particles)
+      on InP without exceeding damage threshold (~2 J/cm² at 1064 nm ns pulses). Recommended
+      0.5 J/cm² for cleaning; conservative to account for InP''s absorption and low
+      thermal conductivity limits. Source: Ablation threshold studies in Phys. Rev.
+      B and Surf. Coat. Technol. (InP single-pulse threshold ~1.8-2.5 J/cm² at 1064
+      nm).'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter range for cleaning: smaller (50-100 μm) for fine surface prep on InP, larger (300-500 μm)
-      for broad areas. Recommended 200 μm for uniform coverage on delicate InP wafers. Source: Equipment specifications from
-      Trumpf and SPI Lasers for 1064 nm systems; optimized for semiconductor applications in industry reports.'
+    description: 'Beam diameter range for cleaning: smaller (50-100 μm) for fine surface
+      prep on InP, larger (300-500 μm) for broad areas. Recommended 200 μm for uniform
+      coverage on delicate InP wafers. Source: Equipment specifications from Trumpf
+      and SPI Lasers for 1064 nm systems; optimized for semiconductor applications
+      in industry reports.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on InP to avoid damage
-      in one go. Recommended 2 passes for complete cleaning with fluence control. Source: Industry practice in laser cleaning
-      case studies (e.g., SPIE proceedings on III-V material processing); conservative for InP sensitivity.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy
+      or layered removal on InP to avoid damage in one go. Recommended 2 passes for
+      complete cleaning with fluence control. Source: Industry practice in laser cleaning
+      case studies (e.g., SPIE proceedings on III-V material processing); conservative
+      for InP sensitivity.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Standard range for uniform scan coverage in laser cleaning; 30-50% for large areas, 60-80% for detailed
-      InP surface prep to ensure no gaps while minimizing overexposure. Recommended 50% for balanced uniformity on InP. Source:
-      Process optimization studies in J. Laser Appl. (overlap effects on cleaning efficiency for reflective materials like
-      InP).'
-component_summary: These settings employ moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from
-  Indium Phosphide, minimizing thermal damage to its heat-sensitive semiconductor surface.
-slug: indium-phosphide-settings
-lastModified: '2026-01-04T13:44:00.388235'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Indium Phosphide
-  href: ''
-title: Indium Phosphide
+    description: 'Standard range for uniform scan coverage in laser cleaning; 30-50%
+      for large areas, 60-80% for detailed InP surface prep to ensure no gaps while
+      minimizing overexposure. Recommended 50% for balanced uniformity on InP. Source:
+      Process optimization studies in J. Laser Appl. (overlap effects on cleaning
+      efficiency for reflective materials like InP).'
+page_description: Before laser cleaning, Indium Phosphide surfaces require careful
+  parameter selection After cleaning, Indium Phosphide surfaces show restored appearance
+  with controlled parameters

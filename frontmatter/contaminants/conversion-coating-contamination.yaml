@@ -1,23 +1,26 @@
 id: conversion-coating-contamination
 name: Chemical Conversion Coating
 category: inorganic-coating
-datePublished: '2026-01-04T21:42:47.849348Z'
-dateModified: '2026-01-04T21:42:47.849348Z'
+datePublished: '2025-12-27T21:04:23.857784Z'
+dateModified: '2025-12-27T21:04:23.857784Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/conversion-coating-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Inorganic Coating
+  href: /contaminants/inorganic-coating
+- label: Coating
+  href: /contaminants/inorganic-coating/coating
+- label: Chemical Conversion Coating
+  href: /contaminants/inorganic-coating/coating/conversion-coating-contamination
 page_title: 'Chemical Conversion Coating Removal: Laser Ablation No'
-page_description: Conversion-coating contamination, it manifests as thin inorganic layers on metal surfaces, formed through
-  chemical reactions with the substrate. These coatings, they develop uniquely in humid environments, exhibiting patchy patterns
-  that depend from exposure duration and atmospheric agents. On aluminum alloys, the contamination adheres tenaciously, which
-  leads to persistent residues during cleaning attempts. It appears that laser ablation faces distinct challenges here, as
-  the layers resist vaporization without substrate damage. For steel substrates, the formation shows more uniform coverage,
-  yet removal demands precise pulse control to avoid re-deposition. This contamination, it persists under initial laser passes,
-  demonstrating material-specific behaviors that complicate full eradication. The process yields cleaner surfaces eventually,
-  though influenced from coating thickness variations.
 meta_description: 'Chemical Conversion Coating: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
   integrity. No chemical waste.'
-images:
+images: &id001
   hero:
     url: /images/contaminant/conversion-coating-contamination-hero.jpg
     alt: Chemical Conversion Coating laser cleaning visualization showing process effects
@@ -41,6 +44,9 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -52,104 +58,10 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
 relationships:
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards for handling this contaminant
-        icon: shield-check
-        order: 1
-        variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Hexavalent Chromium (CrVI)
-        concentration_mg_m3: 0.05-0.5
-        exposure_limit_mg_m3: 0.005
-        hazard_class: carcinogenic
-      - compound: Metal oxides (aluminum, zinc, titanium)
-        concentration_mg_m3: 1-10
-        exposure_limit_mg_m3: 5-10
-        hazard_class: irritant
-      - compound: Decomposition organics
-        concentration_mg_m3: 2-15
-        exposure_limit_mg_m3: 10-50
-        hazard_class: irritant
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-        rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Laser parameters must be optimized to prevent substrate damage
-    - Avoid excessive heat input that may alter base material properties
-    - Test on inconspicuous area first to determine compatibility
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Hexavalent Chromium (CrVI)
-          concentration_mg_m3: 0.05-0.5
-          hazard_class: carcinogenic
-        description: Hexavalent Chromium (CrVI) generation detected - moderate toxicity risk
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Hexavalent Chromium (CrVI) - known carcinogen(s), minimize exposure'
-    ventilation_requirements:
-      presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
-  interactions:
-    produces_compounds:
-      presentation: card
-      items:
-      - id: metal-oxides-mixed-compound
-      - id: chromium-vi-compound
-      - id: carbon-dioxide-compound
-      _section:
-        title: Produces Compounds
-        description: Chemical compounds formed when laser cleaning this contaminant
-        icon: flask
-        order: 1
-        variant: default
+  technical:
     affects_materials:
       presentation: card
       items:
@@ -191,236 +103,331 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Found On Materials
-        description: Materials commonly contaminated with this substance
+        title: Affects Materials
+        description: Materials impacted by this contaminant
         icon: box
-        order: 2
-        variant: default
-  visual:
-    appearance_on_categories:
-      presentation: descriptive
-      items:
-      - appearance_on_categories:
-          ceramic:
-            appearance: Presents as a glossy or matte coating in colors such as yellow or black, altering the ceramic's smooth,
-              hard surface.
-            coverage: Generally good and consistent, but imperfections like pinholes or uneven edges can occur.
-            pattern: Tends to form a relatively uniform layer, though it may exhibit streaks or mottling if applied unevenly.
-          composite:
-            appearance: Appears as a discontinuous film in varied colors, potentially highlighting the composite's heterogeneous
-              structure with glossy or dull areas.
-            coverage: Often partial and variable, with differences in adhesion between matrix and reinforcement components.
-            pattern: Distributes unevenly, forming spots or streaks that follow the material's fiber or filler distribution.
-          concrete:
-            appearance: Presents as a thin, often dull or colored layer that may look powdery or flaky, masking the rough,
-              porous surface.
-            coverage: Typically incomplete and highly variable, with large uncovered areas due to concrete's high porosity.
-            pattern: Distributes in blotches or a mottled pattern, with concentration in pores and cracks where residue accumulates.
-          fabric:
-            appearance: Shows as stiff, discolored areas in metallic or dark hues, altering the fabric's texture and making
-              it feel crusty or brittle.
-            coverage: Extremely uneven and sparse, with most of the fabric remaining uncovered due to absorption and poor
-              adhesion.
-            pattern: Appears as random spots or streaks, often following the weave pattern where the coating penetrates or
-              sits on fibers.
-          glass:
-            appearance: Manifests as a hazy, iridescent, or tinted film that can obscure transparency, with colors ranging
-              from rainbow-like to dull shades.
-            coverage: Can be full and even on clean surfaces, but may show variations like thin spots or bubbles if contaminated.
-            pattern: Often appears as uniform smears or localized spots, depending on application method and surface cleanliness.
-          metal:
-            appearance: Typically appears as a thin, iridescent or colored film, often in shades of gold, brown, or black,
-              with a smooth or slightly textured finish.
-            coverage: Generally provides full coverage with minimal variation, though incomplete coverage may occur in recessed
-              or poorly prepared areas.
-            pattern: Usually forms a uniform or near-uniform layer, but can show streaks or patches if application is uneven
-              or contaminated.
-          mineral:
-            appearance: Appears as an unnatural, shiny or tinted coating that can obscure the mineral's natural luster and
-              crystal structure.
-            coverage: Generally partial and inconsistent, with variations based on mineral composition and surface smoothness.
-            pattern: Forms irregular patches or a streaked effect, often adhering better to certain crystal faces or inclusions.
-          plastic:
-            appearance: Looks like an adherent, often metallic or dark film that may appear flaky or cracked, contrasting
-              with the plastic's original finish.
-            coverage: Typically poor and inconsistent, with large areas uncovered due to low surface energy and chemical incompatibility.
-            pattern: Shows as irregular patches or a non-uniform layer, as plastics often resist adhesion, leading to peeling
-              or beading.
-          rubber:
-            appearance: Manifests as a flaky or peeling coating in dark or iridescent shades, often cracking due to rubber's
-              flexibility and surface oils.
-            coverage: Generally poor and non-uniform, with significant peeling and exposed areas common.
-            pattern: Forms irregular patches or a speckled effect, as the coating fails to bond uniformly on the elastic surface.
-          semiconductor:
-            appearance: Shows as a thin, often metallic or oxide-like film that may cause discoloration or hazing, affecting
-              the pristine surface.
-            coverage: Can range from full to patchy, with critical areas like circuits showing variations that impact performance.
-            pattern: Tends to be uniform if intentional, but as contamination, it appears as localized spots or a non-uniform
-              layer.
-          specialty:
-            appearance: Varies widely by material, but generally appears as an adherent, discolored film that contrasts with
-              the unique surface properties.
-            coverage: Highly variable and often poor, tailored to the material's specific chemical and physical resistance.
-            pattern: Distribution depends on the specialty material's characteristics, often forming irregular patches or
-              a non-uniform coating.
-          stone:
-            appearance: Shows as a thin, often shiny or discolored layer in hues like bronze or green, masking the stone's
-              natural texture and color.
-            coverage: Usually incomplete and variable, with poor adhesion leading to patchy areas and exposed stone.
-            pattern: Distributes unevenly, forming blotches or streaks, especially on rough or porous surfaces where adhesion
-              is inconsistent.
-          wood:
-            appearance: Appears as an unnatural, glossy or matte film, often in metallic or dark colors, contrasting with
-              the wood's natural grain and texture.
-            coverage: Typically partial and uneven, with significant variation due to wood's porous and absorbent nature.
-            pattern: Forms irregular patches or streaks where the coating adheres poorly, often pooling in grooves or along
-              edges.
-      _section:
-        title: Visual Appearance
-        description: How this contaminant appears on different material types
-        icon: eye
         order: 1
         variant: default
-  operational:
-    laser_properties:
-      presentation: descriptive
+    produces_compounds:
+      presentation: card
       items:
-      - laser_parameters:
-          beam_profile: gaussian
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
-          polarization: circular
-          pulse_duration_range:
-            max_ns: 50
-            min_ns: 5
-            recommended_ns: 15
-          repetition_rate_khz:
-            max: 200
-            min: 20
-            recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spot_size_mm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelength_preference:
-          - 355
-          - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 8500
-            wavelength_355nm: 65000
-            wavelength_532nm: 22000
-          reflectivity:
-            wavelength_1064nm: 0.35
-            wavelength_355nm: 0.08
-            wavelength_532nm: 0.18
-          refractive_index:
-            imaginary_part: 0.3
-            real_part: 2.1
-          transmission_depth: 1.2
-        removal_characteristics:
-          byproducts:
-          - compound: metal-oxides-mixed
-            hazard_level: moderate
-            phase: solid
-          - compound: chromium-vi
-            hazard_level: high
-            phase: solid
-          - compound: carbon-dioxide
-            hazard_level: low
-            phase: gas
-          - compound: H2O vapor
-            hazard_level: low
-            phase: gas
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.7
-          secondary_mechanisms:
-          - photochemical
-          - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'yes'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 0.9
-            pulse_duration_10ns: 1.2
-            wavelength_1064nm: 1.8
-          decomposition_temperature: 450
-          heat_affected_zone_depth: 15
-          melting_point: null
-          specific_heat: 850
-          thermal_conductivity: 0.8
-          thermal_diffusivity: 0.5
-          vaporization_temperature: 1200
+      - id: metal-oxides-mixed-compound
+      - id: chromium-vi-compound
+      - id: carbon-dioxide-compound
       _section:
-        title: Laser Properties
-        description: Absorption characteristics and laser interaction data
-        icon: zap
+        title: Produces Compounds
+        description: Hazardous compounds generated during laser removal
+        icon: flask
+        order: 3
+        variant: warning
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: OSHA, ANSI, ISO, and industry safety standards
+        icon: shield-check
         order: 1
         variant: default
+  visual_characteristics:
+    presentation: descriptive
+    items:
+    - appearance_on_categories:
+        ceramic:
+          appearance: Presents as a glossy or matte coating in colors such as yellow or black, altering the ceramic's smooth,
+            hard surface.
+          coverage: Generally good and consistent, but imperfections like pinholes or uneven edges can occur.
+          pattern: Tends to form a relatively uniform layer, though it may exhibit streaks or mottling if applied unevenly.
+        composite:
+          appearance: Appears as a discontinuous film in varied colors, potentially highlighting the composite's heterogeneous
+            structure with glossy or dull areas.
+          coverage: Often partial and variable, with differences in adhesion between matrix and reinforcement components.
+          pattern: Distributes unevenly, forming spots or streaks that follow the material's fiber or filler distribution.
+        concrete:
+          appearance: Presents as a thin, often dull or colored layer that may look powdery or flaky, masking the rough, porous
+            surface.
+          coverage: Typically incomplete and highly variable, with large uncovered areas due to concrete's high porosity.
+          pattern: Distributes in blotches or a mottled pattern, with concentration in pores and cracks where residue accumulates.
+        fabric:
+          appearance: Shows as stiff, discolored areas in metallic or dark hues, altering the fabric's texture and making
+            it feel crusty or brittle.
+          coverage: Extremely uneven and sparse, with most of the fabric remaining uncovered due to absorption and poor adhesion.
+          pattern: Appears as random spots or streaks, often following the weave pattern where the coating penetrates or sits
+            on fibers.
+        glass:
+          appearance: Manifests as a hazy, iridescent, or tinted film that can obscure transparency, with colors ranging from
+            rainbow-like to dull shades.
+          coverage: Can be full and even on clean surfaces, but may show variations like thin spots or bubbles if contaminated.
+          pattern: Often appears as uniform smears or localized spots, depending on application method and surface cleanliness.
+        metal:
+          appearance: Typically appears as a thin, iridescent or colored film, often in shades of gold, brown, or black, with
+            a smooth or slightly textured finish.
+          coverage: Generally provides full coverage with minimal variation, though incomplete coverage may occur in recessed
+            or poorly prepared areas.
+          pattern: Usually forms a uniform or near-uniform layer, but can show streaks or patches if application is uneven
+            or contaminated.
+        mineral:
+          appearance: Appears as an unnatural, shiny or tinted coating that can obscure the mineral's natural luster and crystal
+            structure.
+          coverage: Generally partial and inconsistent, with variations based on mineral composition and surface smoothness.
+          pattern: Forms irregular patches or a streaked effect, often adhering better to certain crystal faces or inclusions.
+        plastic:
+          appearance: Looks like an adherent, often metallic or dark film that may appear flaky or cracked, contrasting with
+            the plastic's original finish.
+          coverage: Typically poor and inconsistent, with large areas uncovered due to low surface energy and chemical incompatibility.
+          pattern: Shows as irregular patches or a non-uniform layer, as plastics often resist adhesion, leading to peeling
+            or beading.
+        rubber:
+          appearance: Manifests as a flaky or peeling coating in dark or iridescent shades, often cracking due to rubber's
+            flexibility and surface oils.
+          coverage: Generally poor and non-uniform, with significant peeling and exposed areas common.
+          pattern: Forms irregular patches or a speckled effect, as the coating fails to bond uniformly on the elastic surface.
+        semiconductor:
+          appearance: Shows as a thin, often metallic or oxide-like film that may cause discoloration or hazing, affecting
+            the pristine surface.
+          coverage: Can range from full to patchy, with critical areas like circuits showing variations that impact performance.
+          pattern: Tends to be uniform if intentional, but as contamination, it appears as localized spots or a non-uniform
+            layer.
+        specialty:
+          appearance: Varies widely by material, but generally appears as an adherent, discolored film that contrasts with
+            the unique surface properties.
+          coverage: Highly variable and often poor, tailored to the material's specific chemical and physical resistance.
+          pattern: Distribution depends on the specialty material's characteristics, often forming irregular patches or a
+            non-uniform coating.
+        stone:
+          appearance: Shows as a thin, often shiny or discolored layer in hues like bronze or green, masking the stone's natural
+            texture and color.
+          coverage: Usually incomplete and variable, with poor adhesion leading to patchy areas and exposed stone.
+          pattern: Distributes unevenly, forming blotches or streaks, especially on rough or porous surfaces where adhesion
+            is inconsistent.
+        wood:
+          appearance: Appears as an unnatural, glossy or matte film, often in metallic or dark colors, contrasting with the
+            wood's natural grain and texture.
+          coverage: Typically partial and uneven, with significant variation due to wood's porous and absorbent nature.
+          pattern: Forms irregular patches or streaks where the coating adheres poorly, often pooling in grooves or along
+            edges.
+    _section:
+      title: Visual Characteristics
+      description: Physical appearance and identification features of this contamination
+      icon: eye
+      order: 10
+      variant: default
+  laser_properties:
+    presentation: descriptive
+    items:
+    - laser_parameters:
+        beam_profile: gaussian
+        fluence_range:
+          max_j_cm2: 1.2
+          min_j_cm2: 0.3
+          recommended_j_cm2: 0.8
+        overlap_percentage: 50
+        polarization: circular
+        pulse_duration_range:
+          max_ns: 50
+          min_ns: 5
+          recommended_ns: 15
+        repetition_rate_khz:
+          max: 200
+          min: 20
+          recommended: 50
+        safety_margin_factor: 0.7
+        scan_speed_mm_s:
+          max: 2000
+          min: 500
+          recommended: 1000
+        spot_size_mm:
+          max: 0.1
+          min: 0.02
+          recommended: 0.05
+        wavelength_preference:
+        - 355
+        - 532
+      optical_properties:
+        absorption_coefficient:
+          wavelength_1064nm: 8500
+          wavelength_355nm: 65000
+          wavelength_532nm: 22000
+        reflectivity:
+          wavelength_1064nm: 0.35
+          wavelength_355nm: 0.08
+          wavelength_532nm: 0.18
+        refractive_index:
+          imaginary_part: 0.3
+          real_part: 2.1
+        transmission_depth: 1.2
+      removal_characteristics:
+        byproducts:
+        - compound: metal-oxides-mixed
+          hazard_level: moderate
+          phase: solid
+        - compound: chromium-vi
+          hazard_level: high
+          phase: solid
+        - compound: carbon-dioxide
+          hazard_level: low
+          phase: gas
+        - compound: H2O vapor
+          hazard_level: low
+          phase: gas
+        damage_risk_to_substrate: low
+        primary_mechanism: thermal_ablation
+        process_speed:
+          area_coverage_rate_cm2_min: 240
+          typical_scan_speed_mm_s: 800
+        removal_efficiency:
+          diminishing_returns_after: 3
+          optimal_passes: 2
+          single_pass: 0.7
+        secondary_mechanisms:
+        - photochemical
+        - mechanical_spallation
+        surface_quality_after_removal:
+          color_change: 'yes'
+          residual_stress: compressive
+          roughness_increase: minimal
+      safety_data:
+        fire_explosion_risk:
+          severity: low
+          description: Minimal fire risk with standard precautions and adequate ventilation
+          mitigation: Standard fire safety precautions, extinguisher available within 15m
+        fumes_generated:
+        - compound: Hexavalent Chromium (CrVI)
+          concentration_mg_m3: 0.05-0.5
+          exposure_limit_mg_m3: 0.005
+          hazard_class: carcinogenic
+        - compound: Metal oxides (aluminum, zinc, titanium)
+          concentration_mg_m3: 1-10
+          exposure_limit_mg_m3: 5-10
+          hazard_class: irritant
+        - compound: Decomposition organics
+          concentration_mg_m3: 2-15
+          exposure_limit_mg_m3: 10-50
+          hazard_class: irritant
+        particulate_generation:
+          respirable_fraction: 0.7
+          size_range_um:
+          - 0.1
+          - 10
+        ppe_requirements:
+          eye_protection: goggles
+          respiratory: PAPR
+          skin_protection: full_suit
+          rationale: Standard protection against workplace hazards
+        substrate_compatibility_warnings:
+        - Laser parameters must be optimized to prevent substrate damage
+        - Avoid excessive heat input that may alter base material properties
+        - Test on inconspicuous area first to determine compatibility
+        toxic_gas_risk:
+          severity: moderate
+          primary_hazards:
+          - compound: Hexavalent Chromium (CrVI)
+            concentration_mg_m3: 0.05-0.5
+            hazard_class: carcinogenic
+          description: Hexavalent Chromium (CrVI) generation detected - moderate toxicity risk
+          mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+            WARNING: Hexavalent Chromium (CrVI) - known carcinogen(s), minimize exposure'
+        ventilation_requirements:
+          exhaust_velocity_m_s: 0.5
+          filtration_type: HEPA
+          minimum_air_changes_per_hour: 12
+          rationale: Standard industrial ventilation (12 ACH) for particulate control
+        visibility_hazard:
+          severity: moderate
+          description: Moderate visibility reduction (40-60%), significant particulate haze
+          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+          related_field: particulate_generation.respirable_fraction
+      thermal_properties:
+        ablation_threshold:
+          pulse_duration_100ns: 0.9
+          pulse_duration_10ns: 1.2
+          wavelength_1064nm: 1.8
+        decomposition_temperature: 450
+        heat_affected_zone_depth: 15
+        melting_point: null
+        specific_heat: 850
+        thermal_conductivity: 0.8
+        thermal_diffusivity: 0.5
+        vaporization_temperature: 1200
+    _section:
+      title: Laser Parameters
+      description: Optimal laser settings and technical parameters for removal
+      icon: zap
+      order: 9
+      variant: default
+  prohibited_materials:
+    presentation: card
+    _section:
+      title: Prohibited Materials
+      description: Materials where laser removal of this contamination is not recommended
+      icon: alert-triangle
+      order: 7
+      variant: danger
+    items:
+    - Plastics
+    - Stainless Steel
+  category: inorganic-coating
+  subcategory: coating
+  images: *id001
   materials:
-  - id: aluminum-laser-cleaning
-    title: Aluminum
-    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-    image: /images/material/aluminum-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: non-ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: steel-laser-cleaning
-    title: Steel
-    url: /materials/metal/ferrous/steel-laser-cleaning
-    image: /images/material/steel-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: ferrous
-    frequency: common
-    severity: moderate
-    typical_context: ''
-  - id: zinc-laser-cleaning
-    title: Zinc
-    url: /materials/metal/alloy/zinc-laser-cleaning
-    image: /images/material/zinc-laser-cleaning-hero.jpg
-    category: metal
-    subcategory: alloy
-    frequency: common
-    severity: moderate
-    typical_context: ''
+    presentation: card
+    items:
+    - title: Affected Materials
+      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
+      groups:
+        metals:
+          title: Metal Substrates
+          description: Ferrous and non-ferrous metals affected by this contamination
+          items:
+          - id: aluminum-laser-cleaning
+            title: Aluminum
+            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+            image: /images/material/aluminum-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: non-ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: steel-laser-cleaning
+            title: Steel
+            url: /materials/metal/ferrous/steel-laser-cleaning
+            image: /images/material/steel-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: ferrous
+            frequency: common
+            severity: moderate
+            typical_context: ''
+          - id: zinc-laser-cleaning
+            title: Zinc
+            url: /materials/metal/alloy/zinc-laser-cleaning
+            image: /images/material/zinc-laser-cleaning-hero.jpg
+            category: metal
+            subcategory: alloy
+            frequency: common
+            severity: moderate
+            typical_context: ''
+    _section:
+      title: Found On Materials
+      description: Materials where this contaminant is commonly found
+      icon: box
+      order: 10
+      variant: default
 subcategory: coating
 composition:
 - Zn₃(PO₄)₂
 - Fe₃(PO₄)₂
 - Chromates
-prohibited_materials:
-- Plastics
-- Stainless Steel
-valid_materials:
-- aluminum-laser-cleaning
-- steel-laser-cleaning
-- zinc-laser-cleaning
-slug: conversion-coating-contamination
-lastModified: '2026-01-04T13:42:47.849378'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Chemical Conversion Coating
-  href: ''
-title: Chemical Conversion Coating
+page_description: Conversion-coating contamination, it manifests as thin inorganic layers on metal surfaces, formed through
+  chemical reactions with the substrate. These coatings, they develop uniquely in humid environments, exhibiting patchy patterns
+  that depend from exposure duration and atmospheric agents. On aluminum alloys, the contamination adheres tenaciously, which
+  leads to persistent residues during cleaning attempts. It appears that laser ablation faces distinct challenges here, as
+  the layers resist vaporization without substrate damage. For steel substrates, the formation shows more uniform coverage,
+  yet removal demands precise pulse control to avoid re-deposition. This contamination, it persists under initial laser passes,
+  demonstrating material-specific behaviors that complicate full eradication. The process yields cleaner surfaces eventually,
+  though influenced from coating thickness variations.

@@ -1,16 +1,24 @@
 id: gold-settings
 name: Gold
-datePublished: '2026-01-04T21:43:51.399042Z'
-dateModified: '2026-01-04T21:43:51.399042Z'
+datePublished: '2025-12-27T21:06:07.630576Z'
+dateModified: '2025-12-27T21:06:07.630576Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/non-ferrous/gold-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Non Ferrous
+  href: /settings/metal/non-ferrous
+- label: Gold
+  href: /settings/metal/non-ferrous/gold-settings
 page_title: 'Gold Settings: Laser Parameters'
-page_description: When laser cleaning gold, unlike copper or silver, its extreme reflectivity bounces most energy away. We
-  typically switch to shorter wavelengths for better absorption. This lets you remove contaminants without melting the surface.
-  Watch out mid-process for uneven heating—dial down power if spots heat up. We've found multiple light passes restore that
-  pristine finish safely. Adjust overlap to avoid warping delicate pieces.
-meta_description: 'Gold: removes contamination removal. Industrial-grade parameters. No substrate damage.'
+meta_description: 'Gold: removes contamination removal. Industrial-grade parameters.
+  No substrate damage.'
 images:
   hero:
     url: /images/settings/gold-settings-hero.jpg
@@ -39,23 +47,22 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
+    Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
-  slug: ikmanda-roswati
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
 card:
   default:
-    heading: Laser Cleaning Settings
+    heading: ''
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -67,21 +74,18 @@ card:
     severity: low
     icon: settings
 relationships:
-  safety:
-    regulatory_standards:
+  technical:
+    works_on_materials:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+      - id: gold-laser-cleaning
+        effectiveness: high
       _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
+        title: Optimized Materials
+        description: Materials that work best with this laser cleaning setting
+        icon: box
+        order: 2
         variant: default
-  interactions:
     removes_contaminants:
       presentation: card
       items:
@@ -92,75 +96,45 @@ relationships:
       _section:
         title: Removes Contaminants
         description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
+        icon: droplet
+        order: 3
         variant: default
-    works_on_materials:
+  safety:
+    regulatory_standards:
       presentation: card
       items:
-      - id: gold-laser-cleaning
-        effectiveness: high
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
+        title: Regulatory Standards
+        description: Safety and compliance standards applicable to this laser setting
+        icon: shield-check
+        order: 4
         variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
         title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
+        description: Typical difficulties and considerations when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
+category: metal
+subcategory: non-ferrous
 machine_settings:
   powerRange:
     description: Optimal average power for Gold surface cleaning without damage
@@ -221,78 +195,82 @@ machine_settings:
     max: 100
     value: 20
     unit: W
-    description: 'Typical range for pulsed laser cleaning of delicate metals like gold to avoid melting (mp 1064°C); start
-      low due to high reflectivity at 532 nm. Recommended starting at 20 W for contamination removal. Max safe ~100 W with
-      fast scanning to prevent substrate damage. Source: Studies on laser cleaning of gold artifacts (e.g., J. Cult. Herit.
-      2018, DOI:10.1016/j.culher.2018.03.005); manufacturer specs from IPG Photonics for 532 nm systems.'
+    description: 'Typical range for pulsed laser cleaning of delicate metals like
+      gold to avoid melting (mp 1064°C); start low due to high reflectivity at 532
+      nm. Recommended starting at 20 W for contamination removal. Max safe ~100 W
+      with fast scanning to prevent substrate damage. Source: Studies on laser cleaning
+      of gold artifacts (e.g., J. Cult. Herit. 2018, DOI:10.1016/j.culher.2018.03.005);
+      manufacturer specs from IPG Photonics for 532 nm systems.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Range for effective cleaning without excessive heat buildup; slower for heavy contamination (100-500 mm/s),
-      faster for light (1000-2000 mm/s). Recommended 500 mm/s for gold to balance removal and minimize thermal effects given
-      high conductivity. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g.,
-      Coherent Inc. scanning systems).'
+    description: 'Range for effective cleaning without excessive heat buildup; slower
+      for heavy contamination (100-500 mm/s), faster for light (1000-2000 mm/s). Recommended
+      500 mm/s for gold to balance removal and minimize thermal effects given high
+      conductivity. Source: Industry standards from Laser Institute of America guidelines
+      and equipment manuals (e.g., Coherent Inc. scanning systems).'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 10
-    description: 'Nanosecond regime (5-50 ns) typical for industrial cleaning of gold; picosecond (ps) or femtosecond (fs)
-      for ultra-minimal HAZ but costlier. Recommended 10 ns ns pulses to reduce heat-affected zone while ablating contaminants
-      without melting gold. Source: Laser physics research on metal ablation (e.g., Appl. Phys. A 2015, DOI:10.1007/s00339-015-9123-4);
-      favors ns for 532 nm on reflective surfaces.'
+    description: 'Nanosecond regime (5-50 ns) typical for industrial cleaning of gold;
+      picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. Recommended
+      10 ns ns pulses to reduce heat-affected zone while ablating contaminants without
+      melting gold. Source: Laser physics research on metal ablation (e.g., Appl.
+      Phys. A 2015, DOI:10.1007/s00339-015-9123-4); favors ns for 532 nm on reflective
+      surfaces.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 20
-    description: 'Typical 10-100 kHz for cleaning; lower rates reduce heat accumulation on reflective gold. High freq speeds
-      process but risks thermal buildup. Recommended 20 kHz for gold to optimize removal rate vs. safety. Source: Academic
-      literature on pulsed laser cleaning (e.g., Opt. Lasers Eng. 2020, DOI:10.1016/j.optlaseng.2020.106123).'
+    description: 'Typical 10-100 kHz for cleaning; lower rates reduce heat accumulation
+      on reflective gold. High freq speeds process but risks thermal buildup. Recommended
+      20 kHz for gold to optimize removal rate vs. safety. Source: Academic literature
+      on pulsed laser cleaning (e.g., Opt. Lasers Eng. 2020, DOI:10.1016/j.optlaseng.2020.106123).'
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.0
-    description: 'Fluence range below gold''s ablation threshold (~1.5-2 J/cm² at 532 nm) for safe contaminant removal. Damage
-      threshold ~2 J/cm²; conservative for high reflectivity. Recommended 1 J/cm² to ablate oxides/dirt without substrate
-      harm. Source: Ablation threshold studies (e.g., J. Appl. Phys. 2012, DOI:10.1063/1.4768264); notes gold''s reflectivity
-      requires higher fluence than less reflective metals.'
+    description: 'Fluence range below gold''s ablation threshold (~1.5-2 J/cm² at
+      532 nm) for safe contaminant removal. Damage threshold ~2 J/cm²; conservative
+      for high reflectivity. Recommended 1 J/cm² to ablate oxides/dirt without substrate
+      harm. Source: Ablation threshold studies (e.g., J. Appl. Phys. 2012, DOI:10.1063/1.4768264);
+      notes gold''s reflectivity requires higher fluence than less reflective metals.'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 100
-    description: 'Smaller spots (50-100 μm) for fine gold surface prep, larger (200-300 μm) for broad areas. Recommended 100
-      μm for precise industrial cleaning of gold to control energy delivery. Source: Equipment specifications from Trumpf
-      and Coherent laser systems for micro-cleaning applications.'
+    description: 'Smaller spots (50-100 μm) for fine gold surface prep, larger (200-300
+      μm) for broad areas. Recommended 100 μm for precise industrial cleaning of gold
+      to control energy delivery. Source: Equipment specifications from Trumpf and
+      Coherent laser systems for micro-cleaning applications.'
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; gold''s properties allow fewer passes with
-      proper fluence. Recommended 2 passes for complete removal in industrial settings. Source: Industry case studies on metal
-      cleaning (e.g., Surf. Coat. Technol. 2019, DOI:10.1016/j.surfcoat.2019.124567).'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy;
+      gold''s properties allow fewer passes with proper fluence. Recommended 2 passes
+      for complete removal in industrial settings. Source: Industry case studies on
+      metal cleaning (e.g., Surf. Coat. Technol. 2019, DOI:10.1016/j.surfcoat.2019.124567).'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: '30-80% ensures uniform coverage; 50% typical for even cleaning without overexposure. Recommended 50% for
-      gold to achieve homogeneity while minimizing heat input. Source: Process optimization studies (e.g., J. Laser Appl.
-      2017, DOI:10.2351/1.4983265); balances efficiency and surface integrity.'
-component_summary: These settings employ moderate power and short nanosecond pulses at 532 nm to gently ablate contaminants
-  from gold's soft, reflective surface without causing thermal distortion or melting.
-slug: gold-settings
-lastModified: '2026-01-04T13:43:51.399106'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Gold
-  href: ''
-title: Gold
+    description: '30-80% ensures uniform coverage; 50% typical for even cleaning without
+      overexposure. Recommended 50% for gold to achieve homogeneity while minimizing
+      heat input. Source: Process optimization studies (e.g., J. Laser Appl. 2017,
+      DOI:10.2351/1.4983265); balances efficiency and surface integrity.'
+page_description: When laser cleaning gold, unlike copper or silver, its extreme reflectivity
+  bounces most energy away. We typically switch to shorter wavelengths for better
+  absorption. This lets you remove contaminants without melting the surface. Watch
+  out mid-process for uneven heating—dial down power if spots heat up. We've found
+  multiple light passes restore that pristine finish safely. Adjust overlap to avoid
+  warping delicate pieces.
