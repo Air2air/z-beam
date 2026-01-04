@@ -52,10 +52,8 @@ export interface Author {
   name: string;
   title?: string;
   
-  // Expertise fields (new and legacy)
+  // Expertise fields
   expertiseAreas?: string | string[]; // Support both string and array formats (plural for array)
-  /** @deprecated Use expertiseAreas instead */
-  expertise?: string | string[]; // Legacy field for backward compatibility
   
   specialties?: string[]; // Array of specializations
   country?: string;
@@ -65,10 +63,8 @@ export interface Author {
   linkedin?: string;
   publishedArticles?: string[] | number; // Support both article list and count
   
-  // Education fields (new and legacy)
+  // Education fields
   educationList?: string[]; // Array of education credentials (plural)
-  /** @deprecated Use educationList instead */
-  education?: string[]; // Legacy field for backward compatibility
   
   articleType?: "author"; // Article type marker
   profile?: {
@@ -83,10 +79,8 @@ export interface Author {
   // Enhanced author object fields
   affiliation?: string;
   
-  // Credentials fields (new and legacy)
+  // Credentials fields
   credentialsList?: string[]; // Array of credentials (plural)
-  /** @deprecated Use credentialsList instead */
-  credentials?: string[]; // Legacy field for backward compatibility
   
   experience_years?: number;
   verification_level?: 'verified' | 'expert' | 'industry_leader' | 'academic';
@@ -185,12 +179,12 @@ export interface EquipmentItem {
 export interface ArticleMetadata {
   id?: string;
   title: string;
-  /** @deprecated Use page_description instead */
-  description?: string;  // Deprecated - use page_description
-  page_description?: string;  // Preferred field name (long-form content)
-  meta_description?: string;  // SEO meta description (short, concise for <meta> tags)
-  contamination_description?: string;  // Added for contaminants
-  // Note: All content types (materials, settings, etc.) should use page_description
+  /** @deprecated Use pageDescription instead */
+  description?: string;  // Deprecated - use pageDescription
+  pageDescription?: string;  // Preferred field name (long-form content)
+  metaDescription?: string;  // SEO meta description (short, concise for <meta> tags)
+  contaminationDescription?: string;  // Added for contaminants
+  // Note: All content types (materials, settings, etc.) should use pageDescription
   slug: string;
   category?: string;
   tags?: string[];
@@ -206,9 +200,9 @@ export interface ArticleMetadata {
   relatedArticles?: string[];
   references?: string[];
   targetAudience?: string;
-  /** @deprecated Use content_type instead */
+  /** @deprecated Use contentType instead */
   articleType?: string;
-  content_type?: string; // Content type for structured data (canonical field)
+  contentType?: string; // Content type for structured data (canonical field)
   canonical?: string; // Canonical URL for SEO
   
   // Enhanced frontmatter fields
