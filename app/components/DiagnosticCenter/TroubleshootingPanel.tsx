@@ -37,7 +37,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
                 <h3 className="text-base text-secondary font-semibold mb-1">
                   {issue.symptom}
                 </h3>
-                <div className="text-xs text-tertiary">Issue #{idx + 1} • Common Problem</div>
+                <div className="text-sm text-tertiary">Issue #{idx + 1} • Common Problem</div>
               </div>
             </div>
           </div>
@@ -46,13 +46,13 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
           <div className="p-4 space-y-3">
             {/* Possible Causes - With Icons */}
             <div className="bg-orange-900/10 rounded-md p-3">
-              <h4 className="text-sm text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
+              <h4 className="text-base text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
                 <ClipboardList className="w-4 h-4" />
                 Possible Causes
               </h4>
               <ul className="space-y-1">
                 {issue.causes.map((cause: string, cidx: number) => (
-                  <li key={cidx} className="text-xs flex items-start gap-2">
+                  <li key={cidx} className="text-sm flex items-start gap-2">
                     <span className="text-orange-400 font-bold mt-0.5">{cidx + 1}.</span>
                     <span>{cause}</span>
                   </li>
@@ -62,14 +62,14 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
             
             {/* Solutions - Action Steps */}
             <div className="bg-green-900/10 rounded-md p-3">
-              <h4 className="text-sm text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
+              <h4 className="text-base text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
                 Solution Steps
               </h4>
               <ol className="space-y-1.5">
                 {issue.solutions.map((solution: string, sidx: number) => (
-                  <li key={sidx} className="text-xs flex items-start gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-semibold text-[10px]">
+                  <li key={sidx} className="text-sm flex items-start gap-2">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-semibold text-xs">
                       {sidx + 1}
                     </span>
                     <span className="flex-1 pt-0.5">{solution}</span>
@@ -81,19 +81,19 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
             {/* Verification & Prevention */}
             <div className="space-y-3">
               <div className="bg-orange-900/10 rounded-md p-3">
-                <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
+                <h4 className="text-base text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
                   <ClipboardCheck className="w-4 h-4" />
-                  Verify Fix
+                  Verification
                 </h4>
-                <p className="text-xs">{issue.verification}</p>
+                <p className="text-sm">{issue.verification}</p>
               </div>
               
               <div className="bg-purple-900/10 rounded-md p-3">
-                <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
+                <h4 className="text-base text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
                   <Lock className="w-4 h-4" />
-                  Prevention
+                  Future Prevention
                 </h4>
-                <p className="text-xs">{issue.prevention}</p>
+                <p className="text-sm">{issue.prevention}</p>
               </div>
             </div>
           </div>

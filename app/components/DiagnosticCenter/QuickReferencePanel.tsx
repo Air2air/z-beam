@@ -66,7 +66,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
               </h4>
               <ul className="space-y-1">
                 {bySeverity.critical.map((challenge, idx) => (
-                  <li key={idx} className="text-xs">
+                  <li key={idx} className="text-sm">
                     • {challenge.challenge}
                     <span className="text-muted ml-1">({challenge.category.replace(/_/g, ' ')})</span>
                   </li>
@@ -84,7 +84,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
               </h4>
               <ul className="space-y-1">
                 {bySeverity.high.map((challenge, idx) => (
-                  <li key={idx} className="text-xs">
+                  <li key={idx} className="text-sm">
                     • {challenge.challenge}
                     <span className="text-muted ml-1">({challenge.category.replace(/_/g, ' ')})</span>
                   </li>
@@ -102,12 +102,12 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
               </h4>
               <ul className="space-y-1">
                 {bySeverity.medium.slice(0, 3).map((challenge, idx) => (
-                  <li key={idx} className="text-xs">
+                  <li key={idx} className="text-sm">
                     • {challenge.challenge}
                   </li>
                 ))}
                 {bySeverity.medium.length > 3 && (
-                  <li className="text-xs text-muted italic">
+                  <li className="text-sm text-muted italic">
                     + {bySeverity.medium.length - 3} more...
                   </li>
                 )}
@@ -122,7 +122,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
                 <span className="w-2 h-2 rounded-full bg-green-500 shadow-lg shadow-green-500/50" />
                 Low Priority ({bySeverity.low.length})
               </h4>
-              <p className="text-xs text-tertiary">
+              <p className="text-sm text-tertiary">
                 Minor concerns - see Prevention tab for details
               </p>
             </div>
@@ -144,14 +144,14 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
             {issues.map((issue, idx) => (
               <div key={idx} className="bg-tertiary rounded-md p-3 border hover:border-orange-500/50 transition-colors">
                 <div className="flex items-start gap-2">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 border border-orange-500 flex items-center justify-center text-orange-400 font-semibold text-xs">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-500/20 border border-orange-500 flex items-center justify-center text-orange-400 font-semibold text-sm">
                     {idx + 1}
                   </span>
                   <div className="flex-1">
-                    <h4 className="text-sm text-secondary font-semibold mb-1">
-                      {issue.symptom}
+                    <h4 className="text-base text-secondary font-semibold mb-1">
+                      {issue.name}
                     </h4>
-                    <p className="text-xs text-tertiary">
+                    <p className="text-sm text-tertiary">
                       {issue.causes.length} possible cause{issue.causes.length !== 1 ? 's' : ''} • {issue.solutions.length} solution{issue.solutions.length !== 1 ? 's' : ''}
                     </p>
                   </div>
@@ -166,7 +166,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
         {/* Quick Decision Helper */}
         <div className="mt-4 pt-4 border-t">
           <h4 className="text-sm text-secondary font-semibold text-secondary mb-2">Quick Decision Helper</h4>
-          <div className="space-y-2 text-xs">
+          <div className="space-y-2 text-sm">
             <div className="flex items-start gap-2">
               <span className="text-purple-400">→</span>
               <span>Start with <strong>Prevention First</strong> tab before beginning work</span>
