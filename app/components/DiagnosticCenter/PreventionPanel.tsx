@@ -24,7 +24,7 @@ interface PreventionPanelProps {
 export function PreventionPanel({ challenges }: PreventionPanelProps) {
   if (!challenges || Object.keys(challenges).length === 0) {
     return (
-      <details className="bg-secondary rounded-lg border overflow-hidden">
+      <details className="bg-secondary rounded-lg overflow-hidden">
         <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors">
           <span className="text-lg">✅</span>
           <div className="flex-1">
@@ -48,7 +48,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
     <div className="space-y-2">
       {Object.entries(challenges).flatMap(([category, challengeList]: [string, Challenge[]]) =>
         challengeList.map((challenge, idx) => (
-          <details key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden border group">
+          <details key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden group">
             <summary className="cursor-pointer px-4 py-3 border-l-4 border-green-500 hover:bg-gray-800/50 transition-colors list-none flex items-center justify-between gap-3">
               <div className="flex items-start gap-3 flex-1">
                 <span className="text-xl">✅</span>
@@ -64,13 +64,13 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
               </svg>
             </summary>
             
-            <div className="p-4 space-y-3 border-t border-gray-700">
-              <div className="bg-orange-900/10 rounded-md p-3 border border-orange-900/30">
+            <div className="p-4 space-y-3">
+              <div className="bg-orange-900/10 rounded-md p-3">
                 <h4 className="text-sm text-secondary font-semibold mb-2">Impact</h4>
                 <p className="text-xs text-tertiary">{challenge.impact}</p>
               </div>
               
-              <div className="bg-green-900/10 rounded-md p-3 border border-green-900/30">
+              <div className="bg-green-900/10 rounded-md p-3">
                 <h4 className="text-sm text-secondary font-semibold mb-2">Prevention Solutions</h4>
                 <ul className="space-y-1.5">
                   {challenge.solutions.map((solution: string, sidx: number) => (
@@ -85,7 +85,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
               </div>
               
               {challenge.prevention && (
-                <div className="bg-purple-900/10 rounded-md p-3 border border-purple-900/30">
+                <div className="bg-purple-900/10 rounded-md p-3">
                   <h4 className="text-sm text-secondary font-semibold mb-2">Threshold</h4>
                   <p className="text-xs text-tertiary">{challenge.prevention}</p>
                 </div>
@@ -98,7 +98,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
   );
 
   return (
-    <details className="bg-secondary rounded-lg border overflow-hidden group" open>
+    <details className="bg-secondary rounded-lg overflow-hidden group" open>
       <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
         <span className="text-lg">✅</span>
         <div className="flex-1">

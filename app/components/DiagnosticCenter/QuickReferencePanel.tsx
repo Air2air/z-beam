@@ -185,7 +185,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
   );
 
   return (
-    <details className="bg-secondary rounded-lg border overflow-hidden group">
+    <details className="bg-secondary rounded-lg overflow-hidden group">
       <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
         <span className="text-lg">📊</span>
         <div className="flex-1">
