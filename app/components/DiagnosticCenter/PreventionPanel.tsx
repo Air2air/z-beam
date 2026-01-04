@@ -45,26 +45,29 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
   }
 
   const content = (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {Object.entries(challenges).flatMap(([category, challengeList]: [string, Challenge[]]) =>
         challengeList.map((challenge, idx) => (
-          <div key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden border">
-            <div className="bg-gradient-to-r from-green-900/30 to-transparent px-4 py-3 border-l-4 border-green-500">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">✅</span>
+          <details key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden border group">
+            <summary className="cursor-pointer px-4 py-3 border-l-4 border-green-500 hover:bg-gray-800/50 transition-colors list-none flex items-center justify-between gap-3">
+              <div className="flex items-start gap-3 flex-1">
+                <span className="text-xl">✅</span>
                 <div className="flex-1">
-                  <h3 className="text-base text-secondary font-semibold mb-1">
+                  <h3 className="text-sm text-secondary font-semibold">
                     {challenge.challenge}
                   </h3>
-                  <div className="text-xs text-tertiary capitalize">{category.replace(/_/g, ' ')} • {challenge.severity} severity</div>
+                  <div className="text-xs text-tertiary capitalize mt-0.5">{category.replace(/_/g, ' ')} • {challenge.severity} severity</div>
                 </div>
               </div>
-            </div>
+              <svg className="w-4 h-4 text-tertiary transition-transform group-open:rotate-180 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
             
-            <div className="p-4 space-y-3">
+            <div className="p-4 space-y-3 border-t border-gray-700">
               <div className="bg-orange-900/10 rounded-md p-3 border border-orange-900/30">
                 <h4 className="text-sm text-secondary font-semibold mb-2">Impact</h4>
-                <p className="text-xs">{challenge.impact}</p>
+                <p className="text-xs text-tertiary">{challenge.impact}</p>
               </div>
               
               <div className="bg-green-900/10 rounded-md p-3 border border-green-900/30">
@@ -75,7 +78,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
                       <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400 font-semibold text-[10px]">
                         {sidx + 1}
                       </span>
-                      <span className="flex-1 pt-0.5">{solution}</span>
+                      <span className="flex-1 pt-0.5 text-tertiary">{solution}</span>
                     </li>
                   ))}
                 </ul>
@@ -84,11 +87,11 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
               {challenge.prevention && (
                 <div className="bg-purple-900/10 rounded-md p-3 border border-purple-900/30">
                   <h4 className="text-sm text-secondary font-semibold mb-2">Threshold</h4>
-                  <p className="text-xs">{challenge.prevention}</p>
+                  <p className="text-xs text-tertiary">{challenge.prevention}</p>
                 </div>
               )}
             </div>
-          </div>
+          </details>
         ))
       )}
     </div>
