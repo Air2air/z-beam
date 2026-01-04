@@ -48,7 +48,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
       {Object.entries(challenges).flatMap(([category, challengeList]: [string, Challenge[]]) =>
         challengeList.map((challenge, idx) => (
           <details key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden group">
-            <summary className="cursor-pointer px-4 py-3 border-l-4 border-green-500 hover:bg-gray-800/50 transition-colors list-none flex items-center justify-between gap-3">
+            <summary className="cursor-pointer px-4 py-3 hover:bg-gray-800/50 transition-colors list-none flex items-center justify-between gap-3">
               <div className="flex items-start gap-3 flex-1">
                 <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
@@ -72,7 +72,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
                 <ul className="space-y-1.5">
                   {challenge.solutions.map((solution: string, sidx: number) => (
                     <li key={sidx} className="text-xs flex items-start gap-2">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400 font-semibold text-[10px]">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-semibold text-[10px]">
                         {sidx + 1}
                       </span>
                       <span className="flex-1 pt-0.5 text-tertiary">{solution}</span>

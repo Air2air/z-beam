@@ -30,7 +30,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
       {issues.map((issue, idx) => (
         <div key={idx} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden">
           {/* Symptom Header - Prominent Display */}
-          <div className="bg-gradient-to-r from-red-900/30 to-transparent px-4 py-3 border-l-4 border-red-500">
+          <div className="bg-gradient-to-r from-red-900/30 to-transparent px-4 py-3">
             <div className="flex items-start gap-3">
               <AlertTriangle className="w-6 h-6 text-orange-500 flex-shrink-0" />
               <div className="flex-1">
@@ -69,7 +69,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
               <ol className="space-y-1.5">
                 {issue.solutions.map((solution: string, sidx: number) => (
                   <li key={sidx} className="text-xs flex items-start gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400 font-semibold text-[10px]">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-semibold text-[10px]">
                       {sidx + 1}
                     </span>
                     <span className="flex-1 pt-0.5">{solution}</span>
