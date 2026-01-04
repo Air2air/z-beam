@@ -279,7 +279,10 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // Get author details for E-E-A-T
   const authorDetails = typeof author === 'object' && author !== null ? author : null;
   const authorTitle = authorDetails?.title; // e.g., "Ph.D."
-  const authorExpertise = authorDetails?.expertise;
+  const authorExpertiseAreas = authorDetails?.expertiseAreas; // Use expertiseAreas from updated type
+  const authorExpertise = Array.isArray(authorExpertiseAreas) 
+    ? authorExpertiseAreas.join(', ') 
+    : authorExpertiseAreas;
   const authorTwitter = authorDetails?.twitter; // Individual author Twitter handle
   
   const result: NextMetadata = {

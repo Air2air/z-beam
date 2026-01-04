@@ -23,7 +23,7 @@ describe('Author Component with Frontmatter Data', () => {
       name: 'Yi-Chun Lin',
       title: 'Ph.D.',
       country: 'Taiwan',
-      expertise: ['Laser Materials Processing'],
+      expertiseAreas: ['Laser Materials Processing'],
       image: '/images/author/yi-chun-lin.jpg',
       email: 'yi-chun.lin@example.com',
       affiliation: 'Research Institute'

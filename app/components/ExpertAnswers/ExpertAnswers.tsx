@@ -40,8 +40,8 @@ function formatExpertInfo(answer: ExpertAnswerItem): string {
     }
     
     // Expertise areas
-    if (expert.expertise && expert.expertise.length > 0) {
-      parts.push(`**Expertise:** ${expert.expertise.slice(0, 3).join(', ')}`);
+    if (expert.expertiseAreas && expert.expertiseAreas.length > 0) {
+      parts.push(`**Expertise:** ${expert.expertiseAreas.slice(0, 3).join(', ')}`);
     }
   }
   

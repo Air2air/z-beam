@@ -24,7 +24,7 @@ export function Author({
   const country = authorInfo?.country || '';
   const field = Array.isArray(authorInfo?.expertiseAreas) 
     ? (authorInfo?.expertiseAreas || []).join(', ') 
-    : authorInfo?.expertiseAreas || authorInfo?.expertise || ''; // Fallback to legacy field
+    : authorInfo?.expertiseAreas || ''; // Only use expertiseAreas from type
 
   // Generate URL-encoded author name for search (null-safe)
   const encodedAuthorName = authorInfo ? encodeURIComponent(authorName) : '';

@@ -18,16 +18,28 @@ import { ReactNode } from 'react';
 // ===============================
 
 /**
+ * Content type constants - single source of truth
+ * Use these constants throughout the application instead of string literals
+ * @example CONTENT_TYPES.MATERIALS instead of 'materials'
+ */
+export const CONTENT_TYPES = {
+  MATERIALS: 'materials',
+  CONTAMINANTS: 'contaminants',
+  COMPOUNDS: 'compounds',
+  SETTINGS: 'settings'
+} as const;
+
+/**
  * Content types for the unified content management system
  * Used across materials, contaminants, compounds, and settings pages
  * @see app/config/contentTypes.ts for configuration
  */
-export type ContentType = 'materials' | 'contaminants' | 'compounds' | 'settings';
+export type ContentType = typeof CONTENT_TYPES[keyof typeof CONTENT_TYPES];
 
 /**
  * Content types for component usage (includes compounds)
  */
-export type ComponentContentType = 'materials' | 'contaminants' | 'compounds' | 'settings';
+export type ComponentContentType = ContentType;
 
 /**
  * URL building content types - used for URL pattern generation
@@ -766,7 +778,7 @@ export interface TitleProps {
   alignment?: 'left' | 'center' | 'right';
   className?: string;
   id?: string;
-  page_description?: string;
+  pageDescription?: string;
   rightContent?: ReactNode;
   
   // WCAG & Accessibility Props
@@ -1257,12 +1269,14 @@ export interface HelpSection {
 
 /**
  * Expert information for QAPage schema and ExpertAnswers component
+ * Updated January 2026: Removed deprecated expertise field, use expertiseAreas only
  */
 export interface ExpertInfo {
   name: string;
   title?: string;
   credentials?: string[];
-  expertise?: string[];
+  credentialsList?: string[];
+  expertiseAreas?: string[];
   affiliation?: string;
   image?: string;
   email?: string;

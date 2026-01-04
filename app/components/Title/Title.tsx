@@ -25,7 +25,7 @@ export function Title({
   alignment = 'left',
   className = '',
   id,
-  page_description,
+  pageDescription: page_description,
   rightContent,
   
   // WCAG & Accessibility Props

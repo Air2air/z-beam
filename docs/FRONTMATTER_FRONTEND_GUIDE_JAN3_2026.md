@@ -159,7 +159,7 @@ author:
 ```typescript
 // Render content (flat, top-level)
 <h1>{material.page_title}</h1>
-<p>{material.page_description}</p>
+<p>{material.pageDescription}</p>
 <article>{material.description}</article>
 
 // Render relationships by subject area

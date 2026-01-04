@@ -149,7 +149,7 @@ export default async function HomePage() {
         <JsonLD data={jsonLdSchema} />
         <Layout 
           title={pageTitle}
-          page_description={pageDescription}
+          pageDescription={pageDescription}
           metadata={heroFrontmatter}
           customHeroOverlay={true}
         >

@@ -34,7 +34,7 @@ describe('Author Component', () => {
     id: 1,
     name: 'Test Author',
     title: 'Ph.D.',
-    expertise: 'Test Expertise Field',
+    expertiseAreas: ['Test Expertise Field'],
     country: 'Test Country',
     sex: 'f',
     image: '/images/author/test-author.jpg',
@@ -172,28 +172,28 @@ describe('Author Component', () => {
 
   describe('5. Expertise Field Variations', () => {
     test('handles long expertise descriptions', () => {
-      const longExpertise = 'Ultrafast Laser Physics and Material Interactions with Advanced Photonic Systems';
+      const longExpertise = ['Ultrafast Laser Physics and Material Interactions with Advanced Photonic Systems'];
       const longExpertiseAuthor = {
         ...mockAuthor,
-        expertise: longExpertise
+        expertiseAreas: longExpertise
       };
       
       render(<Author frontmatter={{ author: longExpertiseAuthor }} />);
       
-      expect(screen.getByText(longExpertise)).toBeInTheDocument();
-      expect(screen.getByText(longExpertise)).toHaveClass('text-sm', 'text-secondary');
+      expect(screen.getByText(longExpertise[0])).toBeInTheDocument();
+      expect(screen.getByText(longExpertise[0])).toHaveClass('text-sm', 'text-secondary');
     });
 
     test('handles short expertise descriptions', () => {
-      const shortExpertise = 'Optics';
+      const shortExpertise = ['Optics'];
       const shortExpertiseAuthor = {
         ...mockAuthor,
-        expertise: shortExpertise
+        expertiseAreas: shortExpertise
       };
       
       render(<Author frontmatter={{ author: shortExpertiseAuthor }} />);
       
-      expect(screen.getByText(shortExpertise)).toBeInTheDocument();
+      expect(screen.getByText(shortExpertise[0])).toBeInTheDocument();
     });
   });
 
@@ -296,7 +296,7 @@ describe('Author Component', () => {
         id: 1,
         name: 'Ikmanda Roswati',
         title: 'Ph.D.',
-        expertise: 'Ultrafast Laser Physics and Material Interactions',
+        expertiseAreas: ['Ultrafast Laser Physics and Material Interactions'],
         country: 'Indonesia',
         sex: 'f',
         image: '/images/author/ikmanda-roswati.jpg',
@@ -323,7 +323,7 @@ describe('Author Component', () => {
         id: 4,
         name: 'Todd Dunning',
         title: 'MA',
-        expertise: 'Optical Materials for Laser Systems',
+        expertiseAreas: ['Optical Materials for Laser Systems'],
         country: 'United States (California)',
         sex: 'm',
         image: '/images/author/todd-dunning.jpg',
@@ -353,7 +353,7 @@ describe('Author Component', () => {
         id: 1,
         name: 'Minimal Author',
         title: 'Dr.',
-        expertise: 'Field',
+        expertiseAreas: ['Field'],
         country: 'Country',
         sex: 'm',
         image: '/image.jpg',

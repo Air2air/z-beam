@@ -139,13 +139,13 @@ export function Layout(props: LayoutProps) {
           <PageTitle 
             level="page" 
             title={title || metadata?.title || 'Article'} 
-            page_description={(() => {
-              // First priority: page_description field (from frontmatter)
-              if (metadata?.page_description) {
-                return typeof metadata.page_description === 'string' ? metadata.page_description : undefined;
+            pageDescription={(() => {
+              // First priority: pageDescription field (from frontmatter, converted from snake_case)
+              if (metadata?.pageDescription) {
+                return typeof metadata.pageDescription === 'string' ? metadata.pageDescription : undefined;
               }
-              // Fallback: description or contamination_description
-              const desc = metadata?.description || metadata?.contamination_description;
+              // Fallback: description or contaminationDescription
+              const desc = metadata?.description || metadata?.contaminationDescription;
               if (typeof desc === 'object' && desc !== null && 'before' in desc) {
                 return (desc as { before?: string }).before;
               }
@@ -186,10 +186,6 @@ export function Layout(props: LayoutProps) {
               defaultExpert={metadata.author ? {
                 name: metadata.author.name,
                 title: metadata.author.title,
-                credentials: metadata.author.credentials,
-                expertise: Array.isArray(metadata.author.expertise) 
-                  ? metadata.author.expertise 
-                  : metadata.author.expertise ? [metadata.author.expertise] : undefined,
                 affiliation: typeof metadata.author.affiliation === 'string' 
                   ? metadata.author.affiliation 
                   : (metadata.author.affiliation && typeof metadata.author.affiliation === 'object' && 'name' in metadata.author.affiliation) 

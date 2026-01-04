@@ -158,10 +158,16 @@ export function normalizeNumericValue(value: unknown): number | null {
  * Normalize property names from snake_case to camelCase
  * This bridges the gap between legacy YAML frontmatter (snake_case) and application code (camelCase)
  * 
- * NOTE: As of December 2025, all YAML files have been converted to camelCase.
- * This normalizer is kept for backward compatibility with any remaining snake_case files.
+ * NOTE: As of January 2026, this is the SINGLE transformation point for snake_case → camelCase.
+ * YAML files keep snake_case (external format), TypeScript uses camelCase (internal format).
+ * Transformation happens at boundary for clean separation of concerns.
  * 
  * Converts specific top-level property names:
+ * - full_path → fullPath
+ * - content_type → contentType
+ * - page_description → pageDescription
+ * - meta_description → metaDescription
+ * - date_published → datePublished
  * - machine_settings → machineSettings
  * - material_properties → materialProperties
  * - laser_properties → laserProperties
@@ -174,6 +180,18 @@ export function normalizePropertyNames<T>(data: T | null | undefined): T | null 
   if (!data || typeof data !== 'object') return data;
   
   const propertyMap: Record<string, string> = {
+    // Structural/metadata fields (Priority: Jan 2026 normalization)
+    'full_path': 'fullPath',
+    'content_type': 'contentType',
+    'schema_version': 'schemaVersion',
+    'page_description': 'pageDescription',
+    'page_title': 'pageTitle',
+    'meta_description': 'metaDescription',
+    'contamination_description': 'contaminationDescription',
+    'date_published': 'datePublished',
+    'date_modified': 'dateModified',
+    
+    // Property groups (Existing)
     'machine_settings': 'machineSettings',
     'material_properties': 'materialProperties',
     'laser_properties': 'laserProperties',
@@ -189,8 +207,8 @@ export function normalizePropertyNames<T>(data: T | null | undefined): T | null 
     if (snakeCase in result) {
       // Move snake_case to camelCase
       result[camelCase] = result[snakeCase];
-      // Remove snake_case version (no longer needed after E2E normalization)
-      delete result[snakeCase];
+      // Keep snake_case for backward compatibility during transition
+      // Will be removed in Phase 2 cleanup (not this phase)
     }
   }
   

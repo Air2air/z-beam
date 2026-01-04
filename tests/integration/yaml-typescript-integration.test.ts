@@ -111,10 +111,10 @@ describe('YAML → TypeScript Integration', () => {
         const content = fs.readFileSync(file, 'utf8');
         const data = yaml.load(content) as any;
         
-        expect(Array.isArray(data.breadcrumb)).toBe(true);
-        expect(data.breadcrumb.length).toBeGreaterThan(0);
+        expect(Array.isArray(data.breadcrumbs)).toBe(true);
+        expect(data.breadcrumbs.length).toBeGreaterThan(0);
         
-        for (const crumb of data.breadcrumb) {
+        for (const crumb of data.breadcrumbs) {
           expect(crumb).toHaveProperty('label');
           expect(crumb).toHaveProperty('href');
         }

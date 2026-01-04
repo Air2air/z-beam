@@ -440,7 +440,7 @@ export interface FrontmatterData {
   slug?: string;
   category?: string;
   subcategory?: string;
-  content_type?: 'materials' | 'contaminants' | 'compounds' | 'settings';
+  contentType?: 'materials' | 'contaminants' | 'compounds' | 'settings';
   schema_version?: string;
   datePublished?: string;
   dateModified?: string;

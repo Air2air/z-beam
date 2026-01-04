@@ -268,7 +268,7 @@ describe('Contaminant SEO Implementation', () => {
         author: {
           name: 'Test Author',
           title: 'Ph.D.',
-          expertise: 'Laser Physics'
+          expertiseAreas: ['Laser Physics']
         }
       };
       

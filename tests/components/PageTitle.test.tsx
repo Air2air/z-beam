@@ -9,18 +9,18 @@ describe('PageTitle Component', () => {
       expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Test Title');
     });
 
-    it('should render page_description when provided', () => {
+    it('should render pageDescription when provided', () => {
       render(
         <PageTitle 
           title="Test Title" 
-          page_description="This is a test description"
+          pageDescription="This is a test description"
         />
       );
       
       expect(screen.getByText('This is a test description')).toBeInTheDocument();
     });
 
-    it('should not render description element when page_description is not provided', () => {
+    it('should not render description element when pageDescription is not provided', () => {
       const { container } = render(<PageTitle title="Test Title" />);
       const descriptionElement = container.querySelector('#page-title-test-title-description');
       expect(descriptionElement).not.toBeInTheDocument();
@@ -54,7 +54,7 @@ describe('PageTitle Component', () => {
       render(
         <PageTitle 
           title="Accessible Title"
-          page_description="Accessible description"
+          pageDescription="Accessible description"
         />
       );
       
@@ -62,11 +62,11 @@ describe('PageTitle Component', () => {
       expect(heading).toHaveAttribute('aria-level', '1');
     });
 
-    it('should link description with aria-describedby when page_description provided', () => {
+    it('should link description with aria-describedby when pageDescription provided', () => {
       const { container } = render(
         <PageTitle 
           title="Test Title"
-          page_description="Test description"
+          pageDescription="Test description"
         />
       );
       
@@ -143,7 +143,7 @@ describe('PageTitle Component', () => {
         <PageTitle 
           title="Test"
           id="test-title"
-          page_description="Test description"
+          pageDescription="Test description"
         />
       );
       
@@ -163,7 +163,7 @@ describe('PageTitle Component', () => {
       const { container } = render(
         <PageTitle 
           title="Wrapper Test"
-          page_description="Description"
+          pageDescription="Description"
         />
       );
       
@@ -188,18 +188,18 @@ describe('PageTitle Component', () => {
   });
 
   describe('Prop Naming (Breaking Change)', () => {
-    it('should use page_description prop (not description)', () => {
+    it('should use pageDescription prop (not description)', () => {
       render(
         <PageTitle 
           title="Migration Test"
-          page_description="New prop name"
+          pageDescription="New prop name"
         />
       );
       
       expect(screen.getByText('New prop name')).toBeInTheDocument();
     });
 
-    it('should not error when page_description is undefined', () => {
+    it('should not error when pageDescription is undefined', () => {
       expect(() => {
         render(<PageTitle title="No Description" />);
       }).not.toThrow();

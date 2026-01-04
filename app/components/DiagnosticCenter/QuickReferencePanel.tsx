@@ -149,7 +149,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
                   </span>
                   <div className="flex-1">
                     <h4 className="text-base text-secondary font-semibold mb-1">
-                      {issue.name}
+                      {issue.symptom}
                     </h4>
                     <p className="text-sm text-tertiary">
                       {issue.causes.length} possible cause{issue.causes.length !== 1 ? 's' : ''} • {issue.solutions.length} solution{issue.solutions.length !== 1 ? 's' : ''}
