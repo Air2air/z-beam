@@ -2,6 +2,7 @@
 'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { AlertTriangle, ChevronDown, ClipboardList, CheckCircle, ClipboardCheck, Lock } from 'lucide-react';
 
 interface Issue {
   symptom: string;
@@ -31,7 +32,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
           {/* Symptom Header - Prominent Display */}
           <div className="bg-gradient-to-r from-red-900/30 to-transparent px-4 py-3 border-l-4 border-red-500">
             <div className="flex items-start gap-3">
-              <span className="text-2xl">⚠️</span>
+              <AlertTriangle className="w-6 h-6 text-red-500 flex-shrink-0" />
               <div className="flex-1">
                 <h3 className="text-base text-secondary font-semibold mb-1">
                   {issue.symptom}
@@ -46,9 +47,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
             {/* Possible Causes - With Icons */}
             <div className="bg-orange-900/10 rounded-md p-3">
               <h4 className="text-sm text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
+                <ClipboardList className="w-4 h-4" />
                 Possible Causes
               </h4>
               <ul className="space-y-1">
@@ -64,9 +63,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
             {/* Solutions - Action Steps */}
             <div className="bg-green-900/10 rounded-md p-3">
               <h4 className="text-sm text-secondary font-semibold text-secondary mb-2 flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <CheckCircle className="w-4 h-4" />
                 Solution Steps
               </h4>
               <ol className="space-y-1.5">
@@ -85,9 +82,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
             <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
               <div className="bg-orange-900/10 rounded-md p-3">
                 <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                  </svg>
+                  <ClipboardCheck className="w-4 h-4" />
                   Verify Fix
                 </h4>
                 <p className="text-xs">{issue.verification}</p>
@@ -95,9 +90,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
               
               <div className="bg-purple-900/10 rounded-md p-3">
                 <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                  <Lock className="w-4 h-4" />
                   Prevention
                 </h4>
                 <p className="text-xs">{issue.prevention}</p>
@@ -112,14 +105,12 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
   return (
     <details className="bg-secondary rounded-lg overflow-hidden group">
       <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
-        <span className="text-lg">⚠️</span>
+        <AlertTriangle className="w-5 h-5 text-orange-500" />
         <div className="flex-1">
           <h3 className="text-base text-secondary">Fix Issues</h3>
           <p className="text-sm text-tertiary font-normal">Symptom-based diagnosis and solutions for active problems</p>
         </div>
-        <svg className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+        <ChevronDown className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" />
       </summary>
       <div className="p-4">
         {content}

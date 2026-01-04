@@ -2,6 +2,7 @@
 'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { BarChart3, ChevronDown } from 'lucide-react';
 
 interface Challenge {
   challenge: string;
@@ -187,14 +188,12 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
   return (
     <details className="bg-secondary rounded-lg overflow-hidden group">
       <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
-        <span className="text-lg">📊</span>
+        <BarChart3 className="w-5 h-5 text-blue-500" />
         <div className="flex-1">
           <h3 className="text-base text-secondary">Quick Reference</h3>
           <p className="text-sm text-tertiary font-normal">At-a-glance overview with severity matrix and decision support</p>
         </div>
-        <svg className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+        <ChevronDown className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" />
       </summary>
       <div className="p-4">
         {content}

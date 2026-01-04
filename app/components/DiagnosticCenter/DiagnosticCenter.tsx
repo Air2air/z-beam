@@ -7,6 +7,7 @@ import { QuickReferencePanel } from './QuickReferencePanel';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
+import { Wrench } from 'lucide-react';
 
 interface DiagnosticCenterProps {
   materialName: string;
