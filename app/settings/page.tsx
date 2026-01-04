@@ -63,8 +63,8 @@ export default async function SettingsPage() {
     const slug = file.replace(/(-settings)?\.(yaml|yml)$/, '');
     const name = data.name || data.title || slug;
     
-    // Use full_path from frontmatter for correct nested URL structure
-    const href = data.full_path || `/${config.rootPath}/${slug}`;
+    // Use fullPath from frontmatter for correct nested URL structure
+    const href = data.fullPath || data.full_path || `/${config.rootPath}/${slug}`;
     
     // Try to load corresponding material's hero image
     let imageUrl = data.images?.hero?.url || `/images/material/${slug}-hero.jpg`;

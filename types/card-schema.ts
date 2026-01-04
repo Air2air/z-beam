@@ -150,8 +150,8 @@ export interface FrontmatterRelationshipsNew {
 export interface EntityFrontmatter {
   id: string;
   name: string;
-  fullPath: string;                // Used for URL generation (camelCase)
-  full_path?: string;              // Legacy snake_case (deprecated)
+  fullPath: string;                // Primary: URL generation (camelCase)
+  full_path?: string;              // Alias: snake_case (both supported for backward compatibility)
   card: CardSchema;                // Card presentation data
   relationships?: FrontmatterRelationshipsNew;
   [key: string]: any;              // Allow other frontmatter fields

@@ -104,13 +104,15 @@ export async function generateItemMetadata(
       description_preview: articleMeta.description?.substring(0, 50)
     });
     
-    // Extract category and subcategory from full_path (primary source for all domains)
+    // Extract category and subcategory from fullPath (primary source for all domains)
+    // Support both fullPath (camelCase) and full_path (snake_case) for backward compatibility
     let articleCategory: string | undefined;
     let articleSubcategory: string | undefined;
     
-    if (articleMeta.full_path) {
-      const pathParts = articleMeta.full_path.split('/').filter(Boolean);
-      // full_path format: /rootPath/category/subcategory/slug
+    const pathToUse = articleMeta.fullPath || articleMeta.full_path;
+    if (pathToUse) {
+      const pathParts = pathToUse.split('/').filter(Boolean);
+      // fullPath format: /rootPath/category/subcategory/slug
       if (pathParts.length >= 3 && pathParts[0] === config.rootPath) {
         articleCategory = pathParts[1];
         articleSubcategory = pathParts[2];
