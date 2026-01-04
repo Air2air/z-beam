@@ -37,6 +37,8 @@
 - ❌ NO rewriting working code (minimal surgical fixes only)
 - ❌ **NO duplicate type definitions** (use @/types exclusively) 🔥 **MANDATORY (Dec 21, 2025)**
 - ❌ **NO .metadata wrapper** (use .frontmatter instead) 🔥 **MANDATORY (Dec 28, 2025)**
+- ❌ **NO fallback values for frontmatter fields** (fail-fast immediately) 🔥 **MANDATORY (Jan 4, 2026)**
+- ❌ **NO AI-generated frontmatter data** (all data from YAML files only) 🔥 **MANDATORY (Jan 4, 2026)**
 
 **TIER 2: Quality-Critical** (Will cause bugs)
 - ❌ NO expanding scope (fix X means fix ONLY X)
@@ -324,13 +326,23 @@ Understanding rule severity helps prioritize fixes and avoid introducing worse p
 
 ### Decision: Should I use a default value?
 ```
-Is this a config/setup issue?
-├─ YES → ❌ FAIL FAST (throw ConfigurationError)
-└─ NO → Is this a runtime/transient issue?
-    ├─ YES → ✅ RETRY with backoff (API timeout, network error)
-    └─ NO → Is this a quality check iteration?
-        ├─ YES → ✅ ITERATE (adjust parameters based on feedback)
-        └─ NO → ❌ FAIL FAST (programming error)
+Is this frontmatter data (pageDescription, metaDescription, title, etc)?
+├─ YES → ❌ FAIL FAST (throw Error - data MUST come from YAML)
+└─ NO → Is this a config/setup issue?
+    ├─ YES → ❌ FAIL FAST (throw ConfigurationError)
+    └─ NO → Is this a runtime/transient issue?
+        ├─ YES → ✅ RETRY with backoff (API timeout, network error)
+        └─ NO → Is this a quality check iteration?
+            ├─ YES → ✅ ITERATE (adjust parameters based on feedback)
+            └─ NO → ❌ FAIL FAST (programming error)
+```
+
+### Decision: Should I add a fallback for frontmatter?
+```
+❌ NO - NEVER add fallbacks for frontmatter data
+✅ Frontmatter fields MUST exist in YAML files
+✅ Missing fields = immediate error (fail-fast)
+✅ No || 'default', no || metadata.other, no || ''
 ```
 
 ### Decision: Should I rewrite this code?

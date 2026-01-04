@@ -91,7 +91,7 @@ export default async function NetaluxPage() {
   return (
     <Layout
       title={pageConfig.title || "Netalux Laser Cleaning Equipment"}
-      pageDescription={pageConfig.description || metadata.description}
+      pageDescription={pageConfig.description}
       metadata={pageConfig}
       slug="netalux"
     >

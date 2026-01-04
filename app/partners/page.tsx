@@ -77,8 +77,8 @@ export default async function PartnersPage() {
   
   return (
     <Layout
-      title={pageConfig.title || "Partners"}
-      pageDescription={pageConfig.description || metadata.description}
+      title={pageConfig.title}
+      pageDescription={pageConfig.description}
       metadata={pageConfig}
       slug="partners"
     >

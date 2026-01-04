@@ -48,9 +48,9 @@ export default async function HomePage() {
 
     // Create frontmatter object for Hero component (loaded from Layout)
     const heroFrontmatter = {
-    title: homeConfig.title || SITE_CONFIG.name,
-    description: homeConfig.description || "Advanced surface treatment solutions for industrial applications", 
-    slug: homeConfig.slug || "home",
+    title: homeConfig.title,
+    description: homeConfig.description,
+    slug: homeConfig.slug,
     video: homeConfig.video, // YouTube ID from YAML - Hero will render if video exists
     images: homeConfig.images, // Include hero images from YAML
   };
@@ -59,13 +59,11 @@ export default async function HomePage() {
     const featuredSections = homeConfig.featuredSections || [];
     
     // Page title and subtitle for consistent Title component display
-    const pageTitle = homeConfig.title || SITE_CONFIG.name;
-    const pageDescription = homeConfig.description || "Advanced laser surface treatment solutions for industrial applications";
+    const pageTitle = homeConfig.title;
+    const pageDescription = homeConfig.description;
 
     // Generate JSON-LD schemas for homepage
-    const breadcrumbs = homeConfig.breadcrumb || [
-      { label: 'Home', href: '/' }
-    ];
+    const breadcrumbs = homeConfig.breadcrumb;
     
     const jsonLdSchema = {
       '@context': 'https://schema.org',
@@ -132,13 +130,13 @@ export default async function HomePage() {
         ...(homeConfig.video?.id ? [{
           '@type': 'VideoObject',
           '@id': `${SITE_CONFIG.url}/#video`,
-          name: homeConfig.video.title || `${SITE_CONFIG.name} - Laser Cleaning Solutions`,
-          description: homeConfig.video.description || homeConfig.description || SITE_CONFIG.description,
+          name: homeConfig.video.title,
+          description: homeConfig.video.description,
           thumbnailUrl: `https://img.youtube.com/vi/${homeConfig.video.id}/maxresdefault.jpg`,
-          uploadDate: homeConfig.datePublished || new Date().toISOString().split('T')[0],
+          uploadDate: homeConfig.datePublished,
           contentUrl: `https://www.youtube.com/watch?v=${homeConfig.video.id}`,
           embedUrl: `https://www.youtube.com/embed/${homeConfig.video.id}`,
-          duration: homeConfig.video.duration || 'PT2M30S',
+          duration: homeConfig.video.duration,
           inLanguage: 'en-US'
         }] : [])
       ]

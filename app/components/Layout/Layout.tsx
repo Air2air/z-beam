@@ -139,18 +139,7 @@ export function Layout(props: LayoutProps) {
           <PageTitle 
             level="page" 
             title={title || metadata?.title || 'Article'} 
-            pageDescription={(() => {
-              // First priority: pageDescription field (from frontmatter, converted from snake_case)
-              if (metadata?.pageDescription) {
-                return typeof metadata.pageDescription === 'string' ? metadata.pageDescription : undefined;
-              }
-              // Fallback: description or contaminationDescription
-              const desc = metadata?.description || metadata?.contaminationDescription;
-              if (typeof desc === 'object' && desc !== null && 'before' in desc) {
-                return (desc as { before?: string }).before;
-              }
-              return typeof desc === 'string' ? desc : undefined;
-            })()}
+            pageDescription={metadata?.pageDescription}
           />
 
           {metadata?.machineSettings && !metadata?.materialProperties && getContentType(metadata) === 'settings' && (
