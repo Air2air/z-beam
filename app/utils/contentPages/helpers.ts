@@ -90,16 +90,17 @@ export async function generateItemMetadata(
       };
     }
     
-    // Settings pages have flat structure, materials/contaminants have metadata wrapper
+    // All domains use consistent metadata structure (normalized)
+    // Settings returns flat structure but other domains wrap in .metadata
     const articleMeta = config.type === 'settings' ? article : (article.metadata as any);
     
-    // Debug: Check if meta_description exists
+    // Debug: Check if metaDescription exists
     console.log(`[METADATA] ${itemSlug}:`, {
       type: config.type,
-      hasMetaDescription: !!articleMeta.meta_description,
+      hasMetaDescription: !!articleMeta.metaDescription,
       hasDescription: !!articleMeta.description,
-      hasPageDescription: !!articleMeta.page_description,
-      meta_description: articleMeta.meta_description,
+      hasPageDescription: !!articleMeta.pageDescription,
+      metaDescription: articleMeta.metaDescription,
       description_preview: articleMeta.description?.substring(0, 50)
     });
     
@@ -124,23 +125,20 @@ export async function generateItemMetadata(
       // Wrong URL structure - will redirect in page component
       return {
         title: articleMeta.title || articleMeta.name || SITE_CONFIG.shortName,
-        description: articleMeta.meta_description || articleMeta.page_description || ''
+        description: articleMeta.metaDescription || articleMeta.pageDescription || ''
       };
     }
     
     const canonicalUrl = `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`;
     
     // Ensure title and description fields exist for metadata generation across all domains
-    // Prioritize meta_description (SEO-optimized, concise) over description/page_description (full content)
-    // Applies to: materials, contaminants, compounds, settings
-    // Ensure title and description fields exist for metadata generation across all domains
-    // Use meta_description (SEO-optimized, concise) for meta tags, page_description for full content
+    // Prioritize metaDescription (SEO-optimized, concise) over pageDescription (full content)
     // Applies to: materials, contaminants, compounds, settings
     // Note: 'description' field is DEPRECATED - do not use
     const metadataWithTitle = {
       ...articleMeta,
       title: articleMeta.title || articleMeta.name,
-      description: articleMeta.meta_description || articleMeta.page_description || '',
+      description: articleMeta.metaDescription || articleMeta.pageDescription || '',
       canonical: canonicalUrl
     };
     

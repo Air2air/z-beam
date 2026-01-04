@@ -157,25 +157,16 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // Check for pre-generated SEO metadata first (Priority 1)
   // Used by all 4 domains: materials, settings, contaminants, compounds
   if (seoMetadata) {
-    // Material page - check for page_title
-    if (contentType === 'unified_material' && seoMetadata.page_title) {
+    // Normalized SEO metadata handling for ALL content types
+    // Use consistent field names: page_title and metaDescription across all domains
+    if ((contentType === 'unified_material' || contentType === 'contaminants' || contentType === 'compounds') && seoMetadata.page_title) {
       seoTitle = seoMetadata.page_title;
-      seoDescription = seoMetadata.meta_description || description || '';
+      seoDescription = seoMetadata.metaDescription || seoMetadata.meta_description || description || '';
     }
-    // Settings page - check for settings_title
+    // Settings uses settings_title for legacy reasons but same metaDescription pattern
     else if (contentType === 'settings' && seoMetadata.settings_title) {
       seoTitle = seoMetadata.settings_title;
-      seoDescription = seoMetadata.settings_description || description || '';
-    }
-    // Contaminant page - check for page_title
-    else if (contentType === 'contaminants' && seoMetadata.page_title) {
-      seoTitle = seoMetadata.page_title;
-      seoDescription = seoMetadata.meta_description || description || '';
-    }
-    // Compound page - check for page_title
-    else if (contentType === 'compounds' && seoMetadata.page_title) {
-      seoTitle = seoMetadata.page_title;
-      seoDescription = seoMetadata.meta_description || description || '';
+      seoDescription = seoMetadata.metaDescription || seoMetadata.settings_description || description || '';
     }
   }
   

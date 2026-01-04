@@ -56,7 +56,7 @@ export async function SubcategoryPage({
       <JsonLD data={schemas} />
       <Layout 
         title={pageTitle}
-        page_description={pageDescription}
+        pageDescription={pageDescription}
         metadata={metadata as any}
         slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}`}
       >

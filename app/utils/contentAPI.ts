@@ -934,28 +934,36 @@ const getArticleByContentType = cache(async (
       frontmatterData = normalizeFreshnessTimestamps(frontmatterData);
       frontmatterData = normalizeNumericValues(frontmatterData);
       
+      // Convert snake_case YAML fields to camelCase TypeScript at data boundary
+      const convertedData = {
+        ...frontmatterData,
+        // Convert snake_case to camelCase for TypeScript compatibility
+        metaDescription: frontmatterData.meta_description,
+        pageDescription: frontmatterData.page_description,
+        contaminationDescription: frontmatterData.contamination_description,
+        contentType: frontmatterData.content_type,
+      };
+      
       // Use frontmatter data as the primary metadata source
       const metadata = {
-        ...frontmatterData,
+        ...convertedData,
         slug,
-        authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
+        authorInfo: (typeof convertedData.author === 'object' ? convertedData.author : null) || convertedData.authorInfo
       };
 
       const components: Record<string, ComponentData> = {};
       
-      // Materials get full component loading, others get minimal components
-      if (contentType === 'materials') {
-        const componentTypes = ['text', 'micro', 'table', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
-        
-        for (const type of componentTypes) {
-          try {
-            const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'micro' });
-            if (componentData && (componentData.content || componentData.config)) {
-              components[type] = componentData;
-            }
-          } catch (_error) {
-            // Component doesn't exist, skip it
+      // ALL domains get same component loading (normalized)
+      const componentTypes = ['text', 'micro', 'table', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
+      
+      for (const type of componentTypes) {
+        try {
+          const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'micro' });
+          if (componentData && (componentData.content || componentData.config)) {
+            components[type] = componentData;
           }
+        } catch (_error) {
+          // Component doesn't exist, skip it (graceful degradation)
         }
       }
       
@@ -1138,6 +1146,7 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
     }
     
     // Construct SettingsMetadata with all available data
+    // Convert YAML snake_case to TypeScript camelCase at data boundary
     return {
       name: data.name,
       materialRef: data.materialRef,
@@ -1146,8 +1155,8 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
-      meta_description: data.meta_description, // SEO meta description (short)
-      page_description: data.page_description, // Long-form page content
+      metaDescription: data.meta_description, // SEO meta description (short) - converted from snake_case
+      pageDescription: data.page_description, // Long-form page content - converted from snake_case
       slug,
       author: data.author,
       datePublished: data.datePublished,

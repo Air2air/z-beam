@@ -52,7 +52,7 @@ export async function CategoryPage({
       <JsonLD data={schemas} />
       <Layout 
         title={pageTitle}
-        page_description={pageDescription}
+        pageDescription={pageDescription}
         metadata={metadata as any}
         slug={`${config.rootPath}/${categorySlug}`}
       >

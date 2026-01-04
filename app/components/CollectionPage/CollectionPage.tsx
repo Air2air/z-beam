@@ -115,7 +115,7 @@ export async function CollectionPage({ config }: { config: CollectionPageConfig 
       <JsonLD data={schemas} />
       <Layout 
         title={pageTitle} 
-        page_description={pageDescription} 
+        pageDescription={pageDescription} 
         metadata={metadata as any}
         slug={rootPath}
       >

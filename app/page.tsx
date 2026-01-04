@@ -23,7 +23,7 @@ export async function generateMetadata() {
 
     return createMetadata({
       title: homeConfig?.title || SITE_CONFIG.name,
-      description: homeConfig?.meta_description || homeConfig?.description || SITE_CONFIG.description,
+      description: homeConfig?.metaDescription || homeConfig?.meta_description || homeConfig?.description || SITE_CONFIG.description,
       keywords: homeConfig?.keywords || [...SITE_CONFIG.keywords],
       image: "/images/home-og.jpg",
       slug: "home",

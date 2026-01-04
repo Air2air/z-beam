@@ -207,7 +207,7 @@ export function Layout(props: LayoutProps) {
           <PageTitle 
             level="page" 
             title={title} 
-            page_description={props.page_description} 
+            pageDescription={props.pageDescription} 
             rightContent={props.rightContent}
           />
         )
