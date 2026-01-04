@@ -25,8 +25,8 @@ interface PreventionPanelProps {
 export function PreventionPanel({ challenges }: PreventionPanelProps) {
   if (!challenges || Object.keys(challenges).length === 0) {
     return (
-      <details className="bg-secondary rounded-lg overflow-hidden">
-        <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors">
+      <details className="bg-secondary rounded-lg overflow-hidden group" open>
+        <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
           <CheckCircle className="w-5 h-5 text-orange-500" />
           <div className="flex-1">
             <h3 className="text-base text-secondary">Prevention First</h3>

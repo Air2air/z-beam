@@ -78,8 +78,8 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
               </ol>
             </div>
             
-            {/* Verification & Prevention - Side by Side */}
-            <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
+            {/* Verification & Prevention */}
+            <div className="space-y-3">
               <div className="bg-orange-900/10 rounded-md p-3">
                 <h4 className="text-sm text-secondary font-semibold text-secondary mb-1.5 flex items-center gap-2">
                   <ClipboardCheck className="w-4 h-4" />
