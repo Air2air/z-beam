@@ -1,7 +1,7 @@
-// app/components/DiagnosticCenter/PreventionTab.tsx
+// app/components/DiagnosticCenter/PreventionPanel.tsx
 'use client';
 
-import { PreventionPanel } from '../PreventionPanel';
+import { PreventionPanel as PreventionDataPanel } from '../PreventionPanel';
 import { Collapsible } from '../Collapsible';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import type { RelationshipSection } from '@/types/safetyData';
@@ -14,17 +14,17 @@ interface Challenge {
   prevention: string;
 }
 
-interface PreventionTabProps {
+interface PreventionPanelProps {
   challenges: {
     [category: string]: Challenge[];
   };
 }
 
 /**
- * PreventionTab - Material-specific challenges organized by category
+ * PreventionPanel - Material-specific challenges organized by category
  * Rendered as independent collapsible section
  */
-export function PreventionTab({ challenges }: PreventionTabProps) {
+export function PreventionPanel({ challenges }: PreventionPanelProps) {
   if (!challenges || Object.keys(challenges).length === 0) {
     return (
       <div className="bg-secondary rounded-lg border overflow-hidden">
@@ -81,7 +81,7 @@ export function PreventionTab({ challenges }: PreventionTabProps) {
         })) : [];
 
         return (
-          <PreventionPanel
+          <PreventionDataPanel
             key={category}
             sectionMetadata={sectionMetadata}
             items={items}

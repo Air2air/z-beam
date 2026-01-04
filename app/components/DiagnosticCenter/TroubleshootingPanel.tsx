@@ -1,4 +1,4 @@
-// app/components/DiagnosticCenter/TroubleshootingTab.tsx
+// app/components/DiagnosticCenter/TroubleshootingPanel.tsx
 'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
@@ -12,15 +12,15 @@ interface Issue {
   prevention: string;
 }
 
-interface TroubleshootingTabProps {
+interface TroubleshootingPanelProps {
   issues: Issue[];
 }
 
 /**
- * TroubleshootingTab - Symptom-based problem diagnosis and resolution
+ * TroubleshootingPanel - Symptom-based problem diagnosis and resolution
  * Rendered as independent collapsible section
  */
-export function TroubleshootingTab({ issues }: TroubleshootingTabProps) {
+export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
   const content = !issues || issues.length === 0 ? (
     <div className="text-center py-8 text-tertiary">
       <p>No troubleshooting guides available for this material.</p>

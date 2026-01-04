@@ -1,9 +1,9 @@
 // app/components/DiagnosticCenter/DiagnosticCenter.tsx
 'use client';
 
-import { PreventionTab } from './PreventionTab';
-import { TroubleshootingTab } from './TroubleshootingTab';
-import { QuickReferenceTab } from './QuickReferenceTab';
+import { PreventionPanel } from './PreventionPanel';
+import { TroubleshootingPanel } from './TroubleshootingPanel';
+import { QuickReferencePanel } from './QuickReferencePanel';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
@@ -45,9 +45,9 @@ export function DiagnosticCenter({
       
       {/* Independent Collapsible Sections */}
       <div className="space-y-4">
-        <PreventionTab challenges={challenges} />
-        <TroubleshootingTab issues={issues} />
-        <QuickReferenceTab challenges={challenges} issues={issues} />
+        <PreventionPanel challenges={challenges} />
+        <TroubleshootingPanel issues={issues} />
+        <QuickReferencePanel challenges={challenges} issues={issues} />
       </div>
     </SectionContainer>
   );

@@ -1,4 +1,4 @@
-// app/components/DiagnosticCenter/QuickReferenceTab.tsx
+// app/components/DiagnosticCenter/QuickReferencePanel.tsx
 'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
@@ -20,7 +20,7 @@ interface Issue {
   prevention: string;
 }
 
-interface QuickReferenceTabProps {
+interface QuickReferencePanelProps {
   challenges: {
     [category: string]: Challenge[];
   };
@@ -28,10 +28,10 @@ interface QuickReferenceTabProps {
 }
 
 /**
- * QuickReferenceTab - Combined overview with severity matrix and quick access
+ * QuickReferencePanel - Combined overview with severity matrix and quick access
  * Rendered as independent collapsible section
  */
-export function QuickReferenceTab({ challenges, issues }: QuickReferenceTabProps) {
+export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelProps) {
   // Flatten all challenges with their category
   const allChallenges = Object.entries(challenges || {}).flatMap(([category, challengeList]) =>
     challengeList.map(challenge => ({ ...challenge, category }))
